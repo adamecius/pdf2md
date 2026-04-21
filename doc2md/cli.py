@@ -1,4 +1,3 @@
-
 """CLI entry point and pipeline orchestration for doc2md."""
 
 import argparse
@@ -130,58 +129,162 @@ def setup_output(input_path: Path, output_arg: Path | None) -> Path:
 
 
 def run_pipeline(input_path: Path, output_dir: Path, config: dict) -> None:
-    """Orchestrate the full conversion pipeline."""
+    """Orchestrate the full conversion pipeline.
 
-    # ── Step 1: Profile ───────────────────────────────────────
+    Default flow (auto):
+      1. Profile: analyze PDF structure per page (pure software, no ML)
+         - text layer presence, render modes, font encodings, ToUnicode cmaps
+         - image coverage ratio, text area ratio
+         - char sample validation (mojibake detection)
+      2. Route: map each PageProfile → strategy using structural signals
+      3. Execute: run assigned strategy per page
+         - DETERMINISTIC: PyMuPDF text extraction (fast, no ML)
+         - HYBRID: deterministic for text regions + visual for gaps
+         - VISUAL: full rasterization → layout detection → OCR
+      4. Assemble: merge page results → markdown + media/
+
+    With --force-strategy: skip profiler routing, force all pages through one path.
+    """
+
+    md_output = output_dir / (input_path.stem + ".md")
+
+    # ── Step 1: Structural profiling (pure software, no ML) ───
     print(f"\n{'='*60}")
     print(f"  [profiler] Analyzing: {input_path}")
-    print(f"  [profiler] Extracting metadata (page count, fonts, text layers)...")
-    print(f"  [profiler] Classifying each page → PageProfile")
-    print(f"  [profiler] Result: DocumentProfile with N page profiles")
-    # TODO: profile = Profiler(config).analyze(input_path)
+    print(f"  [profiler] Reading PDF internal structure...")
+    print(f"  [profiler]")
+    print(f"  [profiler] Page 1:")
+    print(f"  [profiler]   has_text_layer     = True")
+    print(f"  [profiler]   text_render_mode   = 0 (visible, normal)")
+    print(f"  [profiler]   has_tounicode_cmap = True")
+    print(f"  [profiler]   font_encoding      = WinAnsiEncoding (standard)")
+    print(f"  [profiler]   image_coverage     = 0.02")
+    print(f"  [profiler]   text_area_ratio    = 0.91")
+    print(f"  [profiler]   char_sample_valid  = True ('Abstract: We present a novel...')")
+    print(f"  [profiler]")
+    print(f"  [profiler] Page 2:")
+    print(f"  [profiler]   has_text_layer     = True")
+    print(f"  [profiler]   text_render_mode   = 0 (visible, normal)")
+    print(f"  [profiler]   has_tounicode_cmap = True")
+    print(f"  [profiler]   font_encoding      = WinAnsiEncoding (standard)")
+    print(f"  [profiler]   image_coverage     = 0.45")
+    print(f"  [profiler]   text_area_ratio    = 0.38")
+    print(f"  [profiler]   char_sample_valid  = True ('Results show that...')")
+    print(f"  [profiler]")
+    print(f"  [profiler] Page 3:")
+    print(f"  [profiler]   has_text_layer     = False")
+    print(f"  [profiler]   text_render_mode   = n/a")
+    print(f"  [profiler]   has_tounicode_cmap = n/a")
+    print(f"  [profiler]   font_encoding      = n/a")
+    print(f"  [profiler]   image_coverage     = 0.98")
+    print(f"  [profiler]   text_area_ratio    = 0.00")
+    print(f"  [profiler]   char_sample_valid  = n/a (no text to sample)")
+    # TODO: profile = Profiler().analyze(input_path)
 
-    # ── Step 2: Route ─────────────────────────────────────────
+    # ── Step 2: Route (or force) ──────────────────────────────
     if config["force_strategy"]:
-        print(f"\n  [router] Strategy forced: {config['force_strategy']} (skipping classification)")
-    else:
-        print(f"\n  [router] Routing each page based on text_ratio (threshold={config['text_threshold']})")
-        print(f"  [router]   Page 1: text_ratio=0.95 → deterministic")
-        print(f"  [router]   Page 2: text_ratio=0.40 → hybrid")
-        print(f"  [router]   Page 3: text_ratio=0.02 → visual")
-    # TODO: page_strategies = Router(config).route(profile)
+        print(f"\n  [router] Strategy forced via CLI: {config['force_strategy']}")
+        print(f"  [router] Skipping structural routing")
+        _run_forced(input_path, output_dir, config)
+        return
 
-    # ── Step 3: Execute strategies per page ────────────────────
-    print(f"\n  [strategy] Processing pages...")
+    threshold = config["text_threshold"]
+    print(f"\n  [router] Routing pages (text_threshold={threshold})...")
+    print(f"  [router]")
+    print(f"  [router] Page 1: has_text=✓  tounicode=✓  encoding=OK  render=0")
+    print(f"  [router]          text_area=0.91 (>{threshold})  image_cov=0.02")
+    print(f"  [router]          char_sample=valid")
+    print(f"  [router]          → DETERMINISTIC (all signals green)")
+    print(f"  [router]")
+    print(f"  [router] Page 2: has_text=✓  tounicode=✓  encoding=OK  render=0")
+    print(f"  [router]          text_area=0.38 (<{threshold})  image_cov=0.45")
+    print(f"  [router]          char_sample=valid")
+    print(f"  [router]          ⚠ text layer trustworthy but covers only 38% of page")
+    print(f"  [router]          → HYBRID (good text + large visual gaps)")
+    print(f"  [router]")
+    print(f"  [router] Page 3: has_text=✗")
+    print(f"  [router]          image_cov=0.98")
+    print(f"  [router]          → VISUAL (no text layer, scanned page)")
+    # TODO: page_routes = Router(threshold).route(profile)
+    # Logic:
+    #   if not has_text_layer OR image_coverage > 0.85:
+    #       → VISUAL
+    #   if not has_tounicode OR font_encoding == poor OR render_mode == 3:
+    #       → VISUAL (text layer untrustworthy)
+    #   if not char_sample_valid:
+    #       → VISUAL (mojibake detected)
+    #   if text_area_ratio >= threshold:
+    #       → DETERMINISTIC
+    #   else:
+    #       → HYBRID
 
-    # Deterministic path
-    print(f"  [strategy:deterministic] Page 1 → PyMuPDF text extraction")
-    print(f"  [strategy:deterministic] Extracting embedded images → media/")
-    # TODO: result = DeterministicStrategy(config).process(page)
+    # ── Step 3: Execute per-page strategies ───────────────────
 
-    # Hybrid path
-    print(f"  [strategy:hybrid] Page 2 → Extracting text layer with PyMuPDF")
-    print(f"  [strategy:hybrid] Page 2 → Rasterizing non-text regions")
-    print(f"  [strategy:hybrid] Page 2 → Sending rasterized regions to visual pipeline")
-    # TODO: result = HybridStrategy(config).process(page)
+    # 3a. Deterministic pages
+    print(f"\n  [deterministic] Processing 1 page...")
+    print(f"  [deterministic] Page 1: PyMuPDF text extraction")
+    print(f"  [deterministic] Page 1: extracted 2847 chars")
+    print(f"  [deterministic] Page 1: extracting 1 embedded image → media/img_p1_001.png")
+    # TODO: result = DeterministicStrategy().process(page)
 
-    # Visual path
-    print(f"  [strategy:visual] Page 3 → Rasterizing full page")
-    print(f"  [strategy:visual] Page 3 → Layout detection with {config['layout']}")
-    print(f"  [strategy:visual]   Detected: 2 text blocks, 1 table, 1 figure")
-    print(f"  [strategy:visual] Page 3 → OCR with {config['ocr']}")
-    print(f"  [strategy:visual]   Region 1 (text):  'Lorem ipsum...'")
-    print(f"  [strategy:visual]   Region 2 (table): '| col1 | col2 |...'")
-    print(f"  [strategy:visual]   Region 3 (text):  'Dolor sit amet...'")
-    print(f"  [strategy:visual]   Region 4 (figure): → media/img_p3_001.png")
-    # TODO: result = VisualStrategy(config).process(page)
+    # 3b. Hybrid pages
+    print(f"\n  [hybrid] Processing 1 page...")
+    print(f"  [hybrid] Page 2: PyMuPDF text extraction for trusted regions")
+    print(f"  [hybrid] Page 2: extracted 412 chars from text layer")
+    print(f"  [hybrid] Page 2: rasterizing page, masking known text areas")
+    print(f"  [hybrid] Page 2: layout detection ({config['layout']}) on visual gaps")
+    print(f"  [hybrid]   Gap 1 → detected: table  → OCR ({config['ocr']}): '| col1 | col2 |...'")
+    print(f"  [hybrid]   Gap 2 → detected: figure → media/img_p2_001.png")
+    print(f"  [hybrid]   Gap 3 → detected: caption → OCR ({config['ocr']}): 'Figure 1: ...'")
+    print(f"  [hybrid] Page 2: merging text layer + visual results")
+    # TODO: result = HybridStrategy(config).process(page, profile)
+
+    # 3c. Visual pages
+    print(f"\n  [visual] Processing 1 page...")
+    print(f"  [visual] Page 3: rasterizing @ 300 DPI")
+    print(f"  [visual] Page 3: layout detection ({config['layout']})")
+    print(f"  [visual]   Detected: 2× text, 1× table, 1× figure")
+    print(f"  [visual] Page 3: OCR ({config['ocr']}) on 3 text/table regions")
+    print(f"  [visual]   Region 1 (text):   'Lorem ipsum dolor...'")
+    print(f"  [visual]   Region 2 (table):  '| A | B | C |...'")
+    print(f"  [visual]   Region 3 (text):   'Concluding remarks...'")
+    print(f"  [visual]   Region 4 (figure): → media/img_p3_001.png")
+    # TODO: result = VisualStrategy(config).process(page_image)
 
     # ── Step 4: Assemble ──────────────────────────────────────
-    print(f"\n  [assembler] Collecting PageResults...")
+    print(f"\n  [assembler] Merging results: 1 deterministic + 1 hybrid + 1 visual")
     print(f"  [assembler] Ordering by page number")
-    print(f"  [assembler] Resolving media references")
-    print(f"  [assembler] Writing: {output_dir / (input_path.stem + '.md')}")
-    print(f"  [assembler] Media files: {output_dir / 'media/'}")
-    # TODO: Assembler(config).assemble(page_results, output_dir)
+    print(f"  [assembler] Resolving media references (4 files)")
+    print(f"  [assembler] Writing: {md_output}")
+    print(f"  [assembler] Media dir: {output_dir / 'media/'}")
+    # TODO: Assembler().assemble(all_page_results, output_dir)
+
+
+def _run_forced(input_path: Path, output_dir: Path, config: dict) -> None:
+    """Execute a single forced strategy on all pages (debug/benchmark mode)."""
+
+    strategy = config["force_strategy"]
+    md_output = output_dir / (input_path.stem + ".md")
+
+    print(f"\n  [forced:{strategy}] Running {strategy} on all pages...")
+
+    if strategy == "deterministic":
+        print(f"  [forced:deterministic] PyMuPDF text extraction on all pages")
+        print(f"  [forced:deterministic] Extracting embedded media → media/")
+
+    elif strategy == "visual":
+        print(f"  [forced:visual] Rasterizing all pages @ 300 DPI")
+        print(f"  [forced:visual] Layout detection ({config['layout']}) on all pages")
+        print(f"  [forced:visual] OCR ({config['ocr']}) on all detected regions")
+
+    elif strategy == "hybrid":
+        print(f"  [forced:hybrid] Deterministic extraction first")
+        print(f"  [forced:hybrid] Rasterizing all gap regions")
+        print(f"  [forced:hybrid] Layout + OCR on gap regions")
+
+    print(f"\n  [assembler] Writing: {md_output}")
+    print(f"  [assembler] Media dir: {output_dir / 'media/'}")
+    # TODO: implement forced execution paths
 
 
 def main(argv: list[str] | None = None) -> None:
