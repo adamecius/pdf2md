@@ -28,13 +28,16 @@ def _route_page(page: PageProfile, text_threshold: float) -> Strategy:
     """Determine strategy for a single page.
 
     Decision cascade (first match wins):
-      1. No text layer at all                           → VISUAL
-      2. Full-page image (scanned page)                 → VISUAL
-      3. Invisible render mode (OCR layer over scan)    → VISUAL
-      4. Font encoding untrustworthy                    → VISUAL
-      5. Char sample is mojibake                        → VISUAL
-      6. Text trustworthy + low image coverage           → DETERMINISTIC
-      7. Text trustworthy + significant image coverage   → HYBRID
+      1. No text layer at all                              → VISUAL
+      2. Full-page image (scanned page)                    → VISUAL
+      3. Invisible render mode (OCR layer over scan)       → VISUAL
+      4. Font encoding POOR (Type3, custom glyphs)         → VISUAL (always)
+      5. Char sample is mojibake                           → VISUAL
+      6. Font encoding SUSPECT but sample valid            → trust it
+         (PyMuPDF resolved the encoding internally)
+      7. Font encoding SUSPECT and no sample to validate   → VISUAL (cautious)
+      8. Text trustworthy + low image coverage              → DETERMINISTIC
+      9. Text trustworthy + significant image coverage      → HYBRID
 
     The text_threshold parameter controls the image_coverage boundary:
     pages with image_coverage < (1 - text_threshold) go deterministic.
@@ -53,22 +56,29 @@ def _route_page(page: PageProfile, text_threshold: float) -> Strategy:
     if page.text_render_mode == INVISIBLE_RENDER_MODE:
         return Strategy.VISUAL
 
-    # 4. Font encoding problems
+    # 4. Font encoding POOR → never trust, regardless of sample
     if page.font_encoding_quality == FontEncodingQuality.POOR:
         return Strategy.VISUAL
-    if not page.has_tounicode_cmap and page.font_encoding_quality == FontEncodingQuality.SUSPECT:
-        return Strategy.VISUAL
 
-    # 5. Mojibake detected in sample
+    # 5. Mojibake detected in sample → empirical proof of bad extraction
     if not page.char_sample_valid:
         return Strategy.VISUAL
 
+    # 6-7. SUSPECT encoding: defer to empirical evidence
+    if not page.has_tounicode_cmap and page.font_encoding_quality == FontEncodingQuality.SUSPECT:
+        if page.char_sample and page.char_sample_valid:
+            # PyMuPDF resolved the encoding — sample proves text is readable
+            pass  # fall through to deterministic/hybrid decision
+        else:
+            # No sample to validate, can't trust SUSPECT encoding
+            return Strategy.VISUAL
+
     # ── Text layer is trustworthy at this point ───────────────
 
-    # 6. Low image coverage → text captures the page content
+    # 8. Low image coverage → text captures the page content
     image_threshold = 1.0 - text_threshold  # 0.8 → 0.2
     if page.image_coverage < image_threshold:
         return Strategy.DETERMINISTIC
 
-    # 7. Significant images present → need visual pipeline for those
+    # 9. Significant images present → need visual pipeline for those
     return Strategy.HYBRID
