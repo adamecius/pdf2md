@@ -61,6 +61,12 @@ Backend interface strategy:
 - Define `ExtractionBackend` base contract in `doc2md/backends/base.py`.
 - Implement a simple registry with explicit names in `doc2md/backends/registry.py`.
 - Add `doc2md/backends/deterministic.py` adapter using existing profiler/router/strategy components.
+- Keep backend bootstrapping resilient to dependency conflicts by allowing each optional backend to expose its own environment/setup guidance without affecting the default deterministic path.
+
+Parallel plan readiness:
+- For follow-on backend-specific tracks (for example MinerU and PaddleOCR-VL), use the `00X_n` plan naming convention to indicate same-wave parallel execution.
+- Require each `00X_n` plan to be launchable independently: separate file ownership, isolated tests, and an explicit integration checkpoint plan for registry/CLI wiring.
+- Do not share hidden coupling through mutable global defaults; integration points must be explicit and documented.
 
 Exporter strategy:
 - Implement DocIR exporters under `doc2md/exporters/`.
@@ -70,6 +76,7 @@ Exporter strategy:
 Optional backend stubs:
 - Add stub modules for docling/mineru/paddleocr_vl/glm_ocr/dots_ocr/firered/marker/olmocr.
 - Each stub uses lazy import and raises a precise runtime error that states which package is missing and that the backend is optional.
+- Error messages should include a short, backend-specific install hint and clarify when a dedicated environment is recommended.
 
 Testing strategy:
 - Keep default tests entirely offline and synthetic.

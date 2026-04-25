@@ -20,8 +20,13 @@ Current product direction:
 - If `doc2md.profiler` is a package, export the intended public API from `doc2md/profiler/__init__.py`.
 - Multi-step work should follow the ExecPlan format defined in `.agent/PLANS.md`.
 - Concrete plans live under `plans/` with numeric prefixes.
+- Naming convention for sequential plans: `00X-kebab-case-topic.md`.
+- Naming convention for parallel-launch plans in the same wave: `00X_n-kebab-case-topic.md` (example: `003_1-mineru-backend.md`, `003_2-paddleocr-vl-backend.md`).
+- Any `00X_n` plan must be independently executable, with explicit dependencies and merge touchpoints listed in its Scope and Milestones.
+- Use US English in plan titles, headings, and user-facing wording (for example, "behavior" not "behaviour").
 - The current baseline plan is `plans/001-deterministic-extraction.md` (implemented).
 - The next architecture extension plan is `plans/002-docir-offline-foundations.md`.
+- Backend expansion feasibility is documented in `plans/003-backend-feasibility-and-parallel-launch.md`.
 
 ## Architecture rules
 1. Keep routing decisions separate from extraction logic.
