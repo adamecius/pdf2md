@@ -25,14 +25,19 @@ Out of scope:
 
 Parallel dependency and merge touchpoints:
 - Depends on: `plans/003_rules-backend-dependency-installation-audit.md`.
+- Parallel peers in wave `003_n`: `plans/003_2-paddleocr-vl-backend.md`, `plans/003_3-experimental-universal-backends.md`.
 - Independent owner area: `doc2md/backends/mineru_backend.py`, `tests/test_mineru_backend_contract.py` (future), `envs/mineru.yml` (future).
 - Shared merge touchpoints (coordinate with other `003_n` tracks): `backend_catalog.yaml`, `doc2md/backends/registry.py`, `scripts/run_backend.sh`, `scripts/run_many_backends.sh`, README backend setup section.
+- Merge-order guardrail for shared touchpoints:
+  1. land backend-specific files first (`envs/mineru.yml`, MinerU contract tests),
+  2. rebase on latest wave branch state,
+  3. then apply append-only edits to shared files in one PR.
 
 ## Current known state
 
 - `doc2md/backends/mineru_backend.py` exists as an optional stub.
-- MinerU is not registered in `doc2md/backends/registry.py` yet.
-- Shared optional-backend missing-dependency tests include `MineruBackend`, but there is no dedicated MinerU contract test file yet.
+- MinerU is registered in `doc2md/backends/registry.py` via lazy backend creation.
+- Shared optional-backend missing-dependency tests include `MineruBackend`, and dedicated MinerU contract tests exist in `tests/test_mineru_backend_contract.py`.
 
 ## Target behavior
 
@@ -58,6 +63,7 @@ Dependency recommendations:
 - Add `envs/mineru.yml` as backend-specific environment manifest.
 - Keep core dependencies separate in `envs/core.yml`.
 - Do not alter baseline lightweight requirements in this phase.
+- Use a disposable local sandbox for installation probes (for example `sandbox/mineru-install/.venv`) so backend experiments never pollute the core environment.
 
 Test boundary requirements (Phase 3 contract compliance):
 - Default validation path (`pytest -q`) must pass without MinerU dependencies installed.
@@ -67,6 +73,21 @@ Test boundary requirements (Phase 3 contract compliance):
 Scaffolding alignment requirements:
 - Register backend identity in `backend_catalog.yaml` when catalog is introduced.
 - Ensure compatibility with `scripts/run_backend.sh` and `scripts/run_many_backends.sh` execution contracts.
+
+Parallel execution compatibility checklist:
+- [x] This plan references `003_rules` as prerequisite contract authority.
+- [x] Independent-owner files are explicitly listed and avoid overlap with `003_2` and `003_3`.
+- [x] Shared-file touchpoints are explicitly listed and constrained to append-only edits.
+- [x] Output artifact contract is aligned to `runs/<document_id>/<backend_id>/document.docir.json`.
+- [x] Default lightweight test path remains required: `pytest -q` without heavy MinerU dependencies.
+
+Parallel ownership matrix (wave `003_n`):
+
+| Plan | Primary owner files | Shared touchpoints | Notes |
+| --- | --- | --- | --- |
+| `003_1` MinerU | `doc2md/backends/mineru_backend.py`, `tests/test_mineru_backend_contract.py` (future), `envs/mineru.yml` (future) | `backend_catalog.yaml`, `doc2md/backends/registry.py`, `scripts/run_backend.sh`, `scripts/run_many_backends.sh`, README | Keep MinerU dependency policy isolated. |
+| `003_2` PaddleOCR-VL | `doc2md/backends/paddleocr_vl_backend.py`, `tests/test_paddleocr_vl_backend_contract.py`, `envs/paddleocr_vl.yml` (future) | Same shared touchpoints | Coordinate key ordering and append-only edits. |
+| `003_3` Experimental universal | `docs/experimental-universal-backends.md`, `tests/test_universal_backend_import_guards.py` | README (experimental section), optional `scripts/run_many_backends.sh` notes | Must stay non-blocking and best-effort. |
 
 ## Milestones
 
@@ -103,6 +124,13 @@ Validation:
 Expected result:
 Optional-backend missing-dependency guarantees remain intact.
 
+Sandbox installation probe command (non-blocking for Phase 3 planning):
+
+    cd /workspace/pdf2md
+    python3 -m venv sandbox/mineru-install/.venv
+    . sandbox/mineru-install/.venv/bin/activate
+    pip install "mineru[all]" magic-pdf
+
 ### Milestone 3 - Merge touchpoint readiness for parallel wave
 
 Files:
@@ -118,6 +146,24 @@ Validation:
 
 Expected result:
 Shared-file conflict points are explicit and Phase 3 remains planning-only.
+
+### Milestone 4 - Cross-plan compatibility handshake (`003_2` + `003_3`)
+
+Files:
+- `plans/003_1-mineru-backend.md`
+- `plans/003_2-paddleocr-vl-backend.md`
+- `plans/003_3-experimental-universal-backends.md`
+
+Work:
+Record explicit ownership boundaries and merge sequencing so `003_1` implementation can be executed in parallel without blocking other `003_n` tracks.
+
+Validation:
+
+    cd /workspace/pdf2md
+    python -m doc2md --help
+
+Expected result:
+Parallel execution boundaries for the full `003_n` wave are documented and implementation-ready.
 
 ## Validation
 
@@ -136,15 +182,25 @@ Shared-file conflict points are explicit and Phase 3 remains planning-only.
 - [x] 2026-04-25 14:00 UTC: Reworked `003_1` to fully align with `003_rules` Phase 3 contract requirements.
 - [x] 2026-04-25 14:02 UTC: Added explicit parallel dependency and merge touchpoints for wave `003_n`.
 - [x] 2026-04-25 14:04 UTC: Added explicit test-boundary requirements to protect lightweight default test path.
+- [x] 2026-04-25 15:05 UTC: Added cross-plan compatibility checklist and ownership matrix covering `003_2` and `003_3`.
+- [x] 2026-04-25 15:08 UTC: Added merge-order guardrail and handshake milestone for parallel-safe shared touchpoint edits.
+- [x] 2026-04-25 16:00 UTC: Created local sandbox path `sandbox/mineru-install/.venv` and ran installation probe commands for MinerU dependencies.
+- [x] 2026-04-25 16:20 UTC: Retried sandbox installation probe with explicit PyPI index and with proxy-disabled environment variables to isolate network failure mode.
 
 ## Surprises & Discoveries
 
 - 2026-04-25 14:01 UTC: Prior `003_1` content mixed planning and implementation-status notes, which conflicted with Phase 3 planning-only scope.
+- 2026-04-25 15:03 UTC: `003_3` intentionally has broader experimental scope, so shared-touchpoint policy must be explicit to avoid accidental coupling with backend-specific tracks.
+- 2026-04-25 16:02 UTC: Installation probe from sandbox hit package-index proxy restrictions (`403 Forbidden`), so successful MinerU install could not be confirmed in this environment.
+- 2026-04-25 16:21 UTC: Bypassing proxy variables changed the failure to `Network is unreachable`, confirming this environment cannot currently validate external MinerU package installation.
 
 ## Decision Log
 
 - 2026-04-25 14:00 UTC: Keep `003_1` as planning-first in Phase 3 and remove implementation-status claims.
 - 2026-04-25 14:03 UTC: Treat shared-file coordination as a first-class milestone to reduce merge churn across parallel backend tracks.
+- 2026-04-25 15:06 UTC: Adopt an explicit ownership matrix in `003_1` so parallel wave contributors can validate overlap before editing shared files.
+- 2026-04-25 16:03 UTC: Keep sandbox installation probe documented as non-blocking evidence for Phase 3 due network/proxy constraints.
+- 2026-04-25 16:22 UTC: Treat repeated install-probe failures as infrastructure constraints, not backend-plan blockers; keep default tests as the gating signal in this environment.
 
 ## Outcomes & Retrospective
 
