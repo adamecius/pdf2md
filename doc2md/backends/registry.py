@@ -48,4 +48,13 @@ def create_backend(name: str) -> ExtractionBackend:
     return factory()
 
 
+def _create_mineru_backend() -> ExtractionBackend:
+    """Create MinerU backend via local lazy import."""
+
+    from doc2md.backends.mineru_backend import MineruBackend
+
+    return MineruBackend()
+
+
 register_backend("deterministic", DeterministicBackend)
+register_backend("mineru", _create_mineru_backend)

@@ -83,16 +83,20 @@ Contract behavior is validated without changing default dependency requirements.
 
 ## Progress
 
-- [ ] Not started
+- [x] 2026-04-25: Implemented MinerU optional-backend adapter improvements with explicit missing-dependency guidance.
+- [x] 2026-04-25: Wired MinerU lazy backend factory into registry so selection is explicit and startup remains dependency-light.
+- [x] 2026-04-25: Added focused MinerU contract tests and validated optional-backend failure behavior offline.
 
 ## Surprises & Discoveries
 
-- None yet.
+- 2026-04-25: Direct MinerU imports can fail even when top-level packages are present, so runtime import checks must remain guarded and produce clear environment guidance.
 
 ## Decision Log
 
-- None yet.
+- 2026-04-25: Keep MinerU registration in the backend registry as a lazy factory to avoid eager optional dependency loading in default startup paths.
+- 2026-04-25: Use `OptionalBackendUnavailable` for missing MinerU modules and include a dedicated-environment install hint in the error text.
 
 ## Outcomes & Retrospective
 
-- To be filled during execution and at completion.
+- 2026-04-25: MinerU is now explicitly selectable from the registry without changing deterministic defaults.
+- 2026-04-25: Offline tests cover MinerU registration and clear missing-dependency messaging without requiring MinerU installation in baseline CI.

@@ -2,6 +2,7 @@
 
 from doc2md.backends.base import ExtractionBackend
 from doc2md.backends.deterministic import DeterministicBackend
+from doc2md.backends.mineru_backend import MineruBackend
 from doc2md.backends.registry import create_backend, get_backend, list_backends, register_backend
 
 
@@ -19,6 +20,12 @@ def test_registry_has_deterministic_backend() -> None:
     assert "deterministic" in list_backends()
     backend = create_backend("deterministic")
     assert isinstance(backend, DeterministicBackend)
+
+
+def test_registry_has_mineru_backend_factory() -> None:
+    assert "mineru" in list_backends()
+    backend = create_backend("mineru")
+    assert isinstance(backend, MineruBackend)
 
 
 def test_register_and_lookup_backend() -> None:
