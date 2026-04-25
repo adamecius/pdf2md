@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from importlib import import_module
 from collections.abc import Callable
 from typing import TypeAlias
 
@@ -11,6 +12,17 @@ from doc2md.backends.deterministic import DeterministicBackend
 BackendFactory: TypeAlias = Callable[[], ExtractionBackend]
 
 _BACKENDS: dict[str, BackendFactory] = {}
+
+
+def lazy_backend_factory(module_path: str, class_name: str) -> BackendFactory:
+    """Return a backend factory that imports its adapter class lazily."""
+
+    def _factory() -> ExtractionBackend:
+        module = import_module(module_path)
+        backend_cls = getattr(module, class_name)
+        return backend_cls()
+
+    return _factory
 
 
 def register_backend(name: str, backend_cls: BackendFactory) -> None:
@@ -58,3 +70,7 @@ def _create_mineru_backend() -> ExtractionBackend:
 
 register_backend("deterministic", DeterministicBackend)
 register_backend("mineru", _create_mineru_backend)
+register_backend(
+    "paddleocr-vl",
+    lazy_backend_factory("doc2md.backends.paddleocr_vl_backend", "PaddleOcrVlBackend"),
+)

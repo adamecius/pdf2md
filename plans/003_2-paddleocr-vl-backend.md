@@ -33,6 +33,7 @@ Out of scope:
 - Keep PaddleOCR-VL isolated in its own module and import lazily in backend initialization.
 - Keep output aligned with DocIR contracts used by exporters.
 - Document a dedicated environment recommendation for PaddleOCR-VL installs.
+- Parallel feasibility with `003_1` is acceptable because each track owns its backend module and tests; the shared merge touchpoint is `doc2md/backends/registry.py`, so both tracks should use append-only backend registrations to minimize conflicts.
 
 ## Milestones
 
@@ -83,16 +84,20 @@ Contract behavior is validated without changing default dependency requirements.
 
 ## Progress
 
-- [ ] Not started
+- [x] 2026-04-25 12:00 UTC: Reviewed `003` feasibility constraints and confirmed `003_2` can run in parallel with `003_1` with a single shared registry touchpoint.
+- [x] 2026-04-25 12:00 UTC: Implemented lazy optional dependency loading and clear missing-dependency errors for `PaddleOcrVlBackend`.
+- [x] 2026-04-25 12:00 UTC: Wired `paddleocr-vl` registration in backend registry using a lazy factory.
+- [x] 2026-04-25 12:00 UTC: Added focused contract tests for PaddleOCR-VL backend behavior with and without dependencies.
 
 ## Surprises & Discoveries
 
-- None yet.
+- 2026-04-25 12:00 UTC: The current CLI path does not yet expose explicit backend selection, so `003_2` integration currently lands through registry and backend contract coverage.
 
 ## Decision Log
 
-- None yet.
+- 2026-04-25 12:00 UTC: Used `OptionalBackendUnavailable` (a `RuntimeError` subtype) for missing optional dependencies so existing runtime-error expectations remain valid while improving specificity.
+- 2026-04-25 12:00 UTC: Added a generic lazy registry factory to reduce eager imports and keep heavy backend modules isolated until explicitly instantiated.
 
 ## Outcomes & Retrospective
 
-- To be filled during execution and at completion.
+- 2026-04-25 12:00 UTC: `003_2` now provides a concrete optional PaddleOCR-VL adapter contract, lazy load behavior, and targeted tests while preserving deterministic baseline behavior.

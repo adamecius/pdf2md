@@ -3,6 +3,7 @@
 from doc2md.backends.base import ExtractionBackend
 from doc2md.backends.deterministic import DeterministicBackend
 from doc2md.backends.mineru_backend import MineruBackend
+from doc2md.backends.paddleocr_vl_backend import PaddleOcrVlBackend
 from doc2md.backends.registry import create_backend, get_backend, list_backends, register_backend
 
 
@@ -26,6 +27,10 @@ def test_registry_has_mineru_backend_factory() -> None:
     assert "mineru" in list_backends()
     backend = create_backend("mineru")
     assert isinstance(backend, MineruBackend)
+def test_registry_has_paddleocr_vl_backend() -> None:
+    assert "paddleocr-vl" in list_backends()
+    backend = create_backend("paddleocr-vl")
+    assert isinstance(backend, PaddleOcrVlBackend)
 
 
 def test_register_and_lookup_backend() -> None:
