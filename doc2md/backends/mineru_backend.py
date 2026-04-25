@@ -6,7 +6,7 @@ import importlib.util
 from pathlib import Path
 from typing import Any
 
-from doc2md.backends.base import ExtractionBackend
+from doc2md.backends.base import ExtractionBackend, OptionalBackendUnavailable
 from doc2md.ir import DocumentIR
 
 
@@ -16,7 +16,7 @@ class MineruBackend(ExtractionBackend):
     name = "mineru"
 
     def available(self) -> bool:
-        return all(importlib.util.find_spec(dep) is not None for dep in ('mineru', 'magic_pdf'))
+        return importlib.util.find_spec("mineru") is not None
 
     def extract(
         self,
@@ -25,7 +25,7 @@ class MineruBackend(ExtractionBackend):
         options: dict[str, Any] | None = None,
     ) -> DocumentIR:
         if not self.available():
-            raise RuntimeError(
+            raise OptionalBackendUnavailable(
                 f"{self.__class__.__name__} is optional and intended for offline/local experimentation. "
                 "Install its dependencies to use it."
             )

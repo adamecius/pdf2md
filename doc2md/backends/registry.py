@@ -7,6 +7,8 @@ from typing import TypeAlias
 
 from doc2md.backends.base import ExtractionBackend
 from doc2md.backends.deterministic import DeterministicBackend
+from doc2md.backends.mineru_backend import MineruBackend
+from doc2md.backends.paddleocr_vl_backend import PaddleOcrVlBackend
 
 BackendFactory: TypeAlias = Callable[[], ExtractionBackend]
 
@@ -49,3 +51,5 @@ def create_backend(name: str) -> ExtractionBackend:
 
 
 register_backend("deterministic", DeterministicBackend)
+register_backend("mineru", MineruBackend)
+register_backend("paddleocr_vl", PaddleOcrVlBackend)
