@@ -3,16 +3,26 @@
 from __future__ import annotations
 
 from collections.abc import Callable
+from importlib import import_module
 from typing import TypeAlias
 
 from doc2md.backends.base import ExtractionBackend
 from doc2md.backends.deterministic import DeterministicBackend
-from doc2md.backends.mineru_backend import MineruBackend
-from doc2md.backends.paddleocr_vl_backend import PaddleOcrVlBackend
 
 BackendFactory: TypeAlias = Callable[[], ExtractionBackend]
 
 _BACKENDS: dict[str, BackendFactory] = {}
+
+
+def lazy_backend_factory(module_path: str, class_name: str) -> BackendFactory:
+    """Return a backend factory that imports its adapter class lazily."""
+
+    def _factory() -> ExtractionBackend:
+        module = import_module(module_path)
+        backend_cls = getattr(module, class_name)
+        return backend_cls()
+
+    return _factory
 
 
 def register_backend(name: str, backend_cls: BackendFactory) -> None:
@@ -50,6 +60,17 @@ def create_backend(name: str) -> ExtractionBackend:
     return factory()
 
 
+def _create_mineru_backend() -> ExtractionBackend:
+    """Create MinerU backend via local lazy import."""
+
+    from doc2md.backends.mineru_backend import MineruBackend
+
+    return MineruBackend()
+
+
 register_backend("deterministic", DeterministicBackend)
-register_backend("mineru", MineruBackend)
-register_backend("paddleocr_vl", PaddleOcrVlBackend)
+register_backend("mineru", _create_mineru_backend)
+register_backend(
+    "paddleocr_vl",
+    lazy_backend_factory("doc2md.backends.paddleocr_vl_backend", "PaddleOcrVlBackend"),
+)

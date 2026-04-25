@@ -1,0 +1,23 @@
+version: 1
+canonical_result_artifact: document.docir.json
+run_output_root: runs
+
+backends:
+  deterministic:
+    registry_name: deterministic
+    environment: envs/core.yml
+    experimental: false
+    phase: 1
+    description: Deterministic text-layer extraction backend.
+  mineru:
+    registry_name: mineru
+    environment: envs/mineru.yml
+    experimental: true
+    phase: 3
+    description: Optional MinerU backend (offline/local experimentation).
+  paddleocr_vl:
+    registry_name: paddleocr_vl
+    environment: envs/paddleocr_vl.yml
+    experimental: true
+    phase: 3
+    description: Optional PaddleOCR-VL backend (offline/local experimentation).

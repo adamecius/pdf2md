@@ -48,6 +48,7 @@ pip install pytest
 - `.venv` is the default recommendation for day-to-day development in this repository.
 - Conda remains useful when you want conda-managed Python runtimes.
 - Current dependencies are lightweight and pip-installable (`pymupdf`, `pyyaml`).
+- Backend expansion is organized in phases; Phase 3 coordination rules live in `plans/003_rules-backend-dependency-installation-audit.md` and backend-specific subplans are `plans/003_1-*`, `plans/003_2-*`, etc.
 
 ## Quick validation
 
@@ -71,6 +72,19 @@ python -m pip install -r requirements.txt pytest
 
 Optional backend dependencies should be installed only when you are testing that
 backend. They are intentionally not listed in `requirements.txt`.
+
+Backend scaffolding lives in these project files:
+
+- `backend_catalog.yaml` defines backend identities and environment manifests.
+- `envs/core.yml`, `envs/mineru.yml`, and `envs/paddleocr_vl.yml` provide isolated environment recommendations.
+- `scripts/run_backend.sh` runs one backend into `runs/<document_id>/<backend_id>/`.
+- `scripts/run_many_backends.sh` runs multiple backend IDs sequentially for the same input.
+
+Example deterministic run:
+
+```bash
+scripts/run_backend.sh deterministic test_image1.pdf
+```
 
 For a MinerU environment:
 

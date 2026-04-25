@@ -81,7 +81,8 @@ Files:
 - `doc2md/backends/mineru_backend.py`
 - `doc2md/backends/paddleocr_vl_backend.py`
 - `doc2md/backends/registry.py`
-- `tests/test_optional_backend_contracts.py`
+- `tests/test_mineru_backend_contract.py`
+- `tests/test_paddleocr_vl_backend_contract.py`
 
 Work:
 Align availability checks with the sandbox import smoke tests, register optional backend stubs by backend ID, and test those contracts with monkeypatched import discovery.
@@ -89,7 +90,7 @@ Align availability checks with the sandbox import smoke tests, register optional
 Validation:
 
     cd /home/jgarcia/pdf2md/pdf2md
-    sandbox/backend-installs/core/venv/bin/python -m pytest -p no:cacheprovider tests/test_optional_backend_contracts.py
+    sandbox/backend-installs/core/venv/bin/python -m pytest -p no:cacheprovider tests/test_mineru_backend_contract.py tests/test_paddleocr_vl_backend_contract.py
 
 Expected result:
 The focused backend contract tests pass without installing optional backend packages in the active environment.
@@ -175,7 +176,7 @@ Rollback is safe: move the script back from `install_scripts/`, remove the compa
 - Added the canonical installer-validation script at `install_scripts/check_backend_installs.sh`; the old `scripts/check_backend_installs.sh` command still delegates to it.
 - Updated backend contracts so `MineruBackend.available()` requires `mineru`, while `PaddleOcrVlBackend.available()` requires both `paddleocr` and `paddle`.
 - Registered `mineru` and `paddleocr_vl` optional backend stubs in the backend registry without adding optional packages to `requirements.txt`.
-- Added backend contract tests and updated install-sandbox structural tests.
+- Folded backend contract coverage into the dedicated MinerU and PaddleOCR-VL test files and updated install-sandbox structural tests.
 - Added README backend install instructions for core, MinerU, PaddleOCR-VL, and sandbox validation.
 - Validation run:
 
@@ -184,7 +185,7 @@ Rollback is safe: move the script back from `install_scripts/`, remove the compa
     bash -n scripts/check_backend_installs.sh
     bash install_scripts/check_backend_installs.sh --help
     bash scripts/check_backend_installs.sh --help
-    PYTHONPYCACHEPREFIX=sandbox/backend-installs/pycache sandbox/backend-installs/core/venv/bin/python -m pytest -p no:cacheprovider tests/test_optional_backend_contracts.py tests/test_backend_install_sandbox.py -q
+    PYTHONPYCACHEPREFIX=sandbox/backend-installs/pycache sandbox/backend-installs/core/venv/bin/python -m pytest -p no:cacheprovider tests/test_mineru_backend_contract.py tests/test_paddleocr_vl_backend_contract.py tests/test_backend_install_sandbox.py -q
     PYTHONPYCACHEPREFIX=sandbox/backend-installs/pycache sandbox/backend-installs/core/venv/bin/python -m pytest -p no:cacheprovider
 
 - Final test result: `42 passed, 1 xfailed in 1.18s`.
