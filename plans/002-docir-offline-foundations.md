@@ -210,6 +210,7 @@ Success signals:
 - [x] 2026-04-25: Removed the temporary `plan_proposal/` workspace after integrating its direction into repository-level planning.
 - [x] 2026-04-25: Implemented backend interface foundation (`doc2md/backends/base.py`, `registry.py`, `deterministic.py`) and optional backend stubs.
 - [x] 2026-04-25: Added offline tests for backend registry, optional dependency failures, and deterministic DocIR emission.
+- [x] 2026-04-25: Implemented DocIR exporters (`json_ir`, `markdown`, `chunks_jsonl`) and added focused offline exporter tests.
 
 ## Surprises & Discoveries
 
