@@ -27,6 +27,22 @@ Current product direction:
 - The current baseline plan is `plans/001-deterministic-extraction.md` (implemented).
 - The next architecture extension plan is `plans/002-docir-offline-foundations.md`.
 - Backend expansion feasibility is documented in `plans/003-backend-feasibility-and-parallel-launch.md`.
+- Phase 3 backend coordination rules are defined in `plans/003_rules-backend-dependency-installation-audit.md` and must be read before creating or editing any `plans/003_n-*` backend subplan.
+
+## Phase workflow for backend expansion
+- Phase 3 focuses on planning/scaffolding contracts and parallel-execution rules only.
+- Phase 4 is the earliest phase where minimal online installation testing may begin.
+- During Phase 3, every backend subplan (`003_n`) must:
+  1. cite the latest official upstream references (URLs + access date),
+  2. evaluate offline contract compatibility with doc2md DocIR outputs,
+  3. define recommended dependencies without adding heavy packages to default requirements.
+- During Phase 3, backend plan artifacts must align to this repository contract:
+  - Core runtime: Python package + lightweight requirements only.
+  - Backend environments: `envs/<backend>.yml`.
+  - Backend identity catalog: `backend_catalog.yaml`.
+  - Execution helpers: `scripts/run_backend.sh` and `scripts/run_many_backends.sh`.
+  - Backend run outputs: `runs/<document_id>/<backend_id>/`.
+  - Canonical result artifact: `document.docir.json`.
 
 ## Architecture rules
 1. Keep routing decisions separate from extraction logic.

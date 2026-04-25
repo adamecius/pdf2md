@@ -48,6 +48,7 @@ pip install pytest
 - `.venv` is the default recommendation for day-to-day development in this repository.
 - Conda remains useful when you want conda-managed Python runtimes.
 - Current dependencies are lightweight and pip-installable (`pymupdf`, `pyyaml`).
+- Backend expansion is organized in phases; Phase 3 coordination rules live in `plans/003_rules-backend-dependency-installation-audit.md` and backend-specific subplans are `plans/003_1-*`, `plans/003_2-*`, etc.
 
 ## Quick validation
 
