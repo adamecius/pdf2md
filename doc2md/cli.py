@@ -53,7 +53,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--layout",
         type=str,
         default=None,
-        help="Layout detector name (e.g. doclayout-yolo, yolov11-obb, rt-detr). Overrides config.",
+        help="Layout detector name (e.g. doclayout_yolo, yolov11-obb, rt-detr). Overrides config.",
     )
 
     # ── Strategy override ─────────────────────────────────────
@@ -89,7 +89,7 @@ def resolve_config(args: argparse.Namespace) -> dict:
 
     config = {
         "ocr": "surya",
-        "layout": "doclayout-yolo",
+        "layout": "doclayout_yolo",
         "force_strategy": None,
         "text_threshold": 0.8,
         "verbose": 0,

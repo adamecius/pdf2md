@@ -67,12 +67,21 @@ Dependency policy must reflect that intent:
 - Keep optional backend adapters isolated with lazy imports and clear install guidance so contributors can choose compatible stacks.
 
 ## Environment conventions
-Use conda only for the Python runtime and environment creation. Use pip for Python packages inside the environment.
+Use a local `.venv` by default for Python runtime and package isolation. Conda is optional when contributors prefer conda-managed Python runtimes; continue using pip for Python packages inside either environment.
 
-Recommended starting environment for the current milestone:
+Recommended starting environment for the current milestone (default):
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install pymupdf pyyaml pytest
+```
+
+Optional conda runtime setup:
 ```bash
 conda create -n doc2md python=3.12 -y
 conda activate doc2md
+pip install --upgrade pip
 pip install pymupdf pyyaml pytest
 ```
 

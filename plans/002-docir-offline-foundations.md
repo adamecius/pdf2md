@@ -53,7 +53,7 @@ DocIR model strategy:
 - Keep schema extensible and preserve stable IDs and provenance fields.
 
 Serialization strategy:
-- Add explicit helpers in `doc2md/ir/serialise.py` for `to_dict`, `from_dict`, `to_json`, and `from_json`.
+- Add explicit helpers in `doc2md/ir/serialize.py` for `to_dict`, `from_dict`, `to_json`, and `from_json`.
 - Add validation-oriented helpers (for example `model_validate`/schema checks) to ensure fixture and runtime DocIR payloads are schema-checked.
 - Keep canonical persisted representation as `*.docir.json`.
 
@@ -100,8 +100,8 @@ Files:
 - `doc2md/ir/__init__.py`
 - `doc2md/ir/schema.py`
 - `doc2md/ir/ids.py`
-- `doc2md/ir/serialise.py`
-- `doc2md/ir/normalise.py`
+- `doc2md/ir/serialize.py`
+- `doc2md/ir/normalize.py`
 
 Work:
 Implement minimal canonical schema, stable ID helpers, and JSON serialization helpers.
@@ -109,7 +109,7 @@ Implement minimal canonical schema, stable ID helpers, and JSON serialization he
 Validation:
 
     cd /workspace/pdf2md
-    pytest -q tests/test_ir_serialise.py tests/test_ir_ids.py tests/test_ir_validation.py
+    pytest -q tests/test_ir_serialize.py tests/test_ir_ids.py tests/test_ir_validation.py
 
 Expected result:
 DocIR round-trip, stable IDs, and schema validation behavior are validated without external services.
