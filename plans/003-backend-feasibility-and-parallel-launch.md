@@ -48,9 +48,11 @@ Feasibility summary:
 
 Parallel plan naming and ownership:
 - Use one parent wave number and independent child tracks:
+  - `003_rules-backend-dependency-installation-audit.md` (general Phase 3 rules and coordination contract)
   - `003_1-mineru-backend.md`
   - `003_2-paddleocr-vl-backend.md`
 - Each child track must declare a single owner, file ownership boundaries, and explicit registry/CLI integration checkpoints.
+- Every `003_n` backend-specific subplan (`n >= 1`) must list `003_rules` as a prerequisite and comply with its scaffolding/output contract.
 
 Environment strategy:
 - Preferred: one environment per heavy backend plus one core deterministic environment.
