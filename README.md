@@ -43,6 +43,22 @@ pip install -r requirements.txt
 pip install pytest
 ```
 
+
+## Backend Phase 3 scaffolding
+
+Phase 3 now includes lightweight scaffolding for optional backend execution contracts:
+
+- `backend_catalog.yaml` defines backend identities and environment manifests.
+- `envs/core.yml`, `envs/mineru.yml`, and `envs/paddleocr_vl.yml` provide isolated environment recommendations.
+- `scripts/run_backend.sh` runs a single backend into `runs/<document_id>/<backend_id>/` and writes canonical `document.docir.json` when extraction succeeds.
+- `scripts/run_many_backends.sh` runs multiple backend IDs sequentially for the same input.
+
+Example deterministic run:
+
+```bash
+scripts/run_backend.sh deterministic test_image1.pdf
+```
+
 ## Notes
 
 - `.venv` is the default recommendation for day-to-day development in this repository.
