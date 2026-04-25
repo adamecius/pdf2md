@@ -16,11 +16,17 @@ In scope:
 - Define offline contract expectations for mapping PaddleOCR-VL outputs into DocIR.
 - Define isolated dependency recommendations through `envs/paddleocr_vl.yml` planning.
 - Define focused tests that preserve lightweight default `pytest -q` behavior.
+- Declare independent ownership boundaries and shared merge touchpoints for parallel wave `003_n`.
 
 Out of scope:
 - Shipping full PaddleOCR-VL extraction implementation in this phase.
 - Adding heavy Paddle/PaddleOCR dependencies to baseline requirements.
 - Downloading models as part of default test flow.
+
+Parallel dependency and merge touchpoints:
+- Depends on: `plans/003_rules-backend-dependency-installation-audit.md`.
+- Independent owner area: `doc2md/backends/paddleocr_vl_backend.py`, `tests/test_paddleocr_vl_backend_contract.py`, `envs/paddleocr_vl.yml` (future).
+- Shared merge touchpoints (coordinate with other `003_n` tracks): `backend_catalog.yaml`, `doc2md/backends/registry.py`, `scripts/run_backend.sh`, `scripts/run_many_backends.sh`, README backend setup section.
 
 ## Current known state
 
@@ -54,6 +60,11 @@ Dependency recommendations:
 - Add `envs/paddleocr_vl.yml` as backend-specific environment manifest.
 - Keep core dependencies separate in `envs/core.yml`.
 - Do not alter baseline lightweight requirements in this phase.
+
+Test boundary requirements (Phase 3 contract compliance):
+- Default validation path (`pytest -q`) must pass without PaddleOCR/PaddleOCR-VL dependencies installed.
+- PaddleOCR-VL-specific contract tests remain opt-in when they require heavy backend dependencies.
+- Missing optional dependencies must raise `OptionalBackendUnavailable` with actionable environment guidance.
 
 Scaffolding alignment requirements:
 - Register backend identity in `backend_catalog.yaml` when catalog is introduced.
@@ -94,6 +105,22 @@ Validation:
 Expected result:
 Optional-backend contract guarantees remain intact.
 
+### Milestone 3 - Merge touchpoint readiness for parallel wave
+
+Files:
+- `plans/003_2-paddleocr-vl-backend.md`
+
+Work:
+Record exactly where cross-track coordination is required before implementation PRs touch shared files.
+
+Validation:
+
+    cd /workspace/pdf2md
+    python -m doc2md --help
+
+Expected result:
+Shared-file conflict points are explicit and Phase 3 remains planning-only.
+
 ## Validation
 
     cd /workspace/pdf2md
@@ -103,22 +130,24 @@ Optional-backend contract guarantees remain intact.
 ## Risks and rollback notes
 
 - Risk: Paddle/PaddleOCR dependency stack conflicts with other backends. Mitigation: isolate via `envs/paddleocr_vl.yml`.
-- Risk: backend plan drifts from shared contract. Mitigation: enforce prerequisite `003_rules` compliance.
+- Risk: backend plan drifts from shared contract. Mitigation: enforce prerequisite `003_rules` compliance checklist in this plan.
 - Rollback: plan-only changes are safe to revert.
 
 ## Progress
 
-- [x] 2026-04-25 13:24 UTC: Updated `003_2` to explicitly depend on shared `003_rules` Phase 3 rules.
-- [x] 2026-04-25 13:26 UTC: Added upstream-reference, offline-contract, and scaffolding-alignment sections.
+- [x] 2026-04-25 14:05 UTC: Reworked `003_2` to fully align with `003_rules` Phase 3 contract requirements.
+- [x] 2026-04-25 14:07 UTC: Added explicit parallel dependency and merge touchpoints for wave `003_n`.
+- [x] 2026-04-25 14:09 UTC: Added explicit test-boundary requirements to protect lightweight default test path.
 
 ## Surprises & Discoveries
 
-- 2026-04-25 13:25 UTC: Existing `003_2` content mixed planning and implementation status; this revision keeps the track aligned to Phase 3 planning requirements.
+- 2026-04-25 14:06 UTC: Prior `003_2` had contract intent but did not explicitly call out merge-touchpoint ownership, which is required for parallel execution clarity.
 
 ## Decision Log
 
-- 2026-04-25 13:24 UTC: Keep `003_2` as planning-first in Phase 3; defer heavy implementation to Phase 4+.
+- 2026-04-25 14:05 UTC: Keep `003_2` as planning-first in Phase 3 and avoid implementation-status claims.
+- 2026-04-25 14:08 UTC: Treat shared-file coordination as a first-class milestone to reduce merge churn across parallel backend tracks.
 
 ## Outcomes & Retrospective
 
-- 2026-04-25 13:26 UTC: PaddleOCR-VL subplan is now aligned with a common Phase 3 contract and ready for parallel coordination.
+- 2026-04-25 14:09 UTC: PaddleOCR-VL subplan now explicitly satisfies `003_rules` contract sections, parallel dependency boundaries, and merge touchpoint clarity.

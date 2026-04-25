@@ -16,11 +16,17 @@ In scope:
 - Define offline contract expectations for mapping MinerU outputs into DocIR.
 - Define isolated dependency recommendations through `envs/mineru.yml` planning.
 - Define focused tests that preserve lightweight default `pytest -q` behavior.
+- Declare independent ownership boundaries and shared merge touchpoints for parallel wave `003_n`.
 
 Out of scope:
 - Shipping full MinerU extraction implementation in this phase.
 - Adding heavy MinerU dependencies to baseline requirements.
 - Downloading models as part of default test flow.
+
+Parallel dependency and merge touchpoints:
+- Depends on: `plans/003_rules-backend-dependency-installation-audit.md`.
+- Independent owner area: `doc2md/backends/mineru_backend.py`, `tests/test_mineru_backend_contract.py` (future), `envs/mineru.yml` (future).
+- Shared merge touchpoints (coordinate with other `003_n` tracks): `backend_catalog.yaml`, `doc2md/backends/registry.py`, `scripts/run_backend.sh`, `scripts/run_many_backends.sh`, README backend setup section.
 
 ## Current known state
 
@@ -52,6 +58,11 @@ Dependency recommendations:
 - Add `envs/mineru.yml` as backend-specific environment manifest.
 - Keep core dependencies separate in `envs/core.yml`.
 - Do not alter baseline lightweight requirements in this phase.
+
+Test boundary requirements (Phase 3 contract compliance):
+- Default validation path (`pytest -q`) must pass without MinerU dependencies installed.
+- MinerU-specific contract tests (when added) must be opt-in and runnable in isolated backend environment only.
+- Missing optional dependencies must raise `OptionalBackendUnavailable` with actionable environment guidance.
 
 Scaffolding alignment requirements:
 - Register backend identity in `backend_catalog.yaml` when catalog is introduced.
@@ -92,6 +103,22 @@ Validation:
 Expected result:
 Optional-backend missing-dependency guarantees remain intact.
 
+### Milestone 3 - Merge touchpoint readiness for parallel wave
+
+Files:
+- `plans/003_1-mineru-backend.md`
+
+Work:
+Record exactly where cross-track coordination is required before implementation PRs touch shared files.
+
+Validation:
+
+    cd /workspace/pdf2md
+    python -m doc2md --help
+
+Expected result:
+Shared-file conflict points are explicit and Phase 3 remains planning-only.
+
 ## Validation
 
     cd /workspace/pdf2md
@@ -101,39 +128,24 @@ Optional-backend missing-dependency guarantees remain intact.
 ## Risks and rollback notes
 
 - Risk: MinerU dependency stack conflicts with other backends. Mitigation: isolate via `envs/mineru.yml`.
-- Risk: backend plan drifts from shared contract. Mitigation: enforce prerequisite `003_rules` compliance.
+- Risk: backend plan drifts from shared contract. Mitigation: enforce prerequisite `003_rules` compliance checklist in this plan.
 - Rollback: plan-only changes are safe to revert.
 
 ## Progress
 
-- [x] 2026-04-25 13:20 UTC: Updated `003_1` to explicitly depend on shared `003_rules` Phase 3 rules.
-- [x] 2026-04-25 13:22 UTC: Added upstream-reference, offline-contract, and scaffolding-alignment sections.
+- [x] 2026-04-25 14:00 UTC: Reworked `003_1` to fully align with `003_rules` Phase 3 contract requirements.
+- [x] 2026-04-25 14:02 UTC: Added explicit parallel dependency and merge touchpoints for wave `003_n`.
+- [x] 2026-04-25 14:04 UTC: Added explicit test-boundary requirements to protect lightweight default test path.
 
 ## Surprises & Discoveries
 
-- 2026-04-25 13:21 UTC: Current repository lacks MinerU-specific contract tests, so shared optional-backend tests are currently the only MinerU coverage.
+- 2026-04-25 14:01 UTC: Prior `003_1` content mixed planning and implementation-status notes, which conflicted with Phase 3 planning-only scope.
 
 ## Decision Log
 
-- 2026-04-25 13:19 UTC: Keep `003_1` as planning-first in Phase 3; defer heavy implementation to Phase 4+.
+- 2026-04-25 14:00 UTC: Keep `003_1` as planning-first in Phase 3 and remove implementation-status claims.
+- 2026-04-25 14:03 UTC: Treat shared-file coordination as a first-class milestone to reduce merge churn across parallel backend tracks.
 
 ## Outcomes & Retrospective
 
-- 2026-04-25 13:22 UTC: MinerU subplan is now aligned with a common Phase 3 contract and ready for parallel coordination.
-- [x] 2026-04-25: Implemented MinerU optional-backend adapter improvements with explicit missing-dependency guidance.
-- [x] 2026-04-25: Wired MinerU lazy backend factory into registry so selection is explicit and startup remains dependency-light.
-- [x] 2026-04-25: Added focused MinerU contract tests and validated optional-backend failure behavior offline.
-
-## Surprises & Discoveries
-
-- 2026-04-25: Direct MinerU imports can fail even when top-level packages are present, so runtime import checks must remain guarded and produce clear environment guidance.
-
-## Decision Log
-
-- 2026-04-25: Keep MinerU registration in the backend registry as a lazy factory to avoid eager optional dependency loading in default startup paths.
-- 2026-04-25: Use `OptionalBackendUnavailable` for missing MinerU modules and include a dedicated-environment install hint in the error text.
-
-## Outcomes & Retrospective
-
-- 2026-04-25: MinerU is now explicitly selectable from the registry without changing deterministic defaults.
-- 2026-04-25: Offline tests cover MinerU registration and clear missing-dependency messaging without requiring MinerU installation in baseline CI.
+- 2026-04-25 14:04 UTC: MinerU subplan now explicitly satisfies `003_rules` contract sections, parallel dependency boundaries, and merge touchpoint clarity.
