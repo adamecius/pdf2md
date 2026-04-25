@@ -1,4 +1,18 @@
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+
+# Test and tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Common temporary files
+*.tmp
+*.temp
+*.log
+
+# Local generated outputs
 .data/
-benchmarks/**/raw/
-benchmarks/**/prepared/
-*.cache/
