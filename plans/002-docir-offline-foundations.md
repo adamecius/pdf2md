@@ -48,12 +48,13 @@ After this work:
 ## Design and decisions
 
 DocIR model strategy:
-- Start with dataclasses in `doc2md/ir/schema.py` to match current lightweight dependency policy.
+- Align with the proposal requirement for schema validation by using Pydantic models for `doc2md/ir/schema.py` when implementing this phase.
 - Include minimal core entities only for this phase: `DocumentIR`, `PageIR`, `BlockIR`, `MediaRef`, `Provenance`, and `BackendRun`.
 - Keep schema extensible and preserve stable IDs and provenance fields.
 
 Serialization strategy:
 - Add explicit helpers in `doc2md/ir/serialise.py` for `to_dict`, `from_dict`, `to_json`, and `from_json`.
+- Add validation-oriented helpers (for example `model_validate`/schema checks) to ensure fixture and runtime DocIR payloads are schema-checked.
 - Keep canonical persisted representation as `*.docir.json`.
 
 Backend interface strategy:
@@ -108,10 +109,10 @@ Implement minimal canonical schema, stable ID helpers, and JSON serialization he
 Validation:
 
     cd /workspace/pdf2md
-    pytest -q tests/test_ir_serialise.py tests/test_ir_ids.py
+    pytest -q tests/test_ir_serialise.py tests/test_ir_ids.py tests/test_ir_validation.py
 
 Expected result:
-DocIR round-trip and stable IDs are validated without external dependencies.
+DocIR round-trip, stable IDs, and schema validation behavior are validated without external services.
 
 ### Milestone 3 - Add backend interface + deterministic DocIR adapter + exporters
 
