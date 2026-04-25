@@ -275,11 +275,15 @@ All file-writing steps should be safe to repeat. Re-running the tool should over
 
 ## Progress
 
-- [ ] Not started
+- [x] 2026-04-25: Normalized package surface (`doc2md/__init__.py` and canonical `doc2md/assembler.py`).
+- [x] 2026-04-25: Added deterministic lane models (`MediaRef`, `PageResult`) and initial `DeterministicStrategy` implementation.
+- [x] 2026-04-25: Wired deterministic execution + assembly into CLI for routed deterministic pages.
+- [x] 2026-04-25: Added minimal automated tests (`tests/test_imports.py`, `tests/test_router.py`).
+- [ ] Remaining: validate against a real sample PDF and refine output behavior for skipped HYBRID/VISUAL pages.
 
 ## Surprises & Discoveries
 
-- None yet.
+- 2026-04-25: Repository contained empty placeholder modules (`doc2md/strategies/deterministic.py` and others), so path normalization and first concrete implementations were needed before behavioral validation.
 
 ## Decision Log
 
@@ -287,7 +291,8 @@ All file-writing steps should be safe to repeat. Re-running the tool should over
 - Include extraction of embedded raster images in the deterministic lane and reference them from Markdown.
 - Keep minimal `pytest` validation in scope for this milestone.
 - Use `page.get_text("text")` for v1 deterministic extraction rather than introducing `pymupdf4llm`.
+- 2026-04-25: Standardize on `doc2md/assembler.py` as the only assembly module path to match the active plan and avoid split references.
 
 ## Outcomes & Retrospective
 
-- To be filled at the end.
+- 2026-04-25 (interim): The codebase now has an executable deterministic lane path and minimal router/import tests, reducing risk for the next validation-focused iteration.

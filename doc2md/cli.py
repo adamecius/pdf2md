@@ -4,9 +4,13 @@ import argparse
 import sys
 from pathlib import Path
 
-from doc2md.models import DocumentProfile, Strategy
+from doc2md.assembler import Assembler
+from doc2md.models import Strategy
 from doc2md.profiler import profile_document
 from doc2md.router import route_document
+from doc2md.strategies.deterministic import DeterministicStrategy
+
+import pymupdf
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -27,7 +31,7 @@ def build_parser() -> argparse.ArgumentParser:
         "-o", "--output",
         type=Path,
         default=None,
-        help="Output directory. Defaults to <input_stem>_output/",
+        help="Output directory. Defaults to .data/<input_stem>_output/",
     )
 
     # ── Config ────────────────────────────────────────────────
@@ -117,7 +121,7 @@ def resolve_config(args: argparse.Namespace) -> dict:
 def setup_output(input_path: Path, output_arg: Path | None) -> Path:
     """Create and return the output directory."""
 
-    output_dir = output_arg or input_path.parent / f"{input_path.stem}_output"
+    output_dir = output_arg or Path(".data") / f"{input_path.stem}_output"
     media_dir = output_dir / "media"
 
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -212,12 +216,19 @@ def run_pipeline(input_path: Path, output_dir: Path, config: dict) -> None:
     hyb_pages = profile.hybrid_pages
     vis_pages = profile.visual_pages
 
+    page_results = []
+
     if det_pages:
         print(f"\n  [deterministic] {len(det_pages)} page(s)")
-        for p in det_pages:
-            print(f"  [deterministic] Page {p.page_number + 1}: "
-                  f"PyMuPDF extraction ({p.char_count} chars)")
-            # TODO: result = DeterministicStrategy().process(page)
+        strategy = DeterministicStrategy(output_dir=output_dir)
+        with pymupdf.open(str(input_path)) as doc:
+            for p in det_pages:
+                print(f"  [deterministic] Page {p.page_number + 1}: "
+                      f"PyMuPDF extraction ({p.char_count} chars)")
+                result = strategy.process_page(doc[p.page_number], p.page_number)
+                page_results.append(result)
+                if result.error:
+                    print(f"  [deterministic][warn] Page {p.page_number + 1}: {result.error}")
 
     if hyb_pages:
         print(f"\n  [hybrid] {len(hyb_pages)} page(s) (not yet implemented)")
@@ -238,8 +249,15 @@ def run_pipeline(input_path: Path, output_dir: Path, config: dict) -> None:
     # ── Step 4: Assemble (stub) ───────────────────────────────
     print(f"\n  [assembler] {len(det_pages)} det + "
           f"{len(hyb_pages)} hyb + {len(vis_pages)} vis")
-    print(f"  [assembler] -> {md_output}")
-    # TODO: Assembler().assemble(all_page_results, output_dir)
+
+    if page_results:
+        assembler = Assembler(output_dir=output_dir, stem=input_path.stem)
+        assembled_path, stats = assembler.assemble(page_results)
+        print(f"  [assembler] -> {assembled_path}")
+        print(f"  [assembler] pages={stats['pages']} chars={stats['chars']} media={stats['media']}")
+    else:
+        print(f"  [assembler] No deterministic pages to assemble.")
+        print(f"  [assembler] -> {md_output}")
 
 
 def main(argv: list[str] | None = None) -> None:

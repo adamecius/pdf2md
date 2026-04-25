@@ -7,6 +7,7 @@ from pathlib import Path
 
 class Strategy(Enum):
     """Extraction strategy assigned to a page by the router."""
+
     DETERMINISTIC = auto()
     HYBRID = auto()
     VISUAL = auto()
@@ -14,6 +15,7 @@ class Strategy(Enum):
 
 class FontEncodingQuality(Enum):
     """How trustworthy the font encoding is for text extraction."""
+
     GOOD = auto()      # Standard encodings (WinAnsi, MacRoman, Identity-H with ToUnicode)
     SUSPECT = auto()   # Non-standard but partially decodable
     POOR = auto()      # No ToUnicode, custom encoding, likely mojibake
@@ -22,6 +24,7 @@ class FontEncodingQuality(Enum):
 @dataclass
 class FontInfo:
     """Metadata for a single font used in a page."""
+
     name: str
     encoding: str
     has_tounicode: bool
@@ -32,6 +35,7 @@ class FontInfo:
 @dataclass
 class PageProfile:
     """Structural profile of a single PDF page, computed without ML."""
+
     page_number: int
     width: float
     height: float
@@ -60,8 +64,31 @@ class PageProfile:
 
 
 @dataclass
+class MediaRef:
+    """Reference to extracted media written under output/media/."""
+
+    relative_path: str
+    page_number: int
+    index_in_page: int
+    width_px: int
+    height_px: int
+
+
+@dataclass
+class PageResult:
+    """Result for one processed page returned by a strategy."""
+
+    page_number: int
+    markdown: str
+    media: list[MediaRef] = field(default_factory=list)
+    strategy: Strategy | None = None
+    error: str | None = None
+
+
+@dataclass
 class DocumentProfile:
     """Aggregated profile for an entire PDF document."""
+
     path: Path
     page_count: int
     pages: list[PageProfile] = field(default_factory=list)
