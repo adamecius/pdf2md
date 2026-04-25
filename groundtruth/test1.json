@@ -1,0 +1,87 @@
+{
+  "schema_version": "docir.v0-proposed",
+  "document_id": "doc_test1",
+  "source": {
+    "path": "groundtruth/test1.pdf",
+    "format": "pdf"
+  },
+  "metadata": {
+    "title": "Year 10 Exam Booklet: Algebra and Equations",
+    "language": "en"
+  },
+  "pages": [
+    {
+      "page_id": "page_1",
+      "page_index": 0,
+      "page_label": "1",
+      "width": 595.0,
+      "height": 842.0,
+      "rotation": 0,
+      "strategy": "deterministic",
+      "block_refs": [
+        "block_1"
+      ],
+      "furniture_refs": [],
+      "warnings": []
+    }
+  ],
+  "body": [
+    "block_1"
+  ],
+  "furniture": [],
+  "blocks": [
+    {
+      "block_id": "block_1",
+      "type": "document",
+      "role": "groundtruth_markdown_snapshot",
+      "text": "Year 10 Exam Booklet: Algebra and Equations",
+      "markdown": "# Year 10 Exam Booklet: Algebra and Equations\n\n## Easy\n\n1. Express (1/(3x-2) - 1/(3x+2)) as a single fraction.\n\n2. Solve:\n   i. x^2 + 3x + 1 = 0 (quadratic formula)\n   ii. x^2 - 2x - 1 = 0 (completing the square)\n\n3. Solve by factorising:\n   i. x^2 + 4x = 0\n   ii. x^2 + 11x - 26 = 0\n   iii. 2x^2 - x - 6 = 0\n\n4. Simplify: 6/(9 - x^2) - 2/(3 - x)\n\n5. Make r the subject: x = 3r/(r+2)\n\n6. Solve: 4v^2 + 5v - 6 = 0\n\n7. Solve:\n   i. 3/x = 4/5\n   ii. 3x - 5 = (5+x)/2\n\n8. Solve simultaneously:\n   5x - 2y = -16\n   3x + 4y = -7\n\n9. Solve: 2(3 - x) ≤ 4 - x\n\n10. Number of solutions of 2x^2 - 2x - 3?\n\n11. Find monic quadratic with roots -4 and 7.\n\n---\n\n## Medium\n\n24. Simplify: (3a^2 - 2a - 1)/(3a + 1) ÷ (2a^2 - 1)/(a + 1)\n\n25. Simplify: (y^2 - 2y - 3)/(2y^2 - y - 3) ÷ (3y - y^2)/(4y - 6)\n\n26. Solve: 2/x + x/3 = 11/6\n\n27. Word problem (speed and time)\n\n---\n\n## Hard\n\n44. \ni. Factorise u^2 - 8u + 12  \nii. Factorise (x^2 - x)^2 - 8(x^2 - x) + 12\n\n45. Complete the square and analyse solutions\n\n46. One solution of 6x^2 - 11x + n = 0 is given\n\n47. Given (x+1)(x-1)=5, find (x^2+x)(x^2-x)\n\n48–50. Advanced algebra and variation problems\n",
+      "order": 1,
+      "parent_ref": null,
+      "child_refs": [],
+      "page_refs": [
+        0
+      ],
+      "bbox": null,
+      "polygon": null,
+      "media_refs": [],
+      "provenance": {
+        "backend": "groundtruth",
+        "backend_version": "1",
+        "strategy": "deterministic",
+        "page_index": 0,
+        "bbox": null,
+        "extraction_time_ms": 0,
+        "confidence": 1.0,
+        "raw_output_ref": null,
+        "warnings": []
+      },
+      "confidence": 1.0,
+      "candidates": [],
+      "normalised": {
+        "text": "Year 10 Exam Booklet: Algebra and Equations"
+      },
+      "attributes": {},
+      "include_in_rag": true,
+      "include_in_benchmark": true
+    }
+  ],
+  "groups": [],
+  "relations": [],
+  "media": [],
+  "backend_runs": [
+    {
+      "run_id": "run_groundtruth_1",
+      "backend": "groundtruth",
+      "backend_version": "1",
+      "options": {},
+      "started_at": "2026-04-25T00:00:00Z",
+      "completed_at": "2026-04-25T00:00:00Z",
+      "status": "success",
+      "errors": [],
+      "raw_output_dir": null
+    }
+  ],
+  "created_at": "2026-04-25T00:00:00Z",
+  "warnings": []
+}

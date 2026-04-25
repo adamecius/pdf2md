@@ -20,7 +20,8 @@ Current product direction:
 - If `doc2md.profiler` is a package, export the intended public API from `doc2md/profiler/__init__.py`.
 - Multi-step work should follow the ExecPlan format defined in `.agent/PLANS.md`.
 - Concrete plans live under `plans/` with numeric prefixes.
-- The current active plan is `plans/001-deterministic-extraction.md`.
+- The current baseline plan is `plans/001-deterministic-extraction.md` (implemented).
+- The next architecture extension plan is `plans/002-docir-offline-foundations.md`.
 
 ## Architecture rules
 1. Keep routing decisions separate from extraction logic.
@@ -55,6 +56,15 @@ Important routing rules:
 
 ## Known current limitation
 Vector graphics can contain meaningful diagrams while still producing zero raster image coverage. For the deterministic-only milestone, preserving extractable text is more important than preserving diagrams. Do not silently claim perfect document fidelity.
+
+
+## Licensing and usage constraints
+This repository is for free learning and personal/offline document processing, not commercial deployment.
+
+Dependency policy must reflect that intent:
+- Prefer permissive or clearly non-commercial-compatible licenses for optional integrations.
+- Do not make restrictive/heavy backends mandatory for core installation or default tests.
+- Keep optional backend adapters isolated with lazy imports and clear install guidance so contributors can choose compatible stacks.
 
 ## Environment conventions
 Use conda only for the Python runtime and environment creation. Use pip for Python packages inside the environment.
