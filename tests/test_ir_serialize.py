@@ -1,8 +1,8 @@
 """Tests for DocIR serialization and normalization helpers."""
 
-from doc2md.ir.normalise import normalise_text
+from doc2md.ir.normalize import normalize_text
 from doc2md.ir.schema import BackendRun, BlockIR, DocumentIR, MediaRef, PageIR, Provenance
-from doc2md.ir.serialise import from_dict, from_json, to_dict, to_json
+from doc2md.ir.serialize import from_dict, from_json, to_dict, to_json
 
 
 def _sample_doc() -> DocumentIR:
@@ -75,9 +75,9 @@ def test_docir_round_trip_json(tmp_path) -> None:
     assert to_dict(loaded) == to_dict(doc)
 
 
-def test_normalise_text_is_stable_and_simple() -> None:
+def test_normalize_text_is_stable_and_simple() -> None:
     raw = "  A\uFB01\r\nline  \r\n\r\n\r\nB\t\n"
-    once = normalise_text(raw)
-    twice = normalise_text(once)
+    once = normalize_text(raw)
+    twice = normalize_text(once)
     assert once == twice
     assert once == "Afi\nline\n\nB"
