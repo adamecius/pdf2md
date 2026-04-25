@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pytest
 
-GROUNDTRUTH_DIR = Path(__file__).resolve().parents[1] / "groundtruth"
+GROUNDTRUTH_DIR = Path(__file__).resolve().parents[1] / "groundtruth" / "test"
 
 
 def _md_stems() -> list[str]:
