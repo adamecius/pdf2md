@@ -5,6 +5,9 @@ import sys
 from pathlib import Path
 
 from doc2md.assembler import Assembler
+from doc2md.backends.deterministic import DeterministicBackend
+from doc2md.exporters.chunks_jsonl import write_chunks_jsonl
+from doc2md.exporters.json_ir import write_docir
 from doc2md.models import Strategy
 from doc2md.profiler import profile_document
 from doc2md.router import route_document
@@ -73,6 +76,17 @@ def build_parser() -> argparse.ArgumentParser:
         help="Text coverage ratio above which a page is routed deterministically (default: 0.8).",
     )
 
+    parser.add_argument(
+        "--emit-docir",
+        action="store_true",
+        help="Also emit canonical DocIR JSON at <output>/<input_stem>.docir.json.",
+    )
+    parser.add_argument(
+        "--emit-chunks",
+        action="store_true",
+        help="Also emit chunked JSONL at <output>/<input_stem>.blocks.jsonl.",
+    )
+
     # ── Verbosity ─────────────────────────────────────────────
     parser.add_argument(
         "-v", "--verbose",
@@ -93,6 +107,8 @@ def resolve_config(args: argparse.Namespace) -> dict:
         "force_strategy": None,
         "text_threshold": 0.8,
         "verbose": 0,
+        "emit_docir": False,
+        "emit_chunks": False,
     }
 
     if args.config is not None:
@@ -110,10 +126,13 @@ def resolve_config(args: argparse.Namespace) -> dict:
     if args.text_threshold != 0.8:
         config["text_threshold"] = args.text_threshold
     config["verbose"] = args.verbose
+    config["emit_docir"] = args.emit_docir
+    config["emit_chunks"] = args.emit_chunks
 
     print(f"  [config] Resolved: ocr={config['ocr']}, layout={config['layout']}, "
           f"strategy={config['force_strategy'] or 'auto'}, "
-          f"text_threshold={config['text_threshold']}")
+          f"text_threshold={config['text_threshold']}, "
+          f"emit_docir={config['emit_docir']}, emit_chunks={config['emit_chunks']}")
 
     return config
 
@@ -258,6 +277,25 @@ def run_pipeline(input_path: Path, output_dir: Path, config: dict) -> None:
     else:
         print(f"  [assembler] No deterministic pages to assemble.")
         print(f"  [assembler] -> {md_output}")
+
+    if config["emit_docir"] or config["emit_chunks"]:
+        print("\n  [docir] Building DocIR from deterministic backend")
+        backend = DeterministicBackend()
+        doc_ir = backend.extract(
+            input_path,
+            output_dir=output_dir,
+            options={"text_threshold": config["text_threshold"]},
+        )
+
+        if config["emit_docir"]:
+            docir_output = output_dir / f"{input_path.stem}.docir.json"
+            write_docir(doc_ir, docir_output)
+            print(f"  [docir] -> {docir_output}")
+
+        if config["emit_chunks"]:
+            chunks_output = output_dir / f"{input_path.stem}.blocks.jsonl"
+            write_chunks_jsonl(doc_ir, chunks_output)
+            print(f"  [chunks] -> {chunks_output}")
 
 
 def main(argv: list[str] | None = None) -> None:

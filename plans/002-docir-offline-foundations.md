@@ -175,7 +175,7 @@ Validation:
 
     cd /workspace/pdf2md
     python -m doc2md --help
-    python -m doc2md groundtruth/test1.pdf -o /tmp/doc2md_out -vv
+    python -m doc2md groundtruth/test/deterministic/test1_text.pdf -o /tmp/doc2md_out -vv
     pytest -q
 
 Expected result:
@@ -187,7 +187,7 @@ Repository root validation commands for this plan:
 
     cd /workspace/pdf2md
     python -m doc2md --help
-    python -m doc2md groundtruth/test1.pdf -o /tmp/doc2md_out -vv
+    python -m doc2md groundtruth/test/deterministic/test1_text.pdf -o /tmp/doc2md_out -vv
     pytest -q
 
 Success signals:
@@ -208,9 +208,12 @@ Success signals:
 - [x] 2026-04-25: Evaluated proposal compatibility against current `AGENTS.md` and active plan.
 - [x] 2026-04-25: Added adapted execution plan for DocIR offline foundations.
 - [x] 2026-04-25: Removed the temporary `plan_proposal/` workspace after integrating its direction into repository-level planning.
-- [x] 2026-04-25: Implemented backend interface foundation (`doc2md/backends/base.py`, `registry.py`, `deterministic.py`) and optional backend stubs.
-- [x] 2026-04-25: Added offline tests for backend registry, optional dependency failures, and deterministic DocIR emission.
-- [x] 2026-04-25: Implemented DocIR exporters (`json_ir`, `markdown`, `chunks_jsonl`) and added focused offline exporter tests.
+- [x] 2026-04-25: Implemented DocIR core (`doc2md/ir/` models, IDs, normalization, serialization).
+- [x] 2026-04-25: Implemented backend interface foundation (`doc2md/backends/base.py`, `registry.py`, `deterministic.py`).
+- [x] 2026-04-25: Implemented exporters (`doc2md/exporters/json_ir.py`, `markdown.py`, `chunks_jsonl.py`).
+- [x] 2026-04-25: Added optional backend stubs with lazy imports and explicit missing-dependency errors.
+- [x] 2026-04-25: Integrated minimal CLI DocIR output path (`--emit-docir`) and chunk output path (`--emit-chunks`) while keeping Markdown default behavior.
+- [x] 2026-04-25: Added offline tests for backend registry, optional dependency failures, deterministic DocIR emission, and CLI DocIR output options.
 
 ## Surprises & Discoveries
 

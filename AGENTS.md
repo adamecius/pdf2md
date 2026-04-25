@@ -59,12 +59,12 @@ Vector graphics can contain meaningful diagrams while still producing zero raste
 
 
 ## Licensing and usage constraints
-This repository is for free learning and personal/offline document processing, not commercial deployment.
+This repository is non-commercial, offline, and intended for free learning and personal document processing.
 
 Dependency policy must reflect that intent:
-- Prefer permissive or clearly non-commercial-compatible licenses for optional integrations.
-- Do not make restrictive/heavy backends mandatory for core installation or default tests.
-- Keep optional backend adapters isolated with lazy imports and clear install guidance so contributors can choose compatible stacks.
+- Optional integrations may use permissive, research, educational, or non-commercial-compatible licenses.
+- License constraints should not block local experimentation.
+- Heavy or restrictive backends must remain optional, lazy-loaded, and excluded from default tests.
 
 ## Environment conventions
 Use a local `.venv` by default for Python runtime and package isolation. Conda is optional when contributors prefer conda-managed Python runtimes; continue using pip for Python packages inside either environment.
@@ -98,9 +98,10 @@ This is the target shape unless the active plan says otherwise:
 ├── docs/
 │   └── architecture.md
 ├── plans/
-│   └── 001-deterministic-extraction.md
-├── prompts/
-│   └── first_codex_prompt.md
+│   ├── 001-deterministic-extraction.md
+│   └── 002-docir-offline-foundations.md
+├── benchmarks/
+│   └── omnidocbench/
 ├── doc2md/
 │   ├── __main__.py
 │   ├── cli.py
@@ -109,11 +110,16 @@ This is the target shape unless the active plan says otherwise:
 │   ├── profiler/
 │   │   ├── __init__.py
 │   │   └── analyzer.py
-│   └── strategies/
-│       ├── __init__.py
-│       └── deterministic.py
+│   ├── strategies/
+│   │   ├── __init__.py
+│   │   └── deterministic.py
+│   ├── ir/
+│   ├── backends/
+│   └── exporters/
 └── tests/
 ```
+
+Note: keep this layout guidance intentionally high-level; do not over-specify future orchestration modules until implementation plans require them.
 
 ## Coding expectations
 - Keep functions small and explicit.
