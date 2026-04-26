@@ -1,4 +1,4 @@
-# CURRENT PLAN — DocBench
+# CURRENT PLAN — pdf2md
 
 **Current Phase**: 0 — Understand Target Vision
 **Current Task**: 0.2 — Confirm understanding ✅ (completed April 26, 2026; awaiting human APPROVED)

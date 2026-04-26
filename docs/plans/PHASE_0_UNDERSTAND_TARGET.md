@@ -18,7 +18,7 @@
 - [x] End with: "Target vision understood. Ready for human approval."
 
 ## Task 0.2 Summary
-DocBench’s goal is to provide a lightweight, extensible framework to benchmark document-analysis backends through a unified interface. The core package should stay minimal (CLI, IR models, converters, registry, reporting), while heavy parser dependencies are isolated per backend in separate local virtual environments. The user-facing flow is simple: run a backend on a PDF and produce standardized outputs (Markdown and JSON), then run config-driven benchmark comparisons across backends.
+pdf2md’s goal is to provide a lightweight, extensible framework to benchmark document-analysis backends through a unified interface. The core package should stay minimal (CLI, IR models, converters, registry, reporting), while heavy parser dependencies are isolated per backend in separate local virtual environments. The user-facing flow is simple: run a backend on a PDF and produce standardized outputs (Markdown and JSON), then run config-driven benchmark comparisons across backends.
 
 The Intermediate Representation (`DocumentIR`) is the central contract and single source of truth. Every backend must map its native output into the same IR shape inside its own environment. This decouples parser-specific logic from the core, enables fair backend comparison, and allows shared downstream conversion/reporting without custom per-backend handling.
 
