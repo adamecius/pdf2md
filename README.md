@@ -29,6 +29,8 @@ python -m doc2md path/to/input.pdf -o out/ -vv
 
 Run an optional backend directly from the CLI:
 
+## Quick start
+
 ```bash
 python -m doc2md path/to/input.pdf -o out-mineru --backend mineru --emit-docir
 python -m doc2md path/to/input.pdf -o out-paddle --backend paddleocr_vl --emit-docir
@@ -49,6 +51,31 @@ Installability smoke checks (isolated sandbox):
 bash install_scripts/check_backend_installs.sh core
 bash install_scripts/check_backend_installs.sh mineru
 bash install_scripts/check_backend_installs.sh paddleocr_vl
+```
+
+These checks validate installation/import contracts only, not extraction quality.
+
+## Validation
+Run on one PDF:
+
+```bash
+python -m doc2md path/to/input.pdf -o out/ -vv
+```
+
+## Optional backend experiments
+
+The default install is lightweight. Optional backends stay out of `requirements.txt`.
+
+Use backend-specific environments in `envs/` and the backend runners:
+
+- `scripts/run_backend.sh`
+- `scripts/run_many_backends.sh`
+
+Installability smoke checks (isolated sandbox):
+
+```bash
+python -m doc2md --help
+pytest -q
 ```
 
 These checks validate installation/import contracts only, not extraction quality.
