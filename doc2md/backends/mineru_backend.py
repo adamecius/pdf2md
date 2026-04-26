@@ -5,6 +5,8 @@ from __future__ import annotations
 import importlib
 import importlib.util
 import json
+import os
+import shutil
 import subprocess
 import sys
 import uuid
@@ -152,27 +154,8 @@ class MineruBackend(ExtractionBackend):
         raw_output_dir = Path(output_dir) if output_dir is not None else source.parent / f"{source.stem}_mineru"
         raw_output_dir.mkdir(parents=True, exist_ok=True)
 
-        # Use module invocation for environment consistency.
-        command = [
-            sys.executable,
-            "-m",
-            "mineru",
-            "--path",
-            str(source),
-            "--output",
-            str(raw_output_dir),
-        ]
-        if opts.get("mineru_lang"):
-            command.extend(["--lang", str(opts["mineru_lang"])])
-
-        try:
-            subprocess.run(command, check=True, capture_output=True, text=True)
-        except subprocess.CalledProcessError as exc:
-            stderr_tail = (exc.stderr or "").strip().splitlines()[-1:] or [""]
-            message = stderr_tail[0] if stderr_tail[0] else "unknown MinerU CLI failure"
-            raise RuntimeError(
-                f"{self.__class__.__name__} failed to run MinerU CLI: {message}"
-            ) from exc
+        cli_commands = self._candidate_cli_commands(source, raw_output_dir, opts)
+        self._run_first_working_cli(cli_commands)
 
         markdown = self._load_markdown_from_output(raw_output_dir)
         warnings: list[str] = []
@@ -191,3 +174,53 @@ class MineruBackend(ExtractionBackend):
             warnings.append("mineru output did not include markdown; used JSON/raw fallback")
 
         return self._build_minimal_docir(source, markdown, raw_output_dir, opts, warnings)
+
+    @staticmethod
+    def _candidate_cli_commands(
+        source: Path,
+        raw_output_dir: Path,
+        options: dict[str, Any],
+    ) -> list[list[str]]:
+        """Build candidate MinerU CLI commands in fallback order.
+
+        Some MinerU package variants expose a console script but no
+        ``mineru.__main__`` module. Try module execution first, then script
+        execution from the current interpreter's bin directory and PATH.
+        """
+
+        base_args = ["--path", str(source), "--output", str(raw_output_dir)]
+        if options.get("mineru_lang"):
+            base_args.extend(["--lang", str(options["mineru_lang"])])
+
+        commands: list[list[str]] = [[sys.executable, "-m", "mineru", *base_args]]
+
+        exe_name = "mineru.exe" if os.name == "nt" else "mineru"
+        sibling_exe = Path(sys.executable).resolve().parent / exe_name
+        if sibling_exe.is_file():
+            commands.append([str(sibling_exe), *base_args])
+
+        path_exe = shutil.which("mineru")
+        if path_exe and path_exe != str(sibling_exe):
+            commands.append([path_exe, *base_args])
+
+        return commands
+
+    def _run_first_working_cli(self, commands: list[list[str]]) -> None:
+        """Run the first MinerU CLI invocation variant that succeeds."""
+
+        errors: list[str] = []
+        for command in commands:
+            try:
+                subprocess.run(command, check=True, capture_output=True, text=True)
+                return
+            except subprocess.CalledProcessError as exc:
+                stderr_tail = (exc.stderr or "").strip().splitlines()[-1:] or [""]
+                message = stderr_tail[0] if stderr_tail[0] else "unknown MinerU CLI failure"
+                errors.append(f"{' '.join(command[:3])}: {message}")
+                # If module execution fails due missing __main__, continue fallback.
+                if "mineru.__main__" in (exc.stderr or ""):
+                    continue
+                break
+
+        detail = "; ".join(errors) if errors else "no MinerU CLI command candidates found"
+        raise RuntimeError(f"{self.__class__.__name__} failed to run MinerU CLI: {detail}")
