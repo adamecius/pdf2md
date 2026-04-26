@@ -1,6 +1,6 @@
 # AGENT CONSTITUTION — STRICT MODE
 
-You are an agent on the DocBench project.
+You are an agent on the pdf2md project.
 
 **ONLY RULE**: 
 Read `docs/plans/CURRENT_PLAN.md` first, then do exactly what it says. Nothing else.

@@ -1,11 +1,11 @@
-# DocBench Architecture
+# pdf2md Architecture
 
 **Version**: 1.0  
 **Last Updated**: April 26, 2026
 
 ## 1. Overview
 
-DocBench is a lightweight, extensible Python package that provides a unified interface to **benchmark different tools to analyse documents**.
+pdf2md is a lightweight, extensible Python package that provides a unified interface to **benchmark different tools to analyse documents**.
 
 **Core Goals** (from original vision):
 - Support different benchmarks such as OmniDocBench
@@ -69,7 +69,7 @@ Each backend is treated as a separate pipeline of the application.
 
 **Core installation** (remains light):
 ```bash
-pip install docbench
+pip install pdf2md
 ```
 
 **Each backend** (example for MinerU):
@@ -117,6 +117,6 @@ All agents must follow the rules in `docs/AGENTS.md` and update `CURRENT_PLAN.md
 
 You can now download it from:
 
-**`/home/workdir/artifacts/docbench/docs/architecture.md`**
+**`/home/workdir/artifacts/pdf2md/docs/architecture.md`**
 
 Would you like me to also create the other key files (`AGENTS.md`, `CURRENT_PLAN.md`, `PHASE_0_UNDERSTAND_TARGET.md`, etc.) so you have the complete obedience framework ready? Just say **"Yes, create the full framework"**.
