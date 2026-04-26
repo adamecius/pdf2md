@@ -125,6 +125,7 @@ def resolve_config(args: argparse.Namespace) -> dict:
 
     print(f"  [config] Resolved: backend={config['backend']}, "
           f"strategy={config['force_strategy'] or 'auto'}, "
+    print(f"  [config] Resolved: strategy={config['force_strategy'] or 'auto'}, "
           f"text_threshold={config['text_threshold']}, "
           f"emit_docir={config['emit_docir']}, emit_chunks={config['emit_chunks']}")
 

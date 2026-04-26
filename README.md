@@ -47,6 +47,8 @@ Use backend-specific environments in `envs/` and the backend runners:
 
 Core-only environment (default):
 
+## Quick start
+
 ```bash
 python3.12 -m venv .venv
 source .venv/bin/activate
@@ -55,13 +57,15 @@ python -m pip install -r requirements.txt pytest
 ```
 
 MinerU environment:
+Run on one PDF:
 
 ```bash
-python3.12 -m venv .venv-mineru
-source .venv-mineru/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt pytest mineru
+python -m doc2md path/to/input.pdf -o out/ -vv
 ```
+
+## Optional backend experiments
+
+The default install is lightweight. Optional backends stay out of `requirements.txt`.
 
 PaddleOCR-VL environment:
 
@@ -96,6 +100,11 @@ Each backend run emits:
 
 - `document.docir.json` (canonical artifact)
 - `document.md` (Markdown export)
+
+Use backend-specific environments in `envs/` and the backend runners:
+
+- `scripts/run_backend.sh`
+- `scripts/run_many_backends.sh`
 
 Installability smoke checks (isolated sandbox):
 
