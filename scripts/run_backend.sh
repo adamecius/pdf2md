@@ -61,6 +61,7 @@ from pathlib import Path
 
 from doc2md.backends.base import OptionalBackendUnavailable
 from doc2md.backends.registry import create_backend
+from doc2md.exporters.markdown import write_markdown
 from doc2md.ir import to_dict
 
 registry_name, input_pdf, run_dir = sys.argv[1], Path(sys.argv[2]), Path(sys.argv[3])
@@ -76,5 +77,6 @@ except RuntimeError as exc:
 payload = to_dict(doc)
 out_path = run_dir / "document.docir.json"
 out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+write_markdown(doc, run_dir / "document.md")
 print(f"Run output: {run_dir}")
 PY

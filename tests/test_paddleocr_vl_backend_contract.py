@@ -57,13 +57,31 @@ def test_extract_raises_optional_backend_unavailable_when_missing_dependency(
     assert "paddle" in message
 
 
-def test_extract_still_reports_stub_when_dependency_present(tmp_path, monkeypatch) -> None:
+def test_extract_runs_when_dependency_present(tmp_path, monkeypatch) -> None:
     backend = PaddleOcrVlBackend()
 
     _pretend_modules(monkeypatch, {"paddleocr", "paddle"})
-    monkeypatch.setattr("builtins.__import__", lambda *args, **kwargs: object())
+    monkeypatch.setattr(backend, "_load_optional_dependencies", lambda: None)
 
-    with pytest.raises(RuntimeError) as exc_info:
-        backend.extract(tmp_path / "dummy.pdf", output_dir=tmp_path)
+    class _FakePaddleOCR:
+        def __init__(self, **_kwargs):
+            pass
 
-    assert "not implemented" in str(exc_info.value).lower()
+        def ocr(self, _image_path: str, cls: bool = True):  # noqa: ARG002
+            return [[[[[0, 0], [1, 0], [1, 1], [0, 1]], ("ok", 0.99)]]]
+
+    import sys
+    import types
+    import pymupdf
+
+    fake_module = types.SimpleNamespace(PaddleOCR=_FakePaddleOCR)
+    monkeypatch.setitem(sys.modules, "paddleocr", fake_module)
+
+    pdf_path = tmp_path / "dummy.pdf"
+    doc = pymupdf.open()
+    doc.new_page()
+    doc.save(pdf_path)
+    doc.close()
+
+    doc_ir = backend.extract(pdf_path, output_dir=tmp_path)
+    assert doc_ir.blocks
