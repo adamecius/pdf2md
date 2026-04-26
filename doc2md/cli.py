@@ -19,7 +19,7 @@ import pymupdf
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="doc2md",
-        description="Convert PDF documents to Markdown with configurable OCR and layout detection.",
+        description="Convert one PDF document to Markdown via profiler-driven routing.",
     )
 
     # ── Required ──────────────────────────────────────────────
@@ -43,20 +43,6 @@ def build_parser() -> argparse.ArgumentParser:
         type=Path,
         default=None,
         help="YAML config file for batch/benchmark runs.",
-    )
-
-    # ── Model selection (CLI overrides YAML) ──────────────────
-    parser.add_argument(
-        "--ocr",
-        type=str,
-        default=None,
-        help="OCR engine name (e.g. surya, paddleocr, got). Overrides config.",
-    )
-    parser.add_argument(
-        "--layout",
-        type=str,
-        default=None,
-        help="Layout detector name (e.g. doclayout_yolo, yolov11-obb, rt-detr). Overrides config.",
     )
 
     # ── Strategy override ─────────────────────────────────────
@@ -102,8 +88,6 @@ def resolve_config(args: argparse.Namespace) -> dict:
     """Merge defaults <- YAML <- CLI into a single config dict."""
 
     config = {
-        "ocr": "surya",
-        "layout": "doclayout_yolo",
         "force_strategy": None,
         "text_threshold": 0.8,
         "verbose": 0,
@@ -117,10 +101,6 @@ def resolve_config(args: argparse.Namespace) -> dict:
     else:
         print("  [config] No YAML provided, using defaults.")
 
-    if args.ocr is not None:
-        config["ocr"] = args.ocr
-    if args.layout is not None:
-        config["layout"] = args.layout
     if args.force_strategy is not None:
         config["force_strategy"] = args.force_strategy
     if args.text_threshold != 0.8:
@@ -129,8 +109,7 @@ def resolve_config(args: argparse.Namespace) -> dict:
     config["emit_docir"] = args.emit_docir
     config["emit_chunks"] = args.emit_chunks
 
-    print(f"  [config] Resolved: ocr={config['ocr']}, layout={config['layout']}, "
-          f"strategy={config['force_strategy'] or 'auto'}, "
+    print(f"  [config] Resolved: strategy={config['force_strategy'] or 'auto'}, "
           f"text_threshold={config['text_threshold']}, "
           f"emit_docir={config['emit_docir']}, emit_chunks={config['emit_chunks']}")
 

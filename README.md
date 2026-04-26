@@ -1,67 +1,18 @@
 # doc2md
 
-`doc2md` is an experimental PDF-to-Markdown pipeline.
+`doc2md` is a CLI-only package that converts a **single PDF** to Markdown.
 
-This project currently targets Python 3.12 and relies on a small dependency set.
+Current implemented core flow:
 
-## Recommended setup (default): `.venv`
+1. profile each PDF page with structural signals,
+2. route each page (`deterministic` / `hybrid` / `visual`),
+3. execute the deterministic lane now,
+4. normalize output through DocIR,
+5. export Markdown (and optional DocIR JSON / chunks JSONL).
 
-Use a local virtual environment by default. This is the simplest workflow for most contributors.
+Hybrid and visual execution are intentionally scaffolded but not fully implemented.
 
-```bash
-# 1) Create and activate a local virtual environment
-python3.12 -m venv .venv
-source .venv/bin/activate
-
-# 2) Upgrade pip
-python -m pip install --upgrade pip
-
-# 3) Install runtime dependencies
-pip install -r requirements.txt
-
-# 4) Optional but recommended for local validation
-pip install pytest
-```
-
-## Secondary setup (experimental): Conda runtime + pip packages
-
-> **Status:** Secondary and experimental guidance.
-> Prefer `.venv` unless you already manage Python versions with conda.
-
-```bash
-# 1) Create and activate a conda environment
-conda create -n doc2md python=3.12 -y
-conda activate doc2md
-
-# 2) Upgrade pip inside the conda env
-python -m pip install --upgrade pip
-
-# 3) Install runtime dependencies
-pip install -r requirements.txt
-
-# 4) Optional but recommended for local validation
-pip install pytest
-```
-
-## Notes
-
-- `.venv` is the default recommendation for day-to-day development in this repository.
-- Conda remains useful when you want conda-managed Python runtimes.
-- Current dependencies are lightweight and pip-installable (`pymupdf`, `pyyaml`).
-- Backend expansion is organized in phases; Phase 3 coordination rules live in `plans/003_rules-backend-dependency-installation-audit.md` and backend-specific subplans are `plans/003_1-*`, `plans/003_2-*`, etc.
-
-## Quick validation
-
-```bash
-python -m doc2md --help
-pytest -q
-```
-
-## Backend installation options
-
-The default install is the lightweight core path. It supports the current
-deterministic PDF text pipeline and does not install optional OCR or ML
-backends:
+## Quick start
 
 ```bash
 python3.12 -m venv .venv
@@ -70,42 +21,22 @@ python -m pip install --upgrade pip
 python -m pip install -r requirements.txt pytest
 ```
 
-Optional backend dependencies should be installed only when you are testing that
-backend. They are intentionally not listed in `requirements.txt`.
-
-Backend scaffolding lives in these project files:
-
-- `backend_catalog.yaml` defines backend identities and environment manifests.
-- `envs/core.yml`, `envs/mineru.yml`, and `envs/paddleocr_vl.yml` provide isolated environment recommendations.
-- `scripts/run_backend.sh` runs one backend into `runs/<document_id>/<backend_id>/`.
-- `scripts/run_many_backends.sh` runs multiple backend IDs sequentially for the same input.
-
-Example deterministic run:
+Run on one PDF:
 
 ```bash
-scripts/run_backend.sh deterministic test_image1.pdf
+python -m doc2md path/to/input.pdf -o out/ -vv
 ```
 
-For a MinerU environment:
+## Optional backend experiments
 
-```bash
-python3.12 -m venv .venv-mineru
-source .venv-mineru/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt pytest mineru
-```
+The default install is lightweight. Optional backends stay out of `requirements.txt`.
 
-For a PaddleOCR-VL environment:
+Use backend-specific environments in `envs/` and the backend runners:
 
-```bash
-python3.12 -m venv .venv-paddleocr-vl
-source .venv-paddleocr-vl/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt pytest paddleocr paddlepaddle
-```
+- `scripts/run_backend.sh`
+- `scripts/run_many_backends.sh`
 
-You can validate installability without touching your active environment by
-using the local install sandbox:
+Installability smoke checks (isolated sandbox):
 
 ```bash
 bash install_scripts/check_backend_installs.sh core
@@ -113,8 +44,11 @@ bash install_scripts/check_backend_installs.sh mineru
 bash install_scripts/check_backend_installs.sh paddleocr_vl
 ```
 
-The sandbox writes virtual environments, logs, caches, and
-`sandbox/backend-installs/summary.md` under `sandbox/`, which is ignored by git.
-These checks prove dependency installation and import smoke tests only; they do
-not prove backend extraction quality or download backend models. More detail is
-in `docs/backends.md`.
+These checks validate installation/import contracts only, not extraction quality.
+
+## Validation
+
+```bash
+python -m doc2md --help
+pytest -q
+```
