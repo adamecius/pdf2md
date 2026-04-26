@@ -5,9 +5,12 @@ import sys
 from pathlib import Path
 
 from doc2md.assembler import Assembler
+from doc2md.backends.base import OptionalBackendUnavailable
 from doc2md.backends.deterministic import DeterministicBackend
+from doc2md.backends.registry import create_backend, list_backends
 from doc2md.exporters.chunks_jsonl import write_chunks_jsonl
 from doc2md.exporters.json_ir import write_docir
+from doc2md.exporters.markdown import write_markdown
 from doc2md.models import Strategy
 from doc2md.profiler import profile_document
 from doc2md.router import route_document
@@ -19,7 +22,7 @@ import pymupdf
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="doc2md",
-        description="Convert PDF documents to Markdown with configurable OCR and layout detection.",
+        description="Convert one PDF document to Markdown via profiler-driven routing.",
     )
 
     # ── Required ──────────────────────────────────────────────
@@ -45,21 +48,15 @@ def build_parser() -> argparse.ArgumentParser:
         help="YAML config file for batch/benchmark runs.",
     )
 
-    # ── Model selection (CLI overrides YAML) ──────────────────
+    # ── Strategy override ─────────────────────────────────────
     parser.add_argument(
-        "--ocr",
+        "--backend",
         type=str,
-        default=None,
-        help="OCR engine name (e.g. surya, paddleocr, got). Overrides config.",
-    )
-    parser.add_argument(
-        "--layout",
-        type=str,
-        default=None,
-        help="Layout detector name (e.g. doclayout_yolo, yolov11-obb, rt-detr). Overrides config.",
+        choices=list_backends(),
+        default="deterministic",
+        help="Extraction backend to run (default: deterministic).",
     )
 
-    # ── Strategy override ─────────────────────────────────────
     parser.add_argument(
         "--force-strategy",
         type=str,
@@ -102,8 +99,7 @@ def resolve_config(args: argparse.Namespace) -> dict:
     """Merge defaults <- YAML <- CLI into a single config dict."""
 
     config = {
-        "ocr": "surya",
-        "layout": "doclayout_yolo",
+        "backend": "deterministic",
         "force_strategy": None,
         "text_threshold": 0.8,
         "verbose": 0,
@@ -117,10 +113,8 @@ def resolve_config(args: argparse.Namespace) -> dict:
     else:
         print("  [config] No YAML provided, using defaults.")
 
-    if args.ocr is not None:
-        config["ocr"] = args.ocr
-    if args.layout is not None:
-        config["layout"] = args.layout
+    if args.backend:
+        config["backend"] = args.backend
     if args.force_strategy is not None:
         config["force_strategy"] = args.force_strategy
     if args.text_threshold != 0.8:
@@ -129,7 +123,7 @@ def resolve_config(args: argparse.Namespace) -> dict:
     config["emit_docir"] = args.emit_docir
     config["emit_chunks"] = args.emit_chunks
 
-    print(f"  [config] Resolved: ocr={config['ocr']}, layout={config['layout']}, "
+    print(f"  [config] Resolved: backend={config['backend']}, "
           f"strategy={config['force_strategy'] or 'auto'}, "
           f"text_threshold={config['text_threshold']}, "
           f"emit_docir={config['emit_docir']}, emit_chunks={config['emit_chunks']}")
@@ -201,6 +195,38 @@ def run_pipeline(input_path: Path, output_dir: Path, config: dict) -> None:
 
     md_output = output_dir / (input_path.stem + ".md")
     verbose = config["verbose"]
+    backend_id = config["backend"]
+
+    if backend_id != "deterministic":
+        print(f"\n{'='*60}")
+        print(f"  [backend] Running optional backend: {backend_id}")
+        backend = create_backend(backend_id)
+        try:
+            doc_ir = backend.extract(
+                input_path,
+                output_dir=output_dir,
+                options={"text_threshold": config["text_threshold"]},
+            )
+        except OptionalBackendUnavailable as exc:
+            print(f"  [error] {exc}")
+            sys.exit(2)
+        except RuntimeError as exc:
+            print(f"  [error] Backend runtime error: {exc}")
+            sys.exit(3)
+
+        write_markdown(doc_ir, md_output)
+        print(f"  [backend] Markdown -> {md_output}")
+
+        if config["emit_docir"] or config["emit_chunks"]:
+            if config["emit_docir"]:
+                docir_output = output_dir / f"{input_path.stem}.docir.json"
+                write_docir(doc_ir, docir_output)
+                print(f"  [docir] -> {docir_output}")
+            if config["emit_chunks"]:
+                chunks_output = output_dir / f"{input_path.stem}.blocks.jsonl"
+                write_chunks_jsonl(doc_ir, chunks_output)
+                print(f"  [chunks] -> {chunks_output}")
+        return
 
     # ── Step 1: Profile (real PyMuPDF analysis) ───────────────
     print(f"\n{'='*60}")
