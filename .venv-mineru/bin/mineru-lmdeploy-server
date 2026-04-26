@@ -1,0 +1,6 @@
+#!/home/jgarcia/pdf2md/pdf2md/.venv-mineru/bin/python
+import sys
+from mineru.cli.vlm_server import lmdeploy_server
+if __name__ == '__main__':
+    sys.argv[0] = sys.argv[0].removesuffix('.exe')
+    sys.exit(lmdeploy_server())

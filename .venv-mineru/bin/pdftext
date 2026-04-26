@@ -1,0 +1,6 @@
+#!/home/jgarcia/pdf2md/pdf2md/.venv-mineru/bin/python
+import sys
+from pdftext.scripts.extract_text import extract_text_cli
+if __name__ == '__main__':
+    sys.argv[0] = sys.argv[0].removesuffix('.exe')
+    sys.exit(extract_text_cli())
