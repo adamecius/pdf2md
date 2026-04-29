@@ -1,85 +1,94 @@
 #!/usr/bin/env python3
-"""DeepSeek-OCR PDF -> Markdown + JSON (standalone, minimal).
+"""DeepSeek-OCR PDF -> Markdown + JSON (standalone).
 
-You can pass either:
-- --repo-path /local/path/to/DeepSeek-OCR
-- --repo-path https://github.com/deepseek-ai/DeepSeek-OCR
-
-If a Git URL is passed, the repo is cloned into `.cache/deepseek-ocr` first.
+Uses the official Hugging Face model `deepseek-ai/DeepSeek-OCR` directly.
+No local DeepSeek-OCR repo clone is required.
 """
 
 from __future__ import annotations
 
 import argparse
 import json
-import os
-import subprocess
 from pathlib import Path
 
-
-DEFAULT_REPO_URL = "https://github.com/deepseek-ai/DeepSeek-OCR"
-
-
-def is_git_url(value: str) -> bool:
-    return value.startswith("http://") or value.startswith("https://") or value.startswith("git@")
+import fitz
+import torch
+from PIL import Image
+from transformers import AutoModel, AutoTokenizer
 
 
-def ensure_repo(repo_value: str | None) -> Path:
-    if not repo_value:
-        env_repo = os.getenv("DEEPSEEK_OCR_REPO")
-        if not env_repo:
-            raise EnvironmentError("Set DEEPSEEK_OCR_REPO or pass --repo-path")
-        repo_value = env_repo
-
-    if is_git_url(repo_value):
-        repo_dir = Path(".cache/deepseek-ocr").resolve()
-        if not (repo_dir / ".git").exists():
-            repo_dir.parent.mkdir(parents=True, exist_ok=True)
-            subprocess.run(["git", "clone", repo_value, str(repo_dir)], check=True)
-        else:
-            subprocess.run(["git", "-C", str(repo_dir), "pull", "--ff-only"], check=True)
-        return repo_dir
-
-    repo_path = Path(repo_value).expanduser().resolve()
-    if not repo_path.exists():
-        raise FileNotFoundError(f"Repo path does not exist: {repo_path}")
-    return repo_path
+PROMPT = "<image>\n<|grounding|>Convert the document to markdown."
 
 
-def run_deepseek_ocr(repo_path: Path, input_pdf: Path, output_dir: Path, script_path: str | None = None) -> Path:
+def pdf_to_images(pdf_path: Path, dpi: int = 150) -> list[Image.Image]:
+    doc = fitz.open(pdf_path)
+    zoom = dpi / 72.0
+    mat = fitz.Matrix(zoom, zoom)
+    images: list[Image.Image] = []
+    try:
+        for page in doc:
+            pix = page.get_pixmap(matrix=mat, alpha=False)
+            img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
+            images.append(img)
+    finally:
+        doc.close()
+    return images
+
+
+def load_model(model_name: str, device: str):
+    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+    model = AutoModel.from_pretrained(
+        model_name,
+        trust_remote_code=True,
+        use_safetensors=True,
+        _attn_implementation="flash_attention_2",
+    )
+    model = model.eval()
+    if device.startswith("cuda"):
+        model = model.to(device).to(torch.bfloat16)
+    return tokenizer, model
+
+
+def run_ocr_on_pdf(input_pdf: Path, output_dir: Path, model_name: str, device: str) -> tuple[Path, Path]:
     output_dir.mkdir(parents=True, exist_ok=True)
+    page_images = pdf_to_images(input_pdf)
+    if not page_images:
+        raise ValueError(f"No pages found in PDF: {input_pdf}")
 
-    run_script = repo_path / (script_path or "run_deepseek_ocr.py")
-    if not run_script.exists():
-        raise FileNotFoundError(
-            "Could not find DeepSeek-OCR entry script. "
-            f"Looked for: {run_script}. Pass --script-path if needed."
+    tokenizer, model = load_model(model_name=model_name, device=device)
+
+    page_markdowns: list[str] = []
+    for idx, img in enumerate(page_images, start=1):
+        tmp_img = output_dir / f"{input_pdf.stem}_page_{idx:04d}.png"
+        img.save(tmp_img)
+        result = model.infer(
+            tokenizer,
+            prompt=PROMPT,
+            image_file=str(tmp_img),
+            output_path=str(output_dir),
+            base_size=1024,
+            image_size=640,
+            crop_mode=True,
+            save_results=False,
+            test_compress=True,
         )
+        page_markdowns.append(f"\n\n<!-- page {idx} -->\n{result}")
 
-    cmd = ["python", str(run_script), "--input", str(input_pdf), "--output", str(output_dir)]
-    subprocess.run(cmd, check=True, cwd=repo_path)
-    return output_dir
+    full_markdown = "".join(page_markdowns).strip()
+    md_path = output_dir / f"{input_pdf.stem}.md"
+    md_path.write_text(full_markdown, encoding="utf-8")
 
-
-def normalize_outputs(input_pdf: Path, output_dir: Path) -> tuple[Path, Path]:
-    stem = input_pdf.stem
-
-    md_candidates = sorted(output_dir.glob(f"{stem}*.md")) + sorted(output_dir.glob("*.md"))
-    if not md_candidates:
-        raise FileNotFoundError(f"No markdown output found in {output_dir}")
-
-    md_path = output_dir / f"{stem}.md"
-    md_text = md_candidates[0].read_text(encoding="utf-8")
-    md_path.write_text(md_text, encoding="utf-8")
-
-    json_path = output_dir / f"{stem}.json"
+    json_path = output_dir / f"{input_pdf.stem}.json"
     payload = {
         "backend": "deepseek-ocr",
+        "model": model_name,
         "source_pdf": str(input_pdf),
+        "pages": len(page_images),
         "markdown_file": str(md_path),
-        "markdown": md_text,
+        "markdown": full_markdown,
     }
     json_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
     return md_path, json_path
 
 
@@ -87,29 +96,18 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="DeepSeek-OCR PDF -> Markdown + JSON")
     parser.add_argument("-i", "--input", required=True, help="Input PDF path")
     parser.add_argument("-o", "--output", default="deepseek_output", help="Output directory")
-    parser.add_argument(
-        "--repo-path",
-        default=None,
-        help=(
-            "Local DeepSeek-OCR path OR git URL. "
-            f"Example: {DEFAULT_REPO_URL}"
-        ),
-    )
-    parser.add_argument("--script-path", default=None, help="Entrypoint inside the repo, e.g. scripts/run_ocr.py")
+    parser.add_argument("-m", "--model", default="deepseek-ai/DeepSeek-OCR", help="HF model id")
+    parser.add_argument("--device", default="cuda:0" if torch.cuda.is_available() else "cpu", help="Device")
     args = parser.parse_args()
 
     input_pdf = Path(args.input).expanduser().resolve()
     if not input_pdf.exists() or input_pdf.suffix.lower() != ".pdf":
         raise ValueError(f"Input must be an existing PDF file: {input_pdf}")
 
-    repo_path = ensure_repo(args.repo_path)
-
     out_dir = Path(args.output).expanduser().resolve()
-    run_deepseek_ocr(repo_path=repo_path, input_pdf=input_pdf, output_dir=out_dir, script_path=args.script_path)
-    md_path, json_path = normalize_outputs(input_pdf=input_pdf, output_dir=out_dir)
+    md_path, json_path = run_ocr_on_pdf(input_pdf, out_dir, args.model, args.device)
 
     print("✅ Conversion complete")
-    print(f"Repo: {repo_path}")
     print(f"Markdown: {md_path}")
     print(f"JSON: {json_path}")
 
