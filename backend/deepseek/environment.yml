@@ -1,0 +1,16 @@
+name: deepseek-ocr-backend
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - git
+  - poppler
+  - pip:
+      - torch
+      - torchvision
+      - transformers>=4.50.0
+      - accelerate
+      - pypdf>=5.4.0
+      - pillow
+      - pymupdf
