@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
-"""DeepSeek-OCR PDF -> Markdown + JSON (standalone).
+"""DeepSeek-OCR PDF -> Markdown + JSON.
 
-Uses the official Hugging Face model `deepseek-ai/DeepSeek-OCR` directly.
-No local DeepSeek-OCR repo clone is required.
+Workflow requested by user:
+1) Download official GitHub repo (deepseek-ai/DeepSeek-OCR).
+2) Follow official HF-style inference (AutoModel/AutoTokenizer).
 """
 
 from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 from pathlib import Path
 
 import fitz
@@ -17,7 +19,19 @@ from PIL import Image
 from transformers import AutoModel, AutoTokenizer
 
 
+DEFAULT_REPO_URL = "https://github.com/deepseek-ai/DeepSeek-OCR"
+DEFAULT_MODEL = "deepseek-ai/DeepSeek-OCR"
 PROMPT = "<image>\n<|grounding|>Convert the document to markdown."
+
+
+def ensure_repo(repo_url: str, repo_cache_dir: Path) -> Path:
+    repo_cache_dir.mkdir(parents=True, exist_ok=True)
+    repo_dir = repo_cache_dir / "DeepSeek-OCR"
+    if not (repo_dir / ".git").exists():
+        subprocess.run(["git", "clone", repo_url, str(repo_dir)], check=True)
+    else:
+        subprocess.run(["git", "-C", str(repo_dir), "pull", "--ff-only"], check=True)
+    return repo_dir
 
 
 def pdf_to_images(pdf_path: Path, dpi: int = 150) -> list[Image.Image]:
@@ -28,43 +42,40 @@ def pdf_to_images(pdf_path: Path, dpi: int = 150) -> list[Image.Image]:
     try:
         for page in doc:
             pix = page.get_pixmap(matrix=mat, alpha=False)
-            img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
-            images.append(img)
+            images.append(Image.frombytes("RGB", [pix.width, pix.height], pix.samples))
     finally:
         doc.close()
     return images
 
 
-def load_model(model_name: str, device: str):
-    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+def load_model(model_name: str, device: str, local_only: bool) -> tuple[AutoTokenizer, AutoModel]:
+    attn_impl = "flash_attention_2" if device.startswith("cuda") else "eager"
+    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True, local_files_only=local_only)
     model = AutoModel.from_pretrained(
         model_name,
         trust_remote_code=True,
         use_safetensors=True,
-        _attn_implementation="flash_attention_2",
-    )
-    model = model.eval()
+        _attn_implementation=attn_impl,
+        local_files_only=local_only,
+    ).eval()
     if device.startswith("cuda"):
         model = model.to(device).to(torch.bfloat16)
     return tokenizer, model
 
 
-def run_ocr_on_pdf(input_pdf: Path, output_dir: Path, model_name: str, device: str) -> tuple[Path, Path]:
+def run(input_pdf: Path, output_dir: Path, model_name: str, device: str, local_only: bool) -> tuple[Path, Path]:
     output_dir.mkdir(parents=True, exist_ok=True)
-    page_images = pdf_to_images(input_pdf)
-    if not page_images:
-        raise ValueError(f"No pages found in PDF: {input_pdf}")
+    pages = pdf_to_images(input_pdf)
+    tokenizer, model = load_model(model_name, device, local_only)
 
-    tokenizer, model = load_model(model_name=model_name, device=device)
-
-    page_markdowns: list[str] = []
-    for idx, img in enumerate(page_images, start=1):
-        tmp_img = output_dir / f"{input_pdf.stem}_page_{idx:04d}.png"
-        img.save(tmp_img)
-        result = model.infer(
+    page_md: list[str] = []
+    for i, img in enumerate(pages, start=1):
+        img_file = output_dir / f"{input_pdf.stem}_p{i:04d}.png"
+        img.save(img_file)
+        md = model.infer(
             tokenizer,
             prompt=PROMPT,
-            image_file=str(tmp_img),
+            image_file=str(img_file),
             output_path=str(output_dir),
             base_size=1024,
             image_size=640,
@@ -72,41 +83,41 @@ def run_ocr_on_pdf(input_pdf: Path, output_dir: Path, model_name: str, device: s
             save_results=False,
             test_compress=True,
         )
-        page_markdowns.append(f"\n\n<!-- page {idx} -->\n{result}")
+        page_md.append(f"\n\n<!-- page {i} -->\n{md}")
 
-    full_markdown = "".join(page_markdowns).strip()
+    merged = "".join(page_md).strip()
     md_path = output_dir / f"{input_pdf.stem}.md"
-    md_path.write_text(full_markdown, encoding="utf-8")
-
     json_path = output_dir / f"{input_pdf.stem}.json"
-    payload = {
+    md_path.write_text(merged, encoding="utf-8")
+    json_path.write_text(json.dumps({
         "backend": "deepseek-ocr",
         "model": model_name,
         "source_pdf": str(input_pdf),
-        "pages": len(page_images),
-        "markdown_file": str(md_path),
-        "markdown": full_markdown,
-    }
-    json_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-
+        "pages": len(pages),
+        "markdown": merged,
+    }, ensure_ascii=False, indent=2), encoding="utf-8")
     return md_path, json_path
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="DeepSeek-OCR PDF -> Markdown + JSON")
-    parser.add_argument("-i", "--input", required=True, help="Input PDF path")
-    parser.add_argument("-o", "--output", default="deepseek_output", help="Output directory")
-    parser.add_argument("-m", "--model", default="deepseek-ai/DeepSeek-OCR", help="HF model id")
-    parser.add_argument("--device", default="cuda:0" if torch.cuda.is_available() else "cpu", help="Device")
-    args = parser.parse_args()
+    p = argparse.ArgumentParser(description="DeepSeek-OCR PDF -> Markdown + JSON")
+    p.add_argument("-i", "--input", required=True)
+    p.add_argument("-o", "--output", default="deepseek_output")
+    p.add_argument("--repo-url", default=DEFAULT_REPO_URL, help="Official DeepSeek-OCR GitHub URL")
+    p.add_argument("--repo-cache-dir", default="backend/deepseek/.cache")
+    p.add_argument("-m", "--model", default=DEFAULT_MODEL)
+    p.add_argument("--device", default="cuda:0" if torch.cuda.is_available() else "cpu")
+    p.add_argument("--local-only", action="store_true")
+    args = p.parse_args()
 
     input_pdf = Path(args.input).expanduser().resolve()
     if not input_pdf.exists() or input_pdf.suffix.lower() != ".pdf":
         raise ValueError(f"Input must be an existing PDF file: {input_pdf}")
 
-    out_dir = Path(args.output).expanduser().resolve()
-    md_path, json_path = run_ocr_on_pdf(input_pdf, out_dir, args.model, args.device)
+    repo_dir = ensure_repo(args.repo_url, Path(args.repo_cache_dir).expanduser().resolve())
+    print(f"Using DeepSeek-OCR repo at: {repo_dir}")
 
+    md_path, json_path = run(input_pdf, Path(args.output).expanduser().resolve(), args.model, args.device, args.local_only)
     print("✅ Conversion complete")
     print(f"Markdown: {md_path}")
     print(f"JSON: {json_path}")
