@@ -1,0 +1,16 @@
+# Conda environment for the MinerU pipeline backend.
+# MinerU pipeline backend — pinned dependencies
+# Install with:  pip install -r requirements.txt
+#
+# The +cu126 local-version specifier forces resolution from the PyTorch index
+# (these wheels do not exist on PyPI), so torch lands as the CUDA build,
+# never the CPU build. Driver requirement: NVIDIA R535+ (CUDA 12.6 runtime).
+
+--extra-index-url https://download.pytorch.org/whl/cu126
+
+torch==2.7.0+cu126
+torchvision==0.22.0+cu126
+
+# mineru[pipeline] pulls only the pipeline backend deps (no vllm, no lmdeploy).
+# Pinned to the latest release as of 2026-04.
+mineru[pipeline]==3.1.4
