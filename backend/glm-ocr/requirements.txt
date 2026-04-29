@@ -1,0 +1,6 @@
+# GLM-OCR backend dependencies
+# Install with: pip install -r requirements.txt
+
+glmocr>=0.1.0
+python-dotenv>=1.0.1
+Pillow>=10.0.0

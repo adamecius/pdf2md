@@ -1,0 +1,10 @@
+name: glm-ocr-backend
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - glmocr>=0.1.0
+      - python-dotenv>=1.0.1
+      - Pillow>=10.0.0
