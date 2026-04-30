@@ -18,3 +18,7 @@ __pycache__/
 .data/
 sandbox/
 runs/
+
+# Local backend orchestration config and run outputs
+pdf2md.backends.toml
+.tmp/
