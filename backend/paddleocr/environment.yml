@@ -1,0 +1,10 @@
+name: paddleocr-backend
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - paddlepaddle==3.0.0
+      - paddleocr==2.10.0
+      - pillow>=10.0.0
