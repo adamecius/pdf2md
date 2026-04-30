@@ -22,3 +22,4 @@ runs/
 # Local backend orchestration config and run outputs
 pdf2md.backends.toml
 .tmp/
+.local_models/

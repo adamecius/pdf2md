@@ -25,6 +25,9 @@ PDF2MD_DEEPSEEK_MODEL = "/models/deepseek-ocr2"
 [backends.deepseek.args]
 lang = "en"
 device = "cuda"
+model_id = "deepseek-ai/DeepSeek-OCR-2"
+models_dir = ".local_models/deepseek"
+allow_download = false
 
 [backends.paddleocr]
 enabled = false

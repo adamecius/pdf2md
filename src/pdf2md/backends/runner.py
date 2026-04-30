@@ -48,7 +48,7 @@ def plan_backend_command(repo_root: Path, backend_name: str, backend_cfg: dict, 
         str(raw_dir),
     ]
     args = backend_cfg.get("args", {})
-    mapping = {"lang": "--lang", "device": "--device", "model_path": "--model-path"}
+    mapping = {"lang": "--lang", "device": "--device", "model_path": "--model-path", "model_id": "--model-id", "models_dir": "--models-dir"}
     for key, flag in mapping.items():
         if key in args:
             cmd.extend([flag, str(args[key])])

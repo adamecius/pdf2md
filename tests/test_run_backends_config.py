@@ -9,6 +9,17 @@ from pdf2md.backends.runner import derive_run_name, run_configured_backends, val
 from pdf2md.config import get_enabled_backends, load_backend_config
 
 
+def _load_deepseek_module():
+    import importlib.util
+
+    script = Path("backend/deepseek/pdf2md_deepseek.py")
+    spec = importlib.util.spec_from_file_location("pdf2md_deepseek_local", script)
+    module = importlib.util.module_from_spec(spec)
+    assert spec and spec.loader
+    spec.loader.exec_module(module)
+    return module
+
+
 def _config_text() -> str:
     return """
 [settings]
@@ -145,3 +156,96 @@ def test_force_recreates_only_selected_run_dir(tmp_path: Path) -> None:
     assert rc == 0
     assert (keep_dir / "marker.txt").exists()
     assert not (target / "old.txt").exists()
+
+
+def test_safe_model_dir_name() -> None:
+    ds = _load_deepseek_module()
+    assert ds.safe_model_dir_name("deepseek-ai/DeepSeek-OCR-2") == "deepseek-ai__DeepSeek-OCR-2"
+
+
+def test_missing_model_without_allow_download_fails(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+    ds = _load_deepseek_module()
+
+    pdf = tmp_path / "test.pdf"
+    pdf.write_bytes(b"%PDF-1.4\n")
+    import sys
+
+    old = sys.argv
+    sys.argv = ["pdf2md_deepseek.py", "-i", str(pdf), "--models-dir", str(tmp_path / "models")]
+    try:
+        rc = ds.main()
+    finally:
+        sys.argv = old
+    err = capsys.readouterr().err
+    assert rc == 1
+    assert "Looked in:" in err
+    assert "--model-path" in err
+    assert "PDF2MD_DEEPSEEK_MODEL" in err
+    assert "--allow-download" in err
+
+
+def test_allow_download_calls_explicit_download(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    ds = _load_deepseek_module()
+
+    pdf = tmp_path / "test.pdf"
+    pdf.write_bytes(b"%PDF-1.4\n")
+    model_dir = tmp_path / "models" / "deepseek-ai__DeepSeek-OCR-2"
+
+    called = {"download": False, "model_path": None}
+
+    def fake_download(*, model_id: str, models_dir: str) -> Path:
+        called["download"] = True
+        model_dir.mkdir(parents=True, exist_ok=True)
+        return model_dir
+
+    def fake_run(ip, out_dir, model_path, dev, local_only=True):
+        called["model_path"] = model_path
+        out_dir = Path(out_dir)
+        out_dir.mkdir(parents=True, exist_ok=True)
+        md = out_dir / "generated.md"
+        md.write_text("ok", encoding="utf-8")
+        return md, {}
+
+    monkeypatch.setattr(ds, "explicit_download_model", fake_download)
+    import types
+    import sys
+
+    fake_module = types.SimpleNamespace(run=fake_run)
+    sys.modules["pdf_to_md_json"] = fake_module
+    old = sys.argv
+    sys.argv = [
+        "pdf2md_deepseek.py",
+        "-i",
+        str(pdf),
+        "--allow-download",
+        "--models-dir",
+        str(tmp_path / "models"),
+    ]
+    try:
+        rc = ds.main()
+    finally:
+        sys.argv = old
+        sys.modules.pop("pdf_to_md_json", None)
+    assert rc == 0
+    assert called["download"] is True
+    assert called["model_path"] == str(model_dir)
+
+
+def test_runner_maps_model_id_and_models_dir() -> None:
+    from pdf2md.backends.runner import plan_backend_command
+
+    cmd = plan_backend_command(
+        repo_root=Path('/repo'),
+        backend_name='deepseek',
+        backend_cfg={
+            'env_name': 'pdf2md-deepseek',
+            'script': 'backend/deepseek/pdf2md_deepseek.py',
+            'args': {'model_id': 'deepseek-ai/DeepSeek-OCR-2', 'models_dir': '.local_models/deepseek'},
+        },
+        input_pdf_abs=Path('/tmp/in.pdf'),
+        raw_dir=Path('/tmp/raw/deepseek'),
+    )
+    assert '--model-id' in cmd
+    assert 'deepseek-ai/DeepSeek-OCR-2' in cmd
+    assert '--models-dir' in cmd
+    assert '.local_models/deepseek' in cmd
