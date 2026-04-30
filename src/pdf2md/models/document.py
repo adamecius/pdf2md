@@ -16,6 +16,7 @@ class BBox(BaseModel):
 class SourceRef(BaseModel):
     backend: str
     raw_id: str | None = None
+    raw_path: str | None = None
     confidence: float | None = Field(default=None, ge=0.0, le=1.0)
 
 
@@ -27,7 +28,7 @@ class Flag(BaseModel):
 
 class Block(BaseModel):
     id: str
-    type: Literal["paragraph", "heading", "table", "formula", "image", "caption"]
+    type: Literal["title", "heading", "paragraph", "list", "table", "formula", "image", "caption", "header", "footer", "page_number", "unknown"]
     text: str | None = None
     level: int | None = Field(default=None, ge=1, le=6)
     bbox: BBox | None = None

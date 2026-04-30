@@ -1,8 +1,7 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
-
-from pdf2md.models import Document
+from typing import Any
 
 
 class Backend(ABC):
@@ -11,6 +10,6 @@ class Backend(ABC):
     name: str
 
     @abstractmethod
-    def run(self, pdf_path: str) -> Document:
-        """Parse a PDF and return a Document model."""
+    def run(self, pdf_path: str) -> Any:
+        """Execute backend and return backend-native/raw result."""
         raise NotImplementedError

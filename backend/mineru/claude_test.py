@@ -1,3 +1,7 @@
+if __name__ != "__main__":
+    import pytest
+    pytest.skip("integration script; requires external backend dependencies", allow_module_level=True)
+
 """End-to-end smoke test for the MinerU pipeline backend.
 
 Synthesizes a one-page PDF in-process (no external test fixtures), runs the
