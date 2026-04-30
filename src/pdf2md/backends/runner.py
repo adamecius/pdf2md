@@ -84,6 +84,10 @@ def run_configured_backends(
     timeout = timeout_override or int(settings.get("default_timeout_seconds", 3600))
     stop_on_failure = bool(settings.get("stop_on_failure", True)) and not keep_going
 
+    enabled = get_enabled_backends(config)
+    if not enabled:
+        raise ValueError("No enabled backends found in config. Set enabled = true for at least one [backends.<name>] entry.")
+
     run_name = derive_run_name(input_pdf=input_pdf, override=run_name_override)
     run_dir = work_dir / run_name
 
@@ -101,7 +105,6 @@ def run_configured_backends(
     shutil.copy2(input_pdf, input_copy)
     input_pdf_abs = input_copy.resolve()
 
-    enabled = get_enabled_backends(config)
     run_manifest = {"run_name": run_name, "input_pdf": str(input_pdf_abs), "backends": list(enabled.keys()), "dry_run": dry_run}
     (run_dir / "run_manifest.json").write_text(json.dumps(run_manifest, indent=2), encoding="utf-8")
 

@@ -1,56 +1,33 @@
-# PaddleOCR backend (local OCR)
+# PaddleOCR wrapper (stable public path)
 
-## Purpose
-PaddleOCR backend rasterizes PDF pages to images and runs OCR locally, then writes Markdown text.
-
-## Environment
-- Default environment name: `pdf2md-paddleocr`
-
-### Conda setup (default)
-```bash
-cd backend/paddleocr
-python setup_env.py --manager conda --env-name pdf2md-paddleocr
-```
-
-### venv setup (alternative)
-```bash
-cd backend/paddleocr
-python setup_env.py --manager venv --env-name .venv-paddleocr
-```
-
-### Activate
-- Conda:
+Activate environment:
 ```bash
 conda activate pdf2md-paddleocr
 ```
-- venv:
+
+Run from repo root:
 ```bash
-source .venv-paddleocr/bin/activate
+python backend/paddleocr/pdf2md_paddleocr.py -i backend/paddleocr/test_visual.pdf
 ```
 
-## Standard wrapper command
+Run from backend folder:
 ```bash
-python backend/paddleocr/pdf2md_paddleocr.py -i test.pdf
+python pdf2md_paddleocr.py -i test_visual.pdf
 ```
 
-## Output behavior
-- Default output path: `test.md`.
-- Optional `--json-out` writes a small manifest JSON.
+This wrapper delegates to PaddleOCR 3.x CLI:
+```bash
+paddleocr ocr -i <pdf> --save_path <out_dir>
+```
 
-## Local-first model policy
-- Uses local PaddleOCR installation in active environment.
-- Wrapper does not include an API mode.
-- PaddleOCR may fetch OCR model assets on first run if not already cached locally by Paddle.
-  - To keep fully local/offline behavior, pre-populate Paddle model cache before running in offline mode.
+The wrapper then extracts text from generated JSON files and writes Markdown.
 
-## API policy
-- `--api` is rejected for this backend.
+Device mapping:
+- `auto` -> PaddleOCR default (no explicit flag)
+- `cpu` -> `--device cpu`
+- `cuda` -> `--device gpu:0`
 
-## Backend-specific dependency notes
-- Requires `paddlepaddle`, `paddleocr`, `PyMuPDF`, and `Pillow`.
-- OCR quality/speed depends on Paddle model assets and CPU/GPU capability.
-
-## Troubleshooting
-- Import errors (`paddleocr`, `fitz`, `PIL`): ensure correct env is activated and dependencies installed.
-- Slow OCR: use smaller PDFs or GPU-enabled Paddle build.
-- Unexpected language detection: set `--lang` explicitly.
+Notes:
+- API mode is not implemented.
+- `--allow-download` is not implemented.
+- Exploratory scripts are archived under `legacy/initial_tests/`.

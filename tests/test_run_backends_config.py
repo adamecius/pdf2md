@@ -311,3 +311,54 @@ def test_mineru_form_data_compat_supports_optional_server_url() -> None:
     assert out2["start_page_id"] == 0
     assert out2["end_page_id"] is None
     assert "server_url" not in out2
+
+
+def test_no_enabled_backends_fails_early(tmp_path: Path) -> None:
+    cfg = {
+        "settings": {"work_dir": ".tmp"},
+        "backends": {
+            "mineru": {"enabled": False, "runner": "conda", "env_name": "x", "script": "backend/mineru/pdf2md_mineru.py"}
+        },
+    }
+    pdf = tmp_path / "test.pdf"
+    pdf.write_bytes(b"%PDF-1.4\n")
+    with pytest.raises(ValueError, match="No enabled backends found"):
+        run_configured_backends(input_pdf=pdf, config=cfg, repo_root=Path.cwd(), work_dir_override=tmp_path / ".tmp", dry_run=True)
+
+
+def test_deepseek_default_model_path() -> None:
+    ds = _load_deepseek_module()
+    p = ds.default_model_path("deepseek-ai/DeepSeek-OCR-2", ".local_models/deepseek")
+    assert str(p).endswith(".local_models/deepseek/deepseek-ai__DeepSeek-OCR-2")
+
+
+def test_paddleocr_wrapper_help_and_errors(tmp_path: Path) -> None:
+    import subprocess, sys
+
+    h = subprocess.run([sys.executable, "backend/paddleocr/pdf2md_paddleocr.py", "--help"], capture_output=True, text=True)
+    assert h.returncode == 0
+    m = subprocess.run([sys.executable, "backend/paddleocr/pdf2md_paddleocr.py", "-i", "missing.pdf"], capture_output=True, text=True)
+    assert m.returncode == 1
+
+    pdf = tmp_path / "x.pdf"
+    pdf.write_bytes(b"%PDF-1.4\n")
+    a = subprocess.run([sys.executable, "backend/paddleocr/pdf2md_paddleocr.py", "-i", str(pdf), "--api"], capture_output=True, text=True)
+    assert a.returncode == 1
+    d = subprocess.run([sys.executable, "backend/paddleocr/pdf2md_paddleocr.py", "-i", str(pdf), "--allow-download"], capture_output=True, text=True)
+    assert d.returncode == 1
+
+
+def test_paddleocr_command_mapping_and_json_extraction(tmp_path: Path) -> None:
+    pmod = _load_module_by_path(Path("backend/paddleocr/pdf2md_paddleocr.py"), "paddle_local")
+    base = pmod.plan_paddleocr_command(Path("/in.pdf"), Path("/out"), "en", "auto")
+    assert "--device" not in base
+    cpu = pmod.plan_paddleocr_command(Path("/in.pdf"), Path("/out"), "en", "cpu")
+    assert cpu[-2:] == ["--device", "cpu"]
+    gpu = pmod.plan_paddleocr_command(Path("/in.pdf"), Path("/out"), "en", "cuda")
+    assert gpu[-2:] == ["--device", "gpu:0"]
+
+    out = tmp_path / "out"
+    out.mkdir()
+    (out / "a.json").write_text('{"result": [{"rec_text": "hello"}, {"text": "world"}]}', encoding="utf-8")
+    lines = pmod.extract_text_from_json_files(out)
+    assert "hello" in lines and "world" in lines
