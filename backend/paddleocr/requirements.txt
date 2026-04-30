@@ -1,6 +1,4 @@
-# PaddleOCR backend — pinned dependencies
-# Install with: pip install -r requirements.txt
-
-paddlepaddle==3.0.0
-paddleocr==2.10.0
-pillow>=10.0.0
+paddlepaddle
+paddleocr
+PyMuPDF
+Pillow

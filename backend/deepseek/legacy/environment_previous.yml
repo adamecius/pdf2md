@@ -1,4 +1,4 @@
-name: pdf2md-deepseek
+name: deepseek-ocr-backend
 channels:
   - nvidia/label/cuda-11.8.0
   - conda-forge
@@ -9,5 +9,3 @@ dependencies:
   - git
   - poppler
   - cuda-toolkit=11.8
-  - pip:
-      - -r requirements.txt
