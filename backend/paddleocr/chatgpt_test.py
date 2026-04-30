@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+if __name__ != "__main__":
+    import pytest
+    pytest.skip("integration script; requires external backend dependencies", allow_module_level=True)
+
 """Minimal PaddleOCR smoke test.
 
 Creates an image with known text and verifies PaddleOCR returns expected
