@@ -1,3 +1,5 @@
+> Legacy setup snapshot is preserved at `backend/deepseek/legacy/README_deepseek_previous_setup.md` and related files in `backend/deepseek/legacy/`.
+
 ## pdf2md wrapper entrypoint (added)
 
 After activating the DeepSeek backend environment:

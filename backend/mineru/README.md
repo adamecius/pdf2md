@@ -1,3 +1,5 @@
+> Legacy setup snapshots are preserved under `backend/mineru/legacy/` (previous requirements/environment/setup helper).
+
 # pdf2md MinerU backend
 Run: `python backend/mineru/pdf2md_mineru.py -i test.pdf` -> `test.md`.
 Local MinerU is the default. Remote API requires explicit `--api --api-url`.
