@@ -9,15 +9,18 @@ from pdf2md.backends.runner import derive_run_name, run_configured_backends, val
 from pdf2md.config import get_enabled_backends, load_backend_config
 
 
-def _load_deepseek_module():
+def _load_module_by_path(script: Path, name: str):
     import importlib.util
 
-    script = Path("backend/deepseek/pdf2md_deepseek.py")
-    spec = importlib.util.spec_from_file_location("pdf2md_deepseek_local", script)
+    spec = importlib.util.spec_from_file_location(name, script)
     module = importlib.util.module_from_spec(spec)
     assert spec and spec.loader
     spec.loader.exec_module(module)
     return module
+
+
+def _load_deepseek_module():
+    return _load_module_by_path(Path("backend/deepseek/pdf2md_deepseek.py"), "pdf2md_deepseek_local")
 
 
 def _config_text() -> str:
@@ -249,3 +252,62 @@ def test_runner_maps_model_id_and_models_dir() -> None:
     assert 'deepseek-ai/DeepSeek-OCR-2' in cmd
     assert '--models-dir' in cmd
     assert '.local_models/deepseek' in cmd
+
+
+def _load_mineru_wrapper_module():
+    return _load_module_by_path(Path("backend/mineru/pdf2md_mineru.py"), "pdf2md_mineru_local")
+
+
+def test_mineru_wrapper_help() -> None:
+    import subprocess, sys
+
+    r = subprocess.run([sys.executable, "backend/mineru/pdf2md_mineru.py", "--help"], capture_output=True, text=True)
+    assert r.returncode == 0
+    assert "--start-page" in r.stdout
+
+
+def test_mineru_wrapper_missing_pdf_fails() -> None:
+    import subprocess, sys
+
+    r = subprocess.run([sys.executable, "backend/mineru/pdf2md_mineru.py", "-i", "missing.pdf"], capture_output=True, text=True)
+    assert r.returncode == 1
+    assert "existing PDF file" in r.stderr
+
+
+def test_mineru_parser_accepts_compat_flags() -> None:
+    m = _load_mineru_wrapper_module()
+    args = m.build_parser().parse_args([
+        "-i", "x.pdf", "-o", "x.md", "--json-out", "x.json", "--out-dir", "tmp", "--lang", "en",
+        "--device", "cpu", "--model-path", "/m", "--api", "--backend", "pipeline", "--api-url", "http://127.0.0.1:8000",
+        "--no-formula", "--no-table", "--start-page", "1", "--end-page", "2",
+    ])
+    assert args.input == "x.pdf"
+    assert args.output == "x.md"
+    assert args.start_page == 1
+    assert args.end_page == 2
+
+
+def test_mineru_form_data_compat_supports_optional_server_url() -> None:
+    mfd = _load_module_by_path(Path("backend/mineru/mineru_form_data.py"), "mineru_form_data_local")
+    build_parse_request_form_data_compat = mfd.build_parse_request_form_data_compat
+
+    class ClientWithServer:
+        def build_parse_request_form_data(self, **kwargs):
+            return kwargs
+
+    class ClientNoServer:
+        def build_parse_request_form_data(self, lang_list, backend, parse_method, formula_enable, table_enable, start_page_id, end_page_id, return_md, return_content_list, return_middle_json, return_model_output, return_images, response_format_zip, return_original_file):
+            return locals()
+
+    out1 = build_parse_request_form_data_compat(
+        ClientWithServer(), language="en", backend="pipeline", formula=True, table=True, start_page=3, end_page=8, server_url="http://x"
+    )
+    assert out1["start_page_id"] == 3
+    assert out1["end_page_id"] == 8
+
+    out2 = build_parse_request_form_data_compat(
+        ClientNoServer(), language="en", backend="pipeline", formula=True, table=True, start_page=0, end_page=None, server_url="http://x"
+    )
+    assert out2["start_page_id"] == 0
+    assert out2["end_page_id"] is None
+    assert "server_url" not in out2
