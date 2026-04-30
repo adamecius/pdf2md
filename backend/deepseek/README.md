@@ -68,6 +68,34 @@ The documented working stack is:
 
 `requirements.txt` in this folder intentionally captures the OCR-side Python pins (`transformers`, `tokenizers`, `numpy`, and OCR dependencies). CUDA Torch/vLLM/FlashAttention are backend-specific and often installed by explicit commands/scripts to match GPU/CUDA runtime constraints.
 
+
+## What `setup_env.py` does vs manual GPU steps
+`setup_env.py` creates the environment and installs base/OCR-side requirements from this backend folder.
+
+For a full DeepSeek-OCR-2 GPU stack, you must still run explicit GPU package installs in the activated environment.
+
+### Manual GPU stack commands (required for full CUDA path)
+```bash
+# 1) Activate environment first
+conda activate pdf2md-deepseek
+
+# 2) Install Torch CUDA 11.8 wheels
+python -m pip install \
+  torch==2.6.0 \
+  torchvision==0.21.0 \
+  torchaudio==2.6.0 \
+  --index-url https://download.pytorch.org/whl/cu118
+
+# 3) Install vLLM CUDA 11.8 wheel (0.8.5+cu118)
+# Download matching wheel first, then install local wheel file:
+python -m pip install ./vllm-0.8.5+cu118-cp38-abi3-manylinux1_x86_64.whl
+
+# 4) Install flash-attn
+python -m pip install flash-attn==2.7.3 --no-build-isolation --no-cache-dir
+```
+
+If your host `nvcc` is not CUDA 11.8-compatible, install and point to an environment-local CUDA 11.8 toolkit before installing `flash-attn`.
+
 ## Full CUDA/Torch/FlashAttention/vLLM/NumPy guidance
 
 ### Why install order matters
