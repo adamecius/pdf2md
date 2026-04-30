@@ -1,11 +1,6 @@
-name: deepseek-ocr-backend
-channels:
-  - nvidia/label/cuda-11.8.0
-  - conda-forge
-  - defaults
+name: pdf2md-deepseek
 dependencies:
-  - python=3.12
+  - python=3.11
   - pip
-  - git
-  - poppler
-  - cuda-toolkit=11.8
+  - pip:
+      - -r requirements.txt
