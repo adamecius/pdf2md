@@ -10,7 +10,8 @@ def main():
  p.add_argument('--api',action='store_true',help='Required for GLM API mode')
  a=p.parse_args(); ip=Path(a.input).expanduser().resolve()
  if not ip.exists() or ip.suffix.lower()!='.pdf': print(f'error: Input must be an existing PDF file: {ip}',file=sys.stderr); return 1
- if not a.api: print('error: GLM wrapper is API-based. Re-run with --api and set GLM_API_KEY.',file=sys.stderr); return 1
- if not os.getenv('GLM_API_KEY'): print('error: Missing GLM_API_KEY. Looked in environment. Set it and retry. Local model mode is not implemented in this wrapper.',file=sys.stderr); return 1
+ if not a.api: print('error: GLM wrapper is API-based. Re-run with --api and set ZHIPU_API_KEY (or GLM_API_KEY alias).',file=sys.stderr); return 1
+ key=os.getenv('ZHIPU_API_KEY') or os.getenv('GLM_API_KEY')
+ if not key: print('error: Missing API key. Looked for ZHIPU_API_KEY and GLM_API_KEY. Set one and retry. Local model mode is not implemented in this wrapper.',file=sys.stderr); return 1
  print('error: GLM API execution is intentionally not auto-run in smoke-safe wrapper yet. Credentials detected, but implement explicit call flow before use.',file=sys.stderr); return 1
 if __name__=='__main__': raise SystemExit(main())

@@ -1,4 +1,10 @@
+# DeepSeek OCR-2 Python package pins from the documented working setup.
+transformers==4.46.3
+tokenizers==0.20.3
 PyMuPDF
+img2pdf
+einops
+easydict
+addict
 Pillow
-torch
-transformers
+numpy==2.2.6
