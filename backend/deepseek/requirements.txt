@@ -1,10 +1,9 @@
-# DeepSeek-OCR standalone backend dependencies.
-# Install with: pip install -r requirements.txt
-
-torch
-torchvision
-transformers>=4.50.0
-accelerate
-pypdf>=5.4.0
-pillow
-pymupdf
+transformers==4.46.3
+tokenizers==0.20.3
+PyMuPDF
+img2pdf
+einops
+easydict
+addict
+Pillow
+numpy=2.2.6
