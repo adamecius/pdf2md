@@ -1,0 +1,51 @@
+[settings]
+work_dir = ".tmp"
+default_timeout_seconds = 3600
+stop_on_failure = true
+
+[backends.mineru]
+enabled = true
+runner = "conda"
+env_name = "pdf2md-mineru"
+script = "backend/mineru/pdf2md_mineru.py"
+
+[backends.mineru.args]
+lang = "en"
+device = "auto"
+
+[backends.deepseek]
+enabled = false
+runner = "conda"
+env_name = "pdf2md-deepseek"
+script = "backend/deepseek/pdf2md_deepseek.py"
+
+[backends.deepseek.env]
+PDF2MD_DEEPSEEK_MODEL = "/models/deepseek-ocr2"
+
+[backends.deepseek.args]
+lang = "en"
+device = "cuda"
+model_id = "deepseek-ai/DeepSeek-OCR-2"
+models_dir = ".local_models/deepseek"
+allow_download = false
+
+[backends.paddleocr]
+enabled = false
+runner = "conda"
+env_name = "pdf2md-paddleocr"
+script = "backend/paddleocr/pdf2md_paddleocr.py"
+
+[backends.paddleocr.args]
+lang = "en"
+device = "auto"
+
+# GLM is API-only and should remain disabled unless explicitly configured.
+# [backends.glm]
+# enabled = false
+# runner = "conda"
+# env_name = "pdf2md-glm"
+# script = "backend/glm/pdf2md_glm.py"
+# extra_args = ["--api"]
+#
+# [backends.glm.env]
+# ZHIPU_API_KEY = "replace-me"
