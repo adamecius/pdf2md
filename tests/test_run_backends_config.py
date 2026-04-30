@@ -362,3 +362,38 @@ def test_paddleocr_command_mapping_and_json_extraction(tmp_path: Path) -> None:
     (out / "a.json").write_text('{"result": [{"rec_text": "hello"}, {"text": "world"}]}', encoding="utf-8")
     lines = pmod.extract_text_from_json_files(out)
     assert "hello" in lines and "world" in lines
+
+
+def test_deepseek_allow_download_still_runs_local_only(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    ds = _load_deepseek_module()
+    pdf = tmp_path / "t.pdf"
+    pdf.write_bytes(b"%PDF-1.4\n")
+    model_dir = tmp_path / "models" / "deepseek-ai__DeepSeek-OCR-2"
+
+    called = {"local_only": None}
+
+    def fake_download(*, model_id: str, models_dir: str) -> Path:
+        model_dir.mkdir(parents=True, exist_ok=True)
+        return model_dir
+
+    def fake_run(ip, out_dir, model_path, dev, local_only=True):
+        called["local_only"] = local_only
+        out_dir = Path(out_dir)
+        out_dir.mkdir(parents=True, exist_ok=True)
+        md = out_dir / "generated.md"
+        md.write_text("ok", encoding="utf-8")
+        return md, {}
+
+    monkeypatch.setattr(ds, "explicit_download_model", fake_download)
+    import types, sys
+
+    sys.modules["pdf_to_md_json"] = types.SimpleNamespace(run=fake_run)
+    old = sys.argv
+    sys.argv = ["pdf2md_deepseek.py", "-i", str(pdf), "--allow-download", "--models-dir", str(tmp_path / "models")]
+    try:
+        rc = ds.main()
+    finally:
+        sys.argv = old
+        sys.modules.pop("pdf_to_md_json", None)
+    assert rc == 0
+    assert called["local_only"] is True

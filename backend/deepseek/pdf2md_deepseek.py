@@ -116,7 +116,7 @@ def main():
     out_dir = Path(a.out_dir).expanduser().resolve() if a.out_dir else out_md.parent
     dev = "cpu" if a.device == "auto" else a.device
     try:
-        md, _ = run(ip, out_dir, str(model_dir), dev, local_only=not a.allow_download)
+        md, _ = run(ip, out_dir, str(model_dir), dev, local_only=True)
         out_md.write_text(md.read_text(encoding="utf-8"), encoding="utf-8")
         if a.json_out:
             Path(a.json_out).write_text(
