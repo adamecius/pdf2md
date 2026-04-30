@@ -1,16 +1,11 @@
 name: deepseek-ocr-backend
 channels:
+  - nvidia/label/cuda-11.8.0
   - conda-forge
+  - defaults
 dependencies:
   - python=3.12
   - pip
   - git
   - poppler
-  - pip:
-      - torch
-      - torchvision
-      - transformers>=4.50.0
-      - accelerate
-      - pypdf>=5.4.0
-      - pillow
-      - pymupdf
+  - cuda-toolkit=11.8
