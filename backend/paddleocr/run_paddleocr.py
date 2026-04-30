@@ -24,20 +24,20 @@ def build_paddleocr_command(*, input_pdf: Path, output_dir: Path, lang: str, dev
     return cmd
 
 
-def _extract(node, out: list[str]) -> None:
-    if isinstance(node, str):
-        t = node.strip()
-        if t:
-            out.append(t)
-    elif isinstance(node, dict):
+def _extract(node, out: list[str], parent_key: str | None = None) -> None:
+    if isinstance(node, dict):
         for k, v in node.items():
             if k in TEXT_KEYS and isinstance(v, str) and v.strip():
                 out.append(v.strip())
             else:
-                _extract(v, out)
+                _extract(v, out, k)
     elif isinstance(node, list):
         for item in node:
-            _extract(item, out)
+            if isinstance(item, str):
+                if parent_key in TEXT_KEYS and item.strip():
+                    out.append(item.strip())
+            else:
+                _extract(item, out, parent_key)
 
 
 def extract_text_from_json(output_dir: Path) -> list[str]:
@@ -47,7 +47,7 @@ def extract_text_from_json(output_dir: Path) -> list[str]:
             payload = json.loads(p.read_text(encoding="utf-8"))
         except Exception:
             continue
-        _extract(payload, lines)
+        _extract(payload, lines, None)
     return lines
 
 
