@@ -1,147 +1,107 @@
-> Legacy setup snapshot is preserved at `backend/deepseek/legacy/README_deepseek_previous_setup.md` and related files in `backend/deepseek/legacy/`.
+# DeepSeek backend (local-first OCR-2)
 
-## pdf2md wrapper entrypoint (added)
+## Purpose
+DeepSeek backend converts PDFs to Markdown using a **local** DeepSeek OCR model path by default.
 
-After activating the DeepSeek backend environment:
+## Environment
+- Default environment name: `pdf2md-deepseek`
+- Target Python: `3.12` (documented working stack uses Python 3.12.9)
+- Target CUDA toolkit: `11.8`
 
+### Conda setup (default)
+```bash
+cd backend/deepseek
+python setup_env.py --manager conda --env-name pdf2md-deepseek
+```
+
+### venv setup (alternative)
+```bash
+cd backend/deepseek
+python setup_env.py --manager venv --env-name .venv-deepseek
+```
+
+### Activate
+- Conda:
+```bash
+conda activate pdf2md-deepseek
+```
+- venv:
+```bash
+source .venv-deepseek/bin/activate
+```
+
+## Standard wrapper command
 ```bash
 python backend/deepseek/pdf2md_deepseek.py -i test.pdf
 ```
 
-Default output: `test.md` in the current directory (or next to the input when run from elsewhere).
+## Output behavior
+- Default output: `test.md` (same stem as input).
+- Wrapper prints resulting Markdown path on success.
+- Optional `--json-out` writes a small run manifest.
 
-### Local-first behavior
+## Local-first model policy
 - Local model is required by default.
-- Provide it with `--model-path /path/to/model` or `PDF2MD_DEEPSEEK_MODEL=/path/to/model`.
-- No silent download is performed.
-- API mode is not automatically enabled.
+- Provide local model via:
+  - `--model-path /path/to/local/model`
+  - or `PDF2MD_DEEPSEEK_MODEL=/path/to/local/model`
+- No silent model download.
+- No silent API fallback.
 
----
+## API policy
+- Wrapper does not auto-switch to API mode.
+- `--api` is explicit and currently treated as not-implemented flow in this wrapper.
 
-# DeepSeek-OCR-2 environment setup
+## Backend-specific dependency notes
+The documented working stack is:
+- Python `3.12.9`
+- CUDA toolkit `11.8`
+- `torch==2.6.0+cu118`
+- `torchvision==0.21.0`
+- `torchaudio==2.6.0`
+- `vLLM==0.8.5+cu118` (wheel install path)
+- `flash-attn==2.7.3`
+- `transformers==4.46.3`
+- `tokenizers==0.20.3`
+- `numpy==2.2.6`
+- OCR-side deps: `PyMuPDF`, `img2pdf`, `einops`, `easydict`, `addict`, `Pillow`
 
-This README defines a reproducible setup for **DeepSeek-OCR-2** on a CUDA 11.8 GPU machine using Torch 2.6.0.
+`requirements.txt` in this folder intentionally captures the OCR-side Python pins (`transformers`, `tokenizers`, `numpy`, and OCR dependencies). CUDA Torch/vLLM/FlashAttention are backend-specific and often installed by explicit commands/scripts to match GPU/CUDA runtime constraints.
 
-The recommended setup is:
+## Full CUDA/Torch/FlashAttention/vLLM/NumPy guidance
 
-```text
-Conda environment + NVIDIA CUDA 11.8 toolkit inside Conda + pip packages
-```
+### Why install order matters
+Recommended sequence:
+1. Create/activate env.
+2. Install CUDA 11.8 toolkit in env.
+3. Export `CUDA_HOME`, `PATH`, `LD_LIBRARY_PATH` to env CUDA.
+4. Install Torch CUDA 11.8 wheels.
+5. Install vLLM CUDA 11.8 wheel.
+6. Install OCR requirements with NumPy pin.
+7. Install `flash-attn`.
+8. Verify CUDA/Torch/NumPy/Transformers/vLLM/FlashAttention.
 
-Do not rely on the system CUDA compiler. On many servers `/usr/bin/nvcc` may point to an older CUDA version, for example CUDA 11.5. That is enough to break `flash-attn`.
+`flash-attn` compiles CUDA extensions; using wrong `nvcc` (e.g., system CUDA 11.5) commonly breaks installation/runtime.
 
-## Target stack
-
-```text
-Python:          3.12.9
-CUDA toolkit:    11.8
-Torch:           2.6.0+cu118
-torchvision:     0.21.0
-torchaudio:      2.6.0
-vLLM:            0.8.5+cu118
-FlashAttention:  2.7.3
-Model:           deepseek-ai/DeepSeek-OCR-2
-```
-
-## Why this order matters
-
-The official DeepSeek-OCR-2 install is short, but on a real GPU workstation the order matters.
-
-The correct pipeline is:
-
-```text
-1. Create or activate the environment.
-2. Install CUDA 11.8 toolkit inside the Conda environment.
-3. Export CUDA_HOME, PATH, and LD_LIBRARY_PATH to the Conda environment.
-4. Clone DeepSeek-OCR-2.
-5. Install PyTorch CUDA 11.8 wheels.
-6. Download and install the vLLM 0.8.5 CUDA 11.8 wheel.
-7. Install DeepSeek-OCR-2 requirements with a NumPy constraint.
-8. Install flash-attn.
-9. Verify CUDA, Torch, NumPy, Transformers, vLLM, and FlashAttention.
-```
-
-The critical point is that `flash-attn` builds native CUDA code. The PyTorch wheel includes CUDA runtime libraries, but it does not provide the CUDA compiler that FlashAttention needs.
-
-Therefore, in Conda mode, this setup installs:
-
-```bash
-conda install -y -c nvidia/label/cuda-11.8.0 cuda-toolkit
-```
-
-Then it forces:
-
+### CUDA environment exports
 ```bash
 export CUDA_HOME="$CONDA_PREFIX"
 export PATH="$CUDA_HOME/bin:$PATH"
 export LD_LIBRARY_PATH="$CUDA_HOME/lib:$CUDA_HOME/lib64:${LD_LIBRARY_PATH:-}"
 ```
 
-This makes `nvcc -V` resolve to the Conda CUDA 11.8 compiler instead of the system compiler.
+### NumPy pin rationale
+`numpy==2.2.6` avoids common incompatibilities where newer NumPy conflicts with ecosystem constraints (for example, constraints used by transitive packages such as `numba`/`mistral-common`).
 
-## Why NumPy is pinned
+### Known/expected version tension
+In some one-environment OCR-2 setups, you may see warnings/conflicts between vLLM requirements and OCR repository pins for `transformers`/`tokenizers`. Follow the backend’s tested combination above unless you are intentionally revalidating a newer matrix.
 
-The official `requirements.txt` leaves NumPy unpinned:
+## Troubleshooting
+- **Model missing**: set `--model-path` or `PDF2MD_DEEPSEEK_MODEL`.
+- **Wrong CUDA compiler**: run `nvcc -V`, ensure it resolves to CUDA 11.8 toolchain.
+- **Torch can’t see GPU**: validate `torch.cuda.is_available()` in active env.
+- **flash-attn import/build failure**: verify CUDA toolkit path/env and reinstall after fixing `CUDA_HOME`.
+- **Unexpected downloads**: wrapper is local-first; do not rely on runtime pull unless you explicitly add download flow.
 
-```text
-numpy
-```
-
-On recent systems, pip may install a too-new NumPy version, for example `numpy 2.4.4`. That can conflict with packages pulled by vLLM, such as `numba` and `mistral-common`.
-
-This setup pins:
-
-```text
-numpy==2.2.6
-```
-
-That version satisfies the important constraints:
-
-```text
-numba requires numpy < 2.3
-mistral-common requires numpy < 2.4
-```
-
-So the effective OCR-2 requirements used here are:
-
-```text
-transformers==4.46.3
-tokenizers==0.20.3
-PyMuPDF
-img2pdf
-einops
-easydict
-addict
-Pillow
-numpy==2.2.6
-```
-
-## Expected vLLM conflict
-
-You may still see:
-
-```text
-vllm 0.8.5+cu118 requires tokenizers>=0.21.1
-vllm 0.8.5+cu118 requires transformers>=4.51.1
-```
-
-For the official one-environment DeepSeek-OCR-2 setup, this is expected.
-
-The OCR-2 repository pins:
-
-```text
-transformers==4.46.3
-tokenizers==0.20.3
-```
-
-The official README says this vLLM versus Transformers conflict can be ignored when vLLM and Transformers code are run in the same environment.
-
-Do not ignore these problems:
-
-```text
-nvcc is CUDA 11.5
-CUDA_HOME points to /usr
-numpy is 2.4.4
-torch.cuda.is_available() is False
-flash-attn import fails
-```
+## Legacy snapshots
+Legacy files in `backend/deepseek/legacy/` are archival backups and not required for normal setup/operation.
