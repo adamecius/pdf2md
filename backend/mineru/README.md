@@ -1,27 +1,44 @@
-# MinerU wrapper (stable public path)
+# MinerU backend (local build)
 
-Activate environment:
-```bash
-conda activate pdf2md-mineru
-```
+This folder contains a **local build wrapper** for the MinerU OCR backend in the `pdf2md` project.
 
-Run from repo root:
-```bash
-python backend/mineru/pdf2md_mineru.py -i backend/mineru/test_visual.pdf
-```
+## Scripts in this backend
 
-Run from backend folder:
-```bash
-python pdf2md_mineru.py -i test_visual.pdf
-```
+- `setup_env.py` → creates the backend environment (default: `pdf2md-mineru`).
+- `delete_env.py` → removes the backend environment created for this backend.
+- `setup.py` → installer/orchestrator; checks environment existence, provides hints, and installs required packages.
+- `pdf2md_mineru.py` → standardized PDF→Markdown OCR interface (already tested; do not modify).
 
-This wrapper delegates to the official MinerU CLI:
-```bash
-mineru -p <input.pdf> -o <output_dir>
-```
+## Recommended workflow
 
-Notes:
-- Local-first by default.
-- `--api-url` is explicit; `--api` without `--api-url` fails.
-- `--allow-download` is not implemented for this wrapper.
-- Exploratory scripts are archived under `legacy/initial_tests/`.
+From this folder (`backend/mineru`):
+
+1. **Set up/install first**
+   ```bash
+   python setup.py
+   ```
+   or create only the environment:
+   ```bash
+   python setup_env.py --manager conda --env-name pdf2md-mineru
+   ```
+
+2. **Run conversion**
+   ```bash
+   python pdf2md_mineru.py -i /path/to/file.pdf
+   ```
+
+3. **Delete the environment (when needed)**
+   ```bash
+   python delete_env.py
+   ```
+
+## Upstream package / project links
+
+- MinerU docs: https://opendatalab.github.io/MinerU/
+- MinerU package/project: https://github.com/opendatalab/MinerU
+
+## License notes
+
+- This backend wrapper follows this repository's license.
+- MinerU itself is distributed under its own upstream license terms.
+- Installed dependencies (CUDA/PyTorch ecosystem, OCR libs) are third-party components with their own licenses.

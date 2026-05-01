@@ -1,53 +1,40 @@
-# GLM backend (API-only)
+# GLM backend (local build wrapper)
 
-## Purpose
-GLM backend is an explicit API-based wrapper scaffold for PDF→Markdown flows.
+This folder contains a **local build wrapper** for the GLM backend in the `pdf2md` project.
 
-## Environment
-- Default environment name: `pdf2md-glm`
+## Scripts in this backend
 
-### Conda setup (default)
-```bash
-cd backend/glm
-python setup_env.py --manager conda --env-name pdf2md-glm
-```
+- `setup_env.py` → creates the backend environment (default: `pdf2md-glm`).
+- `setup.py` → if present in your local branch, use it as installer/orchestrator (checks env existence and installs requirements).
+- `delete_env.py` → if present in your local branch, use it to remove the backend environment.
+- `pdf2md_glm.py` → standardized PDF→Markdown OCR/API interface (already tested; do not modify).
 
-### venv setup (alternative)
-```bash
-cd backend/glm
-python setup_env.py --manager venv --env-name .venv-glm
-```
+## Recommended workflow
 
-### Activate
-- Conda:
-```bash
-conda activate pdf2md-glm
-```
-- venv:
-```bash
-source .venv-glm/bin/activate
-```
+From this folder (`backend/glm`):
 
-## Standard wrapper command
-```bash
-python backend/glm/pdf2md_glm.py -i test.pdf --api
-```
+1. **Set up environment first**
+   ```bash
+   python setup_env.py --manager conda --env-name pdf2md-glm
+   ```
 
-## Output behavior
-- Current wrapper validates inputs/credentials and exits with clear status/error messages.
-- Full API call flow is intentionally not auto-executed in this smoke-safe wrapper yet.
+2. **Run conversion/API flow**
+   ```bash
+   python pdf2md_glm.py -i /path/to/file.pdf --api
+   ```
 
-## Local-first model policy
-- Not applicable: this backend is API-only.
+3. **Delete environment (if you have `delete_env.py`)**
+   ```bash
+   python delete_env.py
+   ```
 
-## API policy
-- `--api` flag is required.
-- API key required: `ZHIPU_API_KEY` (preferred) or `GLM_API_KEY` (alias).
-- No hidden local→API switching.
+## Upstream package / project links
 
-## Backend-specific dependency notes
-- Minimal dependency set in this repo (`requests`) because API execution is scaffold-only.
+- GLM / Zhipu AI platform: https://open.bigmodel.cn/
+- API references (platform docs): https://open.bigmodel.cn/dev/howuse/glm-4
 
-## Troubleshooting
-- Missing API key error: export `ZHIPU_API_KEY` (or `GLM_API_KEY`) in shell before running.
-- Missing `--api`: rerun command with explicit `--api`.
+## License notes
+
+- This wrapper code is licensed under this repository's license.
+- GLM platform usage is governed by Zhipu AI terms and API policies.
+- Any Python dependencies installed in the environment keep their own open-source licenses.
