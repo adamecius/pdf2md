@@ -83,3 +83,11 @@ python -m pytest -q tests/test_models_and_rendering.py tests/smoke/test_backend_
 
 ## 12) Near-term plan focus
 The next planning milestone is to define the page-level extraction IR and consensus-ready architecture while keeping current backend runner behavior intact and avoiding heavy new dependencies.
+
+## 13) Planning-level scaffolding now present
+This repository now includes folder/file scaffolding for staged architecture work, without changing the active backend runner pipeline:
+- `src/pdf2md/models/ir.py` as the planned home for extraction IR and consensus IR model definitions
+- `src/pdf2md/pipeline/artifacts.py` as the planned home for raw-vs-derived artifact path conventions
+- `tests/test_ir_scaffolding.py` as the planned home for serialization and parser transformation tests
+
+At this step, these files intentionally contain brief descriptions and placeholders only. Existing `Document -> Page -> Block` remains the active schema.
