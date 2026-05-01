@@ -1,0 +1,18 @@
+{
+  "line_id": "backend1_p0000_b0003_l0000",
+  "order": 0,
+  "text": "This is the extracted paragraph text.",
+  "normalised_text": "this is the extracted paragraph text.",
+  "geometry": {
+    "bbox": [82.1, 214.4, 914.8, 235.2],
+    "polygon": null,
+    "coordinate_space": "page_normalised_1000",
+    "origin": "top_left",
+    "confidence": 0.96
+  },
+  "confidence": {
+    "text": 0.96,
+    "layout": 0.95
+  },
+  "source_refs": []
+}

@@ -1,0 +1,105 @@
+{
+  "block_id": "backend1_p0000_b0003",
+  "page_index": 0,
+  "page_number": 1,
+  "order": 3,
+
+  "type": "paragraph",
+  "subtype": null,
+  "semantic_role": "body_text",
+  "docling_label_hint": "text",
+
+  "geometry": {
+    "bbox": [82.1, 214.4, 914.8, 302.7],
+    "polygon": null,
+    "coordinate_space": "page_normalised_1000",
+    "origin": "top_left",
+    "confidence": 0.94
+  },
+
+  "content": {
+    "text": "This is the extracted paragraph text.",
+    "normalised_text": "this is the extracted paragraph text.",
+    "markdown": "This is the extracted paragraph text.",
+    "html": null,
+    "latex": null,
+    "language": null
+  },
+
+  "structure": {
+    "heading_level": null,
+    "list": null,
+    "caption_for": null,
+    "footnote_marker": null,
+    "parent_block_id": null,
+    "child_block_ids": []
+  },
+
+  "lines": [],
+  "spans": [],
+
+  "table": null,
+  "formula": null,
+  "media": null,
+
+  "confidence": {
+    "overall": 0.94,
+    "layout": 0.95,
+    "text": 0.93,
+    "reading_order": 0.9,
+    "structure": null
+  },
+
+  "comparison": {
+    "compare_as": "text_block",
+    "text_hash": "sha256:...",
+    "geometry_hash": null,
+    "candidate_group_id": null,
+    "match_keys": [
+      "page_index",
+      "type",
+      "normalised_text",
+      "bbox_iou"
+    ]
+  },
+
+  "source_refs": [
+    {
+      "backend_id": "backend1",
+      "backend_name": "mineru",
+      "raw_file": ".tmp/run/raw/backend1/test1_content_list.json",
+      "json_pointer": "/0",
+      "raw_id": "0",
+      "native_type": "text",
+      "native_bbox": [82, 214, 915, 303],
+      "native_coordinate_space": "page_normalised_1000",
+      "confidence": 0.94
+    }
+  ],
+
+  "flags": []
+}
+
+"""
+Block Taxonomy
+title
+section_header
+paragraph
+list_item
+table
+picture
+chart
+caption
+formula
+code
+algorithm
+page_header
+page_footer
+page_number
+footnote
+aside
+seal
+toc
+bibliography
+unknown
+"""

@@ -1,0 +1,60 @@
+{
+  "schema_name": "pdf2md.extraction_ir",
+  "schema_version": "1.0.0",
+  "ir_stage": "backend_extraction",
+
+  "backend": {
+    "backend_id": "backend1",
+    "backend_name": "mineru",
+    "backend_type": "local",
+    "backend_version": "2.5.0",
+    "adapter_name": "mineru_adapter",
+    "adapter_version": "0.1.0",
+    "config_ref": "backends.backend1"
+  },
+
+  "source": {
+    "source_id": "test1",
+    "source_path": "groundtruth/test1.pdf",
+    "source_sha256": null,
+    "mime_type": "application/pdf",
+    "page_count": 12
+  },
+
+  "capabilities": {
+    "layout_blocks": true,
+    "reading_order": true,
+    "ocr_lines": true,
+    "ocr_spans": true,
+    "tables": true,
+    "table_cells": true,
+    "formulas": true,
+    "figures": true,
+    "captions": true,
+    "headers_footers": true,
+    "page_numbers": true,
+    "geometry": true,
+    "confidence_scores": true,
+    "markdown": true,
+    "html": true,
+    "latex": true
+  },
+
+  "normalisation": {
+    "coordinate_space": "page_normalised_1000",
+    "origin": "top_left",
+    "bbox_format": "x0_y0_x1_y1",
+    "text_normalisation": "unicode_nfkc_whitespace_collapsed",
+    "reading_order_base": "page_local_zero_based"
+  },
+
+  "pages": [],
+
+  "artifacts": {
+    "raw_backend_dir": ".tmp/run/raw/backend1",
+    "media_dir": ".tmp/run/derived/media/backend1",
+    "native_json_files": []
+  },
+
+  "flags": []
+}

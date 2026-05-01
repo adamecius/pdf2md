@@ -1,0 +1,52 @@
+{
+  "block_id": "backend3_p0000_b0000",
+  "page_index": 0,
+  "page_number": 1,
+  "order": 0,
+  "type": "paragraph",
+  "semantic_role": "generated_markdown_block",
+  "docling_label_hint": "text",
+  "geometry": null,
+  "content": {
+    "text": "Generated text from DeepSeek-OCR-2.",
+    "normalised_text": "generated text from deepseek ocr 2.",
+    "markdown": "Generated text from DeepSeek-OCR-2.",
+    "html": null,
+    "latex": null,
+    "language": null
+  },
+  "confidence": {
+    "overall": null,
+    "layout": null,
+    "text": null,
+    "reading_order": 0.6,
+    "structure": 0.6
+  },
+  "comparison": {
+    "compare_as": "generated_text_block",
+    "text_hash": "sha256:...",
+    "geometry_hash": null,
+    "candidate_group_id": null,
+    "match_keys": ["page_index", "normalised_text"]
+  },
+  "source_refs": [
+    {
+      "backend_id": "backend3",
+      "backend_name": "deepseek_ocr_2",
+      "raw_file": ".tmp/run/raw/backend3/deepseek_ocr_2_wrapper.json",
+      "json_pointer": "/pages/0",
+      "raw_id": "page_0",
+      "native_type": "markdown_generation",
+      "native_bbox": null,
+      "native_coordinate_space": null,
+      "confidence": null
+    }
+  ],
+  "flags": [
+    {
+      "code": "geometry_missing",
+      "severity": "medium",
+      "message": "DeepSeek-OCR-2 output did not provide block-level geometry."
+    }
+  ]
+}

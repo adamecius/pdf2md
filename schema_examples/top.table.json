@@ -1,0 +1,39 @@
+{
+  "table_id": "backend1_p0000_b0007_table",
+  "representation": "cells_html_markdown",
+  "html": "<table>...</table>",
+  "markdown": "| A | B |\n|---|---|\n| 1 | 2 |",
+  "caption_block_ids": ["backend1_p0000_b0006"],
+  "footnote_block_ids": [],
+  "rows": 3,
+  "cols": 2,
+  "cells": [
+    {
+      "cell_id": "backend1_p0000_b0007_r0000_c0000",
+      "row_index": 0,
+      "col_index": 0,
+      "row_span": 1,
+      "col_span": 1,
+      "is_header": true,
+      "text": "A",
+      "normalised_text": "a",
+      "html": "<th>A</th>",
+      "geometry": {
+        "bbox": [100.0, 300.0, 300.0, 340.0],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": 0.9
+      },
+      "confidence": {
+        "text": 0.95,
+        "structure": 0.88
+      }
+    }
+  ],
+  "confidence": {
+    "overall": 0.88,
+    "structure": 0.85,
+    "text": 0.93
+  }
+}
