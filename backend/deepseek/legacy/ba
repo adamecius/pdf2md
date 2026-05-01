@@ -56,7 +56,7 @@ command -v python >/dev/null 2>&1 || fail "python is required"
 cd "$SCRIPT_DIR"
 
 log "Creating/updating environment using setup_env.py"
-python setup_env.py --manager "$ENV_FLAVOR" --env-name "$ENV_NAME"
+#python setup_env.py --manager "$ENV_FLAVOR" --env-name "$ENV_NAME"
 
 if [[ "$ENV_FLAVOR" == "conda" ]]; then
   command -v conda >/dev/null 2>&1 || fail "conda is required for conda mode"
@@ -99,10 +99,13 @@ ACTIVATE
   fi
 
   log "Installing vLLM (CUDA wheel version from README guidance)"
-  python -m pip install "vllm==0.8.5"
+  pip install vllm-0.8.5+cu118-cp38-abi3-manylinux1_x86_64.whl
 
+  log "installing requirements"
+  pip install -r requirements.txt
+ 
   log "Installing flash-attn"
-  python -m pip install flash-attn==2.7.3 --no-build-isolation --no-cache-dir
+  python -m pip install flash-attn==2.7.3 --no-build-isolation 
 else
   log "Skipping GPU stack install as requested"
 fi
