@@ -1,0 +1,220 @@
+{
+  "schema_name": "pdf2md.extraction_ir_manifest",
+  "schema_version": "1.0.0",
+  "ir_stage": "backend_extraction",
+  "run": {
+    "run_id": "run_20260502_154509",
+    "created_at": "2026-05-02T15:45:15.321158Z",
+    "pipeline_version": "0.1.0"
+  },
+  "backend": {
+    "backend_id": "deepseek_ocr_2",
+    "backend_name": "deepseek_ocr_2",
+    "backend_type": "local",
+    "backend_version": null,
+    "adapter_name": "deepseek_ocr_2_adapter",
+    "adapter_version": "0.5.0",
+    "config_ref": "backends.deepseek_ocr_2",
+    "model_id": "deepseek-ai/DeepSeek-OCR-2",
+    "model_path": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.local_models/deepseek/deepseek-ai__DeepSeek-OCR-2"
+  },
+  "source": {
+    "source_id": "Ashcroft_Mermin_sub",
+    "source_path": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/Ashcroft_Mermin_sub.pdf",
+    "source_sha256": "sha256:20f76bdfdf94ad46a49d89f66f92ce0b9c4c37c3974201ee70c0020104691438",
+    "mime_type": "application/pdf",
+    "page_count": 4
+  },
+  "normalisation": {
+    "coordinate_space": "page_normalised_1000",
+    "origin": "top_left",
+    "bbox_format": "x0_y0_x1_y1",
+    "text_normalisation": "unicode_nfkc_whitespace_collapsed_lowercase",
+    "reading_order_base": "page_local_zero_based",
+    "native_ocr2_coordinate_space": "ocr2_0_999"
+  },
+  "page_refs": [
+    {
+      "page_id": "deepseek_ocr_2_p0000",
+      "page_index": 0,
+      "page_number": 1,
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/pages/page_0000.json",
+      "sha256": "sha256:00efe70833ca92a2d09eb7548258e9c529cd69143b12ff1ab01da1c594d1c14a",
+      "status": "ok"
+    },
+    {
+      "page_id": "deepseek_ocr_2_p0001",
+      "page_index": 1,
+      "page_number": 2,
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/pages/page_0001.json",
+      "sha256": "sha256:a98049eccc018ca6e83d42d3d66980460f18eb61cb865dae4ddcaccf807fddd4",
+      "status": "ok"
+    },
+    {
+      "page_id": "deepseek_ocr_2_p0002",
+      "page_index": 2,
+      "page_number": 3,
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/pages/page_0002.json",
+      "sha256": "sha256:f831ef20a552224893833b13509620e8bc769d9f61b3a4d819a587c444e7114a",
+      "status": "ok"
+    },
+    {
+      "page_id": "deepseek_ocr_2_p0003",
+      "page_index": 3,
+      "page_number": 4,
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/pages/page_0003.json",
+      "sha256": "sha256:24174de084f4aa579b9a7c77680c13c47634d751500808c79f294838c39595ec",
+      "status": "ok"
+    }
+  ],
+  "artifacts": {
+    "ir_dir": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub",
+    "pages_dir": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/pages",
+    "page_image_dir": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/page_images",
+    "raw_pages_dir": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages",
+    "official_results_dir": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/official_results",
+    "media_dir": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/media",
+    "native_json_files": [],
+    "native_output_files": [
+      {
+        "artifact_id": "deepseek_ocr_2_p0000_raw_det_markdown",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0000.det.mmd",
+        "kind": "deepseek_ocr_2_raw_detection_markdown",
+        "sha256": "sha256:87d69235db82f767b5d8b7cce700358dd288e2a6d41ba6e439b2f8e437a87403"
+      },
+      {
+        "artifact_id": "deepseek_ocr_2_p0000_clean_markdown",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0000.clean.mmd",
+        "kind": "deepseek_ocr_2_clean_markdown",
+        "sha256": "sha256:2b23074d94ecb57dc284a67b3b39ddd7762fd921aaf5d98383632bfb5b4a9184"
+      },
+      {
+        "artifact_id": "deepseek_ocr_2_p0000_capture_metadata",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0000.capture.json",
+        "kind": "deepseek_ocr_2_capture_metadata",
+        "sha256": "sha256:27aed38bf703cfcc65ad6a183c02766e985982987f1393bf45fde3d96d61b5c5"
+      },
+      {
+        "artifact_id": "deepseek_ocr_2_p0001_raw_det_markdown",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0001.det.mmd",
+        "kind": "deepseek_ocr_2_raw_detection_markdown",
+        "sha256": "sha256:632aa0340354f50ec01754ee3b4f178c17ae075d8d38fefb02687e04b715d7fb"
+      },
+      {
+        "artifact_id": "deepseek_ocr_2_p0001_clean_markdown",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0001.clean.mmd",
+        "kind": "deepseek_ocr_2_clean_markdown",
+        "sha256": "sha256:301e08ce6227f0e28f74aaa1a9e778d4dcd6fac7ba622bf0d9808433fc8faa32"
+      },
+      {
+        "artifact_id": "deepseek_ocr_2_p0001_capture_metadata",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0001.capture.json",
+        "kind": "deepseek_ocr_2_capture_metadata",
+        "sha256": "sha256:9100caee6ca538a6692f0825e57211cdd5dce7ca37ad5041eb65e1bf989c9a82"
+      },
+      {
+        "artifact_id": "deepseek_ocr_2_p0002_raw_det_markdown",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0002.det.mmd",
+        "kind": "deepseek_ocr_2_raw_detection_markdown",
+        "sha256": "sha256:42d40006cf4c90d3fcfc90a950c00be55ef6efb2431693dc69eb4186a5aa5987"
+      },
+      {
+        "artifact_id": "deepseek_ocr_2_p0002_clean_markdown",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0002.clean.mmd",
+        "kind": "deepseek_ocr_2_clean_markdown",
+        "sha256": "sha256:8c0610e1f6ce3fd98aa730d8cf5826d0c7256e2a4259710dbcd0609e2e75b37e"
+      },
+      {
+        "artifact_id": "deepseek_ocr_2_p0002_capture_metadata",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0002.capture.json",
+        "kind": "deepseek_ocr_2_capture_metadata",
+        "sha256": "sha256:eee1bb8916b2199fd6d9a4e12a4051d7d1345b8fd7030583f49b2040a375e4f4"
+      },
+      {
+        "artifact_id": "deepseek_ocr_2_p0003_raw_det_markdown",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0003.det.mmd",
+        "kind": "deepseek_ocr_2_raw_detection_markdown",
+        "sha256": "sha256:1bc6297a015a45d83e260ef4cb2ce1c14a67c91bdff680272feeae8e770f3355"
+      },
+      {
+        "artifact_id": "deepseek_ocr_2_p0003_clean_markdown",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0003.clean.mmd",
+        "kind": "deepseek_ocr_2_clean_markdown",
+        "sha256": "sha256:7b00fd5f60891c0fa27e730e0fb7a63ceb8179ec6957a8884c441e577da2cd83"
+      },
+      {
+        "artifact_id": "deepseek_ocr_2_p0003_capture_metadata",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0003.capture.json",
+        "kind": "deepseek_ocr_2_capture_metadata",
+        "sha256": "sha256:8a3b9ed2d8ca0673bd05daf843500643dc255cf4ecf0c265ed94663506ddbd17"
+      }
+    ]
+  },
+  "capabilities": {
+    "layout_blocks": "partial",
+    "reading_order": true,
+    "ocr_lines": false,
+    "ocr_spans": false,
+    "tables": "partial",
+    "table_cells": false,
+    "formulas": "partial",
+    "figures": "partial",
+    "captions": "partial",
+    "headers_footers": "partial",
+    "page_numbers": "partial",
+    "geometry": "partial",
+    "confidence_scores": false,
+    "markdown": true,
+    "html": false,
+    "latex": "partial"
+  },
+  "observed_capabilities": {
+    "page_count": 4,
+    "pages_with_ocr_text": 4,
+    "pages_with_grounding": 0,
+    "det_region_count": 0,
+    "media_crop_count": 0,
+    "semantic_block_count": 33,
+    "pages_with_semantic_blocks": 4,
+    "table_block_count": 1,
+    "formula_block_count": 6,
+    "heading_block_count": 1,
+    "picture_reference_count": 1,
+    "caption_block_count": 4,
+    "list_item_block_count": 3,
+    "paragraph_block_count": 17
+  },
+  "quality": {
+    "pages_total": 4,
+    "pages_ok": 4,
+    "pages_empty": 0,
+    "pages_with_ocr_text": 4,
+    "pages_with_grounding": 0,
+    "det_region_count": 0,
+    "media_crop_count": 0,
+    "pages_with_semantic_blocks": 4,
+    "semantic_block_count": 33,
+    "table_block_count": 1,
+    "formula_block_count": 6,
+    "heading_block_count": 1,
+    "picture_reference_count": 1,
+    "caption_block_count": 4,
+    "list_item_block_count": 3,
+    "paragraph_block_count": 17
+  },
+  "inference": {
+    "prompt": "<image>\n<|grounding|>Convert the document to markdown. ",
+    "prompt_mode": "document",
+    "dpi": 144,
+    "base_size": 1024,
+    "image_size": 768,
+    "save_results": true
+  },
+  "flags": [
+    {
+      "code": "deepseek_page_markdown_only",
+      "severity": "medium",
+      "message": "No OCR-2 grounding regions were found; IR contains page-level generated text only."
+    }
+  ]
+}
