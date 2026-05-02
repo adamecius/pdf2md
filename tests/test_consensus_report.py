@@ -69,7 +69,8 @@ def test_resolver_maps_pdf(tmp_path: Path):
 def test_loader_reads_manifest_and_page(tmp_path: Path):
     d = _mk_backend(tmp_path, "mineru", [{"text": "a", "type": "paragraph"}])
     assert cr.load_backend_manifest(d) == {}
-    assert 0 in cr.load_backend_pages(d)
+    pages, _, _ = cr.load_backend_pages(d)
+    assert 0 in pages
 
 
 def test_missing_backend_tolerated(tmp_path: Path):
@@ -248,6 +249,13 @@ def test_real_shape_deepseek_evidence_only():
     assert e["compile_role"] == "evidence_only" and e["has_geometry"] is False and e["text"] == "page text"
 
 
+def test_compile_role_priority_docling_and_comparison():
+    e = cr.normalise_backend_block("mineru", 0, 0, {"docling": {"compile_role": "use"}}, "x", "")
+    assert e["compile_role"] == "use"
+    e2 = cr.normalise_backend_block("mineru", 0, 0, {"comparison": {"compare_as": "generated_page_markdown"}}, "x", "")
+    assert e2["compile_role"] == "evidence_only"
+
+
 def test_report_real_shape_grouping_and_missing_geometry(tmp_path: Path):
     mblock = {"block_id":"m1","type":"paragraph","geometry":{"bbox":[100,100,300,140]},"content":{"text":"same text","normalised_text":"same text"}}
     pblock = {"block_id":"p1","type":"paragraph","geometry":{"bbox":[102,102,302,142]},"content":{"text":"same text","normalised_text":"same text"}}
@@ -292,6 +300,29 @@ def test_geometry_disagreement_detected_despite_same_text(tmp_path: Path):
     assert any(c["type"] == "geometry_disagreement" for c in conflicts)
 
 
+def test_singleton_agreement_is_single_source(tmp_path: Path):
+    cfg = cr.load_config(_cfg(tmp_path))
+    ev = [cr.normalise_backend_block("mineru", 0, 0, {"type": "paragraph", "text": "solo", "bbox": [0, 0, 10, 10]}, "x", "")]
+    groups, _ = cr.build_candidate_groups(ev, cfg)
+    assert groups[0]["agreement"]["text"] == "single_source"
+    assert groups[0]["agreement"]["geometry"] == "single_source"
+
+
+def test_pymupdf_empty_text_block_not_candidate(tmp_path: Path, monkeypatch):
+    class P:
+        rect = type("R", (), {"width": 100.0, "height": 200.0})()
+        rotation = 0
+        def get_text(self, _):
+            return {"blocks": [{"bbox": [10, 20, 30, 40], "lines": [{"spans": [{"text": ""}]}]}]}
+    class D(list):
+        pass
+    monkeypatch.setitem(__import__("sys").modules, "fitz", type("F", (), {"open": lambda *_: D([P()])})())
+    cfg = cr.load_config(_cfg(tmp_path)); cfg["pymupdf"]["enabled"] = True
+    pages, _, meta = cr.load_pymupdf_evidence(tmp_path / "x.pdf", cfg)
+    assert pages[0] == []
+    assert meta[0]["width"] == 100.0 and meta[0]["height"] == 200.0 and meta[0]["rotation"] == 0
+
+
 def test_pairwise_helpers_exclude_self_comparisons():
     items = [
         {"normalised_text": "alpha beta", "bbox": [0, 0, 10, 10]},
@@ -301,3 +332,128 @@ def test_pairwise_helpers_exclude_self_comparisons():
     ious = cr.pairwise_bbox_ious(items)
     assert text_sims and max(text_sims) < 1.0
     assert ious and max(ious) == 0.0
+
+
+def test_malformed_manifest_default_loaded_with_warnings(tmp_path: Path):
+    d = _mk_backend(tmp_path, "mineru", [{"text": "x"}])
+    (d / "manifest.json").write_text("{bad", encoding="utf-8")
+    cfg = cr.load_config(_cfg(tmp_path)); pdf = tmp_path / "TestDoc.pdf"; pdf.write_bytes(b"%PDF-1.4")
+    import os; old = Path.cwd(); os.chdir(tmp_path)
+    try:
+        r, rc = cr.build_consensus_report(pdf, cfg, tmp_path / "cfg.toml", False, False)
+    finally:
+        os.chdir(old)
+    assert rc == 0
+    assert r["sources"]["mineru"]["status"] == "loaded_with_warnings"
+
+
+def test_malformed_manifest_strict_fails(tmp_path: Path):
+    d = _mk_backend(tmp_path, "mineru", [{"text": "x"}])
+    (d / "manifest.json").write_text("{bad", encoding="utf-8")
+    cfg = cr.load_config(_cfg(tmp_path)); pdf = tmp_path / "TestDoc.pdf"; pdf.write_bytes(b"%PDF-1.4")
+    import os; old = Path.cwd(); os.chdir(tmp_path)
+    try:
+        _, rc = cr.build_consensus_report(pdf, cfg, tmp_path / "cfg.toml", False, True)
+    finally:
+        os.chdir(old)
+    assert rc == 1
+
+
+def test_malformed_page_default_continues_if_other_backend_usable(tmp_path: Path):
+    d = _mk_backend(tmp_path, "mineru", [{"text": "x"}]); _mk_backend(tmp_path, "paddleocr", [{"text": "y"}])
+    (d / "pages" / "page_0000.json").write_text("{oops", encoding="utf-8")
+    cfg = cr.load_config(_cfg(tmp_path)); pdf = tmp_path / "TestDoc.pdf"; pdf.write_bytes(b"%PDF-1.4")
+    import os; old = Path.cwd(); os.chdir(tmp_path)
+    try:
+        r, rc = cr.build_consensus_report(pdf, cfg, tmp_path / "cfg.toml", False, False)
+    finally:
+        os.chdir(old)
+    assert rc == 0 and r["sources"]["mineru"]["status"] == "error"
+
+
+def test_malformed_page_strict_fails(tmp_path: Path):
+    d = _mk_backend(tmp_path, "mineru", [{"text": "x"}])
+    (d / "pages" / "page_0000.json").write_text("{oops", encoding="utf-8")
+    cfg = cr.load_config(_cfg(tmp_path)); pdf = tmp_path / "TestDoc.pdf"; pdf.write_bytes(b"%PDF-1.4")
+    import os; old = Path.cwd(); os.chdir(tmp_path)
+    try:
+        _, rc = cr.build_consensus_report(pdf, cfg, tmp_path / "cfg.toml", False, True)
+    finally:
+        os.chdir(old)
+    assert rc == 1
+
+
+def test_page_shape_warnings_missing_blocks_not_list_non_dict_and_invalid_bbox(tmp_path: Path):
+    d = _mk_backend(tmp_path, "mineru", [])
+    (d / "pages" / "page_0000.json").write_text(json.dumps({"foo": 1}), encoding="utf-8")
+    (d / "pages" / "page_0001.json").write_text(json.dumps({"blocks": "x"}), encoding="utf-8")
+    (d / "pages" / "page_0002.json").write_text(json.dumps({"blocks": ["bad", {"text": "ok", "bbox": [1, 2, 3]}]}), encoding="utf-8")
+    cfg = cr.load_config(_cfg(tmp_path)); pdf = tmp_path / "TestDoc.pdf"; pdf.write_bytes(b"%PDF-1.4")
+    import os; old = Path.cwd(); os.chdir(tmp_path)
+    try:
+        r, rc = cr.build_consensus_report(pdf, cfg, tmp_path / "cfg.toml", False, False)
+    finally:
+        os.chdir(old)
+    assert rc == 0
+    all_warnings = "\n".join(r["sources"]["mineru"]["warnings"])
+    assert "missing blocks" in all_warnings and "not a list" in all_warnings and "not an object" in all_warnings and "invalid bbox" in all_warnings
+    page2 = [p for p in r["pages"] if p["page_index"] == 2][0]
+    assert any("invalid bbox" in w for w in page2["warnings"])
+    assert page2["counts"]["geometry_blocks_by_source"]["mineru"] == 0
+
+
+def test_cli_fail_on_invalid_json(tmp_path: Path):
+    d = _mk_backend(tmp_path, "mineru", [{"text": "x"}]); (d / "manifest.json").write_text("{bad", encoding="utf-8")
+    cfgp = _cfg(tmp_path); pdf = tmp_path / "TestDoc.pdf"; pdf.write_bytes(b"%PDF-1.4")
+    import os; old = Path.cwd(); os.chdir(tmp_path)
+    try:
+        rc = cr.main([str(pdf), "--config", str(cfgp), "--fail-on-invalid-json"])
+    finally:
+        os.chdir(old)
+    assert rc == 1
+
+
+def test_all_malformed_pages_source_error_and_not_loadable(tmp_path: Path):
+    d = _mk_backend(tmp_path, "mineru", [{"text": "x"}])
+    (d / "pages" / "page_0000.json").write_text("{bad", encoding="utf-8")
+    _mk_backend(tmp_path, "paddleocr", [{"text": "good"}])
+    cfg = cr.load_config(_cfg(tmp_path)); cfg["pymupdf"]["enabled"] = False
+    pdf = tmp_path / "TestDoc.pdf"; pdf.write_bytes(b"%PDF-1.4")
+    import os; old = Path.cwd(); os.chdir(tmp_path)
+    try:
+        r, rc = cr.build_consensus_report(pdf, cfg, tmp_path / "cfg.toml", False, False)
+    finally:
+        os.chdir(old)
+    assert rc == 0
+    assert r["sources"]["mineru"]["status"] == "error"
+    assert r["sources"]["mineru"]["page_count"] == 0
+    assert any("No usable page JSON files loaded" in w for w in r["sources"]["mineru"]["warnings"])
+
+
+def test_page_loop_warning_upgrades_loaded_status(tmp_path: Path):
+    d = _mk_backend(tmp_path, "mineru", [])
+    (d / "pages" / "page_0000.json").write_text(json.dumps({"blocks": [{"text": "x", "bbox": [1, 2, 3]}]}), encoding="utf-8")
+    _mk_backend(tmp_path, "paddleocr", [{"text": "ok"}])
+    cfg = cr.load_config(_cfg(tmp_path)); cfg["pymupdf"]["enabled"] = False
+    pdf = tmp_path / "TestDoc.pdf"; pdf.write_bytes(b"%PDF-1.4")
+    import os; old = Path.cwd(); os.chdir(tmp_path)
+    try:
+        r, rc = cr.build_consensus_report(pdf, cfg, tmp_path / "cfg.toml", False, False)
+    finally:
+        os.chdir(old)
+    assert rc == 0
+    assert r["sources"]["mineru"]["status"] == "loaded_with_warnings"
+    assert any("invalid bbox" in w for w in r["sources"]["mineru"]["warnings"])
+
+
+def test_no_usable_evidence_returns_rc2(tmp_path: Path):
+    d = _mk_backend(tmp_path, "mineru", [{"text": "x"}])
+    (d / "pages" / "page_0000.json").write_text("{bad", encoding="utf-8")
+    cfg = cr.load_config(_cfg(tmp_path)); cfg["pymupdf"]["enabled"] = False
+    pdf = tmp_path / "TestDoc.pdf"; pdf.write_bytes(b"%PDF-1.4")
+    import os; old = Path.cwd(); os.chdir(tmp_path)
+    try:
+        r, rc = cr.build_consensus_report(pdf, cfg, tmp_path / "cfg.toml", False, False)
+    finally:
+        os.chdir(old)
+    assert rc == 2 and r == {}
