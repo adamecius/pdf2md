@@ -1,0 +1,90 @@
+{
+  "pipeline": "pp_structurev3",
+  "result_type": "LayoutParsingResultV2",
+  "official_output_dir": "/home/jgarcia/pdf2md/pdf2md_old/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003",
+  "save_status": {
+    "save_to_json": true,
+    "save_to_markdown": true,
+    "save_to_img": true
+  },
+  "official_saved_files": [
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/Ashcroft_Mermin_sub_3.md",
+      "size": 2900,
+      "sha256": "sha256:591f413ef224aea0c577ccd723095e636dae1f30b50a77af486f17ca048acb7d",
+      "suffix": ".md"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/Ashcroft_Mermin_sub_3_layout_det_res.png",
+      "size": 731209,
+      "sha256": "sha256:d76b414271065fc091faa4d55a62a8829bed696d7ea6c61d0de2ce8b362f9437",
+      "suffix": ".png"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/Ashcroft_Mermin_sub_3_layout_order_res.png",
+      "size": 668111,
+      "sha256": "sha256:476910a0e9d8c25960c7adf5be36b65309d534565e977c5c69d7dd570d466d9a",
+      "suffix": ".png"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/Ashcroft_Mermin_sub_3_overall_ocr_res.png",
+      "size": 979022,
+      "sha256": "sha256:787d030f1a1e57b4112e03db986547720e3c9c597e5e31d9533ba21eb2ccad4c",
+      "suffix": ".png"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/Ashcroft_Mermin_sub_3_preprocessed_img.png",
+      "size": 2107247,
+      "sha256": "sha256:b03122e9c323a3a3a2d7953f2ee17e2b5400bb59d8e7ebdea9cb146e9b48958f",
+      "suffix": ".png"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/Ashcroft_Mermin_sub_3_region_det_res.png",
+      "size": 750737,
+      "sha256": "sha256:2cd2925dae319aa59b0804969109cb4a8dce7658d8dec03532a69127333245ba",
+      "suffix": ".png"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/Ashcroft_Mermin_sub_3_res.json",
+      "size": 88477,
+      "sha256": "sha256:6c15acc6c7196395af19690488d2fb1152a728a46d3b50f7dbea3c8946c6c1ad",
+      "suffix": ".json"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/imgs/img_in_formula_box_323_842_560_888.jpg",
+      "size": 807,
+      "sha256": "sha256:faca35732ab0146e9e3879c0370e6abc80a9e0ca713126106a8a6a9c8fd1a6c8",
+      "suffix": ".jpg"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/imgs/img_in_formula_box_353_966_530_1034.jpg",
+      "size": 867,
+      "sha256": "sha256:2fa1c8763ba39c50b078564bd407049321542c91d17ff4bb48d369228fbcd2f7",
+      "suffix": ".jpg"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/imgs/img_in_formula_box_399_507_483_523.jpg",
+      "size": 651,
+      "sha256": "sha256:1f9006ce35f18a50859add93a932970bff955e25c6611b880d446a16872e817a",
+      "suffix": ".jpg"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/imgs/img_in_formula_box_411_236_474_255.jpg",
+      "size": 659,
+      "sha256": "sha256:6124dc1d90d69e83e37fb624ad67211a018ab9da60a1c7f1d7e62accb2c3c965",
+      "suffix": ".jpg"
+    }
+  ],
+  "markdown_length": 2899,
+  "markdown_image_count": 0,
+  "result_json_keys": [
+    "res"
+  ],
+  "markdown_keys": [
+    "input_path",
+    "markdown_images",
+    "markdown_texts",
+    "page_continuation_flags",
+    "page_index"
+  ]
+}

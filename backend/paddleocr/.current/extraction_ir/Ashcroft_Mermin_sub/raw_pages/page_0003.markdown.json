@@ -1,0 +1,35 @@
+{
+  "markdown_texts": "dimensions, but is independent of the size of the current or potential drop. The Drude model accounts for this behavior and provides an estimate of the size of the resistance.\n\nOne generally eliminates the dependence of R on the shape of the wire by introducing a quantity characteristic only of the metal of which the wire is composed. The resistivity ρ is defined to be the proportionality constant between the electric fieid Eata point in themetal andthe current density j that it in $\\mathrm{d}\\omega\\mathrm{c}\\mathrm{s}^{10}$ \n\n$$\\mathbb{E}=\\rho\\mathbf{j}.$$\n\nThe current density j is a vector. parallel to the flow of charge, whose magnitude is the amount of charge per unit time crossing a unit area perpendicular to the flow.Thus if a uniformcurrent I filows through a wire of length Land cross-sectional area A, the current density will be $j=1.4$ Since the potential drop along the wire will be $V=E L,\\mathrm{E q.}(1.3)$ gives $V=I\\rho L/A$ , and hence $R=\\rho L/A$ \n\n\n\nIf n electrons per unit volume all move with velocity v, then the current density they giverise to will be parallel to v. Furthermore,in a time dt the electrons will advanceby a distancerdt in the direction of v,so that $n(v dt)A$ electrons will cross an area A perpendicular to the direction of flow. Since each electron carries a charge $-e.$ .the charge crossing .A in the time dt will be $-n e t\\cdot A d t$ ,andhencethe current density is \n\n\n\n$$\\mathbf{j}=-n e\\mathbf{v}.$$\n\nAt any point in a metal, electrons are always moving in a variety of directions with a variety of thermai energies. The net current density is thus given by (1.4),where v is the average electronic velocity. In the absence of an electric fieid, electrons are as likely to be moving in any one direction as in any other, v averages to zero,and,as expected,there is no net electric current density. In the presence of a field E.however, there will be a mean electronic velocity directed opposite to the field (the electronic charge being negative), which we can compute as follows:\n\nConsider a typical electron at time zero. Lett be the time elapsed since its last collision. Its velocity at time zero will be its velocity $\\mathbf{v}_{0}$ immediately after that collision plus the additional velocity $-e\\mathbb{E}t/m$ it has subsequently acquired. Since we assume that an electron emergesfrom a collision in a random direction,there will beno contribution from $\\mathbb{V}_{0}$ to the average electronic velocity, which must therefore be given entirely by the average of $-e\\mathbb{E}t/m$ 1.However,the average of t is the relaxation time t.Therefore \n\n\n\n$$w_{avg}=-\\frac{e\\mathbb{E}\\tau}{m};\\quad\\mathbf{j}=\\left(\\frac{ne^2\\tau}{m}\\right)\\mathbb{E}.$$\n\nThis result is usually stated in terms of the inverse of the resistivity,the conductivity \n\n$\\sigma=1/\\rho$ \n\n\n\n$$\\sqrt[n]{\\mathbf{j}=\\sigma\\mathbf{E};\\quad\\sigma=\\frac{n e^2\\tau}{m}}$$",
+  "markdown_images": {
+    "imgs/img_in_formula_box_411_236_474_255.jpg": {
+      "__kind__": "image_object",
+      "class": "Image",
+      "width": 63,
+      "height": 19
+    },
+    "imgs/img_in_formula_box_399_507_483_523.jpg": {
+      "__kind__": "image_object",
+      "class": "Image",
+      "width": 84,
+      "height": 16
+    },
+    "imgs/img_in_formula_box_323_842_560_888.jpg": {
+      "__kind__": "image_object",
+      "class": "Image",
+      "width": 237,
+      "height": 46
+    },
+    "imgs/img_in_formula_box_353_966_530_1034.jpg": {
+      "__kind__": "image_object",
+      "class": "Image",
+      "width": 177,
+      "height": 68
+    }
+  },
+  "page_continuation_flags": [
+    false,
+    true
+  ],
+  "page_index": 3,
+  "input_path": "/home/jgarcia/pdf2md/pdf2md_old/backend/paddleocr/Ashcroft_Mermin_sub.pdf"
+}
