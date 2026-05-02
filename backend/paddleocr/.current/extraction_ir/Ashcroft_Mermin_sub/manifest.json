@@ -1,0 +1,490 @@
+{
+  "schema_name": "pdf2md.extraction_ir_manifest",
+  "schema_version": "1.0.0",
+  "ir_stage": "backend_extraction",
+  "run": {
+    "run_id": "run_20260502_141100",
+    "created_at": "2026-05-02T14:11:23.126104Z",
+    "pipeline_version": "0.1.0"
+  },
+  "backend": {
+    "backend_id": "paddleocr_pp_structurev3",
+    "backend_name": "paddleocr_pp_structurev3",
+    "backend_type": "local",
+    "backend_version": null,
+    "adapter_name": "paddleocr_adapter",
+    "adapter_version": "0.2.0",
+    "config_ref": "backends.paddleocr_pp_structurev3",
+    "model_id": "pp_structurev3",
+    "model_path": null,
+    "device": "gpu:0"
+  },
+  "source": {
+    "source_id": "Ashcroft_Mermin_sub",
+    "source_path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/Ashcroft_Mermin_sub.pdf",
+    "source_sha256": "sha256:20f76bdfdf94ad46a49d89f66f92ce0b9c4c37c3974201ee70c0020104691438",
+    "mime_type": "application/pdf",
+    "page_count": 4
+  },
+  "normalisation": {
+    "coordinate_space": "page_normalised_1000",
+    "origin": "top_left",
+    "bbox_format": "x0_y0_x1_y1",
+    "text_normalisation": "unicode_nfkc_whitespace_collapsed_lowercase",
+    "reading_order_base": "page_local_zero_based",
+    "native_paddleocr_coordinate_space": "paddleocr_image_pixels"
+  },
+  "page_refs": [
+    {
+      "page_id": "paddleocr_pp_structurev3_p0000",
+      "page_index": 0,
+      "page_number": 1,
+      "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/pages/page_0000.json",
+      "sha256": "sha256:d619706e4bf56496d0fd0e92a605ea3701c73ce934b983aab6fae63ac75b38ee",
+      "status": "ok"
+    },
+    {
+      "page_id": "paddleocr_pp_structurev3_p0001",
+      "page_index": 1,
+      "page_number": 2,
+      "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/pages/page_0001.json",
+      "sha256": "sha256:9694bf067336c42e24274a3cc745bb376f4838e597e7b16c840e8535acb1296a",
+      "status": "ok"
+    },
+    {
+      "page_id": "paddleocr_pp_structurev3_p0002",
+      "page_index": 2,
+      "page_number": 3,
+      "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/pages/page_0002.json",
+      "sha256": "sha256:ed6fdc310d71b61bb4ddf372a4dcb7714d2606c598c98f46284e46c1e8d403a5",
+      "status": "ok"
+    },
+    {
+      "page_id": "paddleocr_pp_structurev3_p0003",
+      "page_index": 3,
+      "page_number": 4,
+      "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/pages/page_0003.json",
+      "sha256": "sha256:58684e266bf429fb0338a7e7b9ee0c9750e82c385d0f07d2c3fb016978dbef69",
+      "status": "ok"
+    }
+  ],
+  "artifacts": {
+    "ir_dir": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub",
+    "pages_dir": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/pages",
+    "page_image_dir": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/page_images",
+    "raw_pages_dir": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages",
+    "official_results_dir": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results",
+    "media_dir": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/media",
+    "native_json_files": [
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_json",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0000.official.json",
+        "kind": "paddleocr_result_json_attribute",
+        "sha256": "sha256:cd5330323ac473c4e75469ea62a277cab05167e61a6d6637671d7a105fd490f2"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0001_official_json",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0001.official.json",
+        "kind": "paddleocr_result_json_attribute",
+        "sha256": "sha256:e63642f029f495783205b0e762ce633d10438c12dfd3fe934b7f6157789f1e66"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0002_official_json",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0002.official.json",
+        "kind": "paddleocr_result_json_attribute",
+        "sha256": "sha256:9300aadd145cbe574ddddaeb9ac320ad01abe2e4a38068efba6bfebcc5bf89be"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0003_official_json",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0003.official.json",
+        "kind": "paddleocr_result_json_attribute",
+        "sha256": "sha256:fce24120de6ce2ea7ccfcead6e461a93337a513bedf7e7d721033f9911e8f599"
+      }
+    ],
+    "native_output_files": [
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_markdown_json",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0000.markdown.json",
+        "kind": "paddleocr_markdown_attribute",
+        "sha256": "sha256:cad7c76d56e1ccb5e50455e43ec05bd29afb47278124ee3fa3f595404df93827"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_clean_markdown",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0000.clean.md",
+        "kind": "paddleocr_clean_markdown",
+        "sha256": "sha256:9054ef427a28795f56947992fdae9b6485a55206fea7c84c302070a054cdba03"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_capture_metadata",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0000.capture.json",
+        "kind": "paddleocr_capture_metadata",
+        "sha256": "sha256:36d7469f86558eeb399e142ace714296d1a706ab035910cee9bf95ef10a423e1"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_saved_0003",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0000/Ashcroft_Mermin_sub_0.md",
+        "kind": "paddleocr_official_saved.md",
+        "sha256": "sha256:9054ef427a28795f56947992fdae9b6485a55206fea7c84c302070a054cdba03"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_saved_0004",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0000/Ashcroft_Mermin_sub_0_layout_det_res.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:bdb4c2a85bb4ea975291a98c7f92e4276f28e8b59a78817a3b365c050d694bd2"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_saved_0005",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0000/Ashcroft_Mermin_sub_0_layout_order_res.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:56ed2c400b39b58d1e20e47ab17ef9dbaf0490814cf822571bd86b193e03fdb9"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_saved_0006",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0000/Ashcroft_Mermin_sub_0_overall_ocr_res.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:a333645e25b72c54a91413b82ef73d776c1a7c8df446a205a9e16a1d2372ab85"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_saved_0007",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0000/Ashcroft_Mermin_sub_0_preprocessed_img.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:50cd60abc4074abaa262afaba285d61e1c26127bf68546d15530eac276c60bda"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_saved_0008",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0000/Ashcroft_Mermin_sub_0_region_det_res.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:179f3bb712e53d7eee0329de4c3d9752a6237785d6bd88831c5caed5caf549fa"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_saved_0009",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0000/Ashcroft_Mermin_sub_0_res.json",
+        "kind": "paddleocr_official_saved.json",
+        "sha256": "sha256:2fde7a86049f6e45858ca9a188c9a037d4acd7a2fdaf7ff36dd2eaff8c17b890"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_saved_0010",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0000/imgs/img_in_formula_box_240_473_495_519.jpg",
+        "kind": "paddleocr_official_saved.jpg",
+        "sha256": "sha256:cfb5d4b55e584e9dfa3cfbe5976eb4832b9104734141c54f691c46a47199028b"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_saved_0011",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0000/imgs/img_in_formula_box_243_472_520_523.jpg",
+        "kind": "paddleocr_official_saved.jpg",
+        "sha256": "sha256:f506a5a2af91bdf899d25b7a0aacb5ce71f7fe53ad52dbc15e4b90a82412e8a1"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_saved_0012",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0000/imgs/img_in_formula_box_272_287_463_326.jpg",
+        "kind": "paddleocr_official_saved.jpg",
+        "sha256": "sha256:e8846342c36fc56a1b63f25fdf703457252813d977bc99b5e56bd261cf00198f"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_saved_0013",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0000/imgs/img_in_formula_box_278_275_485_317.jpg",
+        "kind": "paddleocr_official_saved.jpg",
+        "sha256": "sha256:580cbc04aa3008c0f6d6d0d0003402025b92bcbe08f2360ffe775506ae1e9d30"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0001_markdown_json",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0001.markdown.json",
+        "kind": "paddleocr_markdown_attribute",
+        "sha256": "sha256:fda988dffb48518b25496d7523a26f5510811cfb385e930e68d656aa5794e786"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0001_clean_markdown",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0001.clean.md",
+        "kind": "paddleocr_clean_markdown",
+        "sha256": "sha256:e9e1e6619382bb1ed60c9ecc281582fcca0ec49fd20276351f00f8582cc333a4"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0001_capture_metadata",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0001.capture.json",
+        "kind": "paddleocr_capture_metadata",
+        "sha256": "sha256:670144038e3c6440febb9cd3bc6010d015888dac5afa7be3eb9d99087d95d556"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0001_official_saved_0017",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0001/Ashcroft_Mermin_sub_1.md",
+        "kind": "paddleocr_official_saved.md",
+        "sha256": "sha256:e9e1e6619382bb1ed60c9ecc281582fcca0ec49fd20276351f00f8582cc333a4"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0001_official_saved_0018",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0001/Ashcroft_Mermin_sub_1_layout_det_res.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:2aa881a428d0d59233d65d9530a426ccfbe1e33b8e8d2b4eebe87c1d6074c2b0"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0001_official_saved_0019",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0001/Ashcroft_Mermin_sub_1_layout_order_res.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:a6e784745e551a855e0f25af8e36a4a39db0b91a11151339488a18b9a36c11ad"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0001_official_saved_0020",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0001/Ashcroft_Mermin_sub_1_overall_ocr_res.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:3aa8ac21a63dede7e2bd4299849c4ee4fdbf8d1dc7c00c2c642a8c7273710d88"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0001_official_saved_0021",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0001/Ashcroft_Mermin_sub_1_preprocessed_img.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:25f4b5242b9ae9270533d63a936c92d76fc9a11c10e0c9686cfc4c3c74af3a49"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0001_official_saved_0022",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0001/Ashcroft_Mermin_sub_1_region_det_res.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:8940ea5e0dac0c479bd2ae745e10209352b9ca8bea68ed7c613038ccae249245"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0001_official_saved_0023",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0001/Ashcroft_Mermin_sub_1_res.json",
+        "kind": "paddleocr_official_saved.json",
+        "sha256": "sha256:45e01f2614361c052db333290a8a5c4227c5a003524237f640019504dc526e09"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0001_official_saved_0024",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0001/Ashcroft_Mermin_sub_1_table_cell_img.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:0de71d9f2a72ea1502c2686b5e5b146be5fe1929c959cf10f108f6e07d1b9de2"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0001_official_saved_0025",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0001/imgs/img_in_table_box_106_114_761_747.jpg",
+        "kind": "paddleocr_official_saved.jpg",
+        "sha256": "sha256:66a98b647757c5fb4a28e4b43759f3478b28c08ce60d28f79b4b5b1c5ef595dd"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0001_official_saved_0026",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0001/imgs/img_in_table_box_154_160_685_735.jpg",
+        "kind": "paddleocr_official_saved.jpg",
+        "sha256": "sha256:c8f5ade80c9d68eecf3c9d2b43328f4fe1e4463c05a2271dd202e334d149f124"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0002_markdown_json",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0002.markdown.json",
+        "kind": "paddleocr_markdown_attribute",
+        "sha256": "sha256:2c2d9b370da697398c9573ae203940d4e30908c36fb2a3d15c1f28f66a8b0a57"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0002_clean_markdown",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0002.clean.md",
+        "kind": "paddleocr_clean_markdown",
+        "sha256": "sha256:0c391dad20f59c3fc18033d15d070a36f2cfda588be2e9e97d414eda5938b164"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0002_capture_metadata",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0002.capture.json",
+        "kind": "paddleocr_capture_metadata",
+        "sha256": "sha256:a2c9ae17ed9026d7f076f1123d79e5864cccc3709e706458ba3f9a79d9644ef6"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0002_official_saved_0030",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0002/Ashcroft_Mermin_sub_2.md",
+        "kind": "paddleocr_official_saved.md",
+        "sha256": "sha256:0c391dad20f59c3fc18033d15d070a36f2cfda588be2e9e97d414eda5938b164"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0002_official_saved_0031",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0002/Ashcroft_Mermin_sub_2_layout_det_res.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:536721a1c1b970fa325bd7b851076ece3fb6fea514a514dd83f84a2d202e36d6"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0002_official_saved_0032",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0002/Ashcroft_Mermin_sub_2_layout_order_res.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:dba85d47d1992a06f0e3d1c101a3f3f47a05fe5a40ae4b487d50822e6f7e738b"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0002_official_saved_0033",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0002/Ashcroft_Mermin_sub_2_overall_ocr_res.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:9cbee5a82abde739afd749f1647c48e1d878e51889238fafe86937e7daeef7c3"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0002_official_saved_0034",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0002/Ashcroft_Mermin_sub_2_preprocessed_img.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:0449d770cdc4c4386cc5219d6a3b952b1727df368c6ccc2146f8873e92fe2ea0"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0002_official_saved_0035",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0002/Ashcroft_Mermin_sub_2_region_det_res.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:43b65a45d25f5393895ea1a5ec66690c4e1af38901f22212159317bcb24a3786"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0002_official_saved_0036",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0002/Ashcroft_Mermin_sub_2_res.json",
+        "kind": "paddleocr_official_saved.json",
+        "sha256": "sha256:d21d3c59c345f73c4d707e29c909dcbcef65ca56b24e6831e7106c647cef27d9"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0002_official_saved_0037",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0002/imgs/img_in_image_box_114_132_382_225.jpg",
+        "kind": "paddleocr_official_saved.jpg",
+        "sha256": "sha256:d716cc1b6f33116772733c2057c20ffa4ea5b4667a2682d458ae66eab2ad7ef2"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0003_markdown_json",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0003.markdown.json",
+        "kind": "paddleocr_markdown_attribute",
+        "sha256": "sha256:066e9777c0fb26024f787c2b0f976713d3c3adb8dd67fd7080fb087d06876c90"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0003_clean_markdown",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0003.clean.md",
+        "kind": "paddleocr_clean_markdown",
+        "sha256": "sha256:591f413ef224aea0c577ccd723095e636dae1f30b50a77af486f17ca048acb7d"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0003_capture_metadata",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/raw_pages/page_0003.capture.json",
+        "kind": "paddleocr_capture_metadata",
+        "sha256": "sha256:84aba7ec4fad4f6a890328da84f3d6cb3d2cdb84e5867e3c86c093649dc2abfa"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0003_official_saved_0041",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/Ashcroft_Mermin_sub_3.md",
+        "kind": "paddleocr_official_saved.md",
+        "sha256": "sha256:591f413ef224aea0c577ccd723095e636dae1f30b50a77af486f17ca048acb7d"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0003_official_saved_0042",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/Ashcroft_Mermin_sub_3_layout_det_res.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:d76b414271065fc091faa4d55a62a8829bed696d7ea6c61d0de2ce8b362f9437"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0003_official_saved_0043",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/Ashcroft_Mermin_sub_3_layout_order_res.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:476910a0e9d8c25960c7adf5be36b65309d534565e977c5c69d7dd570d466d9a"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0003_official_saved_0044",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/Ashcroft_Mermin_sub_3_overall_ocr_res.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:787d030f1a1e57b4112e03db986547720e3c9c597e5e31d9533ba21eb2ccad4c"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0003_official_saved_0045",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/Ashcroft_Mermin_sub_3_preprocessed_img.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:b03122e9c323a3a3a2d7953f2ee17e2b5400bb59d8e7ebdea9cb146e9b48958f"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0003_official_saved_0046",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/Ashcroft_Mermin_sub_3_region_det_res.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:2cd2925dae319aa59b0804969109cb4a8dce7658d8dec03532a69127333245ba"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0003_official_saved_0047",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/Ashcroft_Mermin_sub_3_res.json",
+        "kind": "paddleocr_official_saved.json",
+        "sha256": "sha256:a7cfb325a549f068d500934c8e624d9c2484d21316b056806cf0f8105d0e42f8"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0003_official_saved_0048",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/imgs/img_in_formula_box_323_842_560_888.jpg",
+        "kind": "paddleocr_official_saved.jpg",
+        "sha256": "sha256:faca35732ab0146e9e3879c0370e6abc80a9e0ca713126106a8a6a9c8fd1a6c8"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0003_official_saved_0049",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/imgs/img_in_formula_box_353_966_530_1034.jpg",
+        "kind": "paddleocr_official_saved.jpg",
+        "sha256": "sha256:2fa1c8763ba39c50b078564bd407049321542c91d17ff4bb48d369228fbcd2f7"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0003_official_saved_0050",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/imgs/img_in_formula_box_399_507_483_523.jpg",
+        "kind": "paddleocr_official_saved.jpg",
+        "sha256": "sha256:1f9006ce35f18a50859add93a932970bff955e25c6611b880d446a16872e817a"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0003_official_saved_0051",
+        "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0003/imgs/img_in_formula_box_411_236_474_255.jpg",
+        "kind": "paddleocr_official_saved.jpg",
+        "sha256": "sha256:6124dc1d90d69e83e37fb624ad67211a018ab9da60a1c7f1d7e62accb2c3c965"
+      }
+    ]
+  },
+  "capabilities": {
+    "layout_blocks": true,
+    "reading_order": true,
+    "ocr_lines": true,
+    "ocr_spans": false,
+    "tables": true,
+    "table_cells": true,
+    "formulas": true,
+    "figures": "partial",
+    "captions": "partial",
+    "headers_footers": "partial",
+    "page_numbers": "partial",
+    "geometry": true,
+    "confidence_scores": "partial",
+    "markdown": true,
+    "semantic_markdown_blocks": true,
+    "html": true,
+    "latex": "partial",
+    "official_json": true
+  },
+  "observed_capabilities": {
+    "page_count": 4,
+    "pages_with_ocr_text": 4,
+    "pages_with_layout": 4,
+    "layout_block_count": 49,
+    "semantic_markdown_block_count": 24,
+    "ocr_line_count": 339,
+    "table_count": 1,
+    "formula_count": 39,
+    "media_count": 0
+  },
+  "quality": {
+    "pages_total": 4,
+    "pages_ok": 4,
+    "pages_empty": 0,
+    "pages_with_ocr_text": 4,
+    "pages_with_layout": 4,
+    "layout_block_count": 49,
+    "semantic_markdown_block_count": 24,
+    "ocr_line_count": 339,
+    "table_count": 1,
+    "formula_count": 39,
+    "media_count": 0
+  },
+  "inference": {
+    "pipeline": "pp_structurev3",
+    "device": "gpu:0",
+    "lang": null,
+    "engine": null,
+    "dpi": 300,
+    "scan_profile": "digital_pdf",
+    "predict_from_page_images": false,
+    "page_start": null,
+    "page_end": null,
+    "use_doc_orientation_classify": false,
+    "use_doc_unwarping": false,
+    "use_textline_orientation": false,
+    "use_layout_detection": null,
+    "use_chart_recognition": false,
+    "use_seal_recognition": false,
+    "use_ocr_for_image_block": false,
+    "text_recognition_model_name": null,
+    "save_results": true
+  },
+  "flags": [
+    {
+      "code": "page_images_unavailable",
+      "severity": "medium",
+      "message": "PyMuPDF/Pillow were not available, so page_images were not generated."
+    }
+  ]
+}

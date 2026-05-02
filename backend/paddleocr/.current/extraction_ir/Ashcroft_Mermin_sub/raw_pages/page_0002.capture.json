@@ -1,0 +1,72 @@
+{
+  "pipeline": "pp_structurev3",
+  "result_type": "LayoutParsingResultV2",
+  "official_output_dir": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0002",
+  "save_status": {
+    "save_to_json": true,
+    "save_to_markdown": true,
+    "save_to_img": true
+  },
+  "official_saved_files": [
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0002/Ashcroft_Mermin_sub_2.md",
+      "size": 2824,
+      "sha256": "sha256:0c391dad20f59c3fc18033d15d070a36f2cfda588be2e9e97d414eda5938b164",
+      "suffix": ".md"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0002/Ashcroft_Mermin_sub_2_layout_det_res.png",
+      "size": 833186,
+      "sha256": "sha256:536721a1c1b970fa325bd7b851076ece3fb6fea514a514dd83f84a2d202e36d6",
+      "suffix": ".png"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0002/Ashcroft_Mermin_sub_2_layout_order_res.png",
+      "size": 757113,
+      "sha256": "sha256:dba85d47d1992a06f0e3d1c101a3f3f47a05fe5a40ae4b487d50822e6f7e738b",
+      "suffix": ".png"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0002/Ashcroft_Mermin_sub_2_overall_ocr_res.png",
+      "size": 1087833,
+      "sha256": "sha256:9cbee5a82abde739afd749f1647c48e1d878e51889238fafe86937e7daeef7c3",
+      "suffix": ".png"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0002/Ashcroft_Mermin_sub_2_preprocessed_img.png",
+      "size": 2387401,
+      "sha256": "sha256:0449d770cdc4c4386cc5219d6a3b952b1727df368c6ccc2146f8873e92fe2ea0",
+      "suffix": ".png"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0002/Ashcroft_Mermin_sub_2_region_det_res.png",
+      "size": 833892,
+      "sha256": "sha256:43b65a45d25f5393895ea1a5ec66690c4e1af38901f22212159317bcb24a3786",
+      "suffix": ".png"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0002/Ashcroft_Mermin_sub_2_res.json",
+      "size": 58248,
+      "sha256": "sha256:d21d3c59c345f73c4d707e29c909dcbcef65ca56b24e6831e7106c647cef27d9",
+      "suffix": ".json"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md/backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/official_results/page_0002/imgs/img_in_image_box_114_132_382_225.jpg",
+      "size": 6477,
+      "sha256": "sha256:d716cc1b6f33116772733c2057c20ffa4ea5b4667a2682d458ae66eab2ad7ef2",
+      "suffix": ".jpg"
+    }
+  ],
+  "markdown_length": 2819,
+  "markdown_image_count": 0,
+  "result_json_keys": [
+    "res"
+  ],
+  "markdown_keys": [
+    "input_path",
+    "markdown_images",
+    "markdown_texts",
+    "page_continuation_flags",
+    "page_index"
+  ]
+}
