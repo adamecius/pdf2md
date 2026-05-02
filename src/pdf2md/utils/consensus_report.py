@@ -64,7 +64,10 @@ def load_backend_pages(extraction_dir: Path) -> dict[int, dict[str, Any]]:
         m = re.search(r"page_(\d+)\.json", p.name)
         if not m:
             continue
-        pages[int(m.group(1))] = json.loads(p.read_text(encoding="utf-8"))
+        try:
+            pages[int(m.group(1))] = json.loads(p.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as e:
+            raise json.JSONDecodeError(f"{e.msg} [file={p}]", e.doc, e.pos) from e
     return pages
 
 
@@ -156,15 +159,28 @@ def normalise_backend_block(source: str, page_index: int, order: int, block: dic
     geometry = block.get("geometry") or {}
     txt = content.get("text") or content.get("markdown") or block.get("text") or block.get("markdown") or ""
     kind = _kind(block)
-    role = block.get("compile_role", "candidate")
-    if source == "deepseek" and ((block.get("docling") or {}).get("excluded_from_docling") is True):
-        role = "evidence_only"
-    if source == "paddleocr" and block.get("compile_role"):
+    docling = block.get("docling") or {}
+    comparison_in = block.get("comparison") if isinstance(block.get("comparison"), dict) else {}
+    subtype = str(block.get("subtype") or "")
+    semantic_role = str(block.get("semantic_role") or "")
+    if block.get("compile_role"):
         role = block["compile_role"]
+    elif docling.get("compile_role"):
+        role = docling["compile_role"]
+    elif docling.get("excluded_from_docling") is True:
+        role = "evidence_only"
+    elif semantic_role == "raw_generated_page_evidence":
+        role = "evidence_only"
+    elif "generated_markdown_page" in subtype:
+        role = "evidence_only"
+    elif comparison_in.get("compare_as") == "generated_page_markdown":
+        role = "evidence_only"
+    else:
+        role = "candidate"
     bbox = _valid_bbox(geometry.get("bbox")) or _valid_bbox(block.get("bbox"))
     nt = content.get("normalised_text") or normalize_text(txt)
     confidence = block.get("confidence") if isinstance(block.get("confidence"), dict) else {"overall": None, "text": None, "layout": None, "reading_order": None, "structure": None}
-    comparison = block.get("comparison") if isinstance(block.get("comparison"), dict) else {}
+    comparison = comparison_in
     comparison = {
         "text_hash": comparison.get("text_hash") or (hashlib.sha1(nt.encode()).hexdigest() if nt else None),
         "geometry_hash": comparison.get("geometry_hash") or (hashlib.sha1(str(bbox).encode()).hexdigest() if bbox else None),
@@ -191,9 +207,11 @@ def normalise_backend_block(source: str, page_index: int, order: int, block: dic
 
 
 def build_candidate_groups(page_evidence: list[dict[str, Any]], config: dict[str, Any]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    candidates = [e for e in page_evidence if e["compile_role"] != "excluded"]
-    if not config["consensus"].get("include_evidence_only_blocks", False):
-        candidates = [e for e in candidates if e["compile_role"] != "evidence_only"]
+    allowed = {"candidate", "use"}
+    include_evidence = config["consensus"].get("include_evidence_only_blocks", False)
+    if include_evidence:
+        allowed.add("evidence_only")
+    candidates = [e for e in page_evidence if e["compile_role"] in allowed]
     groups: list[list[dict[str, Any]]] = []
     ungrouped: list[dict[str, Any]] = []
     for e in candidates:
@@ -227,7 +245,9 @@ def build_candidate_groups(page_evidence: list[dict[str, Any]], config: dict[str
         box_members = [x for x in g if x["bbox"]]
         bbox_ious = pairwise_bbox_ious(g)
         max_iou = max(bbox_ious or [0.0])
-        if not text_vals:
+        if len(g) == 1 and text_vals:
+            text_agree = "single_source"
+        elif not text_vals:
             text_agree = "unavailable"
         elif len(set(text_vals)) == 1:
             text_agree = "exact"
@@ -235,12 +255,16 @@ def build_candidate_groups(page_evidence: list[dict[str, Any]], config: dict[str
             text_agree = "near"
         else:
             text_agree = "conflict"
-        if not box_members:
+        if len(g) == 1 and box_members:
+            geo_agree = "single_source"
+        elif not box_members:
             geo_agree = "unavailable"
         elif len(box_members) < len(g):
             geo_agree = "missing"
         elif len(box_members) >= 2 and max_iou >= config["consensus"]["bbox_iou_threshold"]:
             geo_agree = "near"
+        elif len(box_members) == 1:
+            geo_agree = "single_source"
         else:
             geo_agree = "conflict"
         out.append({"group_id": f"p{g[0]['page_index']:04d}_g{i:04d}", "page_index": g[0]["page_index"], "kind": g[0]["kind"], "members": ms, "sources": srcs, "support_count": len(srcs), "has_pymupdf_support": "pymupdf" in srcs, "representative_text": g[0]["text"], "representative_bbox": g[0]["bbox"], "agreement": {"text": text_agree, "geometry": geo_agree, "kind": "agree" if len({x['kind'] for x in g}) == 1 else "conflict"}, "scores": {"max_text_similarity": max_ts, "max_bbox_iou": max_iou}, "provisional_selection": {"source_backend": None, "reason": "not_selected_in_report_only_mode"}, "conflicts": []})
@@ -293,8 +317,9 @@ def load_pymupdf_evidence(pdf_path: Path, config: dict[str, Any]) -> tuple[dict[
             for j, b in enumerate(data.get("blocks", [])):
                 bb = b.get("bbox")
                 txt = " ".join(span.get("text", "") for line in b.get("lines", []) for span in line.get("spans", []))
-                pitems.append(normalise_backend_block("pymupdf", i, j, {"type": "text", "text": txt, "bbox": [max(0,min(1000,bb[0]/page.rect.width*1000)), max(0,min(1000,bb[1]/page.rect.height*1000)), max(0,min(1000,bb[2]/page.rect.width*1000)), max(0,min(1000,bb[3]/page.rect.height*1000))] if bb else None}, str(pdf_path), f"/pages/{i}/blocks/{j}"))
-                pitems[-1]["source_type"] = "native_pdf"
+                if txt.strip():
+                    pitems.append(normalise_backend_block("pymupdf", i, j, {"type": "text", "text": txt, "bbox": [max(0,min(1000,bb[0]/page.rect.width*1000)), max(0,min(1000,bb[1]/page.rect.height*1000)), max(0,min(1000,bb[2]/page.rect.width*1000)), max(0,min(1000,bb[3]/page.rect.height*1000))] if bb else None}, str(pdf_path), f"/pages/{i}/blocks/{j}"))
+                    pitems[-1]["source_type"] = "native_pdf"
         pages[i] = pitems
         page_meta[i] = {"page_index": i, "page_number": i + 1, "width": float(page.rect.width), "height": float(page.rect.height), "rotation": int(getattr(page, "rotation", 0)), "native_text_block_count": len(pitems), "has_native_text": any(x["normalised_text"] for x in pitems), "text_similarity_by_source": {}}
     return pages, {"source_name": "pymupdf", "source_type": "native_pdf", "enabled": True, "status": "loaded", "page_count": len(pages), "warnings": []}, page_meta
@@ -317,7 +342,13 @@ def build_consensus_report(pdf_path: Path, config: dict[str, Any], config_path: 
                 return {}, 1
             sources[name] = {"source_name": name, "source_type": "backend_extraction_ir", "enabled": True, "root": str(bcfg.get("root")), "extraction_dir": str(edir), "manifest_path": str(edir / "manifest.json"), "status": "missing", "page_count": 0, "warnings": ["Extraction directory missing"]}
             continue
-        pages = load_backend_pages(edir)
+        try:
+            pages = load_backend_pages(edir)
+        except json.JSONDecodeError as e:
+            if fail_on_missing_backend:
+                return {}, 1
+            sources[name] = {"source_name": name, "source_type": "backend_extraction_ir", "enabled": True, "root": str(bcfg.get("root")), "extraction_dir": str(edir), "manifest_path": str(edir / "manifest.json"), "status": "invalid_json", "page_count": 0, "warnings": [f"Invalid JSON: {e.msg} ({e.doc[:1]}) at {e.pos} in {e.lineno}:{e.colno} file={e.args[0] if e.args else str(edir)}"]}
+            continue
         backend_pages[name] = pages
         loadable += 1
         sources[name] = {"source_name": name, "source_type": "backend_extraction_ir", "enabled": True, "root": str(bcfg.get("root")), "extraction_dir": str(edir), "manifest_path": str(edir / "manifest.json"), "status": "loaded", "page_count": len(pages), "warnings": []}
@@ -336,8 +367,15 @@ def build_consensus_report(pdf_path: Path, config: dict[str, Any], config_path: 
         for s in CANONICAL_BACKENDS:
             if sources[s]["status"] == "loaded" and pi in backend_pages.get(s, {}):
                 present.append(s)
-                blocks = backend_pages[s][pi].get("blocks", [])
+                page_obj = backend_pages[s][pi]
+                if not isinstance(page_obj, dict):
+                    continue
+                blocks = page_obj.get("blocks", [])
+                if not isinstance(blocks, list):
+                    continue
                 for i, b in enumerate(blocks):
+                    if not isinstance(b, dict):
+                        continue
                     evidence.append(normalise_backend_block(s, pi, i, b, str(dirs[s] / "pages" / f"page_{pi:04d}.json"), f"/blocks/{i}"))
             elif sources[s]["status"] in {"loaded", "missing"}:
                 missing.append(s)
@@ -354,6 +392,10 @@ def build_consensus_report(pdf_path: Path, config: dict[str, Any], config_path: 
             "formulas_by_source": {s: sum(1 for e in evidence if e["source_backend"] == s and e["kind"] == "formula") for s in count_sources},
             "pictures_by_source": {s: sum(1 for e in evidence if e["source_backend"] == s and e["kind"] == "picture") for s in count_sources},
             "captions_by_source": {s: sum(1 for e in evidence if e["source_backend"] == s and e["kind"] == "caption") for s in count_sources},
+            "candidate_blocks_by_source": {s: sum(1 for e in evidence if e["source_backend"] == s and e["compile_role"] in {"candidate", "use"}) for s in count_sources},
+            "evidence_only_blocks_by_source": {s: sum(1 for e in evidence if e["source_backend"] == s and e["compile_role"] == "evidence_only") for s in count_sources},
+            "fallback_blocks_by_source": {s: sum(1 for e in evidence if e["source_backend"] == s and e["compile_role"] == "fallback_only") for s in count_sources},
+            "duplicate_candidate_blocks_by_source": {s: sum(1 for e in evidence if e["source_backend"] == s and e["compile_role"] == "duplicate_candidate") for s in count_sources},
         }
         pym_page = pym_meta.get(pi, {"page_index": pi, "page_number": pi + 1, "width": None, "height": None, "rotation": None, "native_text_block_count": 0, "has_native_text": False, "text_similarity_by_source": {}})
         page = {"page_index": pi, "page_number": pi + 1, "sources_present": present, "sources_missing": missing, "pymupdf_page": pym_page, "counts": counts, "candidate_groups": groups, "ungrouped_candidates": [u["evidence_id"] for u in ungrouped], "conflicts": [], "warnings": [], "notes": []}
