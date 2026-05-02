@@ -34,6 +34,7 @@ import re
 import shutil
 import sys
 import unicodedata
+from difflib import SequenceMatcher
 from dataclasses import dataclass
 from html import unescape
 from html.parser import HTMLParser
@@ -47,7 +48,7 @@ DEFAULT_CURRENT_DIR = ".current"
 DEFAULT_BACKEND_ID = "paddleocr_pp_structurev3"
 DEFAULT_BACKEND_NAME = "paddleocr_pp_structurev3"
 DEFAULT_ADAPTER_NAME = "paddleocr_adapter"
-DEFAULT_ADAPTER_VERSION = "0.2.0"
+DEFAULT_ADAPTER_VERSION = "0.3.0"
 DEFAULT_DPI = 300
 TEXT_OUTPUT_SUFFIXES = {".md", ".markdown", ".txt"}
 JSON_OUTPUT_SUFFIXES = {".json"}
@@ -681,6 +682,59 @@ def fallback_raster(page_index: int) -> PageRaster:
         image_height=None,
         status="unavailable",
     )
+
+
+def recover_raster_from_official_outputs(
+    raster: PageRaster,
+    saved_files: list[dict[str, Any]],
+    page_image_dir: Path,
+    *,
+    dpi: int,
+) -> PageRaster:
+    """Copy a PaddleOCR-saved page/preprocessed image into page_images.
+
+    This is a safety net for environments where PyMuPDF or Pillow rasterisation
+    is unavailable. The file copied into page_images is kept even when
+    official_results is later deleted.
+    """
+    if raster.image_path is not None and raster.image_path.exists():
+        return raster
+
+    candidates: list[Path] = []
+    preferred_tokens = ("_preprocessed_img", "_overall_ocr_res", "_layout_order_res", "_layout_det_res")
+    for token in preferred_tokens:
+        for item in saved_files:
+            path = Path(str(item.get("path") or ""))
+            if path.suffix.lower() in {".png", ".jpg", ".jpeg"} and token in path.name and path.exists():
+                candidates.append(path)
+    if not candidates:
+        for item in saved_files:
+            path = Path(str(item.get("path") or ""))
+            if path.suffix.lower() in {".png", ".jpg", ".jpeg"} and path.exists():
+                candidates.append(path)
+
+    if not candidates:
+        return raster
+
+    source = candidates[0]
+    page_image_dir.mkdir(parents=True, exist_ok=True)
+    target = page_image_dir / f"page_{raster.page_index:04d}{source.suffix.lower() or '.png'}"
+    try:
+        shutil.copy2(source, target)
+        width = height = None
+        try:
+            from PIL import Image
+            with Image.open(target) as img:
+                width, height = img.size
+        except Exception:
+            pass
+        raster.image_path = target
+        raster.image_width = int(width) if width is not None else None
+        raster.image_height = int(height) if height is not None else None
+        raster.status = "available_from_paddleocr_official_output"
+    except Exception:
+        pass
+    return raster
 
 
 def page_image_quality(image_path: Path | None, *, dpi: int | None) -> dict[str, Any]:
@@ -1484,13 +1538,14 @@ def make_ocr_line_block(
 
 TABLE_RE = re.compile(r"<table\b.*?</table>", re.IGNORECASE | re.DOTALL)
 DISPLAY_FORMULA_RE = re.compile(r"\\\[(.*?)\\\]|\$\$(.*?)\$\$", re.DOTALL)
-IMAGE_RE = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)")
+IMAGE_RE = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)|<img\b[^>]*>", re.IGNORECASE | re.DOTALL)
+HTML_IMG_RE = re.compile(r"<img\b[^>]*>", re.IGNORECASE | re.DOTALL)
 SPECIAL_MARKDOWN_RE = re.compile(
-    r"<table\b.*?</table>|\\\[.*?\\\]|\$\$.*?\$\$|!\[[^\]]*\]\([^)]+\)",
+    r"<table\b.*?</table>|\\\[.*?\\\]|\$\$.*?\$\$|!\[[^\]]*\]\([^)]+\)|<img\b[^>]*>",
     re.IGNORECASE | re.DOTALL,
 )
 HEADING_RE = re.compile(r"^\s*(#{1,6})\s+(.+?)\s*$", re.DOTALL)
-CAPTION_RE = re.compile(r"^\s*(figure|fig\.|table)\s+\d+(?:\.\d+)?\b", re.IGNORECASE)
+CAPTION_RE = re.compile(r"^\s*(figure|fig\.|table)\s*\d+(?:\.\d+)?\b", re.IGNORECASE)
 FOOTNOTE_RE = re.compile(r"^\s*(?:\\\(\s*\^|\[?\d+\]?\s{2,}|\*\s+)", re.IGNORECASE)
 LIST_RE = re.compile(r"^\s*(?:[-*•]|\d+[.)])\s+")
 
@@ -1501,6 +1556,53 @@ def strip_html(text: str) -> str:
     text = unescape(text)
     text = re.sub(r"\s+", " ", text)
     return text.strip()
+
+
+def html_attr(tag: str, name: str) -> str | None:
+    """Extract one HTML attribute value without pulling in a DOM dependency."""
+    quoted = re.search(rf"\b{name}\s*=\s*(['\"])(.*?)\1", tag, flags=re.IGNORECASE | re.DOTALL)
+    if quoted:
+        return unescape(quoted.group(2).strip())
+    unquoted = re.search(rf"\b{name}\s*=\s*([^\s>]+)", tag, flags=re.IGNORECASE | re.DOTALL)
+    if unquoted:
+        return unescape(unquoted.group(1).strip())
+    return None
+
+
+def normalise_paddle_markdown_for_semantic(markdown: str) -> str:
+    """Remove PaddleOCR presentation wrappers before semantic splitting.
+
+    PaddleOCR often wraps tables/images/captions in centre-aligned div/html/body
+    fragments. Those wrappers are useful as raw evidence but harmful for the IR
+    semantic layer, where they create paragraph blocks that Docling should not
+    compile. This function preserves the underlying table, image or text while
+    dropping wrapper-only markup.
+    """
+    text = markdown or ""
+    # A complete table wrapped by div/html/body should be represented by the table only.
+    text = re.sub(
+        r"<div\b[^>]*>\s*(?:<html>\s*)?(?:<body>\s*)?(<table\b.*?</table>)\s*(?:</body>\s*)?(?:</html>\s*)?</div>",
+        r"\1",
+        text,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    # A centred image wrapper should become a direct image token.
+    text = re.sub(
+        r"<div\b[^>]*>\s*(<img\b[^>]*>)\s*</div>",
+        r"\1",
+        text,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    # Pure text divs should not be treated as HTML paragraphs.
+    text = re.sub(
+        r"<div\b[^>]*>\s*([^<>]*?\S[^<>]*?)\s*</div>",
+        lambda m: unescape(m.group(1)).strip(),
+        text,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    # Remove orphan body/html fragments left by partial wrappers.
+    text = re.sub(r"</?(?:html|body)>", "", text, flags=re.IGNORECASE)
+    return text
 
 
 class _TableHTMLParser(HTMLParser):
@@ -1613,18 +1715,22 @@ def _markdown_segments(text: str, absolute_start: int) -> list[tuple[str, int, i
 
 
 def _semantic_kind_from_text(text: str) -> tuple[str, str | None, str, str, int | None, str, str]:
-    heading = HEADING_RE.match(text)
+    stripped = strip_html(text) if "<" in text and ">" in text else text.strip()
+    candidate = stripped or text.strip()
+    heading = HEADING_RE.match(candidate)
     if heading:
         level = len(heading.group(1))
         clean = heading.group(2).strip()
+        if CAPTION_RE.match(clean):
+            return "caption", "markdown_heading_caption", "caption", "caption", None, clean, clean
         return "section_header", "markdown_heading", "section_header", "section_header", level, clean, clean
-    if CAPTION_RE.match(text):
-        return "caption", None, "caption", "caption", None, text, text
-    if FOOTNOTE_RE.match(text):
-        return "footnote", None, "footnote", "footnote", None, text, text
-    if LIST_RE.match(text):
-        return "list_item", "markdown_list_item", "list_item", "list_item", None, text, text
-    return "paragraph", None, "body_text", "text", None, text, text
+    if CAPTION_RE.match(candidate):
+        return "caption", None, "caption", "caption", None, candidate, candidate
+    if FOOTNOTE_RE.match(candidate):
+        return "footnote", None, "footnote", "footnote", None, candidate, candidate
+    if LIST_RE.match(candidate):
+        return "list_item", "markdown_list_item", "list_item", "list_item", None, candidate, candidate
+    return "paragraph", None, "body_text", "text", None, candidate, candidate
 
 
 def make_semantic_markdown_block(
@@ -1778,6 +1884,7 @@ def build_semantic_markdown_blocks(
     raw_json_path: Path,
     clean_md_path: Path,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
+    markdown_text = normalise_paddle_markdown_for_semantic(markdown_text or "")
     blocks: list[dict[str, Any]] = []
     media_refs: list[dict[str, Any]] = []
     caption_links: list[dict[str, Any]] = []
@@ -1871,10 +1978,14 @@ def build_semantic_markdown_blocks(
                 char_end=token_end,
                 table_obj=table_obj,
             )
-        elif token.startswith("!["):
+        elif token.startswith("![") or token.lower().startswith("<img"):
             img_match = IMAGE_RE.match(token)
-            alt_text = img_match.group(1).strip() if img_match else None
-            rel_path = img_match.group(2).strip() if img_match else token
+            if token.lower().startswith("<img"):
+                alt_text = html_attr(token, "alt")
+                rel_path = html_attr(token, "src") or token
+            else:
+                alt_text = img_match.group(1).strip() if img_match and img_match.group(1) is not None else None
+                rel_path = img_match.group(2).strip() if img_match and img_match.group(2) is not None else token
             matched_ref = _match_markdown_image_ref(markdown_image_refs, rel_path)
             media_obj = matched_ref or {
                 "media_id": f"{page_id}_m{semantic_index:04d}_media",
@@ -1981,18 +2092,259 @@ def build_semantic_markdown_blocks(
                 pending_table_caption = None
         elif block["type"] == "caption":
             text = block.get("content", {}).get("text") or ""
-            if re.match(r"^\s*(figure|fig\.)\b", text, re.IGNORECASE):
+            if re.match(r"^\s*(figure|fig\.)\s*\d", text, re.IGNORECASE):
                 if previous_picture is not None:
                     link_caption(block, previous_picture)
                 else:
                     pending_figure_caption = block
-            elif re.match(r"^\s*table\b", text, re.IGNORECASE):
+            elif re.match(r"^\s*table\s*\d", text, re.IGNORECASE):
                 if previous_table is not None:
                     link_caption(block, previous_table)
                 else:
                     pending_table_caption = block
 
     return blocks, media_refs, caption_links
+
+
+# ---------------------------------------------------------------------------
+# Docling-readiness consolidation helpers
+# ---------------------------------------------------------------------------
+
+TEXTLIKE_TYPES = {"paragraph", "text", "section_header", "title", "caption", "list_item", "footnote", "abstract", "reference"}
+
+
+def block_family_for(block: dict[str, Any]) -> str:
+    block_id = str(block.get("block_id") or "")
+    block_type = str(block.get("type") or "")
+    native_type = " ".join(str(ref.get("native_type") or "") for ref in block.get("source_refs") or [])
+    if block_id.endswith("_b0000") or block.get("subtype") == "generated_markdown_page":
+        return "raw_page_evidence"
+    if "_ocrline_" in block_id or block_type == "ocr_line":
+        return "paddleocr_ocr_line"
+    if "markdown_enrichment" in native_type or "_m" in block_id:
+        return "markdown_semantic"
+    if block_type == "table" and "table_res" in native_type:
+        return "paddleocr_table_native"
+    if block_type == "formula" and "formula" in native_type:
+        return "paddleocr_formula_native"
+    if block_type in {"picture", "chart", "seal"}:
+        return "paddleocr_media_native" if "paddleocr_layout" in native_type else "markdown_semantic"
+    if "paddleocr_layout" in native_type or "_r" in block_id:
+        return "paddleocr_layout_native"
+    return "backend_evidence"
+
+
+def text_similarity(a: str | None, b: str | None) -> float:
+    aa = normalise_text(a)
+    bb = normalise_text(b)
+    if not aa or not bb:
+        return 0.0
+    if aa == bb:
+        return 1.0
+    # Avoid over-penalising block-vs-line differences.
+    if len(aa) > 24 and len(bb) > 24 and (aa in bb or bb in aa):
+        return min(len(aa), len(bb)) / max(len(aa), len(bb))
+    return float(SequenceMatcher(None, aa, bb).ratio())
+
+
+def _append_unique_flag(block: dict[str, Any], code: str, severity: str, message: str) -> None:
+    flags = block.setdefault("flags", [])
+    if not any(f.get("code") == code for f in flags):
+        flags.append({"code": code, "severity": severity, "message": message})
+
+
+def _append_page_flag(page_ir: dict[str, Any], code: str, severity: str, message: str) -> None:
+    flags = page_ir.setdefault("flags", [])
+    if not any(f.get("code") == code for f in flags):
+        flags.append({"code": code, "severity": severity, "message": message})
+
+
+def _table_quality_flags(block: dict[str, Any]) -> None:
+    table = block.get("table") or {}
+    if not table:
+        return
+    cells = table.get("cells") or []
+    if table.get("representation") in {"html_from_generated_markdown", "html_from_markdown"}:
+        _append_unique_flag(block, "table_html_only", "low", "Table structure was parsed from generated Markdown/HTML; preserve native table evidence if available.")
+    if cells and not any((cell.get("geometry") or {}).get("bbox") for cell in cells if isinstance(cell, dict)):
+        _append_unique_flag(block, "table_cells_missing_geometry", "medium", "Table cells have logical row/column positions but no cell-level geometry.")
+    row_counts: dict[int, int] = {}
+    for cell in cells:
+        if not isinstance(cell, dict):
+            continue
+        ri = cell.get("row_index")
+        cs = cell.get("col_span") or 1
+        if isinstance(ri, int):
+            row_counts[ri] = row_counts.get(ri, 0) + int(cs)
+    if len(set(row_counts.values())) > 1:
+        _append_unique_flag(block, "table_grid_suspect", "medium", "Parsed table rows have inconsistent apparent column counts; later compilation should treat the table grid as uncertain.")
+
+
+def _formula_quality_flags(block: dict[str, Any]) -> None:
+    formula = block.get("formula") or {}
+    latex = str(formula.get("latex") or block.get("content", {}).get("latex") or "")
+    if not latex:
+        return
+    suspicious = False
+    if "\\sqrt" in latex and len(latex) > 60:
+        suspicious = True
+    if "\\mathbb" in latex and any(token in latex for token in ("\\mathbf{j}", "\\rho", "\\sigma")):
+        suspicious = True
+    if suspicious:
+        _append_unique_flag(block, "formula_text_suspect", "low", "Formula recognition contains patterns that may be OCR artefacts; preserve formula image/native evidence for later review.")
+
+
+def _compile_role_for(block: dict[str, Any], has_native_type: dict[str, bool]) -> str:
+    family = block.get("block_family") or block_family_for(block)
+    block_type = block.get("type")
+    if family == "raw_page_evidence":
+        return "evidence_only"
+    if family == "paddleocr_ocr_line":
+        return "evidence_only"
+    if family in {"paddleocr_layout_native", "paddleocr_table_native", "paddleocr_formula_native", "paddleocr_media_native"}:
+        if block_type in {"page_header", "page_footer", "page_number"}:
+            return "evidence_only"
+        return "use"
+    if family == "markdown_semantic":
+        if block_type in {"table", "formula", "picture", "chart"} and not has_native_type.get(str(block_type), False):
+            return "use"
+        return "fallback_only"
+    return "evidence_only"
+
+
+def finalise_page_ir_for_docling(page_ir: dict[str, Any]) -> dict[str, Any]:
+    blocks = page_ir.get("blocks") or []
+    for block in blocks:
+        block["block_family"] = block_family_for(block)
+
+    native_blocks = [b for b in blocks if str(b.get("block_family", "")).startswith("paddleocr_") and b.get("block_family") != "paddleocr_ocr_line"]
+    semantic_blocks = [b for b in blocks if b.get("block_family") == "markdown_semantic"]
+    has_native_type: dict[str, bool] = {}
+    for b in native_blocks:
+        has_native_type[str(b.get("type"))] = True
+
+    semantic_to_native: list[dict[str, Any]] = []
+    native_to_semantic_map: dict[str, list[dict[str, Any]]] = {}
+
+    for sem in semantic_blocks:
+        sem_text = (sem.get("content") or {}).get("normalised_text") or (sem.get("content") or {}).get("text")
+        best: tuple[float, dict[str, Any] | None, float, float] = (0.0, None, 0.0, 0.0)
+        for native in native_blocks:
+            native_text = (native.get("content") or {}).get("normalised_text") or (native.get("content") or {}).get("text")
+            ts = text_similarity(str(sem_text or ""), str(native_text or ""))
+            same_type = sem.get("type") == native.get("type") or (sem.get("type") in TEXTLIKE_TYPES and native.get("type") in TEXTLIKE_TYPES)
+            if not same_type and ts < 0.88:
+                continue
+            iou = bbox_iou((sem.get("geometry") or {}).get("bbox"), (native.get("geometry") or {}).get("bbox"))
+            order_gap = abs(int(sem.get("order") or 0) - int(native.get("order") or 0))
+            order_score = max(0.0, 1.0 - min(order_gap, 20) / 20.0)
+            confidence = max(ts, (0.7 * ts + 0.2 * iou + 0.1 * order_score))
+            if confidence > best[0]:
+                best = (confidence, native, ts, iou)
+        if best[1] is not None and best[0] >= 0.55:
+            native = best[1]
+            match = {
+                "semantic_block_id": sem["block_id"],
+                "native_block_id": native["block_id"],
+                "text_similarity": round(best[2], 6),
+                "bbox_iou": round(best[3], 6),
+                "confidence": round(best[0], 6),
+            }
+            semantic_to_native.append(match)
+            native_to_semantic_map.setdefault(native["block_id"], []).append(match)
+            sem.setdefault("refs", {}).setdefault("native_match_refs", [])
+            if native["block_id"] not in sem["refs"]["native_match_refs"]:
+                sem["refs"]["native_match_refs"].append(native["block_id"])
+            native.setdefault("refs", {}).setdefault("semantic_match_refs", [])
+            if sem["block_id"] not in native["refs"]["semantic_match_refs"]:
+                native["refs"]["semantic_match_refs"].append(sem["block_id"])
+
+    for block in blocks:
+        docling = block.setdefault("docling", {})
+        role = _compile_role_for(block, has_native_type)
+        if block.get("block_family") == "markdown_semantic" and block.get("refs", {}).get("native_match_refs") and block.get("type") not in {"table", "formula", "picture", "chart"}:
+            role = "duplicate_candidate"
+            _append_unique_flag(block, "duplicate_docling_candidate", "low", "Markdown semantic block appears to duplicate a native PaddleOCR layout block.")
+        docling["compile_role"] = role
+        docling.setdefault("compile_notes", [])
+        if role in {"evidence_only", "duplicate_candidate"}:
+            docling["excluded_from_docling"] = True
+        elif role in {"use", "fallback_only"}:
+            docling["excluded_from_docling"] = False
+        _table_quality_flags(block)
+        _formula_quality_flags(block)
+        content_text = str((block.get("content") or {}).get("markdown") or "")
+        if block.get("type") == "paragraph" and re.search(r"</?(?:div|html|body)\b", content_text, re.IGNORECASE):
+            _append_unique_flag(block, "html_wrapper_not_semantic", "medium", "HTML presentation wrapper remained as paragraph content; this should be treated as evidence, not canonical Docling text.")
+            if docling.get("compile_role") == "use":
+                docling["compile_role"] = "evidence_only"
+                docling["excluded_from_docling"] = True
+
+    native_to_semantic = []
+    for native_id, matches in native_to_semantic_map.items():
+        native_to_semantic.append({"native_block_id": native_id, "semantic_matches": matches})
+
+    relationships = page_ir.setdefault("relationships", {})
+    relationships["semantic_to_native_matches"] = semantic_to_native
+    relationships["native_to_semantic_matches"] = native_to_semantic
+    relationships["docling_reading_order"] = [
+        b.get("block_id") for b in sorted(blocks, key=lambda item: item.get("order") or 0)
+        if (b.get("docling") or {}).get("compile_role") in {"use", "fallback_only"}
+    ]
+    relationships["table_refs"] = [
+        {"block_id": b.get("block_id"), "table_id": (b.get("table") or {}).get("table_id"), "block_family": b.get("block_family"), "compile_role": (b.get("docling") or {}).get("compile_role")}
+        for b in blocks if b.get("table")
+    ]
+    relationships["formula_refs"] = [
+        {"block_id": b.get("block_id"), "formula_id": (b.get("formula") or {}).get("formula_id"), "block_family": b.get("block_family"), "compile_role": (b.get("docling") or {}).get("compile_role")}
+        for b in blocks if b.get("formula")
+    ]
+    relationships["media_block_refs"] = [
+        {"block_id": b.get("block_id"), "media_id": (b.get("media") or {}).get("media_id"), "block_family": b.get("block_family"), "compile_role": (b.get("docling") or {}).get("compile_role")}
+        for b in blocks if b.get("media")
+    ]
+
+    page_img_status = ((page_ir.get("rendering") or {}).get("page_image_ref") or {}).get("status")
+    has_page_image = bool(page_img_status and str(page_img_status).startswith("available"))
+    if not has_page_image:
+        _append_page_flag(page_ir, "missing_page_image", "high", "No retained page image is available for visual provenance or Docling bounding-box verification.")
+
+    def _count_by(key: str) -> dict[str, int]:
+        counts: dict[str, int] = {}
+        for b in blocks:
+            value = str(b.get(key) or "unknown")
+            counts[value] = counts.get(value, 0) + 1
+        return counts
+
+    role_counts: dict[str, int] = {}
+    for b in blocks:
+        role = str((b.get("docling") or {}).get("compile_role") or "unknown")
+        role_counts[role] = role_counts.get(role, 0) + 1
+
+    severity_counts: dict[str, int] = {}
+    for f in page_ir.get("flags") or []:
+        sev = str(f.get("severity") or "unknown")
+        severity_counts[sev] = severity_counts.get(sev, 0) + 1
+    for b in blocks:
+        for f in b.get("flags") or []:
+            sev = str(f.get("severity") or "unknown")
+            severity_counts[sev] = severity_counts.get(sev, 0) + 1
+
+    page_ir["extraction_summary"] = {
+        "block_counts_by_type": _count_by("type"),
+        "block_counts_by_family": _count_by("block_family"),
+        "docling_candidate_counts": role_counts,
+        "flags_by_severity": severity_counts,
+        "has_page_image": has_page_image,
+        "has_native_layout": any(b.get("block_family") == "paddleocr_layout_native" for b in blocks),
+        "has_ocr_lines": bool((page_ir.get("observed_capabilities") or {}).get("ocr_line_count")),
+        "has_tables": any(b.get("table") for b in blocks),
+        "has_formulas": any(b.get("formula") for b in blocks),
+        "has_media": any(b.get("media") for b in blocks) or bool((page_ir.get("relationships") or {}).get("media_refs")),
+        "semantic_native_match_count": len(semantic_to_native),
+    }
+    return page_ir
+
 
 # ---------------------------------------------------------------------------
 # Page and manifest builders
@@ -2209,7 +2561,7 @@ def build_page_ir(
     if width_px is None or height_px is None:
         flags.append({"code": "native_dimensions_missing", "severity": "medium", "message": "PaddleOCR page width/height missing; geometry normalisation may be unavailable."})
 
-    return {
+    page_ir = {
         "schema_name": "pdf2md.extraction_ir_page",
         "schema_version": "1.0.0",
         "ir_stage": "backend_extraction_page",
@@ -2324,6 +2676,7 @@ def build_page_ir(
         },
         "flags": flags,
     }
+    return finalise_page_ir_for_docling(page_ir)
 
 
 def build_manifest(
@@ -2431,11 +2784,12 @@ def build_manifest(
             "pages_with_ocr_text": int(observed_totals.get("pages_with_ocr_text", 0)),
             "pages_with_layout": int(observed_totals.get("pages_with_layout", 0)),
             "layout_block_count": int(observed_totals.get("layout_block_count", 0)),
-            "semantic_markdown_block_count": int(observed_totals.get("semantic_markdown_block_count", 0)),
             "ocr_line_count": int(observed_totals.get("ocr_line_count", 0)),
             "table_count": int(observed_totals.get("table_count", 0)),
             "formula_count": int(observed_totals.get("formula_count", 0)),
             "media_count": int(observed_totals.get("media_count", 0)),
+            "semantic_markdown_block_count": int(observed_totals.get("semantic_markdown_block_count", 0)),
+            "pages_with_page_images": int(observed_totals.get("pages_with_page_images", 0)),
         },
         "inference": config,
         "flags": flags,
@@ -2736,6 +3090,7 @@ def run_inference(
         "table_count": 0,
         "formula_count": 0,
         "media_count": 0,
+        "pages_with_page_images": 0,
     }
 
     for fallback_index, packed in enumerate(page_results):
@@ -2777,6 +3132,7 @@ def run_inference(
         )
 
         raster = raster_by_index.get(page_index) or fallback_raster(page_index)
+        raster = recover_raster_from_official_outputs(raster, saved_files, page_image_dir, dpi=dpi)
         if discard_page_images and raster.image_path is not None:
             raster.image_path.unlink(missing_ok=True)
             raster.status = "deleted_after_inference"
@@ -2822,6 +3178,8 @@ def run_inference(
         observed_totals["table_count"] += int(obs["table_count"])
         observed_totals["formula_count"] += int(obs["formula_count"])
         observed_totals["media_count"] += int(obs["media_count"])
+        if (page_ir.get("extraction_summary") or {}).get("has_page_image"):
+            observed_totals["pages_with_page_images"] += 1
 
         page_refs.append(
             {
@@ -2997,14 +3355,10 @@ def main() -> int:
 
     if args.scan_profile == "scanned_book":
         # Book scans are commonly skewed, rotated or slightly warped. These defaults
-        # favour robust OCR evidence over speed. Users can choose --scan-profile digital_pdf
-        # for born-digital PDFs.
+        # favour robust OCR evidence over speed and coordinate-stable page-image input.
         args.use_doc_orientation_classify = True
         args.use_textline_orientation = True
-        if not args.predict_from_page_images:
-            # Keep PDF-input mode as default for compatibility, but the CLI exposes
-            # --predict-from-page-images for coordinate-perfect scan experiments.
-            pass
+        args.predict_from_page_images = True
 
     try:
         input_pdf = validate_input(args.input)
