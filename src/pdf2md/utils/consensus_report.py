@@ -106,6 +106,24 @@ def _valid_bbox(bbox: Any) -> list[float] | None:
     return out
 
 
+def pairwise_text_similarities(items: list[dict[str, Any]]) -> list[float]:
+    vals: list[float] = []
+    text_items = [x for x in items if x.get("normalised_text")]
+    for i in range(len(text_items)):
+        for j in range(i + 1, len(text_items)):
+            vals.append(compute_text_similarity(text_items[i]["normalised_text"], text_items[j]["normalised_text"]))
+    return vals
+
+
+def pairwise_bbox_ious(items: list[dict[str, Any]]) -> list[float]:
+    vals: list[float] = []
+    boxed = [x for x in items if x.get("bbox")]
+    for i in range(len(boxed)):
+        for j in range(i + 1, len(boxed)):
+            vals.append(compute_bbox_iou(boxed[i]["bbox"], boxed[j]["bbox"]))
+    return vals
+
+
 def _kind(block: dict[str, Any]) -> str:
     tokens = " ".join(str(block.get(k, "")) for k in ("type", "subtype", "semantic_role"))
     tokens += " " + str((block.get("docling") or {}).get("label_hint", ""))
@@ -204,9 +222,11 @@ def build_candidate_groups(page_evidence: list[dict[str, Any]], config: dict[str
         ms = [x["evidence_id"] for x in g]
         srcs = sorted({x["source_backend"] for x in g})
         text_vals = [x["normalised_text"] for x in g if x["normalised_text"]]
-        max_ts = max([compute_text_similarity(a["normalised_text"], b["normalised_text"]) for a in g for b in g] or [0.0])
+        text_sims = pairwise_text_similarities(g)
+        max_ts = max(text_sims or [0.0])
         box_members = [x for x in g if x["bbox"]]
-        max_iou = max([compute_bbox_iou(a["bbox"], b["bbox"]) for a in box_members for b in box_members] or [0.0])
+        bbox_ious = pairwise_bbox_ious(g)
+        max_iou = max(bbox_ious or [0.0])
         if not text_vals:
             text_agree = "unavailable"
         elif len(set(text_vals)) == 1:
@@ -243,12 +263,12 @@ def detect_conflicts(page_report: dict[str, Any], all_evidence: list[dict[str, A
             conflicts.append({"conflict_id": f"p{page_report['page_index']:04d}_c{cid:04d}", "page_index": page_report["page_index"], "severity": "medium", "type": "table_disagreement", "message": "Table signatures differ", "sources": g["sources"], "evidence_ids": g["members"]}); cid += 1
         tvals = [m["normalised_text"] for m in members if m["normalised_text"]]
         if len(tvals) >= 2:
-            mts = max([compute_text_similarity(a, b) for a in tvals for b in tvals] or [0.0])
+            mts = max(pairwise_text_similarities(members) or [0.0])
             if mts < config["consensus"]["text_similarity_threshold"]:
                 conflicts.append({"conflict_id": f"p{page_report['page_index']:04d}_c{cid:04d}", "page_index": page_report["page_index"], "severity": "medium", "type": "text_disagreement", "message": "Low text agreement", "sources": g["sources"], "evidence_ids": g["members"]}); cid += 1
         bvals = [m["bbox"] for m in members if m["bbox"]]
         if len(bvals) >= 2:
-            miou = max([compute_bbox_iou(a, b) for a in bvals for b in bvals] or [0.0])
+            miou = max(pairwise_bbox_ious(members) or [0.0])
             if miou < config["consensus"]["bbox_iou_threshold"]:
                 conflicts.append({"conflict_id": f"p{page_report['page_index']:04d}_c{cid:04d}", "page_index": page_report["page_index"], "severity": "medium", "type": "geometry_disagreement", "message": "Low geometry agreement", "sources": g["sources"], "evidence_ids": g["members"]}); cid += 1
         if len({m["kind"] for m in members}) > 1:

@@ -266,3 +266,38 @@ def test_report_real_shape_grouping_and_missing_geometry(tmp_path: Path):
     assert page["counts"]["geometry_blocks_by_source"]["mineru"] > 0 and page["counts"]["geometry_blocks_by_source"]["paddleocr"] > 0
     assert page["counts"]["geometry_blocks_by_source"]["deepseek"] == 0
     assert any(c["type"] == "missing_geometry" for c in page["conflicts"])
+
+
+def test_text_disagreement_detected_despite_same_geometry(tmp_path: Path):
+    cfg = cr.load_config(_cfg(tmp_path))
+    ev = [
+        cr.normalise_backend_block("mineru", 0, 0, {"type": "paragraph", "text": "alpha beta gamma", "bbox": [100, 100, 300, 150]}, "x", ""),
+        cr.normalise_backend_block("paddleocr", 0, 1, {"type": "paragraph", "text": "completely different sentence", "bbox": [100, 100, 300, 150]}, "x", ""),
+    ]
+    groups, _ = cr.build_candidate_groups(ev, cfg)
+    assert groups[0]["agreement"]["text"] == "conflict"
+    conflicts = cr.detect_conflicts({"page_index": 0, "candidate_groups": groups}, ev, cfg)
+    assert any(c["type"] == "text_disagreement" for c in conflicts)
+
+
+def test_geometry_disagreement_detected_despite_same_text(tmp_path: Path):
+    cfg = cr.load_config(_cfg(tmp_path))
+    ev = [
+        cr.normalise_backend_block("mineru", 0, 0, {"type": "paragraph", "text": "same text", "bbox": [0, 0, 100, 100]}, "x", ""),
+        cr.normalise_backend_block("paddleocr", 0, 1, {"type": "paragraph", "text": "same text", "bbox": [800, 800, 900, 900]}, "x", ""),
+    ]
+    groups, _ = cr.build_candidate_groups(ev, cfg)
+    assert groups[0]["agreement"]["geometry"] == "conflict"
+    conflicts = cr.detect_conflicts({"page_index": 0, "candidate_groups": groups}, ev, cfg)
+    assert any(c["type"] == "geometry_disagreement" for c in conflicts)
+
+
+def test_pairwise_helpers_exclude_self_comparisons():
+    items = [
+        {"normalised_text": "alpha beta", "bbox": [0, 0, 10, 10]},
+        {"normalised_text": "completely different", "bbox": [100, 100, 110, 110]},
+    ]
+    text_sims = cr.pairwise_text_similarities(items)
+    ious = cr.pairwise_bbox_ious(items)
+    assert text_sims and max(text_sims) < 1.0
+    assert ious and max(ious) == 0.0
