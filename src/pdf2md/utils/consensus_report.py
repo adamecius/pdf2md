@@ -95,6 +95,17 @@ def compute_bbox_iou(a: list[float] | None, b: list[float] | None) -> float:
     return inter / max(au + bu - inter, 1e-9)
 
 
+def _valid_bbox(bbox: Any) -> list[float] | None:
+    if not isinstance(bbox, list) or len(bbox) != 4:
+        return None
+    out: list[float] = []
+    for v in bbox:
+        if not isinstance(v, (int, float)):
+            return None
+        out.append(max(0.0, min(1000.0, float(v))))
+    return out
+
+
 def _kind(block: dict[str, Any]) -> str:
     tokens = " ".join(str(block.get(k, "")) for k in ("type", "subtype", "semantic_role"))
     tokens += " " + str((block.get("docling") or {}).get("label_hint", ""))
@@ -123,23 +134,41 @@ def compatible_kinds(a: str, b: str, text_sim: float) -> bool:
 
 
 def normalise_backend_block(source: str, page_index: int, order: int, block: dict[str, Any], source_path: str, ptr: str) -> dict[str, Any]:
-    txt = block.get("text") or block.get("markdown") or ""
+    content = block.get("content") or {}
+    geometry = block.get("geometry") or {}
+    txt = content.get("text") or content.get("markdown") or block.get("text") or block.get("markdown") or ""
     kind = _kind(block)
     role = block.get("compile_role", "candidate")
     if source == "deepseek" and ((block.get("docling") or {}).get("excluded_from_docling") is True):
         role = "evidence_only"
     if source == "paddleocr" and block.get("compile_role"):
         role = block["compile_role"]
-    bbox = block.get("bbox")
-    nt = normalize_text(txt)
+    bbox = _valid_bbox(geometry.get("bbox")) or _valid_bbox(block.get("bbox"))
+    nt = content.get("normalised_text") or normalize_text(txt)
+    confidence = block.get("confidence") if isinstance(block.get("confidence"), dict) else {"overall": None, "text": None, "layout": None, "reading_order": None, "structure": None}
+    comparison = block.get("comparison") if isinstance(block.get("comparison"), dict) else {}
+    comparison = {
+        "text_hash": comparison.get("text_hash") or (hashlib.sha1(nt.encode()).hexdigest() if nt else None),
+        "geometry_hash": comparison.get("geometry_hash") or (hashlib.sha1(str(bbox).encode()).hexdigest() if bbox else None),
+        "compare_as": comparison.get("compare_as") or kind,
+    }
+    metadata = {
+        "source_refs": block.get("source_refs"),
+        "structure": block.get("structure"),
+        "refs": block.get("refs"),
+        "has_table": bool(block.get("table") or content.get("table")),
+        "has_formula": bool(block.get("formula") or content.get("formula")),
+        "has_media": bool(block.get("media") or content.get("media")),
+        "original_subtype": block.get("subtype"),
+    }
     return {
         "evidence_id": f"{source}:p{page_index:04d}:b{order:04d}", "source_backend": source, "source_type": "backend_extraction_ir",
-        "source_block_id": block.get("id"), "page_index": page_index, "page_number": page_index + 1, "order": order,
-        "kind": kind, "native_type": block.get("type"), "semantic_role": block.get("semantic_role"), "docling_label_hint": (block.get("docling") or {}).get("label_hint"),
+        "source_block_id": block.get("block_id") or block.get("id") or block.get("source_block_id"), "page_index": page_index, "page_number": page_index + 1, "order": order,
+        "kind": kind, "native_type": block.get("type"), "semantic_role": block.get("semantic_role"), "docling_label_hint": (block.get("docling") or {}).get("label_hint") or block.get("docling_label_hint"),
         "text": txt, "normalised_text": nt, "bbox": bbox, "has_geometry": bool(bbox),
-        "confidence": {"overall": None, "text": None, "layout": None, "reading_order": None, "structure": None},
-        "comparison": {"text_hash": hashlib.sha1(nt.encode()).hexdigest() if nt else None, "geometry_hash": hashlib.sha1(str(bbox).encode()).hexdigest() if bbox else None, "compare_as": kind},
-        "compile_role": role, "source_path": source_path, "json_pointer": ptr, "flags": block.get("flags", []), "metadata": block.get("metadata", {}),
+        "confidence": confidence,
+        "comparison": comparison,
+        "compile_role": role, "source_path": source_path, "json_pointer": ptr, "flags": block.get("flags") or [], "metadata": metadata,
     }
 
 
@@ -174,11 +203,31 @@ def build_candidate_groups(page_evidence: list[dict[str, Any]], config: dict[str
             ungrouped.append(g[0])
         ms = [x["evidence_id"] for x in g]
         srcs = sorted({x["source_backend"] for x in g})
-        out.append({"group_id": f"p{g[0]['page_index']:04d}_g{i:04d}", "page_index": g[0]["page_index"], "kind": g[0]["kind"], "members": ms, "sources": srcs, "support_count": len(srcs), "has_pymupdf_support": "pymupdf" in srcs, "representative_text": g[0]["text"], "representative_bbox": g[0]["bbox"], "agreement": {"text": "exact" if len({x['normalised_text'] for x in g if x['normalised_text']}) <= 1 else "near", "geometry": "missing", "kind": "agree" if len({x['kind'] for x in g}) == 1 else "conflict"}, "scores": {"max_text_similarity": max([compute_text_similarity(a['normalised_text'], b['normalised_text']) for a in g for b in g] or [0.0]), "max_bbox_iou": max([compute_bbox_iou(a['bbox'], b['bbox']) for a in g for b in g] or [0.0])}, "provisional_selection": {"source_backend": None, "reason": "not_selected_in_report_only_mode"}, "conflicts": []})
+        text_vals = [x["normalised_text"] for x in g if x["normalised_text"]]
+        max_ts = max([compute_text_similarity(a["normalised_text"], b["normalised_text"]) for a in g for b in g] or [0.0])
+        box_members = [x for x in g if x["bbox"]]
+        max_iou = max([compute_bbox_iou(a["bbox"], b["bbox"]) for a in box_members for b in box_members] or [0.0])
+        if not text_vals:
+            text_agree = "unavailable"
+        elif len(set(text_vals)) == 1:
+            text_agree = "exact"
+        elif max_ts >= config["consensus"]["text_similarity_threshold"]:
+            text_agree = "near"
+        else:
+            text_agree = "conflict"
+        if not box_members:
+            geo_agree = "unavailable"
+        elif len(box_members) < len(g):
+            geo_agree = "missing"
+        elif len(box_members) >= 2 and max_iou >= config["consensus"]["bbox_iou_threshold"]:
+            geo_agree = "near"
+        else:
+            geo_agree = "conflict"
+        out.append({"group_id": f"p{g[0]['page_index']:04d}_g{i:04d}", "page_index": g[0]["page_index"], "kind": g[0]["kind"], "members": ms, "sources": srcs, "support_count": len(srcs), "has_pymupdf_support": "pymupdf" in srcs, "representative_text": g[0]["text"], "representative_bbox": g[0]["bbox"], "agreement": {"text": text_agree, "geometry": geo_agree, "kind": "agree" if len({x['kind'] for x in g}) == 1 else "conflict"}, "scores": {"max_text_similarity": max_ts, "max_bbox_iou": max_iou}, "provisional_selection": {"source_backend": None, "reason": "not_selected_in_report_only_mode"}, "conflicts": []})
     return out, ungrouped
 
 
-def detect_conflicts(page_report: dict[str, Any], all_evidence: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def detect_conflicts(page_report: dict[str, Any], all_evidence: list[dict[str, Any]], config: dict[str, Any]) -> list[dict[str, Any]]:
     conflicts = []
     cid = 1
     for g in page_report["candidate_groups"]:
@@ -192,18 +241,31 @@ def detect_conflicts(page_report: dict[str, Any], all_evidence: list[dict[str, A
             conflicts.append({"conflict_id": f"p{page_report['page_index']:04d}_c{cid:04d}", "page_index": page_report["page_index"], "severity": "medium", "type": "formula_disagreement", "message": "Formula text differs", "sources": g["sources"], "evidence_ids": g["members"]}); cid += 1
         if g["kind"] == "table" and len({m["normalised_text"] for m in members}) > 1:
             conflicts.append({"conflict_id": f"p{page_report['page_index']:04d}_c{cid:04d}", "page_index": page_report["page_index"], "severity": "medium", "type": "table_disagreement", "message": "Table signatures differ", "sources": g["sources"], "evidence_ids": g["members"]}); cid += 1
+        tvals = [m["normalised_text"] for m in members if m["normalised_text"]]
+        if len(tvals) >= 2:
+            mts = max([compute_text_similarity(a, b) for a in tvals for b in tvals] or [0.0])
+            if mts < config["consensus"]["text_similarity_threshold"]:
+                conflicts.append({"conflict_id": f"p{page_report['page_index']:04d}_c{cid:04d}", "page_index": page_report["page_index"], "severity": "medium", "type": "text_disagreement", "message": "Low text agreement", "sources": g["sources"], "evidence_ids": g["members"]}); cid += 1
+        bvals = [m["bbox"] for m in members if m["bbox"]]
+        if len(bvals) >= 2:
+            miou = max([compute_bbox_iou(a, b) for a in bvals for b in bvals] or [0.0])
+            if miou < config["consensus"]["bbox_iou_threshold"]:
+                conflicts.append({"conflict_id": f"p{page_report['page_index']:04d}_c{cid:04d}", "page_index": page_report["page_index"], "severity": "medium", "type": "geometry_disagreement", "message": "Low geometry agreement", "sources": g["sources"], "evidence_ids": g["members"]}); cid += 1
+        if len({m["kind"] for m in members}) > 1:
+            conflicts.append({"conflict_id": f"p{page_report['page_index']:04d}_c{cid:04d}", "page_index": page_report["page_index"], "severity": "low", "type": "kind_disagreement", "message": "Different kinds grouped", "sources": g["sources"], "evidence_ids": g["members"]}); cid += 1
     return conflicts
 
 
-def load_pymupdf_evidence(pdf_path: Path, config: dict[str, Any]) -> tuple[dict[int, list[dict[str, Any]]], dict[str, Any]]:
+def load_pymupdf_evidence(pdf_path: Path, config: dict[str, Any]) -> tuple[dict[int, list[dict[str, Any]]], dict[str, Any], dict[int, dict[str, Any]]]:
     if not config.get("pymupdf", {}).get("enabled", True):
-        return {}, {"source_name": "pymupdf", "source_type": "native_pdf", "enabled": False, "status": "disabled", "page_count": 0, "warnings": []}
+        return {}, {"source_name": "pymupdf", "source_type": "native_pdf", "enabled": False, "status": "disabled", "page_count": 0, "warnings": []}, {}
     try:
         import fitz  # type: ignore
     except Exception:
-        return {}, {"source_name": "pymupdf", "source_type": "native_pdf", "enabled": True, "status": "unavailable", "page_count": 0, "warnings": ["PyMuPDF not installed"]}
+        return {}, {"source_name": "pymupdf", "source_type": "native_pdf", "enabled": True, "status": "unavailable", "page_count": 0, "warnings": ["PyMuPDF not installed"]}, {}
     doc = fitz.open(pdf_path)
     pages: dict[int, list[dict[str, Any]]] = {}
+    page_meta: dict[int, dict[str, Any]] = {}
     for i, page in enumerate(doc):
         pitems = []
         if config.get("pymupdf", {}).get("extract_text", True):
@@ -214,7 +276,8 @@ def load_pymupdf_evidence(pdf_path: Path, config: dict[str, Any]) -> tuple[dict[
                 pitems.append(normalise_backend_block("pymupdf", i, j, {"type": "text", "text": txt, "bbox": [max(0,min(1000,bb[0]/page.rect.width*1000)), max(0,min(1000,bb[1]/page.rect.height*1000)), max(0,min(1000,bb[2]/page.rect.width*1000)), max(0,min(1000,bb[3]/page.rect.height*1000))] if bb else None}, str(pdf_path), f"/pages/{i}/blocks/{j}"))
                 pitems[-1]["source_type"] = "native_pdf"
         pages[i] = pitems
-    return pages, {"source_name": "pymupdf", "source_type": "native_pdf", "enabled": True, "status": "loaded", "page_count": len(pages), "warnings": []}
+        page_meta[i] = {"page_index": i, "page_number": i + 1, "width": float(page.rect.width), "height": float(page.rect.height), "rotation": int(getattr(page, "rotation", 0)), "native_text_block_count": len(pitems), "has_native_text": any(x["normalised_text"] for x in pitems), "text_similarity_by_source": {}}
+    return pages, {"source_name": "pymupdf", "source_type": "native_pdf", "enabled": True, "status": "loaded", "page_count": len(pages), "warnings": []}, page_meta
 
 
 def build_consensus_report(pdf_path: Path, config: dict[str, Any], config_path: Path, fail_on_missing_backend: bool = False) -> tuple[dict[str, Any], int]:
@@ -239,7 +302,7 @@ def build_consensus_report(pdf_path: Path, config: dict[str, Any], config_path: 
         loadable += 1
         sources[name] = {"source_name": name, "source_type": "backend_extraction_ir", "enabled": True, "root": str(bcfg.get("root")), "extraction_dir": str(edir), "manifest_path": str(edir / "manifest.json"), "status": "loaded", "page_count": len(pages), "warnings": []}
         _ = load_backend_manifest(edir)
-    pym_pages, pym_src = load_pymupdf_evidence(pdf_path, config)
+    pym_pages, pym_src, pym_meta = load_pymupdf_evidence(pdf_path, config)
     sources["pymupdf"] = pym_src
     if pym_src["status"] == "loaded":
         loadable += 1
@@ -262,8 +325,28 @@ def build_consensus_report(pdf_path: Path, config: dict[str, Any], config_path: 
             present.append("pymupdf")
             evidence.extend(pym_pages[pi])
         groups, ungrouped = build_candidate_groups(evidence, config)
-        page = {"page_index": pi, "page_number": pi + 1, "sources_present": present, "sources_missing": missing, "pymupdf_page": {"text_similarity_by_source": {}}, "counts": {"blocks_by_source": {s: sum(1 for e in evidence if e['source_backend'] == s) for s in present}, "text_blocks_by_source": {}, "geometry_blocks_by_source": {}, "tables_by_source": {}, "formulas_by_source": {}, "pictures_by_source": {}, "captions_by_source": {}}, "candidate_groups": groups, "ungrouped_candidates": [u["evidence_id"] for u in ungrouped], "conflicts": [], "warnings": [], "notes": []}
-        page["conflicts"].extend(detect_conflicts(page, evidence))
+        count_sources = sorted(set(present + missing))
+        counts = {
+            "blocks_by_source": {s: sum(1 for e in evidence if e["source_backend"] == s) for s in count_sources},
+            "text_blocks_by_source": {s: sum(1 for e in evidence if e["source_backend"] == s and e["normalised_text"]) for s in count_sources},
+            "geometry_blocks_by_source": {s: sum(1 for e in evidence if e["source_backend"] == s and e["has_geometry"]) for s in count_sources},
+            "tables_by_source": {s: sum(1 for e in evidence if e["source_backend"] == s and e["kind"] == "table") for s in count_sources},
+            "formulas_by_source": {s: sum(1 for e in evidence if e["source_backend"] == s and e["kind"] == "formula") for s in count_sources},
+            "pictures_by_source": {s: sum(1 for e in evidence if e["source_backend"] == s and e["kind"] == "picture") for s in count_sources},
+            "captions_by_source": {s: sum(1 for e in evidence if e["source_backend"] == s and e["kind"] == "caption") for s in count_sources},
+        }
+        pym_page = pym_meta.get(pi, {"page_index": pi, "page_number": pi + 1, "width": None, "height": None, "rotation": None, "native_text_block_count": 0, "has_native_text": False, "text_similarity_by_source": {}})
+        page = {"page_index": pi, "page_number": pi + 1, "sources_present": present, "sources_missing": missing, "pymupdf_page": pym_page, "counts": counts, "candidate_groups": groups, "ungrouped_candidates": [u["evidence_id"] for u in ungrouped], "conflicts": [], "warnings": [], "notes": []}
+        page["conflicts"].extend(detect_conflicts(page, evidence, config))
+        pym_txt = " ".join(e["normalised_text"] for e in evidence if e["source_backend"] == "pymupdf" and e["normalised_text"])
+        if pym_txt:
+            for s in CANONICAL_BACKENDS:
+                src_txt = " ".join(e["normalised_text"] for e in evidence if e["source_backend"] == s and e["compile_role"] != "excluded" and e["normalised_text"])
+                if src_txt:
+                    sim = compute_text_similarity(src_txt, pym_txt)
+                    page["pymupdf_page"]["text_similarity_by_source"][s] = sim
+                    if sim < 0.2:
+                        page["conflicts"].append({"conflict_id": f"p{pi:04d}_c{len(page['conflicts'])+1:04d}", "page_index": pi, "severity": "low", "type": "pymupdf_text_disagreement", "message": "Very low OCR vs native PDF text similarity", "sources": [s, "pymupdf"], "evidence_ids": []})
         for m in missing:
             page["conflicts"].append({"conflict_id": f"p{pi:04d}_c{len(page['conflicts'])+1:04d}", "page_index": pi, "severity": "medium", "type": "missing_backend_page", "message": "Backend page missing", "sources": [m], "evidence_ids": []})
         pages_report.append(page)

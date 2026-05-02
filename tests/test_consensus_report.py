@@ -135,7 +135,7 @@ def test_formula_disagreement_conflict(tmp_path: Path):
     ev = [cr.normalise_backend_block("mineru",0,0,{"text":"a+b","type":"formula","bbox":[0,0,10,10]},"x",""), cr.normalise_backend_block("paddleocr",0,1,{"text":"a-b","type":"formula","bbox":[1,1,9,9]},"x","")]
     g, _ = cr.build_candidate_groups(ev, cfg)
     p = {"page_index":0,"candidate_groups":g}
-    c = cr.detect_conflicts(p, ev)
+    c = cr.detect_conflicts(p, ev, cfg)
     assert any(x["type"] == "formula_disagreement" for x in c)
 
 
@@ -143,7 +143,7 @@ def test_table_disagreement_conflict(tmp_path: Path):
     cfg = cr.load_config(_cfg(tmp_path))
     ev = [cr.normalise_backend_block("mineru",0,0,{"text":"r1c1","type":"table","bbox":[0,0,10,10]},"x",""), cr.normalise_backend_block("paddleocr",0,1,{"text":"x","type":"table","bbox":[1,1,9,9]},"x","")]
     g, _ = cr.build_candidate_groups(ev, cfg)
-    c = cr.detect_conflicts({"page_index":0,"candidate_groups":g}, ev)
+    c = cr.detect_conflicts({"page_index":0,"candidate_groups":g}, ev, cfg)
     assert any(x["type"] == "table_disagreement" for x in c)
 
 
@@ -151,7 +151,7 @@ def test_missing_geometry_conflict(tmp_path: Path):
     cfg = cr.load_config(_cfg(tmp_path))
     ev = [cr.normalise_backend_block("mineru",0,0,{"text":"abc","bbox":[0,0,1,1]},"x",""), cr.normalise_backend_block("paddleocr",0,1,{"text":"abc","bbox":None},"x","")]
     g, _ = cr.build_candidate_groups(ev, cfg)
-    c = cr.detect_conflicts({"page_index":0,"candidate_groups":g}, ev)
+    c = cr.detect_conflicts({"page_index":0,"candidate_groups":g}, ev, cfg)
     assert any(x["type"] == "missing_geometry" for x in c)
 
 
@@ -159,7 +159,7 @@ def test_possible_duplicate_conflict(tmp_path: Path):
     cfg = cr.load_config(_cfg(tmp_path))
     ev = [cr.normalise_backend_block("mineru",0,0,{"text":"abc"},"x",""), cr.normalise_backend_block("mineru",0,1,{"text":"abc"},"x","")]
     g, _ = cr.build_candidate_groups(ev, cfg)
-    c = cr.detect_conflicts({"page_index":0,"candidate_groups":g}, ev)
+    c = cr.detect_conflicts({"page_index":0,"candidate_groups":g}, ev, cfg)
     assert any(x["type"] == "possible_duplicate" for x in c)
 
 
@@ -167,7 +167,7 @@ def test_pymupdf_unavailable_records_warning(tmp_path: Path, monkeypatch):
     monkeypatch.setitem(__import__("sys").modules, "fitz", None)
     cfg = cr.load_config(_cfg(tmp_path))
     cfg["pymupdf"]["enabled"] = True
-    _, src = cr.load_pymupdf_evidence(tmp_path / "x.pdf", cfg)
+    _, src, _ = cr.load_pymupdf_evidence(tmp_path / "x.pdf", cfg)
     assert src["status"] in {"unavailable", "error"}
 
 
@@ -181,8 +181,8 @@ def test_pymupdf_mocked_geometry(tmp_path: Path, monkeypatch):
     d = D([P()])
     monkeypatch.setitem(__import__("sys").modules, "fitz", type("F", (), {"open": lambda *_: d})())
     cfg = cr.load_config(_cfg(tmp_path)); cfg["pymupdf"]["enabled"] = True
-    pages, src = cr.load_pymupdf_evidence(tmp_path / "x.pdf", cfg)
-    assert src["status"] == "loaded" and pages[0][0]["bbox"] is not None
+    pages, src, meta = cr.load_pymupdf_evidence(tmp_path / "x.pdf", cfg)
+    assert src["status"] == "loaded" and pages[0][0]["bbox"] is not None and meta[0]["width"] == 100.0
 
 
 def test_json_schema_fields(tmp_path: Path):
@@ -213,3 +213,56 @@ def test_cli_writes_report_and_json_only(tmp_path: Path, capsys):
     assert rc == 0
     assert (tmp_path / ".current/consensus/TestDoc/consensus_report.json").exists()
     assert "Page 1:" not in out
+
+
+def test_real_shape_normalise_backend_block_fields():
+    block = {
+      "block_id": "mineru_p0000_b0001", "type": "paragraph", "subtype": None, "semantic_role": "body_text",
+      "docling": {"label_hint": "text"},
+      "geometry": {"bbox": [100, 100, 500, 160], "coordinate_space": "page_normalised_1000", "origin": "top_left"},
+      "content": {"text": "Drude applied kinetic theory to this gas of conduction electrons.", "normalised_text": "drude applied kinetic theory to this gas of conduction electrons."},
+      "confidence": {"overall": 0.9, "text": 0.95, "layout": 0.8},
+      "comparison": {"text_hash": "sha256:test", "geometry_hash": "sha256:geom", "compare_as": "paragraph"},
+      "source_refs": [{"backend_id": "mineru", "raw_file": "raw_pages/page_0000.content.json"}], "flags": []
+    }
+    e = cr.normalise_backend_block("mineru", 0, 1, block, "x", "/blocks/1")
+    assert e["source_block_id"] == "mineru_p0000_b0001"
+    assert e["text"].startswith("Drude applied")
+    assert e["normalised_text"].startswith("drude applied")
+    assert e["bbox"] == [100.0, 100.0, 500.0, 160.0]
+    assert e["confidence"]["overall"] == 0.9
+    assert e["comparison"]["text_hash"] == "sha256:test"
+    assert e["has_geometry"] is True
+
+
+def test_real_shape_deepseek_evidence_only():
+    block = {
+      "block_id": "deepseek_ocr_2_p0000_b0000", "type": "unknown", "subtype": "generated_markdown_page",
+      "semantic_role": "raw_generated_page_evidence",
+      "docling": {"label_hint": "text", "excluded_from_docling": True},
+      "geometry": None,
+      "content": {"text": "page text", "normalised_text": "page text", "markdown": "page text"},
+      "flags": [{"code": "geometry_missing"}]
+    }
+    e = cr.normalise_backend_block("deepseek", 0, 0, block, "x", "/blocks/0")
+    assert e["compile_role"] == "evidence_only" and e["has_geometry"] is False and e["text"] == "page text"
+
+
+def test_report_real_shape_grouping_and_missing_geometry(tmp_path: Path):
+    mblock = {"block_id":"m1","type":"paragraph","geometry":{"bbox":[100,100,300,140]},"content":{"text":"same text","normalised_text":"same text"}}
+    pblock = {"block_id":"p1","type":"paragraph","geometry":{"bbox":[102,102,302,142]},"content":{"text":"same text","normalised_text":"same text"}}
+    dblock = {"block_id":"d1","type":"paragraph","geometry":None,"content":{"text":"same text","normalised_text":"same text"}}
+    _mk_backend(tmp_path, "mineru", [mblock]); _mk_backend(tmp_path, "paddleocr", [pblock]); _mk_backend(tmp_path, "deepseek", [dblock])
+    cfg = cr.load_config(_cfg(tmp_path)); pdf = tmp_path / "TestDoc.pdf"; pdf.write_bytes(b"%PDF-1.4")
+    import os
+    old = Path.cwd(); os.chdir(tmp_path)
+    try:
+        r, rc = cr.build_consensus_report(pdf, cfg, tmp_path / "cfg.toml", False)
+    finally:
+        os.chdir(old)
+    assert rc == 0 and r["schema_name"] == "pdf2md.consensus_report" and r["schema_version"] == "0.1.0"
+    page = r["pages"][0]
+    assert len(page["candidate_groups"]) >= 1
+    assert page["counts"]["geometry_blocks_by_source"]["mineru"] > 0 and page["counts"]["geometry_blocks_by_source"]["paddleocr"] > 0
+    assert page["counts"]["geometry_blocks_by_source"]["deepseek"] == 0
+    assert any(c["type"] == "missing_geometry" for c in page["conflicts"])
