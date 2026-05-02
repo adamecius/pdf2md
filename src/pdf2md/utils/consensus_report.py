@@ -58,17 +58,34 @@ def load_backend_manifest(extraction_dir: Path) -> dict[str, Any]:
     return json.loads(mp.read_text(encoding="utf-8")) if mp.exists() else {}
 
 
-def load_backend_pages(extraction_dir: Path) -> dict[int, dict[str, Any]]:
-    pages: dict[int, dict[str, Any]] = {}
+def load_json_file(path: Path) -> tuple[Any | None, list[str]]:
+    if not path.exists():
+        return None, [f"Missing JSON file: {path}"]
+    try:
+        txt = path.read_text(encoding="utf-8")
+    except Exception as e:
+        return None, [f"Unreadable JSON file: {path} ({e})"]
+    try:
+        return json.loads(txt), []
+    except json.JSONDecodeError as e:
+        return None, [f"Malformed JSON file: {path} ({e})"]
+
+
+def load_backend_pages(extraction_dir: Path) -> tuple[dict[int, dict[str, Any] | Any | None], list[str], list[str]]:
+    pages: dict[int, dict[str, Any] | Any | None] = {}
+    warnings: list[str] = []
+    fatal_json_errors: list[str] = []
     for p in sorted((extraction_dir / "pages").glob("page_*.json")):
         m = re.search(r"page_(\d+)\.json", p.name)
         if not m:
             continue
-        try:
-            pages[int(m.group(1))] = json.loads(p.read_text(encoding="utf-8"))
-        except json.JSONDecodeError as e:
-            raise json.JSONDecodeError(f"{e.msg} [file={p}]", e.doc, e.pos) from e
-    return pages
+        obj, errs = load_json_file(p)
+        if errs:
+            warnings.extend(errs)
+            fatal_json_errors.extend(errs)
+            continue
+        pages[int(m.group(1))] = obj
+    return pages, warnings, fatal_json_errors
 
 
 def normalize_text(v: str | None) -> str:
@@ -325,7 +342,7 @@ def load_pymupdf_evidence(pdf_path: Path, config: dict[str, Any]) -> tuple[dict[
     return pages, {"source_name": "pymupdf", "source_type": "native_pdf", "enabled": True, "status": "loaded", "page_count": len(pages), "warnings": []}, page_meta
 
 
-def build_consensus_report(pdf_path: Path, config: dict[str, Any], config_path: Path, fail_on_missing_backend: bool = False) -> tuple[dict[str, Any], int]:
+def build_consensus_report(pdf_path: Path, config: dict[str, Any], config_path: Path, fail_on_missing_backend: bool = False, fail_on_invalid_json: bool = False) -> tuple[dict[str, Any], int]:
     if not pdf_path.exists():
         return {}, 1
     dirs = resolve_backend_extraction_dirs(pdf_path, config)
@@ -342,17 +359,18 @@ def build_consensus_report(pdf_path: Path, config: dict[str, Any], config_path: 
                 return {}, 1
             sources[name] = {"source_name": name, "source_type": "backend_extraction_ir", "enabled": True, "root": str(bcfg.get("root")), "extraction_dir": str(edir), "manifest_path": str(edir / "manifest.json"), "status": "missing", "page_count": 0, "warnings": ["Extraction directory missing"]}
             continue
-        try:
-            pages = load_backend_pages(edir)
-        except json.JSONDecodeError as e:
-            if fail_on_missing_backend:
-                return {}, 1
-            sources[name] = {"source_name": name, "source_type": "backend_extraction_ir", "enabled": True, "root": str(bcfg.get("root")), "extraction_dir": str(edir), "manifest_path": str(edir / "manifest.json"), "status": "invalid_json", "page_count": 0, "warnings": [f"Invalid JSON: {e.msg} ({e.doc[:1]}) at {e.pos} in {e.lineno}:{e.colno} file={e.args[0] if e.args else str(edir)}"]}
-            continue
+        source_warnings: list[str] = []
+        manifest_obj, manifest_errors = load_json_file(edir / "manifest.json")
+        source_warnings.extend(manifest_errors)
+        pages, page_load_warnings, page_json_errors = load_backend_pages(edir)
+        source_warnings.extend(page_load_warnings)
+        if fail_on_invalid_json and (manifest_errors or page_json_errors):
+            return {}, 1
         backend_pages[name] = pages
         loadable += 1
-        sources[name] = {"source_name": name, "source_type": "backend_extraction_ir", "enabled": True, "root": str(bcfg.get("root")), "extraction_dir": str(edir), "manifest_path": str(edir / "manifest.json"), "status": "loaded", "page_count": len(pages), "warnings": []}
-        _ = load_backend_manifest(edir)
+        status = "loaded_with_warnings" if source_warnings else "loaded"
+        sources[name] = {"source_name": name, "source_type": "backend_extraction_ir", "enabled": True, "root": str(bcfg.get("root")), "extraction_dir": str(edir), "manifest_path": str(edir / "manifest.json"), "status": status, "page_count": len(pages), "warnings": source_warnings}
+        _ = manifest_obj
     pym_pages, pym_src, pym_meta = load_pymupdf_evidence(pdf_path, config)
     sources["pymupdf"] = pym_src
     if pym_src["status"] == "loaded":
@@ -364,20 +382,35 @@ def build_consensus_report(pdf_path: Path, config: dict[str, Any], config_path: 
     for pi in range(max_page + 1):
         evidence = []
         present, missing = [], []
+        page_warnings: list[str] = []
         for s in CANONICAL_BACKENDS:
-            if sources[s]["status"] == "loaded" and pi in backend_pages.get(s, {}):
+            if sources[s]["status"] in {"loaded", "loaded_with_warnings"} and pi in backend_pages.get(s, {}):
                 present.append(s)
                 page_obj = backend_pages[s][pi]
                 if not isinstance(page_obj, dict):
+                    msg = f"{s} page_{pi:04d}.json top-level is not an object; page skipped"
+                    page_warnings.append(msg); sources[s]["warnings"].append(msg)
                     continue
                 blocks = page_obj.get("blocks", [])
+                if "blocks" not in page_obj:
+                    msg = f"{s} page_{pi:04d}.json missing blocks; using []"
+                    page_warnings.append(msg); sources[s]["warnings"].append(msg)
                 if not isinstance(blocks, list):
+                    msg = f"{s} page_{pi:04d}.json blocks is not a list; using []"
+                    page_warnings.append(msg); sources[s]["warnings"].append(msg)
                     continue
                 for i, b in enumerate(blocks):
                     if not isinstance(b, dict):
+                        msg = f"{s} page_{pi:04d}.json block[{i}] is not an object; skipped"
+                        page_warnings.append(msg); sources[s]["warnings"].append(msg)
                         continue
-                    evidence.append(normalise_backend_block(s, pi, i, b, str(dirs[s] / "pages" / f"page_{pi:04d}.json"), f"/blocks/{i}"))
-            elif sources[s]["status"] in {"loaded", "missing"}:
+                    ev = normalise_backend_block(s, pi, i, b, str(dirs[s] / "pages" / f"page_{pi:04d}.json"), f"/blocks/{i}")
+                    raw_bbox = (b.get("geometry") or {}).get("bbox") if isinstance(b.get("geometry"), dict) else b.get("bbox")
+                    if raw_bbox is not None and ev["bbox"] is None:
+                        msg = f"{s} page_{pi:04d}.json block[{i}] has invalid bbox; geometry dropped"
+                        page_warnings.append(msg); sources[s]["warnings"].append(msg)
+                    evidence.append(ev)
+            elif sources[s]["status"] in {"loaded", "loaded_with_warnings", "missing"}:
                 missing.append(s)
         if pi in pym_pages:
             present.append("pymupdf")
@@ -398,7 +431,7 @@ def build_consensus_report(pdf_path: Path, config: dict[str, Any], config_path: 
             "duplicate_candidate_blocks_by_source": {s: sum(1 for e in evidence if e["source_backend"] == s and e["compile_role"] == "duplicate_candidate") for s in count_sources},
         }
         pym_page = pym_meta.get(pi, {"page_index": pi, "page_number": pi + 1, "width": None, "height": None, "rotation": None, "native_text_block_count": 0, "has_native_text": False, "text_similarity_by_source": {}})
-        page = {"page_index": pi, "page_number": pi + 1, "sources_present": present, "sources_missing": missing, "pymupdf_page": pym_page, "counts": counts, "candidate_groups": groups, "ungrouped_candidates": [u["evidence_id"] for u in ungrouped], "conflicts": [], "warnings": [], "notes": []}
+        page = {"page_index": pi, "page_number": pi + 1, "sources_present": present, "sources_missing": missing, "pymupdf_page": pym_page, "counts": counts, "candidate_groups": groups, "ungrouped_candidates": [u["evidence_id"] for u in ungrouped], "conflicts": [], "warnings": page_warnings, "notes": []}
         page["conflicts"].extend(detect_conflicts(page, evidence, config))
         pym_txt = " ".join(e["normalised_text"] for e in evidence if e["source_backend"] == "pymupdf" and e["normalised_text"])
         if pym_txt:
@@ -445,10 +478,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--json-only", action="store_true")
     parser.add_argument("--verbose", action="store_true")
     parser.add_argument("--fail-on-missing-backend", action="store_true")
+    parser.add_argument("--fail-on-invalid-json", action="store_true")
     args = parser.parse_args(argv)
     try:
         cfg = load_config(Path(args.config))
-        report, rc = build_consensus_report(Path(args.pdf_path), cfg, Path(args.config), args.fail_on_missing_backend)
+        report, rc = build_consensus_report(Path(args.pdf_path), cfg, Path(args.config), args.fail_on_missing_backend, args.fail_on_invalid_json)
         if rc != 0:
             return rc
         out = Path(args.output) if args.output else Path(cfg["consensus"]["output_root"]) / Path(args.pdf_path).stem / "consensus_report.json"

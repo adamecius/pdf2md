@@ -69,7 +69,8 @@ def test_resolver_maps_pdf(tmp_path: Path):
 def test_loader_reads_manifest_and_page(tmp_path: Path):
     d = _mk_backend(tmp_path, "mineru", [{"text": "a", "type": "paragraph"}])
     assert cr.load_backend_manifest(d) == {}
-    assert 0 in cr.load_backend_pages(d)
+    pages, _, _ = cr.load_backend_pages(d)
+    assert 0 in pages
 
 
 def test_missing_backend_tolerated(tmp_path: Path):
@@ -331,3 +332,82 @@ def test_pairwise_helpers_exclude_self_comparisons():
     ious = cr.pairwise_bbox_ious(items)
     assert text_sims and max(text_sims) < 1.0
     assert ious and max(ious) == 0.0
+
+
+def test_malformed_manifest_default_loaded_with_warnings(tmp_path: Path):
+    d = _mk_backend(tmp_path, "mineru", [{"text": "x"}])
+    (d / "manifest.json").write_text("{bad", encoding="utf-8")
+    cfg = cr.load_config(_cfg(tmp_path)); pdf = tmp_path / "TestDoc.pdf"; pdf.write_bytes(b"%PDF-1.4")
+    import os; old = Path.cwd(); os.chdir(tmp_path)
+    try:
+        r, rc = cr.build_consensus_report(pdf, cfg, tmp_path / "cfg.toml", False, False)
+    finally:
+        os.chdir(old)
+    assert rc == 0
+    assert r["sources"]["mineru"]["status"] == "loaded_with_warnings"
+
+
+def test_malformed_manifest_strict_fails(tmp_path: Path):
+    d = _mk_backend(tmp_path, "mineru", [{"text": "x"}])
+    (d / "manifest.json").write_text("{bad", encoding="utf-8")
+    cfg = cr.load_config(_cfg(tmp_path)); pdf = tmp_path / "TestDoc.pdf"; pdf.write_bytes(b"%PDF-1.4")
+    import os; old = Path.cwd(); os.chdir(tmp_path)
+    try:
+        _, rc = cr.build_consensus_report(pdf, cfg, tmp_path / "cfg.toml", False, True)
+    finally:
+        os.chdir(old)
+    assert rc == 1
+
+
+def test_malformed_page_default_continues_if_other_backend_usable(tmp_path: Path):
+    d = _mk_backend(tmp_path, "mineru", [{"text": "x"}]); _mk_backend(tmp_path, "paddleocr", [{"text": "y"}])
+    (d / "pages" / "page_0000.json").write_text("{oops", encoding="utf-8")
+    cfg = cr.load_config(_cfg(tmp_path)); pdf = tmp_path / "TestDoc.pdf"; pdf.write_bytes(b"%PDF-1.4")
+    import os; old = Path.cwd(); os.chdir(tmp_path)
+    try:
+        r, rc = cr.build_consensus_report(pdf, cfg, tmp_path / "cfg.toml", False, False)
+    finally:
+        os.chdir(old)
+    assert rc == 0 and r["sources"]["mineru"]["status"] == "loaded_with_warnings"
+
+
+def test_malformed_page_strict_fails(tmp_path: Path):
+    d = _mk_backend(tmp_path, "mineru", [{"text": "x"}])
+    (d / "pages" / "page_0000.json").write_text("{oops", encoding="utf-8")
+    cfg = cr.load_config(_cfg(tmp_path)); pdf = tmp_path / "TestDoc.pdf"; pdf.write_bytes(b"%PDF-1.4")
+    import os; old = Path.cwd(); os.chdir(tmp_path)
+    try:
+        _, rc = cr.build_consensus_report(pdf, cfg, tmp_path / "cfg.toml", False, True)
+    finally:
+        os.chdir(old)
+    assert rc == 1
+
+
+def test_page_shape_warnings_missing_blocks_not_list_non_dict_and_invalid_bbox(tmp_path: Path):
+    d = _mk_backend(tmp_path, "mineru", [])
+    (d / "pages" / "page_0000.json").write_text(json.dumps({"foo": 1}), encoding="utf-8")
+    (d / "pages" / "page_0001.json").write_text(json.dumps({"blocks": "x"}), encoding="utf-8")
+    (d / "pages" / "page_0002.json").write_text(json.dumps({"blocks": ["bad", {"text": "ok", "bbox": [1, 2, 3]}]}), encoding="utf-8")
+    cfg = cr.load_config(_cfg(tmp_path)); pdf = tmp_path / "TestDoc.pdf"; pdf.write_bytes(b"%PDF-1.4")
+    import os; old = Path.cwd(); os.chdir(tmp_path)
+    try:
+        r, rc = cr.build_consensus_report(pdf, cfg, tmp_path / "cfg.toml", False, False)
+    finally:
+        os.chdir(old)
+    assert rc == 0
+    all_warnings = "\n".join(r["sources"]["mineru"]["warnings"])
+    assert "missing blocks" in all_warnings and "not a list" in all_warnings and "not an object" in all_warnings and "invalid bbox" in all_warnings
+    page2 = [p for p in r["pages"] if p["page_index"] == 2][0]
+    assert any("invalid bbox" in w for w in page2["warnings"])
+    assert page2["counts"]["geometry_blocks_by_source"]["mineru"] == 0
+
+
+def test_cli_fail_on_invalid_json(tmp_path: Path):
+    d = _mk_backend(tmp_path, "mineru", [{"text": "x"}]); (d / "manifest.json").write_text("{bad", encoding="utf-8")
+    cfgp = _cfg(tmp_path); pdf = tmp_path / "TestDoc.pdf"; pdf.write_bytes(b"%PDF-1.4")
+    import os; old = Path.cwd(); os.chdir(tmp_path)
+    try:
+        rc = cr.main([str(pdf), "--config", str(cfgp), "--fail-on-invalid-json"])
+    finally:
+        os.chdir(old)
+    assert rc == 1
