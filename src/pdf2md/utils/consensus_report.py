@@ -366,6 +366,10 @@ def build_consensus_report(pdf_path: Path, config: dict[str, Any], config_path: 
         source_warnings.extend(page_load_warnings)
         if fail_on_invalid_json and (manifest_errors or page_json_errors):
             return {}, 1
+        if not pages:
+            source_warnings.append("No usable page JSON files loaded")
+            sources[name] = {"source_name": name, "source_type": "backend_extraction_ir", "enabled": True, "root": str(bcfg.get("root")), "extraction_dir": str(edir), "manifest_path": str(edir / "manifest.json"), "status": "error", "page_count": 0, "warnings": source_warnings}
+            continue
         backend_pages[name] = pages
         loadable += 1
         status = "loaded_with_warnings" if source_warnings else "loaded"
@@ -445,6 +449,9 @@ def build_consensus_report(pdf_path: Path, config: dict[str, Any], config_path: 
         for m in missing:
             page["conflicts"].append({"conflict_id": f"p{pi:04d}_c{len(page['conflicts'])+1:04d}", "page_index": pi, "severity": "medium", "type": "missing_backend_page", "message": "Backend page missing", "sources": [m], "evidence_ids": []})
         pages_report.append(page)
+    for src in sources.values():
+        if src.get("status") == "loaded" and src.get("warnings"):
+            src["status"] = "loaded_with_warnings"
     report = {"schema_name": "pdf2md.consensus_report", "schema_version": "0.1.0", "pdf_path": str(pdf_path), "pdf_stem": pdf_path.stem, "created_at": dt.datetime.now(dt.timezone.utc).isoformat(), "config_path": str(config_path), "coordinate_space": config["consensus"]["coordinate_space"], "sources": sources, "document_summary": {"page_count": len(pages_report)}, "pages": pages_report}
     return report, 0
 

@@ -368,7 +368,7 @@ def test_malformed_page_default_continues_if_other_backend_usable(tmp_path: Path
         r, rc = cr.build_consensus_report(pdf, cfg, tmp_path / "cfg.toml", False, False)
     finally:
         os.chdir(old)
-    assert rc == 0 and r["sources"]["mineru"]["status"] == "loaded_with_warnings"
+    assert rc == 0 and r["sources"]["mineru"]["status"] == "error"
 
 
 def test_malformed_page_strict_fails(tmp_path: Path):
@@ -411,3 +411,49 @@ def test_cli_fail_on_invalid_json(tmp_path: Path):
     finally:
         os.chdir(old)
     assert rc == 1
+
+
+def test_all_malformed_pages_source_error_and_not_loadable(tmp_path: Path):
+    d = _mk_backend(tmp_path, "mineru", [{"text": "x"}])
+    (d / "pages" / "page_0000.json").write_text("{bad", encoding="utf-8")
+    _mk_backend(tmp_path, "paddleocr", [{"text": "good"}])
+    cfg = cr.load_config(_cfg(tmp_path)); cfg["pymupdf"]["enabled"] = False
+    pdf = tmp_path / "TestDoc.pdf"; pdf.write_bytes(b"%PDF-1.4")
+    import os; old = Path.cwd(); os.chdir(tmp_path)
+    try:
+        r, rc = cr.build_consensus_report(pdf, cfg, tmp_path / "cfg.toml", False, False)
+    finally:
+        os.chdir(old)
+    assert rc == 0
+    assert r["sources"]["mineru"]["status"] == "error"
+    assert r["sources"]["mineru"]["page_count"] == 0
+    assert any("No usable page JSON files loaded" in w for w in r["sources"]["mineru"]["warnings"])
+
+
+def test_page_loop_warning_upgrades_loaded_status(tmp_path: Path):
+    d = _mk_backend(tmp_path, "mineru", [])
+    (d / "pages" / "page_0000.json").write_text(json.dumps({"blocks": [{"text": "x", "bbox": [1, 2, 3]}]}), encoding="utf-8")
+    _mk_backend(tmp_path, "paddleocr", [{"text": "ok"}])
+    cfg = cr.load_config(_cfg(tmp_path)); cfg["pymupdf"]["enabled"] = False
+    pdf = tmp_path / "TestDoc.pdf"; pdf.write_bytes(b"%PDF-1.4")
+    import os; old = Path.cwd(); os.chdir(tmp_path)
+    try:
+        r, rc = cr.build_consensus_report(pdf, cfg, tmp_path / "cfg.toml", False, False)
+    finally:
+        os.chdir(old)
+    assert rc == 0
+    assert r["sources"]["mineru"]["status"] == "loaded_with_warnings"
+    assert any("invalid bbox" in w for w in r["sources"]["mineru"]["warnings"])
+
+
+def test_no_usable_evidence_returns_rc2(tmp_path: Path):
+    d = _mk_backend(tmp_path, "mineru", [{"text": "x"}])
+    (d / "pages" / "page_0000.json").write_text("{bad", encoding="utf-8")
+    cfg = cr.load_config(_cfg(tmp_path)); cfg["pymupdf"]["enabled"] = False
+    pdf = tmp_path / "TestDoc.pdf"; pdf.write_bytes(b"%PDF-1.4")
+    import os; old = Path.cwd(); os.chdir(tmp_path)
+    try:
+        r, rc = cr.build_consensus_report(pdf, cfg, tmp_path / "cfg.toml", False, False)
+    finally:
+        os.chdir(old)
+    assert rc == 2 and r == {}
