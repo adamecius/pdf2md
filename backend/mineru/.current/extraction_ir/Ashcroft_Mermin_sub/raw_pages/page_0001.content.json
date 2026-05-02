@@ -1,0 +1,1368 @@
+{
+  "source_kind": "content_list_v2",
+  "items": [
+    {
+      "type": "table",
+      "content": {
+        "image_source": {
+          "path": "images/704a83b252f740c309ca905175c2fded308f89db94f6203169d5bcf7b1cfd619.jpg"
+        },
+        "table_caption": [
+          {
+            "type": "text",
+            "content": "Table 1.1"
+          },
+          {
+            "type": "text",
+            "content": "FREE ELECTRON DENSITIES OF SELECTED METALLIC ELE-MENTSa"
+          }
+        ],
+        "table_footnote": [
+          {
+            "type": "text",
+            "content": " At room temperature (about 300 K) and atmospheric pressure, unless otherwise noted. The radius "
+          },
+          {
+            "type": "equation_inline",
+            "content": "r _ { s }"
+          },
+          {
+            "type": "text",
+            "content": "othe free electron sphere is defined in Eq (1.). We have arbitrarily selected one value of Z for those elements that display more than one chemical valence. The Drude model gives no theoretical basis for the choice. Values of n are based on data from R. W. G. Wyckoff, Crystal Structures, 2nd ed., Interscience, New York, 1963."
+          }
+        ],
+        "html": "<table><tr><td>ELEMENT</td><td>Z</td><td> $n ( 1 0 ^ { 2 2 } / { \\mathrm { c m } } ^ { 3 } )$ </td><td> $r _ { s } ( \\mathrm { \\AA } )$ </td><td> $r _ { s } / a _ { 0 }$ </td></tr><tr><td>Li (78 K)</td><td>1</td><td>4.70</td><td>1.72</td><td>3.25</td></tr><tr><td>Na (5 K)</td><td>1</td><td>2.65</td><td>2.08</td><td>3.93</td></tr><tr><td>K (5 K)</td><td>I</td><td>1.40</td><td>2.57</td><td>4.86</td></tr><tr><td>Rb (5 K)</td><td>1</td><td>1.15</td><td>2.75</td><td>5.20</td></tr><tr><td>Cs (5 K)</td><td>I</td><td>0.91</td><td>2.98</td><td>5.62</td></tr><tr><td>Cu</td><td>I</td><td>8.47</td><td>1.41</td><td>2.67</td></tr><tr><td>Ag</td><td>1</td><td>5.86</td><td>1.60</td><td>3.02</td></tr><tr><td>Au</td><td>1</td><td>5.90</td><td>1.59</td><td>3.01</td></tr><tr><td>Be</td><td>2</td><td>24.7</td><td>0.99</td><td>1.87</td></tr><tr><td>Mg</td><td>20</td><td>8.61</td><td>1.41</td><td>2.66</td></tr><tr><td>Ca</td><td>2</td><td>4.61</td><td>1.73</td><td>3.27</td></tr><tr><td>Sr</td><td>2</td><td>3.55</td><td>1.89</td><td>3.57</td></tr><tr><td>Ba</td><td>2</td><td>3.15</td><td>1.96</td><td>3.71</td></tr><tr><td>Nb</td><td>1</td><td>5.56</td><td>1.63</td><td>3.07</td></tr><tr><td>Fe</td><td>2</td><td>17.0</td><td>1.12</td><td>2.12</td></tr><tr><td>Mn (x)</td><td>2</td><td>16.5</td><td>1.13</td><td>2.14</td></tr><tr><td>Zn</td><td></td><td>13.2</td><td>1.22</td><td>2.30</td></tr><tr><td>Cd</td><td>22</td><td>9.27</td><td>1.37</td><td>2.59</td></tr><tr><td>Hg (78 K)</td><td>2</td><td>8.65</td><td>1.40</td><td>2.65</td></tr><tr><td>Al</td><td>3</td><td>18.1</td><td>1.10</td><td>2.07</td></tr><tr><td>Ga</td><td>3</td><td>15.4</td><td>1.16</td><td>2.19</td></tr><tr><td>In</td><td>3</td><td>11.5</td><td>1.27</td><td>2.41</td></tr><tr><td>T1</td><td>3</td><td>10.5</td><td>1.31</td><td>2.48</td></tr><tr><td>Sn</td><td>4</td><td>14.8</td><td>1.17</td><td>2.22</td></tr><tr><td>Pb</td><td>4</td><td>13.2</td><td>1.22</td><td>2.30</td></tr><tr><td>Bi</td><td>5</td><td>14.1</td><td>1.19</td><td>2.25</td></tr><tr><td>Sb</td><td>5</td><td>16.5</td><td>1.13</td><td>2.14</td></tr></table>",
+        "table_type": "simple_table",
+        "table_nest_level": 1
+      },
+      "bbox": [
+        178,
+        135,
+        785,
+        628
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "paragraph_content": []
+      },
+      "bbox": [
+        102,
+        767,
+        853,
+        823
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "paragraph_content": [
+          {
+            "type": "text",
+            "content": "2. Collisions in the Drude model, as in kinetic theory, are instantaneous events that abruptly alter the velocity of an electron. Drude attributed them to the electrons bouncing off the impenetrable ion cores (rather than to electron-electron collisions. the analogue of the predominant collision mechanism in an ordinary gas). We shall find later that electron-electron scattering is indeed one of the least important of the several scattering mechanisms in a metal, except under unusual conditions. However,"
+          }
+        ]
+      },
+      "bbox": [
+        102,
+        821,
+        856,
+        934
+      ]
+    },
+    {
+      "type": "page_header",
+      "content": {
+        "page_header_content": [
+          {
+            "type": "text",
+            "content": "Basic Assumptions of the Drude Model"
+          }
+        ]
+      },
+      "bbox": [
+        527,
+        46,
+        828,
+        65
+      ]
+    },
+    {
+      "type": "page_number",
+      "content": {
+        "page_number_content": [
+          {
+            "type": "text",
+            "content": "5"
+          }
+        ]
+      },
+      "bbox": [
+        842,
+        47,
+        860,
+        63
+      ]
+    }
+  ],
+  "available_sources": {
+    "content_list_v2": [
+      {
+        "json_pointer": "/1/0",
+        "item": {
+          "type": "table",
+          "content": {
+            "image_source": {
+              "path": "images/704a83b252f740c309ca905175c2fded308f89db94f6203169d5bcf7b1cfd619.jpg"
+            },
+            "table_caption": [
+              {
+                "type": "text",
+                "content": "Table 1.1"
+              },
+              {
+                "type": "text",
+                "content": "FREE ELECTRON DENSITIES OF SELECTED METALLIC ELE-MENTSa"
+              }
+            ],
+            "table_footnote": [
+              {
+                "type": "text",
+                "content": " At room temperature (about 300 K) and atmospheric pressure, unless otherwise noted. The radius "
+              },
+              {
+                "type": "equation_inline",
+                "content": "r _ { s }"
+              },
+              {
+                "type": "text",
+                "content": "othe free electron sphere is defined in Eq (1.). We have arbitrarily selected one value of Z for those elements that display more than one chemical valence. The Drude model gives no theoretical basis for the choice. Values of n are based on data from R. W. G. Wyckoff, Crystal Structures, 2nd ed., Interscience, New York, 1963."
+              }
+            ],
+            "html": "<table><tr><td>ELEMENT</td><td>Z</td><td> $n ( 1 0 ^ { 2 2 } / { \\mathrm { c m } } ^ { 3 } )$ </td><td> $r _ { s } ( \\mathrm { \\AA } )$ </td><td> $r _ { s } / a _ { 0 }$ </td></tr><tr><td>Li (78 K)</td><td>1</td><td>4.70</td><td>1.72</td><td>3.25</td></tr><tr><td>Na (5 K)</td><td>1</td><td>2.65</td><td>2.08</td><td>3.93</td></tr><tr><td>K (5 K)</td><td>I</td><td>1.40</td><td>2.57</td><td>4.86</td></tr><tr><td>Rb (5 K)</td><td>1</td><td>1.15</td><td>2.75</td><td>5.20</td></tr><tr><td>Cs (5 K)</td><td>I</td><td>0.91</td><td>2.98</td><td>5.62</td></tr><tr><td>Cu</td><td>I</td><td>8.47</td><td>1.41</td><td>2.67</td></tr><tr><td>Ag</td><td>1</td><td>5.86</td><td>1.60</td><td>3.02</td></tr><tr><td>Au</td><td>1</td><td>5.90</td><td>1.59</td><td>3.01</td></tr><tr><td>Be</td><td>2</td><td>24.7</td><td>0.99</td><td>1.87</td></tr><tr><td>Mg</td><td>20</td><td>8.61</td><td>1.41</td><td>2.66</td></tr><tr><td>Ca</td><td>2</td><td>4.61</td><td>1.73</td><td>3.27</td></tr><tr><td>Sr</td><td>2</td><td>3.55</td><td>1.89</td><td>3.57</td></tr><tr><td>Ba</td><td>2</td><td>3.15</td><td>1.96</td><td>3.71</td></tr><tr><td>Nb</td><td>1</td><td>5.56</td><td>1.63</td><td>3.07</td></tr><tr><td>Fe</td><td>2</td><td>17.0</td><td>1.12</td><td>2.12</td></tr><tr><td>Mn (x)</td><td>2</td><td>16.5</td><td>1.13</td><td>2.14</td></tr><tr><td>Zn</td><td></td><td>13.2</td><td>1.22</td><td>2.30</td></tr><tr><td>Cd</td><td>22</td><td>9.27</td><td>1.37</td><td>2.59</td></tr><tr><td>Hg (78 K)</td><td>2</td><td>8.65</td><td>1.40</td><td>2.65</td></tr><tr><td>Al</td><td>3</td><td>18.1</td><td>1.10</td><td>2.07</td></tr><tr><td>Ga</td><td>3</td><td>15.4</td><td>1.16</td><td>2.19</td></tr><tr><td>In</td><td>3</td><td>11.5</td><td>1.27</td><td>2.41</td></tr><tr><td>T1</td><td>3</td><td>10.5</td><td>1.31</td><td>2.48</td></tr><tr><td>Sn</td><td>4</td><td>14.8</td><td>1.17</td><td>2.22</td></tr><tr><td>Pb</td><td>4</td><td>13.2</td><td>1.22</td><td>2.30</td></tr><tr><td>Bi</td><td>5</td><td>14.1</td><td>1.19</td><td>2.25</td></tr><tr><td>Sb</td><td>5</td><td>16.5</td><td>1.13</td><td>2.14</td></tr></table>",
+            "table_type": "simple_table",
+            "table_nest_level": 1
+          },
+          "bbox": [
+            178,
+            135,
+            785,
+            628
+          ]
+        }
+      },
+      {
+        "json_pointer": "/1/1",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": []
+          },
+          "bbox": [
+            102,
+            767,
+            853,
+            823
+          ]
+        }
+      },
+      {
+        "json_pointer": "/1/2",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": [
+              {
+                "type": "text",
+                "content": "2. Collisions in the Drude model, as in kinetic theory, are instantaneous events that abruptly alter the velocity of an electron. Drude attributed them to the electrons bouncing off the impenetrable ion cores (rather than to electron-electron collisions. the analogue of the predominant collision mechanism in an ordinary gas). We shall find later that electron-electron scattering is indeed one of the least important of the several scattering mechanisms in a metal, except under unusual conditions. However,"
+              }
+            ]
+          },
+          "bbox": [
+            102,
+            821,
+            856,
+            934
+          ]
+        }
+      },
+      {
+        "json_pointer": "/1/3",
+        "item": {
+          "type": "page_header",
+          "content": {
+            "page_header_content": [
+              {
+                "type": "text",
+                "content": "Basic Assumptions of the Drude Model"
+              }
+            ]
+          },
+          "bbox": [
+            527,
+            46,
+            828,
+            65
+          ]
+        }
+      },
+      {
+        "json_pointer": "/1/4",
+        "item": {
+          "type": "page_number",
+          "content": {
+            "page_number_content": [
+              {
+                "type": "text",
+                "content": "5"
+              }
+            ]
+          },
+          "bbox": [
+            842,
+            47,
+            860,
+            63
+          ]
+        }
+      }
+    ],
+    "content_list": [
+      {
+        "json_pointer": "/11",
+        "item": {
+          "type": "table",
+          "img_path": "images/704a83b252f740c309ca905175c2fded308f89db94f6203169d5bcf7b1cfd619.jpg",
+          "table_caption": [
+            "Table 1.1",
+            "FREE ELECTRON DENSITIES OF SELECTED METALLIC ELE-MENTSa"
+          ],
+          "table_footnote": [
+            "At room temperature (about 300 K) and atmospheric pressure, unless otherwise noted. The radius $r _ { s }$ othe free electron sphere is defined in Eq (1.). We have arbitrarily selected one value of Z for those elements that display more than one chemical valence. The Drude model gives no theoretical basis for the choice. Values of n are based on data from R. W. G. Wyckoff, Crystal Structures, 2nd ed., Interscience, New York, 1963."
+          ],
+          "table_body": "<table><tr><td>ELEMENT</td><td>Z</td><td> $n ( 1 0 ^ { 2 2 } / { \\mathrm { c m } } ^ { 3 } )$ </td><td> $r _ { s } ( \\mathrm { \\AA } )$ </td><td> $r _ { s } / a _ { 0 }$ </td></tr><tr><td>Li (78 K)</td><td>1</td><td>4.70</td><td>1.72</td><td>3.25</td></tr><tr><td>Na (5 K)</td><td>1</td><td>2.65</td><td>2.08</td><td>3.93</td></tr><tr><td>K (5 K)</td><td>I</td><td>1.40</td><td>2.57</td><td>4.86</td></tr><tr><td>Rb (5 K)</td><td>1</td><td>1.15</td><td>2.75</td><td>5.20</td></tr><tr><td>Cs (5 K)</td><td>I</td><td>0.91</td><td>2.98</td><td>5.62</td></tr><tr><td>Cu</td><td>I</td><td>8.47</td><td>1.41</td><td>2.67</td></tr><tr><td>Ag</td><td>1</td><td>5.86</td><td>1.60</td><td>3.02</td></tr><tr><td>Au</td><td>1</td><td>5.90</td><td>1.59</td><td>3.01</td></tr><tr><td>Be</td><td>2</td><td>24.7</td><td>0.99</td><td>1.87</td></tr><tr><td>Mg</td><td>20</td><td>8.61</td><td>1.41</td><td>2.66</td></tr><tr><td>Ca</td><td>2</td><td>4.61</td><td>1.73</td><td>3.27</td></tr><tr><td>Sr</td><td>2</td><td>3.55</td><td>1.89</td><td>3.57</td></tr><tr><td>Ba</td><td>2</td><td>3.15</td><td>1.96</td><td>3.71</td></tr><tr><td>Nb</td><td>1</td><td>5.56</td><td>1.63</td><td>3.07</td></tr><tr><td>Fe</td><td>2</td><td>17.0</td><td>1.12</td><td>2.12</td></tr><tr><td>Mn (x)</td><td>2</td><td>16.5</td><td>1.13</td><td>2.14</td></tr><tr><td>Zn</td><td></td><td>13.2</td><td>1.22</td><td>2.30</td></tr><tr><td>Cd</td><td>22</td><td>9.27</td><td>1.37</td><td>2.59</td></tr><tr><td>Hg (78 K)</td><td>2</td><td>8.65</td><td>1.40</td><td>2.65</td></tr><tr><td>Al</td><td>3</td><td>18.1</td><td>1.10</td><td>2.07</td></tr><tr><td>Ga</td><td>3</td><td>15.4</td><td>1.16</td><td>2.19</td></tr><tr><td>In</td><td>3</td><td>11.5</td><td>1.27</td><td>2.41</td></tr><tr><td>T1</td><td>3</td><td>10.5</td><td>1.31</td><td>2.48</td></tr><tr><td>Sn</td><td>4</td><td>14.8</td><td>1.17</td><td>2.22</td></tr><tr><td>Pb</td><td>4</td><td>13.2</td><td>1.22</td><td>2.30</td></tr><tr><td>Bi</td><td>5</td><td>14.1</td><td>1.19</td><td>2.25</td></tr><tr><td>Sb</td><td>5</td><td>16.5</td><td>1.13</td><td>2.14</td></tr></table>",
+          "bbox": [
+            178,
+            135,
+            785,
+            628
+          ],
+          "page_idx": 1
+        }
+      },
+      {
+        "json_pointer": "/12",
+        "item": {
+          "type": "text",
+          "text": "",
+          "bbox": [
+            102,
+            767,
+            853,
+            823
+          ],
+          "page_idx": 1
+        }
+      },
+      {
+        "json_pointer": "/13",
+        "item": {
+          "type": "text",
+          "text": "2. Collisions in the Drude model, as in kinetic theory, are instantaneous events that abruptly alter the velocity of an electron. Drude attributed them to the electrons bouncing off the impenetrable ion cores (rather than to electron-electron collisions. the analogue of the predominant collision mechanism in an ordinary gas). We shall find later that electron-electron scattering is indeed one of the least important of the several scattering mechanisms in a metal, except under unusual conditions. However,",
+          "bbox": [
+            102,
+            821,
+            856,
+            934
+          ],
+          "page_idx": 1
+        }
+      },
+      {
+        "json_pointer": "/14",
+        "item": {
+          "type": "header",
+          "text": "Basic Assumptions of the Drude Model",
+          "bbox": [
+            527,
+            46,
+            828,
+            65
+          ],
+          "page_idx": 1
+        }
+      },
+      {
+        "json_pointer": "/15",
+        "item": {
+          "type": "page_number",
+          "text": "5",
+          "bbox": [
+            842,
+            47,
+            860,
+            63
+          ],
+          "page_idx": 1
+        }
+      }
+    ],
+    "middle": {
+      "preproc_blocks": [
+        {
+          "type": "table",
+          "bbox": [
+            78,
+            79,
+            344,
+            367
+          ],
+          "blocks": [
+            {
+              "score": 0.6841,
+              "bbox": [
+                81,
+                47,
+                116,
+                56
+              ],
+              "index": 3,
+              "type": "table_caption",
+              "lines": [
+                {
+                  "bbox": [
+                    81,
+                    46,
+                    116,
+                    57
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        81,
+                        46,
+                        116,
+                        57
+                      ],
+                      "type": "text",
+                      "content": "Table 1.1",
+                      "score": 0.937
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "score": 0.9357,
+              "bbox": [
+                80,
+                56,
+                344,
+                77
+              ],
+              "index": 4,
+              "type": "table_caption",
+              "lines": [
+                {
+                  "bbox": [
+                    81,
+                    55,
+                    344,
+                    68
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        81,
+                        55,
+                        344,
+                        68
+                      ],
+                      "type": "text",
+                      "content": "FREE ELECTRON DENSITIES OF SELECTED METALLIC ELE-",
+                      "score": 0.997
+                    }
+                  ]
+                },
+                {
+                  "bbox": [
+                    82,
+                    66,
+                    118,
+                    75
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        82,
+                        66,
+                        118,
+                        75
+                      ],
+                      "type": "text",
+                      "content": "MENTSa",
+                      "score": 0.924
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "score": 0.9897,
+              "bbox": [
+                78,
+                79,
+                344,
+                367
+              ],
+              "index": 5,
+              "type": "table_body",
+              "lines": [
+                {
+                  "bbox": [
+                    78,
+                    79,
+                    344,
+                    367
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        78,
+                        79,
+                        344,
+                        367
+                      ],
+                      "type": "table",
+                      "html": "<table><tr><td>ELEMENT</td><td>Z</td><td><eq>n ( 1 0 ^ { 2 2 } / { \\mathrm { c m } } ^ { 3 } )</eq></td><td><eq>r _ { s } ( \\mathrm { \\AA } )</eq></td><td><eq>r _ { s } / a _ { 0 }</eq></td></tr><tr><td>Li (78 K)</td><td>1</td><td>4.70</td><td>1.72</td><td>3.25</td></tr><tr><td>Na (5 K)</td><td>1</td><td>2.65</td><td>2.08</td><td>3.93</td></tr><tr><td>K (5 K)</td><td>I</td><td>1.40</td><td>2.57</td><td>4.86</td></tr><tr><td>Rb (5 K)</td><td>1</td><td>1.15</td><td>2.75</td><td>5.20</td></tr><tr><td>Cs (5 K)</td><td>I</td><td>0.91</td><td>2.98</td><td>5.62</td></tr><tr><td>Cu</td><td>I</td><td>8.47</td><td>1.41</td><td>2.67</td></tr><tr><td>Ag</td><td>1</td><td>5.86</td><td>1.60</td><td>3.02</td></tr><tr><td>Au</td><td>1</td><td>5.90</td><td>1.59</td><td>3.01</td></tr><tr><td>Be</td><td>2</td><td>24.7</td><td>0.99</td><td>1.87</td></tr><tr><td>Mg</td><td>20</td><td>8.61</td><td>1.41</td><td>2.66</td></tr><tr><td>Ca</td><td>2</td><td>4.61</td><td>1.73</td><td>3.27</td></tr><tr><td>Sr</td><td>2</td><td>3.55</td><td>1.89</td><td>3.57</td></tr><tr><td>Ba</td><td>2</td><td>3.15</td><td>1.96</td><td>3.71</td></tr><tr><td>Nb</td><td>1</td><td>5.56</td><td>1.63</td><td>3.07</td></tr><tr><td>Fe</td><td>2</td><td>17.0</td><td>1.12</td><td>2.12</td></tr><tr><td>Mn (x)</td><td>2</td><td>16.5</td><td>1.13</td><td>2.14</td></tr><tr><td>Zn</td><td></td><td>13.2</td><td>1.22</td><td>2.30</td></tr><tr><td>Cd</td><td>22</td><td>9.27</td><td>1.37</td><td>2.59</td></tr><tr><td>Hg (78 K)</td><td>2</td><td>8.65</td><td>1.40</td><td>2.65</td></tr><tr><td>Al</td><td>3</td><td>18.1</td><td>1.10</td><td>2.07</td></tr><tr><td>Ga</td><td>3</td><td>15.4</td><td>1.16</td><td>2.19</td></tr><tr><td>In</td><td>3</td><td>11.5</td><td>1.27</td><td>2.41</td></tr><tr><td>T1</td><td>3</td><td>10.5</td><td>1.31</td><td>2.48</td></tr><tr><td>Sn</td><td>4</td><td>14.8</td><td>1.17</td><td>2.22</td></tr><tr><td>Pb</td><td>4</td><td>13.2</td><td>1.22</td><td>2.30</td></tr><tr><td>Bi</td><td>5</td><td>14.1</td><td>1.19</td><td>2.25</td></tr><tr><td>Sb</td><td>5</td><td>16.5</td><td>1.13</td><td>2.14</td></tr></table>",
+                      "image_path": "704a83b252f740c309ca905175c2fded308f89db94f6203169d5bcf7b1cfd619.jpg"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "score": 0.9542,
+              "bbox": [
+                78,
+                372,
+                343,
+                433
+              ],
+              "index": 6,
+              "type": "table_footnote",
+              "lines": [
+                {
+                  "bbox": [
+                    79,
+                    371,
+                    343,
+                    383
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        79,
+                        371,
+                        343,
+                        383
+                      ],
+                      "type": "text",
+                      "content": " At room temperature (about 300 K) and atmospheric pressure, unless",
+                      "score": 0.972
+                    }
+                  ]
+                },
+                {
+                  "bbox": [
+                    79,
+                    380,
+                    342,
+                    394
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        79,
+                        380,
+                        174,
+                        394
+                      ],
+                      "type": "text",
+                      "content": "otherwise noted. The radius",
+                      "score": 0.987
+                    },
+                    {
+                      "bbox": [
+                        175,
+                        383,
+                        182,
+                        392
+                      ],
+                      "type": "inline_equation",
+                      "content": "r _ { s }",
+                      "score": 0.711
+                    },
+                    {
+                      "bbox": [
+                        183,
+                        380,
+                        342,
+                        394
+                      ],
+                      "type": "text",
+                      "content": "othe free electron sphere is defined in Eq (1.).",
+                      "score": 0.743
+                    }
+                  ]
+                },
+                {
+                  "bbox": [
+                    79,
+                    390,
+                    343,
+                    403
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        79,
+                        390,
+                        343,
+                        403
+                      ],
+                      "type": "text",
+                      "content": "We have arbitrarily selected one value of Z for those elements that display",
+                      "score": 0.986
+                    }
+                  ]
+                },
+                {
+                  "bbox": [
+                    79,
+                    401,
+                    343,
+                    412
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        79,
+                        401,
+                        343,
+                        412
+                      ],
+                      "type": "text",
+                      "content": "more than one chemical valence. The Drude model gives no theoretical",
+                      "score": 0.996
+                    }
+                  ]
+                },
+                {
+                  "bbox": [
+                    79,
+                    410,
+                    343,
+                    423
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        79,
+                        410,
+                        343,
+                        423
+                      ],
+                      "type": "text",
+                      "content": "basis for the choice. Values of n are based on data from R. W. G. Wyckoff,",
+                      "score": 0.979
+                    }
+                  ]
+                },
+                {
+                  "bbox": [
+                    80,
+                    421,
+                    277,
+                    431
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        80,
+                        421,
+                        277,
+                        431
+                      ],
+                      "type": "text",
+                      "content": "Crystal Structures, 2nd ed., Interscience, New York, 1963.",
+                      "score": 0.997
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "index": 5,
+          "score": 0.9897
+        },
+        {
+          "score": 0.9806,
+          "bbox": [
+            45,
+            448,
+            374,
+            481
+          ],
+          "index": 7,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                46,
+                447,
+                374,
+                461
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    46,
+                    447,
+                    374,
+                    461
+                  ],
+                  "type": "text",
+                  "content": "although the independent electron approximation is in many contexts surprisingly",
+                  "score": 0.982
+                }
+              ]
+            },
+            {
+              "bbox": [
+                46,
+                458,
+                374,
+                471
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    46,
+                    458,
+                    374,
+                    471
+                  ],
+                  "type": "text",
+                  "content": "good, the free electron approximation must be abandoned if one is to arrive at even",
+                  "score": 0.976
+                }
+              ]
+            },
+            {
+              "bbox": [
+                46,
+                470,
+                276,
+                481
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    46,
+                    470,
+                    276,
+                    481
+                  ],
+                  "type": "text",
+                  "content": "a qualitative understanding of much of metallic behavior.",
+                  "score": 0.986
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9853,
+          "bbox": [
+            45,
+            480,
+            375,
+            546
+          ],
+          "index": 8,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                46,
+                480,
+                374,
+                492
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    46,
+                    480,
+                    374,
+                    492
+                  ],
+                  "type": "text",
+                  "content": "2. Collisions in the Drude model, as in kinetic theory, are instantaneous events",
+                  "score": 0.981
+                }
+              ]
+            },
+            {
+              "bbox": [
+                47,
+                491,
+                374,
+                503
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    47,
+                    491,
+                    374,
+                    503
+                  ],
+                  "type": "text",
+                  "content": "that abruptly alter the velocity of an electron. Drude attributed them to the electrons",
+                  "score": 0.987
+                }
+              ]
+            },
+            {
+              "bbox": [
+                47,
+                501,
+                374,
+                514
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    47,
+                    501,
+                    374,
+                    514
+                  ],
+                  "type": "text",
+                  "content": "bouncing off the impenetrable ion cores (rather than to electron-electron collisions.",
+                  "score": 0.983
+                }
+              ]
+            },
+            {
+              "bbox": [
+                46,
+                511,
+                374,
+                524
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    46,
+                    511,
+                    374,
+                    524
+                  ],
+                  "type": "text",
+                  "content": "the analogue of the predominant collision mechanism in an ordinary gas). We shall",
+                  "score": 0.987
+                }
+              ]
+            },
+            {
+              "bbox": [
+                45,
+                522,
+                374,
+                536
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    45,
+                    522,
+                    374,
+                    536
+                  ],
+                  "type": "text",
+                  "content": "find later that electron-electron scattering is indeed one of the least important of the",
+                  "score": 0.981
+                }
+              ]
+            },
+            {
+              "bbox": [
+                45,
+                533,
+                374,
+                546
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    45,
+                    533,
+                    374,
+                    546
+                  ],
+                  "type": "text",
+                  "content": "several scattering mechanisms in a metal, except under unusual conditions. However,",
+                  "score": 0.996
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "page_idx": 1,
+      "page_size": [
+        438,
+        584
+      ],
+      "discarded_blocks": [
+        {
+          "score": 0.9489,
+          "bbox": [
+            231,
+            27,
+            363,
+            38
+          ],
+          "index": 1,
+          "type": "header",
+          "lines": [
+            {
+              "bbox": [
+                232,
+                28,
+                363,
+                38
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    232,
+                    28,
+                    363,
+                    38
+                  ],
+                  "type": "text",
+                  "content": "Basic Assumptions of the Drude Model",
+                  "score": 0.979
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.8611,
+          "bbox": [
+            369,
+            28,
+            377,
+            37
+          ],
+          "index": 2,
+          "type": "page_number",
+          "lines": [
+            {
+              "bbox": [
+                369,
+                27,
+                377,
+                38
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    369,
+                    27,
+                    377,
+                    38
+                  ],
+                  "type": "text",
+                  "content": "5",
+                  "score": 1.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "para_blocks": [
+        {
+          "type": "table",
+          "bbox": [
+            78,
+            79,
+            344,
+            367
+          ],
+          "blocks": [
+            {
+              "score": 0.6841,
+              "bbox": [
+                81,
+                47,
+                116,
+                56
+              ],
+              "index": 3,
+              "type": "table_caption",
+              "lines": [
+                {
+                  "bbox": [
+                    81,
+                    46,
+                    116,
+                    57
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        81,
+                        46,
+                        116,
+                        57
+                      ],
+                      "type": "text",
+                      "content": "Table 1.1",
+                      "score": 0.937
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "score": 0.9357,
+              "bbox": [
+                80,
+                56,
+                344,
+                77
+              ],
+              "index": 4,
+              "type": "table_caption",
+              "lines": [
+                {
+                  "bbox": [
+                    81,
+                    55,
+                    344,
+                    68
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        81,
+                        55,
+                        344,
+                        68
+                      ],
+                      "type": "text",
+                      "content": "FREE ELECTRON DENSITIES OF SELECTED METALLIC ELE-",
+                      "score": 0.997
+                    }
+                  ]
+                },
+                {
+                  "bbox": [
+                    82,
+                    66,
+                    118,
+                    75
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        82,
+                        66,
+                        118,
+                        75
+                      ],
+                      "type": "text",
+                      "content": "MENTSa",
+                      "score": 0.924
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "score": 0.9897,
+              "bbox": [
+                78,
+                79,
+                344,
+                367
+              ],
+              "index": 5,
+              "type": "table_body",
+              "lines": [
+                {
+                  "bbox": [
+                    78,
+                    79,
+                    344,
+                    367
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        78,
+                        79,
+                        344,
+                        367
+                      ],
+                      "type": "table",
+                      "html": "<table><tr><td>ELEMENT</td><td>Z</td><td><eq>n ( 1 0 ^ { 2 2 } / { \\mathrm { c m } } ^ { 3 } )</eq></td><td><eq>r _ { s } ( \\mathrm { \\AA } )</eq></td><td><eq>r _ { s } / a _ { 0 }</eq></td></tr><tr><td>Li (78 K)</td><td>1</td><td>4.70</td><td>1.72</td><td>3.25</td></tr><tr><td>Na (5 K)</td><td>1</td><td>2.65</td><td>2.08</td><td>3.93</td></tr><tr><td>K (5 K)</td><td>I</td><td>1.40</td><td>2.57</td><td>4.86</td></tr><tr><td>Rb (5 K)</td><td>1</td><td>1.15</td><td>2.75</td><td>5.20</td></tr><tr><td>Cs (5 K)</td><td>I</td><td>0.91</td><td>2.98</td><td>5.62</td></tr><tr><td>Cu</td><td>I</td><td>8.47</td><td>1.41</td><td>2.67</td></tr><tr><td>Ag</td><td>1</td><td>5.86</td><td>1.60</td><td>3.02</td></tr><tr><td>Au</td><td>1</td><td>5.90</td><td>1.59</td><td>3.01</td></tr><tr><td>Be</td><td>2</td><td>24.7</td><td>0.99</td><td>1.87</td></tr><tr><td>Mg</td><td>20</td><td>8.61</td><td>1.41</td><td>2.66</td></tr><tr><td>Ca</td><td>2</td><td>4.61</td><td>1.73</td><td>3.27</td></tr><tr><td>Sr</td><td>2</td><td>3.55</td><td>1.89</td><td>3.57</td></tr><tr><td>Ba</td><td>2</td><td>3.15</td><td>1.96</td><td>3.71</td></tr><tr><td>Nb</td><td>1</td><td>5.56</td><td>1.63</td><td>3.07</td></tr><tr><td>Fe</td><td>2</td><td>17.0</td><td>1.12</td><td>2.12</td></tr><tr><td>Mn (x)</td><td>2</td><td>16.5</td><td>1.13</td><td>2.14</td></tr><tr><td>Zn</td><td></td><td>13.2</td><td>1.22</td><td>2.30</td></tr><tr><td>Cd</td><td>22</td><td>9.27</td><td>1.37</td><td>2.59</td></tr><tr><td>Hg (78 K)</td><td>2</td><td>8.65</td><td>1.40</td><td>2.65</td></tr><tr><td>Al</td><td>3</td><td>18.1</td><td>1.10</td><td>2.07</td></tr><tr><td>Ga</td><td>3</td><td>15.4</td><td>1.16</td><td>2.19</td></tr><tr><td>In</td><td>3</td><td>11.5</td><td>1.27</td><td>2.41</td></tr><tr><td>T1</td><td>3</td><td>10.5</td><td>1.31</td><td>2.48</td></tr><tr><td>Sn</td><td>4</td><td>14.8</td><td>1.17</td><td>2.22</td></tr><tr><td>Pb</td><td>4</td><td>13.2</td><td>1.22</td><td>2.30</td></tr><tr><td>Bi</td><td>5</td><td>14.1</td><td>1.19</td><td>2.25</td></tr><tr><td>Sb</td><td>5</td><td>16.5</td><td>1.13</td><td>2.14</td></tr></table>",
+                      "image_path": "704a83b252f740c309ca905175c2fded308f89db94f6203169d5bcf7b1cfd619.jpg"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "score": 0.9542,
+              "bbox": [
+                78,
+                372,
+                343,
+                433
+              ],
+              "index": 6,
+              "type": "table_footnote",
+              "lines": [
+                {
+                  "bbox": [
+                    79,
+                    371,
+                    343,
+                    383
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        79,
+                        371,
+                        343,
+                        383
+                      ],
+                      "type": "text",
+                      "content": " At room temperature (about 300 K) and atmospheric pressure, unless",
+                      "score": 0.972
+                    }
+                  ]
+                },
+                {
+                  "bbox": [
+                    79,
+                    380,
+                    342,
+                    394
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        79,
+                        380,
+                        174,
+                        394
+                      ],
+                      "type": "text",
+                      "content": "otherwise noted. The radius",
+                      "score": 0.987
+                    },
+                    {
+                      "bbox": [
+                        175,
+                        383,
+                        182,
+                        392
+                      ],
+                      "type": "inline_equation",
+                      "content": "r _ { s }",
+                      "score": 0.711
+                    },
+                    {
+                      "bbox": [
+                        183,
+                        380,
+                        342,
+                        394
+                      ],
+                      "type": "text",
+                      "content": "othe free electron sphere is defined in Eq (1.).",
+                      "score": 0.743
+                    }
+                  ]
+                },
+                {
+                  "bbox": [
+                    79,
+                    390,
+                    343,
+                    403
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        79,
+                        390,
+                        343,
+                        403
+                      ],
+                      "type": "text",
+                      "content": "We have arbitrarily selected one value of Z for those elements that display",
+                      "score": 0.986
+                    }
+                  ]
+                },
+                {
+                  "bbox": [
+                    79,
+                    401,
+                    343,
+                    412
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        79,
+                        401,
+                        343,
+                        412
+                      ],
+                      "type": "text",
+                      "content": "more than one chemical valence. The Drude model gives no theoretical",
+                      "score": 0.996
+                    }
+                  ]
+                },
+                {
+                  "bbox": [
+                    79,
+                    410,
+                    343,
+                    423
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        79,
+                        410,
+                        343,
+                        423
+                      ],
+                      "type": "text",
+                      "content": "basis for the choice. Values of n are based on data from R. W. G. Wyckoff,",
+                      "score": 0.979
+                    }
+                  ]
+                },
+                {
+                  "bbox": [
+                    80,
+                    421,
+                    277,
+                    431
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        80,
+                        421,
+                        277,
+                        431
+                      ],
+                      "type": "text",
+                      "content": "Crystal Structures, 2nd ed., Interscience, New York, 1963.",
+                      "score": 0.997
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "index": 5,
+          "score": 0.9897
+        },
+        {
+          "score": 0.9806,
+          "bbox": [
+            45,
+            448,
+            374,
+            481
+          ],
+          "index": 7,
+          "type": "text",
+          "lines": [],
+          "bbox_fs": [
+            46,
+            447,
+            374,
+            481
+          ],
+          "lines_deleted": true
+        },
+        {
+          "score": 0.9853,
+          "bbox": [
+            45,
+            480,
+            375,
+            546
+          ],
+          "index": 8,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                46,
+                480,
+                374,
+                492
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    46,
+                    480,
+                    374,
+                    492
+                  ],
+                  "type": "text",
+                  "content": "2. Collisions in the Drude model, as in kinetic theory, are instantaneous events",
+                  "score": 0.981
+                }
+              ]
+            },
+            {
+              "bbox": [
+                47,
+                491,
+                374,
+                503
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    47,
+                    491,
+                    374,
+                    503
+                  ],
+                  "type": "text",
+                  "content": "that abruptly alter the velocity of an electron. Drude attributed them to the electrons",
+                  "score": 0.987
+                }
+              ]
+            },
+            {
+              "bbox": [
+                47,
+                501,
+                374,
+                514
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    47,
+                    501,
+                    374,
+                    514
+                  ],
+                  "type": "text",
+                  "content": "bouncing off the impenetrable ion cores (rather than to electron-electron collisions.",
+                  "score": 0.983
+                }
+              ]
+            },
+            {
+              "bbox": [
+                46,
+                511,
+                374,
+                524
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    46,
+                    511,
+                    374,
+                    524
+                  ],
+                  "type": "text",
+                  "content": "the analogue of the predominant collision mechanism in an ordinary gas). We shall",
+                  "score": 0.987
+                }
+              ]
+            },
+            {
+              "bbox": [
+                45,
+                522,
+                374,
+                536
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    45,
+                    522,
+                    374,
+                    536
+                  ],
+                  "type": "text",
+                  "content": "find later that electron-electron scattering is indeed one of the least important of the",
+                  "score": 0.981
+                }
+              ]
+            },
+            {
+              "bbox": [
+                45,
+                533,
+                374,
+                546
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    45,
+                    533,
+                    374,
+                    546
+                  ],
+                  "type": "text",
+                  "content": "several scattering mechanisms in a metal, except under unusual conditions. However,",
+                  "score": 0.996
+                }
+              ]
+            }
+          ],
+          "bbox_fs": [
+            45,
+            480,
+            374,
+            546
+          ]
+        }
+      ]
+    },
+    "model_json": [],
+    "markdown": null
+  }
+}

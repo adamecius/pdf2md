@@ -1,0 +1,478 @@
+[
+    {
+        "type": "text",
+        "text": "Drude applied kinetic theory to this \"gas\" of conduction electrons of mass m, which (in contrast to the molecules of an ordinary gas) move against a background of heavy immobile ions. The density of the electron gas can be calculated as follows:",
+        "bbox": [
+            56,
+            106,
+            884,
+            159
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "A metallic element contains $0 . 6 0 2 2 \\times 1 0 ^ { 2 4 }$ atoms per mole (Avogadro's number) and $\\rho _ { m } / A$ moles per $\\mathrm { c m } ^ { 3 }$ ,where $\\rho _ { m }$ is the mass density (in grams per cubic centimeter) and A is the atomic mass of the element. Since each atom contributes Z electrons, the number of electrons per cubic centimeter, $n = N / V ,$ is",
+        "bbox": [
+            56,
+            159,
+            886,
+            232
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "equation",
+        "img_path": "images/2b341e7ec43189752f77d3382e0322028fd81e7e01ce5d0ddce2975c01ad1348.jpg",
+        "text": "$$\nn = 0 . 6 0 2 2 \\times 1 0 ^ { 2 4 } \\frac { Z \\rho _ { m } } { A } .\\tag{1.1}\n$$",
+        "text_format": "latex",
+        "bbox": [
+            347,
+            235,
+            598,
+            274
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "Table 1.1 shows the conduction electron densities for some selected metals, They are typically of order $1 0 ^ { 2 2 }$ conduction electrons per cubic centimeter, varying from $0 . 9 1 \\ \\times \\ 1 0 ^ { 2 2 }$ for cesium up to $2 4 . 7 \\times 1 0 ^ { 2 2 }$ for beryllium. Also listed in Table 1.1 is a widely used measure of the electronic density. $r _ { s * }$ defined as the radius of a sphere whose volume is equal to the volume per conduction electron. Thus",
+        "bbox": [
+            56,
+            280,
+            886,
+            388
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "equation",
+        "img_path": "images/32dc0a00f11abe0cd0e74fe270b63e477b7cb606f1d7a08b5335adc927d3b6b8.jpg",
+        "text": "$$\n\\frac { V } { N } = \\frac { 1 } { n } = \\frac { 4 \\pi { r _ { s } } ^ { 3 } } { 3 } ; ~ r _ { s } = { \\left( \\frac { 3 } { 4 \\pi n } \\right) } ^ { 1 , 3 } .\\tag{1.2}\n$$",
+        "text_format": "latex",
+        "bbox": [
+            305,
+            392,
+            640,
+            433
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "Table 1.1 lists $r _ { s }$ both in angstroms $( 1 0 ^ { - 8 }$ cm) and in units of the Bohr radius $a _ { 0 } =$ $\\hbar ^ { 2 } / m e ^ { 2 } = 0 . 5 2 9 \\times 1 0 ^ { - 8 }$ cm; the latter length, being a measure of the radius of a hydrogen atom in its ground state, is often used as a scale for measuring atomic distances. Note that $r _ { s } / a _ { 0 }$ is between 2 and 3 in most cases, although it ranges between 3 and 6 in the alkali metals (and can be as large as 10 in some metallic compounds).",
+        "bbox": [
+            59,
+            441,
+            884,
+            533
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "These densities are typically a thousand times greater than those of a classical gas at normal temperatures and pressures. In spite of this and in spite of the strong electron-electron and electron-ion electromagnetic interactions, the Drude model boldly treats the dense metallic electron gas by the methods of the kinetic theory of a neutral dilute gas, with only slight modifications. The basic assumptions are these:",
+        "bbox": [
+            59,
+            531,
+            886,
+            622
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "1. Between collisions the interaction of a given electron, both with the others and with the ions, is neglected. Thus in the absence of externally applied electromagnetic fields each electron is taken to move uniformly in a straight line. In the presence of externally applied fields each electron is taken to move as determined by Newton's laws of motion in the presence of those external fields, but neglecting the additional complicated fields produced by the other electrons and ions.6 The neglect of electron-electron interactions between collisions is known as the independent electron approximation. The corresponding neglect of electron-ion interactions is known as the free electron approximation. We shall find in subsequent chapters that although the independent electron approximation is in many contexts surprisingly good, the free electron approximation must be abandoned if one is to arrive at even a qualitative understanding of much of metallic behavior.",
+        "bbox": [
+            59,
+            629,
+            886,
+            792
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "header",
+        "text": "4 Chapter 1 The Drude Theory of Metals",
+        "bbox": [
+            56,
+            71,
+            437,
+            89
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "page_footnote",
+        "text": "5 This is the range for metallic elements under normal conditions. Higher densities can be attained by application of pressure (which tends to favor the metallic state). Lower densities are found in compounds.",
+        "bbox": [
+            59,
+            810,
+            884,
+            857
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "page_footnote",
+        "text": "6 Strictly speaking, the electron-ion interaction is not entirely ignored, for the Drude model implicitly assumes that the electrons are confined to the interior of the metal. Evidently this confinement is brought about by their attraction to the positively charged ions. Gross effects of the electron-ion and defn inteal fel epreentingtheveag effethe lectonlecton an econ-on ntecions.",
+        "bbox": [
+            59,
+            855,
+            884,
+            933
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "table",
+        "img_path": "images/704a83b252f740c309ca905175c2fded308f89db94f6203169d5bcf7b1cfd619.jpg",
+        "table_caption": [
+            "Table 1.1",
+            "FREE ELECTRON DENSITIES OF SELECTED METALLIC ELE-MENTSa"
+        ],
+        "table_footnote": [
+            "At room temperature (about 300 K) and atmospheric pressure, unless otherwise noted. The radius $r _ { s }$ othe free electron sphere is defined in Eq (1.). We have arbitrarily selected one value of Z for those elements that display more than one chemical valence. The Drude model gives no theoretical basis for the choice. Values of n are based on data from R. W. G. Wyckoff, Crystal Structures, 2nd ed., Interscience, New York, 1963."
+        ],
+        "table_body": "<table><tr><td>ELEMENT</td><td>Z</td><td> $n ( 1 0 ^ { 2 2 } / { \\mathrm { c m } } ^ { 3 } )$ </td><td> $r _ { s } ( \\mathrm { \\AA } )$ </td><td> $r _ { s } / a _ { 0 }$ </td></tr><tr><td>Li (78 K)</td><td>1</td><td>4.70</td><td>1.72</td><td>3.25</td></tr><tr><td>Na (5 K)</td><td>1</td><td>2.65</td><td>2.08</td><td>3.93</td></tr><tr><td>K (5 K)</td><td>I</td><td>1.40</td><td>2.57</td><td>4.86</td></tr><tr><td>Rb (5 K)</td><td>1</td><td>1.15</td><td>2.75</td><td>5.20</td></tr><tr><td>Cs (5 K)</td><td>I</td><td>0.91</td><td>2.98</td><td>5.62</td></tr><tr><td>Cu</td><td>I</td><td>8.47</td><td>1.41</td><td>2.67</td></tr><tr><td>Ag</td><td>1</td><td>5.86</td><td>1.60</td><td>3.02</td></tr><tr><td>Au</td><td>1</td><td>5.90</td><td>1.59</td><td>3.01</td></tr><tr><td>Be</td><td>2</td><td>24.7</td><td>0.99</td><td>1.87</td></tr><tr><td>Mg</td><td>20</td><td>8.61</td><td>1.41</td><td>2.66</td></tr><tr><td>Ca</td><td>2</td><td>4.61</td><td>1.73</td><td>3.27</td></tr><tr><td>Sr</td><td>2</td><td>3.55</td><td>1.89</td><td>3.57</td></tr><tr><td>Ba</td><td>2</td><td>3.15</td><td>1.96</td><td>3.71</td></tr><tr><td>Nb</td><td>1</td><td>5.56</td><td>1.63</td><td>3.07</td></tr><tr><td>Fe</td><td>2</td><td>17.0</td><td>1.12</td><td>2.12</td></tr><tr><td>Mn (x)</td><td>2</td><td>16.5</td><td>1.13</td><td>2.14</td></tr><tr><td>Zn</td><td></td><td>13.2</td><td>1.22</td><td>2.30</td></tr><tr><td>Cd</td><td>22</td><td>9.27</td><td>1.37</td><td>2.59</td></tr><tr><td>Hg (78 K)</td><td>2</td><td>8.65</td><td>1.40</td><td>2.65</td></tr><tr><td>Al</td><td>3</td><td>18.1</td><td>1.10</td><td>2.07</td></tr><tr><td>Ga</td><td>3</td><td>15.4</td><td>1.16</td><td>2.19</td></tr><tr><td>In</td><td>3</td><td>11.5</td><td>1.27</td><td>2.41</td></tr><tr><td>T1</td><td>3</td><td>10.5</td><td>1.31</td><td>2.48</td></tr><tr><td>Sn</td><td>4</td><td>14.8</td><td>1.17</td><td>2.22</td></tr><tr><td>Pb</td><td>4</td><td>13.2</td><td>1.22</td><td>2.30</td></tr><tr><td>Bi</td><td>5</td><td>14.1</td><td>1.19</td><td>2.25</td></tr><tr><td>Sb</td><td>5</td><td>16.5</td><td>1.13</td><td>2.14</td></tr></table>",
+        "bbox": [
+            178,
+            135,
+            785,
+            628
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            102,
+            767,
+            853,
+            823
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "2. Collisions in the Drude model, as in kinetic theory, are instantaneous events that abruptly alter the velocity of an electron. Drude attributed them to the electrons bouncing off the impenetrable ion cores (rather than to electron-electron collisions. the analogue of the predominant collision mechanism in an ordinary gas). We shall find later that electron-electron scattering is indeed one of the least important of the several scattering mechanisms in a metal, except under unusual conditions. However,",
+        "bbox": [
+            102,
+            821,
+            856,
+            934
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "header",
+        "text": "Basic Assumptions of the Drude Model",
+        "bbox": [
+            527,
+            46,
+            828,
+            65
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "page_number",
+        "text": "5",
+        "bbox": [
+            842,
+            47,
+            860,
+            63
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "image",
+        "img_path": "images/b0af64fa6b1f8eadd057f8fb894fc3af64c79de363eab163889b6784ca99e6de.jpg",
+        "image_caption": [
+            "Figure 1.2"
+        ],
+        "image_footnote": [],
+        "bbox": [
+            130,
+            107,
+            447,
+            187
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "Trajectory of a conduction electron scattering off the ions. according to the naive picture of Drude.",
+        "bbox": [
+            456,
+            123,
+            895,
+            158
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "the simple mechanical picture (Figure 1.2) of an electron bumping along from ion to ion is very far off the mark.7 Fortunately, this does not matter for many purposes: a qualitative (and often a quantitative) understanding of metallic conduction can be achieved by simply assuming that there is some scattering mechanism, without inquiring too closely into just what that mechanism might be. By appealing, in our analysis. to only a few general effects of the collision process. we can avoid committing ourselves to any specific picture of how electron scattering actually takes place. These broad features are described in the following two assumptions.",
+        "bbox": [
+            128,
+            194,
+            897,
+            337
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "3. We shall assume that an electron experiences a collision (i.e. suffers an abrupt change in its velocity) with a probability per unit time 1/τ. We mean by this that the probability of an electron undergoing a collision in any infinitesimal time interval of length dt is just dt/t. The time t is variously known as the relaxation time, the collision time, or the mean free time, and it plays a fundamental role in the theory of metallic conduction. It follows from this assumption that an electron picked at random at a given moment will, on the average, travel for a time t before its next collision, and will, on the average, have been traveling for a time t since its last collision.8 In the simplest applications of the Drude model the collision time t is taken to be independent of an electron's position and velocity. We shall see later that this turns out to be a surprisingly good assumption for many (but by no means all) applications. 4. Electrons are assumed to achieve thermal equilibrium with their surroundings only through collisions. These collisions are assumed to maintain local thermodynamic equilibrium in a particularly simple way: immediately after each collision an electron is taken to emerge with a velocity that is not related to its velocity just before the collision, but randomly directed and with a speed appropriate to the temperature prevailing at the place where the collision occurred. Thus the hotter the region in which a collision occurs, the faster a typical electron will emerge from the collision.",
+        "bbox": [
+            128,
+            337,
+            899,
+            677
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "In the rest of this chapter we shall illustrate these notions through their most important applications, noting the extent to which they succeed or fail to describe the observed phenomena.",
+        "bbox": [
+            130,
+            683,
+            897,
+            738
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "DC ELECTRICAL CONDUCTIVITY OF A METAL",
+        "text_level": 2,
+        "bbox": [
+            130,
+            761,
+            699,
+            782
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "According to Ohm's law, the current I flowing in a wire is proportional to the potential drop V along the wire: V = IR, where R, the resistance of the wire, depends on its dimensions, but is independent of the size of the current or potential drop. The Drude model accounts for this behavior and provides an estimate of the size of the resistance.",
+        "bbox": [
+            130,
+            789,
+            897,
+            827
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "header",
+        "text": "6 Chapter 1 The Drude Theory of Metals",
+        "bbox": [
+            132,
+            74,
+            477,
+            90
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "page_footnote",
+        "text": "For some time people were led into diffcult but irrelevant problems connected with the proper aig o n electron  in eac colion.S iteral n iteretation o Figure 1. is eu to be avoided.",
+        "bbox": [
+            130,
+            846,
+            897,
+            891
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "page_footnote",
+        "text": "8 See Problem 1.",
+        "bbox": [
+            156,
+            891,
+            298,
+            906
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "page_footnote",
+        "text": "Given the free and independent electron approximation, this is the only possible mechanism left.",
+        "bbox": [
+            153,
+            904,
+            895,
+            922
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            146,
+            81,
+            918,
+            119
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "One generally eliminates the dependence of R on the shape of the wire by introducing a quantity characteristic only of the metal of which the wire is composed. The resistivity $\\rho$ is defined to be the proportionality constant between the electric field E at a point in the metal and the current density j that it induces10.",
+        "bbox": [
+            146,
+            117,
+            920,
+            192
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "equation",
+        "img_path": "images/a12c68336565ccfb6a09b737d3601aee62ee5f7687b447ba0d9f5df5d42dfa46.jpg",
+        "text": "$$\n{ \\bf E } = \\rho { \\bf j } .\\tag{1.3}\n$$",
+        "text_format": "latex",
+        "bbox": [
+            489,
+            199,
+            570,
+            219
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "The current density j is a vector. parallel to the flow of charge, whose magnitude is the amount of charge per unit time crossing a unit area perpendicular to the flow. Thus if a uniform current I fows through a wire of length L and cross-sectional area A, the current density will be $j = I , A$ Since the potential drop along the wire will be $V = E L$ , Eq. (1.3) gives $V = I \\rho L / . 4 .$ ,and hence $R = \\rho L / A$",
+        "bbox": [
+            146,
+            228,
+            920,
+            321
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "If n electrons per unit volume all move with velocity v, then the current density they give rise to will be parallel to v. Furthermore, in a time dt the electrons will advance by a distance v dt in the direction of v, so that $n ( \\tau d t ) A$ electrons will cross an area A perpendicular to the direction of flow. Since each electron carries a charge $- e ,$ the charge crossing 4 in the time dt will be $- n e t A d t ,$ and hence the current density is",
+        "bbox": [
+            146,
+            320,
+            920,
+            431
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "equation",
+        "img_path": "images/d1ed7744694d8df06606ee154540371667b602bcb9bdf7ace661d488a9b18359.jpg",
+        "text": "$$\n{ \\bf j } = - n e { \\bf v } .\\tag{1.4}\n$$",
+        "text_format": "latex",
+        "bbox": [
+            477,
+            431,
+            582,
+            448
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "At any point in a metal, electrons are always moving in a variety of directions with a variety of thermal energies. The net current density is thus given by (1.4), where v is the average electronic velocity. In the absence of an electric field, electrons are as likely to be moving in any one direction as in any other, v averages to zero, and, as expected, there is no net electric current density. In the presence of a field E, however, there will be a mean electronic velocity directed opposite to the feld (the electronic charge being negative), which we can compute as follows:",
+        "bbox": [
+            143,
+            459,
+            920,
+            589
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "Consider a typical electron at time zero. Let t be the time elapsed since its last collision. Its velocity at time zero will be its velocity $\\Psi _ { 0 }$ immediately after that collision plus the additional velocity $- e \\mathbf { E } t / m$ it has subsequently acquired. Since we assume that an electron emerges from a collision in a random direction, there will be no contribution from ${ \\bf v } _ { 0 }$ to the average electronic velocity, which must therefore be given entirely by the average of $- e \\mathbf { E } t / m$ However, the average of t is the relaxation time . Therefore",
+        "bbox": [
+            143,
+            589,
+            923,
+            718
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "equation",
+        "img_path": "images/c78d659d8694068c112cac9531c70a16810200b2881e78b23b4634c08aa58543.jpg",
+        "text": "$$\n\\mathbf { \\boldsymbol { \\nu } } _ { \\mathrm { a v g } } = - \\ \\frac { e \\mathbf { E } \\tau } { m } ; ~ \\mathbf { \\ j } = \\left( \\frac { n e ^ { 2 } \\tau } { m } \\right) \\mathbf { \\boldsymbol { \\mathbf { E } } } .\\tag{1.5}\n$$",
+        "text_format": "latex",
+        "bbox": [
+            386,
+            715,
+            673,
+            759
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "This result is usually stated in terms of the inverse of the resistivity, the conductivity $\\sigma = 1 / \\rho ;$",
+        "bbox": [
+            146,
+            770,
+            920,
+            807
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "equation",
+        "img_path": "images/4e3d3917ff2f6e5c080cb9d16e2fd00d52dbf65d8b75e4d9eba9e6903deaecef.jpg",
+        "text": "$$\n\\boxed { \\begin{array} { l l } { \\mathbf { j } = \\sigma \\mathbf { E } ; } & { \\sigma = \\frac { n e ^ { 2 } \\tau } { m } . } \\end{array} }\\tag{1.6}\n$$",
+        "text_format": "latex",
+        "bbox": [
+            422,
+            821,
+            637,
+            882
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "header",
+        "text": "DC Electrical Conductivity of a Metal",
+        "bbox": [
+            575,
+            45,
+            884,
+            63
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "page_number",
+        "text": "7",
+        "bbox": [
+            901,
+            45,
+            916,
+            61
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "page_footnote",
+        "text": "Inl, Ene ot be palOne hen e y no. Se Chap  n .",
+        "bbox": [
+            170,
+            906,
+            920,
+            923
+        ],
+        "page_idx": 3
+    }
+]

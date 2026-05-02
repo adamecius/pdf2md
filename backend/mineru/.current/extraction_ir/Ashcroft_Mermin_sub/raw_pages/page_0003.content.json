@@ -1,0 +1,3326 @@
+{
+  "source_kind": "content_list_v2",
+  "items": [
+    {
+      "type": "paragraph",
+      "content": {
+        "paragraph_content": []
+      },
+      "bbox": [
+        146,
+        81,
+        918,
+        119
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "paragraph_content": [
+          {
+            "type": "text",
+            "content": "One generally eliminates the dependence of R on the shape of the wire by introducing a quantity characteristic only of the metal of which the wire is composed. The resistivity "
+          },
+          {
+            "type": "equation_inline",
+            "content": "\\rho"
+          },
+          {
+            "type": "text",
+            "content": "is defined to be the proportionality constant between the electric field E at a point in the metal and the current density j that it induces10."
+          }
+        ]
+      },
+      "bbox": [
+        146,
+        117,
+        920,
+        192
+      ]
+    },
+    {
+      "type": "equation_interline",
+      "content": {
+        "math_content": "{ \\bf E } = \\rho { \\bf j } .\\tag{1.3}",
+        "math_type": "latex",
+        "image_source": {
+          "path": "images/a12c68336565ccfb6a09b737d3601aee62ee5f7687b447ba0d9f5df5d42dfa46.jpg"
+        }
+      },
+      "bbox": [
+        489,
+        199,
+        570,
+        219
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "paragraph_content": [
+          {
+            "type": "text",
+            "content": "The current density j is a vector. parallel to the flow of charge, whose magnitude is the amount of charge per unit time crossing a unit area perpendicular to the flow. Thus if a uniform current I fows through a wire of length L and cross-sectional area A, the current density will be "
+          },
+          {
+            "type": "equation_inline",
+            "content": "j = I , A"
+          },
+          {
+            "type": "text",
+            "content": "Since the potential drop along the wire will be "
+          },
+          {
+            "type": "equation_inline",
+            "content": "V = E L"
+          },
+          {
+            "type": "text",
+            "content": ", Eq. (1.3) gives "
+          },
+          {
+            "type": "equation_inline",
+            "content": "V = I \\rho L / . 4 ."
+          },
+          {
+            "type": "text",
+            "content": ",and hence "
+          },
+          {
+            "type": "equation_inline",
+            "content": "R = \\rho L / A"
+          }
+        ]
+      },
+      "bbox": [
+        146,
+        228,
+        920,
+        321
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "paragraph_content": [
+          {
+            "type": "text",
+            "content": "If n electrons per unit volume all move with velocity v, then the current density they give rise to will be parallel to v. Furthermore, in a time dt the electrons will advance by a distance v dt in the direction of v, so that "
+          },
+          {
+            "type": "equation_inline",
+            "content": "n ( \\tau d t ) A"
+          },
+          {
+            "type": "text",
+            "content": "electrons will cross an area A perpendicular to the direction of flow. Since each electron carries a charge "
+          },
+          {
+            "type": "equation_inline",
+            "content": "- e ,"
+          },
+          {
+            "type": "text",
+            "content": "the charge crossing 4 in the time dt will be "
+          },
+          {
+            "type": "equation_inline",
+            "content": "- n e t A d t ,"
+          },
+          {
+            "type": "text",
+            "content": "and hence the current density is"
+          }
+        ]
+      },
+      "bbox": [
+        146,
+        320,
+        920,
+        431
+      ]
+    },
+    {
+      "type": "equation_interline",
+      "content": {
+        "math_content": "{ \\bf j } = - n e { \\bf v } .\\tag{1.4}",
+        "math_type": "latex",
+        "image_source": {
+          "path": "images/d1ed7744694d8df06606ee154540371667b602bcb9bdf7ace661d488a9b18359.jpg"
+        }
+      },
+      "bbox": [
+        477,
+        431,
+        582,
+        448
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "paragraph_content": [
+          {
+            "type": "text",
+            "content": "At any point in a metal, electrons are always moving in a variety of directions with a variety of thermal energies. The net current density is thus given by (1.4), where v is the average electronic velocity. In the absence of an electric field, electrons are as likely to be moving in any one direction as in any other, v averages to zero, and, as expected, there is no net electric current density. In the presence of a field E, however, there will be a mean electronic velocity directed opposite to the feld (the electronic charge being negative), which we can compute as follows:"
+          }
+        ]
+      },
+      "bbox": [
+        143,
+        459,
+        920,
+        589
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "paragraph_content": [
+          {
+            "type": "text",
+            "content": "Consider a typical electron at time zero. Let t be the time elapsed since its last collision. Its velocity at time zero will be its velocity "
+          },
+          {
+            "type": "equation_inline",
+            "content": "\\Psi _ { 0 }"
+          },
+          {
+            "type": "text",
+            "content": "immediately after that collision plus the additional velocity "
+          },
+          {
+            "type": "equation_inline",
+            "content": "- e \\mathbf { E } t / m"
+          },
+          {
+            "type": "text",
+            "content": "it has subsequently acquired. Since we assume that an electron emerges from a collision in a random direction, there will be no contribution from "
+          },
+          {
+            "type": "equation_inline",
+            "content": "{ \\bf v } _ { 0 }"
+          },
+          {
+            "type": "text",
+            "content": "to the average electronic velocity, which must therefore be given entirely by the average of "
+          },
+          {
+            "type": "equation_inline",
+            "content": "- e \\mathbf { E } t / m"
+          },
+          {
+            "type": "text",
+            "content": "However, the average of t is the relaxation time . Therefore"
+          }
+        ]
+      },
+      "bbox": [
+        143,
+        589,
+        923,
+        718
+      ]
+    },
+    {
+      "type": "equation_interline",
+      "content": {
+        "math_content": "\\mathbf { \\boldsymbol { \\nu } } _ { \\mathrm { a v g } } = - \\ \\frac { e \\mathbf { E } \\tau } { m } ; ~ \\mathbf { \\ j } = \\left( \\frac { n e ^ { 2 } \\tau } { m } \\right) \\mathbf { \\boldsymbol { \\mathbf { E } } } .\\tag{1.5}",
+        "math_type": "latex",
+        "image_source": {
+          "path": "images/c78d659d8694068c112cac9531c70a16810200b2881e78b23b4634c08aa58543.jpg"
+        }
+      },
+      "bbox": [
+        386,
+        715,
+        673,
+        759
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "paragraph_content": [
+          {
+            "type": "text",
+            "content": "This result is usually stated in terms of the inverse of the resistivity, the conductivity "
+          },
+          {
+            "type": "equation_inline",
+            "content": "\\sigma = 1 / \\rho ;"
+          }
+        ]
+      },
+      "bbox": [
+        146,
+        770,
+        920,
+        807
+      ]
+    },
+    {
+      "type": "equation_interline",
+      "content": {
+        "math_content": "\\boxed { \\begin{array} { l l } { \\mathbf { j } = \\sigma \\mathbf { E } ; } & { \\sigma = \\frac { n e ^ { 2 } \\tau } { m } . } \\end{array} }\\tag{1.6}",
+        "math_type": "latex",
+        "image_source": {
+          "path": "images/4e3d3917ff2f6e5c080cb9d16e2fd00d52dbf65d8b75e4d9eba9e6903deaecef.jpg"
+        }
+      },
+      "bbox": [
+        422,
+        821,
+        637,
+        882
+      ]
+    },
+    {
+      "type": "page_header",
+      "content": {
+        "page_header_content": [
+          {
+            "type": "text",
+            "content": "DC Electrical Conductivity of a Metal"
+          }
+        ]
+      },
+      "bbox": [
+        575,
+        45,
+        884,
+        63
+      ]
+    },
+    {
+      "type": "page_number",
+      "content": {
+        "page_number_content": [
+          {
+            "type": "text",
+            "content": "7"
+          }
+        ]
+      },
+      "bbox": [
+        901,
+        45,
+        916,
+        61
+      ]
+    },
+    {
+      "type": "page_footnote",
+      "content": {
+        "page_footnote_content": [
+          {
+            "type": "text",
+            "content": " Inl, Ene ot be palOne hen e y no. Se Chap  n ."
+          }
+        ]
+      },
+      "bbox": [
+        170,
+        906,
+        920,
+        923
+      ]
+    }
+  ],
+  "available_sources": {
+    "content_list_v2": [
+      {
+        "json_pointer": "/3/0",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": []
+          },
+          "bbox": [
+            146,
+            81,
+            918,
+            119
+          ]
+        }
+      },
+      {
+        "json_pointer": "/3/1",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": [
+              {
+                "type": "text",
+                "content": "One generally eliminates the dependence of R on the shape of the wire by introducing a quantity characteristic only of the metal of which the wire is composed. The resistivity "
+              },
+              {
+                "type": "equation_inline",
+                "content": "\\rho"
+              },
+              {
+                "type": "text",
+                "content": "is defined to be the proportionality constant between the electric field E at a point in the metal and the current density j that it induces10."
+              }
+            ]
+          },
+          "bbox": [
+            146,
+            117,
+            920,
+            192
+          ]
+        }
+      },
+      {
+        "json_pointer": "/3/2",
+        "item": {
+          "type": "equation_interline",
+          "content": {
+            "math_content": "{ \\bf E } = \\rho { \\bf j } .\\tag{1.3}",
+            "math_type": "latex",
+            "image_source": {
+              "path": "images/a12c68336565ccfb6a09b737d3601aee62ee5f7687b447ba0d9f5df5d42dfa46.jpg"
+            }
+          },
+          "bbox": [
+            489,
+            199,
+            570,
+            219
+          ]
+        }
+      },
+      {
+        "json_pointer": "/3/3",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": [
+              {
+                "type": "text",
+                "content": "The current density j is a vector. parallel to the flow of charge, whose magnitude is the amount of charge per unit time crossing a unit area perpendicular to the flow. Thus if a uniform current I fows through a wire of length L and cross-sectional area A, the current density will be "
+              },
+              {
+                "type": "equation_inline",
+                "content": "j = I , A"
+              },
+              {
+                "type": "text",
+                "content": "Since the potential drop along the wire will be "
+              },
+              {
+                "type": "equation_inline",
+                "content": "V = E L"
+              },
+              {
+                "type": "text",
+                "content": ", Eq. (1.3) gives "
+              },
+              {
+                "type": "equation_inline",
+                "content": "V = I \\rho L / . 4 ."
+              },
+              {
+                "type": "text",
+                "content": ",and hence "
+              },
+              {
+                "type": "equation_inline",
+                "content": "R = \\rho L / A"
+              }
+            ]
+          },
+          "bbox": [
+            146,
+            228,
+            920,
+            321
+          ]
+        }
+      },
+      {
+        "json_pointer": "/3/4",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": [
+              {
+                "type": "text",
+                "content": "If n electrons per unit volume all move with velocity v, then the current density they give rise to will be parallel to v. Furthermore, in a time dt the electrons will advance by a distance v dt in the direction of v, so that "
+              },
+              {
+                "type": "equation_inline",
+                "content": "n ( \\tau d t ) A"
+              },
+              {
+                "type": "text",
+                "content": "electrons will cross an area A perpendicular to the direction of flow. Since each electron carries a charge "
+              },
+              {
+                "type": "equation_inline",
+                "content": "- e ,"
+              },
+              {
+                "type": "text",
+                "content": "the charge crossing 4 in the time dt will be "
+              },
+              {
+                "type": "equation_inline",
+                "content": "- n e t A d t ,"
+              },
+              {
+                "type": "text",
+                "content": "and hence the current density is"
+              }
+            ]
+          },
+          "bbox": [
+            146,
+            320,
+            920,
+            431
+          ]
+        }
+      },
+      {
+        "json_pointer": "/3/5",
+        "item": {
+          "type": "equation_interline",
+          "content": {
+            "math_content": "{ \\bf j } = - n e { \\bf v } .\\tag{1.4}",
+            "math_type": "latex",
+            "image_source": {
+              "path": "images/d1ed7744694d8df06606ee154540371667b602bcb9bdf7ace661d488a9b18359.jpg"
+            }
+          },
+          "bbox": [
+            477,
+            431,
+            582,
+            448
+          ]
+        }
+      },
+      {
+        "json_pointer": "/3/6",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": [
+              {
+                "type": "text",
+                "content": "At any point in a metal, electrons are always moving in a variety of directions with a variety of thermal energies. The net current density is thus given by (1.4), where v is the average electronic velocity. In the absence of an electric field, electrons are as likely to be moving in any one direction as in any other, v averages to zero, and, as expected, there is no net electric current density. In the presence of a field E, however, there will be a mean electronic velocity directed opposite to the feld (the electronic charge being negative), which we can compute as follows:"
+              }
+            ]
+          },
+          "bbox": [
+            143,
+            459,
+            920,
+            589
+          ]
+        }
+      },
+      {
+        "json_pointer": "/3/7",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": [
+              {
+                "type": "text",
+                "content": "Consider a typical electron at time zero. Let t be the time elapsed since its last collision. Its velocity at time zero will be its velocity "
+              },
+              {
+                "type": "equation_inline",
+                "content": "\\Psi _ { 0 }"
+              },
+              {
+                "type": "text",
+                "content": "immediately after that collision plus the additional velocity "
+              },
+              {
+                "type": "equation_inline",
+                "content": "- e \\mathbf { E } t / m"
+              },
+              {
+                "type": "text",
+                "content": "it has subsequently acquired. Since we assume that an electron emerges from a collision in a random direction, there will be no contribution from "
+              },
+              {
+                "type": "equation_inline",
+                "content": "{ \\bf v } _ { 0 }"
+              },
+              {
+                "type": "text",
+                "content": "to the average electronic velocity, which must therefore be given entirely by the average of "
+              },
+              {
+                "type": "equation_inline",
+                "content": "- e \\mathbf { E } t / m"
+              },
+              {
+                "type": "text",
+                "content": "However, the average of t is the relaxation time . Therefore"
+              }
+            ]
+          },
+          "bbox": [
+            143,
+            589,
+            923,
+            718
+          ]
+        }
+      },
+      {
+        "json_pointer": "/3/8",
+        "item": {
+          "type": "equation_interline",
+          "content": {
+            "math_content": "\\mathbf { \\boldsymbol { \\nu } } _ { \\mathrm { a v g } } = - \\ \\frac { e \\mathbf { E } \\tau } { m } ; ~ \\mathbf { \\ j } = \\left( \\frac { n e ^ { 2 } \\tau } { m } \\right) \\mathbf { \\boldsymbol { \\mathbf { E } } } .\\tag{1.5}",
+            "math_type": "latex",
+            "image_source": {
+              "path": "images/c78d659d8694068c112cac9531c70a16810200b2881e78b23b4634c08aa58543.jpg"
+            }
+          },
+          "bbox": [
+            386,
+            715,
+            673,
+            759
+          ]
+        }
+      },
+      {
+        "json_pointer": "/3/9",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": [
+              {
+                "type": "text",
+                "content": "This result is usually stated in terms of the inverse of the resistivity, the conductivity "
+              },
+              {
+                "type": "equation_inline",
+                "content": "\\sigma = 1 / \\rho ;"
+              }
+            ]
+          },
+          "bbox": [
+            146,
+            770,
+            920,
+            807
+          ]
+        }
+      },
+      {
+        "json_pointer": "/3/10",
+        "item": {
+          "type": "equation_interline",
+          "content": {
+            "math_content": "\\boxed { \\begin{array} { l l } { \\mathbf { j } = \\sigma \\mathbf { E } ; } & { \\sigma = \\frac { n e ^ { 2 } \\tau } { m } . } \\end{array} }\\tag{1.6}",
+            "math_type": "latex",
+            "image_source": {
+              "path": "images/4e3d3917ff2f6e5c080cb9d16e2fd00d52dbf65d8b75e4d9eba9e6903deaecef.jpg"
+            }
+          },
+          "bbox": [
+            422,
+            821,
+            637,
+            882
+          ]
+        }
+      },
+      {
+        "json_pointer": "/3/11",
+        "item": {
+          "type": "page_header",
+          "content": {
+            "page_header_content": [
+              {
+                "type": "text",
+                "content": "DC Electrical Conductivity of a Metal"
+              }
+            ]
+          },
+          "bbox": [
+            575,
+            45,
+            884,
+            63
+          ]
+        }
+      },
+      {
+        "json_pointer": "/3/12",
+        "item": {
+          "type": "page_number",
+          "content": {
+            "page_number_content": [
+              {
+                "type": "text",
+                "content": "7"
+              }
+            ]
+          },
+          "bbox": [
+            901,
+            45,
+            916,
+            61
+          ]
+        }
+      },
+      {
+        "json_pointer": "/3/13",
+        "item": {
+          "type": "page_footnote",
+          "content": {
+            "page_footnote_content": [
+              {
+                "type": "text",
+                "content": " Inl, Ene ot be palOne hen e y no. Se Chap  n ."
+              }
+            ]
+          },
+          "bbox": [
+            170,
+            906,
+            920,
+            923
+          ]
+        }
+      }
+    ],
+    "content_list": [
+      {
+        "json_pointer": "/27",
+        "item": {
+          "type": "text",
+          "text": "",
+          "bbox": [
+            146,
+            81,
+            918,
+            119
+          ],
+          "page_idx": 3
+        }
+      },
+      {
+        "json_pointer": "/28",
+        "item": {
+          "type": "text",
+          "text": "One generally eliminates the dependence of R on the shape of the wire by introducing a quantity characteristic only of the metal of which the wire is composed. The resistivity $\\rho$ is defined to be the proportionality constant between the electric field E at a point in the metal and the current density j that it induces10.",
+          "bbox": [
+            146,
+            117,
+            920,
+            192
+          ],
+          "page_idx": 3
+        }
+      },
+      {
+        "json_pointer": "/29",
+        "item": {
+          "type": "equation",
+          "img_path": "images/a12c68336565ccfb6a09b737d3601aee62ee5f7687b447ba0d9f5df5d42dfa46.jpg",
+          "text": "$$\n{ \\bf E } = \\rho { \\bf j } .\\tag{1.3}\n$$",
+          "text_format": "latex",
+          "bbox": [
+            489,
+            199,
+            570,
+            219
+          ],
+          "page_idx": 3
+        }
+      },
+      {
+        "json_pointer": "/30",
+        "item": {
+          "type": "text",
+          "text": "The current density j is a vector. parallel to the flow of charge, whose magnitude is the amount of charge per unit time crossing a unit area perpendicular to the flow. Thus if a uniform current I fows through a wire of length L and cross-sectional area A, the current density will be $j = I , A$ Since the potential drop along the wire will be $V = E L$ , Eq. (1.3) gives $V = I \\rho L / . 4 .$ ,and hence $R = \\rho L / A$",
+          "bbox": [
+            146,
+            228,
+            920,
+            321
+          ],
+          "page_idx": 3
+        }
+      },
+      {
+        "json_pointer": "/31",
+        "item": {
+          "type": "text",
+          "text": "If n electrons per unit volume all move with velocity v, then the current density they give rise to will be parallel to v. Furthermore, in a time dt the electrons will advance by a distance v dt in the direction of v, so that $n ( \\tau d t ) A$ electrons will cross an area A perpendicular to the direction of flow. Since each electron carries a charge $- e ,$ the charge crossing 4 in the time dt will be $- n e t A d t ,$ and hence the current density is",
+          "bbox": [
+            146,
+            320,
+            920,
+            431
+          ],
+          "page_idx": 3
+        }
+      },
+      {
+        "json_pointer": "/32",
+        "item": {
+          "type": "equation",
+          "img_path": "images/d1ed7744694d8df06606ee154540371667b602bcb9bdf7ace661d488a9b18359.jpg",
+          "text": "$$\n{ \\bf j } = - n e { \\bf v } .\\tag{1.4}\n$$",
+          "text_format": "latex",
+          "bbox": [
+            477,
+            431,
+            582,
+            448
+          ],
+          "page_idx": 3
+        }
+      },
+      {
+        "json_pointer": "/33",
+        "item": {
+          "type": "text",
+          "text": "At any point in a metal, electrons are always moving in a variety of directions with a variety of thermal energies. The net current density is thus given by (1.4), where v is the average electronic velocity. In the absence of an electric field, electrons are as likely to be moving in any one direction as in any other, v averages to zero, and, as expected, there is no net electric current density. In the presence of a field E, however, there will be a mean electronic velocity directed opposite to the feld (the electronic charge being negative), which we can compute as follows:",
+          "bbox": [
+            143,
+            459,
+            920,
+            589
+          ],
+          "page_idx": 3
+        }
+      },
+      {
+        "json_pointer": "/34",
+        "item": {
+          "type": "text",
+          "text": "Consider a typical electron at time zero. Let t be the time elapsed since its last collision. Its velocity at time zero will be its velocity $\\Psi _ { 0 }$ immediately after that collision plus the additional velocity $- e \\mathbf { E } t / m$ it has subsequently acquired. Since we assume that an electron emerges from a collision in a random direction, there will be no contribution from ${ \\bf v } _ { 0 }$ to the average electronic velocity, which must therefore be given entirely by the average of $- e \\mathbf { E } t / m$ However, the average of t is the relaxation time . Therefore",
+          "bbox": [
+            143,
+            589,
+            923,
+            718
+          ],
+          "page_idx": 3
+        }
+      },
+      {
+        "json_pointer": "/35",
+        "item": {
+          "type": "equation",
+          "img_path": "images/c78d659d8694068c112cac9531c70a16810200b2881e78b23b4634c08aa58543.jpg",
+          "text": "$$\n\\mathbf { \\boldsymbol { \\nu } } _ { \\mathrm { a v g } } = - \\ \\frac { e \\mathbf { E } \\tau } { m } ; ~ \\mathbf { \\ j } = \\left( \\frac { n e ^ { 2 } \\tau } { m } \\right) \\mathbf { \\boldsymbol { \\mathbf { E } } } .\\tag{1.5}\n$$",
+          "text_format": "latex",
+          "bbox": [
+            386,
+            715,
+            673,
+            759
+          ],
+          "page_idx": 3
+        }
+      },
+      {
+        "json_pointer": "/36",
+        "item": {
+          "type": "text",
+          "text": "This result is usually stated in terms of the inverse of the resistivity, the conductivity $\\sigma = 1 / \\rho ;$",
+          "bbox": [
+            146,
+            770,
+            920,
+            807
+          ],
+          "page_idx": 3
+        }
+      },
+      {
+        "json_pointer": "/37",
+        "item": {
+          "type": "equation",
+          "img_path": "images/4e3d3917ff2f6e5c080cb9d16e2fd00d52dbf65d8b75e4d9eba9e6903deaecef.jpg",
+          "text": "$$\n\\boxed { \\begin{array} { l l } { \\mathbf { j } = \\sigma \\mathbf { E } ; } & { \\sigma = \\frac { n e ^ { 2 } \\tau } { m } . } \\end{array} }\\tag{1.6}\n$$",
+          "text_format": "latex",
+          "bbox": [
+            422,
+            821,
+            637,
+            882
+          ],
+          "page_idx": 3
+        }
+      },
+      {
+        "json_pointer": "/38",
+        "item": {
+          "type": "header",
+          "text": "DC Electrical Conductivity of a Metal",
+          "bbox": [
+            575,
+            45,
+            884,
+            63
+          ],
+          "page_idx": 3
+        }
+      },
+      {
+        "json_pointer": "/39",
+        "item": {
+          "type": "page_number",
+          "text": "7",
+          "bbox": [
+            901,
+            45,
+            916,
+            61
+          ],
+          "page_idx": 3
+        }
+      },
+      {
+        "json_pointer": "/40",
+        "item": {
+          "type": "page_footnote",
+          "text": "Inl, Ene ot be palOne hen e y no. Se Chap  n .",
+          "bbox": [
+            170,
+            906,
+            920,
+            923
+          ],
+          "page_idx": 3
+        }
+      }
+    ],
+    "middle": {
+      "preproc_blocks": [
+        {
+          "score": 0.9728,
+          "bbox": [
+            61,
+            48,
+            383,
+            70
+          ],
+          "index": 3,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                63,
+                48,
+                383,
+                59
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    63,
+                    48,
+                    383,
+                    59
+                  ],
+                  "type": "text",
+                  "content": "dimensions, but is independent of the size of the current or potential drop. The Drude",
+                  "score": 0.978
+                }
+              ]
+            },
+            {
+              "bbox": [
+                61,
+                58,
+                383,
+                70
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    61,
+                    58,
+                    383,
+                    70
+                  ],
+                  "type": "text",
+                  "content": "model accounts for this behavior and provides an estimate of the size of the resistance.",
+                  "score": 0.994
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9807,
+          "bbox": [
+            61,
+            69,
+            384,
+            113
+          ],
+          "index": 4,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                73,
+                69,
+                383,
+                81
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    73,
+                    69,
+                    383,
+                    81
+                  ],
+                  "type": "text",
+                  "content": "One generally eliminates the dependence of R on the shape of the wire by intro-",
+                  "score": 0.986
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                80,
+                384,
+                91
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    80,
+                    384,
+                    91
+                  ],
+                  "type": "text",
+                  "content": "ducing a quantity characteristic only of the metal of which the wire is composed. The",
+                  "score": 0.987
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                91,
+                383,
+                102
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    91,
+                    101,
+                    101
+                  ],
+                  "type": "text",
+                  "content": "resistivity",
+                  "score": 1.0
+                },
+                {
+                  "bbox": [
+                    102,
+                    93,
+                    110,
+                    102
+                  ],
+                  "type": "inline_equation",
+                  "content": "\\rho",
+                  "score": 0.611
+                },
+                {
+                  "bbox": [
+                    110,
+                    91,
+                    383,
+                    101
+                  ],
+                  "type": "text",
+                  "content": "is defined to be the proportionality constant between the electric field",
+                  "score": 0.979
+                }
+              ]
+            },
+            {
+              "bbox": [
+                61,
+                101,
+                330,
+                112
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    61,
+                    101,
+                    330,
+                    112
+                  ],
+                  "type": "text",
+                  "content": "E at a point in the metal and the current density j that it induces10.",
+                  "score": 0.982
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9275,
+          "bbox": [
+            204,
+            117,
+            238,
+            129
+          ],
+          "index": 5,
+          "type": "interline_equation",
+          "lines": [
+            {
+              "bbox": [
+                204,
+                117,
+                238,
+                129
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    204,
+                    117,
+                    238,
+                    129
+                  ],
+                  "type": "interline_equation",
+                  "content": "{ \\bf E } = \\rho { \\bf j } .\\tag{1.3}",
+                  "image_path": "a12c68336565ccfb6a09b737d3601aee62ee5f7687b447ba0d9f5df5d42dfa46.jpg"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9859,
+          "bbox": [
+            61,
+            134,
+            384,
+            189
+          ],
+          "index": 7,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                62,
+                133,
+                384,
+                146
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    133,
+                    384,
+                    146
+                  ],
+                  "type": "text",
+                  "content": "The current density j is a vector. parallel to the flow of charge, whose magnitude is",
+                  "score": 0.993
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                145,
+                383,
+                156
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    145,
+                    383,
+                    156
+                  ],
+                  "type": "text",
+                  "content": "the amount of charge per unit time crossing a unit area perpendicular to the flow.",
+                  "score": 0.989
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                156,
+                383,
+                167
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    156,
+                    383,
+                    167
+                  ],
+                  "type": "text",
+                  "content": "Thus if a uniform current I fows through a wire of length L and cross-sectional area",
+                  "score": 0.985
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                166,
+                383,
+                178
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    167,
+                    172,
+                    177
+                  ],
+                  "type": "text",
+                  "content": "A, the current density will be",
+                  "score": 0.985
+                },
+                {
+                  "bbox": [
+                    173,
+                    167,
+                    203,
+                    176
+                  ],
+                  "type": "inline_equation",
+                  "content": "j = I , A",
+                  "score": 0.8068
+                },
+                {
+                  "bbox": [
+                    203,
+                    166,
+                    383,
+                    178
+                  ],
+                  "type": "text",
+                  "content": "Since the potential drop along the wire will be",
+                  "score": 0.995
+                }
+              ]
+            },
+            {
+              "bbox": [
+                63,
+                177,
+                282,
+                189
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    63,
+                    177,
+                    94,
+                    187
+                  ],
+                  "type": "inline_equation",
+                  "content": "V = E L",
+                  "score": 0.6222
+                },
+                {
+                  "bbox": [
+                    95,
+                    177,
+                    153,
+                    189
+                  ],
+                  "type": "text",
+                  "content": ", Eq. (1.3) gives",
+                  "score": 0.963
+                },
+                {
+                  "bbox": [
+                    153,
+                    177,
+                    197,
+                    187
+                  ],
+                  "type": "inline_equation",
+                  "content": "V = I \\rho L / . 4 .",
+                  "score": 0.8731
+                },
+                {
+                  "bbox": [
+                    198,
+                    177,
+                    240,
+                    189
+                  ],
+                  "type": "text",
+                  "content": ",and hence",
+                  "score": 0.948
+                },
+                {
+                  "bbox": [
+                    241,
+                    177,
+                    282,
+                    187
+                  ],
+                  "type": "inline_equation",
+                  "content": "R = \\rho L / A",
+                  "score": 0.9137
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9847,
+          "bbox": [
+            61,
+            188,
+            384,
+            253
+          ],
+          "index": 8,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                72,
+                187,
+                383,
+                200
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    72,
+                    187,
+                    383,
+                    200
+                  ],
+                  "type": "text",
+                  "content": "If n electrons per unit volume all move with velocity v, then the current density",
+                  "score": 0.982
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                199,
+                384,
+                210
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    199,
+                    384,
+                    210
+                  ],
+                  "type": "text",
+                  "content": "they give rise to will be parallel to v. Furthermore, in a time dt the electrons will",
+                  "score": 0.984
+                }
+              ]
+            },
+            {
+              "bbox": [
+                63,
+                210,
+                383,
+                220
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    63,
+                    210,
+                    274,
+                    220
+                  ],
+                  "type": "text",
+                  "content": "advance by a distance v dt in the direction of v, so that",
+                  "score": 0.977
+                },
+                {
+                  "bbox": [
+                    274,
+                    210,
+                    306,
+                    220
+                  ],
+                  "type": "inline_equation",
+                  "content": "n ( \\tau d t ) A",
+                  "score": 0.6694
+                },
+                {
+                  "bbox": [
+                    308,
+                    210,
+                    383,
+                    220
+                  ],
+                  "type": "text",
+                  "content": "electrons will cross",
+                  "score": 1.0
+                }
+              ]
+            },
+            {
+              "bbox": [
+                61,
+                220,
+                384,
+                233
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    61,
+                    220,
+                    384,
+                    233
+                  ],
+                  "type": "text",
+                  "content": "an area A perpendicular to the direction of flow. Since each electron carries a charge",
+                  "score": 0.974
+                }
+              ]
+            },
+            {
+              "bbox": [
+                63,
+                231,
+                383,
+                243
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    63,
+                    233,
+                    78,
+                    241
+                  ],
+                  "type": "inline_equation",
+                  "content": "- e ,",
+                  "score": 0.581
+                },
+                {
+                  "bbox": [
+                    80,
+                    231,
+                    252,
+                    243
+                  ],
+                  "type": "text",
+                  "content": "the charge crossing 4 in the time dt will be",
+                  "score": 0.964
+                },
+                {
+                  "bbox": [
+                    253,
+                    231,
+                    292,
+                    241
+                  ],
+                  "type": "inline_equation",
+                  "content": "- n e t A d t ,",
+                  "score": 0.5065
+                },
+                {
+                  "bbox": [
+                    292,
+                    232,
+                    383,
+                    241
+                  ],
+                  "type": "text",
+                  "content": "and hence the current",
+                  "score": 0.997
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                241,
+                101,
+                254
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    241,
+                    101,
+                    254
+                  ],
+                  "type": "text",
+                  "content": "density is",
+                  "score": 0.996
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.922,
+          "bbox": [
+            199,
+            253,
+            243,
+            263
+          ],
+          "index": 9,
+          "type": "interline_equation",
+          "lines": [
+            {
+              "bbox": [
+                199,
+                253,
+                243,
+                263
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    199,
+                    253,
+                    243,
+                    263
+                  ],
+                  "type": "interline_equation",
+                  "content": "{ \\bf j } = - n e { \\bf v } .\\tag{1.4}",
+                  "image_path": "d1ed7744694d8df06606ee154540371667b602bcb9bdf7ace661d488a9b18359.jpg"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9879,
+          "bbox": [
+            60,
+            270,
+            384,
+            346
+          ],
+          "index": 11,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                72,
+                270,
+                384,
+                282
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    72,
+                    270,
+                    384,
+                    282
+                  ],
+                  "type": "text",
+                  "content": "At any point in a metal, electrons are always moving in a variety of directions",
+                  "score": 0.987
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                281,
+                383,
+                293
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    281,
+                    383,
+                    293
+                  ],
+                  "type": "text",
+                  "content": "with a variety of thermal energies. The net current density is thus given by (1.4),",
+                  "score": 0.98
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                292,
+                384,
+                304
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    292,
+                    384,
+                    304
+                  ],
+                  "type": "text",
+                  "content": "where v is the average electronic velocity. In the absence of an electric field, electrons",
+                  "score": 0.992
+                }
+              ]
+            },
+            {
+              "bbox": [
+                61,
+                303,
+                384,
+                316
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    61,
+                    303,
+                    384,
+                    316
+                  ],
+                  "type": "text",
+                  "content": "are as likely to be moving in any one direction as in any other, v averages to zero,",
+                  "score": 0.988
+                }
+              ]
+            },
+            {
+              "bbox": [
+                61,
+                314,
+                383,
+                325
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    61,
+                    314,
+                    383,
+                    325
+                  ],
+                  "type": "text",
+                  "content": "and, as expected, there is no net electric current density. In the presence of a field E,",
+                  "score": 0.981
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                325,
+                383,
+                336
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    325,
+                    383,
+                    336
+                  ],
+                  "type": "text",
+                  "content": "however, there will be a mean electronic velocity directed opposite to the feld (the",
+                  "score": 0.988
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                335,
+                326,
+                347
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    335,
+                    326,
+                    347
+                  ],
+                  "type": "text",
+                  "content": "electronic charge being negative), which we can compute as follows:",
+                  "score": 0.994
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.987,
+          "bbox": [
+            60,
+            346,
+            385,
+            422
+          ],
+          "index": 12,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                73,
+                346,
+                383,
+                357
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    73,
+                    346,
+                    383,
+                    357
+                  ],
+                  "type": "text",
+                  "content": "Consider a typical electron at time zero. Let t be the time elapsed since its last",
+                  "score": 0.981
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                356,
+                384,
+                369
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    356,
+                    253,
+                    369
+                  ],
+                  "type": "text",
+                  "content": "collision. Its velocity at time zero will be its velocity",
+                  "score": 0.98
+                },
+                {
+                  "bbox": [
+                    254,
+                    358,
+                    263,
+                    367
+                  ],
+                  "type": "inline_equation",
+                  "content": "\\Psi _ { 0 }",
+                  "score": 0.8373
+                },
+                {
+                  "bbox": [
+                    264,
+                    356,
+                    384,
+                    369
+                  ],
+                  "type": "text",
+                  "content": "immediately after that collision",
+                  "score": 0.982
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                367,
+                384,
+                379
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    368,
+                    169,
+                    379
+                  ],
+                  "type": "text",
+                  "content": "plus the additional velocity",
+                  "score": 0.999
+                },
+                {
+                  "bbox": [
+                    170,
+                    368,
+                    202,
+                    378
+                  ],
+                  "type": "inline_equation",
+                  "content": "- e \\mathbf { E } t / m",
+                  "score": 0.8013
+                },
+                {
+                  "bbox": [
+                    202,
+                    367,
+                    384,
+                    379
+                  ],
+                  "type": "text",
+                  "content": "it has subsequently acquired. Since we assume",
+                  "score": 0.997
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                378,
+                384,
+                390
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    378,
+                    384,
+                    390
+                  ],
+                  "type": "text",
+                  "content": "that an electron emerges from a collision in a random direction, there will be no",
+                  "score": 0.989
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                389,
+                384,
+                401
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    389,
+                    132,
+                    401
+                  ],
+                  "type": "text",
+                  "content": "contribution from",
+                  "score": 1.0
+                },
+                {
+                  "bbox": [
+                    132,
+                    391,
+                    142,
+                    400
+                  ],
+                  "type": "inline_equation",
+                  "content": "{ \\bf v } _ { 0 }",
+                  "score": 0.8579
+                },
+                {
+                  "bbox": [
+                    142,
+                    389,
+                    384,
+                    401
+                  ],
+                  "type": "text",
+                  "content": "to the average electronic velocity, which must therefore be given",
+                  "score": 0.999
+                }
+              ]
+            },
+            {
+              "bbox": [
+                63,
+                400,
+                384,
+                411
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    63,
+                    401,
+                    163,
+                    411
+                  ],
+                  "type": "text",
+                  "content": "entirely by the average of",
+                  "score": 0.989
+                },
+                {
+                  "bbox": [
+                    163,
+                    400,
+                    194,
+                    410
+                  ],
+                  "type": "inline_equation",
+                  "content": "- e \\mathbf { E } t / m",
+                  "score": 0.6741
+                },
+                {
+                  "bbox": [
+                    195,
+                    400,
+                    384,
+                    411
+                  ],
+                  "type": "text",
+                  "content": "However, the average of t is the relaxation time",
+                  "score": 0.986
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                411,
+                111,
+                422
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    411,
+                    111,
+                    422
+                  ],
+                  "type": "text",
+                  "content": ". Therefore",
+                  "score": 0.975
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9694,
+          "bbox": [
+            161,
+            420,
+            281,
+            446
+          ],
+          "index": 13,
+          "type": "interline_equation",
+          "lines": [
+            {
+              "bbox": [
+                161,
+                420,
+                281,
+                446
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    161,
+                    420,
+                    281,
+                    446
+                  ],
+                  "type": "interline_equation",
+                  "content": "\\mathbf { \\boldsymbol { \\nu } } _ { \\mathrm { a v g } } = - \\ \\frac { e \\mathbf { E } \\tau } { m } ; ~ \\mathbf { \\ j } = \\left( \\frac { n e ^ { 2 } \\tau } { m } \\right) \\mathbf { \\boldsymbol { \\mathbf { E } } } .\\tag{1.5}",
+                  "image_path": "c78d659d8694068c112cac9531c70a16810200b2881e78b23b4634c08aa58543.jpg"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9638,
+          "bbox": [
+            61,
+            452,
+            384,
+            474
+          ],
+          "index": 15,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                62,
+                451,
+                384,
+                464
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    451,
+                    384,
+                    464
+                  ],
+                  "type": "text",
+                  "content": "This result is usually stated in terms of the inverse of the resistivity, the conductivity",
+                  "score": 0.97
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                463,
+                96,
+                474
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    463,
+                    96,
+                    474
+                  ],
+                  "type": "inline_equation",
+                  "content": "\\sigma = 1 / \\rho ;",
+                  "score": 0.9043
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9506,
+          "bbox": [
+            176,
+            482,
+            266,
+            518
+          ],
+          "index": 16,
+          "type": "interline_equation",
+          "lines": [
+            {
+              "bbox": [
+                176,
+                482,
+                266,
+                518
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    176,
+                    482,
+                    266,
+                    518
+                  ],
+                  "type": "interline_equation",
+                  "content": "\\boxed { \\begin{array} { l l } { \\mathbf { j } = \\sigma \\mathbf { E } ; } & { \\sigma = \\frac { n e ^ { 2 } \\tau } { m } . } \\end{array} }\\tag{1.6}",
+                  "image_path": "4e3d3917ff2f6e5c080cb9d16e2fd00d52dbf65d8b75e4d9eba9e6903deaecef.jpg"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "page_idx": 3,
+      "page_size": [
+        417,
+        587
+      ],
+      "discarded_blocks": [
+        {
+          "score": 0.9473,
+          "bbox": [
+            240,
+            27,
+            369,
+            37
+          ],
+          "index": 1,
+          "type": "header",
+          "lines": [
+            {
+              "bbox": [
+                240,
+                26,
+                369,
+                38
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    240,
+                    26,
+                    369,
+                    38
+                  ],
+                  "type": "text",
+                  "content": "DC Electrical Conductivity of a Metal",
+                  "score": 0.996
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.8569,
+          "bbox": [
+            376,
+            27,
+            382,
+            36
+          ],
+          "index": 2,
+          "type": "page_number",
+          "lines": [
+            {
+              "bbox": [
+                375,
+                27,
+                383,
+                38
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    375,
+                    27,
+                    383,
+                    38
+                  ],
+                  "type": "text",
+                  "content": "7",
+                  "score": 1.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.93,
+          "bbox": [
+            71,
+            532,
+            384,
+            542
+          ],
+          "index": 17,
+          "type": "page_footnote",
+          "lines": [
+            {
+              "bbox": [
+                71,
+                530,
+                384,
+                543
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    71,
+                    530,
+                    384,
+                    543
+                  ],
+                  "type": "text",
+                  "content": " Inl, Ene ot be palOne hen e y no. Se Chap  n .",
+                  "score": 0.6
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "para_blocks": [
+        {
+          "score": 0.9728,
+          "bbox": [
+            61,
+            48,
+            383,
+            70
+          ],
+          "index": 3,
+          "type": "text",
+          "lines": [],
+          "bbox_fs": [
+            61,
+            48,
+            383,
+            70
+          ],
+          "lines_deleted": true
+        },
+        {
+          "score": 0.9807,
+          "bbox": [
+            61,
+            69,
+            384,
+            113
+          ],
+          "index": 4,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                73,
+                69,
+                383,
+                81
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    73,
+                    69,
+                    383,
+                    81
+                  ],
+                  "type": "text",
+                  "content": "One generally eliminates the dependence of R on the shape of the wire by intro-",
+                  "score": 0.986
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                80,
+                384,
+                91
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    80,
+                    384,
+                    91
+                  ],
+                  "type": "text",
+                  "content": "ducing a quantity characteristic only of the metal of which the wire is composed. The",
+                  "score": 0.987
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                91,
+                383,
+                102
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    91,
+                    101,
+                    101
+                  ],
+                  "type": "text",
+                  "content": "resistivity",
+                  "score": 1.0
+                },
+                {
+                  "bbox": [
+                    102,
+                    93,
+                    110,
+                    102
+                  ],
+                  "type": "inline_equation",
+                  "content": "\\rho",
+                  "score": 0.611
+                },
+                {
+                  "bbox": [
+                    110,
+                    91,
+                    383,
+                    101
+                  ],
+                  "type": "text",
+                  "content": "is defined to be the proportionality constant between the electric field",
+                  "score": 0.979
+                }
+              ]
+            },
+            {
+              "bbox": [
+                61,
+                101,
+                330,
+                112
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    61,
+                    101,
+                    330,
+                    112
+                  ],
+                  "type": "text",
+                  "content": "E at a point in the metal and the current density j that it induces10.",
+                  "score": 0.982
+                }
+              ]
+            }
+          ],
+          "bbox_fs": [
+            61,
+            69,
+            384,
+            112
+          ]
+        },
+        {
+          "score": 0.9275,
+          "bbox": [
+            204,
+            117,
+            238,
+            129
+          ],
+          "index": 5,
+          "type": "interline_equation",
+          "lines": [
+            {
+              "bbox": [
+                204,
+                117,
+                238,
+                129
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    204,
+                    117,
+                    238,
+                    129
+                  ],
+                  "type": "interline_equation",
+                  "content": "{ \\bf E } = \\rho { \\bf j } .\\tag{1.3}",
+                  "image_path": "a12c68336565ccfb6a09b737d3601aee62ee5f7687b447ba0d9f5df5d42dfa46.jpg"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9859,
+          "bbox": [
+            61,
+            134,
+            384,
+            189
+          ],
+          "index": 7,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                62,
+                133,
+                384,
+                146
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    133,
+                    384,
+                    146
+                  ],
+                  "type": "text",
+                  "content": "The current density j is a vector. parallel to the flow of charge, whose magnitude is",
+                  "score": 0.993
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                145,
+                383,
+                156
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    145,
+                    383,
+                    156
+                  ],
+                  "type": "text",
+                  "content": "the amount of charge per unit time crossing a unit area perpendicular to the flow.",
+                  "score": 0.989
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                156,
+                383,
+                167
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    156,
+                    383,
+                    167
+                  ],
+                  "type": "text",
+                  "content": "Thus if a uniform current I fows through a wire of length L and cross-sectional area",
+                  "score": 0.985
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                166,
+                383,
+                178
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    167,
+                    172,
+                    177
+                  ],
+                  "type": "text",
+                  "content": "A, the current density will be",
+                  "score": 0.985
+                },
+                {
+                  "bbox": [
+                    173,
+                    167,
+                    203,
+                    176
+                  ],
+                  "type": "inline_equation",
+                  "content": "j = I , A",
+                  "score": 0.8068
+                },
+                {
+                  "bbox": [
+                    203,
+                    166,
+                    383,
+                    178
+                  ],
+                  "type": "text",
+                  "content": "Since the potential drop along the wire will be",
+                  "score": 0.995
+                }
+              ]
+            },
+            {
+              "bbox": [
+                63,
+                177,
+                282,
+                189
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    63,
+                    177,
+                    94,
+                    187
+                  ],
+                  "type": "inline_equation",
+                  "content": "V = E L",
+                  "score": 0.6222
+                },
+                {
+                  "bbox": [
+                    95,
+                    177,
+                    153,
+                    189
+                  ],
+                  "type": "text",
+                  "content": ", Eq. (1.3) gives",
+                  "score": 0.963
+                },
+                {
+                  "bbox": [
+                    153,
+                    177,
+                    197,
+                    187
+                  ],
+                  "type": "inline_equation",
+                  "content": "V = I \\rho L / . 4 .",
+                  "score": 0.8731
+                },
+                {
+                  "bbox": [
+                    198,
+                    177,
+                    240,
+                    189
+                  ],
+                  "type": "text",
+                  "content": ",and hence",
+                  "score": 0.948
+                },
+                {
+                  "bbox": [
+                    241,
+                    177,
+                    282,
+                    187
+                  ],
+                  "type": "inline_equation",
+                  "content": "R = \\rho L / A",
+                  "score": 0.9137
+                }
+              ]
+            }
+          ],
+          "bbox_fs": [
+            62,
+            133,
+            384,
+            189
+          ]
+        },
+        {
+          "score": 0.9847,
+          "bbox": [
+            61,
+            188,
+            384,
+            253
+          ],
+          "index": 8,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                72,
+                187,
+                383,
+                200
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    72,
+                    187,
+                    383,
+                    200
+                  ],
+                  "type": "text",
+                  "content": "If n electrons per unit volume all move with velocity v, then the current density",
+                  "score": 0.982
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                199,
+                384,
+                210
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    199,
+                    384,
+                    210
+                  ],
+                  "type": "text",
+                  "content": "they give rise to will be parallel to v. Furthermore, in a time dt the electrons will",
+                  "score": 0.984
+                }
+              ]
+            },
+            {
+              "bbox": [
+                63,
+                210,
+                383,
+                220
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    63,
+                    210,
+                    274,
+                    220
+                  ],
+                  "type": "text",
+                  "content": "advance by a distance v dt in the direction of v, so that",
+                  "score": 0.977
+                },
+                {
+                  "bbox": [
+                    274,
+                    210,
+                    306,
+                    220
+                  ],
+                  "type": "inline_equation",
+                  "content": "n ( \\tau d t ) A",
+                  "score": 0.6694
+                },
+                {
+                  "bbox": [
+                    308,
+                    210,
+                    383,
+                    220
+                  ],
+                  "type": "text",
+                  "content": "electrons will cross",
+                  "score": 1.0
+                }
+              ]
+            },
+            {
+              "bbox": [
+                61,
+                220,
+                384,
+                233
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    61,
+                    220,
+                    384,
+                    233
+                  ],
+                  "type": "text",
+                  "content": "an area A perpendicular to the direction of flow. Since each electron carries a charge",
+                  "score": 0.974
+                }
+              ]
+            },
+            {
+              "bbox": [
+                63,
+                231,
+                383,
+                243
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    63,
+                    233,
+                    78,
+                    241
+                  ],
+                  "type": "inline_equation",
+                  "content": "- e ,",
+                  "score": 0.581
+                },
+                {
+                  "bbox": [
+                    80,
+                    231,
+                    252,
+                    243
+                  ],
+                  "type": "text",
+                  "content": "the charge crossing 4 in the time dt will be",
+                  "score": 0.964
+                },
+                {
+                  "bbox": [
+                    253,
+                    231,
+                    292,
+                    241
+                  ],
+                  "type": "inline_equation",
+                  "content": "- n e t A d t ,",
+                  "score": 0.5065
+                },
+                {
+                  "bbox": [
+                    292,
+                    232,
+                    383,
+                    241
+                  ],
+                  "type": "text",
+                  "content": "and hence the current",
+                  "score": 0.997
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                241,
+                101,
+                254
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    241,
+                    101,
+                    254
+                  ],
+                  "type": "text",
+                  "content": "density is",
+                  "score": 0.996
+                }
+              ]
+            }
+          ],
+          "bbox_fs": [
+            61,
+            187,
+            384,
+            254
+          ]
+        },
+        {
+          "score": 0.922,
+          "bbox": [
+            199,
+            253,
+            243,
+            263
+          ],
+          "index": 9,
+          "type": "interline_equation",
+          "lines": [
+            {
+              "bbox": [
+                199,
+                253,
+                243,
+                263
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    199,
+                    253,
+                    243,
+                    263
+                  ],
+                  "type": "interline_equation",
+                  "content": "{ \\bf j } = - n e { \\bf v } .\\tag{1.4}",
+                  "image_path": "d1ed7744694d8df06606ee154540371667b602bcb9bdf7ace661d488a9b18359.jpg"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9879,
+          "bbox": [
+            60,
+            270,
+            384,
+            346
+          ],
+          "index": 11,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                72,
+                270,
+                384,
+                282
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    72,
+                    270,
+                    384,
+                    282
+                  ],
+                  "type": "text",
+                  "content": "At any point in a metal, electrons are always moving in a variety of directions",
+                  "score": 0.987
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                281,
+                383,
+                293
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    281,
+                    383,
+                    293
+                  ],
+                  "type": "text",
+                  "content": "with a variety of thermal energies. The net current density is thus given by (1.4),",
+                  "score": 0.98
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                292,
+                384,
+                304
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    292,
+                    384,
+                    304
+                  ],
+                  "type": "text",
+                  "content": "where v is the average electronic velocity. In the absence of an electric field, electrons",
+                  "score": 0.992
+                }
+              ]
+            },
+            {
+              "bbox": [
+                61,
+                303,
+                384,
+                316
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    61,
+                    303,
+                    384,
+                    316
+                  ],
+                  "type": "text",
+                  "content": "are as likely to be moving in any one direction as in any other, v averages to zero,",
+                  "score": 0.988
+                }
+              ]
+            },
+            {
+              "bbox": [
+                61,
+                314,
+                383,
+                325
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    61,
+                    314,
+                    383,
+                    325
+                  ],
+                  "type": "text",
+                  "content": "and, as expected, there is no net electric current density. In the presence of a field E,",
+                  "score": 0.981
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                325,
+                383,
+                336
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    325,
+                    383,
+                    336
+                  ],
+                  "type": "text",
+                  "content": "however, there will be a mean electronic velocity directed opposite to the feld (the",
+                  "score": 0.988
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                335,
+                326,
+                347
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    335,
+                    326,
+                    347
+                  ],
+                  "type": "text",
+                  "content": "electronic charge being negative), which we can compute as follows:",
+                  "score": 0.994
+                }
+              ]
+            }
+          ],
+          "bbox_fs": [
+            61,
+            270,
+            384,
+            347
+          ]
+        },
+        {
+          "score": 0.987,
+          "bbox": [
+            60,
+            346,
+            385,
+            422
+          ],
+          "index": 12,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                73,
+                346,
+                383,
+                357
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    73,
+                    346,
+                    383,
+                    357
+                  ],
+                  "type": "text",
+                  "content": "Consider a typical electron at time zero. Let t be the time elapsed since its last",
+                  "score": 0.981
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                356,
+                384,
+                369
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    356,
+                    253,
+                    369
+                  ],
+                  "type": "text",
+                  "content": "collision. Its velocity at time zero will be its velocity",
+                  "score": 0.98
+                },
+                {
+                  "bbox": [
+                    254,
+                    358,
+                    263,
+                    367
+                  ],
+                  "type": "inline_equation",
+                  "content": "\\Psi _ { 0 }",
+                  "score": 0.8373
+                },
+                {
+                  "bbox": [
+                    264,
+                    356,
+                    384,
+                    369
+                  ],
+                  "type": "text",
+                  "content": "immediately after that collision",
+                  "score": 0.982
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                367,
+                384,
+                379
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    368,
+                    169,
+                    379
+                  ],
+                  "type": "text",
+                  "content": "plus the additional velocity",
+                  "score": 0.999
+                },
+                {
+                  "bbox": [
+                    170,
+                    368,
+                    202,
+                    378
+                  ],
+                  "type": "inline_equation",
+                  "content": "- e \\mathbf { E } t / m",
+                  "score": 0.8013
+                },
+                {
+                  "bbox": [
+                    202,
+                    367,
+                    384,
+                    379
+                  ],
+                  "type": "text",
+                  "content": "it has subsequently acquired. Since we assume",
+                  "score": 0.997
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                378,
+                384,
+                390
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    378,
+                    384,
+                    390
+                  ],
+                  "type": "text",
+                  "content": "that an electron emerges from a collision in a random direction, there will be no",
+                  "score": 0.989
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                389,
+                384,
+                401
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    389,
+                    132,
+                    401
+                  ],
+                  "type": "text",
+                  "content": "contribution from",
+                  "score": 1.0
+                },
+                {
+                  "bbox": [
+                    132,
+                    391,
+                    142,
+                    400
+                  ],
+                  "type": "inline_equation",
+                  "content": "{ \\bf v } _ { 0 }",
+                  "score": 0.8579
+                },
+                {
+                  "bbox": [
+                    142,
+                    389,
+                    384,
+                    401
+                  ],
+                  "type": "text",
+                  "content": "to the average electronic velocity, which must therefore be given",
+                  "score": 0.999
+                }
+              ]
+            },
+            {
+              "bbox": [
+                63,
+                400,
+                384,
+                411
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    63,
+                    401,
+                    163,
+                    411
+                  ],
+                  "type": "text",
+                  "content": "entirely by the average of",
+                  "score": 0.989
+                },
+                {
+                  "bbox": [
+                    163,
+                    400,
+                    194,
+                    410
+                  ],
+                  "type": "inline_equation",
+                  "content": "- e \\mathbf { E } t / m",
+                  "score": 0.6741
+                },
+                {
+                  "bbox": [
+                    195,
+                    400,
+                    384,
+                    411
+                  ],
+                  "type": "text",
+                  "content": "However, the average of t is the relaxation time",
+                  "score": 0.986
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                411,
+                111,
+                422
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    411,
+                    111,
+                    422
+                  ],
+                  "type": "text",
+                  "content": ". Therefore",
+                  "score": 0.975
+                }
+              ]
+            }
+          ],
+          "bbox_fs": [
+            62,
+            346,
+            384,
+            422
+          ]
+        },
+        {
+          "score": 0.9694,
+          "bbox": [
+            161,
+            420,
+            281,
+            446
+          ],
+          "index": 13,
+          "type": "interline_equation",
+          "lines": [
+            {
+              "bbox": [
+                161,
+                420,
+                281,
+                446
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    161,
+                    420,
+                    281,
+                    446
+                  ],
+                  "type": "interline_equation",
+                  "content": "\\mathbf { \\boldsymbol { \\nu } } _ { \\mathrm { a v g } } = - \\ \\frac { e \\mathbf { E } \\tau } { m } ; ~ \\mathbf { \\ j } = \\left( \\frac { n e ^ { 2 } \\tau } { m } \\right) \\mathbf { \\boldsymbol { \\mathbf { E } } } .\\tag{1.5}",
+                  "image_path": "c78d659d8694068c112cac9531c70a16810200b2881e78b23b4634c08aa58543.jpg"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9638,
+          "bbox": [
+            61,
+            452,
+            384,
+            474
+          ],
+          "index": 15,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                62,
+                451,
+                384,
+                464
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    451,
+                    384,
+                    464
+                  ],
+                  "type": "text",
+                  "content": "This result is usually stated in terms of the inverse of the resistivity, the conductivity",
+                  "score": 0.97
+                }
+              ]
+            },
+            {
+              "bbox": [
+                62,
+                463,
+                96,
+                474
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    62,
+                    463,
+                    96,
+                    474
+                  ],
+                  "type": "inline_equation",
+                  "content": "\\sigma = 1 / \\rho ;",
+                  "score": 0.9043
+                }
+              ]
+            }
+          ],
+          "bbox_fs": [
+            62,
+            451,
+            384,
+            474
+          ]
+        },
+        {
+          "score": 0.9506,
+          "bbox": [
+            176,
+            482,
+            266,
+            518
+          ],
+          "index": 16,
+          "type": "interline_equation",
+          "lines": [
+            {
+              "bbox": [
+                176,
+                482,
+                266,
+                518
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    176,
+                    482,
+                    266,
+                    518
+                  ],
+                  "type": "interline_equation",
+                  "content": "\\boxed { \\begin{array} { l l } { \\mathbf { j } = \\sigma \\mathbf { E } ; } & { \\sigma = \\frac { n e ^ { 2 } \\tau } { m } . } \\end{array} }\\tag{1.6}",
+                  "image_path": "4e3d3917ff2f6e5c080cb9d16e2fd00d52dbf65d8b75e4d9eba9e6903deaecef.jpg"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "model_json": [],
+    "markdown": null
+  }
+}

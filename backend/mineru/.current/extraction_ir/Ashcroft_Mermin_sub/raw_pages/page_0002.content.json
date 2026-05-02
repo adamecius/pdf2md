@@ -1,0 +1,2642 @@
+{
+  "source_kind": "content_list_v2",
+  "items": [
+    {
+      "type": "image",
+      "content": {
+        "image_source": {
+          "path": "images/b0af64fa6b1f8eadd057f8fb894fc3af64c79de363eab163889b6784ca99e6de.jpg"
+        },
+        "image_caption": [
+          {
+            "type": "text",
+            "content": "Figure 1.2"
+          }
+        ],
+        "image_footnote": []
+      },
+      "bbox": [
+        130,
+        107,
+        447,
+        187
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "paragraph_content": [
+          {
+            "type": "text",
+            "content": "Trajectory of a conduction electron scattering off the ions. according to the naive picture of Drude."
+          }
+        ]
+      },
+      "bbox": [
+        456,
+        123,
+        895,
+        158
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "paragraph_content": [
+          {
+            "type": "text",
+            "content": "the simple mechanical picture (Figure 1.2) of an electron bumping along from ion to ion is very far off the mark.7 Fortunately, this does not matter for many purposes: a qualitative (and often a quantitative) understanding of metallic conduction can be achieved by simply assuming that there is some scattering mechanism, without inquiring too closely into just what that mechanism might be. By appealing, in our analysis. to only a few general effects of the collision process. we can avoid committing ourselves to any specific picture of how electron scattering actually takes place. These broad features are described in the following two assumptions."
+          }
+        ]
+      },
+      "bbox": [
+        128,
+        194,
+        897,
+        337
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "paragraph_content": [
+          {
+            "type": "text",
+            "content": "3. We shall assume that an electron experiences a collision (i.e. suffers an abrupt change in its velocity) with a probability per unit time 1/τ. We mean by this that the probability of an electron undergoing a collision in any infinitesimal time interval of length dt is just dt/t. The time t is variously known as the relaxation time, the collision time, or the mean free time, and it plays a fundamental role in the theory of metallic conduction. It follows from this assumption that an electron picked at random at a given moment will, on the average, travel for a time t before its next collision, and will, on the average, have been traveling for a time t since its last collision.8 In the simplest applications of the Drude model the collision time t is taken to be independent of an electron's position and velocity. We shall see later that this turns out to be a surprisingly good assumption for many (but by no means all) applications. 4. Electrons are assumed to achieve thermal equilibrium with their surroundings only through collisions. These collisions are assumed to maintain local thermodynamic equilibrium in a particularly simple way: immediately after each collision an electron is taken to emerge with a velocity that is not related to its velocity just before the collision, but randomly directed and with a speed appropriate to the temperature prevailing at the place where the collision occurred. Thus the hotter the region in which a collision occurs, the faster a typical electron will emerge from the collision."
+          }
+        ]
+      },
+      "bbox": [
+        128,
+        337,
+        899,
+        677
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "paragraph_content": [
+          {
+            "type": "text",
+            "content": "In the rest of this chapter we shall illustrate these notions through their most important applications, noting the extent to which they succeed or fail to describe the observed phenomena."
+          }
+        ]
+      },
+      "bbox": [
+        130,
+        683,
+        897,
+        738
+      ]
+    },
+    {
+      "type": "title",
+      "content": {
+        "title_content": [
+          {
+            "type": "text",
+            "content": "DC ELECTRICAL CONDUCTIVITY OF A METAL"
+          }
+        ],
+        "level": 2
+      },
+      "bbox": [
+        130,
+        761,
+        699,
+        782
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "paragraph_content": [
+          {
+            "type": "text",
+            "content": "According to Ohm's law, the current I flowing in a wire is proportional to the potential drop V along the wire: V = IR, where R, the resistance of the wire, depends on its dimensions, but is independent of the size of the current or potential drop. The Drude model accounts for this behavior and provides an estimate of the size of the resistance."
+          }
+        ]
+      },
+      "bbox": [
+        130,
+        789,
+        897,
+        827
+      ]
+    },
+    {
+      "type": "page_header",
+      "content": {
+        "page_header_content": [
+          {
+            "type": "text",
+            "content": "6 Chapter 1 The Drude Theory of Metals"
+          }
+        ]
+      },
+      "bbox": [
+        132,
+        74,
+        477,
+        90
+      ]
+    },
+    {
+      "type": "page_footnote",
+      "content": {
+        "page_footnote_content": [
+          {
+            "type": "text",
+            "content": " For some time people were led into diffcult but irrelevant problems connected with the proper aig o n electron  in eac colion.S iteral n iteretation o Figure 1. is eu to be avoided."
+          }
+        ]
+      },
+      "bbox": [
+        130,
+        846,
+        897,
+        891
+      ]
+    },
+    {
+      "type": "page_footnote",
+      "content": {
+        "page_footnote_content": [
+          {
+            "type": "text",
+            "content": "8 See Problem 1."
+          }
+        ]
+      },
+      "bbox": [
+        156,
+        891,
+        298,
+        906
+      ]
+    },
+    {
+      "type": "page_footnote",
+      "content": {
+        "page_footnote_content": [
+          {
+            "type": "text",
+            "content": "Given the free and independent electron approximation, this is the only possible mechanism left."
+          }
+        ]
+      },
+      "bbox": [
+        153,
+        904,
+        895,
+        922
+      ]
+    }
+  ],
+  "available_sources": {
+    "content_list_v2": [
+      {
+        "json_pointer": "/2/0",
+        "item": {
+          "type": "image",
+          "content": {
+            "image_source": {
+              "path": "images/b0af64fa6b1f8eadd057f8fb894fc3af64c79de363eab163889b6784ca99e6de.jpg"
+            },
+            "image_caption": [
+              {
+                "type": "text",
+                "content": "Figure 1.2"
+              }
+            ],
+            "image_footnote": []
+          },
+          "bbox": [
+            130,
+            107,
+            447,
+            187
+          ]
+        }
+      },
+      {
+        "json_pointer": "/2/1",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": [
+              {
+                "type": "text",
+                "content": "Trajectory of a conduction electron scattering off the ions. according to the naive picture of Drude."
+              }
+            ]
+          },
+          "bbox": [
+            456,
+            123,
+            895,
+            158
+          ]
+        }
+      },
+      {
+        "json_pointer": "/2/2",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": [
+              {
+                "type": "text",
+                "content": "the simple mechanical picture (Figure 1.2) of an electron bumping along from ion to ion is very far off the mark.7 Fortunately, this does not matter for many purposes: a qualitative (and often a quantitative) understanding of metallic conduction can be achieved by simply assuming that there is some scattering mechanism, without inquiring too closely into just what that mechanism might be. By appealing, in our analysis. to only a few general effects of the collision process. we can avoid committing ourselves to any specific picture of how electron scattering actually takes place. These broad features are described in the following two assumptions."
+              }
+            ]
+          },
+          "bbox": [
+            128,
+            194,
+            897,
+            337
+          ]
+        }
+      },
+      {
+        "json_pointer": "/2/3",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": [
+              {
+                "type": "text",
+                "content": "3. We shall assume that an electron experiences a collision (i.e. suffers an abrupt change in its velocity) with a probability per unit time 1/τ. We mean by this that the probability of an electron undergoing a collision in any infinitesimal time interval of length dt is just dt/t. The time t is variously known as the relaxation time, the collision time, or the mean free time, and it plays a fundamental role in the theory of metallic conduction. It follows from this assumption that an electron picked at random at a given moment will, on the average, travel for a time t before its next collision, and will, on the average, have been traveling for a time t since its last collision.8 In the simplest applications of the Drude model the collision time t is taken to be independent of an electron's position and velocity. We shall see later that this turns out to be a surprisingly good assumption for many (but by no means all) applications. 4. Electrons are assumed to achieve thermal equilibrium with their surroundings only through collisions. These collisions are assumed to maintain local thermodynamic equilibrium in a particularly simple way: immediately after each collision an electron is taken to emerge with a velocity that is not related to its velocity just before the collision, but randomly directed and with a speed appropriate to the temperature prevailing at the place where the collision occurred. Thus the hotter the region in which a collision occurs, the faster a typical electron will emerge from the collision."
+              }
+            ]
+          },
+          "bbox": [
+            128,
+            337,
+            899,
+            677
+          ]
+        }
+      },
+      {
+        "json_pointer": "/2/4",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": [
+              {
+                "type": "text",
+                "content": "In the rest of this chapter we shall illustrate these notions through their most important applications, noting the extent to which they succeed or fail to describe the observed phenomena."
+              }
+            ]
+          },
+          "bbox": [
+            130,
+            683,
+            897,
+            738
+          ]
+        }
+      },
+      {
+        "json_pointer": "/2/5",
+        "item": {
+          "type": "title",
+          "content": {
+            "title_content": [
+              {
+                "type": "text",
+                "content": "DC ELECTRICAL CONDUCTIVITY OF A METAL"
+              }
+            ],
+            "level": 2
+          },
+          "bbox": [
+            130,
+            761,
+            699,
+            782
+          ]
+        }
+      },
+      {
+        "json_pointer": "/2/6",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": [
+              {
+                "type": "text",
+                "content": "According to Ohm's law, the current I flowing in a wire is proportional to the potential drop V along the wire: V = IR, where R, the resistance of the wire, depends on its dimensions, but is independent of the size of the current or potential drop. The Drude model accounts for this behavior and provides an estimate of the size of the resistance."
+              }
+            ]
+          },
+          "bbox": [
+            130,
+            789,
+            897,
+            827
+          ]
+        }
+      },
+      {
+        "json_pointer": "/2/7",
+        "item": {
+          "type": "page_header",
+          "content": {
+            "page_header_content": [
+              {
+                "type": "text",
+                "content": "6 Chapter 1 The Drude Theory of Metals"
+              }
+            ]
+          },
+          "bbox": [
+            132,
+            74,
+            477,
+            90
+          ]
+        }
+      },
+      {
+        "json_pointer": "/2/8",
+        "item": {
+          "type": "page_footnote",
+          "content": {
+            "page_footnote_content": [
+              {
+                "type": "text",
+                "content": " For some time people were led into diffcult but irrelevant problems connected with the proper aig o n electron  in eac colion.S iteral n iteretation o Figure 1. is eu to be avoided."
+              }
+            ]
+          },
+          "bbox": [
+            130,
+            846,
+            897,
+            891
+          ]
+        }
+      },
+      {
+        "json_pointer": "/2/9",
+        "item": {
+          "type": "page_footnote",
+          "content": {
+            "page_footnote_content": [
+              {
+                "type": "text",
+                "content": "8 See Problem 1."
+              }
+            ]
+          },
+          "bbox": [
+            156,
+            891,
+            298,
+            906
+          ]
+        }
+      },
+      {
+        "json_pointer": "/2/10",
+        "item": {
+          "type": "page_footnote",
+          "content": {
+            "page_footnote_content": [
+              {
+                "type": "text",
+                "content": "Given the free and independent electron approximation, this is the only possible mechanism left."
+              }
+            ]
+          },
+          "bbox": [
+            153,
+            904,
+            895,
+            922
+          ]
+        }
+      }
+    ],
+    "content_list": [
+      {
+        "json_pointer": "/16",
+        "item": {
+          "type": "image",
+          "img_path": "images/b0af64fa6b1f8eadd057f8fb894fc3af64c79de363eab163889b6784ca99e6de.jpg",
+          "image_caption": [
+            "Figure 1.2"
+          ],
+          "image_footnote": [],
+          "bbox": [
+            130,
+            107,
+            447,
+            187
+          ],
+          "page_idx": 2
+        }
+      },
+      {
+        "json_pointer": "/17",
+        "item": {
+          "type": "text",
+          "text": "Trajectory of a conduction electron scattering off the ions. according to the naive picture of Drude.",
+          "bbox": [
+            456,
+            123,
+            895,
+            158
+          ],
+          "page_idx": 2
+        }
+      },
+      {
+        "json_pointer": "/18",
+        "item": {
+          "type": "text",
+          "text": "the simple mechanical picture (Figure 1.2) of an electron bumping along from ion to ion is very far off the mark.7 Fortunately, this does not matter for many purposes: a qualitative (and often a quantitative) understanding of metallic conduction can be achieved by simply assuming that there is some scattering mechanism, without inquiring too closely into just what that mechanism might be. By appealing, in our analysis. to only a few general effects of the collision process. we can avoid committing ourselves to any specific picture of how electron scattering actually takes place. These broad features are described in the following two assumptions.",
+          "bbox": [
+            128,
+            194,
+            897,
+            337
+          ],
+          "page_idx": 2
+        }
+      },
+      {
+        "json_pointer": "/19",
+        "item": {
+          "type": "text",
+          "text": "3. We shall assume that an electron experiences a collision (i.e. suffers an abrupt change in its velocity) with a probability per unit time 1/τ. We mean by this that the probability of an electron undergoing a collision in any infinitesimal time interval of length dt is just dt/t. The time t is variously known as the relaxation time, the collision time, or the mean free time, and it plays a fundamental role in the theory of metallic conduction. It follows from this assumption that an electron picked at random at a given moment will, on the average, travel for a time t before its next collision, and will, on the average, have been traveling for a time t since its last collision.8 In the simplest applications of the Drude model the collision time t is taken to be independent of an electron's position and velocity. We shall see later that this turns out to be a surprisingly good assumption for many (but by no means all) applications. 4. Electrons are assumed to achieve thermal equilibrium with their surroundings only through collisions. These collisions are assumed to maintain local thermodynamic equilibrium in a particularly simple way: immediately after each collision an electron is taken to emerge with a velocity that is not related to its velocity just before the collision, but randomly directed and with a speed appropriate to the temperature prevailing at the place where the collision occurred. Thus the hotter the region in which a collision occurs, the faster a typical electron will emerge from the collision.",
+          "bbox": [
+            128,
+            337,
+            899,
+            677
+          ],
+          "page_idx": 2
+        }
+      },
+      {
+        "json_pointer": "/20",
+        "item": {
+          "type": "text",
+          "text": "In the rest of this chapter we shall illustrate these notions through their most important applications, noting the extent to which they succeed or fail to describe the observed phenomena.",
+          "bbox": [
+            130,
+            683,
+            897,
+            738
+          ],
+          "page_idx": 2
+        }
+      },
+      {
+        "json_pointer": "/21",
+        "item": {
+          "type": "text",
+          "text": "DC ELECTRICAL CONDUCTIVITY OF A METAL",
+          "text_level": 2,
+          "bbox": [
+            130,
+            761,
+            699,
+            782
+          ],
+          "page_idx": 2
+        }
+      },
+      {
+        "json_pointer": "/22",
+        "item": {
+          "type": "text",
+          "text": "According to Ohm's law, the current I flowing in a wire is proportional to the potential drop V along the wire: V = IR, where R, the resistance of the wire, depends on its dimensions, but is independent of the size of the current or potential drop. The Drude model accounts for this behavior and provides an estimate of the size of the resistance.",
+          "bbox": [
+            130,
+            789,
+            897,
+            827
+          ],
+          "page_idx": 2
+        }
+      },
+      {
+        "json_pointer": "/23",
+        "item": {
+          "type": "header",
+          "text": "6 Chapter 1 The Drude Theory of Metals",
+          "bbox": [
+            132,
+            74,
+            477,
+            90
+          ],
+          "page_idx": 2
+        }
+      },
+      {
+        "json_pointer": "/24",
+        "item": {
+          "type": "page_footnote",
+          "text": "For some time people were led into diffcult but irrelevant problems connected with the proper aig o n electron  in eac colion.S iteral n iteretation o Figure 1. is eu to be avoided.",
+          "bbox": [
+            130,
+            846,
+            897,
+            891
+          ],
+          "page_idx": 2
+        }
+      },
+      {
+        "json_pointer": "/25",
+        "item": {
+          "type": "page_footnote",
+          "text": "8 See Problem 1.",
+          "bbox": [
+            156,
+            891,
+            298,
+            906
+          ],
+          "page_idx": 2
+        }
+      },
+      {
+        "json_pointer": "/26",
+        "item": {
+          "type": "page_footnote",
+          "text": "Given the free and independent electron approximation, this is the only possible mechanism left.",
+          "bbox": [
+            153,
+            904,
+            895,
+            922
+          ],
+          "page_idx": 2
+        }
+      }
+    ],
+    "middle": {
+      "preproc_blocks": [
+        {
+          "type": "image",
+          "bbox": [
+            56,
+            65,
+            192,
+            114
+          ],
+          "blocks": [
+            {
+              "score": 0.969,
+              "bbox": [
+                56,
+                65,
+                192,
+                114
+              ],
+              "index": 2,
+              "type": "image_body",
+              "lines": [
+                {
+                  "bbox": [
+                    56,
+                    65,
+                    192,
+                    114
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        56,
+                        65,
+                        192,
+                        114
+                      ],
+                      "type": "image",
+                      "image_path": "b0af64fa6b1f8eadd057f8fb894fc3af64c79de363eab163889b6784ca99e6de.jpg"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "score": 0.7776,
+              "bbox": [
+                197,
+                66,
+                235,
+                76
+              ],
+              "index": 3,
+              "type": "image_caption",
+              "lines": [
+                {
+                  "bbox": [
+                    196,
+                    64,
+                    235,
+                    77
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        196,
+                        64,
+                        235,
+                        77
+                      ],
+                      "type": "text",
+                      "content": "Figure 1.2",
+                      "score": 0.992
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "index": 2,
+          "score": 0.969
+        },
+        {
+          "score": 0.9257,
+          "bbox": [
+            196,
+            75,
+            384,
+            96
+          ],
+          "index": 4,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                198,
+                75,
+                384,
+                86
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    198,
+                    75,
+                    384,
+                    86
+                  ],
+                  "type": "text",
+                  "content": "Trajectory of a conduction electron scattering off the",
+                  "score": 0.99
+                }
+              ]
+            },
+            {
+              "bbox": [
+                197,
+                85,
+                355,
+                95
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    197,
+                    85,
+                    355,
+                    95
+                  ],
+                  "type": "text",
+                  "content": "ions. according to the naive picture of Drude.",
+                  "score": 0.991
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9884,
+          "bbox": [
+            55,
+            118,
+            385,
+            205
+          ],
+          "index": 5,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                57,
+                118,
+                384,
+                131
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    118,
+                    384,
+                    131
+                  ],
+                  "type": "text",
+                  "content": "the simple mechanical picture (Figure 1.2) of an electron bumping along from ion to",
+                  "score": 0.984
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                128,
+                384,
+                141
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    128,
+                    384,
+                    141
+                  ],
+                  "type": "text",
+                  "content": "ion is very far off the mark.7 Fortunately, this does not matter for many purposes:",
+                  "score": 0.977
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                140,
+                384,
+                151
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    140,
+                    384,
+                    151
+                  ],
+                  "type": "text",
+                  "content": "a qualitative (and often a quantitative) understanding of metallic conduction can",
+                  "score": 0.98
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                151,
+                384,
+                162
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    151,
+                    384,
+                    162
+                  ],
+                  "type": "text",
+                  "content": "be achieved by simply assuming that there is some scattering mechanism, without",
+                  "score": 0.988
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                162,
+                384,
+                174
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    162,
+                    384,
+                    174
+                  ],
+                  "type": "text",
+                  "content": "inquiring too closely into just what that mechanism might be. By appealing, in our",
+                  "score": 0.995
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                173,
+                384,
+                185
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    173,
+                    384,
+                    185
+                  ],
+                  "type": "text",
+                  "content": "analysis. to only a few general effects of the collision process. we can avoid committing",
+                  "score": 0.979
+                }
+              ]
+            },
+            {
+              "bbox": [
+                58,
+                183,
+                384,
+                195
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    58,
+                    183,
+                    384,
+                    195
+                  ],
+                  "type": "text",
+                  "content": "ourselves to any specific picture of how electron scattering actually takes place. These",
+                  "score": 0.991
+                }
+              ]
+            },
+            {
+              "bbox": [
+                58,
+                194,
+                302,
+                205
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    58,
+                    194,
+                    302,
+                    205
+                  ],
+                  "type": "text",
+                  "content": "broad features are described in the following two assumptions.",
+                  "score": 0.996
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9867,
+          "bbox": [
+            55,
+            205,
+            386,
+            411
+          ],
+          "index": 6,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                58,
+                205,
+                383,
+                216
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    58,
+                    205,
+                    383,
+                    216
+                  ],
+                  "type": "text",
+                  "content": "3. We shall assume that an electron experiences a collision (i.e. suffers an abrupt",
+                  "score": 0.968
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                215,
+                384,
+                227
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    215,
+                    384,
+                    227
+                  ],
+                  "type": "text",
+                  "content": "change in its velocity) with a probability per unit time 1/τ. We mean by this that the",
+                  "score": 0.974
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                226,
+                385,
+                237
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    226,
+                    385,
+                    237
+                  ],
+                  "type": "text",
+                  "content": "probability of an electron undergoing a collision in any infinitesimal time interval of",
+                  "score": 0.988
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                236,
+                384,
+                248
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    236,
+                    384,
+                    248
+                  ],
+                  "type": "text",
+                  "content": "length dt is just dt/t. The time t is variously known as the relaxation time, the collision",
+                  "score": 0.985
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                248,
+                384,
+                259
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    248,
+                    384,
+                    259
+                  ],
+                  "type": "text",
+                  "content": "time, or the mean free time, and it plays a fundamental role in the theory of metallic",
+                  "score": 0.985
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                258,
+                385,
+                270
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    258,
+                    385,
+                    270
+                  ],
+                  "type": "text",
+                  "content": "conduction. It follows from this assumption that an electron picked at random at a",
+                  "score": 0.988
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                270,
+                385,
+                280
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    270,
+                    385,
+                    280
+                  ],
+                  "type": "text",
+                  "content": "given moment will, on the average, travel for a time t before its next collision, and",
+                  "score": 0.989
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                280,
+                384,
+                291
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    280,
+                    384,
+                    291
+                  ],
+                  "type": "text",
+                  "content": "will, on the average, have been traveling for a time t since its last collision.8 In the",
+                  "score": 0.978
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                291,
+                384,
+                302
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    291,
+                    384,
+                    302
+                  ],
+                  "type": "text",
+                  "content": "simplest applications of the Drude model the collision time t is taken to be inde-",
+                  "score": 0.978
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                302,
+                384,
+                313
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    302,
+                    384,
+                    313
+                  ],
+                  "type": "text",
+                  "content": "pendent of an electron's position and velocity. We shall see later that this turns out",
+                  "score": 0.984
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                313,
+                384,
+                324
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    313,
+                    384,
+                    324
+                  ],
+                  "type": "text",
+                  "content": "to be a surprisingly good assumption for many (but by no means all) applications.",
+                  "score": 0.975
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                322,
+                384,
+                335
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    322,
+                    384,
+                    335
+                  ],
+                  "type": "text",
+                  "content": "4. Electrons are assumed to achieve thermal equilibrium with their surroundings",
+                  "score": 0.978
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                334,
+                385,
+                346
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    334,
+                    385,
+                    346
+                  ],
+                  "type": "text",
+                  "content": "only through collisions. These collisions are assumed to maintain local thermo-",
+                  "score": 0.976
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                345,
+                384,
+                356
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    345,
+                    384,
+                    356
+                  ],
+                  "type": "text",
+                  "content": "dynamic equilibrium in a particularly simple way: immediately after each collision",
+                  "score": 0.978
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                356,
+                384,
+                367
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    356,
+                    384,
+                    367
+                  ],
+                  "type": "text",
+                  "content": "an electron is taken to emerge with a velocity that is not related to its velocity",
+                  "score": 0.996
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                366,
+                385,
+                378
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    366,
+                    385,
+                    378
+                  ],
+                  "type": "text",
+                  "content": "just before the collision, but randomly directed and with a speed appropriate to the",
+                  "score": 0.992
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                377,
+                384,
+                388
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    377,
+                    384,
+                    388
+                  ],
+                  "type": "text",
+                  "content": "temperature prevailing at the place where the collision occurred. Thus the hotter the",
+                  "score": 0.989
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                388,
+                384,
+                399
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    388,
+                    384,
+                    399
+                  ],
+                  "type": "text",
+                  "content": "region in which a collision occurs, the faster a typical electron will emerge from the",
+                  "score": 0.996
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                399,
+                95,
+                409
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    399,
+                    95,
+                    409
+                  ],
+                  "type": "text",
+                  "content": "collision.",
+                  "score": 0.965
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9779,
+          "bbox": [
+            56,
+            415,
+            385,
+            448
+          ],
+          "index": 7,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                68,
+                415,
+                384,
+                426
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    68,
+                    415,
+                    384,
+                    426
+                  ],
+                  "type": "text",
+                  "content": "In the rest of this chapter we shall illustrate these notions through their most",
+                  "score": 0.994
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                426,
+                384,
+                437
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    426,
+                    384,
+                    437
+                  ],
+                  "type": "text",
+                  "content": "important applications, noting the extent to which they succeed or fail to describe",
+                  "score": 0.991
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                436,
+                158,
+                447
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    436,
+                    158,
+                    447
+                  ],
+                  "type": "text",
+                  "content": "the observed phenomena.",
+                  "score": 0.999
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9463,
+          "bbox": [
+            56,
+            462,
+            300,
+            475
+          ],
+          "index": 8,
+          "type": "title",
+          "lines": [
+            {
+              "bbox": [
+                57,
+                462,
+                299,
+                475
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    462,
+                    299,
+                    475
+                  ],
+                  "type": "text",
+                  "content": "DC ELECTRICAL CONDUCTIVITY OF A METAL",
+                  "score": 0.991
+                }
+              ]
+            }
+          ],
+          "level": 2
+        },
+        {
+          "score": 0.9673,
+          "bbox": [
+            56,
+            479,
+            385,
+            502
+          ],
+          "index": 9,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                57,
+                479,
+                384,
+                491
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    479,
+                    384,
+                    491
+                  ],
+                  "type": "text",
+                  "content": "According to Ohm's law, the current I flowing in a wire is proportional to the potential",
+                  "score": 0.987
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                489,
+                385,
+                501
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    489,
+                    385,
+                    501
+                  ],
+                  "type": "text",
+                  "content": "drop V along the wire: V = IR, where R, the resistance of the wire, depends on its",
+                  "score": 0.969
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "page_idx": 2,
+      "page_size": [
+        429,
+        607
+      ],
+      "discarded_blocks": [
+        {
+          "score": 0.7919,
+          "bbox": [
+            57,
+            45,
+            205,
+            55
+          ],
+          "index": 1,
+          "type": "header",
+          "lines": [
+            {
+              "bbox": [
+                56,
+                44,
+                205,
+                55
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    44,
+                    205,
+                    55
+                  ],
+                  "type": "text",
+                  "content": "6 Chapter 1 The Drude Theory of Metals",
+                  "score": 0.961
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9572,
+          "bbox": [
+            56,
+            514,
+            385,
+            541
+          ],
+          "index": 10,
+          "type": "page_footnote",
+          "lines": [
+            {
+              "bbox": [
+                67,
+                513,
+                385,
+                525
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    67,
+                    513,
+                    385,
+                    525
+                  ],
+                  "type": "text",
+                  "content": " For some time people were led into diffcult but irrelevant problems connected with the proper",
+                  "score": 0.93
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                522,
+                384,
+                533
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    522,
+                    384,
+                    533
+                  ],
+                  "type": "text",
+                  "content": "aig o n electron  in eac colion.S iteral n iteretation o Figure 1. is eu",
+                  "score": 0.675
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                532,
+                104,
+                541
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    532,
+                    104,
+                    541
+                  ],
+                  "type": "text",
+                  "content": "to be avoided.",
+                  "score": 0.983
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.8803,
+          "bbox": [
+            67,
+            541,
+            128,
+            550
+          ],
+          "index": 11,
+          "type": "page_footnote",
+          "lines": [
+            {
+              "bbox": [
+                67,
+                540,
+                127,
+                551
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    67,
+                    540,
+                    127,
+                    551
+                  ],
+                  "type": "text",
+                  "content": "8 See Problem 1.",
+                  "score": 0.96
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.8997,
+          "bbox": [
+            66,
+            549,
+            384,
+            560
+          ],
+          "index": 12,
+          "type": "page_footnote",
+          "lines": [
+            {
+              "bbox": [
+                67,
+                548,
+                384,
+                560
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    67,
+                    548,
+                    384,
+                    560
+                  ],
+                  "type": "text",
+                  "content": "Given the free and independent electron approximation, this is the only possible mechanism left.",
+                  "score": 0.986
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "para_blocks": [
+        {
+          "type": "image",
+          "bbox": [
+            56,
+            65,
+            192,
+            114
+          ],
+          "blocks": [
+            {
+              "score": 0.969,
+              "bbox": [
+                56,
+                65,
+                192,
+                114
+              ],
+              "index": 2,
+              "type": "image_body",
+              "lines": [
+                {
+                  "bbox": [
+                    56,
+                    65,
+                    192,
+                    114
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        56,
+                        65,
+                        192,
+                        114
+                      ],
+                      "type": "image",
+                      "image_path": "b0af64fa6b1f8eadd057f8fb894fc3af64c79de363eab163889b6784ca99e6de.jpg"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "score": 0.7776,
+              "bbox": [
+                197,
+                66,
+                235,
+                76
+              ],
+              "index": 3,
+              "type": "image_caption",
+              "lines": [
+                {
+                  "bbox": [
+                    196,
+                    64,
+                    235,
+                    77
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        196,
+                        64,
+                        235,
+                        77
+                      ],
+                      "type": "text",
+                      "content": "Figure 1.2",
+                      "score": 0.992
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "index": 2,
+          "score": 0.969
+        },
+        {
+          "score": 0.9257,
+          "bbox": [
+            196,
+            75,
+            384,
+            96
+          ],
+          "index": 4,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                198,
+                75,
+                384,
+                86
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    198,
+                    75,
+                    384,
+                    86
+                  ],
+                  "type": "text",
+                  "content": "Trajectory of a conduction electron scattering off the",
+                  "score": 0.99
+                }
+              ]
+            },
+            {
+              "bbox": [
+                197,
+                85,
+                355,
+                95
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    197,
+                    85,
+                    355,
+                    95
+                  ],
+                  "type": "text",
+                  "content": "ions. according to the naive picture of Drude.",
+                  "score": 0.991
+                }
+              ]
+            }
+          ],
+          "bbox_fs": [
+            197,
+            75,
+            384,
+            95
+          ]
+        },
+        {
+          "score": 0.9884,
+          "bbox": [
+            55,
+            118,
+            385,
+            205
+          ],
+          "index": 5,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                57,
+                118,
+                384,
+                131
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    118,
+                    384,
+                    131
+                  ],
+                  "type": "text",
+                  "content": "the simple mechanical picture (Figure 1.2) of an electron bumping along from ion to",
+                  "score": 0.984
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                128,
+                384,
+                141
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    128,
+                    384,
+                    141
+                  ],
+                  "type": "text",
+                  "content": "ion is very far off the mark.7 Fortunately, this does not matter for many purposes:",
+                  "score": 0.977
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                140,
+                384,
+                151
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    140,
+                    384,
+                    151
+                  ],
+                  "type": "text",
+                  "content": "a qualitative (and often a quantitative) understanding of metallic conduction can",
+                  "score": 0.98
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                151,
+                384,
+                162
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    151,
+                    384,
+                    162
+                  ],
+                  "type": "text",
+                  "content": "be achieved by simply assuming that there is some scattering mechanism, without",
+                  "score": 0.988
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                162,
+                384,
+                174
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    162,
+                    384,
+                    174
+                  ],
+                  "type": "text",
+                  "content": "inquiring too closely into just what that mechanism might be. By appealing, in our",
+                  "score": 0.995
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                173,
+                384,
+                185
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    173,
+                    384,
+                    185
+                  ],
+                  "type": "text",
+                  "content": "analysis. to only a few general effects of the collision process. we can avoid committing",
+                  "score": 0.979
+                }
+              ]
+            },
+            {
+              "bbox": [
+                58,
+                183,
+                384,
+                195
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    58,
+                    183,
+                    384,
+                    195
+                  ],
+                  "type": "text",
+                  "content": "ourselves to any specific picture of how electron scattering actually takes place. These",
+                  "score": 0.991
+                }
+              ]
+            },
+            {
+              "bbox": [
+                58,
+                194,
+                302,
+                205
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    58,
+                    194,
+                    302,
+                    205
+                  ],
+                  "type": "text",
+                  "content": "broad features are described in the following two assumptions.",
+                  "score": 0.996
+                }
+              ]
+            }
+          ],
+          "bbox_fs": [
+            56,
+            118,
+            384,
+            205
+          ]
+        },
+        {
+          "score": 0.9867,
+          "bbox": [
+            55,
+            205,
+            386,
+            411
+          ],
+          "index": 6,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                58,
+                205,
+                383,
+                216
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    58,
+                    205,
+                    383,
+                    216
+                  ],
+                  "type": "text",
+                  "content": "3. We shall assume that an electron experiences a collision (i.e. suffers an abrupt",
+                  "score": 0.968
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                215,
+                384,
+                227
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    215,
+                    384,
+                    227
+                  ],
+                  "type": "text",
+                  "content": "change in its velocity) with a probability per unit time 1/τ. We mean by this that the",
+                  "score": 0.974
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                226,
+                385,
+                237
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    226,
+                    385,
+                    237
+                  ],
+                  "type": "text",
+                  "content": "probability of an electron undergoing a collision in any infinitesimal time interval of",
+                  "score": 0.988
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                236,
+                384,
+                248
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    236,
+                    384,
+                    248
+                  ],
+                  "type": "text",
+                  "content": "length dt is just dt/t. The time t is variously known as the relaxation time, the collision",
+                  "score": 0.985
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                248,
+                384,
+                259
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    248,
+                    384,
+                    259
+                  ],
+                  "type": "text",
+                  "content": "time, or the mean free time, and it plays a fundamental role in the theory of metallic",
+                  "score": 0.985
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                258,
+                385,
+                270
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    258,
+                    385,
+                    270
+                  ],
+                  "type": "text",
+                  "content": "conduction. It follows from this assumption that an electron picked at random at a",
+                  "score": 0.988
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                270,
+                385,
+                280
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    270,
+                    385,
+                    280
+                  ],
+                  "type": "text",
+                  "content": "given moment will, on the average, travel for a time t before its next collision, and",
+                  "score": 0.989
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                280,
+                384,
+                291
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    280,
+                    384,
+                    291
+                  ],
+                  "type": "text",
+                  "content": "will, on the average, have been traveling for a time t since its last collision.8 In the",
+                  "score": 0.978
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                291,
+                384,
+                302
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    291,
+                    384,
+                    302
+                  ],
+                  "type": "text",
+                  "content": "simplest applications of the Drude model the collision time t is taken to be inde-",
+                  "score": 0.978
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                302,
+                384,
+                313
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    302,
+                    384,
+                    313
+                  ],
+                  "type": "text",
+                  "content": "pendent of an electron's position and velocity. We shall see later that this turns out",
+                  "score": 0.984
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                313,
+                384,
+                324
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    313,
+                    384,
+                    324
+                  ],
+                  "type": "text",
+                  "content": "to be a surprisingly good assumption for many (but by no means all) applications.",
+                  "score": 0.975
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                322,
+                384,
+                335
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    322,
+                    384,
+                    335
+                  ],
+                  "type": "text",
+                  "content": "4. Electrons are assumed to achieve thermal equilibrium with their surroundings",
+                  "score": 0.978
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                334,
+                385,
+                346
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    334,
+                    385,
+                    346
+                  ],
+                  "type": "text",
+                  "content": "only through collisions. These collisions are assumed to maintain local thermo-",
+                  "score": 0.976
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                345,
+                384,
+                356
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    345,
+                    384,
+                    356
+                  ],
+                  "type": "text",
+                  "content": "dynamic equilibrium in a particularly simple way: immediately after each collision",
+                  "score": 0.978
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                356,
+                384,
+                367
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    356,
+                    384,
+                    367
+                  ],
+                  "type": "text",
+                  "content": "an electron is taken to emerge with a velocity that is not related to its velocity",
+                  "score": 0.996
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                366,
+                385,
+                378
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    366,
+                    385,
+                    378
+                  ],
+                  "type": "text",
+                  "content": "just before the collision, but randomly directed and with a speed appropriate to the",
+                  "score": 0.992
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                377,
+                384,
+                388
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    377,
+                    384,
+                    388
+                  ],
+                  "type": "text",
+                  "content": "temperature prevailing at the place where the collision occurred. Thus the hotter the",
+                  "score": 0.989
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                388,
+                384,
+                399
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    388,
+                    384,
+                    399
+                  ],
+                  "type": "text",
+                  "content": "region in which a collision occurs, the faster a typical electron will emerge from the",
+                  "score": 0.996
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                399,
+                95,
+                409
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    399,
+                    95,
+                    409
+                  ],
+                  "type": "text",
+                  "content": "collision.",
+                  "score": 0.965
+                }
+              ]
+            }
+          ],
+          "bbox_fs": [
+            56,
+            205,
+            385,
+            409
+          ]
+        },
+        {
+          "score": 0.9779,
+          "bbox": [
+            56,
+            415,
+            385,
+            448
+          ],
+          "index": 7,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                68,
+                415,
+                384,
+                426
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    68,
+                    415,
+                    384,
+                    426
+                  ],
+                  "type": "text",
+                  "content": "In the rest of this chapter we shall illustrate these notions through their most",
+                  "score": 0.994
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                426,
+                384,
+                437
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    426,
+                    384,
+                    437
+                  ],
+                  "type": "text",
+                  "content": "important applications, noting the extent to which they succeed or fail to describe",
+                  "score": 0.991
+                }
+              ]
+            },
+            {
+              "bbox": [
+                57,
+                436,
+                158,
+                447
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    436,
+                    158,
+                    447
+                  ],
+                  "type": "text",
+                  "content": "the observed phenomena.",
+                  "score": 0.999
+                }
+              ]
+            }
+          ],
+          "bbox_fs": [
+            56,
+            415,
+            384,
+            447
+          ]
+        },
+        {
+          "score": 0.9463,
+          "bbox": [
+            56,
+            462,
+            300,
+            475
+          ],
+          "index": 8,
+          "type": "title",
+          "lines": [
+            {
+              "bbox": [
+                57,
+                462,
+                299,
+                475
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    462,
+                    299,
+                    475
+                  ],
+                  "type": "text",
+                  "content": "DC ELECTRICAL CONDUCTIVITY OF A METAL",
+                  "score": 0.991
+                }
+              ]
+            }
+          ],
+          "level": 2
+        },
+        {
+          "score": 0.9673,
+          "bbox": [
+            56,
+            479,
+            385,
+            502
+          ],
+          "index": 9,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                57,
+                479,
+                384,
+                491
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    57,
+                    479,
+                    384,
+                    491
+                  ],
+                  "type": "text",
+                  "content": "According to Ohm's law, the current I flowing in a wire is proportional to the potential",
+                  "score": 0.987
+                }
+              ]
+            },
+            {
+              "bbox": [
+                56,
+                489,
+                385,
+                501
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    56,
+                    489,
+                    385,
+                    501
+                  ],
+                  "type": "text",
+                  "content": "drop V along the wire: V = IR, where R, the resistance of the wire, depends on its",
+                  "score": 0.969
+                }
+              ]
+            },
+            {
+              "bbox": [
+                63,
+                48,
+                383,
+                59
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    63,
+                    48,
+                    383,
+                    59
+                  ],
+                  "type": "text",
+                  "content": "dimensions, but is independent of the size of the current or potential drop. The Drude",
+                  "score": 0.978,
+                  "cross_page": true
+                }
+              ]
+            },
+            {
+              "bbox": [
+                61,
+                58,
+                383,
+                70
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    61,
+                    58,
+                    383,
+                    70
+                  ],
+                  "type": "text",
+                  "content": "model accounts for this behavior and provides an estimate of the size of the resistance.",
+                  "score": 0.994,
+                  "cross_page": true
+                }
+              ]
+            }
+          ],
+          "bbox_fs": [
+            56,
+            479,
+            385,
+            501
+          ]
+        }
+      ]
+    },
+    "model_json": [],
+    "markdown": null
+  }
+}

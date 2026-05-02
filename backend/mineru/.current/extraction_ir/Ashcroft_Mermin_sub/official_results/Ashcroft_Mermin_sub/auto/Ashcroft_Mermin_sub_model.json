@@ -1,0 +1,2847 @@
+[
+    {
+        "layout_dets": [
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.8916,
+                "bbox": [
+                    63,
+                    121,
+                    473,
+                    150
+                ],
+                "index": 1
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9815,
+                "bbox": [
+                    62,
+                    179,
+                    957,
+                    269
+                ],
+                "index": 2
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.9221,
+                "bbox": [
+                    399,
+                    267,
+                    555,
+                    296
+                ],
+                "index": 3,
+                "latex": "0 . 6 0 2 2 \\times 1 0 ^ { 2 4 }"
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.9115,
+                "bbox": [
+                    113,
+                    300,
+                    170,
+                    328
+                ],
+                "index": 4,
+                "latex": "\\rho _ { m } / A"
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.6669,
+                "bbox": [
+                    280,
+                    296,
+                    326,
+                    327
+                ],
+                "index": 5,
+                "latex": "\\mathrm { c m } ^ { 3 }"
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.8863,
+                "bbox": [
+                    402,
+                    304,
+                    432,
+                    329
+                ],
+                "index": 6,
+                "latex": "\\rho _ { m }"
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9824,
+                "bbox": [
+                    63,
+                    268,
+                    959,
+                    390
+                ],
+                "index": 7
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.7484,
+                "bbox": [
+                    557,
+                    357,
+                    661,
+                    385
+                ],
+                "index": 8,
+                "latex": "n = N / V ,"
+            },
+            {
+                "cls_id": 5,
+                "label": "display_formula",
+                "score": 0.9628,
+                "bbox": [
+                    376,
+                    397,
+                    648,
+                    459
+                ],
+                "index": 9,
+                "latex": "n = 0 . 6 0 2 2 \\times 1 0 ^ { 2 4 } \\frac { Z \\rho _ { m } } { A } ."
+            },
+            {
+                "cls_id": 11,
+                "label": "formula_number",
+                "score": 0.9274,
+                "bbox": [
+                    900,
+                    413,
+                    953,
+                    445
+                ],
+                "index": 10
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9863,
+                "bbox": [
+                    63,
+                    472,
+                    960,
+                    652
+                ],
+                "index": 11
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.8969,
+                "bbox": [
+                    365,
+                    500,
+                    415,
+                    530
+                ],
+                "index": 12,
+                "latex": "1 0 ^ { 2 2 }"
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.9301,
+                "bbox": [
+                    133,
+                    530,
+                    267,
+                    560
+                ],
+                "index": 13,
+                "latex": "0 . 9 1 \\ \\times \\ 1 0 ^ { 2 2 }"
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.9279,
+                "bbox": [
+                    484,
+                    530,
+                    615,
+                    560
+                ],
+                "index": 14,
+                "latex": "2 4 . 7 \\times 1 0 ^ { 2 2 }"
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.8614,
+                "bbox": [
+                    760,
+                    567,
+                    788,
+                    592
+                ],
+                "index": 15,
+                "latex": "r _ { s * }"
+            },
+            {
+                "cls_id": 5,
+                "label": "display_formula",
+                "score": 0.9675,
+                "bbox": [
+                    332,
+                    656,
+                    692,
+                    727
+                ],
+                "index": 16,
+                "latex": "\\frac { V } { N } = \\frac { 1 } { n } = \\frac { 4 \\pi { r _ { s } } ^ { 3 } } { 3 } ; ~ r _ { s } = { \\left( \\frac { 3 } { 4 \\pi n } \\right) } ^ { 1 , 3 } ."
+            },
+            {
+                "cls_id": 11,
+                "label": "formula_number",
+                "score": 0.927,
+                "bbox": [
+                    903,
+                    678,
+                    957,
+                    710
+                ],
+                "index": 17
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.8512,
+                "bbox": [
+                    224,
+                    747,
+                    248,
+                    771
+                ],
+                "index": 18,
+                "latex": "r _ { s }"
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.838,
+                "bbox": [
+                    452,
+                    740,
+                    514,
+                    769
+                ],
+                "index": 19,
+                "latex": "( 1 0 ^ { - 8 }"
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.9418,
+                "bbox": [
+                    69,
+                    769,
+                    330,
+                    800
+                ],
+                "index": 20,
+                "latex": "\\hbar ^ { 2 } / m e ^ { 2 } = 0 . 5 2 9 \\times 1 0 ^ { - 8 }"
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.8971,
+                "bbox": [
+                    895,
+                    746,
+                    951,
+                    771
+                ],
+                "index": 21,
+                "latex": "a _ { 0 } ="
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9864,
+                "bbox": [
+                    65,
+                    740,
+                    958,
+                    892
+                ],
+                "index": 22
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.9132,
+                "bbox": [
+                    284,
+                    834,
+                    335,
+                    860
+                ],
+                "index": 23,
+                "latex": "r _ { s } / a _ { 0 }"
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.985,
+                "bbox": [
+                    65,
+                    891,
+                    961,
+                    1043
+                ],
+                "index": 24
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9877,
+                "bbox": [
+                    64,
+                    1053,
+                    960,
+                    1326
+                ],
+                "index": 25
+            },
+            {
+                "cls_id": 10,
+                "label": "footnote",
+                "score": 0.9694,
+                "bbox": [
+                    65,
+                    1357,
+                    958,
+                    1435
+                ],
+                "index": 26
+            },
+            {
+                "cls_id": 10,
+                "label": "footnote",
+                "score": 0.9744,
+                "bbox": [
+                    64,
+                    1433,
+                    958,
+                    1562
+                ],
+                "index": 27
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    64,
+                    117,
+                    472,
+                    151
+                ],
+                "score": 0.985,
+                "text": "4 Chapter 1 The Drude Theory of Metals"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    96,
+                    179,
+                    954,
+                    210
+                ],
+                "score": 0.981,
+                "text": "Drude applied kinetic theory to this \"gas\" of conduction electrons of mass m, which"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    64,
+                    207,
+                    956,
+                    243
+                ],
+                "score": 0.985,
+                "text": "(in contrast to the molecules of an ordinary gas) move against a background of heavy"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    67,
+                    238,
+                    885,
+                    269
+                ],
+                "score": 0.987,
+                "text": "immobile ions. The density of the electron gas can be calculated as follows:"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    94,
+                    1355,
+                    958,
+                    1388
+                ],
+                "score": 0.972,
+                "text": "5 This is the range for metallic elements under normal conditions. Higher densities can be attained"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    67,
+                    1383,
+                    957,
+                    1410
+                ],
+                "score": 0.944,
+                "text": "by application of pressure (which tends to favor the metallic state). Lower densities are found in com-"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    64,
+                    1410,
+                    146,
+                    1434
+                ],
+                "score": 1.0,
+                "text": "pounds."
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    95,
+                    265,
+                    398,
+                    299
+                ],
+                "score": 0.977,
+                "text": "A metallic element contains"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    556,
+                    268,
+                    957,
+                    299
+                ],
+                "score": 0.992,
+                "text": "atoms per mole (Avogadro's number)"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    66,
+                    299,
+                    112,
+                    327
+                ],
+                "score": 1.0,
+                "text": "and"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    171,
+                    296,
+                    279,
+                    330
+                ],
+                "score": 1.0,
+                "text": "moles per"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    327,
+                    296,
+                    401,
+                    330
+                ],
+                "score": 0.986,
+                "text": ",where"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    433,
+                    296,
+                    959,
+                    330
+                ],
+                "score": 0.998,
+                "text": "is the mass density (in grams per cubic centimeter)"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    64,
+                    324,
+                    958,
+                    361
+                ],
+                "score": 0.999,
+                "text": "and A is the atomic mass of the element. Since each atom contributes Z electrons,"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    66,
+                    356,
+                    556,
+                    389
+                ],
+                "score": 0.979,
+                "text": "the number of electrons per cubic centimeter,"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    662,
+                    357,
+                    691,
+                    388
+                ],
+                "score": 1.0,
+                "text": "is"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    67,
+                    739,
+                    223,
+                    774
+                ],
+                "score": 0.93,
+                "text": "Table 1.1 lists"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    249,
+                    739,
+                    451,
+                    774
+                ],
+                "score": 0.998,
+                "text": "both in angstroms"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    515,
+                    740,
+                    894,
+                    771
+                ],
+                "score": 0.984,
+                "text": "cm) and in units of the Bohr radius"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    331,
+                    770,
+                    959,
+                    801
+                ],
+                "score": 0.964,
+                "text": "cm; the latter length, being a measure of the radius of a"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    69,
+                    800,
+                    958,
+                    834
+                ],
+                "score": 0.987,
+                "text": "hydrogen atom in its ground state, is often used as a scale for measuring atomic"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    69,
+                    830,
+                    283,
+                    858
+                ],
+                "score": 0.991,
+                "text": "distances. Note that"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    336,
+                    832,
+                    957,
+                    860
+                ],
+                "score": 0.996,
+                "text": "is between 2 and 3 in most cases, although it ranges between"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    65,
+                    858,
+                    957,
+                    892
+                ],
+                "score": 0.992,
+                "text": "3 and 6 in the alkali metals (and can be as large as 10 in some metallic compounds)."
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    100,
+                    890,
+                    957,
+                    921
+                ],
+                "score": 0.989,
+                "text": "These densities are typically a thousand times greater than those of a classical gas"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    66,
+                    919,
+                    959,
+                    953
+                ],
+                "score": 0.984,
+                "text": "at normal temperatures and pressures. In spite of this and in spite of the strong"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    68,
+                    949,
+                    958,
+                    979
+                ],
+                "score": 0.997,
+                "text": "electron-electron and electron-ion electromagnetic interactions, the Drude model"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    69,
+                    979,
+                    959,
+                    1009
+                ],
+                "score": 0.99,
+                "text": "boldly treats the dense metallic electron gas by the methods of the kinetic theory of"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    67,
+                    1010,
+                    958,
+                    1041
+                ],
+                "score": 0.991,
+                "text": "a neutral dilute gas, with only slight modifications. The basic assumptions are these:"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    101,
+                    1437,
+                    115,
+                    1450
+                ],
+                "score": 1.0,
+                "text": "6"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    121,
+                    1430,
+                    957,
+                    1463
+                ],
+                "score": 0.968,
+                "text": "Strictly speaking, the electron-ion interaction is not entirely ignored, for the Drude model im-"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    67,
+                    1457,
+                    958,
+                    1486
+                ],
+                "score": 0.85,
+                "text": "plicitly assumes that the electrons are confined to the interior of the metal. Evidently this confinement is"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    68,
+                    1483,
+                    956,
+                    1511
+                ],
+                "score": 0.949,
+                "text": "brought about by their attraction to the positively charged ions. Gross effects of the electron-ion and"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    69,
+                    1535,
+                    954,
+                    1557
+                ],
+                "score": 0.622,
+                "text": "defn inteal fel epreentingtheveag effethe lectonlecton an econ-on ntecions."
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    894,
+                    406,
+                    961,
+                    454
+                ],
+                "score": 0.98,
+                "text": "(1.1)"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    898,
+                    673,
+                    963,
+                    718
+                ],
+                "score": 0.978,
+                "text": "(1.2)"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    97,
+                    471,
+                    957,
+                    503
+                ],
+                "score": 0.977,
+                "text": "Table 1.1 shows the conduction electron densities for some selected metals,"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    66,
+                    501,
+                    364,
+                    535
+                ],
+                "score": 0.99,
+                "text": "They are typically of order"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    416,
+                    500,
+                    960,
+                    538
+                ],
+                "score": 0.989,
+                "text": "conduction electrons per cubic centimeter, varying"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    67,
+                    529,
+                    129,
+                    565
+                ],
+                "score": 1.0,
+                "text": "from"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    275,
+                    531,
+                    480,
+                    567
+                ],
+                "score": 0.973,
+                "text": "for cesium up to"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    621,
+                    532,
+                    957,
+                    563
+                ],
+                "score": 0.97,
+                "text": "for beryllium. Also listed in"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    65,
+                    561,
+                    759,
+                    594
+                ],
+                "score": 0.982,
+                "text": "Table 1.1 is a widely used measure of the electronic density."
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    794,
+                    563,
+                    958,
+                    591
+                ],
+                "score": 0.995,
+                "text": "defined as the"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    67,
+                    591,
+                    958,
+                    624
+                ],
+                "score": 0.985,
+                "text": "radius of a sphere whose volume is equal to the volume per conduction electron."
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    67,
+                    619,
+                    133,
+                    652
+                ],
+                "score": 1.0,
+                "text": "Thus"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    69,
+                    1052,
+                    956,
+                    1085
+                ],
+                "score": 0.986,
+                "text": "1. Between collisions the interaction of a given electron, both with the others"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    67,
+                    1080,
+                    957,
+                    1118
+                ],
+                "score": 0.971,
+                "text": "and with the ions, is neglected. Thus in the absence of externally applied electro-"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    67,
+                    1114,
+                    957,
+                    1145
+                ],
+                "score": 0.98,
+                "text": "magnetic fields each electron is taken to move uniformly in a straight line. In the"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    68,
+                    1144,
+                    958,
+                    1174
+                ],
+                "score": 0.984,
+                "text": "presence of externally applied fields each electron is taken to move as determined"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    68,
+                    1171,
+                    958,
+                    1207
+                ],
+                "score": 0.975,
+                "text": "by Newton's laws of motion in the presence of those external fields, but neglecting"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    66,
+                    1197,
+                    960,
+                    1236
+                ],
+                "score": 0.99,
+                "text": "the additional complicated fields produced by the other electrons and ions.6 The"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    66,
+                    1232,
+                    957,
+                    1265
+                ],
+                "score": 0.981,
+                "text": "neglect of electron-electron interactions between collisions is known as the indepen-"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    67,
+                    1259,
+                    957,
+                    1295
+                ],
+                "score": 0.987,
+                "text": "dent electron approximation. The corresponding neglect of electron-ion interactions"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    66,
+                    1291,
+                    957,
+                    1325
+                ],
+                "score": 0.988,
+                "text": "is known as the free electron approximation. We shall find in subsequent chapters that"
+            }
+        ],
+        "page_info": {
+            "page_no": 0,
+            "width": 1082,
+            "height": 1674
+        }
+    },
+    {
+        "layout_dets": [
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.9489,
+                "bbox": [
+                    643,
+                    77,
+                    1011,
+                    106
+                ],
+                "index": 1
+            },
+            {
+                "cls_id": 16,
+                "label": "number",
+                "score": 0.8611,
+                "bbox": [
+                    1026,
+                    78,
+                    1048,
+                    103
+                ],
+                "index": 2
+            },
+            {
+                "cls_id": 7,
+                "label": "figure_title",
+                "score": 0.6841,
+                "bbox": [
+                    226,
+                    131,
+                    324,
+                    158
+                ],
+                "index": 3
+            },
+            {
+                "cls_id": 7,
+                "label": "figure_title",
+                "score": 0.9357,
+                "bbox": [
+                    224,
+                    156,
+                    957,
+                    215
+                ],
+                "index": 4
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9897,
+                "bbox": [
+                    219,
+                    221,
+                    956,
+                    1022
+                ],
+                "index": 8,
+                "html": "<table><tr><td>ELEMENT</td><td>Z</td><td><eq>n ( 1 0 ^ { 2 2 } / { \\mathrm { c m } } ^ { 3 } )</eq></td><td><eq>r _ { s } ( \\mathrm { \\AA } )</eq></td><td><eq>r _ { s } / a _ { 0 }</eq></td></tr><tr><td>Li (78 K)</td><td>1</td><td>4.70</td><td>1.72</td><td>3.25</td></tr><tr><td>Na (5 K)</td><td>1</td><td>2.65</td><td>2.08</td><td>3.93</td></tr><tr><td>K (5 K)</td><td>I</td><td>1.40</td><td>2.57</td><td>4.86</td></tr><tr><td>Rb (5 K)</td><td>1</td><td>1.15</td><td>2.75</td><td>5.20</td></tr><tr><td>Cs (5 K)</td><td>I</td><td>0.91</td><td>2.98</td><td>5.62</td></tr><tr><td>Cu</td><td>I</td><td>8.47</td><td>1.41</td><td>2.67</td></tr><tr><td>Ag</td><td>1</td><td>5.86</td><td>1.60</td><td>3.02</td></tr><tr><td>Au</td><td>1</td><td>5.90</td><td>1.59</td><td>3.01</td></tr><tr><td>Be</td><td>2</td><td>24.7</td><td>0.99</td><td>1.87</td></tr><tr><td>Mg</td><td>20</td><td>8.61</td><td>1.41</td><td>2.66</td></tr><tr><td>Ca</td><td>2</td><td>4.61</td><td>1.73</td><td>3.27</td></tr><tr><td>Sr</td><td>2</td><td>3.55</td><td>1.89</td><td>3.57</td></tr><tr><td>Ba</td><td>2</td><td>3.15</td><td>1.96</td><td>3.71</td></tr><tr><td>Nb</td><td>1</td><td>5.56</td><td>1.63</td><td>3.07</td></tr><tr><td>Fe</td><td>2</td><td>17.0</td><td>1.12</td><td>2.12</td></tr><tr><td>Mn (x)</td><td>2</td><td>16.5</td><td>1.13</td><td>2.14</td></tr><tr><td>Zn</td><td></td><td>13.2</td><td>1.22</td><td>2.30</td></tr><tr><td>Cd</td><td>22</td><td>9.27</td><td>1.37</td><td>2.59</td></tr><tr><td>Hg (78 K)</td><td>2</td><td>8.65</td><td>1.40</td><td>2.65</td></tr><tr><td>Al</td><td>3</td><td>18.1</td><td>1.10</td><td>2.07</td></tr><tr><td>Ga</td><td>3</td><td>15.4</td><td>1.16</td><td>2.19</td></tr><tr><td>In</td><td>3</td><td>11.5</td><td>1.27</td><td>2.41</td></tr><tr><td>T1</td><td>3</td><td>10.5</td><td>1.31</td><td>2.48</td></tr><tr><td>Sn</td><td>4</td><td>14.8</td><td>1.17</td><td>2.22</td></tr><tr><td>Pb</td><td>4</td><td>13.2</td><td>1.22</td><td>2.30</td></tr><tr><td>Bi</td><td>5</td><td>14.1</td><td>1.19</td><td>2.25</td></tr><tr><td>Sb</td><td>5</td><td>16.5</td><td>1.13</td><td>2.14</td></tr></table>"
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.711,
+                "bbox": [
+                    487,
+                    1066,
+                    508,
+                    1090
+                ],
+                "index": 9,
+                "latex": "r _ { s }"
+            },
+            {
+                "cls_id": 24,
+                "label": "vision_footnote",
+                "score": 0.9542,
+                "bbox": [
+                    217,
+                    1034,
+                    954,
+                    1203
+                ],
+                "index": 10
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9806,
+                "bbox": [
+                    127,
+                    1246,
+                    1041,
+                    1337
+                ],
+                "index": 11
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9853,
+                "bbox": [
+                    125,
+                    1335,
+                    1042,
+                    1518
+                ],
+                "index": 12
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    645,
+                    78,
+                    1011,
+                    106
+                ],
+                "score": 0.979,
+                "text": "Basic Assumptions of the Drude Model"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    129,
+                    1243,
+                    1039,
+                    1282
+                ],
+                "score": 0.982,
+                "text": "although the independent electron approximation is in many contexts surprisingly"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    130,
+                    1274,
+                    1041,
+                    1310
+                ],
+                "score": 0.976,
+                "text": "good, the free electron approximation must be abandoned if one is to arrive at even"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    130,
+                    1306,
+                    767,
+                    1337
+                ],
+                "score": 0.986,
+                "text": "a qualitative understanding of much of metallic behavior."
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    128,
+                    1334,
+                    1039,
+                    1369
+                ],
+                "score": 0.981,
+                "text": "2. Collisions in the Drude model, as in kinetic theory, are instantaneous events"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    131,
+                    1364,
+                    1039,
+                    1399
+                ],
+                "score": 0.987,
+                "text": "that abruptly alter the velocity of an electron. Drude attributed them to the electrons"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    131,
+                    1393,
+                    1039,
+                    1428
+                ],
+                "score": 0.983,
+                "text": "bouncing off the impenetrable ion cores (rather than to electron-electron collisions."
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    129,
+                    1421,
+                    1039,
+                    1458
+                ],
+                "score": 0.987,
+                "text": "the analogue of the predominant collision mechanism in an ordinary gas). We shall"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    127,
+                    1450,
+                    1039,
+                    1490
+                ],
+                "score": 0.981,
+                "text": "find later that electron-electron scattering is indeed one of the least important of the"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    126,
+                    1482,
+                    1039,
+                    1519
+                ],
+                "score": 0.996,
+                "text": "several scattering mechanisms in a metal, except under unusual conditions. However,"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    1026,
+                    77,
+                    1049,
+                    106
+                ],
+                "score": 1.0,
+                "text": "5"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    226,
+                    130,
+                    324,
+                    160
+                ],
+                "score": 0.937,
+                "text": "Table 1.1"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    225,
+                    155,
+                    958,
+                    190
+                ],
+                "score": 0.997,
+                "text": "FREE ELECTRON DENSITIES OF SELECTED METALLIC ELE-"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    228,
+                    185,
+                    330,
+                    211
+                ],
+                "score": 0.924,
+                "text": "MENTSa"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    222,
+                    1033,
+                    953,
+                    1066
+                ],
+                "score": 0.972,
+                "text": " At room temperature (about 300 K) and atmospheric pressure, unless"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    222,
+                    1058,
+                    486,
+                    1095
+                ],
+                "score": 0.987,
+                "text": "otherwise noted. The radius"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    509,
+                    1058,
+                    952,
+                    1095
+                ],
+                "score": 0.743,
+                "text": "othe free electron sphere is defined in Eq (1.)."
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    222,
+                    1085,
+                    953,
+                    1122
+                ],
+                "score": 0.986,
+                "text": "We have arbitrarily selected one value of Z for those elements that display"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    221,
+                    1115,
+                    953,
+                    1146
+                ],
+                "score": 0.996,
+                "text": "more than one chemical valence. The Drude model gives no theoretical"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    221,
+                    1141,
+                    953,
+                    1176
+                ],
+                "score": 0.979,
+                "text": "basis for the choice. Values of n are based on data from R. W. G. Wyckoff,"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    223,
+                    1170,
+                    770,
+                    1199
+                ],
+                "score": 0.997,
+                "text": "Crystal Structures, 2nd ed., Interscience, New York, 1963."
+            }
+        ],
+        "page_info": {
+            "page_no": 1,
+            "width": 1218,
+            "height": 1623
+        }
+    },
+    {
+        "layout_dets": [
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.7919,
+                "bbox": [
+                    161,
+                    126,
+                    572,
+                    155
+                ],
+                "index": 1
+            },
+            {
+                "cls_id": 14,
+                "label": "image",
+                "score": 0.969,
+                "bbox": [
+                    156,
+                    181,
+                    534,
+                    317
+                ],
+                "index": 2
+            },
+            {
+                "cls_id": 7,
+                "label": "figure_title",
+                "score": 0.7776,
+                "bbox": [
+                    548,
+                    184,
+                    653,
+                    212
+                ],
+                "index": 3
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9257,
+                "bbox": [
+                    546,
+                    210,
+                    1069,
+                    268
+                ],
+                "index": 4
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9884,
+                "bbox": [
+                    155,
+                    329,
+                    1071,
+                    571
+                ],
+                "index": 5
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9867,
+                "bbox": [
+                    155,
+                    570,
+                    1073,
+                    1143
+                ],
+                "index": 6
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9779,
+                "bbox": [
+                    156,
+                    1153,
+                    1072,
+                    1246
+                ],
+                "index": 7
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.9463,
+                "bbox": [
+                    156,
+                    1286,
+                    834,
+                    1320
+                ],
+                "index": 8
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9673,
+                "bbox": [
+                    156,
+                    1332,
+                    1072,
+                    1396
+                ],
+                "index": 9
+            },
+            {
+                "cls_id": 10,
+                "label": "footnote",
+                "score": 0.9572,
+                "bbox": [
+                    156,
+                    1428,
+                    1071,
+                    1504
+                ],
+                "index": 10
+            },
+            {
+                "cls_id": 10,
+                "label": "footnote",
+                "score": 0.8803,
+                "bbox": [
+                    187,
+                    1504,
+                    358,
+                    1530
+                ],
+                "index": 11
+            },
+            {
+                "cls_id": 10,
+                "label": "footnote",
+                "score": 0.8997,
+                "bbox": [
+                    186,
+                    1527,
+                    1069,
+                    1558
+                ],
+                "index": 12
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    158,
+                    123,
+                    570,
+                    155
+                ],
+                "score": 0.961,
+                "text": "6 Chapter 1 The Drude Theory of Metals"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    160,
+                    1331,
+                    1069,
+                    1364
+                ],
+                "score": 0.987,
+                "text": "According to Ohm's law, the current I flowing in a wire is proportional to the potential"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    158,
+                    1361,
+                    1070,
+                    1394
+                ],
+                "score": 0.969,
+                "text": "drop V along the wire: V = IR, where R, the resistance of the wire, depends on its"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    187,
+                    1425,
+                    1071,
+                    1461
+                ],
+                "score": 0.93,
+                "text": " For some time people were led into diffcult but irrelevant problems connected with the proper"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    158,
+                    1452,
+                    1069,
+                    1482
+                ],
+                "score": 0.675,
+                "text": "aig o n electron  in eac colion.S iteral n iteretation o Figure 1. is eu"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    159,
+                    1479,
+                    289,
+                    1505
+                ],
+                "score": 0.983,
+                "text": "to be avoided."
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    187,
+                    1524,
+                    1068,
+                    1558
+                ],
+                "score": 0.986,
+                "text": "Given the free and independent electron approximation, this is the only possible mechanism left."
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    190,
+                    1153,
+                    1069,
+                    1184
+                ],
+                "score": 0.994,
+                "text": "In the rest of this chapter we shall illustrate these notions through their most"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    158,
+                    1184,
+                    1069,
+                    1214
+                ],
+                "score": 0.991,
+                "text": "important applications, noting the extent to which they succeed or fail to describe"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    161,
+                    1213,
+                    441,
+                    1244
+                ],
+                "score": 0.999,
+                "text": "the observed phenomena."
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    160,
+                    330,
+                    1069,
+                    364
+                ],
+                "score": 0.984,
+                "text": "the simple mechanical picture (Figure 1.2) of an electron bumping along from ion to"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    157,
+                    358,
+                    1069,
+                    394
+                ],
+                "score": 0.977,
+                "text": "ion is very far off the mark.7 Fortunately, this does not matter for many purposes:"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    158,
+                    391,
+                    1069,
+                    422
+                ],
+                "score": 0.98,
+                "text": "a qualitative (and often a quantitative) understanding of metallic conduction can"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    159,
+                    421,
+                    1068,
+                    451
+                ],
+                "score": 0.988,
+                "text": "be achieved by simply assuming that there is some scattering mechanism, without"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    157,
+                    450,
+                    1069,
+                    484
+                ],
+                "score": 0.995,
+                "text": "inquiring too closely into just what that mechanism might be. By appealing, in our"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    159,
+                    481,
+                    1069,
+                    515
+                ],
+                "score": 0.979,
+                "text": "analysis. to only a few general effects of the collision process. we can avoid committing"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    162,
+                    511,
+                    1068,
+                    542
+                ],
+                "score": 0.991,
+                "text": "ourselves to any specific picture of how electron scattering actually takes place. These"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    163,
+                    539,
+                    839,
+                    571
+                ],
+                "score": 0.996,
+                "text": "broad features are described in the following two assumptions."
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    545,
+                    179,
+                    654,
+                    216
+                ],
+                "score": 0.992,
+                "text": "Figure 1.2"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    551,
+                    211,
+                    1067,
+                    239
+                ],
+                "score": 0.99,
+                "text": "Trajectory of a conduction electron scattering off the"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    549,
+                    238,
+                    987,
+                    264
+                ],
+                "score": 0.991,
+                "text": "ions. according to the naive picture of Drude."
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    162,
+                    571,
+                    1066,
+                    601
+                ],
+                "score": 0.968,
+                "text": "3. We shall assume that an electron experiences a collision (i.e. suffers an abrupt"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    159,
+                    599,
+                    1069,
+                    631
+                ],
+                "score": 0.974,
+                "text": "change in its velocity) with a probability per unit time 1/τ. We mean by this that the"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    158,
+                    629,
+                    1071,
+                    661
+                ],
+                "score": 0.988,
+                "text": "probability of an electron undergoing a collision in any infinitesimal time interval of"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    159,
+                    658,
+                    1068,
+                    691
+                ],
+                "score": 0.985,
+                "text": "length dt is just dt/t. The time t is variously known as the relaxation time, the collision"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    158,
+                    690,
+                    1069,
+                    721
+                ],
+                "score": 0.985,
+                "text": "time, or the mean free time, and it plays a fundamental role in the theory of metallic"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    159,
+                    719,
+                    1071,
+                    750
+                ],
+                "score": 0.988,
+                "text": "conduction. It follows from this assumption that an electron picked at random at a"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    159,
+                    751,
+                    1070,
+                    780
+                ],
+                "score": 0.989,
+                "text": "given moment will, on the average, travel for a time t before its next collision, and"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    159,
+                    779,
+                    1069,
+                    810
+                ],
+                "score": 0.978,
+                "text": "will, on the average, have been traveling for a time t since its last collision.8 In the"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    158,
+                    809,
+                    1068,
+                    839
+                ],
+                "score": 0.978,
+                "text": "simplest applications of the Drude model the collision time t is taken to be inde-"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    157,
+                    840,
+                    1069,
+                    870
+                ],
+                "score": 0.984,
+                "text": "pendent of an electron's position and velocity. We shall see later that this turns out"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    159,
+                    870,
+                    1069,
+                    902
+                ],
+                "score": 0.975,
+                "text": "to be a surprisingly good assumption for many (but by no means all) applications."
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    157,
+                    897,
+                    1068,
+                    933
+                ],
+                "score": 0.978,
+                "text": "4. Electrons are assumed to achieve thermal equilibrium with their surroundings"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    159,
+                    928,
+                    1070,
+                    963
+                ],
+                "score": 0.976,
+                "text": "only through collisions. These collisions are assumed to maintain local thermo-"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    159,
+                    959,
+                    1069,
+                    991
+                ],
+                "score": 0.978,
+                "text": "dynamic equilibrium in a particularly simple way: immediately after each collision"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    158,
+                    989,
+                    1069,
+                    1022
+                ],
+                "score": 0.996,
+                "text": "an electron is taken to emerge with a velocity that is not related to its velocity"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    157,
+                    1019,
+                    1070,
+                    1050
+                ],
+                "score": 0.992,
+                "text": "just before the collision, but randomly directed and with a speed appropriate to the"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    157,
+                    1049,
+                    1069,
+                    1079
+                ],
+                "score": 0.989,
+                "text": "temperature prevailing at the place where the collision occurred. Thus the hotter the"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    159,
+                    1078,
+                    1069,
+                    1110
+                ],
+                "score": 0.996,
+                "text": "region in which a collision occurs, the faster a typical electron will emerge from the"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    160,
+                    1109,
+                    264,
+                    1138
+                ],
+                "score": 0.965,
+                "text": "collision."
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    159,
+                    1286,
+                    833,
+                    1320
+                ],
+                "score": 0.991,
+                "text": "DC ELECTRICAL CONDUCTIVITY OF A METAL"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    188,
+                    1500,
+                    355,
+                    1531
+                ],
+                "score": 0.96,
+                "text": "8 See Problem 1."
+            }
+        ],
+        "page_info": {
+            "page_no": 2,
+            "width": 1192,
+            "height": 1688
+        }
+    },
+    {
+        "layout_dets": [
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.9473,
+                "bbox": [
+                    668,
+                    77,
+                    1027,
+                    105
+                ],
+                "index": 1
+            },
+            {
+                "cls_id": 16,
+                "label": "number",
+                "score": 0.8569,
+                "bbox": [
+                    1045,
+                    76,
+                    1063,
+                    100
+                ],
+                "index": 2
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9728,
+                "bbox": [
+                    170,
+                    135,
+                    1066,
+                    195
+                ],
+                "index": 3
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.611,
+                "bbox": [
+                    284,
+                    259,
+                    307,
+                    285
+                ],
+                "index": 4,
+                "latex": "\\rho"
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9807,
+                "bbox": [
+                    170,
+                    194,
+                    1067,
+                    316
+                ],
+                "index": 5
+            },
+            {
+                "cls_id": 5,
+                "label": "display_formula",
+                "score": 0.9275,
+                "bbox": [
+                    569,
+                    327,
+                    663,
+                    360
+                ],
+                "index": 6,
+                "latex": "{ \\bf E } = \\rho { \\bf j } ."
+            },
+            {
+                "cls_id": 11,
+                "label": "formula_number",
+                "score": 0.9295,
+                "bbox": [
+                    1011,
+                    329,
+                    1064,
+                    359
+                ],
+                "index": 7
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9859,
+                "bbox": [
+                    170,
+                    373,
+                    1067,
+                    525
+                ],
+                "index": 8
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.8068,
+                "bbox": [
+                    481,
+                    464,
+                    564,
+                    491
+                ],
+                "index": 9,
+                "latex": "j = I , A"
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.6222,
+                "bbox": [
+                    177,
+                    494,
+                    263,
+                    520
+                ],
+                "index": 10,
+                "latex": "V = E L"
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.8731,
+                "bbox": [
+                    427,
+                    493,
+                    549,
+                    522
+                ],
+                "index": 11,
+                "latex": "V = I \\rho L / . 4 ."
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.9137,
+                "bbox": [
+                    670,
+                    494,
+                    784,
+                    522
+                ],
+                "index": 12,
+                "latex": "R = \\rho L / A"
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9847,
+                "bbox": [
+                    170,
+                    524,
+                    1068,
+                    705
+                ],
+                "index": 13
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.6694,
+                "bbox": [
+                    763,
+                    584,
+                    852,
+                    613
+                ],
+                "index": 14,
+                "latex": "n ( \\tau d t ) A"
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.581,
+                "bbox": [
+                    176,
+                    648,
+                    219,
+                    671
+                ],
+                "index": 15,
+                "latex": "- e ,"
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.5065,
+                "bbox": [
+                    703,
+                    644,
+                    812,
+                    672
+                ],
+                "index": 16,
+                "latex": "- n e t A d t ,"
+            },
+            {
+                "cls_id": 5,
+                "label": "display_formula",
+                "score": 0.922,
+                "bbox": [
+                    554,
+                    703,
+                    677,
+                    733
+                ],
+                "index": 17,
+                "latex": "{ \\bf j } = - n e { \\bf v } ."
+            },
+            {
+                "cls_id": 11,
+                "label": "formula_number",
+                "score": 0.9286,
+                "bbox": [
+                    1011,
+                    702,
+                    1065,
+                    732
+                ],
+                "index": 18
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9879,
+                "bbox": [
+                    169,
+                    752,
+                    1069,
+                    963
+                ],
+                "index": 19
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.8579,
+                "bbox": [
+                    368,
+                    1088,
+                    395,
+                    1113
+                ],
+                "index": 20,
+                "latex": "{ \\bf v } _ { 0 }"
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.8013,
+                "bbox": [
+                    473,
+                    1023,
+                    562,
+                    1051
+                ],
+                "index": 21,
+                "latex": "- e \\mathbf { E } t / m"
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.987,
+                "bbox": [
+                    169,
+                    962,
+                    1070,
+                    1173
+                ],
+                "index": 22
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.8373,
+                "bbox": [
+                    706,
+                    997,
+                    733,
+                    1022
+                ],
+                "index": 23,
+                "latex": "\\Psi _ { 0 }"
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.6741,
+                "bbox": [
+                    454,
+                    1113,
+                    541,
+                    1141
+                ],
+                "index": 24,
+                "latex": "- e \\mathbf { E } t / m"
+            },
+            {
+                "cls_id": 5,
+                "label": "display_formula",
+                "score": 0.9694,
+                "bbox": [
+                    448,
+                    1169,
+                    782,
+                    1240
+                ],
+                "index": 25,
+                "latex": "\\mathbf { \\boldsymbol { \\nu } } _ { \\mathrm { a v g } } = - \\ \\frac { e \\mathbf { E } \\tau } { m } ; ~ \\mathbf { \\ j } = \\left( \\frac { n e ^ { 2 } \\tau } { m } \\right) \\mathbf { \\boldsymbol { \\mathbf { E } } } ."
+            },
+            {
+                "cls_id": 11,
+                "label": "formula_number",
+                "score": 0.9301,
+                "bbox": [
+                    1010,
+                    1189,
+                    1063,
+                    1220
+                ],
+                "index": 26
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.9043,
+                "bbox": [
+                    174,
+                    1288,
+                    269,
+                    1317
+                ],
+                "index": 27,
+                "latex": "\\sigma = 1 / \\rho ;"
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9638,
+                "bbox": [
+                    170,
+                    1256,
+                    1068,
+                    1319
+                ],
+                "index": 28
+            },
+            {
+                "cls_id": 5,
+                "label": "display_formula",
+                "score": 0.9506,
+                "bbox": [
+                    490,
+                    1340,
+                    739,
+                    1440
+                ],
+                "index": 29,
+                "latex": "\\boxed { \\begin{array} { l l } { \\mathbf { j } = \\sigma \\mathbf { E } ; } & { \\sigma = \\frac { n e ^ { 2 } \\tau } { m } . } \\end{array} }"
+            },
+            {
+                "cls_id": 10,
+                "label": "footnote",
+                "score": 0.93,
+                "bbox": [
+                    199,
+                    1478,
+                    1067,
+                    1507
+                ],
+                "index": 30
+            },
+            {
+                "cls_id": 11,
+                "label": "formula_number",
+                "score": 0.9293,
+                "bbox": [
+                    1012,
+                    1372,
+                    1065,
+                    1403
+                ],
+                "index": 31
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    175,
+                    135,
+                    1065,
+                    166
+                ],
+                "score": 0.978,
+                "text": "dimensions, but is independent of the size of the current or potential drop. The Drude"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    171,
+                    162,
+                    1065,
+                    196
+                ],
+                "score": 0.994,
+                "text": "model accounts for this behavior and provides an estimate of the size of the resistance."
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    173,
+                    1254,
+                    1067,
+                    1290
+                ],
+                "score": 0.97,
+                "text": "This result is usually stated in terms of the inverse of the resistivity, the conductivity"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    199,
+                    1474,
+                    1067,
+                    1509
+                ],
+                "score": 0.6,
+                "text": " Inl, Ene ot be palOne hen e y no. Se Chap  n ."
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    203,
+                    192,
+                    1065,
+                    226
+                ],
+                "score": 0.986,
+                "text": "One generally eliminates the dependence of R on the shape of the wire by intro-"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    174,
+                    223,
+                    1067,
+                    254
+                ],
+                "score": 0.987,
+                "text": "ducing a quantity characteristic only of the metal of which the wire is composed. The"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    174,
+                    254,
+                    283,
+                    283
+                ],
+                "score": 1.0,
+                "text": "resistivity"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    308,
+                    254,
+                    1066,
+                    283
+                ],
+                "score": 0.979,
+                "text": "is defined to be the proportionality constant between the electric field"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    171,
+                    282,
+                    919,
+                    312
+                ],
+                "score": 0.982,
+                "text": "E at a point in the metal and the current density j that it induces10."
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    173,
+                    371,
+                    1068,
+                    406
+                ],
+                "score": 0.993,
+                "text": "The current density j is a vector. parallel to the flow of charge, whose magnitude is"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    174,
+                    404,
+                    1066,
+                    435
+                ],
+                "score": 0.989,
+                "text": "the amount of charge per unit time crossing a unit area perpendicular to the flow."
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    174,
+                    434,
+                    1066,
+                    465
+                ],
+                "score": 0.985,
+                "text": "Thus if a uniform current I fows through a wire of length L and cross-sectional area"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    174,
+                    464,
+                    480,
+                    494
+                ],
+                "score": 0.985,
+                "text": "A, the current density will be"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    565,
+                    462,
+                    1066,
+                    495
+                ],
+                "score": 0.995,
+                "text": "Since the potential drop along the wire will be"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    264,
+                    494,
+                    426,
+                    526
+                ],
+                "score": 0.963,
+                "text": ", Eq. (1.3) gives"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    550,
+                    493,
+                    669,
+                    525
+                ],
+                "score": 0.948,
+                "text": ",and hence"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    1005,
+                    322,
+                    1071,
+                    366
+                ],
+                "score": 0.996,
+                "text": "(1.3)"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    1005,
+                    696,
+                    1072,
+                    740
+                ],
+                "score": 0.998,
+                "text": "(1.4)"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    1004,
+                    1182,
+                    1072,
+                    1229
+                ],
+                "score": 0.897,
+                "text": "(1.5)"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    1005,
+                    1366,
+                    1073,
+                    1410
+                ],
+                "score": 0.981,
+                "text": "(1.6)"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    202,
+                    522,
+                    1066,
+                    557
+                ],
+                "score": 0.982,
+                "text": "If n electrons per unit volume all move with velocity v, then the current density"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    173,
+                    553,
+                    1067,
+                    585
+                ],
+                "score": 0.984,
+                "text": "they give rise to will be parallel to v. Furthermore, in a time dt the electrons will"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    175,
+                    585,
+                    762,
+                    613
+                ],
+                "score": 0.977,
+                "text": "advance by a distance v dt in the direction of v, so that"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    856,
+                    585,
+                    1066,
+                    613
+                ],
+                "score": 1.0,
+                "text": "electrons will cross"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    170,
+                    612,
+                    1067,
+                    648
+                ],
+                "score": 0.974,
+                "text": "an area A perpendicular to the direction of flow. Since each electron carries a charge"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    223,
+                    643,
+                    701,
+                    677
+                ],
+                "score": 0.964,
+                "text": "the charge crossing 4 in the time dt will be"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    813,
+                    645,
+                    1064,
+                    671
+                ],
+                "score": 0.997,
+                "text": "and hence the current"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    174,
+                    672,
+                    282,
+                    708
+                ],
+                "score": 0.996,
+                "text": "density is"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    202,
+                    752,
+                    1067,
+                    785
+                ],
+                "score": 0.987,
+                "text": "At any point in a metal, electrons are always moving in a variety of directions"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    174,
+                    782,
+                    1066,
+                    815
+                ],
+                "score": 0.98,
+                "text": "with a variety of thermal energies. The net current density is thus given by (1.4),"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    173,
+                    812,
+                    1067,
+                    845
+                ],
+                "score": 0.992,
+                "text": "where v is the average electronic velocity. In the absence of an electric field, electrons"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    171,
+                    842,
+                    1067,
+                    878
+                ],
+                "score": 0.988,
+                "text": "are as likely to be moving in any one direction as in any other, v averages to zero,"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    172,
+                    873,
+                    1066,
+                    904
+                ],
+                "score": 0.981,
+                "text": "and, as expected, there is no net electric current density. In the presence of a field E,"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    174,
+                    903,
+                    1066,
+                    934
+                ],
+                "score": 0.988,
+                "text": "however, there will be a mean electronic velocity directed opposite to the feld (the"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    173,
+                    932,
+                    908,
+                    964
+                ],
+                "score": 0.994,
+                "text": "electronic charge being negative), which we can compute as follows:"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    204,
+                    962,
+                    1066,
+                    993
+                ],
+                "score": 0.981,
+                "text": "Consider a typical electron at time zero. Let t be the time elapsed since its last"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    173,
+                    991,
+                    705,
+                    1025
+                ],
+                "score": 0.98,
+                "text": "collision. Its velocity at time zero will be its velocity"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    734,
+                    991,
+                    1067,
+                    1025
+                ],
+                "score": 0.982,
+                "text": "immediately after that collision"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    174,
+                    1023,
+                    471,
+                    1055
+                ],
+                "score": 0.999,
+                "text": "plus the additional velocity"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    563,
+                    1021,
+                    1067,
+                    1055
+                ],
+                "score": 0.997,
+                "text": "it has subsequently acquired. Since we assume"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    173,
+                    1051,
+                    1067,
+                    1085
+                ],
+                "score": 0.989,
+                "text": "that an electron emerges from a collision in a random direction, there will be no"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    173,
+                    1081,
+                    367,
+                    1115
+                ],
+                "score": 1.0,
+                "text": "contribution from"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    396,
+                    1081,
+                    1067,
+                    1115
+                ],
+                "score": 0.999,
+                "text": "to the average electronic velocity, which must therefore be given"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    176,
+                    1115,
+                    453,
+                    1143
+                ],
+                "score": 0.989,
+                "text": "entirely by the average of"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    542,
+                    1113,
+                    1067,
+                    1142
+                ],
+                "score": 0.986,
+                "text": "However, the average of t is the relaxation time"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    173,
+                    1144,
+                    310,
+                    1173
+                ],
+                "score": 0.975,
+                "text": ". Therefore"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    1043,
+                    75,
+                    1066,
+                    108
+                ],
+                "score": 1.0,
+                "text": "7"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    669,
+                    74,
+                    1027,
+                    107
+                ],
+                "score": 0.996,
+                "text": "DC Electrical Conductivity of a Metal"
+            }
+        ],
+        "page_info": {
+            "page_no": 3,
+            "width": 1161,
+            "height": 1632
+        }
+    }
+]
