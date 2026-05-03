@@ -123,6 +123,7 @@ def build_semantic_links(report: dict[str, Any], source_path: Path) -> dict[str,
     attachments: list[dict[str, Any]] = []
     unresolved: list[dict[str, Any]] = []
     page_reports = []
+    raw_refs: list[dict[str, Any]] = []
     anchor_map: dict[tuple[str, str], list[dict[str, Any]]] = {}
     eq_anchor_by_target: dict[str, dict[str, Any]] = {}
 
@@ -266,13 +267,11 @@ def build_semantic_links(report: dict[str, Any], source_path: Path) -> dict[str,
                 resolved = len(cands) == 1
                 rid = f"ref_p{pidx:04d}_{len(references)+1:04d}"
                 ref = {"reference_id": rid, "reference_type": rtype, "reference_text": rtxt, "label": lbl, "source_group_id": gid, "page_index": pidx, "page_number": pnum, "target_anchor_id": cands[0]["anchor_id"] if resolved else None, "resolved": resolved, "confidence": 0.9 if resolved else 0.2, "method": "exact_label" if resolved else "unresolved", "warnings": ["ambiguous"] if len(cands) > 1 else ([] if resolved else ["not_found"])}
-                references.append(ref); page_ref_ids.append(rid)
-                if not resolved:
-                    unresolved.append(ref)
+                raw_refs.append(ref); page_ref_ids.append(rid)
 
         page_reports.append({"page_index": pidx, "page_number": pnum, "anchors": page_anchor_ids, "references": page_ref_ids, "attachments": page_att_ids, "unresolved": [u.get("reference_id") for u in unresolved if u.get("page_index") == pidx and u.get("reference_id")], "warnings": []})
 
-    for r in references:
+    for r in raw_refs:
         if (not r["resolved"]) and r["reference_type"] in {"equation", "figure", "table", "footnote", "section"}:
             cands = anchor_map.get((r["reference_type"], r["label"]), [])
             if len(cands) == 1:
@@ -282,15 +281,44 @@ def build_semantic_links(report: dict[str, Any], source_path: Path) -> dict[str,
                 r["method"] = "exact_label"
                 r["warnings"] = []
 
-    dedup: dict[str, dict[str, Any]] = {}
+    def _score(a: dict[str, Any]) -> float:
+        s = a.get("confidence", 0.0)
+        b = a.get("bbox") or [0, 0, 1000, 1000]
+        w = b[2] - b[0]
+        if a.get("anchor_type") == "figure":
+            if a.get("source_group_kind") == "picture": s += 0.3
+            if w > 850: s -= 0.4
+            t = (a.get("canonical_text") or "").lower()
+            if "figure" in t or "fig." in t: s -= 0.25
+        if a.get("anchor_type") == "table" and a.get("source_group_kind") == "table": s += 0.3
+        if a.get("anchor_type") == "equation" and a.get("source_group_kind") == "formula": s += 0.2
+        if a.get("status") == "resolved_with_conflict": s -= 0.1
+        return s
+    by_id: dict[str, list[dict[str, Any]]] = {}
+    for a in anchors: by_id.setdefault(a["anchor_id"], []).append(a)
+    anchors = []
+    for aid, cands in by_id.items():
+        primary = max(cands, key=_score)
+        ev = [c for c in cands if c is not primary]
+        if ev:
+            primary["evidence_anchors"] = [{"source_group_id": x.get("source_group_id"), "target_group_id": x.get("target_group_id")} for x in ev]
+            primary["evidence_groups"] = [x.get("source_group_id") for x in ev]
+        anchors.append(primary)
+
+    primary_map: dict[tuple[str, str], list[dict[str, Any]]] = {}
     for a in anchors:
-        aid = a["anchor_id"]
-        if aid not in dedup:
-            dedup[aid] = a
+        if a.get("label"):
+            primary_map.setdefault((a["anchor_type"], a["label"]), []).append(a)
+    references = []
+    for r in raw_refs:
+        cands = primary_map.get((r["reference_type"], r["label"]), [])
+        if len(cands) == 1:
+            r.update({"resolved": True, "target_anchor_id": cands[0]["anchor_id"], "method": "exact_label", "warnings": []})
+        elif len(cands) > 1:
+            r.update({"resolved": False, "warnings": ["ambiguous"]})
         else:
-            dedup[aid].setdefault("evidence_groups", []).append(a.get("source_group_id"))
-            dedup[aid].setdefault("aliases", []).append(a.get("target_group_id"))
-    anchors = list(dedup.values())
+            unresolved.append(r)
+        references.append(r)
 
     summary = {
         "equation_anchors": sum(1 for a in anchors if a["anchor_type"] == "equation"),

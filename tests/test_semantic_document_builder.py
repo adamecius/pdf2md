@@ -23,3 +23,22 @@ def test_media_metadata_and_relations():
     assert tbl["type"] == "table"
     assert tbl["metadata"]["media_type"] == "table_visual_fallback"
     assert any(r["relation_type"] == "caption_of" for r in doc["relations"])
+
+
+def test_selection_mode_and_evidence_and_hash_warning(tmp_path):
+    cpath = tmp_path / "c.json"; lpath = tmp_path / "l.json"; mpath = tmp_path / "m.json"
+    consensus = {"pdf_path": "x.pdf", "pages": [{"page_index": 0, "conflicts": [], "candidate_groups": [
+        {"group_id": "g1", "kind": "paragraph", "representative_text": "(1.1)", "agreement": {"text": "near"}, "sources": ["a", "b"]},
+        {"group_id": "g2", "kind": "footer", "representative_text": "footer", "agreement": {"text": "near"}, "sources": ["a", "b"]},
+    ]}]}
+    links = {"upstream_sha256": {"consensus_report": "bad"}, "anchors": [{"anchor_id": "footnote:1", "anchor_type": "footnote", "target_group_id": "g1"}], "references": [], "attachments": []}
+    media = {"upstream_sha256": {"consensus_report": "bad", "semantic_links": "bad2"}, "assets": []}
+    cpath.write_text("{}", encoding="utf-8"); lpath.write_text("{}", encoding="utf-8"); mpath.write_text("{}", encoding="utf-8")
+    doc = build(consensus, links, media, {"consensus": str(cpath), "links": str(lpath), "media": str(mpath)})
+    p = doc["pages"][0]
+    assert p["evidence_block_ids"]
+    assert p["page_artifact_ids"]
+    b1 = [b for b in doc["blocks"] if b["source_group_id"] == "g1"][0]
+    assert b1["type"] == "footnote"
+    assert b1["selection_mode"] == "consensus"
+    assert doc["validation"]["warnings"]

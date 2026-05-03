@@ -27,7 +27,7 @@ def conflicts_for_group(group: dict[str, Any], page: dict[str, Any]) -> list[dic
     return out
 
 
-def build(consensus: dict[str, Any], semantic_links: dict[str, Any], media_manifest: dict[str, Any] | None, srcs: dict[str, str]) -> dict[str, Any]:
+def build(consensus: dict[str, Any], semantic_links: dict[str, Any], media_manifest: dict[str, Any] | None, srcs: dict[str, str], strict: bool = False) -> dict[str, Any]:
     doc = {
         "schema_name": "pdf2md.semantic_document", "schema_version": "0.1.0", "source_pdf": consensus.get("pdf_path", ""),
         "source_consensus_report": srcs["consensus"], "source_semantic_links": srcs["links"], "source_media_manifest": srcs.get("media"),
@@ -61,13 +61,20 @@ def build(consensus: dict[str, Any], semantic_links: dict[str, Any], media_manif
                 status = "resolved_with_conflict"
             elif agreement.get("text") == "single_source":
                 status = "single_source"
+            mode = "unresolved"
+            if attached_conflicts:
+                mode = "consensus_with_conflict"
+            elif agreement.get("text") in {"exact", "near"} and len(set(g.get("sources") or [])) > 1:
+                mode = "consensus"
+            elif agreement.get("text") == "single_source" or len(set(g.get("sources") or [])) == 1:
+                mode = "single_source"
             b = {
                 "id": f"block:{gid}", "type": kind, "text": g.get("representative_text") or "", "label": None,
                 "page_index": page.get("page_index", 0), "page_number": page.get("page_index", 0) + 1,
                 "order": order, "bbox": g.get("representative_bbox"), "anchor_id": None, "media_id": None, "media_path": None,
                 "source_group_id": gid, "source_group_members": g.get("members") or [], "sources": g.get("sources") or [],
                 "agreement": agreement, "conflicts": (g.get("conflicts") or []) + attached_conflicts, "status": status,
-                "selection_mode": "consensus" if agreement.get("text") == "near" else ("single_source" if agreement.get("text") == "single_source" else "fallback_default_backend"),
+                "selection_mode": mode,
                 "selected_text_source": (g.get("sources") or [None])[0], "selected_geometry_source": (g.get("sources") or [None])[0], "selection_reason": "representative",
                 "warnings": [], "metadata": {"is_page_artifact": kind in {"header", "footer", "page_number"}},
             }
@@ -91,8 +98,9 @@ def build(consensus: dict[str, Any], semantic_links: dict[str, Any], media_manif
         page_blocks.sort(key=lambda x: (x["page_index"], (x["bbox"] or [0, 0, 0, 0])[1], (x["bbox"] or [0, 0, 0, 0])[0], x["order"]))
         block_ids = [b["id"] for b in page_blocks]
         page_artifact_ids = [b["id"] for b in page_blocks if b["metadata"].get("is_page_artifact")]
-        body_block_ids = [b["id"] for b in page_blocks if b["id"] not in page_artifact_ids]
-        doc["pages"].append({"page_index": page.get("page_index", 0), "page_number": page.get("page_index", 0) + 1, "block_ids": block_ids, "body_block_ids": body_block_ids, "page_artifact_ids": page_artifact_ids, "evidence_block_ids": []})
+        evidence_block_ids = [b["id"] for b in page_blocks if b["text"].strip().startswith("(") and b["text"].strip().endswith(")")]
+        body_block_ids = [b["id"] for b in page_blocks if b["id"] not in page_artifact_ids and b["id"] not in evidence_block_ids]
+        doc["pages"].append({"page_index": page.get("page_index", 0), "page_number": page.get("page_index", 0) + 1, "block_ids": block_ids, "body_block_ids": body_block_ids, "page_artifact_ids": page_artifact_ids, "evidence_block_ids": evidence_block_ids})
 
     anchor_by_gid = {a.get("target_group_id"): a for a in doc["anchors"]}
     for b in doc["blocks"]:
@@ -100,8 +108,13 @@ def build(consensus: dict[str, Any], semantic_links: dict[str, Any], media_manif
         if a:
             b["anchor_id"] = a.get("anchor_id")
             b["label"] = a.get("label")
+            if a.get("anchor_type") == "footnote":
+                b["type"] = "footnote"
             if a.get("status") == "resolved_with_conflict":
                 b["status"] = "resolved_with_conflict"
+            if b["selection_mode"] == "unresolved":
+                b["selection_mode"] = "fallback_default_backend"
+                b["warnings"].append("fallback_default_backend")
 
     for att in semantic_links.get("attachments", []):
         mapped = {"caption_to_figure": "caption_of", "caption_to_table": "caption_of", "equation_number_to_equation": "equation_number_to_equation"}.get(att.get("attachment_type"))
@@ -119,6 +132,18 @@ def build(consensus: dict[str, Any], semantic_links: dict[str, Any], media_manif
             doc["validation"]["unresolved_references"].append(rid)
             doc["warnings"].append(f"Unresolved reference: {rid}")
 
+    checks = [
+        ("semantic_links.upstream_sha256.consensus_report", (semantic_links.get("upstream_sha256") or {}).get("consensus_report"), doc["upstream_sha256"]["consensus_report"]),
+        ("media_manifest.upstream_sha256.consensus_report", ((media_manifest or {}).get("upstream_sha256") or {}).get("consensus_report"), doc["upstream_sha256"]["consensus_report"]),
+        ("media_manifest.upstream_sha256.semantic_links", ((media_manifest or {}).get("upstream_sha256") or {}).get("semantic_links"), doc["upstream_sha256"]["semantic_links"]),
+    ]
+    for name, expected, actual in checks:
+        if expected and actual and expected != actual:
+            msg = f"stale_upstream_hash_mismatch:{name}"
+            doc["validation"]["warnings"].append(msg)
+            doc["warnings"].append(msg)
+    if strict and doc["validation"]["warnings"]:
+        doc["validation"]["strict_error"] = True
     return doc
 
 
@@ -136,9 +161,9 @@ def main() -> int:
     sp = Path(args.semantic_links)
     mp = Path(args.media_manifest) if args.media_manifest else None
     out = Path(args.output) if args.output else cp.parent / "semantic_document.json"
-    doc = build(json.loads(cp.read_text()), json.loads(sp.read_text()), json.loads(mp.read_text()) if mp and mp.exists() else None, {"consensus": str(cp), "links": str(sp), "media": str(mp) if mp else None})
+    doc = build(json.loads(cp.read_text()), json.loads(sp.read_text()), json.loads(mp.read_text()) if mp and mp.exists() else None, {"consensus": str(cp), "links": str(sp), "media": str(mp) if mp else None}, strict=args.strict)
     out.write_text(json.dumps(doc, indent=2), encoding="utf-8")
-    return 0
+    return 2 if args.strict and doc.get("validation", {}).get("strict_error") else 0
 
 
 if __name__ == "__main__":
