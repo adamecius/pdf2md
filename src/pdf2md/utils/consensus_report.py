@@ -5,6 +5,7 @@ import datetime as dt
 import difflib
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import sys
@@ -43,6 +44,31 @@ def load_config(path: Path) -> dict[str, Any]:
     cfg["backends"] = backends
     cfg.setdefault("pymupdf", {"enabled": True, "extract_text": True, "extract_images": False})
     return cfg
+
+
+def resolve_config_path(config_arg: str | None) -> Path:
+    if config_arg is not None:
+        config_path = Path(config_arg)
+        if not config_path.exists():
+            raise FileNotFoundError(f"Backend config not found at --config path: {config_path}")
+        return config_path
+
+    env_config = os.environ.get("PDF2MD_BACKENDS_CONFIG")
+    if env_config:
+        config_path = Path(env_config)
+        if config_path.exists():
+            return config_path
+        raise FileNotFoundError(f"Backend config not found at PDF2MD_BACKENDS_CONFIG path: {config_path}")
+
+    cwd_config = Path.cwd() / "pdf2md.backends.toml"
+    if cwd_config.exists():
+        return cwd_config
+
+    repo_root_config = Path(__file__).resolve().parents[3] / "pdf2md.backends.toml"
+    if repo_root_config.exists():
+        return repo_root_config
+
+    raise FileNotFoundError("Backend config not found. Pass --config pdf2md.backends.toml or set PDF2MD_BACKENDS_CONFIG.")
 
 
 def resolve_backend_extraction_dirs(pdf_path: Path, config: dict[str, Any]) -> dict[str, Path]:
@@ -480,7 +506,7 @@ def print_summary(report: dict[str, Any], output_path: Path, verbose: bool = Fal
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("pdf_path")
-    parser.add_argument("--config", required=True)
+    parser.add_argument("--config")
     parser.add_argument("--output")
     parser.add_argument("--json-only", action="store_true")
     parser.add_argument("--verbose", action="store_true")
@@ -488,8 +514,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--fail-on-invalid-json", action="store_true")
     args = parser.parse_args(argv)
     try:
-        cfg = load_config(Path(args.config))
-        report, rc = build_consensus_report(Path(args.pdf_path), cfg, Path(args.config), args.fail_on_missing_backend, args.fail_on_invalid_json)
+        resolved_config_path = resolve_config_path(args.config).resolve()
+        cfg = load_config(resolved_config_path)
+        report, rc = build_consensus_report(Path(args.pdf_path), cfg, resolved_config_path, args.fail_on_missing_backend, args.fail_on_invalid_json)
         if rc != 0:
             return rc
         out = Path(args.output) if args.output else Path(cfg["consensus"]["output_root"]) / Path(args.pdf_path).stem / "consensus_report.json"
