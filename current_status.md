@@ -96,7 +96,7 @@ What is still scaffold/diagnostic-level:
 
 ## Priority TO-DO
 
-- Create an **experimental Docling inspection adapter** that consumes `semantic_document.json` and outputs inspection artefacts only (not authoritative conversion).
+- Stabilise the **experimental Docling inspection adapter** against a real `docling`/`docling-core` install and sample `semantic_document.json` outputs.
 - Ensure debug/orphan media cannot leak into canonical semantic output (canonical/debug mode separation, builder-side policy checks).
 - Add stronger semantic validation inside `semantic_document_builder.py` (or validator module) for the listed hazard classes.
 - Document canonical mode vs debug mode explicitly in code/config/docs.
@@ -169,3 +169,11 @@ Warnings the adapter should emit by default:
 - `rg --files .current -g 'semantic_document.json' -g 'semantic_links.json' -g 'media_manifest.json' | head -n 40`
 - `python -m pytest tests/test_semantic_linker.py tests/test_media_materializer.py tests/test_semantic_document_builder.py` (failed due to missing `PYTHONPATH=src`)
 - `PYTHONPATH=src python -m pytest tests/test_semantic_linker.py tests/test_media_materializer.py tests/test_semantic_document_builder.py` (passed)
+
+## Docling adapter TODOs (upstream input requirements)
+
+- TODO: `semantic_document.json` should include reliable page-dimension/provenance fields needed for robust Docling provenance mapping (currently adapter warns/degrades when missing).
+- TODO: semantic layer should provide canonical caption objects (label/body/full caption) in addition to `caption_of` fragments so adapter does not need preview-time fragment joining.
+- TODO: semantic layer should provide fused formula objects with explicit text+geometry decisions to reduce inspection-time `formula_text_geometry_not_fused` warnings.
+- TODO: semantic layer should provide structured table cell payloads for native Docling table construction beyond degraded text placeholders.
+- TODO: semantic/media layers should include explicit canonical-vs-debug media policy markers to make orphan/debug media handling auditable without heuristics.
