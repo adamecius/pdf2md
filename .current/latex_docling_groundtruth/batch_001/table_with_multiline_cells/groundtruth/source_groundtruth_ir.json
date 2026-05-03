@@ -1,0 +1,80 @@
+{
+  "schema_name": "pdf2md.source_groundtruth_ir",
+  "schema_version": "0.1.0",
+  "document_id": "table_with_multiline_cells",
+  "source_type": "latex",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/table_with_multiline_cells/input/table_with_multiline_cells.tex",
+  "expected_pdf": ".current/latex_docling_groundtruth/batch_001/table_with_multiline_cells/input/table_with_multiline_cells.pdf",
+  "title": "Table With Multiline Cells",
+  "pages_expected_min": 1,
+  "nodes": [
+    {
+      "id": "gt:block:table_with_multiline_cells:0",
+      "type": "title",
+      "text": "Table With Multiline Cells",
+      "label": null,
+      "ref_target": null,
+      "order": 0,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "title",
+      "source_latex_hint": "\\title"
+    },
+    {
+      "id": "gt:block:table_with_multiline_cells:1",
+      "type": "section",
+      "text": "Data",
+      "label": null,
+      "ref_target": null,
+      "order": 1,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "section_header",
+      "source_latex_hint": "\\section"
+    },
+    {
+      "id": "gt:block:table_with_multiline_cells:2",
+      "type": "table",
+      "text": "table",
+      "label": null,
+      "ref_target": null,
+      "order": 2,
+      "parent_id": null,
+      "children": [
+        "gt:block:table_with_multiline_cells:3"
+      ],
+      "expected_docling_kind": "table",
+      "source_latex_hint": "table"
+    },
+    {
+      "id": "gt:block:table_with_multiline_cells:3",
+      "type": "caption",
+      "text": "Long cells",
+      "label": null,
+      "ref_target": null,
+      "order": 3,
+      "parent_id": "gt:block:table_with_multiline_cells:2",
+      "children": [],
+      "expected_docling_kind": "caption",
+      "source_latex_hint": "\\caption"
+    }
+  ],
+  "labels": {
+    "tab:ml": "gt:block:table_with_multiline_cells:2"
+  },
+  "references": [],
+  "features": {
+    "section": 1,
+    "subsection": 0,
+    "figure": 0,
+    "table": 1,
+    "equation": 0,
+    "footnote": 0,
+    "caption": 1,
+    "list": 0,
+    "list_item": 0,
+    "reference": 0,
+    "bibliography_like": 0,
+    "paragraph": 0
+  }
+}

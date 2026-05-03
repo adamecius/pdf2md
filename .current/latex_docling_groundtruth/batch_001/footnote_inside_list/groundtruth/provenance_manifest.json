@@ -1,0 +1,41 @@
+{
+  "schema_name": "pdf2md.latex_docling_groundtruth_manifest",
+  "schema_version": "0.1.0",
+  "document_id": "footnote_inside_list",
+  "batch": "batch_001",
+  "generated_at": "2026-05-03T18:47:10.572285+00:00",
+  "source_tex": {
+    "path": ".current/latex_docling_groundtruth/batch_001/footnote_inside_list/input/footnote_inside_list.tex",
+    "sha256": "c43dd45cc794c81c36ae3d2a0aed4c2bde8fd95876c2b08b320b82a3a2223f37"
+  },
+  "pdf": {
+    "path": ".current/latex_docling_groundtruth/batch_001/footnote_inside_list/input/footnote_inside_list.pdf",
+    "sha256": "17ec683135aae77e7aeca6df279f1e45ebd213d210350def8dfdd345018382a7"
+  },
+  "latex_engine": "pdflatex",
+  "latex_command": "pdflatex -interaction=nonstopmode -output-directory=.current/latex_docling_groundtruth/batch_001/footnote_inside_list/input /home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_001/footnote_inside_list/input/footnote_inside_list.tex",
+  "compilation_return_code": 0,
+  "page_count": 1,
+  "pages_expected_min": 1,
+  "generated_files": [
+    ".current/latex_docling_groundtruth/batch_001/footnote_inside_list/input/footnote_inside_list.tex",
+    ".current/latex_docling_groundtruth/batch_001/footnote_inside_list/groundtruth/source_groundtruth_ir.json",
+    ".current/latex_docling_groundtruth/batch_001/footnote_inside_list/groundtruth/expected_semantic_contract.json",
+    ".current/latex_docling_groundtruth/batch_001/footnote_inside_list/groundtruth/expected_docling_contract.json",
+    ".current/latex_docling_groundtruth/batch_001/footnote_inside_list/groundtruth/provenance_manifest.json"
+  ],
+  "feature_counts": {
+    "section": 1,
+    "subsection": 0,
+    "figure": 0,
+    "table": 0,
+    "equation": 0,
+    "footnote": 1,
+    "caption": 0,
+    "list": 1,
+    "list_item": 1,
+    "reference": 0,
+    "bibliography_like": 0,
+    "paragraph": 0
+  }
+}

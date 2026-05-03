@@ -1,0 +1,235 @@
+{
+  "schema_name": "pdf2md.source_groundtruth_ir",
+  "schema_version": "0.1.0",
+  "document_id": "complex_multi_reference_network",
+  "source_type": "latex",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/complex_multi_reference_network/input/complex_multi_reference_network.tex",
+  "expected_pdf": ".current/latex_docling_groundtruth/batch_001/complex_multi_reference_network/input/complex_multi_reference_network.pdf",
+  "title": "Complex Multi Reference Network",
+  "pages_expected_min": 1,
+  "nodes": [
+    {
+      "id": "gt:block:complex_multi_reference_network:0",
+      "type": "title",
+      "text": "Complex Multi Reference Network",
+      "label": null,
+      "ref_target": null,
+      "order": 0,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "title",
+      "source_latex_hint": "\\title"
+    },
+    {
+      "id": "gt:block:complex_multi_reference_network:1",
+      "type": "section",
+      "text": "Complex",
+      "label": "sec:complex",
+      "ref_target": null,
+      "order": 1,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "section_header",
+      "source_latex_hint": "\\section"
+    },
+    {
+      "id": "gt:block:complex_multi_reference_network:2",
+      "type": "subsection",
+      "text": "Mesh",
+      "label": "sub:mesh",
+      "ref_target": null,
+      "order": 2,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "section_header",
+      "source_latex_hint": "\\subsection"
+    },
+    {
+      "id": "gt:block:complex_multi_reference_network:3",
+      "type": "figure",
+      "text": "figure",
+      "label": null,
+      "ref_target": null,
+      "order": 3,
+      "parent_id": null,
+      "children": [
+        "gt:block:complex_multi_reference_network:4"
+      ],
+      "expected_docling_kind": "picture",
+      "source_latex_hint": "figure"
+    },
+    {
+      "id": "gt:block:complex_multi_reference_network:4",
+      "type": "caption",
+      "text": "Boxed figure",
+      "label": null,
+      "ref_target": null,
+      "order": 4,
+      "parent_id": "gt:block:complex_multi_reference_network:3",
+      "children": [],
+      "expected_docling_kind": "caption",
+      "source_latex_hint": "\\caption"
+    },
+    {
+      "id": "gt:block:complex_multi_reference_network:5",
+      "type": "table",
+      "text": "table",
+      "label": null,
+      "ref_target": null,
+      "order": 5,
+      "parent_id": null,
+      "children": [
+        "gt:block:complex_multi_reference_network:6"
+      ],
+      "expected_docling_kind": "table",
+      "source_latex_hint": "table"
+    },
+    {
+      "id": "gt:block:complex_multi_reference_network:6",
+      "type": "caption",
+      "text": "Sample table",
+      "label": null,
+      "ref_target": null,
+      "order": 6,
+      "parent_id": "gt:block:complex_multi_reference_network:5",
+      "children": [],
+      "expected_docling_kind": "caption",
+      "source_latex_hint": "\\caption"
+    },
+    {
+      "id": "gt:block:complex_multi_reference_network:7",
+      "type": "equation",
+      "text": "E=mc^2",
+      "label": null,
+      "ref_target": null,
+      "order": 7,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "formula",
+      "source_latex_hint": "equation"
+    },
+    {
+      "id": "gt:block:complex_multi_reference_network:8",
+      "type": "reference",
+      "text": "ref:sec:complex",
+      "label": null,
+      "ref_target": "sec:complex",
+      "order": 8,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "text",
+      "source_latex_hint": "\\ref"
+    },
+    {
+      "id": "gt:block:complex_multi_reference_network:9",
+      "type": "reference",
+      "text": "ref:sub:mesh",
+      "label": null,
+      "ref_target": "sub:mesh",
+      "order": 9,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "text",
+      "source_latex_hint": "\\ref"
+    },
+    {
+      "id": "gt:block:complex_multi_reference_network:10",
+      "type": "reference",
+      "text": "ref:fig:box",
+      "label": null,
+      "ref_target": "fig:box",
+      "order": 10,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "text",
+      "source_latex_hint": "\\ref"
+    },
+    {
+      "id": "gt:block:complex_multi_reference_network:11",
+      "type": "reference",
+      "text": "ref:tab:s",
+      "label": null,
+      "ref_target": "tab:s",
+      "order": 11,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "text",
+      "source_latex_hint": "\\ref"
+    },
+    {
+      "id": "gt:block:complex_multi_reference_network:12",
+      "type": "reference",
+      "text": "ref:eq:one",
+      "label": null,
+      "ref_target": "eq:one",
+      "order": 12,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "text",
+      "source_latex_hint": "\\ref"
+    }
+  ],
+  "labels": {
+    "sec:complex": "gt:block:complex_multi_reference_network:1",
+    "sub:mesh": "gt:block:complex_multi_reference_network:2",
+    "fig:box": "gt:block:complex_multi_reference_network:3",
+    "tab:s": "gt:block:complex_multi_reference_network:5",
+    "eq:one": "gt:block:complex_multi_reference_network:7"
+  },
+  "references": [
+    {
+      "id": "gt:ref:complex_multi_reference_network:0",
+      "source_node_id": "gt:block:complex_multi_reference_network:8",
+      "target_label": "sec:complex",
+      "target_node_id": "gt:block:complex_multi_reference_network:1",
+      "reference_text": "\\ref{sec:complex}",
+      "expected_resolved": true
+    },
+    {
+      "id": "gt:ref:complex_multi_reference_network:1",
+      "source_node_id": "gt:block:complex_multi_reference_network:9",
+      "target_label": "sub:mesh",
+      "target_node_id": "gt:block:complex_multi_reference_network:2",
+      "reference_text": "\\ref{sub:mesh}",
+      "expected_resolved": true
+    },
+    {
+      "id": "gt:ref:complex_multi_reference_network:2",
+      "source_node_id": "gt:block:complex_multi_reference_network:10",
+      "target_label": "fig:box",
+      "target_node_id": "gt:block:complex_multi_reference_network:3",
+      "reference_text": "\\ref{fig:box}",
+      "expected_resolved": true
+    },
+    {
+      "id": "gt:ref:complex_multi_reference_network:3",
+      "source_node_id": "gt:block:complex_multi_reference_network:11",
+      "target_label": "tab:s",
+      "target_node_id": "gt:block:complex_multi_reference_network:5",
+      "reference_text": "\\ref{tab:s}",
+      "expected_resolved": true
+    },
+    {
+      "id": "gt:ref:complex_multi_reference_network:4",
+      "source_node_id": "gt:block:complex_multi_reference_network:12",
+      "target_label": "eq:one",
+      "target_node_id": "gt:block:complex_multi_reference_network:7",
+      "reference_text": "\\ref{eq:one}",
+      "expected_resolved": true
+    }
+  ],
+  "features": {
+    "section": 1,
+    "subsection": 1,
+    "figure": 1,
+    "table": 1,
+    "equation": 1,
+    "footnote": 0,
+    "caption": 2,
+    "list": 0,
+    "list_item": 0,
+    "reference": 5,
+    "bibliography_like": 0,
+    "paragraph": 0
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_name": "pdf2md.latex_docling_groundtruth_manifest",
+  "schema_version": "0.1.0",
+  "document_id": "equation_label_reference",
+  "batch": "batch_001",
+  "generated_at": "2026-05-03T18:47:10.052903+00:00",
+  "source_tex": {
+    "path": ".current/latex_docling_groundtruth/batch_001/equation_label_reference/input/equation_label_reference.tex",
+    "sha256": "1906eb0ecd44d16e8b1291eaef188688d96f8ccf050d0ee6cddf28caa3fb4b06"
+  },
+  "pdf": {
+    "path": ".current/latex_docling_groundtruth/batch_001/equation_label_reference/input/equation_label_reference.pdf",
+    "sha256": "17e729e7deb33724d2900028a8ce04b7ef4fa9308c50fc81515988358312b0c5"
+  },
+  "latex_engine": "pdflatex",
+  "latex_command": "pdflatex -interaction=nonstopmode -output-directory=.current/latex_docling_groundtruth/batch_001/equation_label_reference/input /home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_001/equation_label_reference/input/equation_label_reference.tex",
+  "compilation_return_code": 0,
+  "page_count": 1,
+  "pages_expected_min": 1,
+  "generated_files": [
+    ".current/latex_docling_groundtruth/batch_001/equation_label_reference/input/equation_label_reference.tex",
+    ".current/latex_docling_groundtruth/batch_001/equation_label_reference/groundtruth/source_groundtruth_ir.json",
+    ".current/latex_docling_groundtruth/batch_001/equation_label_reference/groundtruth/expected_semantic_contract.json",
+    ".current/latex_docling_groundtruth/batch_001/equation_label_reference/groundtruth/expected_docling_contract.json",
+    ".current/latex_docling_groundtruth/batch_001/equation_label_reference/groundtruth/provenance_manifest.json"
+  ],
+  "feature_counts": {
+    "section": 1,
+    "subsection": 0,
+    "figure": 0,
+    "table": 0,
+    "equation": 1,
+    "footnote": 0,
+    "caption": 0,
+    "list": 0,
+    "list_item": 0,
+    "reference": 1,
+    "bibliography_like": 0,
+    "paragraph": 0
+  }
+}

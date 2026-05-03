@@ -1,0 +1,21 @@
+{
+  "document_id": "bibliography_like_references",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/bibliography_like_references/input/bibliography_like_references.tex",
+  "expected_title": "Bibliography Like References",
+  "expected_sections": [
+    "Body",
+    "References"
+  ],
+  "expected_subsections": [],
+  "expected_labels": [
+    "sec:refs"
+  ],
+  "expected_markdown_snippets": [
+    "Bibliography Like References"
+  ],
+  "required_node_types": [
+    "bibliography_like",
+    "section",
+    "title"
+  ]
+}

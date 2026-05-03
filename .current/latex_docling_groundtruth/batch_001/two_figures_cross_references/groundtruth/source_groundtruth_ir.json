@@ -1,0 +1,148 @@
+{
+  "schema_name": "pdf2md.source_groundtruth_ir",
+  "schema_version": "0.1.0",
+  "document_id": "two_figures_cross_references",
+  "source_type": "latex",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/two_figures_cross_references/input/two_figures_cross_references.tex",
+  "expected_pdf": ".current/latex_docling_groundtruth/batch_001/two_figures_cross_references/input/two_figures_cross_references.pdf",
+  "title": "Two Figures Cross References",
+  "pages_expected_min": 1,
+  "nodes": [
+    {
+      "id": "gt:block:two_figures_cross_references:0",
+      "type": "title",
+      "text": "Two Figures Cross References",
+      "label": null,
+      "ref_target": null,
+      "order": 0,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "title",
+      "source_latex_hint": "\\title"
+    },
+    {
+      "id": "gt:block:two_figures_cross_references:1",
+      "type": "section",
+      "text": "Visuals",
+      "label": null,
+      "ref_target": null,
+      "order": 1,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "section_header",
+      "source_latex_hint": "\\section"
+    },
+    {
+      "id": "gt:block:two_figures_cross_references:2",
+      "type": "figure",
+      "text": "figure",
+      "label": null,
+      "ref_target": null,
+      "order": 2,
+      "parent_id": null,
+      "children": [
+        "gt:block:two_figures_cross_references:3"
+      ],
+      "expected_docling_kind": "picture",
+      "source_latex_hint": "figure"
+    },
+    {
+      "id": "gt:block:two_figures_cross_references:3",
+      "type": "caption",
+      "text": "First",
+      "label": null,
+      "ref_target": null,
+      "order": 3,
+      "parent_id": "gt:block:two_figures_cross_references:2",
+      "children": [],
+      "expected_docling_kind": "caption",
+      "source_latex_hint": "\\caption"
+    },
+    {
+      "id": "gt:block:two_figures_cross_references:4",
+      "type": "figure",
+      "text": "figure",
+      "label": null,
+      "ref_target": null,
+      "order": 4,
+      "parent_id": null,
+      "children": [
+        "gt:block:two_figures_cross_references:5"
+      ],
+      "expected_docling_kind": "picture",
+      "source_latex_hint": "figure"
+    },
+    {
+      "id": "gt:block:two_figures_cross_references:5",
+      "type": "caption",
+      "text": "Second",
+      "label": null,
+      "ref_target": null,
+      "order": 5,
+      "parent_id": "gt:block:two_figures_cross_references:4",
+      "children": [],
+      "expected_docling_kind": "caption",
+      "source_latex_hint": "\\caption"
+    },
+    {
+      "id": "gt:block:two_figures_cross_references:6",
+      "type": "reference",
+      "text": "ref:fig:one",
+      "label": null,
+      "ref_target": "fig:one",
+      "order": 6,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "text",
+      "source_latex_hint": "\\ref"
+    },
+    {
+      "id": "gt:block:two_figures_cross_references:7",
+      "type": "reference",
+      "text": "ref:fig:two",
+      "label": null,
+      "ref_target": "fig:two",
+      "order": 7,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "text",
+      "source_latex_hint": "\\ref"
+    }
+  ],
+  "labels": {
+    "fig:one": "gt:block:two_figures_cross_references:2",
+    "fig:two": "gt:block:two_figures_cross_references:4"
+  },
+  "references": [
+    {
+      "id": "gt:ref:two_figures_cross_references:0",
+      "source_node_id": "gt:block:two_figures_cross_references:6",
+      "target_label": "fig:one",
+      "target_node_id": "gt:block:two_figures_cross_references:2",
+      "reference_text": "\\ref{fig:one}",
+      "expected_resolved": true
+    },
+    {
+      "id": "gt:ref:two_figures_cross_references:1",
+      "source_node_id": "gt:block:two_figures_cross_references:7",
+      "target_label": "fig:two",
+      "target_node_id": "gt:block:two_figures_cross_references:4",
+      "reference_text": "\\ref{fig:two}",
+      "expected_resolved": true
+    }
+  ],
+  "features": {
+    "section": 1,
+    "subsection": 0,
+    "figure": 2,
+    "table": 0,
+    "equation": 0,
+    "footnote": 0,
+    "caption": 2,
+    "list": 0,
+    "list_item": 0,
+    "reference": 2,
+    "bibliography_like": 0,
+    "paragraph": 0
+  }
+}

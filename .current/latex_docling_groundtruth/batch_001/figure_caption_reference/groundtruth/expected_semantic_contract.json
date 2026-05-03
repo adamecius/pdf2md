@@ -1,0 +1,21 @@
+{
+  "document_id": "figure_caption_reference",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/figure_caption_reference/input/figure_caption_reference.tex",
+  "expected_title": "Figure Caption Reference",
+  "expected_sections": [
+    "Visual"
+  ],
+  "expected_subsections": [],
+  "expected_labels": [
+    "fig:box"
+  ],
+  "expected_markdown_snippets": [
+    "Figure Caption Reference"
+  ],
+  "required_node_types": [
+    "caption",
+    "figure",
+    "section",
+    "title"
+  ]
+}

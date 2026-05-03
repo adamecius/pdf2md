@@ -1,0 +1,21 @@
+{
+  "document_id": "multiple_equations_references",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/multiple_equations_references/input/multiple_equations_references.tex",
+  "expected_title": "Multiple Equations References",
+  "expected_sections": [
+    "Math"
+  ],
+  "expected_subsections": [],
+  "expected_labels": [
+    "eq:a",
+    "eq:c"
+  ],
+  "expected_markdown_snippets": [
+    "Multiple Equations References"
+  ],
+  "required_node_types": [
+    "equation",
+    "section",
+    "title"
+  ]
+}

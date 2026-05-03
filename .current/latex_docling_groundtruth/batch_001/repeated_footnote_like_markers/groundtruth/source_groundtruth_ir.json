@@ -1,0 +1,64 @@
+{
+  "schema_name": "pdf2md.source_groundtruth_ir",
+  "schema_version": "0.1.0",
+  "document_id": "repeated_footnote_like_markers",
+  "source_type": "latex",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/repeated_footnote_like_markers/input/repeated_footnote_like_markers.tex",
+  "expected_pdf": ".current/latex_docling_groundtruth/batch_001/repeated_footnote_like_markers/input/repeated_footnote_like_markers.pdf",
+  "title": "Repeated Footnote Like Markers",
+  "pages_expected_min": 1,
+  "nodes": [
+    {
+      "id": "gt:block:repeated_footnote_like_markers:0",
+      "type": "title",
+      "text": "Repeated Footnote Like Markers",
+      "label": null,
+      "ref_target": null,
+      "order": 0,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "title",
+      "source_latex_hint": "\\title"
+    },
+    {
+      "id": "gt:block:repeated_footnote_like_markers:1",
+      "type": "section",
+      "text": "Notes",
+      "label": null,
+      "ref_target": null,
+      "order": 1,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "section_header",
+      "source_latex_hint": "\\section"
+    },
+    {
+      "id": "gt:block:repeated_footnote_like_markers:2",
+      "type": "footnote",
+      "text": "Only real note",
+      "label": null,
+      "ref_target": null,
+      "order": 2,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "footnote",
+      "source_latex_hint": "\\footnote"
+    }
+  ],
+  "labels": {},
+  "references": [],
+  "features": {
+    "section": 1,
+    "subsection": 0,
+    "figure": 0,
+    "table": 0,
+    "equation": 0,
+    "footnote": 1,
+    "caption": 0,
+    "list": 0,
+    "list_item": 0,
+    "reference": 0,
+    "bibliography_like": 0,
+    "paragraph": 0
+  }
+}

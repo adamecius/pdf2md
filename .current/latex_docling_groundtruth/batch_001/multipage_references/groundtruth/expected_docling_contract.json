@@ -1,0 +1,11 @@
+{
+  "document_id": "multipage_references",
+  "required_docling_kinds": [
+    "section_header",
+    "text",
+    "title"
+  ],
+  "required_reference_sidecar_entries": [
+    "sec:p1"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "document_id": "all_features_small",
+  "required_docling_kinds": [
+    "caption",
+    "footnote",
+    "formula",
+    "list",
+    "list_item",
+    "picture",
+    "section_header",
+    "table",
+    "text",
+    "title"
+  ],
+  "required_reference_sidecar_entries": [
+    "sec:all",
+    "sub:all",
+    "fig:all",
+    "tab:all",
+    "eq:all"
+  ]
+}

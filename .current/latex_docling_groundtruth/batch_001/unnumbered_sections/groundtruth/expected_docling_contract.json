@@ -1,0 +1,11 @@
+{
+  "document_id": "unnumbered_sections",
+  "required_docling_kinds": [
+    "section_header",
+    "text",
+    "title"
+  ],
+  "required_reference_sidecar_entries": [
+    "sec:num"
+  ]
+}

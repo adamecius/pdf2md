@@ -1,0 +1,12 @@
+{
+  "document_id": "section_subsection_references",
+  "required_docling_kinds": [
+    "section_header",
+    "text",
+    "title"
+  ],
+  "required_reference_sidecar_entries": [
+    "sec:alpha",
+    "sub:beta"
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "schema_name": "pdf2md.source_groundtruth_ir",
+  "schema_version": "0.1.0",
+  "document_id": "footnotes_basic",
+  "source_type": "latex",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/footnotes_basic/input/footnotes_basic.tex",
+  "expected_pdf": ".current/latex_docling_groundtruth/batch_001/footnotes_basic/input/footnotes_basic.pdf",
+  "title": "Footnotes Basic",
+  "pages_expected_min": 1,
+  "nodes": [
+    {
+      "id": "gt:block:footnotes_basic:0",
+      "type": "title",
+      "text": "Footnotes Basic",
+      "label": null,
+      "ref_target": null,
+      "order": 0,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "title",
+      "source_latex_hint": "\\title"
+    },
+    {
+      "id": "gt:block:footnotes_basic:1",
+      "type": "section",
+      "text": "Notes",
+      "label": null,
+      "ref_target": null,
+      "order": 1,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "section_header",
+      "source_latex_hint": "\\section"
+    },
+    {
+      "id": "gt:block:footnotes_basic:2",
+      "type": "footnote",
+      "text": "First note.",
+      "label": null,
+      "ref_target": null,
+      "order": 2,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "footnote",
+      "source_latex_hint": "\\footnote"
+    },
+    {
+      "id": "gt:block:footnotes_basic:3",
+      "type": "footnote",
+      "text": "Second note",
+      "label": null,
+      "ref_target": null,
+      "order": 3,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "footnote",
+      "source_latex_hint": "\\footnote"
+    }
+  ],
+  "labels": {},
+  "references": [],
+  "features": {
+    "section": 1,
+    "subsection": 0,
+    "figure": 0,
+    "table": 0,
+    "equation": 0,
+    "footnote": 2,
+    "caption": 0,
+    "list": 0,
+    "list_item": 0,
+    "reference": 0,
+    "bibliography_like": 0,
+    "paragraph": 0
+  }
+}

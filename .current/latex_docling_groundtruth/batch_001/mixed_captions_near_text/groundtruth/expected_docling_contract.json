@@ -1,0 +1,11 @@
+{
+  "document_id": "mixed_captions_near_text",
+  "required_docling_kinds": [
+    "caption",
+    "picture",
+    "section_header",
+    "table",
+    "title"
+  ],
+  "required_reference_sidecar_entries": []
+}

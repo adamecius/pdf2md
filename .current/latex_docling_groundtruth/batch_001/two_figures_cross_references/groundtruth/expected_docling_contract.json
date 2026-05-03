@@ -1,0 +1,14 @@
+{
+  "document_id": "two_figures_cross_references",
+  "required_docling_kinds": [
+    "caption",
+    "picture",
+    "section_header",
+    "text",
+    "title"
+  ],
+  "required_reference_sidecar_entries": [
+    "fig:one",
+    "fig:two"
+  ]
+}

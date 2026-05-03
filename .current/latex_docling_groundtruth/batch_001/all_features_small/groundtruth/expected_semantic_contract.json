@@ -1,0 +1,35 @@
+{
+  "document_id": "all_features_small",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/all_features_small/input/all_features_small.tex",
+  "expected_title": "All Features Small",
+  "expected_sections": [
+    "All",
+    "References"
+  ],
+  "expected_subsections": [
+    "AllSub"
+  ],
+  "expected_labels": [
+    "eq:all",
+    "fig:all",
+    "sec:all",
+    "sub:all",
+    "tab:all"
+  ],
+  "expected_markdown_snippets": [
+    "All Features Small"
+  ],
+  "required_node_types": [
+    "bibliography_like",
+    "caption",
+    "equation",
+    "figure",
+    "footnote",
+    "list",
+    "list_item",
+    "section",
+    "subsection",
+    "table",
+    "title"
+  ]
+}

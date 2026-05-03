@@ -1,0 +1,22 @@
+{
+  "document_id": "two_figures_cross_references",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/two_figures_cross_references/input/two_figures_cross_references.tex",
+  "expected_title": "Two Figures Cross References",
+  "expected_sections": [
+    "Visuals"
+  ],
+  "expected_subsections": [],
+  "expected_labels": [
+    "fig:one",
+    "fig:two"
+  ],
+  "expected_markdown_snippets": [
+    "Two Figures Cross References"
+  ],
+  "required_node_types": [
+    "caption",
+    "figure",
+    "section",
+    "title"
+  ]
+}

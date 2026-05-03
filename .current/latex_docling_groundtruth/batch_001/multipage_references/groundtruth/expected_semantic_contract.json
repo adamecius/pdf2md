@@ -1,0 +1,21 @@
+{
+  "document_id": "multipage_references",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/multipage_references/input/multipage_references.tex",
+  "expected_title": "Multipage References",
+  "expected_sections": [
+    "P1",
+    "P2"
+  ],
+  "expected_subsections": [],
+  "expected_labels": [
+    "sec:p1"
+  ],
+  "expected_markdown_snippets": [
+    "Multipage References"
+  ],
+  "required_node_types": [
+    "paragraph",
+    "section",
+    "title"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "document_id": "equation_label_reference",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/equation_label_reference/input/equation_label_reference.tex",
+  "expected_title": "Equation Label Reference",
+  "expected_sections": [
+    "Math"
+  ],
+  "expected_subsections": [],
+  "expected_labels": [
+    "eq:one"
+  ],
+  "expected_markdown_snippets": [
+    "Equation Label Reference"
+  ],
+  "required_node_types": [
+    "equation",
+    "section",
+    "title"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "document_id": "equation_label_reference",
+  "required_docling_kinds": [
+    "formula",
+    "section_header",
+    "text",
+    "title"
+  ],
+  "required_reference_sidecar_entries": [
+    "eq:one"
+  ]
+}

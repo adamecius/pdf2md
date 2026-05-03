@@ -1,0 +1,5843 @@
+{
+  "schema_name": "pdf2md.semantic_document",
+  "schema_version": "0.1.0",
+  "source_pdf": "Ashcroft_Mermin_sub.pdf",
+  "source_consensus_report": ".current/consensus/Ashcroft_Mermin_sub/consensus_report.json",
+  "source_semantic_links": ".current/consensus/Ashcroft_Mermin_sub/semantic_links.json",
+  "source_media_manifest": ".current/consensus/Ashcroft_Mermin_sub/media_manifest.json",
+  "run_id": null,
+  "upstream_sha256": {
+    "consensus_report": "d836f35f5fb4e116903614b76cf377352ed4069505e9288cff2c08ef7796faf6",
+    "semantic_links": "6154f504ff21d5031a99f3563020e8b212d35916b50abda385672bd6ed5c33d0",
+    "media_manifest": "4f590abd82fb263a328b0daa962588ce61e834217f3372a93e7dbfd8d297d3f2"
+  },
+  "created_at": "2026-05-03T11:34:19.328515+00:00",
+  "pages": [
+    {
+      "page_index": 0,
+      "page_number": 1,
+      "block_ids": [
+        "block:p0000_g0015",
+        "block:p0000_g0016",
+        "block:p0000_g0017",
+        "block:p0000_g0018",
+        "block:p0000_g0009",
+        "block:p0000_g0012",
+        "block:p0000_g0001",
+        "block:p0000_g0002",
+        "block:p0000_g0003",
+        "block:p0000_g0013",
+        "block:p0000_g0004",
+        "block:p0000_g0005",
+        "block:p0000_g0014",
+        "block:p0000_g0006",
+        "block:p0000_g0007",
+        "block:p0000_g0008",
+        "block:p0000_g0010",
+        "block:p0000_g0011"
+      ],
+      "body_block_ids": [
+        "block:p0000_g0015",
+        "block:p0000_g0016",
+        "block:p0000_g0017",
+        "block:p0000_g0018",
+        "block:p0000_g0012",
+        "block:p0000_g0001",
+        "block:p0000_g0002",
+        "block:p0000_g0003",
+        "block:p0000_g0004",
+        "block:p0000_g0005",
+        "block:p0000_g0006",
+        "block:p0000_g0007",
+        "block:p0000_g0008",
+        "block:p0000_g0010",
+        "block:p0000_g0011"
+      ],
+      "page_artifact_ids": [
+        "block:p0000_g0009"
+      ],
+      "evidence_block_ids": [
+        "block:p0000_g0013",
+        "block:p0000_g0014"
+      ]
+    },
+    {
+      "page_index": 1,
+      "page_number": 2,
+      "block_ids": [
+        "block:p0001_g0011",
+        "block:p0001_g0012",
+        "block:p0001_g0006",
+        "block:p0001_g0007",
+        "block:p0001_g0008",
+        "block:p0001_g0009",
+        "block:p0001_g0001",
+        "block:p0001_g0002",
+        "block:p0001_g0003",
+        "block:p0001_g0010",
+        "block:p0001_g0004",
+        "block:p0001_g0005"
+      ],
+      "body_block_ids": [
+        "block:p0001_g0011",
+        "block:p0001_g0012",
+        "block:p0001_g0008",
+        "block:p0001_g0009",
+        "block:p0001_g0001",
+        "block:p0001_g0002",
+        "block:p0001_g0003",
+        "block:p0001_g0010",
+        "block:p0001_g0004",
+        "block:p0001_g0005"
+      ],
+      "page_artifact_ids": [
+        "block:p0001_g0006",
+        "block:p0001_g0007"
+      ],
+      "evidence_block_ids": []
+    },
+    {
+      "page_index": 2,
+      "page_number": 3,
+      "block_ids": [
+        "block:p0002_g0015",
+        "block:p0002_g0016",
+        "block:p0002_g0009",
+        "block:p0002_g0013",
+        "block:p0002_g0014",
+        "block:p0002_g0003",
+        "block:p0002_g0001",
+        "block:p0002_g0002",
+        "block:p0002_g0004",
+        "block:p0002_g0005",
+        "block:p0002_g0006",
+        "block:p0002_g0007",
+        "block:p0002_g0008",
+        "block:p0002_g0010",
+        "block:p0002_g0011",
+        "block:p0002_g0012"
+      ],
+      "body_block_ids": [
+        "block:p0002_g0015",
+        "block:p0002_g0016",
+        "block:p0002_g0013",
+        "block:p0002_g0014",
+        "block:p0002_g0003",
+        "block:p0002_g0001",
+        "block:p0002_g0002",
+        "block:p0002_g0004",
+        "block:p0002_g0005",
+        "block:p0002_g0006",
+        "block:p0002_g0007",
+        "block:p0002_g0008",
+        "block:p0002_g0010",
+        "block:p0002_g0011",
+        "block:p0002_g0012"
+      ],
+      "page_artifact_ids": [
+        "block:p0002_g0009"
+      ],
+      "evidence_block_ids": []
+    },
+    {
+      "page_index": 3,
+      "page_number": 4,
+      "block_ids": [
+        "block:p0003_g0019",
+        "block:p0003_g0020",
+        "block:p0003_g0021",
+        "block:p0003_g0022",
+        "block:p0003_g0023",
+        "block:p0003_g0024",
+        "block:p0003_g0025",
+        "block:p0003_g0012",
+        "block:p0003_g0013",
+        "block:p0003_g0001",
+        "block:p0003_g0002",
+        "block:p0003_g0003",
+        "block:p0003_g0015",
+        "block:p0003_g0004",
+        "block:p0003_g0005",
+        "block:p0003_g0016",
+        "block:p0003_g0006",
+        "block:p0003_g0007",
+        "block:p0003_g0008",
+        "block:p0003_g0009",
+        "block:p0003_g0017",
+        "block:p0003_g0010",
+        "block:p0003_g0011",
+        "block:p0003_g0018",
+        "block:p0003_g0014"
+      ],
+      "body_block_ids": [
+        "block:p0003_g0019",
+        "block:p0003_g0020",
+        "block:p0003_g0021",
+        "block:p0003_g0022",
+        "block:p0003_g0023",
+        "block:p0003_g0024",
+        "block:p0003_g0025",
+        "block:p0003_g0001",
+        "block:p0003_g0002",
+        "block:p0003_g0003",
+        "block:p0003_g0004",
+        "block:p0003_g0005",
+        "block:p0003_g0006",
+        "block:p0003_g0007",
+        "block:p0003_g0008",
+        "block:p0003_g0009",
+        "block:p0003_g0010",
+        "block:p0003_g0011",
+        "block:p0003_g0014"
+      ],
+      "page_artifact_ids": [
+        "block:p0003_g0012",
+        "block:p0003_g0013"
+      ],
+      "evidence_block_ids": [
+        "block:p0003_g0015",
+        "block:p0003_g0016",
+        "block:p0003_g0017",
+        "block:p0003_g0018"
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "id": "block:p0000_g0001",
+      "type": "paragraph",
+      "text": "Drude applied kinetic theory to this \"gas\" of conduction electrons of mass m, which (in contrast to the molecules of an ordinary gas) move against a background of heavy immobile ions. The density of the electron gas can be calculated as follows:",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 0,
+      "bbox": [
+        56.0,
+        106.0,
+        884.0,
+        159.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0001",
+      "source_group_members": [
+        "mineru:p0000:b0001",
+        "paddleocr:p0000:b0006",
+        "deepseek:p0000:b0001"
+      ],
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "near",
+        "geometry": "missing",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0000_c0001",
+          "page_index": 0,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0001",
+            "paddleocr:p0000:b0006",
+            "deepseek:p0000:b0001"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0002",
+      "type": "paragraph",
+      "text": "A metallic element contains  0 . 6 0 2 2 \\times 1 0 ^ { 2 4 } atoms per mole (Avogadro's number) and  \\rho _ { m } / A moles per  \\mathrm { c m } ^ { 3 } ,where  \\rho _ { m } is the mass density (in grams per cubic centimeter) and A is the atomic mass of the element. Since each atom contributes Z electrons, the number of electrons per cubic centimeter,  n = N / V , is",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 1,
+      "bbox": [
+        56.0,
+        159.0,
+        886.0,
+        232.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0002",
+      "source_group_members": [
+        "mineru:p0000:b0002",
+        "paddleocr:p0000:b0007"
+      ],
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0000_c0002",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0002",
+            "paddleocr:p0000:b0007"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0003",
+      "type": "formula",
+      "text": "n = 0 . 6 0 2 2 \\times 1 0 ^ { 2 4 } \\frac { Z \\rho _ { m } } { A } .\\tag{1.1}",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 2,
+      "bbox": [
+        347.0,
+        235.0,
+        598.0,
+        274.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0003",
+      "source_group_members": [
+        "mineru:p0000:b0003",
+        "paddleocr:p0000:b0008"
+      ],
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0000_c0003",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "formula_disagreement",
+          "message": "Formula text differs",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0003",
+            "paddleocr:p0000:b0008"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0004",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0003",
+            "paddleocr:p0000:b0008"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0004",
+      "type": "paragraph",
+      "text": "Table 1.1 shows the conduction electron densities for some selected metals, They are typically of order  1 0 ^ { 2 2 } conduction electrons per cubic centimeter, varying from  0 . 9 1 \\ \\times \\ 1 0 ^ { 2 2 } for cesium up to  2 4 . 7 \\times 1 0 ^ { 2 2 } for beryllium. Also listed in Table 1.1 is a widely used measure of the electronic density.  r _ { s * } defined as the radius of a sphere whose volume is equal to the volume per conduction electron. Thus",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 3,
+      "bbox": [
+        56.0,
+        280.0,
+        886.0,
+        388.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0004",
+      "source_group_members": [
+        "mineru:p0000:b0004",
+        "paddleocr:p0000:b0009"
+      ],
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0000_c0005",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0004",
+            "paddleocr:p0000:b0009"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0005",
+      "type": "formula",
+      "text": "\\frac { V } { N } = \\frac { 1 } { n } = \\frac { 4 \\pi { r _ { s } } ^ { 3 } } { 3 } ; ~ r _ { s } = { \\left( \\frac { 3 } { 4 \\pi n } \\right) } ^ { 1 , 3 } .\\tag{1.2}",
+      "label": "1.2",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 4,
+      "bbox": [
+        305.0,
+        392.0,
+        640.0,
+        433.0
+      ],
+      "anchor_id": "eq:1.2",
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0005",
+      "source_group_members": [
+        "mineru:p0000:b0005",
+        "paddleocr:p0000:b0010",
+        "deepseek:p0000:b0005"
+      ],
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "near",
+        "geometry": "missing",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0000_c0006",
+          "page_index": 0,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0005",
+            "paddleocr:p0000:b0010",
+            "deepseek:p0000:b0005"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0007",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "formula_disagreement",
+          "message": "Formula text differs",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0005",
+            "paddleocr:p0000:b0010",
+            "deepseek:p0000:b0005"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0006",
+      "type": "paragraph",
+      "text": "Table 1.1 lists  r _ { s } both in angstroms  ( 1 0 ^ { - 8 } cm) and in units of the Bohr radius  a _ { 0 } = \\hbar ^ { 2 } / m e ^ { 2 } = 0 . 5 2 9 \\times 1 0 ^ { - 8 } cm; the latter length, being a measure of the radius of a hydrogen atom in its ground state, is often used as a scale for measuring atomic distances. Note that  r _ { s } / a _ { 0 } is between 2 and 3 in most cases, although it ranges between 3 and 6 in the alkali metals (and can be as large as 10 in some metallic compounds).",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 5,
+      "bbox": [
+        59.0,
+        441.0,
+        884.0,
+        533.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0006",
+      "source_group_members": [
+        "mineru:p0000:b0006",
+        "paddleocr:p0000:b0011"
+      ],
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0000_c0008",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0006",
+            "paddleocr:p0000:b0011"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0007",
+      "type": "paragraph",
+      "text": "These densities are typically a thousand times greater than those of a classical gas at normal temperatures and pressures. In spite of this and in spite of the strong electron-electron and electron-ion electromagnetic interactions, the Drude model boldly treats the dense metallic electron gas by the methods of the kinetic theory of a neutral dilute gas, with only slight modifications. The basic assumptions are these:",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 6,
+      "bbox": [
+        59.0,
+        531.0,
+        886.0,
+        622.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0007",
+      "source_group_members": [
+        "mineru:p0000:b0007",
+        "paddleocr:p0000:b0012",
+        "deepseek:p0000:b0007"
+      ],
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "exact",
+        "geometry": "missing",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0000_c0009",
+          "page_index": 0,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0007",
+            "paddleocr:p0000:b0012",
+            "deepseek:p0000:b0007"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0008",
+      "type": "paragraph",
+      "text": "1. Between collisions the interaction of a given electron, both with the others and with the ions, is neglected. Thus in the absence of externally applied electromagnetic fields each electron is taken to move uniformly in a straight line. In the presence of externally applied fields each electron is taken to move as determined by Newton's laws of motion in the presence of those external fields, but neglecting the additional complicated fields produced by the other electrons and ions.6 The neglect of electron-electron interactions between collisions is known as the independent electron approximation. The corresponding neglect of electron-ion interactions is known as the free electron approximation. We shall find in subsequent chapters that although the independent electron approximation is in many contexts surprisingly good, the free electron approximation must be abandoned if one is to arrive at even a qualitative understanding of much of metallic behavior.",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 7,
+      "bbox": [
+        59.0,
+        629.0,
+        886.0,
+        792.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0008",
+      "source_group_members": [
+        "mineru:p0000:b0008",
+        "paddleocr:p0000:b0013",
+        "deepseek:p0000:b0008"
+      ],
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "near",
+        "geometry": "missing",
+        "kind": "conflict"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0000_c0010",
+          "page_index": 0,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0008",
+            "paddleocr:p0000:b0013",
+            "deepseek:p0000:b0008"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0011",
+          "page_index": 0,
+          "severity": "low",
+          "type": "kind_disagreement",
+          "message": "Different kinds grouped",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0008",
+            "paddleocr:p0000:b0013",
+            "deepseek:p0000:b0008"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0009",
+      "type": "header",
+      "text": "4 Chapter 1 The Drude Theory of Metals",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 8,
+      "bbox": [
+        56.0,
+        71.0,
+        437.0,
+        89.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0009",
+      "source_group_members": [
+        "mineru:p0000:b0009"
+      ],
+      "sources": [
+        "mineru"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": true
+      }
+    },
+    {
+      "id": "block:p0000_g0010",
+      "type": "footnote",
+      "text": "5 This is the range for metallic elements under normal conditions. Higher densities can be attained by application of pressure (which tends to favor the metallic state). Lower densities are found in compounds.",
+      "label": "5",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 9,
+      "bbox": [
+        59.0,
+        810.0,
+        884.0,
+        857.0
+      ],
+      "anchor_id": "footnote:5",
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0010",
+      "source_group_members": [
+        "mineru:p0000:b0010"
+      ],
+      "sources": [
+        "mineru"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0011",
+      "type": "footnote",
+      "text": "6 Strictly speaking, the electron-ion interaction is not entirely ignored, for the Drude model implicitly assumes that the electrons are confined to the interior of the metal. Evidently this confinement is brought about by their attraction to the positively charged ions. Gross effects of the electron-ion and defn inteal fel epreentingtheveag effethe lectonlecton an econ-on ntecions.",
+      "label": "6",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 10,
+      "bbox": [
+        59.0,
+        855.0,
+        884.0,
+        933.0
+      ],
+      "anchor_id": "footnote:6",
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0011",
+      "source_group_members": [
+        "mineru:p0000:b0011",
+        "paddleocr:p0000:b0016"
+      ],
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0000_c0012",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0011",
+            "paddleocr:p0000:b0016"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0012",
+      "type": "title",
+      "text": "4 Chapter 1 The Drude Theory of Metals ",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 11,
+      "bbox": [
+        58.974,
+        72.139,
+        429.487,
+        85.406
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0012",
+      "source_group_members": [
+        "paddleocr:p0000:b0005"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0013",
+      "type": "paragraph",
+      "text": "(1.1)",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 12,
+      "bbox": [
+        833.333,
+        247.098,
+        875.641,
+        262.023
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0013",
+      "source_group_members": [
+        "paddleocr:p0000:b0014"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0014",
+      "type": "paragraph",
+      "text": "(1.2)",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 13,
+      "bbox": [
+        835.897,
+        405.473,
+        879.487,
+        421.227
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0014",
+      "source_group_members": [
+        "paddleocr:p0000:b0015"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0015",
+      "type": "paragraph",
+      "text": "A metallic element contains  \\( 0.6022 \\times 10^{24} \\)  atoms per mole (Avogadro's number) and  \\( \\rho_{m}/A \\)  moles per  \\( cm^{3} \\) , where  \\( \\rho_{m} \\)  is the mass density (in grams per cubic centimeter) and A is the atomic mass of the element. Since each atom contributes Z electrons, the number of electrons per cubic centimeter, n = N/V, is",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 14,
+      "bbox": null,
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0015",
+      "source_group_members": [
+        "deepseek:p0000:b0002"
+      ],
+      "sources": [
+        "deepseek"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0016",
+      "type": "formula",
+      "text": "n=0.6022\\times10^{24}\\frac{Z\\rho_{m}}{A}. \\quad (1.1)",
+      "label": "1.1",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 15,
+      "bbox": null,
+      "anchor_id": "eq:1.1",
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0016",
+      "source_group_members": [
+        "deepseek:p0000:b0003"
+      ],
+      "sources": [
+        "deepseek"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0017",
+      "type": "caption",
+      "text": "Table 1.1 shows the conduction electron densities for some selected metals. They are typically of order  \\( 10^{22} \\)  conduction electrons per cubic centimeter, varying from  \\( 0.91 \\times 10^{22} \\)  for cesium up to  \\( 24.7 \\times 10^{22} \\)  for beryllium. \\( ^{5} \\)  Also listed in Table 1.1 is a widely used measure of the electronic density,  \\( r_{s} \\) , defined as the radius of a sphere whose volume is equal to the volume per conduction electron. Thus",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 16,
+      "bbox": null,
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0017",
+      "source_group_members": [
+        "deepseek:p0000:b0004"
+      ],
+      "sources": [
+        "deepseek"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0018",
+      "type": "caption",
+      "text": "Table 1.1 lists  \\( r_{s} \\)  both in angstroms ( \\( 10^{-8} \\)  cm) and in units of the Bohr radius  \\( a_{0} = \\hbar^{2}/me^{2} = 0.529 \\times 10^{-8} \\)  cm; the latter length, being a measure of the radius of a hydrogen atom in its ground state, is often used as a scale for measuring atomic distances. Note that  \\( r_{s}/a_{0} \\)  is between 2 and 3 in most cases, although it ranges between 3 and 6 in the alkali metals (and can be as large as 10 in some metallic compounds).",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 17,
+      "bbox": null,
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0018",
+      "source_group_members": [
+        "deepseek:p0000:b0006"
+      ],
+      "sources": [
+        "deepseek"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0001_g0001",
+      "type": "table",
+      "text": "ELEMENT Z $n ( 1 0 ^ { 2 2 } / { \\mathrm { c m } } ^ { 3 } )$ $r _ { s } ( \\mathrm { \\AA } )$ $r _ { s } / a _ { 0 }$ Li (78 K) 1 4.70 1.72 3.25 Na (5 K) 1 2.65 2.08 3.93 K (5 K) I 1.40 2.57 4.86 Rb (5 K) 1 1.15 2.75 5.20 Cs (5 K) I 0.91 2.98 5.62 Cu I 8.47 1.41 2.67 Ag 1 5.86 1.60 3.02 Au 1 5.90 1.59 3.01 Be 2 24.7 0.99 1.87 Mg 20 8.61 1.41 2.66 Ca 2 4.61 1.73 3.27 Sr 2 3.55 1.89 3.57 Ba 2 3.15 1.96 3.71 Nb 1 5.56 1.63 3.07 Fe 2 17.0 1.12 2.12 Mn (x) 2 16.5 1.13 2.14 Zn 13.2 1.22 2.30 Cd 22 9.27 1.37 2.59 Hg (78 K) 2 8.65 1.40 2.65 Al 3 18.1 1.10 2.07 Ga 3 15.4 1.16 2.19 In 3 11.5 1.27 2.41 T1 3 10.5 1.31 2.48 Sn 4 14.8 1.17 2.22 Pb 4 13.2 1.22 2.30 Bi 5 14.1 1.19 2.25 Sb 5 16.5 1.13 2.14",
+      "label": "1.1",
+      "page_index": 1,
+      "page_number": 2,
+      "order": 0,
+      "bbox": [
+        178.0,
+        135.0,
+        785.0,
+        628.0
+      ],
+      "anchor_id": "table:1.1",
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0001_g0001",
+      "source_group_members": [
+        "mineru:p0001:b0001",
+        "paddleocr:p0001:b0011",
+        "deepseek:p0001:b0003"
+      ],
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "missing",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0001_c0001",
+          "page_index": 1,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0001",
+            "paddleocr:p0001:b0011",
+            "deepseek:p0001:b0003"
+          ]
+        },
+        {
+          "conflict_id": "p0001_c0002",
+          "page_index": 1,
+          "severity": "medium",
+          "type": "table_disagreement",
+          "message": "Table signatures differ",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0001",
+            "paddleocr:p0001:b0011",
+            "deepseek:p0001:b0003"
+          ]
+        },
+        {
+          "conflict_id": "p0001_c0003",
+          "page_index": 1,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0001",
+            "paddleocr:p0001:b0011",
+            "deepseek:p0001:b0003"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0001_g0002",
+      "type": "caption",
+      "text": "Table 1.1",
+      "label": null,
+      "page_index": 1,
+      "page_number": 2,
+      "order": 1,
+      "bbox": [
+        178.0,
+        135.0,
+        785.0,
+        628.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0001_g0002",
+      "source_group_members": [
+        "mineru:p0001:b0002",
+        "mineru:p0001:b0003",
+        "deepseek:p0001:b0001"
+      ],
+      "sources": [
+        "deepseek",
+        "mineru"
+      ],
+      "agreement": {
+        "text": "near",
+        "geometry": "missing",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0001_c0004",
+          "page_index": 1,
+          "severity": "medium",
+          "type": "possible_duplicate",
+          "message": "Multiple blocks from same source in group",
+          "sources": [
+            "deepseek",
+            "mineru"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0002",
+            "mineru:p0001:b0003",
+            "deepseek:p0001:b0001"
+          ]
+        },
+        {
+          "conflict_id": "p0001_c0005",
+          "page_index": 1,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0002",
+            "mineru:p0001:b0003",
+            "deepseek:p0001:b0001"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0001_g0003",
+      "type": "unknown",
+      "text": "At room temperature (about 300 K) and atmospheric pressure, unless otherwise noted. The radius",
+      "label": null,
+      "page_index": 1,
+      "page_number": 2,
+      "order": 2,
+      "bbox": [
+        178.0,
+        135.0,
+        785.0,
+        628.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0001_g0003",
+      "source_group_members": [
+        "mineru:p0001:b0004",
+        "mineru:p0001:b0005",
+        "mineru:p0001:b0006"
+      ],
+      "sources": [
+        "mineru"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0001_c0006",
+          "page_index": 1,
+          "severity": "medium",
+          "type": "possible_duplicate",
+          "message": "Multiple blocks from same source in group",
+          "sources": [
+            "mineru"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0004",
+            "mineru:p0001:b0005",
+            "mineru:p0001:b0006"
+          ]
+        },
+        {
+          "conflict_id": "p0001_c0007",
+          "page_index": 1,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0004",
+            "mineru:p0001:b0005",
+            "mineru:p0001:b0006"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0001_g0004",
+      "type": "paragraph",
+      "text": "although the independent electron approximation is in many contexts surprisingly\ngood, the free electron approximation must be abandoned if one is to arrive at even\na qualitative understanding of much of metallic behavior.",
+      "label": null,
+      "page_index": 1,
+      "page_number": 2,
+      "order": 3,
+      "bbox": [
+        102.0,
+        767.0,
+        853.0,
+        823.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0001_g0004",
+      "source_group_members": [
+        "mineru:p0001:b0007",
+        "paddleocr:p0001:b0013",
+        "deepseek:p0001:b0005"
+      ],
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "exact",
+        "geometry": "missing",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0001_c0008",
+          "page_index": 1,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0007",
+            "paddleocr:p0001:b0013",
+            "deepseek:p0001:b0005"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0001_g0005",
+      "type": "paragraph",
+      "text": "2. Collisions in the Drude model, as in kinetic theory, are instantaneous events that abruptly alter the velocity of an electron. Drude attributed them to the electrons bouncing off the impenetrable ion cores (rather than to electron-electron collisions. the analogue of the predominant collision mechanism in an ordinary gas). We shall find later that electron-electron scattering is indeed one of the least important of the several scattering mechanisms in a metal, except under unusual conditions. However,",
+      "label": null,
+      "page_index": 1,
+      "page_number": 2,
+      "order": 4,
+      "bbox": [
+        102.0,
+        821.0,
+        856.0,
+        934.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0001_g0005",
+      "source_group_members": [
+        "mineru:p0001:b0008",
+        "paddleocr:p0001:b0014",
+        "deepseek:p0001:b0006"
+      ],
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "near",
+        "geometry": "missing",
+        "kind": "conflict"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0001_c0009",
+          "page_index": 1,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0008",
+            "paddleocr:p0001:b0014",
+            "deepseek:p0001:b0006"
+          ]
+        },
+        {
+          "conflict_id": "p0001_c0010",
+          "page_index": 1,
+          "severity": "low",
+          "type": "kind_disagreement",
+          "message": "Different kinds grouped",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0008",
+            "paddleocr:p0001:b0014",
+            "deepseek:p0001:b0006"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0001_g0006",
+      "type": "header",
+      "text": "Basic Assumptions of the Drude Model",
+      "label": null,
+      "page_index": 1,
+      "page_number": 2,
+      "order": 5,
+      "bbox": [
+        527.0,
+        46.0,
+        828.0,
+        65.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0001_g0006",
+      "source_group_members": [
+        "mineru:p0001:b0009"
+      ],
+      "sources": [
+        "mineru"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": true
+      }
+    },
+    {
+      "id": "block:p0001_g0007",
+      "type": "page_number",
+      "text": "5",
+      "label": null,
+      "page_index": 1,
+      "page_number": 2,
+      "order": 6,
+      "bbox": [
+        842.0,
+        47.0,
+        860.0,
+        63.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0001_g0007",
+      "source_group_members": [
+        "mineru:p0001:b0010"
+      ],
+      "sources": [
+        "mineru"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": true
+      }
+    },
+    {
+      "id": "block:p0001_g0008",
+      "type": "title",
+      "text": "Table1.1",
+      "label": null,
+      "page_index": 1,
+      "page_number": 2,
+      "order": 7,
+      "bbox": [
+        184.721,
+        81.266,
+        261.117,
+        94.098
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0001_g0008",
+      "source_group_members": [
+        "paddleocr:p0001:b0009"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0001_g0009",
+      "type": "title",
+      "text": "FREE ELECTRON DENSITIES OF SELECTED METALLIC ELEMENTSa \n",
+      "label": null,
+      "page_index": 1,
+      "page_number": 2,
+      "order": 8,
+      "bbox": [
+        184.721,
+        97.519,
+        779.932,
+        127.459
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0001_g0009",
+      "source_group_members": [
+        "paddleocr:p0001:b0010"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0001_g0010",
+      "type": "paragraph",
+      "text": "\"At room temperature (about 300 K) and atmospheric pressure, unless otherwise noted. The radius $r_{s}$ ofi We have arbitrarily selected one value of Z for those elements that display more than one chemical valence. The Drude model gives no theoretical basis for the choice. Values of n are based on data from R.W.G.Wyckoff,Crystal Structures, 2nd ed. Interscience, New York,1963.",
+      "label": null,
+      "page_index": 1,
+      "page_number": 2,
+      "order": 9,
+      "bbox": [
+        180.16,
+        637.297,
+        776.511,
+        736.527
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0001_g0010",
+      "source_group_members": [
+        "paddleocr:p0001:b0012"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0001_g0011",
+      "type": "paragraph",
+      "text": "FREE ELECTRON DENSITIES OF SELECTED METALLIC ELEMENTS \\( ^{a} \\)",
+      "label": null,
+      "page_index": 1,
+      "page_number": 2,
+      "order": 10,
+      "bbox": null,
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0001_g0011",
+      "source_group_members": [
+        "deepseek:p0001:b0002"
+      ],
+      "sources": [
+        "deepseek"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0001_g0012",
+      "type": "paragraph",
+      "text": "\\( ^{a} \\)  At room temperature (about 300 K) and atmospheric pressure, unless otherwise noted. The radius  \\( r_{s} \\)  of the free electron sphere is defined in Eq. (1.2). We have arbitrarily selected one value of Z for those elements that display more than one chemical valence. The Drude model gives no theoretical basis for the choice. Values of n are based on data from R. W. G. Wyckoff, Crystal Structures, 2nd ed., Interscience, New York, 1963.",
+      "label": null,
+      "page_index": 1,
+      "page_number": 2,
+      "order": 11,
+      "bbox": null,
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0001_g0012",
+      "source_group_members": [
+        "deepseek:p0001:b0004"
+      ],
+      "sources": [
+        "deepseek"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0002_g0001",
+      "type": "figure",
+      "text": "Figure 1.2",
+      "label": null,
+      "page_index": 2,
+      "page_number": 3,
+      "order": 0,
+      "bbox": [
+        303.03,
+        176.277,
+        1000.0,
+        308.072
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0002_g0001",
+      "source_group_members": [
+        "mineru:p0002:b0001"
+      ],
+      "sources": [
+        "mineru"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0002_g0002",
+      "type": "caption",
+      "text": "Figure 1.2",
+      "label": null,
+      "page_index": 2,
+      "page_number": 3,
+      "order": 1,
+      "bbox": [
+        303.03,
+        176.277,
+        1000.0,
+        308.072
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0002_g0002",
+      "source_group_members": [
+        "mineru:p0002:b0002",
+        "deepseek:p0002:b0002"
+      ],
+      "sources": [
+        "deepseek",
+        "mineru"
+      ],
+      "agreement": {
+        "text": "exact",
+        "geometry": "missing",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0002_c0001",
+          "page_index": 2,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru"
+          ],
+          "evidence_ids": [
+            "mineru:p0002:b0002",
+            "deepseek:p0002:b0002"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0002_g0003",
+      "type": "paragraph",
+      "text": "Trajectory of a conduction electron scattering off the ions. according to the naive picture of Drude.",
+      "label": null,
+      "page_index": 2,
+      "page_number": 3,
+      "order": 2,
+      "bbox": [
+        456.0,
+        123.0,
+        895.0,
+        158.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0002_g0003",
+      "source_group_members": [
+        "mineru:p0002:b0003",
+        "paddleocr:p0002:b0011",
+        "deepseek:p0002:b0003"
+      ],
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "near",
+        "geometry": "missing",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0002_c0002",
+          "page_index": 2,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0002:b0003",
+            "paddleocr:p0002:b0011",
+            "deepseek:p0002:b0003"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0002_g0004",
+      "type": "paragraph",
+      "text": "the simple mechanical picture (Figure 1.2) of an electron bumping along from ion to ion is very far off the mark.7 Fortunately, this does not matter for many purposes: a qualitative (and often a quantitative) understanding of metallic conduction can be achieved by simply assuming that there is some scattering mechanism, without inquiring too closely into just what that mechanism might be. By appealing, in our analysis. to only a few general effects of the collision process. we can avoid committing ourselves to any specific picture of how electron scattering actually takes place. These broad features are described in the following two assumptions.",
+      "label": null,
+      "page_index": 2,
+      "page_number": 3,
+      "order": 3,
+      "bbox": [
+        128.0,
+        194.0,
+        897.0,
+        337.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0002_g0004",
+      "source_group_members": [
+        "mineru:p0002:b0004",
+        "paddleocr:p0002:b0012"
+      ],
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0002_c0003",
+          "page_index": 2,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0002:b0004",
+            "paddleocr:p0002:b0012"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0002_g0005",
+      "type": "paragraph",
+      "text": "3. We shall assume that an electron experiences a collision (i.e. suffers an abrupt change in its velocity) with a probability per unit time 1/\u03c4. We mean by this that the probability of an electron undergoing a collision in any infinitesimal time interval of length dt is just dt/t. The time t is variously known as the relaxation time, the collision time, or the mean free time, and it plays a fundamental role in the theory of metallic conduction. It follows from this assumption that an electron picked at random at a given moment will, on the average, travel for a time t before its next collision, and will, on the average, have been traveling for a time t since its last collision.8 In the simplest applications of the Drude model the collision time t is taken to be independent of an electron's position and velocity. We shall see later that this turns out to be a surprisingly good assumption for many (but by no means all) applications. 4. Electrons are assumed to achieve thermal equilibrium with their surroundings only through collisions. These collisions are assumed to maintain local thermodynamic equilibrium in a particularly simple way: immediately after each collision an electron is taken to emerge with a velocity that is not related to its velocity just before the collision, but randomly directed and with a speed appropriate to the temperature prevailing at the place where the collision occurred. Thus the hotter the region in which a collision occurs, the faster a typical electron will emerge from the collision.",
+      "label": null,
+      "page_index": 2,
+      "page_number": 3,
+      "order": 4,
+      "bbox": [
+        128.0,
+        337.0,
+        899.0,
+        677.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0002_g0005",
+      "source_group_members": [
+        "mineru:p0002:b0005",
+        "paddleocr:p0002:b0013",
+        "deepseek:p0002:b0005"
+      ],
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "near",
+        "geometry": "missing",
+        "kind": "conflict"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0002_c0004",
+          "page_index": 2,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0002:b0005",
+            "paddleocr:p0002:b0013",
+            "deepseek:p0002:b0005"
+          ]
+        },
+        {
+          "conflict_id": "p0002_c0005",
+          "page_index": 2,
+          "severity": "low",
+          "type": "kind_disagreement",
+          "message": "Different kinds grouped",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0002:b0005",
+            "paddleocr:p0002:b0013",
+            "deepseek:p0002:b0005"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0002_g0006",
+      "type": "paragraph",
+      "text": "In the rest of this chapter we shall illustrate these notions through their most important applications, noting the extent to which they succeed or fail to describe the observed phenomena.",
+      "label": null,
+      "page_index": 2,
+      "page_number": 3,
+      "order": 5,
+      "bbox": [
+        130.0,
+        683.0,
+        897.0,
+        738.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0002_g0006",
+      "source_group_members": [
+        "mineru:p0002:b0006",
+        "paddleocr:p0002:b0014",
+        "deepseek:p0002:b0006"
+      ],
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "near",
+        "geometry": "missing",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0002_c0006",
+          "page_index": 2,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0002:b0006",
+            "paddleocr:p0002:b0014",
+            "deepseek:p0002:b0006"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0002_g0007",
+      "type": "title",
+      "text": "DC ELECTRICAL CONDUCTIVITY OF A METAL",
+      "label": null,
+      "page_index": 2,
+      "page_number": 3,
+      "order": 6,
+      "bbox": [
+        130.0,
+        761.0,
+        699.0,
+        782.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0002_g0007",
+      "source_group_members": [
+        "mineru:p0002:b0007",
+        "paddleocr:p0002:b0015",
+        "deepseek:p0002:b0007"
+      ],
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "near",
+        "geometry": "missing",
+        "kind": "conflict"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0002_c0007",
+          "page_index": 2,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0002:b0007",
+            "paddleocr:p0002:b0015",
+            "deepseek:p0002:b0007"
+          ]
+        },
+        {
+          "conflict_id": "p0002_c0008",
+          "page_index": 2,
+          "severity": "low",
+          "type": "kind_disagreement",
+          "message": "Different kinds grouped",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0002:b0007",
+            "paddleocr:p0002:b0015",
+            "deepseek:p0002:b0007"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0002_g0008",
+      "type": "paragraph",
+      "text": "According to Ohm's law, the current I flowing in a wire is proportional to the potential drop V along the wire: V = IR, where R, the resistance of the wire, depends on its dimensions, but is independent of the size of the current or potential drop. The Drude model accounts for this behavior and provides an estimate of the size of the resistance.",
+      "label": null,
+      "page_index": 2,
+      "page_number": 3,
+      "order": 7,
+      "bbox": [
+        130.0,
+        789.0,
+        897.0,
+        827.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0002_g0008",
+      "source_group_members": [
+        "mineru:p0002:b0008",
+        "paddleocr:p0002:b0016",
+        "deepseek:p0002:b0008"
+      ],
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "near",
+        "geometry": "missing",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0002_c0009",
+          "page_index": 2,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0002:b0008",
+            "paddleocr:p0002:b0016",
+            "deepseek:p0002:b0008"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0002_g0009",
+      "type": "header",
+      "text": "6 Chapter 1 The Drude Theory of Metals",
+      "label": null,
+      "page_index": 2,
+      "page_number": 3,
+      "order": 8,
+      "bbox": [
+        132.0,
+        74.0,
+        477.0,
+        90.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0002_g0009",
+      "source_group_members": [
+        "mineru:p0002:b0009"
+      ],
+      "sources": [
+        "mineru"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": true
+      }
+    },
+    {
+      "id": "block:p0002_g0010",
+      "type": "unknown",
+      "text": "For some time people were led into diffcult but irrelevant problems connected with the proper aig o n electron  in eac colion.S iteral n iteretation o Figure 1. is eu to be avoided.",
+      "label": null,
+      "page_index": 2,
+      "page_number": 3,
+      "order": 9,
+      "bbox": [
+        130.0,
+        846.0,
+        897.0,
+        891.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0002_g0010",
+      "source_group_members": [
+        "mineru:p0002:b0010",
+        "paddleocr:p0002:b0017"
+      ],
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0002_c0010",
+          "page_index": 2,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0002:b0010",
+            "paddleocr:p0002:b0017"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0002_g0011",
+      "type": "footnote",
+      "text": "8 See Problem 1.",
+      "label": "8",
+      "page_index": 2,
+      "page_number": 3,
+      "order": 10,
+      "bbox": [
+        156.0,
+        891.0,
+        298.0,
+        906.0
+      ],
+      "anchor_id": "footnote:8",
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0002_g0011",
+      "source_group_members": [
+        "mineru:p0002:b0011"
+      ],
+      "sources": [
+        "mineru"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0002_g0012",
+      "type": "unknown",
+      "text": "Given the free and independent electron approximation, this is the only possible mechanism left.",
+      "label": null,
+      "page_index": 2,
+      "page_number": 3,
+      "order": 11,
+      "bbox": [
+        153.0,
+        904.0,
+        895.0,
+        922.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0002_g0012",
+      "source_group_members": [
+        "mineru:p0002:b0012"
+      ],
+      "sources": [
+        "mineru"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0002_g0013",
+      "type": "figure",
+      "text": "",
+      "label": "1.2",
+      "page_index": 2,
+      "page_number": 3,
+      "order": 12,
+      "bbox": [
+        132.712,
+        108.553,
+        444.703,
+        185.033
+      ],
+      "anchor_id": "fig:1.2",
+      "media_id": "media:fig_1_2",
+      "media_path": "media/fig_1_2.png",
+      "source_group_id": "p0002_g0013",
+      "source_group_members": [
+        "paddleocr:p0002:b0009"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "unavailable",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "resolved",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [
+        "media_status:single_source_geometry"
+      ],
+      "metadata": {
+        "is_page_artifact": false,
+        "media_status": "single_source_geometry",
+        "media_type": "figure",
+        "media_policy": {
+          "render_dpi": 200,
+          "padding_px": 8,
+          "geometry_agreement": "single_source"
+        }
+      }
+    },
+    {
+      "id": "block:p0002_g0014",
+      "type": "title",
+      "text": "Figure 1.2",
+      "label": null,
+      "page_index": 2,
+      "page_number": 3,
+      "order": 13,
+      "bbox": [
+        461.001,
+        109.375,
+        542.491,
+        121.711
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0002_g0014",
+      "source_group_members": [
+        "paddleocr:p0002:b0010"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0002_g0015",
+      "type": "figure",
+      "text": "![](images/0.jpg)",
+      "label": null,
+      "page_index": 2,
+      "page_number": 3,
+      "order": 14,
+      "bbox": null,
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0002_g0015",
+      "source_group_members": [
+        "deepseek:p0002:b0001"
+      ],
+      "sources": [
+        "deepseek"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0002_g0016",
+      "type": "paragraph",
+      "text": "the simple mechanical picture (Figure 1.2) of an electron bumping along from ion to ion is very far off the mark. \\( ^{7} \\)  Fortunately, this does not matter for many purposes: a qualitative (and often a quantitative) understanding of metallic conduction can be achieved by simply assuming that there is some scattering mechanism, without inquiring too closely into just what that mechanism might be. By appealing, in our analysis, to only a few general effects of the collision process, we can avoid committing ourselves to any specific picture of how electron scattering actually takes place. These broad features are described in the following two assumptions.",
+      "label": null,
+      "page_index": 2,
+      "page_number": 3,
+      "order": 15,
+      "bbox": null,
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0002_g0016",
+      "source_group_members": [
+        "deepseek:p0002:b0004"
+      ],
+      "sources": [
+        "deepseek"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0001",
+      "type": "paragraph",
+      "text": "dimensions, but is independent of the size of the current or potential drop. The Drude\nmodel accounts for this behavior and provides an estimate of the size of the resistance.",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 0,
+      "bbox": [
+        146.0,
+        81.0,
+        918.0,
+        119.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0001",
+      "source_group_members": [
+        "mineru:p0003:b0001",
+        "paddleocr:p0003:b0009",
+        "deepseek:p0003:b0001"
+      ],
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "exact",
+        "geometry": "missing",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0003_c0001",
+          "page_index": 3,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0001",
+            "paddleocr:p0003:b0009",
+            "deepseek:p0003:b0001"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0002",
+      "type": "paragraph",
+      "text": "One generally eliminates the dependence of R on the shape of the wire by introducing a quantity characteristic only of the metal of which the wire is composed. The resistivity  \\rho is defined to be the proportionality constant between the electric field E at a point in the metal and the current density j that it induces10.",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 1,
+      "bbox": [
+        146.0,
+        117.0,
+        920.0,
+        192.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0002",
+      "source_group_members": [
+        "mineru:p0003:b0002",
+        "paddleocr:p0003:b0010",
+        "deepseek:p0003:b0002"
+      ],
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "near",
+        "geometry": "missing",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0003_c0002",
+          "page_index": 3,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0002",
+            "paddleocr:p0003:b0010",
+            "deepseek:p0003:b0002"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0003",
+      "type": "formula",
+      "text": "{ \\bf E } = \\rho { \\bf j } .\\tag{1.3}",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 2,
+      "bbox": [
+        489.0,
+        199.0,
+        570.0,
+        219.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0003",
+      "source_group_members": [
+        "mineru:p0003:b0003",
+        "paddleocr:p0003:b0011"
+      ],
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0003_c0003",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "formula_disagreement",
+          "message": "Formula text differs",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0003",
+            "paddleocr:p0003:b0011"
+          ]
+        },
+        {
+          "conflict_id": "p0003_c0004",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0003",
+            "paddleocr:p0003:b0011"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0004",
+      "type": "paragraph",
+      "text": "The current density j is a vector. parallel to the flow of charge, whose magnitude is the amount of charge per unit time crossing a unit area perpendicular to the flow. Thus if a uniform current I fows through a wire of length L and cross-sectional area A, the current density will be  j = I , A Since the potential drop along the wire will be  V = E L , Eq. (1.3) gives  V = I \\rho L / . 4 . ,and hence  R = \\rho L / A",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 3,
+      "bbox": [
+        146.0,
+        228.0,
+        920.0,
+        321.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0004",
+      "source_group_members": [
+        "mineru:p0003:b0004",
+        "paddleocr:p0003:b0012"
+      ],
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0003_c0005",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0004",
+            "paddleocr:p0003:b0012"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0005",
+      "type": "paragraph",
+      "text": "If n electrons per unit volume all move with velocity v, then the current density they give rise to will be parallel to v. Furthermore, in a time dt the electrons will advance by a distance v dt in the direction of v, so that  n ( \\tau d t ) A electrons will cross an area A perpendicular to the direction of flow. Since each electron carries a charge  - e , the charge crossing 4 in the time dt will be  - n e t A d t , and hence the current density is",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 4,
+      "bbox": [
+        146.0,
+        320.0,
+        920.0,
+        431.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0005",
+      "source_group_members": [
+        "mineru:p0003:b0005",
+        "paddleocr:p0003:b0013"
+      ],
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0003_c0006",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0005",
+            "paddleocr:p0003:b0013"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0006",
+      "type": "formula",
+      "text": "{ \\bf j } = - n e { \\bf v } .\\tag{1.4}",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 5,
+      "bbox": [
+        477.0,
+        431.0,
+        582.0,
+        448.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0006",
+      "source_group_members": [
+        "mineru:p0003:b0006",
+        "paddleocr:p0003:b0014"
+      ],
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0003_c0007",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "formula_disagreement",
+          "message": "Formula text differs",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0006",
+            "paddleocr:p0003:b0014"
+          ]
+        },
+        {
+          "conflict_id": "p0003_c0008",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0006",
+            "paddleocr:p0003:b0014"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0007",
+      "type": "paragraph",
+      "text": "At any point in a metal, electrons are always moving in a variety of directions with a variety of thermal energies. The net current density is thus given by (1.4), where v is the average electronic velocity. In the absence of an electric field, electrons are as likely to be moving in any one direction as in any other, v averages to zero, and, as expected, there is no net electric current density. In the presence of a field E, however, there will be a mean electronic velocity directed opposite to the feld (the electronic charge being negative), which we can compute as follows:",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 6,
+      "bbox": [
+        143.0,
+        459.0,
+        920.0,
+        589.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0007",
+      "source_group_members": [
+        "mineru:p0003:b0007",
+        "paddleocr:p0003:b0015",
+        "deepseek:p0003:b0007"
+      ],
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "near",
+        "geometry": "missing",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0003_c0009",
+          "page_index": 3,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0007",
+            "paddleocr:p0003:b0015",
+            "deepseek:p0003:b0007"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0008",
+      "type": "paragraph",
+      "text": "Consider a typical electron at time zero. Let t be the time elapsed since its last collision. Its velocity at time zero will be its velocity  \\Psi _ { 0 } immediately after that collision plus the additional velocity  - e \\mathbf { E } t / m it has subsequently acquired. Since we assume that an electron emerges from a collision in a random direction, there will be no contribution from  { \\bf v } _ { 0 } to the average electronic velocity, which must therefore be given entirely by the average of  - e \\mathbf { E } t / m However, the average of t is the relaxation time . Therefore",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 7,
+      "bbox": [
+        143.0,
+        589.0,
+        923.0,
+        718.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0008",
+      "source_group_members": [
+        "mineru:p0003:b0008",
+        "paddleocr:p0003:b0016"
+      ],
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0003_c0010",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0008",
+            "paddleocr:p0003:b0016"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0009",
+      "type": "formula",
+      "text": "\\mathbf { \\boldsymbol { \\nu } } _ { \\mathrm { a v g } } = - \\ \\frac { e \\mathbf { E } \\tau } { m } ; ~ \\mathbf { \\ j } = \\left( \\frac { n e ^ { 2 } \\tau } { m } \\right) \\mathbf { \\boldsymbol { \\mathbf { E } } } .\\tag{1.5}",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 8,
+      "bbox": [
+        386.0,
+        715.0,
+        673.0,
+        759.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0009",
+      "source_group_members": [
+        "mineru:p0003:b0009",
+        "paddleocr:p0003:b0017"
+      ],
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0003_c0011",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "formula_disagreement",
+          "message": "Formula text differs",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0009",
+            "paddleocr:p0003:b0017"
+          ]
+        },
+        {
+          "conflict_id": "p0003_c0012",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0009",
+            "paddleocr:p0003:b0017"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0010",
+      "type": "paragraph",
+      "text": "This result is usually stated in terms of the inverse of the resistivity, the conductivity  \\sigma = 1 / \\rho ;",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 9,
+      "bbox": [
+        146.0,
+        770.0,
+        920.0,
+        807.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0010",
+      "source_group_members": [
+        "mineru:p0003:b0010",
+        "paddleocr:p0003:b0018",
+        "deepseek:p0003:b0010"
+      ],
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "near",
+        "geometry": "missing",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0003_c0013",
+          "page_index": 3,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0010",
+            "paddleocr:p0003:b0018",
+            "deepseek:p0003:b0010"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0011",
+      "type": "formula",
+      "text": "\\boxed { \\begin{array} { l l } { \\mathbf { j } = \\sigma \\mathbf { E } ; } & { \\sigma = \\frac { n e ^ { 2 } \\tau } { m } . } \\end{array} }\\tag{1.6}",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 10,
+      "bbox": [
+        422.0,
+        821.0,
+        637.0,
+        882.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0011",
+      "source_group_members": [
+        "mineru:p0003:b0011",
+        "paddleocr:p0003:b0019"
+      ],
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0003_c0014",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "formula_disagreement",
+          "message": "Formula text differs",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0011",
+            "paddleocr:p0003:b0019"
+          ]
+        },
+        {
+          "conflict_id": "p0003_c0015",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0011",
+            "paddleocr:p0003:b0019"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0012",
+      "type": "header",
+      "text": "DC Electrical Conductivity of a Metal",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 11,
+      "bbox": [
+        575.0,
+        45.0,
+        884.0,
+        63.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0012",
+      "source_group_members": [
+        "mineru:p0003:b0012"
+      ],
+      "sources": [
+        "mineru"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": true
+      }
+    },
+    {
+      "id": "block:p0003_g0013",
+      "type": "page_number",
+      "text": "7",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 12,
+      "bbox": [
+        901.0,
+        45.0,
+        916.0,
+        61.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0013",
+      "source_group_members": [
+        "mineru:p0003:b0013"
+      ],
+      "sources": [
+        "mineru"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": true
+      }
+    },
+    {
+      "id": "block:p0003_g0014",
+      "type": "unknown",
+      "text": "Inl, Ene ot be palOne hen e y no. Se Chap  n .",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 13,
+      "bbox": [
+        170.0,
+        906.0,
+        920.0,
+        923.0
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0014",
+      "source_group_members": [
+        "mineru:p0003:b0014",
+        "paddleocr:p0003:b0024"
+      ],
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0003_c0016",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0014",
+            "paddleocr:p0003:b0024"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "mineru",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0015",
+      "type": "paragraph",
+      "text": "(1.3)",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 14,
+      "bbox": [
+        870.813,
+        201.702,
+        911.483,
+        217.021
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0015",
+      "source_group_members": [
+        "paddleocr:p0003:b0020"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0016",
+      "type": "paragraph",
+      "text": "(1.4)",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 15,
+      "bbox": [
+        870.813,
+        430.638,
+        912.679,
+        445.106
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0016",
+      "source_group_members": [
+        "paddleocr:p0003:b0021"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0017",
+      "type": "paragraph",
+      "text": "(1.5)",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 16,
+      "bbox": [
+        870.813,
+        729.362,
+        911.483,
+        744.681
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0017",
+      "source_group_members": [
+        "paddleocr:p0003:b0022"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0018",
+      "type": "paragraph",
+      "text": "(1.6)",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 17,
+      "bbox": [
+        872.01,
+        840.851,
+        912.679,
+        857.021
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0018",
+      "source_group_members": [
+        "paddleocr:p0003:b0023"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0019",
+      "type": "formula",
+      "text": "\\mathbf{E}=\\rho\\mathbf{j}. \\quad (1.3)",
+      "label": "1.3",
+      "page_index": 3,
+      "page_number": 4,
+      "order": 18,
+      "bbox": null,
+      "anchor_id": "eq:1.3",
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0019",
+      "source_group_members": [
+        "deepseek:p0003:b0003"
+      ],
+      "sources": [
+        "deepseek"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0020",
+      "type": "paragraph",
+      "text": "The current density j is a vector, parallel to the flow of charge, whose magnitude is the amount of charge per unit time crossing a unit area perpendicular to the flow. Thus if a uniform current I flows through a wire of length L and cross-sectional area A, the current density will be j = I/A. Since the potential drop along the wire will be V = EL, Eq. (1.3) gives  \\( V = I\\rho L/A \\) , and hence  \\( R = \\rho L/A \\) .",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 19,
+      "bbox": null,
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0020",
+      "source_group_members": [
+        "deepseek:p0003:b0004"
+      ],
+      "sources": [
+        "deepseek"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0021",
+      "type": "paragraph",
+      "text": "If n electrons per unit volume all move with velocity v, then the current density they give rise to will be parallel to v. Furthermore, in a time dt the electrons will advance by a distance v dt in the direction of v, so that  \\( n(v \\, dt)A \\)  electrons will cross an area A perpendicular to the direction of flow. Since each electron carries a charge -e, the charge crossing A in the time dt will be  \\( -n e r A \\, dt \\) , and hence the current density is",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 20,
+      "bbox": null,
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0021",
+      "source_group_members": [
+        "deepseek:p0003:b0005"
+      ],
+      "sources": [
+        "deepseek"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0022",
+      "type": "formula",
+      "text": "\\mathbf{j}=-n e\\mathbf{v}. \\quad (1.4)",
+      "label": "1.4",
+      "page_index": 3,
+      "page_number": 4,
+      "order": 21,
+      "bbox": null,
+      "anchor_id": "eq:1.4",
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0022",
+      "source_group_members": [
+        "deepseek:p0003:b0006"
+      ],
+      "sources": [
+        "deepseek"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0023",
+      "type": "paragraph",
+      "text": "Consider a typical electron at time zero. Let t be the time elapsed since its last collision. Its velocity at time zero will be its velocity  \\( v_{0} \\)  immediately after that collision plus the additional velocity  \\( -eEt/m \\)  it has subsequently acquired. Since we assume that an electron emerges from a collision in a random direction, there will be no contribution from  \\( v_{0} \\)  to the average electronic velocity, which must therefore be given entirely by the average of  \\( -eEt/m \\) . However, the average of t is the relaxation time  \\( \\tau \\) . Therefore",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 22,
+      "bbox": null,
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0023",
+      "source_group_members": [
+        "deepseek:p0003:b0008"
+      ],
+      "sources": [
+        "deepseek"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0024",
+      "type": "formula",
+      "text": "\\mathbf{v}_{\\mathrm{a v g}}=-\\frac{e\\mathbf{E}\\tau}{m};\\quad\\mathbf{j}=\\left(\\frac{n e^{2}\\tau}{m}\\right)\\mathbf{E}. \\quad (1.5)",
+      "label": "1.5",
+      "page_index": 3,
+      "page_number": 4,
+      "order": 23,
+      "bbox": null,
+      "anchor_id": "eq:1.5",
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0024",
+      "source_group_members": [
+        "deepseek:p0003:b0009"
+      ],
+      "sources": [
+        "deepseek"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0025",
+      "type": "formula",
+      "text": "\\mathbf{j}=\\sigma\\mathbf{E};\\quad\\sigma=\\frac{ne^{2}\\tau}{m}. \\quad (1.6)",
+      "label": "1.6",
+      "page_index": 3,
+      "page_number": 4,
+      "order": 24,
+      "bbox": null,
+      "anchor_id": "eq:1.6",
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0025",
+      "source_group_members": [
+        "deepseek:p0003:b0011"
+      ],
+      "sources": [
+        "deepseek"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    }
+  ],
+  "relations": [
+    {
+      "relation_id": "rel_0001",
+      "relation_type": "equation_number_to_equation",
+      "source_id": "block:p0000_g0013",
+      "target_id": "block:p0000_g0003",
+      "anchor_id": "eq:1.1",
+      "reference_id": null,
+      "confidence": 0.9,
+      "method": "geometry/reading-order",
+      "warnings": []
+    },
+    {
+      "relation_id": "rel_0002",
+      "relation_type": "equation_number_to_equation",
+      "source_id": "block:p0000_g0014",
+      "target_id": "block:p0000_g0005",
+      "anchor_id": "eq:1.2",
+      "reference_id": null,
+      "confidence": 0.9,
+      "method": "geometry/reading-order",
+      "warnings": []
+    },
+    {
+      "relation_id": "rel_0003",
+      "relation_type": "caption_of",
+      "source_id": "block:p0002_g0001",
+      "target_id": "block:p0002_g0013",
+      "anchor_id": "fig:1.2",
+      "reference_id": null,
+      "confidence": 0.7,
+      "method": "caption label + nearest picture",
+      "warnings": []
+    },
+    {
+      "relation_id": "rel_0004",
+      "relation_type": "caption_of",
+      "source_id": "block:p0002_g0002",
+      "target_id": "block:p0002_g0013",
+      "anchor_id": "fig:1.2",
+      "reference_id": null,
+      "confidence": 0.7,
+      "method": "caption label + nearest picture",
+      "warnings": []
+    },
+    {
+      "relation_id": "rel_0005",
+      "relation_type": "caption_of",
+      "source_id": "block:p0002_g0014",
+      "target_id": "block:p0002_g0013",
+      "anchor_id": "fig:1.2",
+      "reference_id": null,
+      "confidence": 0.7,
+      "method": "caption label + nearest picture",
+      "warnings": []
+    },
+    {
+      "relation_id": "rel_0006",
+      "relation_type": "equation_number_to_equation",
+      "source_id": "block:p0003_g0015",
+      "target_id": "block:p0003_g0003",
+      "anchor_id": "eq:1.3",
+      "reference_id": null,
+      "confidence": 0.9,
+      "method": "geometry/reading-order",
+      "warnings": []
+    },
+    {
+      "relation_id": "rel_0007",
+      "relation_type": "equation_number_to_equation",
+      "source_id": "block:p0003_g0016",
+      "target_id": "block:p0003_g0006",
+      "anchor_id": "eq:1.4",
+      "reference_id": null,
+      "confidence": 0.9,
+      "method": "geometry/reading-order",
+      "warnings": []
+    },
+    {
+      "relation_id": "rel_0008",
+      "relation_type": "equation_number_to_equation",
+      "source_id": "block:p0003_g0017",
+      "target_id": "block:p0003_g0009",
+      "anchor_id": "eq:1.5",
+      "reference_id": null,
+      "confidence": 0.9,
+      "method": "geometry/reading-order",
+      "warnings": []
+    },
+    {
+      "relation_id": "rel_0009",
+      "relation_type": "equation_number_to_equation",
+      "source_id": "block:p0003_g0018",
+      "target_id": "block:p0003_g0011",
+      "anchor_id": "eq:1.6",
+      "reference_id": null,
+      "confidence": 0.9,
+      "method": "geometry/reading-order",
+      "warnings": []
+    },
+    {
+      "relation_id": "rel_0010",
+      "relation_type": "refers_to",
+      "source_id": "block:p0000_g0004",
+      "target_id": "block:p0001_g0001",
+      "anchor_id": "table:1.1",
+      "reference_id": "ref_p0000_0001",
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "relation_id": "rel_0011",
+      "relation_type": "refers_to",
+      "source_id": "block:p0000_g0004",
+      "target_id": "block:p0001_g0001",
+      "anchor_id": "table:1.1",
+      "reference_id": "ref_p0000_0002",
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "relation_id": "rel_0012",
+      "relation_type": "refers_to",
+      "source_id": "block:p0000_g0006",
+      "target_id": "block:p0001_g0001",
+      "anchor_id": "table:1.1",
+      "reference_id": "ref_p0000_0003",
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "relation_id": "rel_0013",
+      "relation_type": "refers_to",
+      "source_id": "block:p0001_g0012",
+      "target_id": "block:p0000_g0005",
+      "anchor_id": "eq:1.2",
+      "reference_id": "ref_p0001_0009",
+      "confidence": 0.9,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "relation_id": "rel_0014",
+      "relation_type": "refers_to",
+      "source_id": "block:p0002_g0004",
+      "target_id": "block:p0002_g0013",
+      "anchor_id": "fig:1.2",
+      "reference_id": "ref_p0002_0010",
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "relation_id": "rel_0015",
+      "relation_type": "refers_to",
+      "source_id": "block:p0002_g0014",
+      "target_id": "block:p0002_g0013",
+      "anchor_id": "fig:1.2",
+      "reference_id": "ref_p0002_0013",
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "relation_id": "rel_0016",
+      "relation_type": "refers_to",
+      "source_id": "block:p0002_g0016",
+      "target_id": "block:p0002_g0013",
+      "anchor_id": "fig:1.2",
+      "reference_id": "ref_p0002_0014",
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "relation_id": "rel_0017",
+      "relation_type": "refers_to",
+      "source_id": "block:p0003_g0004",
+      "target_id": "block:p0003_g0019",
+      "anchor_id": "eq:1.3",
+      "reference_id": "ref_p0003_0016",
+      "confidence": 0.9,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "relation_id": "rel_0018",
+      "relation_type": "refers_to",
+      "source_id": "block:p0003_g0020",
+      "target_id": "block:p0003_g0019",
+      "anchor_id": "eq:1.3",
+      "reference_id": "ref_p0003_0017",
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    }
+  ],
+  "anchors": [
+    {
+      "anchor_id": "eq:1.1",
+      "anchor_type": "equation",
+      "label": "1.1",
+      "canonical_text": "n=0.6022\\times10^{24}\\frac{Z\\rho_{m}}{A}. \\quad (1.1)",
+      "target_group_id": "p0000_g0016",
+      "page_index": 0,
+      "page_number": 1,
+      "bbox": null,
+      "source_groups": [
+        "p0000_g0016"
+      ],
+      "confidence": 0.8,
+      "status": "resolved",
+      "warnings": [],
+      "selection_mode": "consensus",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "formula_group",
+      "formula_candidates": [
+        {
+          "representative_text": "n=0.6022\\times10^{24}\\frac{Z\\rho_{m}}{A}. \\quad (1.1)",
+          "group_id": "p0000_g0016",
+          "sources": [
+            "deepseek"
+          ],
+          "members": [
+            "deepseek:p0000:b0003"
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "conflicts": []
+        }
+      ],
+      "source_group_id": "p0000_g0016",
+      "source_group_kind": "formula",
+      "source_group_sources": [
+        "deepseek"
+      ],
+      "source_group_members": [
+        "deepseek:p0000:b0003"
+      ],
+      "source_group_agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "source_group_conflicts": [],
+      "evidence_anchors": [
+        {
+          "source_group_id": "p0000_g0003",
+          "target_group_id": "p0000_g0003"
+        }
+      ],
+      "evidence_groups": [
+        "p0000_g0003"
+      ]
+    },
+    {
+      "anchor_id": "eq:1.2",
+      "anchor_type": "equation",
+      "label": "1.2",
+      "canonical_text": "\\frac { V } { N } = \\frac { 1 } { n } = \\frac { 4 \\pi { r _ { s } } ^ { 3 } } { 3 } ; ~ r _ { s } = { \\left( \\frac { 3 } { 4 \\pi n } \\right) } ^ { 1 , 3 } .\\tag{1.2}",
+      "target_group_id": "p0000_g0005",
+      "page_index": 0,
+      "page_number": 1,
+      "bbox": [
+        305.0,
+        392.0,
+        640.0,
+        433.0
+      ],
+      "source_groups": [
+        "p0000_g0005"
+      ],
+      "confidence": 0.8,
+      "status": "resolved_with_conflict",
+      "warnings": [],
+      "selection_mode": "consensus",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "formula_group",
+      "formula_candidates": [
+        {
+          "representative_text": "\\frac { V } { N } = \\frac { 1 } { n } = \\frac { 4 \\pi { r _ { s } } ^ { 3 } } { 3 } ; ~ r _ { s } = { \\left( \\frac { 3 } { 4 \\pi n } \\right) } ^ { 1 , 3 } .\\tag{1.2}",
+          "group_id": "p0000_g0005",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "members": [
+            "mineru:p0000:b0005",
+            "paddleocr:p0000:b0010",
+            "deepseek:p0000:b0005"
+          ],
+          "agreement": {
+            "text": "near",
+            "geometry": "missing",
+            "kind": "agree"
+          },
+          "conflicts": []
+        }
+      ],
+      "source_group_id": "p0000_g0005",
+      "source_group_kind": "formula",
+      "source_group_sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "source_group_members": [
+        "mineru:p0000:b0005",
+        "paddleocr:p0000:b0010",
+        "deepseek:p0000:b0005"
+      ],
+      "source_group_agreement": {
+        "text": "near",
+        "geometry": "missing",
+        "kind": "agree"
+      },
+      "source_group_conflicts": [
+        {
+          "conflict_id": "p0000_c0006",
+          "page_index": 0,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0005",
+            "paddleocr:p0000:b0010",
+            "deepseek:p0000:b0005"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0007",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "formula_disagreement",
+          "message": "Formula text differs",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0005",
+            "paddleocr:p0000:b0010",
+            "deepseek:p0000:b0005"
+          ]
+        }
+      ]
+    },
+    {
+      "anchor_id": "footnote:5",
+      "anchor_type": "footnote",
+      "label": "5",
+      "canonical_text": "5 This is the range for metallic elements under normal conditions. Higher densities can be attained by application of pressure (which tends to favor the metallic state). Lower densities are found in compounds.",
+      "target_group_id": "p0000_g0010",
+      "page_index": 0,
+      "page_number": 1,
+      "bbox": [
+        59.0,
+        810.0,
+        884.0,
+        857.0
+      ],
+      "source_groups": [
+        "p0000_g0010"
+      ],
+      "confidence": 0.75,
+      "status": "resolved",
+      "warnings": [],
+      "source_group_id": "p0000_g0010",
+      "source_group_kind": "unknown",
+      "source_group_sources": [
+        "mineru"
+      ],
+      "source_group_members": [
+        "mineru:p0000:b0010"
+      ],
+      "source_group_agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "source_group_conflicts": []
+    },
+    {
+      "anchor_id": "footnote:6",
+      "anchor_type": "footnote",
+      "label": "6",
+      "canonical_text": "6 Strictly speaking, the electron-ion interaction is not entirely ignored, for the Drude model implicitly assumes that the electrons are confined to the interior of the metal. Evidently this confinement is brought about by their attraction to the positively charged ions. Gross effects of the electron-ion and defn inteal fel epreentingtheveag effethe lectonlecton an econ-on ntecions.",
+      "target_group_id": "p0000_g0011",
+      "page_index": 0,
+      "page_number": 1,
+      "bbox": [
+        59.0,
+        855.0,
+        884.0,
+        933.0
+      ],
+      "source_groups": [
+        "p0000_g0011"
+      ],
+      "confidence": 0.75,
+      "status": "resolved_with_conflict",
+      "warnings": [],
+      "source_group_id": "p0000_g0011",
+      "source_group_kind": "unknown",
+      "source_group_sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "source_group_members": [
+        "mineru:p0000:b0011",
+        "paddleocr:p0000:b0016"
+      ],
+      "source_group_agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "source_group_conflicts": [
+        {
+          "conflict_id": "p0000_c0012",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0011",
+            "paddleocr:p0000:b0016"
+          ]
+        }
+      ]
+    },
+    {
+      "anchor_id": "table:1.1",
+      "anchor_type": "table",
+      "label": "1.1",
+      "canonical_text": "Table 1.1",
+      "target_group_id": "p0001_g0001",
+      "page_index": 1,
+      "page_number": 2,
+      "bbox": [
+        178.0,
+        135.0,
+        785.0,
+        628.0
+      ],
+      "source_groups": [
+        "p0001_g0002"
+      ],
+      "confidence": 0.7,
+      "status": "resolved_with_conflict",
+      "warnings": [],
+      "source_group_id": "p0001_g0002",
+      "source_group_kind": "caption",
+      "source_group_sources": [
+        "deepseek",
+        "mineru"
+      ],
+      "source_group_members": [
+        "mineru:p0001:b0002",
+        "mineru:p0001:b0003",
+        "deepseek:p0001:b0001"
+      ],
+      "source_group_agreement": {
+        "text": "near",
+        "geometry": "missing",
+        "kind": "agree"
+      },
+      "source_group_conflicts": [
+        {
+          "conflict_id": "p0001_c0004",
+          "page_index": 1,
+          "severity": "medium",
+          "type": "possible_duplicate",
+          "message": "Multiple blocks from same source in group",
+          "sources": [
+            "deepseek",
+            "mineru"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0002",
+            "mineru:p0001:b0003",
+            "deepseek:p0001:b0001"
+          ]
+        },
+        {
+          "conflict_id": "p0001_c0005",
+          "page_index": 1,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0002",
+            "mineru:p0001:b0003",
+            "deepseek:p0001:b0001"
+          ]
+        }
+      ],
+      "evidence_anchors": [
+        {
+          "source_group_id": "p0000_g0017",
+          "target_group_id": "p0000_g0017"
+        },
+        {
+          "source_group_id": "p0000_g0018",
+          "target_group_id": "p0000_g0018"
+        }
+      ],
+      "evidence_groups": [
+        "p0000_g0017",
+        "p0000_g0018"
+      ]
+    },
+    {
+      "anchor_id": "fig:1.2",
+      "anchor_type": "figure",
+      "label": "1.2",
+      "canonical_text": "Figure 1.2",
+      "target_group_id": "p0002_g0013",
+      "page_index": 2,
+      "page_number": 3,
+      "bbox": [
+        132.712,
+        108.553,
+        444.703,
+        185.033
+      ],
+      "source_groups": [
+        "p0002_g0001"
+      ],
+      "confidence": 0.7,
+      "status": "resolved",
+      "warnings": [
+        "fallback_default_backend:default_figure_geometry_backend=paddleocr"
+      ],
+      "selection_mode": "fallback_default_backend",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "caption_label_picture_scoring",
+      "source_group_id": "p0002_g0001",
+      "source_group_kind": "picture",
+      "source_group_sources": [
+        "mineru"
+      ],
+      "source_group_members": [
+        "mineru:p0002:b0001"
+      ],
+      "source_group_agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "source_group_conflicts": [],
+      "evidence_anchors": [
+        {
+          "source_group_id": "p0002_g0002",
+          "target_group_id": "p0002_g0013"
+        },
+        {
+          "source_group_id": "p0002_g0014",
+          "target_group_id": "p0002_g0013"
+        }
+      ],
+      "evidence_groups": [
+        "p0002_g0002",
+        "p0002_g0014"
+      ]
+    },
+    {
+      "anchor_id": "footnote:8",
+      "anchor_type": "footnote",
+      "label": "8",
+      "canonical_text": "8 See Problem 1.",
+      "target_group_id": "p0002_g0011",
+      "page_index": 2,
+      "page_number": 3,
+      "bbox": [
+        156.0,
+        891.0,
+        298.0,
+        906.0
+      ],
+      "source_groups": [
+        "p0002_g0011"
+      ],
+      "confidence": 0.75,
+      "status": "resolved",
+      "warnings": [],
+      "source_group_id": "p0002_g0011",
+      "source_group_kind": "unknown",
+      "source_group_sources": [
+        "mineru"
+      ],
+      "source_group_members": [
+        "mineru:p0002:b0011"
+      ],
+      "source_group_agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "source_group_conflicts": []
+    },
+    {
+      "anchor_id": "eq:1.3",
+      "anchor_type": "equation",
+      "label": "1.3",
+      "canonical_text": "\\mathbf{E}=\\rho\\mathbf{j}. \\quad (1.3)",
+      "target_group_id": "p0003_g0019",
+      "page_index": 3,
+      "page_number": 4,
+      "bbox": null,
+      "source_groups": [
+        "p0003_g0019"
+      ],
+      "confidence": 0.8,
+      "status": "resolved",
+      "warnings": [],
+      "selection_mode": "consensus",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "formula_group",
+      "formula_candidates": [
+        {
+          "representative_text": "\\mathbf{E}=\\rho\\mathbf{j}. \\quad (1.3)",
+          "group_id": "p0003_g0019",
+          "sources": [
+            "deepseek"
+          ],
+          "members": [
+            "deepseek:p0003:b0003"
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "conflicts": []
+        }
+      ],
+      "source_group_id": "p0003_g0019",
+      "source_group_kind": "formula",
+      "source_group_sources": [
+        "deepseek"
+      ],
+      "source_group_members": [
+        "deepseek:p0003:b0003"
+      ],
+      "source_group_agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "source_group_conflicts": [],
+      "evidence_anchors": [
+        {
+          "source_group_id": "p0003_g0003",
+          "target_group_id": "p0003_g0003"
+        }
+      ],
+      "evidence_groups": [
+        "p0003_g0003"
+      ]
+    },
+    {
+      "anchor_id": "eq:1.4",
+      "anchor_type": "equation",
+      "label": "1.4",
+      "canonical_text": "\\mathbf{j}=-n e\\mathbf{v}. \\quad (1.4)",
+      "target_group_id": "p0003_g0022",
+      "page_index": 3,
+      "page_number": 4,
+      "bbox": null,
+      "source_groups": [
+        "p0003_g0022"
+      ],
+      "confidence": 0.8,
+      "status": "resolved",
+      "warnings": [],
+      "selection_mode": "consensus",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "formula_group",
+      "formula_candidates": [
+        {
+          "representative_text": "\\mathbf{j}=-n e\\mathbf{v}. \\quad (1.4)",
+          "group_id": "p0003_g0022",
+          "sources": [
+            "deepseek"
+          ],
+          "members": [
+            "deepseek:p0003:b0006"
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "conflicts": []
+        }
+      ],
+      "source_group_id": "p0003_g0022",
+      "source_group_kind": "formula",
+      "source_group_sources": [
+        "deepseek"
+      ],
+      "source_group_members": [
+        "deepseek:p0003:b0006"
+      ],
+      "source_group_agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "source_group_conflicts": [],
+      "evidence_anchors": [
+        {
+          "source_group_id": "p0003_g0006",
+          "target_group_id": "p0003_g0006"
+        }
+      ],
+      "evidence_groups": [
+        "p0003_g0006"
+      ]
+    },
+    {
+      "anchor_id": "eq:1.5",
+      "anchor_type": "equation",
+      "label": "1.5",
+      "canonical_text": "\\mathbf{v}_{\\mathrm{a v g}}=-\\frac{e\\mathbf{E}\\tau}{m};\\quad\\mathbf{j}=\\left(\\frac{n e^{2}\\tau}{m}\\right)\\mathbf{E}. \\quad (1.5)",
+      "target_group_id": "p0003_g0024",
+      "page_index": 3,
+      "page_number": 4,
+      "bbox": null,
+      "source_groups": [
+        "p0003_g0024"
+      ],
+      "confidence": 0.8,
+      "status": "resolved",
+      "warnings": [],
+      "selection_mode": "consensus",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "formula_group",
+      "formula_candidates": [
+        {
+          "representative_text": "\\mathbf{v}_{\\mathrm{a v g}}=-\\frac{e\\mathbf{E}\\tau}{m};\\quad\\mathbf{j}=\\left(\\frac{n e^{2}\\tau}{m}\\right)\\mathbf{E}. \\quad (1.5)",
+          "group_id": "p0003_g0024",
+          "sources": [
+            "deepseek"
+          ],
+          "members": [
+            "deepseek:p0003:b0009"
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "conflicts": []
+        }
+      ],
+      "source_group_id": "p0003_g0024",
+      "source_group_kind": "formula",
+      "source_group_sources": [
+        "deepseek"
+      ],
+      "source_group_members": [
+        "deepseek:p0003:b0009"
+      ],
+      "source_group_agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "source_group_conflicts": [],
+      "evidence_anchors": [
+        {
+          "source_group_id": "p0003_g0009",
+          "target_group_id": "p0003_g0009"
+        }
+      ],
+      "evidence_groups": [
+        "p0003_g0009"
+      ]
+    },
+    {
+      "anchor_id": "eq:1.6",
+      "anchor_type": "equation",
+      "label": "1.6",
+      "canonical_text": "\\mathbf{j}=\\sigma\\mathbf{E};\\quad\\sigma=\\frac{ne^{2}\\tau}{m}. \\quad (1.6)",
+      "target_group_id": "p0003_g0025",
+      "page_index": 3,
+      "page_number": 4,
+      "bbox": null,
+      "source_groups": [
+        "p0003_g0025"
+      ],
+      "confidence": 0.8,
+      "status": "resolved",
+      "warnings": [],
+      "selection_mode": "consensus",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "formula_group",
+      "formula_candidates": [
+        {
+          "representative_text": "\\mathbf{j}=\\sigma\\mathbf{E};\\quad\\sigma=\\frac{ne^{2}\\tau}{m}. \\quad (1.6)",
+          "group_id": "p0003_g0025",
+          "sources": [
+            "deepseek"
+          ],
+          "members": [
+            "deepseek:p0003:b0011"
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "conflicts": []
+        }
+      ],
+      "source_group_id": "p0003_g0025",
+      "source_group_kind": "formula",
+      "source_group_sources": [
+        "deepseek"
+      ],
+      "source_group_members": [
+        "deepseek:p0003:b0011"
+      ],
+      "source_group_agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "source_group_conflicts": [],
+      "evidence_anchors": [
+        {
+          "source_group_id": "p0003_g0011",
+          "target_group_id": "p0003_g0011"
+        }
+      ],
+      "evidence_groups": [
+        "p0003_g0011"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "reference_id": "ref_p0000_0001",
+      "reference_type": "table",
+      "reference_text": "Table 1.1",
+      "label": "1.1",
+      "source_group_id": "p0000_g0004",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": "table:1.1",
+      "resolved": true,
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "reference_id": "ref_p0000_0002",
+      "reference_type": "table",
+      "reference_text": "Table 1.1",
+      "label": "1.1",
+      "source_group_id": "p0000_g0004",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": "table:1.1",
+      "resolved": true,
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "reference_id": "ref_p0000_0003",
+      "reference_type": "table",
+      "reference_text": "Table 1.1",
+      "label": "1.1",
+      "source_group_id": "p0000_g0006",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": "table:1.1",
+      "resolved": true,
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "reference_id": "ref_p0000_0004",
+      "reference_type": "section",
+      "reference_text": "Chapter 1",
+      "label": "1",
+      "source_group_id": "p0000_g0009",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0000_0005",
+      "reference_type": "section",
+      "reference_text": "Chapter 1",
+      "label": "1",
+      "source_group_id": "p0000_g0012",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0000_0006",
+      "reference_type": "footnote",
+      "reference_text": "24",
+      "label": "24",
+      "source_group_id": "p0000_g0015",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0000_0007",
+      "reference_type": "footnote",
+      "reference_text": "3",
+      "label": "3",
+      "source_group_id": "p0000_g0015",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0000_0008",
+      "reference_type": "footnote",
+      "reference_text": "24",
+      "label": "24",
+      "source_group_id": "p0000_g0016",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0001_0009",
+      "reference_type": "equation",
+      "reference_text": "Eq. (1.2)",
+      "label": "1.2",
+      "source_group_id": "p0001_g0012",
+      "page_index": 1,
+      "page_number": 2,
+      "target_anchor_id": "eq:1.2",
+      "resolved": true,
+      "confidence": 0.9,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "reference_id": "ref_p0002_0010",
+      "reference_type": "figure",
+      "reference_text": "Figure 1.2",
+      "label": "1.2",
+      "source_group_id": "p0002_g0004",
+      "page_index": 2,
+      "page_number": 3,
+      "target_anchor_id": "fig:1.2",
+      "resolved": true,
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "reference_id": "ref_p0002_0011",
+      "reference_type": "section",
+      "reference_text": "Chapter 1",
+      "label": "1",
+      "source_group_id": "p0002_g0009",
+      "page_index": 2,
+      "page_number": 3,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0002_0012",
+      "reference_type": "figure",
+      "reference_text": "Figure 1",
+      "label": "1",
+      "source_group_id": "p0002_g0010",
+      "page_index": 2,
+      "page_number": 3,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0002_0013",
+      "reference_type": "figure",
+      "reference_text": "Figure 1.2",
+      "label": "1.2",
+      "source_group_id": "p0002_g0014",
+      "page_index": 2,
+      "page_number": 3,
+      "target_anchor_id": "fig:1.2",
+      "resolved": true,
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "reference_id": "ref_p0002_0014",
+      "reference_type": "figure",
+      "reference_text": "Figure 1.2",
+      "label": "1.2",
+      "source_group_id": "p0002_g0016",
+      "page_index": 2,
+      "page_number": 3,
+      "target_anchor_id": "fig:1.2",
+      "resolved": true,
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "reference_id": "ref_p0002_0015",
+      "reference_type": "footnote",
+      "reference_text": "7",
+      "label": "7",
+      "source_group_id": "p0002_g0016",
+      "page_index": 2,
+      "page_number": 3,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0003_0016",
+      "reference_type": "equation",
+      "reference_text": "Eq. (1.3)",
+      "label": "1.3",
+      "source_group_id": "p0003_g0004",
+      "page_index": 3,
+      "page_number": 4,
+      "target_anchor_id": "eq:1.3",
+      "resolved": true,
+      "confidence": 0.9,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "reference_id": "ref_p0003_0017",
+      "reference_type": "equation",
+      "reference_text": "Eq. (1.3)",
+      "label": "1.3",
+      "source_group_id": "p0003_g0020",
+      "page_index": 3,
+      "page_number": 4,
+      "target_anchor_id": "eq:1.3",
+      "resolved": true,
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "reference_id": "ref_p0003_0018",
+      "reference_type": "footnote",
+      "reference_text": "2",
+      "label": "2",
+      "source_group_id": "p0003_g0024",
+      "page_index": 3,
+      "page_number": 4,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0003_0019",
+      "reference_type": "footnote",
+      "reference_text": "2",
+      "label": "2",
+      "source_group_id": "p0003_g0025",
+      "page_index": 3,
+      "page_number": 4,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "conflict_id": "p0000_c0001",
+      "page_index": 0,
+      "severity": "low",
+      "type": "missing_geometry",
+      "message": "Mixed geometry availability",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0000:b0001",
+        "paddleocr:p0000:b0006",
+        "deepseek:p0000:b0001"
+      ]
+    },
+    {
+      "conflict_id": "p0000_c0002",
+      "page_index": 0,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0000:b0002",
+        "paddleocr:p0000:b0007"
+      ]
+    },
+    {
+      "conflict_id": "p0000_c0003",
+      "page_index": 0,
+      "severity": "medium",
+      "type": "formula_disagreement",
+      "message": "Formula text differs",
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0000:b0003",
+        "paddleocr:p0000:b0008"
+      ]
+    },
+    {
+      "conflict_id": "p0000_c0004",
+      "page_index": 0,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0000:b0003",
+        "paddleocr:p0000:b0008"
+      ]
+    },
+    {
+      "conflict_id": "p0000_c0005",
+      "page_index": 0,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0000:b0004",
+        "paddleocr:p0000:b0009"
+      ]
+    },
+    {
+      "conflict_id": "p0000_c0006",
+      "page_index": 0,
+      "severity": "low",
+      "type": "missing_geometry",
+      "message": "Mixed geometry availability",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0000:b0005",
+        "paddleocr:p0000:b0010",
+        "deepseek:p0000:b0005"
+      ]
+    },
+    {
+      "conflict_id": "p0000_c0007",
+      "page_index": 0,
+      "severity": "medium",
+      "type": "formula_disagreement",
+      "message": "Formula text differs",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0000:b0005",
+        "paddleocr:p0000:b0010",
+        "deepseek:p0000:b0005"
+      ]
+    },
+    {
+      "conflict_id": "p0000_c0008",
+      "page_index": 0,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0000:b0006",
+        "paddleocr:p0000:b0011"
+      ]
+    },
+    {
+      "conflict_id": "p0000_c0009",
+      "page_index": 0,
+      "severity": "low",
+      "type": "missing_geometry",
+      "message": "Mixed geometry availability",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0000:b0007",
+        "paddleocr:p0000:b0012",
+        "deepseek:p0000:b0007"
+      ]
+    },
+    {
+      "conflict_id": "p0000_c0010",
+      "page_index": 0,
+      "severity": "low",
+      "type": "missing_geometry",
+      "message": "Mixed geometry availability",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0000:b0008",
+        "paddleocr:p0000:b0013",
+        "deepseek:p0000:b0008"
+      ]
+    },
+    {
+      "conflict_id": "p0000_c0011",
+      "page_index": 0,
+      "severity": "low",
+      "type": "kind_disagreement",
+      "message": "Different kinds grouped",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0000:b0008",
+        "paddleocr:p0000:b0013",
+        "deepseek:p0000:b0008"
+      ]
+    },
+    {
+      "conflict_id": "p0000_c0012",
+      "page_index": 0,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0000:b0011",
+        "paddleocr:p0000:b0016"
+      ]
+    },
+    {
+      "conflict_id": "p0001_c0001",
+      "page_index": 1,
+      "severity": "low",
+      "type": "missing_geometry",
+      "message": "Mixed geometry availability",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0001:b0001",
+        "paddleocr:p0001:b0011",
+        "deepseek:p0001:b0003"
+      ]
+    },
+    {
+      "conflict_id": "p0001_c0002",
+      "page_index": 1,
+      "severity": "medium",
+      "type": "table_disagreement",
+      "message": "Table signatures differ",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0001:b0001",
+        "paddleocr:p0001:b0011",
+        "deepseek:p0001:b0003"
+      ]
+    },
+    {
+      "conflict_id": "p0001_c0003",
+      "page_index": 1,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0001:b0001",
+        "paddleocr:p0001:b0011",
+        "deepseek:p0001:b0003"
+      ]
+    },
+    {
+      "conflict_id": "p0001_c0004",
+      "page_index": 1,
+      "severity": "medium",
+      "type": "possible_duplicate",
+      "message": "Multiple blocks from same source in group",
+      "sources": [
+        "deepseek",
+        "mineru"
+      ],
+      "evidence_ids": [
+        "mineru:p0001:b0002",
+        "mineru:p0001:b0003",
+        "deepseek:p0001:b0001"
+      ]
+    },
+    {
+      "conflict_id": "p0001_c0005",
+      "page_index": 1,
+      "severity": "low",
+      "type": "missing_geometry",
+      "message": "Mixed geometry availability",
+      "sources": [
+        "deepseek",
+        "mineru"
+      ],
+      "evidence_ids": [
+        "mineru:p0001:b0002",
+        "mineru:p0001:b0003",
+        "deepseek:p0001:b0001"
+      ]
+    },
+    {
+      "conflict_id": "p0001_c0006",
+      "page_index": 1,
+      "severity": "medium",
+      "type": "possible_duplicate",
+      "message": "Multiple blocks from same source in group",
+      "sources": [
+        "mineru"
+      ],
+      "evidence_ids": [
+        "mineru:p0001:b0004",
+        "mineru:p0001:b0005",
+        "mineru:p0001:b0006"
+      ]
+    },
+    {
+      "conflict_id": "p0001_c0007",
+      "page_index": 1,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "mineru"
+      ],
+      "evidence_ids": [
+        "mineru:p0001:b0004",
+        "mineru:p0001:b0005",
+        "mineru:p0001:b0006"
+      ]
+    },
+    {
+      "conflict_id": "p0001_c0008",
+      "page_index": 1,
+      "severity": "low",
+      "type": "missing_geometry",
+      "message": "Mixed geometry availability",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0001:b0007",
+        "paddleocr:p0001:b0013",
+        "deepseek:p0001:b0005"
+      ]
+    },
+    {
+      "conflict_id": "p0001_c0009",
+      "page_index": 1,
+      "severity": "low",
+      "type": "missing_geometry",
+      "message": "Mixed geometry availability",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0001:b0008",
+        "paddleocr:p0001:b0014",
+        "deepseek:p0001:b0006"
+      ]
+    },
+    {
+      "conflict_id": "p0001_c0010",
+      "page_index": 1,
+      "severity": "low",
+      "type": "kind_disagreement",
+      "message": "Different kinds grouped",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0001:b0008",
+        "paddleocr:p0001:b0014",
+        "deepseek:p0001:b0006"
+      ]
+    },
+    {
+      "conflict_id": "p0002_c0001",
+      "page_index": 2,
+      "severity": "low",
+      "type": "missing_geometry",
+      "message": "Mixed geometry availability",
+      "sources": [
+        "deepseek",
+        "mineru"
+      ],
+      "evidence_ids": [
+        "mineru:p0002:b0002",
+        "deepseek:p0002:b0002"
+      ]
+    },
+    {
+      "conflict_id": "p0002_c0002",
+      "page_index": 2,
+      "severity": "low",
+      "type": "missing_geometry",
+      "message": "Mixed geometry availability",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0002:b0003",
+        "paddleocr:p0002:b0011",
+        "deepseek:p0002:b0003"
+      ]
+    },
+    {
+      "conflict_id": "p0002_c0003",
+      "page_index": 2,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0002:b0004",
+        "paddleocr:p0002:b0012"
+      ]
+    },
+    {
+      "conflict_id": "p0002_c0004",
+      "page_index": 2,
+      "severity": "low",
+      "type": "missing_geometry",
+      "message": "Mixed geometry availability",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0002:b0005",
+        "paddleocr:p0002:b0013",
+        "deepseek:p0002:b0005"
+      ]
+    },
+    {
+      "conflict_id": "p0002_c0005",
+      "page_index": 2,
+      "severity": "low",
+      "type": "kind_disagreement",
+      "message": "Different kinds grouped",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0002:b0005",
+        "paddleocr:p0002:b0013",
+        "deepseek:p0002:b0005"
+      ]
+    },
+    {
+      "conflict_id": "p0002_c0006",
+      "page_index": 2,
+      "severity": "low",
+      "type": "missing_geometry",
+      "message": "Mixed geometry availability",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0002:b0006",
+        "paddleocr:p0002:b0014",
+        "deepseek:p0002:b0006"
+      ]
+    },
+    {
+      "conflict_id": "p0002_c0007",
+      "page_index": 2,
+      "severity": "low",
+      "type": "missing_geometry",
+      "message": "Mixed geometry availability",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0002:b0007",
+        "paddleocr:p0002:b0015",
+        "deepseek:p0002:b0007"
+      ]
+    },
+    {
+      "conflict_id": "p0002_c0008",
+      "page_index": 2,
+      "severity": "low",
+      "type": "kind_disagreement",
+      "message": "Different kinds grouped",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0002:b0007",
+        "paddleocr:p0002:b0015",
+        "deepseek:p0002:b0007"
+      ]
+    },
+    {
+      "conflict_id": "p0002_c0009",
+      "page_index": 2,
+      "severity": "low",
+      "type": "missing_geometry",
+      "message": "Mixed geometry availability",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0002:b0008",
+        "paddleocr:p0002:b0016",
+        "deepseek:p0002:b0008"
+      ]
+    },
+    {
+      "conflict_id": "p0002_c0010",
+      "page_index": 2,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0002:b0010",
+        "paddleocr:p0002:b0017"
+      ]
+    },
+    {
+      "conflict_id": "p0003_c0001",
+      "page_index": 3,
+      "severity": "low",
+      "type": "missing_geometry",
+      "message": "Mixed geometry availability",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0003:b0001",
+        "paddleocr:p0003:b0009",
+        "deepseek:p0003:b0001"
+      ]
+    },
+    {
+      "conflict_id": "p0003_c0002",
+      "page_index": 3,
+      "severity": "low",
+      "type": "missing_geometry",
+      "message": "Mixed geometry availability",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0003:b0002",
+        "paddleocr:p0003:b0010",
+        "deepseek:p0003:b0002"
+      ]
+    },
+    {
+      "conflict_id": "p0003_c0003",
+      "page_index": 3,
+      "severity": "medium",
+      "type": "formula_disagreement",
+      "message": "Formula text differs",
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0003:b0003",
+        "paddleocr:p0003:b0011"
+      ]
+    },
+    {
+      "conflict_id": "p0003_c0004",
+      "page_index": 3,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0003:b0003",
+        "paddleocr:p0003:b0011"
+      ]
+    },
+    {
+      "conflict_id": "p0003_c0005",
+      "page_index": 3,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0003:b0004",
+        "paddleocr:p0003:b0012"
+      ]
+    },
+    {
+      "conflict_id": "p0003_c0006",
+      "page_index": 3,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0003:b0005",
+        "paddleocr:p0003:b0013"
+      ]
+    },
+    {
+      "conflict_id": "p0003_c0007",
+      "page_index": 3,
+      "severity": "medium",
+      "type": "formula_disagreement",
+      "message": "Formula text differs",
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0003:b0006",
+        "paddleocr:p0003:b0014"
+      ]
+    },
+    {
+      "conflict_id": "p0003_c0008",
+      "page_index": 3,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0003:b0006",
+        "paddleocr:p0003:b0014"
+      ]
+    },
+    {
+      "conflict_id": "p0003_c0009",
+      "page_index": 3,
+      "severity": "low",
+      "type": "missing_geometry",
+      "message": "Mixed geometry availability",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0003:b0007",
+        "paddleocr:p0003:b0015",
+        "deepseek:p0003:b0007"
+      ]
+    },
+    {
+      "conflict_id": "p0003_c0010",
+      "page_index": 3,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0003:b0008",
+        "paddleocr:p0003:b0016"
+      ]
+    },
+    {
+      "conflict_id": "p0003_c0011",
+      "page_index": 3,
+      "severity": "medium",
+      "type": "formula_disagreement",
+      "message": "Formula text differs",
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0003:b0009",
+        "paddleocr:p0003:b0017"
+      ]
+    },
+    {
+      "conflict_id": "p0003_c0012",
+      "page_index": 3,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0003:b0009",
+        "paddleocr:p0003:b0017"
+      ]
+    },
+    {
+      "conflict_id": "p0003_c0013",
+      "page_index": 3,
+      "severity": "low",
+      "type": "missing_geometry",
+      "message": "Mixed geometry availability",
+      "sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0003:b0010",
+        "paddleocr:p0003:b0018",
+        "deepseek:p0003:b0010"
+      ]
+    },
+    {
+      "conflict_id": "p0003_c0014",
+      "page_index": 3,
+      "severity": "medium",
+      "type": "formula_disagreement",
+      "message": "Formula text differs",
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0003:b0011",
+        "paddleocr:p0003:b0019"
+      ]
+    },
+    {
+      "conflict_id": "p0003_c0015",
+      "page_index": 3,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0003:b0011",
+        "paddleocr:p0003:b0019"
+      ]
+    },
+    {
+      "conflict_id": "p0003_c0016",
+      "page_index": 3,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "evidence_ids": [
+        "mineru:p0003:b0014",
+        "paddleocr:p0003:b0024"
+      ]
+    }
+  ],
+  "warnings": [
+    "Unresolved reference: ref_p0000_0004",
+    "Unresolved reference: ref_p0000_0005",
+    "Unresolved reference: ref_p0000_0006",
+    "Unresolved reference: ref_p0000_0007",
+    "Unresolved reference: ref_p0000_0008",
+    "Unresolved reference: ref_p0002_0011",
+    "Unresolved reference: ref_p0002_0012",
+    "Unresolved reference: ref_p0002_0015",
+    "Unresolved reference: ref_p0003_0018",
+    "Unresolved reference: ref_p0003_0019"
+  ],
+  "validation": {
+    "duplicate_block_ids": [],
+    "missing_anchor_targets": [],
+    "unresolved_references": [
+      "ref_p0000_0004",
+      "ref_p0000_0005",
+      "ref_p0000_0006",
+      "ref_p0000_0007",
+      "ref_p0000_0008",
+      "ref_p0002_0011",
+      "ref_p0002_0012",
+      "ref_p0002_0015",
+      "ref_p0003_0018",
+      "ref_p0003_0019"
+    ],
+    "blocks_missing_provenance": [],
+    "media_assets_missing_files": [],
+    "warnings": []
+  }
+}

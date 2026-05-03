@@ -1,0 +1,19 @@
+{
+  "document_id": "simple_title_paragraph",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/simple_title_paragraph/input/simple_title_paragraph.tex",
+  "expected_title": "Simple Title Paragraph",
+  "expected_sections": [
+    "Intro"
+  ],
+  "expected_subsections": [],
+  "expected_labels": [
+    "sec:intro"
+  ],
+  "expected_markdown_snippets": [
+    "Simple Title Paragraph"
+  ],
+  "required_node_types": [
+    "section",
+    "title"
+  ]
+}

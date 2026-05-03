@@ -1,0 +1,176 @@
+[
+    {
+        "type": "text",
+        "text": "All Features Small",
+        "text_level": 1,
+        "bbox": [
+            401,
+            191,
+            621,
+            214
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "May 3, 2026",
+        "text_level": 2,
+        "bbox": [
+            455,
+            259,
+            569,
+            275
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "1 All",
+        "text_level": 2,
+        "bbox": [
+            220,
+            306,
+            304,
+            325
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "1.1 AllSub",
+        "text_level": 2,
+        "bbox": [
+            220,
+            337,
+            346,
+            354
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "image",
+        "img_path": "images/8a83b1aa227fb5318f2b0dd7d5155dfd855ff82624b36ec28396b66476b29833.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+            497,
+            370,
+            527,
+            390
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "Figure 1: Boxed figure",
+        "bbox": [
+            426,
+            399,
+            598,
+            416
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "Table 1: Sample table",
+        "bbox": [
+            428,
+            450,
+            596,
+            464
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "equation",
+        "img_path": "images/d24c9e511ec3268307802550819708478733e2bdd2d476513b09f51a90f47b13.jpg",
+        "text": "$$\nE = m c ^ { 2 }\\tag{1}\n$$",
+        "text_format": "latex",
+        "bbox": [
+            477,
+            510,
+            547,
+            526
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "one",
+        "bbox": [
+            245,
+            536,
+            294,
+            551
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "1. sub",
+        "bbox": [
+            277,
+            558,
+            332,
+            574
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "1 ref 1 1.1 1 1 1.",
+        "bbox": [
+            221,
+            581,
+            344,
+            599
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "2 References",
+        "text_level": 2,
+        "bbox": [
+            220,
+            618,
+            394,
+            637
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "[1] Item.",
+        "bbox": [
+            220,
+            646,
+            289,
+            664
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "page_footnote",
+        "text": "1All note",
+        "bbox": [
+            238,
+            789,
+            304,
+            802
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "page_number",
+        "text": "1",
+        "bbox": [
+            507,
+            825,
+            517,
+            837
+        ],
+        "page_idx": 0
+    }
+]

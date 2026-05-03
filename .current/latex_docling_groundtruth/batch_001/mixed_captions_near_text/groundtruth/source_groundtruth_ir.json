@@ -1,0 +1,107 @@
+{
+  "schema_name": "pdf2md.source_groundtruth_ir",
+  "schema_version": "0.1.0",
+  "document_id": "mixed_captions_near_text",
+  "source_type": "latex",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/mixed_captions_near_text/input/mixed_captions_near_text.tex",
+  "expected_pdf": ".current/latex_docling_groundtruth/batch_001/mixed_captions_near_text/input/mixed_captions_near_text.pdf",
+  "title": "Mixed Captions Near Text",
+  "pages_expected_min": 1,
+  "nodes": [
+    {
+      "id": "gt:block:mixed_captions_near_text:0",
+      "type": "title",
+      "text": "Mixed Captions Near Text",
+      "label": null,
+      "ref_target": null,
+      "order": 0,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "title",
+      "source_latex_hint": "\\title"
+    },
+    {
+      "id": "gt:block:mixed_captions_near_text:1",
+      "type": "section",
+      "text": "Mixed",
+      "label": null,
+      "ref_target": null,
+      "order": 1,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "section_header",
+      "source_latex_hint": "\\section"
+    },
+    {
+      "id": "gt:block:mixed_captions_near_text:2",
+      "type": "figure",
+      "text": "figure",
+      "label": null,
+      "ref_target": null,
+      "order": 2,
+      "parent_id": null,
+      "children": [
+        "gt:block:mixed_captions_near_text:3"
+      ],
+      "expected_docling_kind": "picture",
+      "source_latex_hint": "figure"
+    },
+    {
+      "id": "gt:block:mixed_captions_near_text:3",
+      "type": "caption",
+      "text": "Visual",
+      "label": null,
+      "ref_target": null,
+      "order": 3,
+      "parent_id": "gt:block:mixed_captions_near_text:2",
+      "children": [],
+      "expected_docling_kind": "caption",
+      "source_latex_hint": "\\caption"
+    },
+    {
+      "id": "gt:block:mixed_captions_near_text:4",
+      "type": "table",
+      "text": "table",
+      "label": null,
+      "ref_target": null,
+      "order": 4,
+      "parent_id": null,
+      "children": [
+        "gt:block:mixed_captions_near_text:5"
+      ],
+      "expected_docling_kind": "table",
+      "source_latex_hint": "table"
+    },
+    {
+      "id": "gt:block:mixed_captions_near_text:5",
+      "type": "caption",
+      "text": "Tab cap",
+      "label": null,
+      "ref_target": null,
+      "order": 5,
+      "parent_id": "gt:block:mixed_captions_near_text:4",
+      "children": [],
+      "expected_docling_kind": "caption",
+      "source_latex_hint": "\\caption"
+    }
+  ],
+  "labels": {
+    "fig:mixed": "gt:block:mixed_captions_near_text:2",
+    "tab:mixed": "gt:block:mixed_captions_near_text:4"
+  },
+  "references": [],
+  "features": {
+    "section": 1,
+    "subsection": 0,
+    "figure": 1,
+    "table": 1,
+    "equation": 0,
+    "footnote": 0,
+    "caption": 2,
+    "list": 0,
+    "list_item": 0,
+    "reference": 0,
+    "bibliography_like": 0,
+    "paragraph": 0
+  }
+}

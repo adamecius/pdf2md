@@ -1,0 +1,21 @@
+{
+  "document_id": "table_with_multiline_cells",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/table_with_multiline_cells/input/table_with_multiline_cells.tex",
+  "expected_title": "Table With Multiline Cells",
+  "expected_sections": [
+    "Data"
+  ],
+  "expected_subsections": [],
+  "expected_labels": [
+    "tab:ml"
+  ],
+  "expected_markdown_snippets": [
+    "Table With Multiline Cells"
+  ],
+  "required_node_types": [
+    "caption",
+    "section",
+    "table",
+    "title"
+  ]
+}

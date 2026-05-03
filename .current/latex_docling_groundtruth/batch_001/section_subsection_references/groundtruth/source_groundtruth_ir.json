@@ -1,0 +1,108 @@
+{
+  "schema_name": "pdf2md.source_groundtruth_ir",
+  "schema_version": "0.1.0",
+  "document_id": "section_subsection_references",
+  "source_type": "latex",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/section_subsection_references/input/section_subsection_references.tex",
+  "expected_pdf": ".current/latex_docling_groundtruth/batch_001/section_subsection_references/input/section_subsection_references.pdf",
+  "title": "Section Subsection References",
+  "pages_expected_min": 1,
+  "nodes": [
+    {
+      "id": "gt:block:section_subsection_references:0",
+      "type": "title",
+      "text": "Section Subsection References",
+      "label": null,
+      "ref_target": null,
+      "order": 0,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "title",
+      "source_latex_hint": "\\title"
+    },
+    {
+      "id": "gt:block:section_subsection_references:1",
+      "type": "section",
+      "text": "Alpha",
+      "label": "sec:alpha",
+      "ref_target": null,
+      "order": 1,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "section_header",
+      "source_latex_hint": "\\section"
+    },
+    {
+      "id": "gt:block:section_subsection_references:2",
+      "type": "subsection",
+      "text": "Beta",
+      "label": "sub:beta",
+      "ref_target": null,
+      "order": 2,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "section_header",
+      "source_latex_hint": "\\subsection"
+    },
+    {
+      "id": "gt:block:section_subsection_references:3",
+      "type": "reference",
+      "text": "ref:sec:alpha",
+      "label": null,
+      "ref_target": "sec:alpha",
+      "order": 3,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "text",
+      "source_latex_hint": "\\ref"
+    },
+    {
+      "id": "gt:block:section_subsection_references:4",
+      "type": "reference",
+      "text": "ref:sub:beta",
+      "label": null,
+      "ref_target": "sub:beta",
+      "order": 4,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "text",
+      "source_latex_hint": "\\ref"
+    }
+  ],
+  "labels": {
+    "sec:alpha": "gt:block:section_subsection_references:1",
+    "sub:beta": "gt:block:section_subsection_references:2"
+  },
+  "references": [
+    {
+      "id": "gt:ref:section_subsection_references:0",
+      "source_node_id": "gt:block:section_subsection_references:3",
+      "target_label": "sec:alpha",
+      "target_node_id": "gt:block:section_subsection_references:1",
+      "reference_text": "\\ref{sec:alpha}",
+      "expected_resolved": true
+    },
+    {
+      "id": "gt:ref:section_subsection_references:1",
+      "source_node_id": "gt:block:section_subsection_references:4",
+      "target_label": "sub:beta",
+      "target_node_id": "gt:block:section_subsection_references:2",
+      "reference_text": "\\ref{sub:beta}",
+      "expected_resolved": true
+    }
+  ],
+  "features": {
+    "section": 1,
+    "subsection": 1,
+    "figure": 0,
+    "table": 0,
+    "equation": 0,
+    "footnote": 0,
+    "caption": 0,
+    "list": 0,
+    "list_item": 0,
+    "reference": 2,
+    "bibliography_like": 0,
+    "paragraph": 0
+  }
+}

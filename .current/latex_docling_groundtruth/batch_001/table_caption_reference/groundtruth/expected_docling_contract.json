@@ -1,0 +1,13 @@
+{
+  "document_id": "table_caption_reference",
+  "required_docling_kinds": [
+    "caption",
+    "section_header",
+    "table",
+    "text",
+    "title"
+  ],
+  "required_reference_sidecar_entries": [
+    "tab:s"
+  ]
+}

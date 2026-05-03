@@ -1,0 +1,101 @@
+{
+  "schema_name": "pdf2md.source_groundtruth_ir",
+  "schema_version": "0.1.0",
+  "document_id": "table_caption_reference",
+  "source_type": "latex",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/table_caption_reference/input/table_caption_reference.tex",
+  "expected_pdf": ".current/latex_docling_groundtruth/batch_001/table_caption_reference/input/table_caption_reference.pdf",
+  "title": "Table Caption Reference",
+  "pages_expected_min": 1,
+  "nodes": [
+    {
+      "id": "gt:block:table_caption_reference:0",
+      "type": "title",
+      "text": "Table Caption Reference",
+      "label": null,
+      "ref_target": null,
+      "order": 0,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "title",
+      "source_latex_hint": "\\title"
+    },
+    {
+      "id": "gt:block:table_caption_reference:1",
+      "type": "section",
+      "text": "Data",
+      "label": null,
+      "ref_target": null,
+      "order": 1,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "section_header",
+      "source_latex_hint": "\\section"
+    },
+    {
+      "id": "gt:block:table_caption_reference:2",
+      "type": "table",
+      "text": "table",
+      "label": null,
+      "ref_target": null,
+      "order": 2,
+      "parent_id": null,
+      "children": [
+        "gt:block:table_caption_reference:3"
+      ],
+      "expected_docling_kind": "table",
+      "source_latex_hint": "table"
+    },
+    {
+      "id": "gt:block:table_caption_reference:3",
+      "type": "caption",
+      "text": "Sample table",
+      "label": null,
+      "ref_target": null,
+      "order": 3,
+      "parent_id": "gt:block:table_caption_reference:2",
+      "children": [],
+      "expected_docling_kind": "caption",
+      "source_latex_hint": "\\caption"
+    },
+    {
+      "id": "gt:block:table_caption_reference:4",
+      "type": "reference",
+      "text": "ref:tab:s",
+      "label": null,
+      "ref_target": "tab:s",
+      "order": 4,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "text",
+      "source_latex_hint": "\\ref"
+    }
+  ],
+  "labels": {
+    "tab:s": "gt:block:table_caption_reference:2"
+  },
+  "references": [
+    {
+      "id": "gt:ref:table_caption_reference:0",
+      "source_node_id": "gt:block:table_caption_reference:4",
+      "target_label": "tab:s",
+      "target_node_id": "gt:block:table_caption_reference:2",
+      "reference_text": "\\ref{tab:s}",
+      "expected_resolved": true
+    }
+  ],
+  "features": {
+    "section": 1,
+    "subsection": 0,
+    "figure": 0,
+    "table": 1,
+    "equation": 0,
+    "footnote": 0,
+    "caption": 1,
+    "list": 0,
+    "list_item": 0,
+    "reference": 1,
+    "bibliography_like": 0,
+    "paragraph": 0
+  }
+}

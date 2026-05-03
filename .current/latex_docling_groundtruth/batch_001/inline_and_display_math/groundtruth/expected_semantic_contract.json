@@ -1,0 +1,17 @@
+{
+  "document_id": "inline_and_display_math",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/inline_and_display_math/input/inline_and_display_math.tex",
+  "expected_title": "Inline And Display Math",
+  "expected_sections": [
+    "Math"
+  ],
+  "expected_subsections": [],
+  "expected_labels": [],
+  "expected_markdown_snippets": [
+    "Inline And Display Math"
+  ],
+  "required_node_types": [
+    "section",
+    "title"
+  ]
+}

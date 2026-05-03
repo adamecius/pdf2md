@@ -1,0 +1,358 @@
+[
+    {
+        "layout_dets": [
+            {
+                "cls_id": 6,
+                "label": "doc_title",
+                "score": 0.9286,
+                "bbox": [
+                    666,
+                    448,
+                    1030,
+                    501
+                ],
+                "index": 1
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.5779,
+                "bbox": [
+                    755,
+                    606,
+                    942,
+                    647
+                ],
+                "index": 2
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.9214,
+                "bbox": [
+                    366,
+                    719,
+                    504,
+                    762
+                ],
+                "index": 3
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.9304,
+                "bbox": [
+                    366,
+                    790,
+                    573,
+                    829
+                ],
+                "index": 4
+            },
+            {
+                "cls_id": 14,
+                "label": "image",
+                "score": 0.7361,
+                "bbox": [
+                    824,
+                    867,
+                    873,
+                    912
+                ],
+                "index": 5
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.7385,
+                "bbox": [
+                    706,
+                    934,
+                    990,
+                    973
+                ],
+                "index": 6
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.6776,
+                "bbox": [
+                    710,
+                    1053,
+                    987,
+                    1087
+                ],
+                "index": 7
+            },
+            {
+                "cls_id": 5,
+                "label": "display_formula",
+                "score": 0.9017,
+                "bbox": [
+                    790,
+                    1193,
+                    906,
+                    1232
+                ],
+                "index": 8,
+                "latex": "E = m c ^ { 2 }"
+            },
+            {
+                "cls_id": 11,
+                "label": "formula_number",
+                "score": 0.8154,
+                "bbox": [
+                    1289,
+                    1195,
+                    1328,
+                    1236
+                ],
+                "index": 9
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.6264,
+                "bbox": [
+                    408,
+                    1255,
+                    488,
+                    1289
+                ],
+                "index": 10
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.5604,
+                "bbox": [
+                    460,
+                    1308,
+                    550,
+                    1342
+                ],
+                "index": 11
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.6971,
+                "bbox": [
+                    367,
+                    1361,
+                    572,
+                    1400
+                ],
+                "index": 12
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.9412,
+                "bbox": [
+                    366,
+                    1446,
+                    654,
+                    1490
+                ],
+                "index": 13
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9053,
+                "bbox": [
+                    366,
+                    1513,
+                    478,
+                    1554
+                ],
+                "index": 14
+            },
+            {
+                "cls_id": 10,
+                "label": "footnote",
+                "score": 0.8112,
+                "bbox": [
+                    396,
+                    1845,
+                    505,
+                    1877
+                ],
+                "index": 15
+            },
+            {
+                "cls_id": 16,
+                "label": "number",
+                "score": 0.8207,
+                "bbox": [
+                    839,
+                    1928,
+                    858,
+                    1958
+                ],
+                "index": 16
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    667,
+                    449,
+                    1031,
+                    500
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    755,
+                    604,
+                    943,
+                    649
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    364,
+                    788,
+                    574,
+                    829
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    366,
+                    1358,
+                    574,
+                    1401
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    361,
+                    714,
+                    509,
+                    771
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    365,
+                    1512,
+                    480,
+                    1554
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    396,
+                    1842,
+                    504,
+                    1878
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    707,
+                    932,
+                    990,
+                    973
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    713,
+                    1053,
+                    987,
+                    1088
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    1284,
+                    1194,
+                    1334,
+                    1244
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    426,
+                    1259,
+                    487,
+                    1286
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    459,
+                    1304,
+                    552,
+                    1344
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    360,
+                    1441,
+                    656,
+                    1495
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    838,
+                    1929,
+                    859,
+                    1964
+                ],
+                "score": 1.0,
+                "text": ""
+            }
+        ],
+        "page_info": {
+            "page_no": 0,
+            "width": 1654,
+            "height": 2339
+        }
+    }
+]

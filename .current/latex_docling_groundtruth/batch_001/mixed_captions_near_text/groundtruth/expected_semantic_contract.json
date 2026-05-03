@@ -1,0 +1,23 @@
+{
+  "document_id": "mixed_captions_near_text",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/mixed_captions_near_text/input/mixed_captions_near_text.tex",
+  "expected_title": "Mixed Captions Near Text",
+  "expected_sections": [
+    "Mixed"
+  ],
+  "expected_subsections": [],
+  "expected_labels": [
+    "fig:mixed",
+    "tab:mixed"
+  ],
+  "expected_markdown_snippets": [
+    "Mixed Captions Near Text"
+  ],
+  "required_node_types": [
+    "caption",
+    "figure",
+    "section",
+    "table",
+    "title"
+  ]
+}

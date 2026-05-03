@@ -1,0 +1,24 @@
+{
+  "document_id": "multipage_all_features_references_footnotes",
+  "required_docling_kinds": [
+    "caption",
+    "footnote",
+    "formula",
+    "list",
+    "list_item",
+    "picture",
+    "section_header",
+    "table",
+    "text",
+    "title"
+  ],
+  "required_reference_sidecar_entries": [
+    "sec:deep",
+    "sub:deep",
+    "fig:deep",
+    "eq:deep",
+    "eq:deep",
+    "tab:deep",
+    "sec:deep"
+  ]
+}

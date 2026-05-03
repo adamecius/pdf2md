@@ -1,0 +1,90 @@
+{
+  "schema_name": "pdf2md.source_groundtruth_ir",
+  "schema_version": "0.1.0",
+  "document_id": "footnote_inside_list",
+  "source_type": "latex",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/footnote_inside_list/input/footnote_inside_list.tex",
+  "expected_pdf": ".current/latex_docling_groundtruth/batch_001/footnote_inside_list/input/footnote_inside_list.pdf",
+  "title": "Footnote Inside List",
+  "pages_expected_min": 1,
+  "nodes": [
+    {
+      "id": "gt:block:footnote_inside_list:0",
+      "type": "title",
+      "text": "Footnote Inside List",
+      "label": null,
+      "ref_target": null,
+      "order": 0,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "title",
+      "source_latex_hint": "\\title"
+    },
+    {
+      "id": "gt:block:footnote_inside_list:1",
+      "type": "section",
+      "text": "Notes",
+      "label": null,
+      "ref_target": null,
+      "order": 1,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "section_header",
+      "source_latex_hint": "\\section"
+    },
+    {
+      "id": "gt:block:footnote_inside_list:2",
+      "type": "footnote",
+      "text": "List note",
+      "label": null,
+      "ref_target": null,
+      "order": 2,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "footnote",
+      "source_latex_hint": "\\footnote"
+    },
+    {
+      "id": "gt:block:footnote_inside_list:3",
+      "type": "list",
+      "text": "itemize",
+      "label": null,
+      "ref_target": null,
+      "order": 3,
+      "parent_id": null,
+      "children": [
+        "gt:block:footnote_inside_list:4"
+      ],
+      "expected_docling_kind": "list",
+      "source_latex_hint": "\\begin{itemize}"
+    },
+    {
+      "id": "gt:block:footnote_inside_list:4",
+      "type": "list_item",
+      "text": "one",
+      "label": null,
+      "ref_target": null,
+      "order": 4,
+      "parent_id": "gt:block:footnote_inside_list:3",
+      "children": [],
+      "expected_docling_kind": "list_item",
+      "source_latex_hint": "\\item"
+    }
+  ],
+  "labels": {},
+  "references": [],
+  "features": {
+    "section": 1,
+    "subsection": 0,
+    "figure": 0,
+    "table": 0,
+    "equation": 0,
+    "footnote": 1,
+    "caption": 0,
+    "list": 1,
+    "list_item": 1,
+    "reference": 0,
+    "bibliography_like": 0,
+    "paragraph": 0
+  }
+}

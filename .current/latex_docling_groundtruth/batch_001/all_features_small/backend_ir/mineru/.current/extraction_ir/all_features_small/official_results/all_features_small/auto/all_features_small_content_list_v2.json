@@ -1,0 +1,262 @@
+[
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "All Features Small"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                401,
+                191,
+                621,
+                214
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "May 3, 2026"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                455,
+                259,
+                569,
+                275
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "1 All"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                220,
+                306,
+                304,
+                325
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "1.1 AllSub"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                220,
+                337,
+                346,
+                354
+            ]
+        },
+        {
+            "type": "image",
+            "content": {
+                "image_source": {
+                    "path": "images/8a83b1aa227fb5318f2b0dd7d5155dfd855ff82624b36ec28396b66476b29833.jpg"
+                },
+                "image_caption": [],
+                "image_footnote": []
+            },
+            "bbox": [
+                497,
+                370,
+                527,
+                390
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Figure 1: Boxed figure"
+                    }
+                ]
+            },
+            "bbox": [
+                426,
+                399,
+                598,
+                416
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Table 1: Sample table"
+                    }
+                ]
+            },
+            "bbox": [
+                428,
+                450,
+                596,
+                464
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "E = m c ^ { 2 }\\tag{1}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/d24c9e511ec3268307802550819708478733e2bdd2d476513b09f51a90f47b13.jpg"
+                }
+            },
+            "bbox": [
+                477,
+                510,
+                547,
+                526
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "one"
+                    }
+                ]
+            },
+            "bbox": [
+                245,
+                536,
+                294,
+                551
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "1. sub"
+                    }
+                ]
+            },
+            "bbox": [
+                277,
+                558,
+                332,
+                574
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "1 ref 1 1.1 1 1 1."
+                    }
+                ]
+            },
+            "bbox": [
+                221,
+                581,
+                344,
+                599
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "2 References"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                220,
+                618,
+                394,
+                637
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "[1] Item."
+                    }
+                ]
+            },
+            "bbox": [
+                220,
+                646,
+                289,
+                664
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "1All note"
+                    }
+                ]
+            },
+            "bbox": [
+                238,
+                789,
+                304,
+                802
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "1"
+                    }
+                ]
+            },
+            "bbox": [
+                507,
+                825,
+                517,
+                837
+            ]
+        }
+    ]
+]

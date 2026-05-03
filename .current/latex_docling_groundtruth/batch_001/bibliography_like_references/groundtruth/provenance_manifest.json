@@ -1,0 +1,41 @@
+{
+  "schema_name": "pdf2md.latex_docling_groundtruth_manifest",
+  "schema_version": "0.1.0",
+  "document_id": "bibliography_like_references",
+  "batch": "batch_001",
+  "generated_at": "2026-05-03T18:47:11.308983+00:00",
+  "source_tex": {
+    "path": ".current/latex_docling_groundtruth/batch_001/bibliography_like_references/input/bibliography_like_references.tex",
+    "sha256": "40d5ffeea9107b795448569a5d814094b11a649f666e7d5850e0d24a9bc26888"
+  },
+  "pdf": {
+    "path": ".current/latex_docling_groundtruth/batch_001/bibliography_like_references/input/bibliography_like_references.pdf",
+    "sha256": "fef58c8bc73719c0f3afd92da0151b242a0c6ef7aeaace09a3dce5516187a6b8"
+  },
+  "latex_engine": "pdflatex",
+  "latex_command": "pdflatex -interaction=nonstopmode -output-directory=.current/latex_docling_groundtruth/batch_001/bibliography_like_references/input /home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_001/bibliography_like_references/input/bibliography_like_references.tex",
+  "compilation_return_code": 0,
+  "page_count": 1,
+  "pages_expected_min": 1,
+  "generated_files": [
+    ".current/latex_docling_groundtruth/batch_001/bibliography_like_references/input/bibliography_like_references.tex",
+    ".current/latex_docling_groundtruth/batch_001/bibliography_like_references/groundtruth/source_groundtruth_ir.json",
+    ".current/latex_docling_groundtruth/batch_001/bibliography_like_references/groundtruth/expected_semantic_contract.json",
+    ".current/latex_docling_groundtruth/batch_001/bibliography_like_references/groundtruth/expected_docling_contract.json",
+    ".current/latex_docling_groundtruth/batch_001/bibliography_like_references/groundtruth/provenance_manifest.json"
+  ],
+  "feature_counts": {
+    "section": 2,
+    "subsection": 0,
+    "figure": 0,
+    "table": 0,
+    "equation": 0,
+    "footnote": 0,
+    "caption": 0,
+    "list": 0,
+    "list_item": 0,
+    "reference": 0,
+    "bibliography_like": 1,
+    "paragraph": 0
+  }
+}

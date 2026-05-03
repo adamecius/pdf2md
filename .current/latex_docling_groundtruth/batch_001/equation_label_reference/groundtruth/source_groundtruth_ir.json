@@ -1,0 +1,87 @@
+{
+  "schema_name": "pdf2md.source_groundtruth_ir",
+  "schema_version": "0.1.0",
+  "document_id": "equation_label_reference",
+  "source_type": "latex",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/equation_label_reference/input/equation_label_reference.tex",
+  "expected_pdf": ".current/latex_docling_groundtruth/batch_001/equation_label_reference/input/equation_label_reference.pdf",
+  "title": "Equation Label Reference",
+  "pages_expected_min": 1,
+  "nodes": [
+    {
+      "id": "gt:block:equation_label_reference:0",
+      "type": "title",
+      "text": "Equation Label Reference",
+      "label": null,
+      "ref_target": null,
+      "order": 0,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "title",
+      "source_latex_hint": "\\title"
+    },
+    {
+      "id": "gt:block:equation_label_reference:1",
+      "type": "section",
+      "text": "Math",
+      "label": null,
+      "ref_target": null,
+      "order": 1,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "section_header",
+      "source_latex_hint": "\\section"
+    },
+    {
+      "id": "gt:block:equation_label_reference:2",
+      "type": "equation",
+      "text": "E=mc^2",
+      "label": null,
+      "ref_target": null,
+      "order": 2,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "formula",
+      "source_latex_hint": "equation"
+    },
+    {
+      "id": "gt:block:equation_label_reference:3",
+      "type": "reference",
+      "text": "ref:eq:one",
+      "label": null,
+      "ref_target": "eq:one",
+      "order": 3,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "text",
+      "source_latex_hint": "\\ref"
+    }
+  ],
+  "labels": {
+    "eq:one": "gt:block:equation_label_reference:2"
+  },
+  "references": [
+    {
+      "id": "gt:ref:equation_label_reference:0",
+      "source_node_id": "gt:block:equation_label_reference:3",
+      "target_label": "eq:one",
+      "target_node_id": "gt:block:equation_label_reference:2",
+      "reference_text": "\\ref{eq:one}",
+      "expected_resolved": true
+    }
+  ],
+  "features": {
+    "section": 1,
+    "subsection": 0,
+    "figure": 0,
+    "table": 0,
+    "equation": 1,
+    "footnote": 0,
+    "caption": 0,
+    "list": 0,
+    "list_item": 0,
+    "reference": 1,
+    "bibliography_like": 0,
+    "paragraph": 0
+  }
+}

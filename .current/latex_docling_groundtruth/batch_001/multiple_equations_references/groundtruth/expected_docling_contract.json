@@ -1,0 +1,14 @@
+{
+  "document_id": "multiple_equations_references",
+  "required_docling_kinds": [
+    "formula",
+    "section_header",
+    "text",
+    "title"
+  ],
+  "required_reference_sidecar_entries": [
+    "eq:a",
+    "eq:c",
+    "eq:a"
+  ]
+}

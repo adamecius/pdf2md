@@ -1,0 +1,54 @@
+{
+  "schema_name": "pdf2md.source_groundtruth_ir",
+  "schema_version": "0.1.0",
+  "document_id": "simple_title_paragraph",
+  "source_type": "latex",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/simple_title_paragraph/input/simple_title_paragraph.tex",
+  "expected_pdf": ".current/latex_docling_groundtruth/batch_001/simple_title_paragraph/input/simple_title_paragraph.pdf",
+  "title": "Simple Title Paragraph",
+  "pages_expected_min": 1,
+  "nodes": [
+    {
+      "id": "gt:block:simple_title_paragraph:0",
+      "type": "title",
+      "text": "Simple Title Paragraph",
+      "label": null,
+      "ref_target": null,
+      "order": 0,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "title",
+      "source_latex_hint": "\\title"
+    },
+    {
+      "id": "gt:block:simple_title_paragraph:1",
+      "type": "section",
+      "text": "Intro",
+      "label": "sec:intro",
+      "ref_target": null,
+      "order": 1,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "section_header",
+      "source_latex_hint": "\\section"
+    }
+  ],
+  "labels": {
+    "sec:intro": "gt:block:simple_title_paragraph:1"
+  },
+  "references": [],
+  "features": {
+    "section": 1,
+    "subsection": 0,
+    "figure": 0,
+    "table": 0,
+    "equation": 0,
+    "footnote": 0,
+    "caption": 0,
+    "list": 0,
+    "list_item": 0,
+    "reference": 0,
+    "bibliography_like": 0,
+    "paragraph": 0
+  }
+}

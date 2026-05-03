@@ -1,0 +1,1338 @@
+{
+  "schema_name": "pdf2md.semantic_links",
+  "schema_version": "0.1.0",
+  "run_id": null,
+  "source_report": ".current/consensus/Ashcroft_Mermin_sub/consensus_report.json",
+  "upstream_sha256": {
+    "consensus_report": "d836f35f5fb4e116903614b76cf377352ed4069505e9288cff2c08ef7796faf6"
+  },
+  "pdf_path": "Ashcroft_Mermin_sub.pdf",
+  "pdf_stem": "Ashcroft_Mermin_sub",
+  "created_at": "2026-05-03T11:34:19.199463+00:00",
+  "summary": {
+    "equation_anchors": 6,
+    "figure_anchors": 1,
+    "table_anchors": 1,
+    "footnote_anchors": 3,
+    "references_detected": 19,
+    "references_resolved": 9,
+    "references_unresolved": 10,
+    "equation_numbers_attached": 6,
+    "equation_numbers_unattached": 0,
+    "footnote_markers_detected": 6,
+    "footnote_markers_resolved": 0
+  },
+  "anchors": [
+    {
+      "anchor_id": "eq:1.1",
+      "anchor_type": "equation",
+      "label": "1.1",
+      "canonical_text": "n=0.6022\\times10^{24}\\frac{Z\\rho_{m}}{A}. \\quad (1.1)",
+      "target_group_id": "p0000_g0016",
+      "page_index": 0,
+      "page_number": 1,
+      "bbox": null,
+      "source_groups": [
+        "p0000_g0016"
+      ],
+      "confidence": 0.8,
+      "status": "resolved",
+      "warnings": [],
+      "selection_mode": "consensus",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "formula_group",
+      "formula_candidates": [
+        {
+          "representative_text": "n=0.6022\\times10^{24}\\frac{Z\\rho_{m}}{A}. \\quad (1.1)",
+          "group_id": "p0000_g0016",
+          "sources": [
+            "deepseek"
+          ],
+          "members": [
+            "deepseek:p0000:b0003"
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "conflicts": []
+        }
+      ],
+      "source_group_id": "p0000_g0016",
+      "source_group_kind": "formula",
+      "source_group_sources": [
+        "deepseek"
+      ],
+      "source_group_members": [
+        "deepseek:p0000:b0003"
+      ],
+      "source_group_agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "source_group_conflicts": [],
+      "evidence_anchors": [
+        {
+          "source_group_id": "p0000_g0003",
+          "target_group_id": "p0000_g0003"
+        }
+      ],
+      "evidence_groups": [
+        "p0000_g0003"
+      ]
+    },
+    {
+      "anchor_id": "eq:1.2",
+      "anchor_type": "equation",
+      "label": "1.2",
+      "canonical_text": "\\frac { V } { N } = \\frac { 1 } { n } = \\frac { 4 \\pi { r _ { s } } ^ { 3 } } { 3 } ; ~ r _ { s } = { \\left( \\frac { 3 } { 4 \\pi n } \\right) } ^ { 1 , 3 } .\\tag{1.2}",
+      "target_group_id": "p0000_g0005",
+      "page_index": 0,
+      "page_number": 1,
+      "bbox": [
+        305.0,
+        392.0,
+        640.0,
+        433.0
+      ],
+      "source_groups": [
+        "p0000_g0005"
+      ],
+      "confidence": 0.8,
+      "status": "resolved_with_conflict",
+      "warnings": [],
+      "selection_mode": "consensus",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "formula_group",
+      "formula_candidates": [
+        {
+          "representative_text": "\\frac { V } { N } = \\frac { 1 } { n } = \\frac { 4 \\pi { r _ { s } } ^ { 3 } } { 3 } ; ~ r _ { s } = { \\left( \\frac { 3 } { 4 \\pi n } \\right) } ^ { 1 , 3 } .\\tag{1.2}",
+          "group_id": "p0000_g0005",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "members": [
+            "mineru:p0000:b0005",
+            "paddleocr:p0000:b0010",
+            "deepseek:p0000:b0005"
+          ],
+          "agreement": {
+            "text": "near",
+            "geometry": "missing",
+            "kind": "agree"
+          },
+          "conflicts": []
+        }
+      ],
+      "source_group_id": "p0000_g0005",
+      "source_group_kind": "formula",
+      "source_group_sources": [
+        "deepseek",
+        "mineru",
+        "paddleocr"
+      ],
+      "source_group_members": [
+        "mineru:p0000:b0005",
+        "paddleocr:p0000:b0010",
+        "deepseek:p0000:b0005"
+      ],
+      "source_group_agreement": {
+        "text": "near",
+        "geometry": "missing",
+        "kind": "agree"
+      },
+      "source_group_conflicts": [
+        {
+          "conflict_id": "p0000_c0006",
+          "page_index": 0,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0005",
+            "paddleocr:p0000:b0010",
+            "deepseek:p0000:b0005"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0007",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "formula_disagreement",
+          "message": "Formula text differs",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0005",
+            "paddleocr:p0000:b0010",
+            "deepseek:p0000:b0005"
+          ]
+        }
+      ]
+    },
+    {
+      "anchor_id": "footnote:5",
+      "anchor_type": "footnote",
+      "label": "5",
+      "canonical_text": "5 This is the range for metallic elements under normal conditions. Higher densities can be attained by application of pressure (which tends to favor the metallic state). Lower densities are found in compounds.",
+      "target_group_id": "p0000_g0010",
+      "page_index": 0,
+      "page_number": 1,
+      "bbox": [
+        59.0,
+        810.0,
+        884.0,
+        857.0
+      ],
+      "source_groups": [
+        "p0000_g0010"
+      ],
+      "confidence": 0.75,
+      "status": "resolved",
+      "warnings": [],
+      "source_group_id": "p0000_g0010",
+      "source_group_kind": "unknown",
+      "source_group_sources": [
+        "mineru"
+      ],
+      "source_group_members": [
+        "mineru:p0000:b0010"
+      ],
+      "source_group_agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "source_group_conflicts": []
+    },
+    {
+      "anchor_id": "footnote:6",
+      "anchor_type": "footnote",
+      "label": "6",
+      "canonical_text": "6 Strictly speaking, the electron-ion interaction is not entirely ignored, for the Drude model implicitly assumes that the electrons are confined to the interior of the metal. Evidently this confinement is brought about by their attraction to the positively charged ions. Gross effects of the electron-ion and defn inteal fel epreentingtheveag effethe lectonlecton an econ-on ntecions.",
+      "target_group_id": "p0000_g0011",
+      "page_index": 0,
+      "page_number": 1,
+      "bbox": [
+        59.0,
+        855.0,
+        884.0,
+        933.0
+      ],
+      "source_groups": [
+        "p0000_g0011"
+      ],
+      "confidence": 0.75,
+      "status": "resolved_with_conflict",
+      "warnings": [],
+      "source_group_id": "p0000_g0011",
+      "source_group_kind": "unknown",
+      "source_group_sources": [
+        "mineru",
+        "paddleocr"
+      ],
+      "source_group_members": [
+        "mineru:p0000:b0011",
+        "paddleocr:p0000:b0016"
+      ],
+      "source_group_agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "source_group_conflicts": [
+        {
+          "conflict_id": "p0000_c0012",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0011",
+            "paddleocr:p0000:b0016"
+          ]
+        }
+      ]
+    },
+    {
+      "anchor_id": "table:1.1",
+      "anchor_type": "table",
+      "label": "1.1",
+      "canonical_text": "Table 1.1",
+      "target_group_id": "p0001_g0001",
+      "page_index": 1,
+      "page_number": 2,
+      "bbox": [
+        178.0,
+        135.0,
+        785.0,
+        628.0
+      ],
+      "source_groups": [
+        "p0001_g0002"
+      ],
+      "confidence": 0.7,
+      "status": "resolved_with_conflict",
+      "warnings": [],
+      "source_group_id": "p0001_g0002",
+      "source_group_kind": "caption",
+      "source_group_sources": [
+        "deepseek",
+        "mineru"
+      ],
+      "source_group_members": [
+        "mineru:p0001:b0002",
+        "mineru:p0001:b0003",
+        "deepseek:p0001:b0001"
+      ],
+      "source_group_agreement": {
+        "text": "near",
+        "geometry": "missing",
+        "kind": "agree"
+      },
+      "source_group_conflicts": [
+        {
+          "conflict_id": "p0001_c0004",
+          "page_index": 1,
+          "severity": "medium",
+          "type": "possible_duplicate",
+          "message": "Multiple blocks from same source in group",
+          "sources": [
+            "deepseek",
+            "mineru"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0002",
+            "mineru:p0001:b0003",
+            "deepseek:p0001:b0001"
+          ]
+        },
+        {
+          "conflict_id": "p0001_c0005",
+          "page_index": 1,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0002",
+            "mineru:p0001:b0003",
+            "deepseek:p0001:b0001"
+          ]
+        }
+      ],
+      "evidence_anchors": [
+        {
+          "source_group_id": "p0000_g0017",
+          "target_group_id": "p0000_g0017"
+        },
+        {
+          "source_group_id": "p0000_g0018",
+          "target_group_id": "p0000_g0018"
+        }
+      ],
+      "evidence_groups": [
+        "p0000_g0017",
+        "p0000_g0018"
+      ]
+    },
+    {
+      "anchor_id": "fig:1.2",
+      "anchor_type": "figure",
+      "label": "1.2",
+      "canonical_text": "Figure 1.2",
+      "target_group_id": "p0002_g0013",
+      "page_index": 2,
+      "page_number": 3,
+      "bbox": [
+        132.712,
+        108.553,
+        444.703,
+        185.033
+      ],
+      "source_groups": [
+        "p0002_g0001"
+      ],
+      "confidence": 0.7,
+      "status": "resolved",
+      "warnings": [
+        "fallback_default_backend:default_figure_geometry_backend=paddleocr"
+      ],
+      "selection_mode": "fallback_default_backend",
+      "selected_text_source": "mineru",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "caption_label_picture_scoring",
+      "source_group_id": "p0002_g0001",
+      "source_group_kind": "picture",
+      "source_group_sources": [
+        "mineru"
+      ],
+      "source_group_members": [
+        "mineru:p0002:b0001"
+      ],
+      "source_group_agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "source_group_conflicts": [],
+      "evidence_anchors": [
+        {
+          "source_group_id": "p0002_g0002",
+          "target_group_id": "p0002_g0013"
+        },
+        {
+          "source_group_id": "p0002_g0014",
+          "target_group_id": "p0002_g0013"
+        }
+      ],
+      "evidence_groups": [
+        "p0002_g0002",
+        "p0002_g0014"
+      ]
+    },
+    {
+      "anchor_id": "footnote:8",
+      "anchor_type": "footnote",
+      "label": "8",
+      "canonical_text": "8 See Problem 1.",
+      "target_group_id": "p0002_g0011",
+      "page_index": 2,
+      "page_number": 3,
+      "bbox": [
+        156.0,
+        891.0,
+        298.0,
+        906.0
+      ],
+      "source_groups": [
+        "p0002_g0011"
+      ],
+      "confidence": 0.75,
+      "status": "resolved",
+      "warnings": [],
+      "source_group_id": "p0002_g0011",
+      "source_group_kind": "unknown",
+      "source_group_sources": [
+        "mineru"
+      ],
+      "source_group_members": [
+        "mineru:p0002:b0011"
+      ],
+      "source_group_agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "source_group_conflicts": []
+    },
+    {
+      "anchor_id": "eq:1.3",
+      "anchor_type": "equation",
+      "label": "1.3",
+      "canonical_text": "\\mathbf{E}=\\rho\\mathbf{j}. \\quad (1.3)",
+      "target_group_id": "p0003_g0019",
+      "page_index": 3,
+      "page_number": 4,
+      "bbox": null,
+      "source_groups": [
+        "p0003_g0019"
+      ],
+      "confidence": 0.8,
+      "status": "resolved",
+      "warnings": [],
+      "selection_mode": "consensus",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "formula_group",
+      "formula_candidates": [
+        {
+          "representative_text": "\\mathbf{E}=\\rho\\mathbf{j}. \\quad (1.3)",
+          "group_id": "p0003_g0019",
+          "sources": [
+            "deepseek"
+          ],
+          "members": [
+            "deepseek:p0003:b0003"
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "conflicts": []
+        }
+      ],
+      "source_group_id": "p0003_g0019",
+      "source_group_kind": "formula",
+      "source_group_sources": [
+        "deepseek"
+      ],
+      "source_group_members": [
+        "deepseek:p0003:b0003"
+      ],
+      "source_group_agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "source_group_conflicts": [],
+      "evidence_anchors": [
+        {
+          "source_group_id": "p0003_g0003",
+          "target_group_id": "p0003_g0003"
+        }
+      ],
+      "evidence_groups": [
+        "p0003_g0003"
+      ]
+    },
+    {
+      "anchor_id": "eq:1.4",
+      "anchor_type": "equation",
+      "label": "1.4",
+      "canonical_text": "\\mathbf{j}=-n e\\mathbf{v}. \\quad (1.4)",
+      "target_group_id": "p0003_g0022",
+      "page_index": 3,
+      "page_number": 4,
+      "bbox": null,
+      "source_groups": [
+        "p0003_g0022"
+      ],
+      "confidence": 0.8,
+      "status": "resolved",
+      "warnings": [],
+      "selection_mode": "consensus",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "formula_group",
+      "formula_candidates": [
+        {
+          "representative_text": "\\mathbf{j}=-n e\\mathbf{v}. \\quad (1.4)",
+          "group_id": "p0003_g0022",
+          "sources": [
+            "deepseek"
+          ],
+          "members": [
+            "deepseek:p0003:b0006"
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "conflicts": []
+        }
+      ],
+      "source_group_id": "p0003_g0022",
+      "source_group_kind": "formula",
+      "source_group_sources": [
+        "deepseek"
+      ],
+      "source_group_members": [
+        "deepseek:p0003:b0006"
+      ],
+      "source_group_agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "source_group_conflicts": [],
+      "evidence_anchors": [
+        {
+          "source_group_id": "p0003_g0006",
+          "target_group_id": "p0003_g0006"
+        }
+      ],
+      "evidence_groups": [
+        "p0003_g0006"
+      ]
+    },
+    {
+      "anchor_id": "eq:1.5",
+      "anchor_type": "equation",
+      "label": "1.5",
+      "canonical_text": "\\mathbf{v}_{\\mathrm{a v g}}=-\\frac{e\\mathbf{E}\\tau}{m};\\quad\\mathbf{j}=\\left(\\frac{n e^{2}\\tau}{m}\\right)\\mathbf{E}. \\quad (1.5)",
+      "target_group_id": "p0003_g0024",
+      "page_index": 3,
+      "page_number": 4,
+      "bbox": null,
+      "source_groups": [
+        "p0003_g0024"
+      ],
+      "confidence": 0.8,
+      "status": "resolved",
+      "warnings": [],
+      "selection_mode": "consensus",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "formula_group",
+      "formula_candidates": [
+        {
+          "representative_text": "\\mathbf{v}_{\\mathrm{a v g}}=-\\frac{e\\mathbf{E}\\tau}{m};\\quad\\mathbf{j}=\\left(\\frac{n e^{2}\\tau}{m}\\right)\\mathbf{E}. \\quad (1.5)",
+          "group_id": "p0003_g0024",
+          "sources": [
+            "deepseek"
+          ],
+          "members": [
+            "deepseek:p0003:b0009"
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "conflicts": []
+        }
+      ],
+      "source_group_id": "p0003_g0024",
+      "source_group_kind": "formula",
+      "source_group_sources": [
+        "deepseek"
+      ],
+      "source_group_members": [
+        "deepseek:p0003:b0009"
+      ],
+      "source_group_agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "source_group_conflicts": [],
+      "evidence_anchors": [
+        {
+          "source_group_id": "p0003_g0009",
+          "target_group_id": "p0003_g0009"
+        }
+      ],
+      "evidence_groups": [
+        "p0003_g0009"
+      ]
+    },
+    {
+      "anchor_id": "eq:1.6",
+      "anchor_type": "equation",
+      "label": "1.6",
+      "canonical_text": "\\mathbf{j}=\\sigma\\mathbf{E};\\quad\\sigma=\\frac{ne^{2}\\tau}{m}. \\quad (1.6)",
+      "target_group_id": "p0003_g0025",
+      "page_index": 3,
+      "page_number": 4,
+      "bbox": null,
+      "source_groups": [
+        "p0003_g0025"
+      ],
+      "confidence": 0.8,
+      "status": "resolved",
+      "warnings": [],
+      "selection_mode": "consensus",
+      "selected_text_source": "deepseek",
+      "selected_geometry_source": "deepseek",
+      "selection_reason": "formula_group",
+      "formula_candidates": [
+        {
+          "representative_text": "\\mathbf{j}=\\sigma\\mathbf{E};\\quad\\sigma=\\frac{ne^{2}\\tau}{m}. \\quad (1.6)",
+          "group_id": "p0003_g0025",
+          "sources": [
+            "deepseek"
+          ],
+          "members": [
+            "deepseek:p0003:b0011"
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "conflicts": []
+        }
+      ],
+      "source_group_id": "p0003_g0025",
+      "source_group_kind": "formula",
+      "source_group_sources": [
+        "deepseek"
+      ],
+      "source_group_members": [
+        "deepseek:p0003:b0011"
+      ],
+      "source_group_agreement": {
+        "text": "single_source",
+        "geometry": "unavailable",
+        "kind": "agree"
+      },
+      "source_group_conflicts": [],
+      "evidence_anchors": [
+        {
+          "source_group_id": "p0003_g0011",
+          "target_group_id": "p0003_g0011"
+        }
+      ],
+      "evidence_groups": [
+        "p0003_g0011"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "reference_id": "ref_p0000_0001",
+      "reference_type": "table",
+      "reference_text": "Table 1.1",
+      "label": "1.1",
+      "source_group_id": "p0000_g0004",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": "table:1.1",
+      "resolved": true,
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "reference_id": "ref_p0000_0002",
+      "reference_type": "table",
+      "reference_text": "Table 1.1",
+      "label": "1.1",
+      "source_group_id": "p0000_g0004",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": "table:1.1",
+      "resolved": true,
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "reference_id": "ref_p0000_0003",
+      "reference_type": "table",
+      "reference_text": "Table 1.1",
+      "label": "1.1",
+      "source_group_id": "p0000_g0006",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": "table:1.1",
+      "resolved": true,
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "reference_id": "ref_p0000_0004",
+      "reference_type": "section",
+      "reference_text": "Chapter 1",
+      "label": "1",
+      "source_group_id": "p0000_g0009",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0000_0005",
+      "reference_type": "section",
+      "reference_text": "Chapter 1",
+      "label": "1",
+      "source_group_id": "p0000_g0012",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0000_0006",
+      "reference_type": "footnote",
+      "reference_text": "24",
+      "label": "24",
+      "source_group_id": "p0000_g0015",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0000_0007",
+      "reference_type": "footnote",
+      "reference_text": "3",
+      "label": "3",
+      "source_group_id": "p0000_g0015",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0000_0008",
+      "reference_type": "footnote",
+      "reference_text": "24",
+      "label": "24",
+      "source_group_id": "p0000_g0016",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0001_0009",
+      "reference_type": "equation",
+      "reference_text": "Eq. (1.2)",
+      "label": "1.2",
+      "source_group_id": "p0001_g0012",
+      "page_index": 1,
+      "page_number": 2,
+      "target_anchor_id": "eq:1.2",
+      "resolved": true,
+      "confidence": 0.9,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "reference_id": "ref_p0002_0010",
+      "reference_type": "figure",
+      "reference_text": "Figure 1.2",
+      "label": "1.2",
+      "source_group_id": "p0002_g0004",
+      "page_index": 2,
+      "page_number": 3,
+      "target_anchor_id": "fig:1.2",
+      "resolved": true,
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "reference_id": "ref_p0002_0011",
+      "reference_type": "section",
+      "reference_text": "Chapter 1",
+      "label": "1",
+      "source_group_id": "p0002_g0009",
+      "page_index": 2,
+      "page_number": 3,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0002_0012",
+      "reference_type": "figure",
+      "reference_text": "Figure 1",
+      "label": "1",
+      "source_group_id": "p0002_g0010",
+      "page_index": 2,
+      "page_number": 3,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0002_0013",
+      "reference_type": "figure",
+      "reference_text": "Figure 1.2",
+      "label": "1.2",
+      "source_group_id": "p0002_g0014",
+      "page_index": 2,
+      "page_number": 3,
+      "target_anchor_id": "fig:1.2",
+      "resolved": true,
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "reference_id": "ref_p0002_0014",
+      "reference_type": "figure",
+      "reference_text": "Figure 1.2",
+      "label": "1.2",
+      "source_group_id": "p0002_g0016",
+      "page_index": 2,
+      "page_number": 3,
+      "target_anchor_id": "fig:1.2",
+      "resolved": true,
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "reference_id": "ref_p0002_0015",
+      "reference_type": "footnote",
+      "reference_text": "7",
+      "label": "7",
+      "source_group_id": "p0002_g0016",
+      "page_index": 2,
+      "page_number": 3,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0003_0016",
+      "reference_type": "equation",
+      "reference_text": "Eq. (1.3)",
+      "label": "1.3",
+      "source_group_id": "p0003_g0004",
+      "page_index": 3,
+      "page_number": 4,
+      "target_anchor_id": "eq:1.3",
+      "resolved": true,
+      "confidence": 0.9,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "reference_id": "ref_p0003_0017",
+      "reference_type": "equation",
+      "reference_text": "Eq. (1.3)",
+      "label": "1.3",
+      "source_group_id": "p0003_g0020",
+      "page_index": 3,
+      "page_number": 4,
+      "target_anchor_id": "eq:1.3",
+      "resolved": true,
+      "confidence": 0.2,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "reference_id": "ref_p0003_0018",
+      "reference_type": "footnote",
+      "reference_text": "2",
+      "label": "2",
+      "source_group_id": "p0003_g0024",
+      "page_index": 3,
+      "page_number": 4,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0003_0019",
+      "reference_type": "footnote",
+      "reference_text": "2",
+      "label": "2",
+      "source_group_id": "p0003_g0025",
+      "page_index": 3,
+      "page_number": 4,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    }
+  ],
+  "attachments": [
+    {
+      "attachment_id": "attach_p0000_0001",
+      "attachment_type": "equation_number_to_equation",
+      "source_group_id": "p0000_g0013",
+      "target_group_id": "p0000_g0003",
+      "anchor_id": "eq:1.1",
+      "page_index": 0,
+      "confidence": 0.9,
+      "reason": "geometry/reading-order"
+    },
+    {
+      "attachment_id": "attach_p0000_0002",
+      "attachment_type": "equation_number_to_equation",
+      "source_group_id": "p0000_g0014",
+      "target_group_id": "p0000_g0005",
+      "anchor_id": "eq:1.2",
+      "page_index": 0,
+      "confidence": 0.9,
+      "reason": "geometry/reading-order"
+    },
+    {
+      "attachment_id": "attach_p0002_0003",
+      "attachment_type": "caption_to_figure",
+      "source_group_id": "p0002_g0001",
+      "target_group_id": "p0002_g0013",
+      "anchor_id": "fig:1.2",
+      "page_index": 2,
+      "confidence": 0.7,
+      "reason": "caption label + nearest picture"
+    },
+    {
+      "attachment_id": "attach_p0002_0004",
+      "attachment_type": "caption_to_figure",
+      "source_group_id": "p0002_g0002",
+      "target_group_id": "p0002_g0013",
+      "anchor_id": "fig:1.2",
+      "page_index": 2,
+      "confidence": 0.7,
+      "reason": "caption label + nearest picture"
+    },
+    {
+      "attachment_id": "attach_p0002_0005",
+      "attachment_type": "caption_to_figure",
+      "source_group_id": "p0002_g0014",
+      "target_group_id": "p0002_g0013",
+      "anchor_id": "fig:1.2",
+      "page_index": 2,
+      "confidence": 0.7,
+      "reason": "caption label + nearest picture"
+    },
+    {
+      "attachment_id": "attach_p0003_0006",
+      "attachment_type": "equation_number_to_equation",
+      "source_group_id": "p0003_g0015",
+      "target_group_id": "p0003_g0003",
+      "anchor_id": "eq:1.3",
+      "page_index": 3,
+      "confidence": 0.9,
+      "reason": "geometry/reading-order"
+    },
+    {
+      "attachment_id": "attach_p0003_0007",
+      "attachment_type": "equation_number_to_equation",
+      "source_group_id": "p0003_g0016",
+      "target_group_id": "p0003_g0006",
+      "anchor_id": "eq:1.4",
+      "page_index": 3,
+      "confidence": 0.9,
+      "reason": "geometry/reading-order"
+    },
+    {
+      "attachment_id": "attach_p0003_0008",
+      "attachment_type": "equation_number_to_equation",
+      "source_group_id": "p0003_g0017",
+      "target_group_id": "p0003_g0009",
+      "anchor_id": "eq:1.5",
+      "page_index": 3,
+      "confidence": 0.9,
+      "reason": "geometry/reading-order"
+    },
+    {
+      "attachment_id": "attach_p0003_0009",
+      "attachment_type": "equation_number_to_equation",
+      "source_group_id": "p0003_g0018",
+      "target_group_id": "p0003_g0011",
+      "anchor_id": "eq:1.6",
+      "page_index": 3,
+      "confidence": 0.9,
+      "reason": "geometry/reading-order"
+    }
+  ],
+  "unresolved": [
+    {
+      "reference_id": "ref_p0000_0004",
+      "reference_type": "section",
+      "reference_text": "Chapter 1",
+      "label": "1",
+      "source_group_id": "p0000_g0009",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0000_0005",
+      "reference_type": "section",
+      "reference_text": "Chapter 1",
+      "label": "1",
+      "source_group_id": "p0000_g0012",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0000_0006",
+      "reference_type": "footnote",
+      "reference_text": "24",
+      "label": "24",
+      "source_group_id": "p0000_g0015",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0000_0007",
+      "reference_type": "footnote",
+      "reference_text": "3",
+      "label": "3",
+      "source_group_id": "p0000_g0015",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0000_0008",
+      "reference_type": "footnote",
+      "reference_text": "24",
+      "label": "24",
+      "source_group_id": "p0000_g0016",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0002_0011",
+      "reference_type": "section",
+      "reference_text": "Chapter 1",
+      "label": "1",
+      "source_group_id": "p0002_g0009",
+      "page_index": 2,
+      "page_number": 3,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0002_0012",
+      "reference_type": "figure",
+      "reference_text": "Figure 1",
+      "label": "1",
+      "source_group_id": "p0002_g0010",
+      "page_index": 2,
+      "page_number": 3,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0002_0015",
+      "reference_type": "footnote",
+      "reference_text": "7",
+      "label": "7",
+      "source_group_id": "p0002_g0016",
+      "page_index": 2,
+      "page_number": 3,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0003_0018",
+      "reference_type": "footnote",
+      "reference_text": "2",
+      "label": "2",
+      "source_group_id": "p0003_g0024",
+      "page_index": 3,
+      "page_number": 4,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0003_0019",
+      "reference_type": "footnote",
+      "reference_text": "2",
+      "label": "2",
+      "source_group_id": "p0003_g0025",
+      "page_index": 3,
+      "page_number": 4,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "page_index": 0,
+      "page_number": 1,
+      "anchors": [
+        "eq:1.1",
+        "eq:1.2",
+        "footnote:5",
+        "footnote:6"
+      ],
+      "references": [
+        "ref_p0000_0001",
+        "ref_p0000_0002",
+        "ref_p0000_0003",
+        "ref_p0000_0004",
+        "ref_p0000_0005",
+        "ref_p0000_0006",
+        "ref_p0000_0007",
+        "ref_p0000_0008"
+      ],
+      "attachments": [
+        "attach_p0000_0001",
+        "attach_p0000_0002"
+      ],
+      "unresolved": [
+        "ref_p0000_0004",
+        "ref_p0000_0005",
+        "ref_p0000_0006",
+        "ref_p0000_0007",
+        "ref_p0000_0008"
+      ],
+      "warnings": []
+    },
+    {
+      "page_index": 1,
+      "page_number": 2,
+      "anchors": [
+        "table:1.1"
+      ],
+      "references": [
+        "ref_p0001_0009"
+      ],
+      "attachments": [],
+      "unresolved": [],
+      "warnings": []
+    },
+    {
+      "page_index": 2,
+      "page_number": 3,
+      "anchors": [
+        "fig:1.2",
+        "footnote:8"
+      ],
+      "references": [
+        "ref_p0002_0010",
+        "ref_p0002_0011",
+        "ref_p0002_0012",
+        "ref_p0002_0013",
+        "ref_p0002_0014",
+        "ref_p0002_0015"
+      ],
+      "attachments": [
+        "attach_p0002_0003",
+        "attach_p0002_0004",
+        "attach_p0002_0005"
+      ],
+      "unresolved": [
+        "ref_p0002_0011",
+        "ref_p0002_0012",
+        "ref_p0002_0015"
+      ],
+      "warnings": []
+    },
+    {
+      "page_index": 3,
+      "page_number": 4,
+      "anchors": [
+        "eq:1.3",
+        "eq:1.4",
+        "eq:1.5",
+        "eq:1.6"
+      ],
+      "references": [
+        "ref_p0003_0016",
+        "ref_p0003_0017",
+        "ref_p0003_0018",
+        "ref_p0003_0019"
+      ],
+      "attachments": [
+        "attach_p0003_0006",
+        "attach_p0003_0007",
+        "attach_p0003_0008",
+        "attach_p0003_0009"
+      ],
+      "unresolved": [
+        "ref_p0003_0018",
+        "ref_p0003_0019"
+      ],
+      "warnings": []
+    }
+  ]
+}

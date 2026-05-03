@@ -1,0 +1,19 @@
+{
+  "document_id": "complex_multi_reference_network",
+  "required_docling_kinds": [
+    "caption",
+    "formula",
+    "picture",
+    "section_header",
+    "table",
+    "text",
+    "title"
+  ],
+  "required_reference_sidecar_entries": [
+    "sec:complex",
+    "sub:mesh",
+    "fig:box",
+    "tab:s",
+    "eq:one"
+  ]
+}

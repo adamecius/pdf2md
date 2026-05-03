@@ -1,0 +1,23 @@
+{
+  "document_id": "unnumbered_sections",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/unnumbered_sections/input/unnumbered_sections.tex",
+  "expected_title": "Unnumbered Sections",
+  "expected_sections": [
+    "Starred",
+    "Numbered"
+  ],
+  "expected_subsections": [
+    "Starred sub"
+  ],
+  "expected_labels": [
+    "sec:num"
+  ],
+  "expected_markdown_snippets": [
+    "Unnumbered Sections"
+  ],
+  "required_node_types": [
+    "section",
+    "subsection",
+    "title"
+  ]
+}

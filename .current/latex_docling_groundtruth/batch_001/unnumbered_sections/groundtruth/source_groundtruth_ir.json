@@ -1,0 +1,99 @@
+{
+  "schema_name": "pdf2md.source_groundtruth_ir",
+  "schema_version": "0.1.0",
+  "document_id": "unnumbered_sections",
+  "source_type": "latex",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/unnumbered_sections/input/unnumbered_sections.tex",
+  "expected_pdf": ".current/latex_docling_groundtruth/batch_001/unnumbered_sections/input/unnumbered_sections.pdf",
+  "title": "Unnumbered Sections",
+  "pages_expected_min": 1,
+  "nodes": [
+    {
+      "id": "gt:block:unnumbered_sections:0",
+      "type": "title",
+      "text": "Unnumbered Sections",
+      "label": null,
+      "ref_target": null,
+      "order": 0,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "title",
+      "source_latex_hint": "\\title"
+    },
+    {
+      "id": "gt:block:unnumbered_sections:1",
+      "type": "section",
+      "text": "Starred",
+      "label": null,
+      "ref_target": null,
+      "order": 1,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "section_header",
+      "source_latex_hint": "\\section"
+    },
+    {
+      "id": "gt:block:unnumbered_sections:2",
+      "type": "section",
+      "text": "Numbered",
+      "label": "sec:num",
+      "ref_target": null,
+      "order": 2,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "section_header",
+      "source_latex_hint": "\\section"
+    },
+    {
+      "id": "gt:block:unnumbered_sections:3",
+      "type": "subsection",
+      "text": "Starred sub",
+      "label": null,
+      "ref_target": null,
+      "order": 3,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "section_header",
+      "source_latex_hint": "\\subsection"
+    },
+    {
+      "id": "gt:block:unnumbered_sections:4",
+      "type": "reference",
+      "text": "ref:sec:num",
+      "label": null,
+      "ref_target": "sec:num",
+      "order": 4,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "text",
+      "source_latex_hint": "\\ref"
+    }
+  ],
+  "labels": {
+    "sec:num": "gt:block:unnumbered_sections:2"
+  },
+  "references": [
+    {
+      "id": "gt:ref:unnumbered_sections:0",
+      "source_node_id": "gt:block:unnumbered_sections:4",
+      "target_label": "sec:num",
+      "target_node_id": "gt:block:unnumbered_sections:2",
+      "reference_text": "\\ref{sec:num}",
+      "expected_resolved": true
+    }
+  ],
+  "features": {
+    "section": 2,
+    "subsection": 1,
+    "figure": 0,
+    "table": 0,
+    "equation": 0,
+    "footnote": 0,
+    "caption": 0,
+    "list": 0,
+    "list_item": 0,
+    "reference": 1,
+    "bibliography_like": 0,
+    "paragraph": 0
+  }
+}

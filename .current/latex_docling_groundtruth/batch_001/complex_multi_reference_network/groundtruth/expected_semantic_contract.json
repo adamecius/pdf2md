@@ -1,0 +1,30 @@
+{
+  "document_id": "complex_multi_reference_network",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/complex_multi_reference_network/input/complex_multi_reference_network.tex",
+  "expected_title": "Complex Multi Reference Network",
+  "expected_sections": [
+    "Complex"
+  ],
+  "expected_subsections": [
+    "Mesh"
+  ],
+  "expected_labels": [
+    "eq:one",
+    "fig:box",
+    "sec:complex",
+    "sub:mesh",
+    "tab:s"
+  ],
+  "expected_markdown_snippets": [
+    "Complex Multi Reference Network"
+  ],
+  "required_node_types": [
+    "caption",
+    "equation",
+    "figure",
+    "section",
+    "subsection",
+    "table",
+    "title"
+  ]
+}

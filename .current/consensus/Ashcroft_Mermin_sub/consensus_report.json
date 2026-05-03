@@ -1,0 +1,3690 @@
+{
+  "schema_name": "pdf2md.consensus_report",
+  "schema_version": "0.1.0",
+  "pdf_path": "Ashcroft_Mermin_sub.pdf",
+  "pdf_stem": "Ashcroft_Mermin_sub",
+  "created_at": "2026-05-03T11:34:19.148866+00:00",
+  "config_path": "/home/jgarcia/pdf2md/pdf2md_old/pdf2md.consensus.example.toml",
+  "coordinate_space": "page_normalised_1000",
+  "sources": {
+    "mineru": {
+      "source_name": "mineru",
+      "source_type": "backend_extraction_ir",
+      "enabled": true,
+      "root": "backend/mineru",
+      "extraction_dir": "backend/mineru/.current/extraction_ir/Ashcroft_Mermin_sub",
+      "manifest_path": "backend/mineru/.current/extraction_ir/Ashcroft_Mermin_sub/manifest.json",
+      "status": "loaded",
+      "page_count": 4,
+      "warnings": []
+    },
+    "paddleocr": {
+      "source_name": "paddleocr",
+      "source_type": "backend_extraction_ir",
+      "enabled": true,
+      "root": "backend/paddleocr",
+      "extraction_dir": "backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub",
+      "manifest_path": "backend/paddleocr/.current/extraction_ir/Ashcroft_Mermin_sub/manifest.json",
+      "status": "loaded",
+      "page_count": 4,
+      "warnings": []
+    },
+    "deepseek": {
+      "source_name": "deepseek",
+      "source_type": "backend_extraction_ir",
+      "enabled": true,
+      "root": "backend/deepseek",
+      "extraction_dir": "backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub",
+      "manifest_path": "backend/deepseek/.current/extraction_ir/Ashcroft_Mermin_sub/manifest.json",
+      "status": "loaded",
+      "page_count": 4,
+      "warnings": []
+    },
+    "pymupdf": {
+      "source_name": "pymupdf",
+      "source_type": "native_pdf",
+      "enabled": true,
+      "status": "loaded",
+      "page_count": 4,
+      "warnings": []
+    }
+  },
+  "document_summary": {
+    "page_count": 4
+  },
+  "pages": [
+    {
+      "page_index": 0,
+      "page_number": 1,
+      "sources_present": [
+        "mineru",
+        "paddleocr",
+        "deepseek",
+        "pymupdf"
+      ],
+      "sources_missing": [],
+      "pymupdf_page": {
+        "page_index": 0,
+        "page_number": 1,
+        "width": 389.5199890136719,
+        "height": 602.6400146484375,
+        "rotation": 0,
+        "native_text_block_count": 0,
+        "has_native_text": false,
+        "text_similarity_by_source": {}
+      },
+      "counts": {
+        "blocks_by_source": {
+          "deepseek": 9,
+          "mineru": 12,
+          "paddleocr": 17,
+          "pymupdf": 0
+        },
+        "text_blocks_by_source": {
+          "deepseek": 9,
+          "mineru": 12,
+          "paddleocr": 17,
+          "pymupdf": 0
+        },
+        "geometry_blocks_by_source": {
+          "deepseek": 0,
+          "mineru": 11,
+          "paddleocr": 12,
+          "pymupdf": 0
+        },
+        "tables_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 0,
+          "pymupdf": 0
+        },
+        "formulas_by_source": {
+          "deepseek": 2,
+          "mineru": 2,
+          "paddleocr": 4,
+          "pymupdf": 0
+        },
+        "pictures_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 0,
+          "pymupdf": 0
+        },
+        "captions_by_source": {
+          "deepseek": 2,
+          "mineru": 0,
+          "paddleocr": 1,
+          "pymupdf": 0
+        },
+        "candidate_blocks_by_source": {
+          "deepseek": 8,
+          "mineru": 11,
+          "paddleocr": 12,
+          "pymupdf": 0
+        },
+        "evidence_only_blocks_by_source": {
+          "deepseek": 1,
+          "mineru": 1,
+          "paddleocr": 1,
+          "pymupdf": 0
+        },
+        "fallback_blocks_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 2,
+          "pymupdf": 0
+        },
+        "duplicate_candidate_blocks_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 2,
+          "pymupdf": 0
+        }
+      },
+      "candidate_groups": [
+        {
+          "group_id": "p0000_g0001",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0000:b0001",
+            "paddleocr:p0000:b0006",
+            "deepseek:p0000:b0001"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 3,
+          "has_pymupdf_support": false,
+          "representative_text": "Drude applied kinetic theory to this \"gas\" of conduction electrons of mass m, which (in contrast to the molecules of an ordinary gas) move against a background of heavy immobile ions. The density of the electron gas can be calculated as follows:",
+          "representative_bbox": [
+            56.0,
+            106.0,
+            884.0,
+            159.0
+          ],
+          "agreement": {
+            "text": "near",
+            "geometry": "missing",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.9959349593495935,
+            "max_bbox_iou": 0.9287754241181295
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0002",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0000:b0002",
+            "paddleocr:p0000:b0007"
+          ],
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 2,
+          "has_pymupdf_support": false,
+          "representative_text": "A metallic element contains  0 . 6 0 2 2 \\times 1 0 ^ { 2 4 } atoms per mole (Avogadro's number) and  \\rho _ { m } / A moles per  \\mathrm { c m } ^ { 3 } ,where  \\rho _ { m } is the mass density (in grams per cubic centimeter) and A is the atomic mass of the element. Since each atom contributes Z electrons, the number of electrons per cubic centimeter,  n = N / V , is",
+          "representative_bbox": [
+            56.0,
+            159.0,
+            886.0,
+            232.0
+          ],
+          "agreement": {
+            "text": "conflict",
+            "geometry": "near",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.8714285714285714,
+            "max_bbox_iou": 0.9305485247235518
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0003",
+          "page_index": 0,
+          "kind": "formula",
+          "members": [
+            "mineru:p0000:b0003",
+            "paddleocr:p0000:b0008"
+          ],
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 2,
+          "has_pymupdf_support": false,
+          "representative_text": "n = 0 . 6 0 2 2 \\times 1 0 ^ { 2 4 } \\frac { Z \\rho _ { m } } { A } .\\tag{1.1}",
+          "representative_bbox": [
+            347.0,
+            235.0,
+            598.0,
+            274.0
+          ],
+          "agreement": {
+            "text": "conflict",
+            "geometry": "near",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.6153846153846154,
+            "max_bbox_iou": 0.8089356150781488
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0004",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0000:b0004",
+            "paddleocr:p0000:b0009"
+          ],
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 2,
+          "has_pymupdf_support": false,
+          "representative_text": "Table 1.1 shows the conduction electron densities for some selected metals, They are typically of order  1 0 ^ { 2 2 } conduction electrons per cubic centimeter, varying from  0 . 9 1 \\ \\times \\ 1 0 ^ { 2 2 } for cesium up to  2 4 . 7 \\times 1 0 ^ { 2 2 } for beryllium. Also listed in Table 1.1 is a widely used measure of the electronic density.  r _ { s * } defined as the radius of a sphere whose volume is equal to the volume per conduction electron. Thus",
+          "representative_bbox": [
+            56.0,
+            280.0,
+            886.0,
+            388.0
+          ],
+          "agreement": {
+            "text": "conflict",
+            "geometry": "near",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.19296254256526674,
+            "max_bbox_iou": 0.9411459855756357
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0005",
+          "page_index": 0,
+          "kind": "formula",
+          "members": [
+            "mineru:p0000:b0005",
+            "paddleocr:p0000:b0010",
+            "deepseek:p0000:b0005"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 3,
+          "has_pymupdf_support": false,
+          "representative_text": "\\frac { V } { N } = \\frac { 1 } { n } = \\frac { 4 \\pi { r _ { s } } ^ { 3 } } { 3 } ; ~ r _ { s } = { \\left( \\frac { 3 } { 4 \\pi n } \\right) } ^ { 1 , 3 } .\\tag{1.2}",
+          "representative_bbox": [
+            305.0,
+            392.0,
+            640.0,
+            433.0
+          ],
+          "agreement": {
+            "text": "near",
+            "geometry": "missing",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.9365853658536586,
+            "max_bbox_iou": 0.9078629097925008
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0006",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0000:b0006",
+            "paddleocr:p0000:b0011"
+          ],
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 2,
+          "has_pymupdf_support": false,
+          "representative_text": "Table 1.1 lists  r _ { s } both in angstroms  ( 1 0 ^ { - 8 } cm) and in units of the Bohr radius  a _ { 0 } = \\hbar ^ { 2 } / m e ^ { 2 } = 0 . 5 2 9 \\times 1 0 ^ { - 8 } cm; the latter length, being a measure of the radius of a hydrogen atom in its ground state, is often used as a scale for measuring atomic distances. Note that  r _ { s } / a _ { 0 } is between 2 and 3 in most cases, although it ranges between 3 and 6 in the alkali metals (and can be as large as 10 in some metallic compounds).",
+          "representative_bbox": [
+            59.0,
+            441.0,
+            884.0,
+            533.0
+          ],
+          "agreement": {
+            "text": "conflict",
+            "geometry": "near",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.8071654373024236,
+            "max_bbox_iou": 0.930793208379447
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0007",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0000:b0007",
+            "paddleocr:p0000:b0012",
+            "deepseek:p0000:b0007"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 3,
+          "has_pymupdf_support": false,
+          "representative_text": "These densities are typically a thousand times greater than those of a classical gas at normal temperatures and pressures. In spite of this and in spite of the strong electron-electron and electron-ion electromagnetic interactions, the Drude model boldly treats the dense metallic electron gas by the methods of the kinetic theory of a neutral dilute gas, with only slight modifications. The basic assumptions are these:",
+          "representative_bbox": [
+            59.0,
+            531.0,
+            886.0,
+            622.0
+          ],
+          "agreement": {
+            "text": "exact",
+            "geometry": "missing",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 1.0,
+            "max_bbox_iou": 0.9402149842273807
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0008",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0000:b0008",
+            "paddleocr:p0000:b0013",
+            "deepseek:p0000:b0008"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 3,
+          "has_pymupdf_support": false,
+          "representative_text": "1. Between collisions the interaction of a given electron, both with the others and with the ions, is neglected. Thus in the absence of externally applied electromagnetic fields each electron is taken to move uniformly in a straight line. In the presence of externally applied fields each electron is taken to move as determined by Newton's laws of motion in the presence of those external fields, but neglecting the additional complicated fields produced by the other electrons and ions.6 The neglect of electron-electron interactions between collisions is known as the independent electron approximation. The corresponding neglect of electron-ion interactions is known as the free electron approximation. We shall find in subsequent chapters that although the independent electron approximation is in many contexts surprisingly good, the free electron approximation must be abandoned if one is to arrive at even a qualitative understanding of much of metallic behavior.",
+          "representative_bbox": [
+            59.0,
+            629.0,
+            886.0,
+            792.0
+          ],
+          "agreement": {
+            "text": "near",
+            "geometry": "missing",
+            "kind": "conflict"
+          },
+          "scores": {
+            "max_text_similarity": 0.9900332225913622,
+            "max_bbox_iou": 0.960991927915965
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0009",
+          "page_index": 0,
+          "kind": "header",
+          "members": [
+            "mineru:p0000:b0009"
+          ],
+          "sources": [
+            "mineru"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "4 Chapter 1 The Drude Theory of Metals",
+          "representative_bbox": [
+            56.0,
+            71.0,
+            437.0,
+            89.0
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0010",
+          "page_index": 0,
+          "kind": "unknown",
+          "members": [
+            "mineru:p0000:b0010"
+          ],
+          "sources": [
+            "mineru"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "5 This is the range for metallic elements under normal conditions. Higher densities can be attained by application of pressure (which tends to favor the metallic state). Lower densities are found in compounds.",
+          "representative_bbox": [
+            59.0,
+            810.0,
+            884.0,
+            857.0
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0011",
+          "page_index": 0,
+          "kind": "unknown",
+          "members": [
+            "mineru:p0000:b0011",
+            "paddleocr:p0000:b0016"
+          ],
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 2,
+          "has_pymupdf_support": false,
+          "representative_text": "6 Strictly speaking, the electron-ion interaction is not entirely ignored, for the Drude model implicitly assumes that the electrons are confined to the interior of the metal. Evidently this confinement is brought about by their attraction to the positively charged ions. Gross effects of the electron-ion and defn inteal fel epreentingtheveag effethe lectonlecton an econ-on ntecions.",
+          "representative_bbox": [
+            59.0,
+            855.0,
+            884.0,
+            933.0
+          ],
+          "agreement": {
+            "text": "conflict",
+            "geometry": "near",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.546916890080429,
+            "max_bbox_iou": 0.6004364796044251
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0012",
+          "page_index": 0,
+          "kind": "title",
+          "members": [
+            "paddleocr:p0000:b0005"
+          ],
+          "sources": [
+            "paddleocr"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "4 Chapter 1 The Drude Theory of Metals ",
+          "representative_bbox": [
+            58.974,
+            72.139,
+            429.487,
+            85.406
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0013",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "paddleocr:p0000:b0014"
+          ],
+          "sources": [
+            "paddleocr"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "(1.1)",
+          "representative_bbox": [
+            833.333,
+            247.098,
+            875.641,
+            262.023
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0014",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "paddleocr:p0000:b0015"
+          ],
+          "sources": [
+            "paddleocr"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "(1.2)",
+          "representative_bbox": [
+            835.897,
+            405.473,
+            879.487,
+            421.227
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0015",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "deepseek:p0000:b0002"
+          ],
+          "sources": [
+            "deepseek"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "A metallic element contains  \\( 0.6022 \\times 10^{24} \\)  atoms per mole (Avogadro's number) and  \\( \\rho_{m}/A \\)  moles per  \\( cm^{3} \\) , where  \\( \\rho_{m} \\)  is the mass density (in grams per cubic centimeter) and A is the atomic mass of the element. Since each atom contributes Z electrons, the number of electrons per cubic centimeter, n = N/V, is",
+          "representative_bbox": null,
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0016",
+          "page_index": 0,
+          "kind": "formula",
+          "members": [
+            "deepseek:p0000:b0003"
+          ],
+          "sources": [
+            "deepseek"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "n=0.6022\\times10^{24}\\frac{Z\\rho_{m}}{A}. \\quad (1.1)",
+          "representative_bbox": null,
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0017",
+          "page_index": 0,
+          "kind": "caption",
+          "members": [
+            "deepseek:p0000:b0004"
+          ],
+          "sources": [
+            "deepseek"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "Table 1.1 shows the conduction electron densities for some selected metals. They are typically of order  \\( 10^{22} \\)  conduction electrons per cubic centimeter, varying from  \\( 0.91 \\times 10^{22} \\)  for cesium up to  \\( 24.7 \\times 10^{22} \\)  for beryllium. \\( ^{5} \\)  Also listed in Table 1.1 is a widely used measure of the electronic density,  \\( r_{s} \\) , defined as the radius of a sphere whose volume is equal to the volume per conduction electron. Thus",
+          "representative_bbox": null,
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0018",
+          "page_index": 0,
+          "kind": "caption",
+          "members": [
+            "deepseek:p0000:b0006"
+          ],
+          "sources": [
+            "deepseek"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "Table 1.1 lists  \\( r_{s} \\)  both in angstroms ( \\( 10^{-8} \\)  cm) and in units of the Bohr radius  \\( a_{0} = \\hbar^{2}/me^{2} = 0.529 \\times 10^{-8} \\)  cm; the latter length, being a measure of the radius of a hydrogen atom in its ground state, is often used as a scale for measuring atomic distances. Note that  \\( r_{s}/a_{0} \\)  is between 2 and 3 in most cases, although it ranges between 3 and 6 in the alkali metals (and can be as large as 10 in some metallic compounds).",
+          "representative_bbox": null,
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        }
+      ],
+      "ungrouped_candidates": [
+        "mineru:p0000:b0009",
+        "mineru:p0000:b0010",
+        "paddleocr:p0000:b0005",
+        "paddleocr:p0000:b0014",
+        "paddleocr:p0000:b0015",
+        "deepseek:p0000:b0002",
+        "deepseek:p0000:b0003",
+        "deepseek:p0000:b0004",
+        "deepseek:p0000:b0006"
+      ],
+      "conflicts": [
+        {
+          "conflict_id": "p0000_c0001",
+          "page_index": 0,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0001",
+            "paddleocr:p0000:b0006",
+            "deepseek:p0000:b0001"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0002",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0002",
+            "paddleocr:p0000:b0007"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0003",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "formula_disagreement",
+          "message": "Formula text differs",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0003",
+            "paddleocr:p0000:b0008"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0004",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0003",
+            "paddleocr:p0000:b0008"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0005",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0004",
+            "paddleocr:p0000:b0009"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0006",
+          "page_index": 0,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0005",
+            "paddleocr:p0000:b0010",
+            "deepseek:p0000:b0005"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0007",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "formula_disagreement",
+          "message": "Formula text differs",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0005",
+            "paddleocr:p0000:b0010",
+            "deepseek:p0000:b0005"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0008",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0006",
+            "paddleocr:p0000:b0011"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0009",
+          "page_index": 0,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0007",
+            "paddleocr:p0000:b0012",
+            "deepseek:p0000:b0007"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0010",
+          "page_index": 0,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0008",
+            "paddleocr:p0000:b0013",
+            "deepseek:p0000:b0008"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0011",
+          "page_index": 0,
+          "severity": "low",
+          "type": "kind_disagreement",
+          "message": "Different kinds grouped",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0008",
+            "paddleocr:p0000:b0013",
+            "deepseek:p0000:b0008"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0012",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0011",
+            "paddleocr:p0000:b0016"
+          ]
+        }
+      ],
+      "warnings": [],
+      "notes": []
+    },
+    {
+      "page_index": 1,
+      "page_number": 2,
+      "sources_present": [
+        "mineru",
+        "paddleocr",
+        "deepseek",
+        "pymupdf"
+      ],
+      "sources_missing": [],
+      "pymupdf_page": {
+        "page_index": 1,
+        "page_number": 2,
+        "width": 438.239990234375,
+        "height": 584.1599731445312,
+        "rotation": 0,
+        "native_text_block_count": 0,
+        "has_native_text": false,
+        "text_similarity_by_source": {}
+      },
+      "counts": {
+        "blocks_by_source": {
+          "deepseek": 7,
+          "mineru": 11,
+          "paddleocr": 15,
+          "pymupdf": 0
+        },
+        "text_blocks_by_source": {
+          "deepseek": 7,
+          "mineru": 11,
+          "paddleocr": 15,
+          "pymupdf": 0
+        },
+        "geometry_blocks_by_source": {
+          "deepseek": 0,
+          "mineru": 10,
+          "paddleocr": 8,
+          "pymupdf": 0
+        },
+        "tables_by_source": {
+          "deepseek": 1,
+          "mineru": 1,
+          "paddleocr": 2,
+          "pymupdf": 0
+        },
+        "formulas_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 0,
+          "pymupdf": 0
+        },
+        "pictures_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 0,
+          "pymupdf": 0
+        },
+        "captions_by_source": {
+          "deepseek": 1,
+          "mineru": 2,
+          "paddleocr": 1,
+          "pymupdf": 0
+        },
+        "candidate_blocks_by_source": {
+          "deepseek": 6,
+          "mineru": 10,
+          "paddleocr": 6,
+          "pymupdf": 0
+        },
+        "evidence_only_blocks_by_source": {
+          "deepseek": 1,
+          "mineru": 1,
+          "paddleocr": 3,
+          "pymupdf": 0
+        },
+        "fallback_blocks_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 1,
+          "pymupdf": 0
+        },
+        "duplicate_candidate_blocks_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 5,
+          "pymupdf": 0
+        }
+      },
+      "candidate_groups": [
+        {
+          "group_id": "p0001_g0001",
+          "page_index": 1,
+          "kind": "table",
+          "members": [
+            "mineru:p0001:b0001",
+            "paddleocr:p0001:b0011",
+            "deepseek:p0001:b0003"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 3,
+          "has_pymupdf_support": false,
+          "representative_text": "ELEMENT Z $n ( 1 0 ^ { 2 2 } / { \\mathrm { c m } } ^ { 3 } )$ $r _ { s } ( \\mathrm { \\AA } )$ $r _ { s } / a _ { 0 }$ Li (78 K) 1 4.70 1.72 3.25 Na (5 K) 1 2.65 2.08 3.93 K (5 K) I 1.40 2.57 4.86 Rb (5 K) 1 1.15 2.75 5.20 Cs (5 K) I 0.91 2.98 5.62 Cu I 8.47 1.41 2.67 Ag 1 5.86 1.60 3.02 Au 1 5.90 1.59 3.01 Be 2 24.7 0.99 1.87 Mg 20 8.61 1.41 2.66 Ca 2 4.61 1.73 3.27 Sr 2 3.55 1.89 3.57 Ba 2 3.15 1.96 3.71 Nb 1 5.56 1.63 3.07 Fe 2 17.0 1.12 2.12 Mn (x) 2 16.5 1.13 2.14 Zn 13.2 1.22 2.30 Cd 22 9.27 1.37 2.59 Hg (78 K) 2 8.65 1.40 2.65 Al 3 18.1 1.10 2.07 Ga 3 15.4 1.16 2.19 In 3 11.5 1.27 2.41 T1 3 10.5 1.31 2.48 Sn 4 14.8 1.17 2.22 Pb 4 13.2 1.22 2.30 Bi 5 14.1 1.19 2.25 Sb 5 16.5 1.13 2.14",
+          "representative_bbox": [
+            178.0,
+            135.0,
+            785.0,
+            628.0
+          ],
+          "agreement": {
+            "text": "conflict",
+            "geometry": "missing",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.8995433789954338,
+            "max_bbox_iou": 0.9844033620861804
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0001_g0002",
+          "page_index": 1,
+          "kind": "caption",
+          "members": [
+            "mineru:p0001:b0002",
+            "mineru:p0001:b0003",
+            "deepseek:p0001:b0001"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru"
+          ],
+          "support_count": 2,
+          "has_pymupdf_support": false,
+          "representative_text": "Table 1.1",
+          "representative_bbox": [
+            178.0,
+            135.0,
+            785.0,
+            628.0
+          ],
+          "agreement": {
+            "text": "near",
+            "geometry": "missing",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 1.0,
+            "max_bbox_iou": 1.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0001_g0003",
+          "page_index": 1,
+          "kind": "unknown",
+          "members": [
+            "mineru:p0001:b0004",
+            "mineru:p0001:b0005",
+            "mineru:p0001:b0006"
+          ],
+          "sources": [
+            "mineru"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "At room temperature (about 300 K) and atmospheric pressure, unless otherwise noted. The radius",
+          "representative_bbox": [
+            178.0,
+            135.0,
+            785.0,
+            628.0
+          ],
+          "agreement": {
+            "text": "conflict",
+            "geometry": "near",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0970873786407767,
+            "max_bbox_iou": 1.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0001_g0004",
+          "page_index": 1,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0001:b0007",
+            "paddleocr:p0001:b0013",
+            "deepseek:p0001:b0005"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 3,
+          "has_pymupdf_support": false,
+          "representative_text": "although the independent electron approximation is in many contexts surprisingly\ngood, the free electron approximation must be abandoned if one is to arrive at even\na qualitative understanding of much of metallic behavior.",
+          "representative_bbox": [
+            102.0,
+            767.0,
+            853.0,
+            823.0
+          ],
+          "agreement": {
+            "text": "exact",
+            "geometry": "missing",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 1.0,
+            "max_bbox_iou": 0.9224284611945984
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0001_g0005",
+          "page_index": 1,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0001:b0008",
+            "paddleocr:p0001:b0014",
+            "deepseek:p0001:b0006"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 3,
+          "has_pymupdf_support": false,
+          "representative_text": "2. Collisions in the Drude model, as in kinetic theory, are instantaneous events that abruptly alter the velocity of an electron. Drude attributed them to the electrons bouncing off the impenetrable ion cores (rather than to electron-electron collisions. the analogue of the predominant collision mechanism in an ordinary gas). We shall find later that electron-electron scattering is indeed one of the least important of the several scattering mechanisms in a metal, except under unusual conditions. However,",
+          "representative_bbox": [
+            102.0,
+            821.0,
+            856.0,
+            934.0
+          ],
+          "agreement": {
+            "text": "near",
+            "geometry": "missing",
+            "kind": "conflict"
+          },
+          "scores": {
+            "max_text_similarity": 1.0,
+            "max_bbox_iou": 0.9344572021314052
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0001_g0006",
+          "page_index": 1,
+          "kind": "header",
+          "members": [
+            "mineru:p0001:b0009"
+          ],
+          "sources": [
+            "mineru"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "Basic Assumptions of the Drude Model",
+          "representative_bbox": [
+            527.0,
+            46.0,
+            828.0,
+            65.0
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0001_g0007",
+          "page_index": 1,
+          "kind": "page_number",
+          "members": [
+            "mineru:p0001:b0010"
+          ],
+          "sources": [
+            "mineru"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "5",
+          "representative_bbox": [
+            842.0,
+            47.0,
+            860.0,
+            63.0
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0001_g0008",
+          "page_index": 1,
+          "kind": "title",
+          "members": [
+            "paddleocr:p0001:b0009"
+          ],
+          "sources": [
+            "paddleocr"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "Table1.1",
+          "representative_bbox": [
+            184.721,
+            81.266,
+            261.117,
+            94.098
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0001_g0009",
+          "page_index": 1,
+          "kind": "title",
+          "members": [
+            "paddleocr:p0001:b0010"
+          ],
+          "sources": [
+            "paddleocr"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "FREE ELECTRON DENSITIES OF SELECTED METALLIC ELEMENTSa \n",
+          "representative_bbox": [
+            184.721,
+            97.519,
+            779.932,
+            127.459
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0001_g0010",
+          "page_index": 1,
+          "kind": "paragraph",
+          "members": [
+            "paddleocr:p0001:b0012"
+          ],
+          "sources": [
+            "paddleocr"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "\"At room temperature (about 300 K) and atmospheric pressure, unless otherwise noted. The radius $r_{s}$ ofi We have arbitrarily selected one value of Z for those elements that display more than one chemical valence. The Drude model gives no theoretical basis for the choice. Values of n are based on data from R.W.G.Wyckoff,Crystal Structures, 2nd ed. Interscience, New York,1963.",
+          "representative_bbox": [
+            180.16,
+            637.297,
+            776.511,
+            736.527
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0001_g0011",
+          "page_index": 1,
+          "kind": "paragraph",
+          "members": [
+            "deepseek:p0001:b0002"
+          ],
+          "sources": [
+            "deepseek"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "FREE ELECTRON DENSITIES OF SELECTED METALLIC ELEMENTS \\( ^{a} \\)",
+          "representative_bbox": null,
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0001_g0012",
+          "page_index": 1,
+          "kind": "paragraph",
+          "members": [
+            "deepseek:p0001:b0004"
+          ],
+          "sources": [
+            "deepseek"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "\\( ^{a} \\)  At room temperature (about 300 K) and atmospheric pressure, unless otherwise noted. The radius  \\( r_{s} \\)  of the free electron sphere is defined in Eq. (1.2). We have arbitrarily selected one value of Z for those elements that display more than one chemical valence. The Drude model gives no theoretical basis for the choice. Values of n are based on data from R. W. G. Wyckoff, Crystal Structures, 2nd ed., Interscience, New York, 1963.",
+          "representative_bbox": null,
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        }
+      ],
+      "ungrouped_candidates": [
+        "mineru:p0001:b0009",
+        "mineru:p0001:b0010",
+        "paddleocr:p0001:b0009",
+        "paddleocr:p0001:b0010",
+        "paddleocr:p0001:b0012",
+        "deepseek:p0001:b0002",
+        "deepseek:p0001:b0004"
+      ],
+      "conflicts": [
+        {
+          "conflict_id": "p0001_c0001",
+          "page_index": 1,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0001",
+            "paddleocr:p0001:b0011",
+            "deepseek:p0001:b0003"
+          ]
+        },
+        {
+          "conflict_id": "p0001_c0002",
+          "page_index": 1,
+          "severity": "medium",
+          "type": "table_disagreement",
+          "message": "Table signatures differ",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0001",
+            "paddleocr:p0001:b0011",
+            "deepseek:p0001:b0003"
+          ]
+        },
+        {
+          "conflict_id": "p0001_c0003",
+          "page_index": 1,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0001",
+            "paddleocr:p0001:b0011",
+            "deepseek:p0001:b0003"
+          ]
+        },
+        {
+          "conflict_id": "p0001_c0004",
+          "page_index": 1,
+          "severity": "medium",
+          "type": "possible_duplicate",
+          "message": "Multiple blocks from same source in group",
+          "sources": [
+            "deepseek",
+            "mineru"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0002",
+            "mineru:p0001:b0003",
+            "deepseek:p0001:b0001"
+          ]
+        },
+        {
+          "conflict_id": "p0001_c0005",
+          "page_index": 1,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0002",
+            "mineru:p0001:b0003",
+            "deepseek:p0001:b0001"
+          ]
+        },
+        {
+          "conflict_id": "p0001_c0006",
+          "page_index": 1,
+          "severity": "medium",
+          "type": "possible_duplicate",
+          "message": "Multiple blocks from same source in group",
+          "sources": [
+            "mineru"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0004",
+            "mineru:p0001:b0005",
+            "mineru:p0001:b0006"
+          ]
+        },
+        {
+          "conflict_id": "p0001_c0007",
+          "page_index": 1,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0004",
+            "mineru:p0001:b0005",
+            "mineru:p0001:b0006"
+          ]
+        },
+        {
+          "conflict_id": "p0001_c0008",
+          "page_index": 1,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0007",
+            "paddleocr:p0001:b0013",
+            "deepseek:p0001:b0005"
+          ]
+        },
+        {
+          "conflict_id": "p0001_c0009",
+          "page_index": 1,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0008",
+            "paddleocr:p0001:b0014",
+            "deepseek:p0001:b0006"
+          ]
+        },
+        {
+          "conflict_id": "p0001_c0010",
+          "page_index": 1,
+          "severity": "low",
+          "type": "kind_disagreement",
+          "message": "Different kinds grouped",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0001:b0008",
+            "paddleocr:p0001:b0014",
+            "deepseek:p0001:b0006"
+          ]
+        }
+      ],
+      "warnings": [],
+      "notes": []
+    },
+    {
+      "page_index": 2,
+      "page_number": 3,
+      "sources_present": [
+        "mineru",
+        "paddleocr",
+        "deepseek",
+        "pymupdf"
+      ],
+      "sources_missing": [],
+      "pymupdf_page": {
+        "page_index": 2,
+        "page_number": 3,
+        "width": 429.1199951171875,
+        "height": 607.6799926757812,
+        "rotation": 0,
+        "native_text_block_count": 0,
+        "has_native_text": false,
+        "text_similarity_by_source": {}
+      },
+      "counts": {
+        "blocks_by_source": {
+          "deepseek": 9,
+          "mineru": 13,
+          "paddleocr": 18,
+          "pymupdf": 0
+        },
+        "text_blocks_by_source": {
+          "deepseek": 9,
+          "mineru": 13,
+          "paddleocr": 17,
+          "pymupdf": 0
+        },
+        "geometry_blocks_by_source": {
+          "deepseek": 0,
+          "mineru": 12,
+          "paddleocr": 11,
+          "pymupdf": 0
+        },
+        "tables_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 0,
+          "pymupdf": 0
+        },
+        "formulas_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 0,
+          "pymupdf": 0
+        },
+        "pictures_by_source": {
+          "deepseek": 1,
+          "mineru": 1,
+          "paddleocr": 2,
+          "pymupdf": 0
+        },
+        "captions_by_source": {
+          "deepseek": 1,
+          "mineru": 1,
+          "paddleocr": 0,
+          "pymupdf": 0
+        },
+        "candidate_blocks_by_source": {
+          "deepseek": 8,
+          "mineru": 12,
+          "paddleocr": 9,
+          "pymupdf": 0
+        },
+        "evidence_only_blocks_by_source": {
+          "deepseek": 1,
+          "mineru": 1,
+          "paddleocr": 3,
+          "pymupdf": 0
+        },
+        "fallback_blocks_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 1,
+          "pymupdf": 0
+        },
+        "duplicate_candidate_blocks_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 5,
+          "pymupdf": 0
+        }
+      },
+      "candidate_groups": [
+        {
+          "group_id": "p0002_g0001",
+          "page_index": 2,
+          "kind": "picture",
+          "members": [
+            "mineru:p0002:b0001"
+          ],
+          "sources": [
+            "mineru"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "Figure 1.2",
+          "representative_bbox": [
+            303.03,
+            176.277,
+            1000.0,
+            308.072
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0002_g0002",
+          "page_index": 2,
+          "kind": "caption",
+          "members": [
+            "mineru:p0002:b0002",
+            "deepseek:p0002:b0002"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru"
+          ],
+          "support_count": 2,
+          "has_pymupdf_support": false,
+          "representative_text": "Figure 1.2",
+          "representative_bbox": [
+            303.03,
+            176.277,
+            1000.0,
+            308.072
+          ],
+          "agreement": {
+            "text": "exact",
+            "geometry": "missing",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 1.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0002_g0003",
+          "page_index": 2,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0002:b0003",
+            "paddleocr:p0002:b0011",
+            "deepseek:p0002:b0003"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 3,
+          "has_pymupdf_support": false,
+          "representative_text": "Trajectory of a conduction electron scattering off the ions. according to the naive picture of Drude.",
+          "representative_bbox": [
+            456.0,
+            123.0,
+            895.0,
+            158.0
+          ],
+          "agreement": {
+            "text": "near",
+            "geometry": "missing",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 1.0,
+            "max_bbox_iou": 0.8552769293198826
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0002_g0004",
+          "page_index": 2,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0002:b0004",
+            "paddleocr:p0002:b0012"
+          ],
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 2,
+          "has_pymupdf_support": false,
+          "representative_text": "the simple mechanical picture (Figure 1.2) of an electron bumping along from ion to ion is very far off the mark.7 Fortunately, this does not matter for many purposes: a qualitative (and often a quantitative) understanding of metallic conduction can be achieved by simply assuming that there is some scattering mechanism, without inquiring too closely into just what that mechanism might be. By appealing, in our analysis. to only a few general effects of the collision process. we can avoid committing ourselves to any specific picture of how electron scattering actually takes place. These broad features are described in the following two assumptions.",
+          "representative_bbox": [
+            128.0,
+            194.0,
+            897.0,
+            337.0
+          ],
+          "agreement": {
+            "text": "conflict",
+            "geometry": "near",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.6508422664624809,
+            "max_bbox_iou": 0.9607555945510926
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0002_g0005",
+          "page_index": 2,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0002:b0005",
+            "paddleocr:p0002:b0013",
+            "deepseek:p0002:b0005"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 3,
+          "has_pymupdf_support": false,
+          "representative_text": "3. We shall assume that an electron experiences a collision (i.e. suffers an abrupt change in its velocity) with a probability per unit time 1/\u03c4. We mean by this that the probability of an electron undergoing a collision in any infinitesimal time interval of length dt is just dt/t. The time t is variously known as the relaxation time, the collision time, or the mean free time, and it plays a fundamental role in the theory of metallic conduction. It follows from this assumption that an electron picked at random at a given moment will, on the average, travel for a time t before its next collision, and will, on the average, have been traveling for a time t since its last collision.8 In the simplest applications of the Drude model the collision time t is taken to be independent of an electron's position and velocity. We shall see later that this turns out to be a surprisingly good assumption for many (but by no means all) applications. 4. Electrons are assumed to achieve thermal equilibrium with their surroundings only through collisions. These collisions are assumed to maintain local thermodynamic equilibrium in a particularly simple way: immediately after each collision an electron is taken to emerge with a velocity that is not related to its velocity just before the collision, but randomly directed and with a speed appropriate to the temperature prevailing at the place where the collision occurred. Thus the hotter the region in which a collision occurs, the faster a typical electron will emerge from the collision.",
+          "representative_bbox": [
+            128.0,
+            337.0,
+            899.0,
+            677.0
+          ],
+          "agreement": {
+            "text": "near",
+            "geometry": "missing",
+            "kind": "conflict"
+          },
+          "scores": {
+            "max_text_similarity": 0.9283449587824985,
+            "max_bbox_iou": 0.9658485891508354
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0002_g0006",
+          "page_index": 2,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0002:b0006",
+            "paddleocr:p0002:b0014",
+            "deepseek:p0002:b0006"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 3,
+          "has_pymupdf_support": false,
+          "representative_text": "In the rest of this chapter we shall illustrate these notions through their most important applications, noting the extent to which they succeed or fail to describe the observed phenomena.",
+          "representative_bbox": [
+            130.0,
+            683.0,
+            897.0,
+            738.0
+          ],
+          "agreement": {
+            "text": "near",
+            "geometry": "missing",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 1.0,
+            "max_bbox_iou": 0.9039891159179797
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0002_g0007",
+          "page_index": 2,
+          "kind": "title",
+          "members": [
+            "mineru:p0002:b0007",
+            "paddleocr:p0002:b0015",
+            "deepseek:p0002:b0007"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 3,
+          "has_pymupdf_support": false,
+          "representative_text": "DC ELECTRICAL CONDUCTIVITY OF A METAL",
+          "representative_bbox": [
+            130.0,
+            761.0,
+            699.0,
+            782.0
+          ],
+          "agreement": {
+            "text": "near",
+            "geometry": "missing",
+            "kind": "conflict"
+          },
+          "scores": {
+            "max_text_similarity": 1.0,
+            "max_bbox_iou": 0.6564925633944273
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0002_g0008",
+          "page_index": 2,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0002:b0008",
+            "paddleocr:p0002:b0016",
+            "deepseek:p0002:b0008"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 3,
+          "has_pymupdf_support": false,
+          "representative_text": "According to Ohm's law, the current I flowing in a wire is proportional to the potential drop V along the wire: V = IR, where R, the resistance of the wire, depends on its dimensions, but is independent of the size of the current or potential drop. The Drude model accounts for this behavior and provides an estimate of the size of the resistance.",
+          "representative_bbox": [
+            130.0,
+            789.0,
+            897.0,
+            827.0
+          ],
+          "agreement": {
+            "text": "near",
+            "geometry": "missing",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.954954954954955,
+            "max_bbox_iou": 0.8579424681946067
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0002_g0009",
+          "page_index": 2,
+          "kind": "header",
+          "members": [
+            "mineru:p0002:b0009"
+          ],
+          "sources": [
+            "mineru"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "6 Chapter 1 The Drude Theory of Metals",
+          "representative_bbox": [
+            132.0,
+            74.0,
+            477.0,
+            90.0
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0002_g0010",
+          "page_index": 2,
+          "kind": "unknown",
+          "members": [
+            "mineru:p0002:b0010",
+            "paddleocr:p0002:b0017"
+          ],
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 2,
+          "has_pymupdf_support": false,
+          "representative_text": "For some time people were led into diffcult but irrelevant problems connected with the proper aig o n electron  in eac colion.S iteral n iteretation o Figure 1. is eu to be avoided.",
+          "representative_bbox": [
+            130.0,
+            846.0,
+            897.0,
+            891.0
+          ],
+          "agreement": {
+            "text": "conflict",
+            "geometry": "near",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.4792079207920792,
+            "max_bbox_iou": 0.5950249922675591
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0002_g0011",
+          "page_index": 2,
+          "kind": "unknown",
+          "members": [
+            "mineru:p0002:b0011"
+          ],
+          "sources": [
+            "mineru"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "8 See Problem 1.",
+          "representative_bbox": [
+            156.0,
+            891.0,
+            298.0,
+            906.0
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0002_g0012",
+          "page_index": 2,
+          "kind": "unknown",
+          "members": [
+            "mineru:p0002:b0012"
+          ],
+          "sources": [
+            "mineru"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "Given the free and independent electron approximation, this is the only possible mechanism left.",
+          "representative_bbox": [
+            153.0,
+            904.0,
+            895.0,
+            922.0
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0002_g0013",
+          "page_index": 2,
+          "kind": "picture",
+          "members": [
+            "paddleocr:p0002:b0009"
+          ],
+          "sources": [
+            "paddleocr"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "",
+          "representative_bbox": [
+            132.712,
+            108.553,
+            444.703,
+            185.033
+          ],
+          "agreement": {
+            "text": "unavailable",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0002_g0014",
+          "page_index": 2,
+          "kind": "title",
+          "members": [
+            "paddleocr:p0002:b0010"
+          ],
+          "sources": [
+            "paddleocr"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "Figure 1.2",
+          "representative_bbox": [
+            461.001,
+            109.375,
+            542.491,
+            121.711
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0002_g0015",
+          "page_index": 2,
+          "kind": "picture",
+          "members": [
+            "deepseek:p0002:b0001"
+          ],
+          "sources": [
+            "deepseek"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "![](images/0.jpg)",
+          "representative_bbox": null,
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0002_g0016",
+          "page_index": 2,
+          "kind": "paragraph",
+          "members": [
+            "deepseek:p0002:b0004"
+          ],
+          "sources": [
+            "deepseek"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "the simple mechanical picture (Figure 1.2) of an electron bumping along from ion to ion is very far off the mark. \\( ^{7} \\)  Fortunately, this does not matter for many purposes: a qualitative (and often a quantitative) understanding of metallic conduction can be achieved by simply assuming that there is some scattering mechanism, without inquiring too closely into just what that mechanism might be. By appealing, in our analysis, to only a few general effects of the collision process, we can avoid committing ourselves to any specific picture of how electron scattering actually takes place. These broad features are described in the following two assumptions.",
+          "representative_bbox": null,
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        }
+      ],
+      "ungrouped_candidates": [
+        "mineru:p0002:b0001",
+        "mineru:p0002:b0009",
+        "mineru:p0002:b0011",
+        "mineru:p0002:b0012",
+        "paddleocr:p0002:b0009",
+        "paddleocr:p0002:b0010",
+        "deepseek:p0002:b0001",
+        "deepseek:p0002:b0004"
+      ],
+      "conflicts": [
+        {
+          "conflict_id": "p0002_c0001",
+          "page_index": 2,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru"
+          ],
+          "evidence_ids": [
+            "mineru:p0002:b0002",
+            "deepseek:p0002:b0002"
+          ]
+        },
+        {
+          "conflict_id": "p0002_c0002",
+          "page_index": 2,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0002:b0003",
+            "paddleocr:p0002:b0011",
+            "deepseek:p0002:b0003"
+          ]
+        },
+        {
+          "conflict_id": "p0002_c0003",
+          "page_index": 2,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0002:b0004",
+            "paddleocr:p0002:b0012"
+          ]
+        },
+        {
+          "conflict_id": "p0002_c0004",
+          "page_index": 2,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0002:b0005",
+            "paddleocr:p0002:b0013",
+            "deepseek:p0002:b0005"
+          ]
+        },
+        {
+          "conflict_id": "p0002_c0005",
+          "page_index": 2,
+          "severity": "low",
+          "type": "kind_disagreement",
+          "message": "Different kinds grouped",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0002:b0005",
+            "paddleocr:p0002:b0013",
+            "deepseek:p0002:b0005"
+          ]
+        },
+        {
+          "conflict_id": "p0002_c0006",
+          "page_index": 2,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0002:b0006",
+            "paddleocr:p0002:b0014",
+            "deepseek:p0002:b0006"
+          ]
+        },
+        {
+          "conflict_id": "p0002_c0007",
+          "page_index": 2,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0002:b0007",
+            "paddleocr:p0002:b0015",
+            "deepseek:p0002:b0007"
+          ]
+        },
+        {
+          "conflict_id": "p0002_c0008",
+          "page_index": 2,
+          "severity": "low",
+          "type": "kind_disagreement",
+          "message": "Different kinds grouped",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0002:b0007",
+            "paddleocr:p0002:b0015",
+            "deepseek:p0002:b0007"
+          ]
+        },
+        {
+          "conflict_id": "p0002_c0009",
+          "page_index": 2,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0002:b0008",
+            "paddleocr:p0002:b0016",
+            "deepseek:p0002:b0008"
+          ]
+        },
+        {
+          "conflict_id": "p0002_c0010",
+          "page_index": 2,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0002:b0010",
+            "paddleocr:p0002:b0017"
+          ]
+        }
+      ],
+      "warnings": [],
+      "notes": []
+    },
+    {
+      "page_index": 3,
+      "page_number": 4,
+      "sources_present": [
+        "mineru",
+        "paddleocr",
+        "deepseek",
+        "pymupdf"
+      ],
+      "sources_missing": [],
+      "pymupdf_page": {
+        "page_index": 3,
+        "page_number": 4,
+        "width": 417.8399963378906,
+        "height": 587.280029296875,
+        "rotation": 0,
+        "native_text_block_count": 0,
+        "has_native_text": false,
+        "text_similarity_by_source": {}
+      },
+      "counts": {
+        "blocks_by_source": {
+          "deepseek": 12,
+          "mineru": 15,
+          "paddleocr": 25,
+          "pymupdf": 0
+        },
+        "text_blocks_by_source": {
+          "deepseek": 12,
+          "mineru": 15,
+          "paddleocr": 25,
+          "pymupdf": 0
+        },
+        "geometry_blocks_by_source": {
+          "deepseek": 0,
+          "mineru": 14,
+          "paddleocr": 18,
+          "pymupdf": 0
+        },
+        "tables_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 0,
+          "pymupdf": 0
+        },
+        "formulas_by_source": {
+          "deepseek": 4,
+          "mineru": 4,
+          "paddleocr": 8,
+          "pymupdf": 0
+        },
+        "pictures_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 0,
+          "pymupdf": 0
+        },
+        "captions_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 0,
+          "pymupdf": 0
+        },
+        "candidate_blocks_by_source": {
+          "deepseek": 11,
+          "mineru": 14,
+          "paddleocr": 16,
+          "pymupdf": 0
+        },
+        "evidence_only_blocks_by_source": {
+          "deepseek": 1,
+          "mineru": 1,
+          "paddleocr": 3,
+          "pymupdf": 0
+        },
+        "fallback_blocks_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 4,
+          "pymupdf": 0
+        },
+        "duplicate_candidate_blocks_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 2,
+          "pymupdf": 0
+        }
+      },
+      "candidate_groups": [
+        {
+          "group_id": "p0003_g0001",
+          "page_index": 3,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0003:b0001",
+            "paddleocr:p0003:b0009",
+            "deepseek:p0003:b0001"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 3,
+          "has_pymupdf_support": false,
+          "representative_text": "dimensions, but is independent of the size of the current or potential drop. The Drude\nmodel accounts for this behavior and provides an estimate of the size of the resistance.",
+          "representative_bbox": [
+            146.0,
+            81.0,
+            918.0,
+            119.0
+          ],
+          "agreement": {
+            "text": "exact",
+            "geometry": "missing",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 1.0,
+            "max_bbox_iou": 0.8660344216398608
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0002",
+          "page_index": 3,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0003:b0002",
+            "paddleocr:p0003:b0010",
+            "deepseek:p0003:b0002"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 3,
+          "has_pymupdf_support": false,
+          "representative_text": "One generally eliminates the dependence of R on the shape of the wire by introducing a quantity characteristic only of the metal of which the wire is composed. The resistivity  \\rho is defined to be the proportionality constant between the electric field E at a point in the metal and the current density j that it induces10.",
+          "representative_bbox": [
+            146.0,
+            117.0,
+            920.0,
+            192.0
+          ],
+          "agreement": {
+            "text": "near",
+            "geometry": "missing",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.9624060150375939,
+            "max_bbox_iou": 0.9301022885788112
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0003",
+          "page_index": 3,
+          "kind": "formula",
+          "members": [
+            "mineru:p0003:b0003",
+            "paddleocr:p0003:b0011"
+          ],
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 2,
+          "has_pymupdf_support": false,
+          "representative_text": "{ \\bf E } = \\rho { \\bf j } .\\tag{1.3}",
+          "representative_bbox": [
+            489.0,
+            199.0,
+            570.0,
+            219.0
+          ],
+          "agreement": {
+            "text": "conflict",
+            "geometry": "near",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.4444444444444444,
+            "max_bbox_iou": 0.7521944629629623
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0004",
+          "page_index": 3,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0003:b0004",
+            "paddleocr:p0003:b0012"
+          ],
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 2,
+          "has_pymupdf_support": false,
+          "representative_text": "The current density j is a vector. parallel to the flow of charge, whose magnitude is the amount of charge per unit time crossing a unit area perpendicular to the flow. Thus if a uniform current I fows through a wire of length L and cross-sectional area A, the current density will be  j = I , A Since the potential drop along the wire will be  V = E L , Eq. (1.3) gives  V = I \\rho L / . 4 . ,and hence  R = \\rho L / A",
+          "representative_bbox": [
+            146.0,
+            228.0,
+            920.0,
+            321.0
+          ],
+          "agreement": {
+            "text": "conflict",
+            "geometry": "near",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.6295399515738499,
+            "max_bbox_iou": 0.9579431997165957
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0005",
+          "page_index": 3,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0003:b0005",
+            "paddleocr:p0003:b0013"
+          ],
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 2,
+          "has_pymupdf_support": false,
+          "representative_text": "If n electrons per unit volume all move with velocity v, then the current density they give rise to will be parallel to v. Furthermore, in a time dt the electrons will advance by a distance v dt in the direction of v, so that  n ( \\tau d t ) A electrons will cross an area A perpendicular to the direction of flow. Since each electron carries a charge  - e , the charge crossing 4 in the time dt will be  - n e t A d t , and hence the current density is",
+          "representative_bbox": [
+            146.0,
+            320.0,
+            920.0,
+            431.0
+          ],
+          "agreement": {
+            "text": "conflict",
+            "geometry": "near",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.5307950727883539,
+            "max_bbox_iou": 0.9464612470842935
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0006",
+          "page_index": 3,
+          "kind": "formula",
+          "members": [
+            "mineru:p0003:b0006",
+            "paddleocr:p0003:b0014"
+          ],
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 2,
+          "has_pymupdf_support": false,
+          "representative_text": "{ \\bf j } = - n e { \\bf v } .\\tag{1.4}",
+          "representative_bbox": [
+            477.0,
+            431.0,
+            582.0,
+            448.0
+          ],
+          "agreement": {
+            "text": "conflict",
+            "geometry": "near",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.5,
+            "max_bbox_iou": 0.7665036000000006
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0007",
+          "page_index": 3,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0003:b0007",
+            "paddleocr:p0003:b0015",
+            "deepseek:p0003:b0007"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 3,
+          "has_pymupdf_support": false,
+          "representative_text": "At any point in a metal, electrons are always moving in a variety of directions with a variety of thermal energies. The net current density is thus given by (1.4), where v is the average electronic velocity. In the absence of an electric field, electrons are as likely to be moving in any one direction as in any other, v averages to zero, and, as expected, there is no net electric current density. In the presence of a field E, however, there will be a mean electronic velocity directed opposite to the feld (the electronic charge being negative), which we can compute as follows:",
+          "representative_bbox": [
+            143.0,
+            459.0,
+            920.0,
+            589.0
+          ],
+          "agreement": {
+            "text": "near",
+            "geometry": "missing",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.9991416309012876,
+            "max_bbox_iou": 0.9561135127413131
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0008",
+          "page_index": 3,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0003:b0008",
+            "paddleocr:p0003:b0016"
+          ],
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 2,
+          "has_pymupdf_support": false,
+          "representative_text": "Consider a typical electron at time zero. Let t be the time elapsed since its last collision. Its velocity at time zero will be its velocity  \\Psi _ { 0 } immediately after that collision plus the additional velocity  - e \\mathbf { E } t / m it has subsequently acquired. Since we assume that an electron emerges from a collision in a random direction, there will be no contribution from  { \\bf v } _ { 0 } to the average electronic velocity, which must therefore be given entirely by the average of  - e \\mathbf { E } t / m However, the average of t is the relaxation time . Therefore",
+          "representative_bbox": [
+            143.0,
+            589.0,
+            923.0,
+            718.0
+          ],
+          "agreement": {
+            "text": "conflict",
+            "geometry": "near",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.33217391304347826,
+            "max_bbox_iou": 0.9468573939177101
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0009",
+          "page_index": 3,
+          "kind": "formula",
+          "members": [
+            "mineru:p0003:b0009",
+            "paddleocr:p0003:b0017"
+          ],
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 2,
+          "has_pymupdf_support": false,
+          "representative_text": "\\mathbf { \\boldsymbol { \\nu } } _ { \\mathrm { a v g } } = - \\ \\frac { e \\mathbf { E } \\tau } { m } ; ~ \\mathbf { \\ j } = \\left( \\frac { n e ^ { 2 } \\tau } { m } \\right) \\mathbf { \\boldsymbol { \\mathbf { E } } } .\\tag{1.5}",
+          "representative_bbox": [
+            386.0,
+            715.0,
+            673.0,
+            759.0
+          ],
+          "agreement": {
+            "text": "conflict",
+            "geometry": "near",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.3248407643312102,
+            "max_bbox_iou": 0.8788745888501741
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0010",
+          "page_index": 3,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0003:b0010",
+            "paddleocr:p0003:b0018",
+            "deepseek:p0003:b0010"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 3,
+          "has_pymupdf_support": false,
+          "representative_text": "This result is usually stated in terms of the inverse of the resistivity, the conductivity  \\sigma = 1 / \\rho ;",
+          "representative_bbox": [
+            146.0,
+            770.0,
+            920.0,
+            807.0
+          ],
+          "agreement": {
+            "text": "near",
+            "geometry": "missing",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.958139534883721,
+            "max_bbox_iou": 0.9327584380892529
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0011",
+          "page_index": 3,
+          "kind": "formula",
+          "members": [
+            "mineru:p0003:b0011",
+            "paddleocr:p0003:b0019"
+          ],
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 2,
+          "has_pymupdf_support": false,
+          "representative_text": "\\boxed { \\begin{array} { l l } { \\mathbf { j } = \\sigma \\mathbf { E } ; } & { \\sigma = \\frac { n e ^ { 2 } \\tau } { m } . } \\end{array} }\\tag{1.6}",
+          "representative_bbox": [
+            422.0,
+            821.0,
+            637.0,
+            882.0
+          ],
+          "agreement": {
+            "text": "conflict",
+            "geometry": "near",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.5302325581395348,
+            "max_bbox_iou": 0.9342566209683562
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0012",
+          "page_index": 3,
+          "kind": "header",
+          "members": [
+            "mineru:p0003:b0012"
+          ],
+          "sources": [
+            "mineru"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "DC Electrical Conductivity of a Metal",
+          "representative_bbox": [
+            575.0,
+            45.0,
+            884.0,
+            63.0
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0013",
+          "page_index": 3,
+          "kind": "page_number",
+          "members": [
+            "mineru:p0003:b0013"
+          ],
+          "sources": [
+            "mineru"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "7",
+          "representative_bbox": [
+            901.0,
+            45.0,
+            916.0,
+            61.0
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0014",
+          "page_index": 3,
+          "kind": "unknown",
+          "members": [
+            "mineru:p0003:b0014",
+            "paddleocr:p0003:b0024"
+          ],
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 2,
+          "has_pymupdf_support": false,
+          "representative_text": "Inl, Ene ot be palOne hen e y no. Se Chap  n .",
+          "representative_bbox": [
+            170.0,
+            906.0,
+            920.0,
+            923.0
+          ],
+          "agreement": {
+            "text": "conflict",
+            "geometry": "near",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.5714285714285714,
+            "max_bbox_iou": 0.8383014965293235
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0015",
+          "page_index": 3,
+          "kind": "paragraph",
+          "members": [
+            "paddleocr:p0003:b0020"
+          ],
+          "sources": [
+            "paddleocr"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "(1.3)",
+          "representative_bbox": [
+            870.813,
+            201.702,
+            911.483,
+            217.021
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0016",
+          "page_index": 3,
+          "kind": "paragraph",
+          "members": [
+            "paddleocr:p0003:b0021"
+          ],
+          "sources": [
+            "paddleocr"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "(1.4)",
+          "representative_bbox": [
+            870.813,
+            430.638,
+            912.679,
+            445.106
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0017",
+          "page_index": 3,
+          "kind": "paragraph",
+          "members": [
+            "paddleocr:p0003:b0022"
+          ],
+          "sources": [
+            "paddleocr"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "(1.5)",
+          "representative_bbox": [
+            870.813,
+            729.362,
+            911.483,
+            744.681
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0018",
+          "page_index": 3,
+          "kind": "paragraph",
+          "members": [
+            "paddleocr:p0003:b0023"
+          ],
+          "sources": [
+            "paddleocr"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "(1.6)",
+          "representative_bbox": [
+            872.01,
+            840.851,
+            912.679,
+            857.021
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0019",
+          "page_index": 3,
+          "kind": "formula",
+          "members": [
+            "deepseek:p0003:b0003"
+          ],
+          "sources": [
+            "deepseek"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "\\mathbf{E}=\\rho\\mathbf{j}. \\quad (1.3)",
+          "representative_bbox": null,
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0020",
+          "page_index": 3,
+          "kind": "paragraph",
+          "members": [
+            "deepseek:p0003:b0004"
+          ],
+          "sources": [
+            "deepseek"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "The current density j is a vector, parallel to the flow of charge, whose magnitude is the amount of charge per unit time crossing a unit area perpendicular to the flow. Thus if a uniform current I flows through a wire of length L and cross-sectional area A, the current density will be j = I/A. Since the potential drop along the wire will be V = EL, Eq. (1.3) gives  \\( V = I\\rho L/A \\) , and hence  \\( R = \\rho L/A \\) .",
+          "representative_bbox": null,
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0021",
+          "page_index": 3,
+          "kind": "paragraph",
+          "members": [
+            "deepseek:p0003:b0005"
+          ],
+          "sources": [
+            "deepseek"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "If n electrons per unit volume all move with velocity v, then the current density they give rise to will be parallel to v. Furthermore, in a time dt the electrons will advance by a distance v dt in the direction of v, so that  \\( n(v \\, dt)A \\)  electrons will cross an area A perpendicular to the direction of flow. Since each electron carries a charge -e, the charge crossing A in the time dt will be  \\( -n e r A \\, dt \\) , and hence the current density is",
+          "representative_bbox": null,
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0022",
+          "page_index": 3,
+          "kind": "formula",
+          "members": [
+            "deepseek:p0003:b0006"
+          ],
+          "sources": [
+            "deepseek"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "\\mathbf{j}=-n e\\mathbf{v}. \\quad (1.4)",
+          "representative_bbox": null,
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0023",
+          "page_index": 3,
+          "kind": "paragraph",
+          "members": [
+            "deepseek:p0003:b0008"
+          ],
+          "sources": [
+            "deepseek"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "Consider a typical electron at time zero. Let t be the time elapsed since its last collision. Its velocity at time zero will be its velocity  \\( v_{0} \\)  immediately after that collision plus the additional velocity  \\( -eEt/m \\)  it has subsequently acquired. Since we assume that an electron emerges from a collision in a random direction, there will be no contribution from  \\( v_{0} \\)  to the average electronic velocity, which must therefore be given entirely by the average of  \\( -eEt/m \\) . However, the average of t is the relaxation time  \\( \\tau \\) . Therefore",
+          "representative_bbox": null,
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0024",
+          "page_index": 3,
+          "kind": "formula",
+          "members": [
+            "deepseek:p0003:b0009"
+          ],
+          "sources": [
+            "deepseek"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "\\mathbf{v}_{\\mathrm{a v g}}=-\\frac{e\\mathbf{E}\\tau}{m};\\quad\\mathbf{j}=\\left(\\frac{n e^{2}\\tau}{m}\\right)\\mathbf{E}. \\quad (1.5)",
+          "representative_bbox": null,
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0003_g0025",
+          "page_index": 3,
+          "kind": "formula",
+          "members": [
+            "deepseek:p0003:b0011"
+          ],
+          "sources": [
+            "deepseek"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "\\mathbf{j}=\\sigma\\mathbf{E};\\quad\\sigma=\\frac{ne^{2}\\tau}{m}. \\quad (1.6)",
+          "representative_bbox": null,
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        }
+      ],
+      "ungrouped_candidates": [
+        "mineru:p0003:b0012",
+        "mineru:p0003:b0013",
+        "paddleocr:p0003:b0020",
+        "paddleocr:p0003:b0021",
+        "paddleocr:p0003:b0022",
+        "paddleocr:p0003:b0023",
+        "deepseek:p0003:b0003",
+        "deepseek:p0003:b0004",
+        "deepseek:p0003:b0005",
+        "deepseek:p0003:b0006",
+        "deepseek:p0003:b0008",
+        "deepseek:p0003:b0009",
+        "deepseek:p0003:b0011"
+      ],
+      "conflicts": [
+        {
+          "conflict_id": "p0003_c0001",
+          "page_index": 3,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0001",
+            "paddleocr:p0003:b0009",
+            "deepseek:p0003:b0001"
+          ]
+        },
+        {
+          "conflict_id": "p0003_c0002",
+          "page_index": 3,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0002",
+            "paddleocr:p0003:b0010",
+            "deepseek:p0003:b0002"
+          ]
+        },
+        {
+          "conflict_id": "p0003_c0003",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "formula_disagreement",
+          "message": "Formula text differs",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0003",
+            "paddleocr:p0003:b0011"
+          ]
+        },
+        {
+          "conflict_id": "p0003_c0004",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0003",
+            "paddleocr:p0003:b0011"
+          ]
+        },
+        {
+          "conflict_id": "p0003_c0005",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0004",
+            "paddleocr:p0003:b0012"
+          ]
+        },
+        {
+          "conflict_id": "p0003_c0006",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0005",
+            "paddleocr:p0003:b0013"
+          ]
+        },
+        {
+          "conflict_id": "p0003_c0007",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "formula_disagreement",
+          "message": "Formula text differs",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0006",
+            "paddleocr:p0003:b0014"
+          ]
+        },
+        {
+          "conflict_id": "p0003_c0008",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0006",
+            "paddleocr:p0003:b0014"
+          ]
+        },
+        {
+          "conflict_id": "p0003_c0009",
+          "page_index": 3,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0007",
+            "paddleocr:p0003:b0015",
+            "deepseek:p0003:b0007"
+          ]
+        },
+        {
+          "conflict_id": "p0003_c0010",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0008",
+            "paddleocr:p0003:b0016"
+          ]
+        },
+        {
+          "conflict_id": "p0003_c0011",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "formula_disagreement",
+          "message": "Formula text differs",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0009",
+            "paddleocr:p0003:b0017"
+          ]
+        },
+        {
+          "conflict_id": "p0003_c0012",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0009",
+            "paddleocr:p0003:b0017"
+          ]
+        },
+        {
+          "conflict_id": "p0003_c0013",
+          "page_index": 3,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0010",
+            "paddleocr:p0003:b0018",
+            "deepseek:p0003:b0010"
+          ]
+        },
+        {
+          "conflict_id": "p0003_c0014",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "formula_disagreement",
+          "message": "Formula text differs",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0011",
+            "paddleocr:p0003:b0019"
+          ]
+        },
+        {
+          "conflict_id": "p0003_c0015",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0011",
+            "paddleocr:p0003:b0019"
+          ]
+        },
+        {
+          "conflict_id": "p0003_c0016",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0003:b0014",
+            "paddleocr:p0003:b0024"
+          ]
+        }
+      ],
+      "warnings": [],
+      "notes": []
+    }
+  ]
+}

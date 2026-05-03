@@ -1,0 +1,41 @@
+{
+  "schema_name": "pdf2md.latex_docling_groundtruth_manifest",
+  "schema_version": "0.1.0",
+  "document_id": "footnotes_basic",
+  "batch": "batch_001",
+  "generated_at": "2026-05-03T18:47:10.467592+00:00",
+  "source_tex": {
+    "path": ".current/latex_docling_groundtruth/batch_001/footnotes_basic/input/footnotes_basic.tex",
+    "sha256": "0ec44db333f753b7f82fffdc5634404ff533942e8911896635e4a139aab05d17"
+  },
+  "pdf": {
+    "path": ".current/latex_docling_groundtruth/batch_001/footnotes_basic/input/footnotes_basic.pdf",
+    "sha256": "b4896f60446f2bc154d948ebfbd44a57f23025b4e9b45694f703c21c7fad88ee"
+  },
+  "latex_engine": "pdflatex",
+  "latex_command": "pdflatex -interaction=nonstopmode -output-directory=.current/latex_docling_groundtruth/batch_001/footnotes_basic/input /home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_001/footnotes_basic/input/footnotes_basic.tex",
+  "compilation_return_code": 0,
+  "page_count": 1,
+  "pages_expected_min": 1,
+  "generated_files": [
+    ".current/latex_docling_groundtruth/batch_001/footnotes_basic/input/footnotes_basic.tex",
+    ".current/latex_docling_groundtruth/batch_001/footnotes_basic/groundtruth/source_groundtruth_ir.json",
+    ".current/latex_docling_groundtruth/batch_001/footnotes_basic/groundtruth/expected_semantic_contract.json",
+    ".current/latex_docling_groundtruth/batch_001/footnotes_basic/groundtruth/expected_docling_contract.json",
+    ".current/latex_docling_groundtruth/batch_001/footnotes_basic/groundtruth/provenance_manifest.json"
+  ],
+  "feature_counts": {
+    "section": 1,
+    "subsection": 0,
+    "figure": 0,
+    "table": 0,
+    "equation": 0,
+    "footnote": 2,
+    "caption": 0,
+    "list": 0,
+    "list_item": 0,
+    "reference": 0,
+    "bibliography_like": 0,
+    "paragraph": 0
+  }
+}

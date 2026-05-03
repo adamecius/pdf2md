@@ -1,0 +1,13 @@
+{
+  "document_id": "figure_caption_reference",
+  "required_docling_kinds": [
+    "caption",
+    "picture",
+    "section_header",
+    "text",
+    "title"
+  ],
+  "required_reference_sidecar_entries": [
+    "fig:box"
+  ]
+}

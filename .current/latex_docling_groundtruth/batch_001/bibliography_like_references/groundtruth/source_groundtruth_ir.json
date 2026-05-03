@@ -1,0 +1,78 @@
+{
+  "schema_name": "pdf2md.source_groundtruth_ir",
+  "schema_version": "0.1.0",
+  "document_id": "bibliography_like_references",
+  "source_type": "latex",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/bibliography_like_references/input/bibliography_like_references.tex",
+  "expected_pdf": ".current/latex_docling_groundtruth/batch_001/bibliography_like_references/input/bibliography_like_references.pdf",
+  "title": "Bibliography Like References",
+  "pages_expected_min": 1,
+  "nodes": [
+    {
+      "id": "gt:block:bibliography_like_references:0",
+      "type": "title",
+      "text": "Bibliography Like References",
+      "label": null,
+      "ref_target": null,
+      "order": 0,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "title",
+      "source_latex_hint": "\\title"
+    },
+    {
+      "id": "gt:block:bibliography_like_references:1",
+      "type": "section",
+      "text": "Body",
+      "label": null,
+      "ref_target": null,
+      "order": 1,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "section_header",
+      "source_latex_hint": "\\section"
+    },
+    {
+      "id": "gt:block:bibliography_like_references:2",
+      "type": "section",
+      "text": "References",
+      "label": "sec:refs",
+      "ref_target": null,
+      "order": 2,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "section_header",
+      "source_latex_hint": "\\section"
+    },
+    {
+      "id": "gt:block:bibliography_like_references:3",
+      "type": "bibliography_like",
+      "text": "References",
+      "label": null,
+      "ref_target": null,
+      "order": 3,
+      "parent_id": null,
+      "children": [],
+      "expected_docling_kind": "text",
+      "source_latex_hint": "References"
+    }
+  ],
+  "labels": {
+    "sec:refs": "gt:block:bibliography_like_references:2"
+  },
+  "references": [],
+  "features": {
+    "section": 2,
+    "subsection": 0,
+    "figure": 0,
+    "table": 0,
+    "equation": 0,
+    "footnote": 0,
+    "caption": 0,
+    "list": 0,
+    "list_item": 0,
+    "reference": 0,
+    "bibliography_like": 1,
+    "paragraph": 0
+  }
+}

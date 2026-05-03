@@ -1,0 +1,18 @@
+{
+  "document_id": "repeated_footnote_like_markers",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/repeated_footnote_like_markers/input/repeated_footnote_like_markers.tex",
+  "expected_title": "Repeated Footnote Like Markers",
+  "expected_sections": [
+    "Notes"
+  ],
+  "expected_subsections": [],
+  "expected_labels": [],
+  "expected_markdown_snippets": [
+    "Repeated Footnote Like Markers"
+  ],
+  "required_node_types": [
+    "footnote",
+    "section",
+    "title"
+  ]
+}

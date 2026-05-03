@@ -1,0 +1,70 @@
+{
+  "schema_name": "pdf2md.media_manifest",
+  "schema_version": "0.1.0",
+  "run_id": null,
+  "upstream_sha256": {
+    "consensus_report": "d836f35f5fb4e116903614b76cf377352ed4069505e9288cff2c08ef7796faf6",
+    "semantic_links": "6154f504ff21d5031a99f3563020e8b212d35916b50abda385672bd6ed5c33d0"
+  },
+  "source_pdf": "Ashcroft_Mermin_sub.pdf",
+  "source_consensus_report": ".current/consensus/Ashcroft_Mermin_sub/consensus_report.json",
+  "source_semantic_links": ".current/consensus/Ashcroft_Mermin_sub/semantic_links.json",
+  "created_at": "2026-05-03T11:34:19.228357+00:00",
+  "policy": {
+    "enabled": true,
+    "render_dpi": 200,
+    "format": "png",
+    "padding_px": 8,
+    "crop_from_pdf": true,
+    "materialize_primary_figures": true,
+    "materialize_orphan_images": false,
+    "materialize_tables_as_visual_fallback": false,
+    "allow_near_geometry": true,
+    "allow_single_source_geometry": true,
+    "allow_missing_geometry": false,
+    "allow_conflicted_geometry": false,
+    "default_geometry_backend": "paddleocr",
+    "prefer_anchor_targets": true,
+    "min_bbox_width": 5.0,
+    "min_bbox_height": 5.0,
+    "max_bbox_area_ratio": 0.9,
+    "skip_evidence_only": true,
+    "skip_fallback_only": true,
+    "skip_duplicate_candidate": true,
+    "deduplicate_by_source_group": true
+  },
+  "assets": [
+    {
+      "media_id": "media:fig_1_2",
+      "media_type": "figure",
+      "page_index": 2,
+      "page_number": 3,
+      "bbox": [
+        132.712,
+        108.553,
+        444.703,
+        185.033
+      ],
+      "bbox_space": "page_normalised_1000",
+      "file_path": "media/fig_1_2.png",
+      "source_group_id": "p0002_g0013",
+      "anchor_id": "fig:1.2",
+      "caption_group_id": null,
+      "status": "single_source_geometry",
+      "confidence": 0.7000000000000001,
+      "sources": [
+        "paddleocr"
+      ],
+      "warnings": [
+        "non_near_geometry:single_source_geometry",
+        "single_source_geometry_warning"
+      ],
+      "policy": {
+        "render_dpi": 200,
+        "padding_px": 8,
+        "geometry_agreement": "single_source"
+      }
+    }
+  ],
+  "warnings": []
+}

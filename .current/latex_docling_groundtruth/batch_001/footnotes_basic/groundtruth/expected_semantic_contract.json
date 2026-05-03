@@ -1,0 +1,18 @@
+{
+  "document_id": "footnotes_basic",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/footnotes_basic/input/footnotes_basic.tex",
+  "expected_title": "Footnotes Basic",
+  "expected_sections": [
+    "Notes"
+  ],
+  "expected_subsections": [],
+  "expected_labels": [],
+  "expected_markdown_snippets": [
+    "Footnotes Basic"
+  ],
+  "required_node_types": [
+    "footnote",
+    "section",
+    "title"
+  ]
+}

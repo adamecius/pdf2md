@@ -1,0 +1,41 @@
+{
+  "schema_name": "pdf2md.latex_docling_groundtruth_manifest",
+  "schema_version": "0.1.0",
+  "document_id": "inline_and_display_math",
+  "batch": "batch_001",
+  "generated_at": "2026-05-03T18:47:10.259540+00:00",
+  "source_tex": {
+    "path": ".current/latex_docling_groundtruth/batch_001/inline_and_display_math/input/inline_and_display_math.tex",
+    "sha256": "703df3df0dfcc11f4c057f9c36dd42dada6e0e8f71ad8fd2ccd50dbae2815ba9"
+  },
+  "pdf": {
+    "path": ".current/latex_docling_groundtruth/batch_001/inline_and_display_math/input/inline_and_display_math.pdf",
+    "sha256": "a9df5251c6647f4c3cb68de0f872b79319f5e5bf236c55049d56b255e2c3c55a"
+  },
+  "latex_engine": "pdflatex",
+  "latex_command": "pdflatex -interaction=nonstopmode -output-directory=.current/latex_docling_groundtruth/batch_001/inline_and_display_math/input /home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_001/inline_and_display_math/input/inline_and_display_math.tex",
+  "compilation_return_code": 0,
+  "page_count": 1,
+  "pages_expected_min": 1,
+  "generated_files": [
+    ".current/latex_docling_groundtruth/batch_001/inline_and_display_math/input/inline_and_display_math.tex",
+    ".current/latex_docling_groundtruth/batch_001/inline_and_display_math/groundtruth/source_groundtruth_ir.json",
+    ".current/latex_docling_groundtruth/batch_001/inline_and_display_math/groundtruth/expected_semantic_contract.json",
+    ".current/latex_docling_groundtruth/batch_001/inline_and_display_math/groundtruth/expected_docling_contract.json",
+    ".current/latex_docling_groundtruth/batch_001/inline_and_display_math/groundtruth/provenance_manifest.json"
+  ],
+  "feature_counts": {
+    "section": 1,
+    "subsection": 0,
+    "figure": 0,
+    "table": 0,
+    "equation": 0,
+    "footnote": 0,
+    "caption": 0,
+    "list": 0,
+    "list_item": 0,
+    "reference": 0,
+    "bibliography_like": 0,
+    "paragraph": 0
+  }
+}

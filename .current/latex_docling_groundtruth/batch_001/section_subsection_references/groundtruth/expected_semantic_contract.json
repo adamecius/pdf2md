@@ -1,0 +1,23 @@
+{
+  "document_id": "section_subsection_references",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/section_subsection_references/input/section_subsection_references.tex",
+  "expected_title": "Section Subsection References",
+  "expected_sections": [
+    "Alpha"
+  ],
+  "expected_subsections": [
+    "Beta"
+  ],
+  "expected_labels": [
+    "sec:alpha",
+    "sub:beta"
+  ],
+  "expected_markdown_snippets": [
+    "Section Subsection References"
+  ],
+  "required_node_types": [
+    "section",
+    "subsection",
+    "title"
+  ]
+}

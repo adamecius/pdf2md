@@ -1,0 +1,36 @@
+{
+  "document_id": "multipage_all_features_references_footnotes",
+  "source_tex": ".current/latex_docling_groundtruth/batch_001/multipage_all_features_references_footnotes/input/multipage_all_features_references_footnotes.tex",
+  "expected_title": "Multipage All Features References Footnotes",
+  "expected_sections": [
+    "Deep Section",
+    "References"
+  ],
+  "expected_subsections": [
+    "Deep Subsection"
+  ],
+  "expected_labels": [
+    "eq:deep",
+    "fig:deep",
+    "sec:deep",
+    "sub:deep",
+    "tab:deep"
+  ],
+  "expected_markdown_snippets": [
+    "Multipage All Features References Footnotes"
+  ],
+  "required_node_types": [
+    "bibliography_like",
+    "caption",
+    "equation",
+    "figure",
+    "footnote",
+    "list",
+    "list_item",
+    "paragraph",
+    "section",
+    "subsection",
+    "table",
+    "title"
+  ]
+}
