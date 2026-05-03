@@ -12,6 +12,11 @@ FIX_ROOT = Path('.current/latex_docling_groundtruth/batch_001')
 FIXTURES = ['simple_title_paragraph', 'figure_caption_reference', 'equation_label_reference']
 REAL_DOC = 'Ashcroft_Mermin_sub'
 
+@pytest.fixture
+def _patch_groundtruth_backend(monkeypatch):
+    monkeypatch.setattr(consensus_report, 'CANONICAL_BACKENDS', ('groundtruth','mineru','paddleocr','deepseek'))
+
+
 
 def _real_key_sets() -> tuple[set[str], set[str]]:
     page_keys, block_keys = set(), set()
@@ -80,7 +85,7 @@ def test_manifest_has_required_fields(mock_ir):
     assert {'schema_name', 'page_refs', 'backend'}.issubset(m.keys())
 
 
-def test_consensus_report_can_consume_mock_ir(mock_ir):
+def test_consensus_report_can_consume_mock_ir(mock_ir, _patch_groundtruth_backend):
     doc_id, fdir, _, _, tmp_path = mock_ir
     cfg = {
         'consensus': {'coordinate_space': 'page_normalised_1000', 'text_similarity_threshold': 0.9, 'weak_text_similarity_threshold': 0.75, 'bbox_iou_threshold': 0.5, 'weak_bbox_iou_threshold': 0.25, 'include_evidence_only_blocks': False},
