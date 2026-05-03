@@ -15,7 +15,6 @@ TABLE_LABEL_RE = re.compile(r"\bTable\s+(\d+(?:\.\d+)*)", re.IGNORECASE)
 SECTION_REF_RE = re.compile(r"\b(?:Section|Chap\.?|Chapter)\s+(\d+(?:\.\d+)*)", re.IGNORECASE)
 BIB_REF_RE = re.compile(r"\[(\d+(?:\s*[-,]\s*\d+)*)\]")
 FOOTNOTE_BODY_RE = re.compile(r"^\s*(\d+)\s+")
-FOOTNOTE_MARKER_INLINE_RE = re.compile(r"(?<!\d)(\d+)(?=[\s\.,;:]|$)")
 
 
 def load_consensus_report(path: Path) -> dict[str, Any]:
@@ -31,13 +30,6 @@ def validate_consensus_report(report: Any) -> list[str]:
     if not isinstance(report.get("pages"), list):
         warnings.append("Missing or invalid pages list")
     return warnings
-
-
-def normalise_label(text: str | None) -> str | None:
-    if not text:
-        return None
-    m = EQ_NUM_RE.match(text.strip())
-    return m.group(1) if m else None
 
 
 def extract_equation_number(text: str | None) -> str | None:
@@ -56,16 +48,12 @@ def extract_equation_number(text: str | None) -> str | None:
 
 
 def extract_figure_label(text: str | None) -> str | None:
-    if not text:
-        return None
-    m = FIG_LABEL_RE.search(text)
+    m = FIG_LABEL_RE.search(text or "")
     return m.group(1) if m else None
 
 
 def extract_table_label(text: str | None) -> str | None:
-    if not text:
-        return None
-    m = TABLE_LABEL_RE.search(text)
+    m = TABLE_LABEL_RE.search(text or "")
     return m.group(1) if m else None
 
 
@@ -73,9 +61,11 @@ def extract_footnote_marker(text: str | None) -> list[str]:
     if not text:
         return []
     hits = set()
-    for r in [re.finditer(r"\^\{?(\d+)\}?", text), re.finditer(r"\(\s*\^\{?(\d+)\}?\s*\)", text), FOOTNOTE_MARKER_INLINE_RE.finditer(text)]:
+    for r in [re.finditer(r"\^\{?(\d+)\}?", text), re.finditer(r"\(\s*\^\{?(\d+)\}?\s*\)", text)]:
         for m in r:
-            hits.add(m.group(1))
+            n = int(m.group(1))
+            if 1 <= n <= 99:
+                hits.add(m.group(1))
     return sorted(hits)
 
 
@@ -86,13 +76,9 @@ def normalise_latex(text: str | None) -> dict[str, str | None]:
     t = re.sub(r"\(\s*\d+(?:\.\d+)+\s*\)\s*$", "", t)
     t = t.replace("\\left", "").replace("\\right", "")
     t = re.sub(r"\{\s*\\bf\s+([^}]+)\}", r"\\mathbf{\1}", t)
-    greek = {"α": "\\alpha", "β": "\\beta", "γ": "\\gamma", "ρ": "\\rho"}
-    for k, v in greek.items():
-        t = t.replace(k, v)
     t = re.sub(r"\\(?:quad|,|\s)", "", t)
     t = re.sub(r"\s+", "", t)
-    t = t.strip(" .;,")
-    return {"body_key": t, "label": label}
+    return {"body_key": t.strip(" .;,"), "label": label}
 
 
 def _center(b: list[float] | None) -> tuple[float, float] | None:
@@ -101,19 +87,43 @@ def _center(b: list[float] | None) -> tuple[float, float] | None:
     return ((b[0] + b[2]) / 2.0, (b[1] + b[3]) / 2.0)
 
 
+def _has_conflict(g: dict[str, Any], page: dict[str, Any]) -> bool:
+    if g.get("conflicts"):
+        return True
+    gid = g.get("group_id")
+    for c in page.get("conflicts") or []:
+        if gid in c.get("group_ids", []) or gid == c.get("group_id"):
+            return True
+    return False
+
+
+def _anchor_source_fields(g: dict[str, Any], page: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "source_group_id": g.get("group_id"),
+        "source_group_kind": g.get("kind"),
+        "source_group_sources": g.get("sources") or [],
+        "source_group_members": g.get("members") or [],
+        "source_group_agreement": g.get("agreement"),
+        "source_group_conflicts": g.get("conflicts") or [c for c in (page.get("conflicts") or []) if g.get("group_id") in c.get("group_ids", [])],
+    }
+
+
 def build_semantic_links(report: dict[str, Any], source_path: Path) -> dict[str, Any]:
-    anchors = []
-    references = []
-    attachments = []
-    unresolved = []
+    anchors: list[dict[str, Any]] = []
+    references: list[dict[str, Any]] = []
+    attachments: list[dict[str, Any]] = []
+    unresolved: list[dict[str, Any]] = []
     page_reports = []
     anchor_map: dict[tuple[str, str], list[dict[str, Any]]] = {}
+    eq_anchor_by_target: dict[str, dict[str, Any]] = {}
 
     for page in report.get("pages", []):
         pidx = int(page.get("page_index", 0))
         pnum = pidx + 1
         groups = page.get("candidate_groups") or []
         formulas = [g for g in groups if g.get("kind") == "formula"]
+        pictures = [g for g in groups if g.get("kind") == "picture"]
+        tables = [g for g in groups if g.get("kind") == "table"]
         page_anchor_ids, page_ref_ids, page_att_ids = [], [], []
 
         for gi, g in enumerate(groups):
@@ -126,9 +136,11 @@ def build_semantic_links(report: dict[str, Any], source_path: Path) -> dict[str,
                 norm = normalise_latex(text)
                 label = norm["label"]
                 aid = f"eq:{label}" if label else f"eq:{gid}"
-                status = "resolved" if label else "unlabelled"
-                a = {"anchor_id": aid, "anchor_type": "equation", "label": label, "canonical_text": text, "target_group_id": gid, "page_index": pidx, "page_number": pnum, "bbox": bbox, "source_groups": [gid], "confidence": 0.8 if label else 0.5, "status": status, "warnings": []}
+                status = "resolved_with_conflict" if _has_conflict(g, page) and label else ("resolved" if label else "unlabelled")
+                src = _anchor_source_fields(g, page)
+                a = {"anchor_id": aid, "anchor_type": "equation", "label": label, "canonical_text": text, "target_group_id": gid, "page_index": pidx, "page_number": pnum, "bbox": bbox, "source_groups": [gid], "confidence": 0.8 if label else 0.5, "status": status, "warnings": [], "formula_candidates": [{"representative_text": text, "group_id": gid, "sources": g.get("sources") or [], "members": g.get("members") or [], "agreement": g.get("agreement"), "conflicts": g.get("conflicts") or []}], **src}
                 anchors.append(a); page_anchor_ids.append(aid)
+                eq_anchor_by_target[gid] = a
                 if label:
                     anchor_map.setdefault(("equation", label), []).append(a)
 
@@ -154,44 +166,62 @@ def build_semantic_links(report: dict[str, Any], source_path: Path) -> dict[str,
                         best = (score, f)
                 if best and best[0] >= 0.55:
                     f = best[1]
+                    target_gid = f.get("group_id")
                     aid = f"eq:{eq_num}"
-                    a = {"anchor_id": aid, "anchor_type": "equation", "label": eq_num, "canonical_text": f.get("representative_text") or "", "target_group_id": f.get("group_id"), "page_index": pidx, "page_number": pnum, "bbox": f.get("representative_bbox"), "source_groups": [f.get("group_id"), gid], "confidence": min(1.0, best[0]), "status": "resolved", "warnings": []}
-                    anchors.append(a); page_anchor_ids.append(aid)
-                    anchor_map.setdefault(("equation", eq_num), []).append(a)
+                    existing = eq_anchor_by_target.get(target_gid)
+                    if existing:
+                        if existing["anchor_id"] != aid:
+                            existing.setdefault("alias_ids", []).append(existing["anchor_id"])
+                            existing["anchor_id"] = aid
+                            existing["label"] = eq_num
+                            if existing["status"] == "unlabelled":
+                                existing["status"] = "resolved_with_conflict" if _has_conflict(f, page) else "resolved"
+                            anchor_map.setdefault(("equation", eq_num), []).append(existing)
+                    else:
+                        src = _anchor_source_fields(f, page)
+                        a = {"anchor_id": aid, "anchor_type": "equation", "label": eq_num, "canonical_text": f.get("representative_text") or "", "target_group_id": target_gid, "page_index": pidx, "page_number": pnum, "bbox": f.get("representative_bbox"), "source_groups": [target_gid, gid], "confidence": min(1.0, best[0]), "status": "resolved_with_conflict" if _has_conflict(f, page) else "resolved", "warnings": [], "formula_candidates": [{"representative_text": f.get("representative_text") or "", "group_id": target_gid, "sources": f.get("sources") or [], "members": f.get("members") or [], "agreement": f.get("agreement"), "conflicts": f.get("conflicts") or []}], **src}
+                        anchors.append(a); page_anchor_ids.append(aid)
+                        eq_anchor_by_target[target_gid] = a
+                        anchor_map.setdefault(("equation", eq_num), []).append(a)
                     att_id = f"attach_p{pidx:04d}_{len(attachments)+1:04d}"
-                    attachments.append({"attachment_id": att_id, "attachment_type": "equation_number_to_equation", "source_group_id": gid, "target_group_id": f.get("group_id"), "anchor_id": aid, "page_index": pidx, "confidence": min(1.0, best[0]), "reason": "geometry/reading-order"})
+                    attachments.append({"attachment_id": att_id, "attachment_type": "equation_number_to_equation", "source_group_id": gid, "target_group_id": target_gid, "anchor_id": aid, "page_index": pidx, "confidence": min(1.0, best[0]), "reason": "geometry/reading-order"})
                     page_att_ids.append(att_id)
                 else:
                     unresolved.append({"type": "equation_number_unattached", "group_id": gid, "label": eq_num, "page_index": pidx})
 
             fl = extract_figure_label(text)
-            if fl:
-                pics = [x for x in groups if x.get("kind") == "picture"]
-                target = pics[0] if pics else None
+            create_fig_anchor = bool(fl) and (kind in {"caption", "picture"} or (kind == "title" and (pictures or tables)))
+            if create_fig_anchor:
+                target = pictures[0] if pictures else g
                 aid = f"fig:{fl}"
-                status = "resolved" if target else "caption_only"
-                a = {"anchor_id": aid, "anchor_type": "figure", "label": fl, "canonical_text": text, "target_group_id": target.get("group_id") if target else gid, "page_index": pidx, "page_number": pnum, "bbox": target.get("representative_bbox") if target else bbox, "source_groups": [gid], "confidence": 0.7 if target else 0.45, "status": status, "warnings": []}
+                src = _anchor_source_fields(g, page)
+                a = {"anchor_id": aid, "anchor_type": "figure", "label": fl, "canonical_text": text, "target_group_id": target.get("group_id"), "page_index": pidx, "page_number": pnum, "bbox": target.get("representative_bbox"), "source_groups": [gid], "confidence": 0.7 if pictures else 0.45, "status": "resolved_with_conflict" if _has_conflict(g, page) and pictures else ("resolved" if pictures else "caption_only"), "warnings": [], **src}
                 anchors.append(a); page_anchor_ids.append(aid); anchor_map.setdefault(("figure", fl), []).append(a)
-                if target:
+                if pictures and gid != target.get("group_id"):
                     att_id = f"attach_p{pidx:04d}_{len(attachments)+1:04d}"
                     attachments.append({"attachment_id": att_id, "attachment_type": "caption_to_figure", "source_group_id": gid, "target_group_id": target.get("group_id"), "anchor_id": aid, "page_index": pidx, "confidence": 0.7, "reason": "caption label + nearest picture"})
                     page_att_ids.append(att_id)
 
             tl = extract_table_label(text)
-            if tl:
-                tabs = [x for x in groups if x.get("kind") == "table"]
-                target = tabs[0] if tabs else None
+            create_table_anchor = bool(tl) and (kind in {"caption", "table"} or (kind == "title" and tables))
+            if create_table_anchor:
+                target = tables[0] if tables else g
                 aid = f"table:{tl}"
-                a = {"anchor_id": aid, "anchor_type": "table", "label": tl, "canonical_text": text, "target_group_id": target.get("group_id") if target else gid, "page_index": pidx, "page_number": pnum, "bbox": target.get("representative_bbox") if target else bbox, "source_groups": [gid], "confidence": 0.7 if target else 0.45, "status": "resolved" if target else "caption_only", "warnings": []}
+                src = _anchor_source_fields(g, page)
+                a = {"anchor_id": aid, "anchor_type": "table", "label": tl, "canonical_text": text, "target_group_id": target.get("group_id"), "page_index": pidx, "page_number": pnum, "bbox": target.get("representative_bbox"), "source_groups": [gid], "confidence": 0.7 if tables else 0.45, "status": "resolved_with_conflict" if _has_conflict(g, page) and tables else ("resolved" if tables else "caption_only"), "warnings": [], **src}
                 anchors.append(a); page_anchor_ids.append(aid); anchor_map.setdefault(("table", tl), []).append(a)
 
-            if isinstance(bbox, list) and len(bbox) == 4 and bbox[1] > 800 and FOOTNOTE_BODY_RE.match(text) and kind in {"unknown", "paragraph", "footer", "caption"}:
+            is_footnote_body = isinstance(bbox, list) and len(bbox) == 4 and bbox[1] > 800 and FOOTNOTE_BODY_RE.match(text) and kind in {"unknown", "paragraph", "footer", "caption"}
+            if is_footnote_body:
                 num = FOOTNOTE_BODY_RE.match(text).group(1)
+                src = _anchor_source_fields(g, page)
                 aid = f"footnote:{num}"
-                a = {"anchor_id": aid, "anchor_type": "footnote", "label": num, "canonical_text": text, "target_group_id": gid, "page_index": pidx, "page_number": pnum, "bbox": bbox, "source_groups": [gid], "confidence": 0.75, "status": "resolved", "warnings": []}
+                a = {"anchor_id": aid, "anchor_type": "footnote", "label": num, "canonical_text": text, "target_group_id": gid, "page_index": pidx, "page_number": pnum, "bbox": bbox, "source_groups": [gid], "confidence": 0.75, "status": "resolved_with_conflict" if _has_conflict(g, page) else "resolved", "warnings": [], **src}
                 anchors.append(a); page_anchor_ids.append(aid); anchor_map.setdefault(("footnote", num), []).append(a)
 
-            # reference scan
+            if kind in {"caption", "picture", "table", "formula", "footer"} and (fl or tl or is_footnote_body):
+                continue
+
             ref_specs = []
             ref_specs += [("equation", m.group(1), m.group(0)) for m in EQ_REF_RE.finditer(text)]
             ref_specs += [("figure", m.group(1), m.group(0)) for m in FIG_LABEL_RE.finditer(text)]
@@ -204,17 +234,13 @@ def build_semantic_links(report: dict[str, Any], source_path: Path) -> dict[str,
             for rtype, lbl, rtxt in ref_specs:
                 cands = anchor_map.get((rtype, lbl), [])
                 resolved = len(cands) == 1
-                target = cands[0]["anchor_id"] if resolved else None
-                method = "exact_label" if resolved else "unresolved"
-                warn = ["ambiguous"] if len(cands) > 1 else ([] if resolved else ["not_found"])
                 rid = f"ref_p{pidx:04d}_{len(references)+1:04d}"
-                ref = {"reference_id": rid, "reference_type": rtype, "reference_text": rtxt, "label": lbl, "source_group_id": gid, "page_index": pidx, "page_number": pnum, "target_anchor_id": target, "resolved": resolved, "confidence": 0.9 if resolved else 0.2, "method": method, "warnings": warn}
+                ref = {"reference_id": rid, "reference_type": rtype, "reference_text": rtxt, "label": lbl, "source_group_id": gid, "page_index": pidx, "page_number": pnum, "target_anchor_id": cands[0]["anchor_id"] if resolved else None, "resolved": resolved, "confidence": 0.9 if resolved else 0.2, "method": "exact_label" if resolved else "unresolved", "warnings": ["ambiguous"] if len(cands) > 1 else ([] if resolved else ["not_found"])}
                 references.append(ref); page_ref_ids.append(rid)
                 if not resolved:
                     unresolved.append(ref)
 
         page_reports.append({"page_index": pidx, "page_number": pnum, "anchors": page_anchor_ids, "references": page_ref_ids, "attachments": page_att_ids, "unresolved": [u.get("reference_id") for u in unresolved if u.get("page_index") == pidx and u.get("reference_id")], "warnings": []})
-
 
     for r in references:
         if (not r["resolved"]) and r["reference_type"] in {"equation", "figure", "table", "footnote", "section"}:
@@ -239,7 +265,6 @@ def build_semantic_links(report: dict[str, Any], source_path: Path) -> dict[str,
         "footnote_markers_detected": sum(1 for r in references if r["reference_type"] == "footnote"),
         "footnote_markers_resolved": sum(1 for r in references if r["reference_type"] == "footnote" and r["resolved"]),
     }
-
     return {"schema_name": "pdf2md.semantic_links", "schema_version": "0.1.0", "source_report": str(source_path), "pdf_path": report.get("pdf_path"), "pdf_stem": report.get("pdf_stem"), "created_at": dt.datetime.now(dt.timezone.utc).isoformat(), "summary": summary, "anchors": anchors, "references": references, "attachments": attachments, "unresolved": unresolved, "pages": page_reports}
 
 
@@ -251,14 +276,12 @@ def main() -> None:
     ap.add_argument("--verbose", action="store_true")
     ap.add_argument("--fail-on-unresolved", action="store_true")
     args = ap.parse_args()
-
     inp = Path(args.consensus_report)
     report = load_consensus_report(inp)
     _ = validate_consensus_report(report)
     out = Path(args.output) if args.output else inp.parent / "semantic_links.json"
     links = build_semantic_links(report, inp)
     out.write_text(json.dumps(links, indent=2, ensure_ascii=False), encoding="utf-8")
-
     if not args.json_only:
         s = links["summary"]
         print(f"Semantic links: {out}")
@@ -276,7 +299,6 @@ def main() -> None:
         print(f"  equation numbers: {s['equation_numbers_attached']} attached, {s['equation_numbers_unattached']} unattached")
         print(f"  captions: {sum(1 for a in links['attachments'] if a['attachment_type'] in {'caption_to_figure', 'caption_to_table'})} attached")
         print(f"Warnings: {len(links['unresolved'])}")
-
     if args.fail_on_unresolved and links["summary"]["references_unresolved"] > 0:
         raise SystemExit(2)
 
