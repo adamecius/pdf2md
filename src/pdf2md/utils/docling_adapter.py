@@ -79,9 +79,10 @@ def adapt_semantic_document(semantic:dict[str,Any], *, source_semantic_document:
                     if output_root and not p.exists() and (output_root/mp).exists(): p=output_root/mp
                     if not p.exists():
                         mm=f"missing_media_file:{bid}:{mp}"; _dedup_push(rel["warnings"],mm); _dedup_push(rep["warnings"],mm)
-                        if b.get("anchor_id"): rep["errors"].append(mm)
+                        if mode=="strict" and b.get("anchor_id"): rep["errors"].append(mm)
                 if mp and not b.get("anchor_id") and not include_orphan_media:
-                    m=f"orphan_media_suppressed:{bid}"; _dedup_push(rel["warnings"],m); _dedup_push(rep["warnings"],m); rep["errors"].append(m)
+                    m=f"orphan_media_suppressed:{bid}"; _dedup_push(rel["warnings"],m); _dedup_push(rep["warnings"],m);
+                    if mode=="strict": rep["errors"].append(m)
                     rel["id_map"][bid]={"docling_ref":None,"docling_type":None,"semantic_type":btype,"suppressed":True,"reason":"orphan_media_suppressed"}; rep["stats"]["suppressed"]+=1; continue
                 if mp and not b.get("anchor_id") and include_orphan_media:
                     _dedup_push(rel["warnings"],f"orphan_media_included_debug:{bid}"); _dedup_push(rep["warnings"],f"orphan_media_included_debug:{bid}")
@@ -101,14 +102,15 @@ def adapt_semantic_document(semantic:dict[str,Any], *, source_semantic_document:
         except Exception as e:
             msg=f"degraded_block:{bid}:{btype}->text:{e.__class__.__name__}:{e}"
             _dedup_push(rel["warnings"],msg); _dedup_push(rep["warnings"],msg)
-            if btype=="figure" and b.get("anchor_id"): rep["errors"].append(msg)
+            if mode=="strict" and btype=="figure" and b.get("anchor_id"): rep["errors"].append(msg)
             backend.add_text((b.get("text") or "").strip()); mapped_type="text"; mapped_ref=f"#/texts/{text_i}"; text_i+=1
         rel["id_map"][bid]={"docling_ref":mapped_ref,"docling_type":mapped_type,"semantic_type":btype}; node["docling_ref"]=mapped_ref; node["docling_type"]=mapped_type; rep["stats"]["mapped"]+=1
 
     unresolved=set(semantic.get("validation",{}).get("unresolved_references",[]) or [])
     unresolved.update(r.get("reference_id") for r in semantic.get("references",[]) if not r.get("resolved") and r.get("reference_id"))
     for rid in sorted(unresolved):
-        m=f"unresolved_reference:{rid}"; _dedup_push(rel["warnings"],m); _dedup_push(rep["warnings"],m); rep["errors"].append(m)
+        m=f"unresolved_reference:{rid}"; _dedup_push(rel["warnings"],m); _dedup_push(rep["warnings"],m);
+        if mode=="strict": rep["errors"].append(m)
     for r in semantic.get("references",[]):
         if r.get("reference_type")=="footnote" and not r.get("resolved"):
             m=f"footnote_marker_unresolved:{r.get('reference_id')}"; _dedup_push(rel["warnings"],m); _dedup_push(rep["warnings"],m)

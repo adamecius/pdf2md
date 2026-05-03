@@ -96,7 +96,7 @@ What is still scaffold/diagnostic-level:
 
 ## Priority TO-DO
 
-- Create an **experimental Docling inspection adapter** that consumes `semantic_document.json` and outputs inspection artefacts only (not authoritative conversion).
+- Stabilise the **experimental Docling inspection adapter** against a real `docling`/`docling-core` install and sample `semantic_document.json` outputs.
 - Ensure debug/orphan media cannot leak into canonical semantic output (canonical/debug mode separation, builder-side policy checks).
 - Add stronger semantic validation inside `semantic_document_builder.py` (or validator module) for the listed hazard classes.
 - Document canonical mode vs debug mode explicitly in code/config/docs.

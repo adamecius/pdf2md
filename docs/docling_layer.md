@@ -78,3 +78,7 @@ python -m pdf2md.utils.docling_adapter semantic_document.json --output-root out 
 
 ## Upstream input gaps tracked
 The adapter currently degrades gracefully and records warnings when upstream semantic inputs are incomplete for richer Docling mapping (page dimensions/provenance granularity, structured table cells, canonical fused formula objects, canonical caption objects, and explicit canonical-vs-debug media policy markers).
+
+
+## API compatibility note
+The adapter uses the available `docling_core` API through a thin wrapper. If an installed version exposes different `add_text`/`add_picture` signatures, inspection mode degrades gracefully and reports exception details in `docling_adapter_report.json`.

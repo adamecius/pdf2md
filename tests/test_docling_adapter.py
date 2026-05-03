@@ -110,3 +110,18 @@ def test_optional_real_docling_backend_integration():
         assert isinstance(md, str)
     except da.AdapterError:
         pass
+
+
+def test_inspection_vs_strict_error_promotion_for_hazards():
+    b=FakeBackend()
+    sem=_sem([{"id":"block:f2","type":"figure","text":"","media_path":"missing.png"}], refs=[{"reference_id":"r1","resolved":False}], validation={"unresolved_references":["r1"]})
+    _, _, rep_i, _ = da.adapt_semantic_document(sem, backend=b, mode="inspection")
+    assert any(w=="orphan_media_suppressed:block:f2" for w in rep_i["warnings"])
+    assert any(w=="unresolved_reference:r1" for w in rep_i["warnings"])
+    assert not any(e.startswith("orphan_media_suppressed:block:f2") for e in rep_i["errors"])
+    assert not any(e.startswith("unresolved_reference:r1") for e in rep_i["errors"])
+
+    b2=FakeBackend()
+    _, _, rep_s, _ = da.adapt_semantic_document(sem, backend=b2, mode="strict")
+    assert any(e.startswith("orphan_media_suppressed:block:f2") for e in rep_s["errors"])
+    assert any(e.startswith("unresolved_reference:r1") for e in rep_s["errors"])
