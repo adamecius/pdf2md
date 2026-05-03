@@ -177,3 +177,21 @@ Warnings the adapter should emit by default:
 - TODO: semantic layer should provide fused formula objects with explicit text+geometry decisions to reduce inspection-time `formula_text_geometry_not_fused` warnings.
 - TODO: semantic layer should provide structured table cell payloads for native Docling table construction beyond degraded text placeholders.
 - TODO: semantic/media layers should include explicit canonical-vs-debug media policy markers to make orphan/debug media handling auditable without heuristics.
+
+## docling_status
+
+### Phase 1A: LaTeX source-known fixture definitions
+Status: tested, pending_human_approval
+
+### Phase 1B: Local backend regeneration harness
+Status: generated, local_only
+
+Local integration TODOs:
+- MinerU backend pdf2ir CLI is not inferred as a reliable default command in automation; set `PDF2MD_MINERU_PDF2IR_CMD` locally when available.
+- Backend command/environment compatibility is local-machine dependent and must be validated by a human local run.
+
+### Phase 1C: Local contract validation report
+Status: generated, local_only
+
+### Phase 2: Docling scaffolding
+Status: blocked (until Phase 1 human approval)

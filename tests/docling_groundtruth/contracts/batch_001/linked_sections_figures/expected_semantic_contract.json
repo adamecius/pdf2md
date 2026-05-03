@@ -1,0 +1,21 @@
+{
+  "document_id": "linked_sections_figures",
+  "source_tex": "tests/docling_groundtruth/latex_sources/batch_001/linked_sections_figures.tex",
+  "expected_title": "Linked Sections and Figures Fixture",
+  "expected_sections": ["Overview", "Figure and Equation Links", "Cross References"],
+  "expected_labels": ["sec:overview", "sec:links", "fig:box-diagram", "eq:energy", "sec:cross"],
+  "expected_references": ["fig:box-diagram", "eq:energy", "sec:overview"],
+  "expected_figures": {"count_min": 1, "labels": ["fig:box-diagram"]},
+  "expected_tables": {"count_min": 0, "labels": []},
+  "expected_equations": {"count_min": 1, "labels": ["eq:energy"]},
+  "expected_footnotes": {"count_min": 1},
+  "expected_list_types": [],
+  "expected_captions": ["A simple boxed figure created with LaTeX primitives."],
+  "expected_markdown_snippets": ["Linked Sections and Figures Fixture", "Figure", "Equation", "Section"],
+  "allowed_warnings": ["unresolved_reference_optional"],
+  "tolerance_policy": {
+    "exact_json_match_required": false,
+    "allow_additional_nodes": true,
+    "allow_reference_order_changes": true
+  }
+}
