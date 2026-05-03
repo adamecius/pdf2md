@@ -51,6 +51,7 @@ def test_block_has_required_fields(mock_ir):
     }
     for b in page['blocks']:
         assert required.issubset(b.keys())
+        assert set(b.keys()).issubset(real_block_keys | required)
 
 
 def test_bbox_in_normalised_1000_space(mock_ir):
@@ -91,10 +92,7 @@ def test_consensus_report_can_consume_mock_ir(mock_ir):
         },
         'pymupdf': {'enabled': True, 'extract_text': True},
     }
-    old=consensus_report.CANONICAL_BACKENDS
-    consensus_report.CANONICAL_BACKENDS=('groundtruth','mineru','paddleocr','deepseek')
     report, code = consensus_report.build_consensus_report(fdir / 'input' / f'{doc_id}.pdf', cfg, Path('inline'))
-    consensus_report.CANONICAL_BACKENDS=old
     assert code == 0
 
     for pf in sorted((tmp_path / 'backend' / 'groundtruth' / '.current' / 'extraction_ir' / doc_id / 'pages').glob('page_*.json')):

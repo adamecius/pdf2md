@@ -1,6 +1,5 @@
 from __future__ import annotations
 import json
-from contextlib import contextmanager
 from pathlib import Path
 import pytest
 from pdf2md.testing import generate_mock_backend_ir
@@ -8,15 +7,6 @@ from pdf2md.utils import consensus_report, semantic_document_builder, semantic_l
 
 FIX_ROOT = Path('.current/latex_docling_groundtruth/batch_001')
 DOC_IDS = sorted([p.name for p in FIX_ROOT.iterdir() if p.is_dir()])
-
-@contextmanager
-def _groundtruth_backend_enabled():
-    old = consensus_report.CANONICAL_BACKENDS
-    consensus_report.CANONICAL_BACKENDS = ('groundtruth', 'mineru', 'paddleocr', 'deepseek')
-    try:
-        yield
-    finally:
-        consensus_report.CANONICAL_BACKENDS = old
 
 def _config(tmp_path: Path) -> dict:
     return {'consensus': {'coordinate_space':'page_normalised_1000','text_similarity_threshold':0.9,'weak_text_similarity_threshold':0.75,'bbox_iou_threshold':0.5,'weak_bbox_iou_threshold':0.25,'include_evidence_only_blocks':False},
@@ -26,8 +16,7 @@ def _config(tmp_path: Path) -> dict:
 def run_pipeline(doc_id: str, tmp_path: Path):
     fixture_dir = FIX_ROOT / doc_id
     generate_mock_backend_ir(fixture_dir, tmp_path/'backend'/'groundtruth'/'.current'/'extraction_ir'/doc_id, backend_name='groundtruth')
-    with _groundtruth_backend_enabled():
-        cons, code = consensus_report.build_consensus_report(fixture_dir/'input'/f'{doc_id}.pdf', _config(tmp_path), Path('inline'))
+    cons, code = consensus_report.build_consensus_report(fixture_dir/'input'/f'{doc_id}.pdf', _config(tmp_path), Path('inline'))
     assert code == 0
     links = semantic_linker.build_semantic_links(cons, Path('inline'))
     sem = semantic_document_builder.build(cons, links, None, {'consensus':'', 'links':'', 'media':None})
@@ -90,12 +79,13 @@ def test_required_docling_kinds(doc_id, tmp_path):
 @pytest.mark.parametrize('doc_id', DOC_IDS)
 def test_caption_relations(doc_id, tmp_path):
     _, _, sem, _, dc = run_pipeline(doc_id, tmp_path)
-    rels=[r for r in sem.get('relations',[]) if r.get('relation_type')=='caption_of']
-    for req in dc.get('required_relations',[]):
-        if req.get('relation_type')=='caption_to_figure':
-            assert any(x.get('relation_type')=='caption_of' for x in rels)
-        if req.get('relation_type')=='caption_to_table':
-            assert any(x.get('relation_type')=='caption_of' for x in rels)
+    blocks = {b.get('id'): b for b in sem.get('blocks', [])}
+    rels = [r for r in sem.get('relations', []) if r.get('relation_type') == 'caption_of']
+    for req in dc.get('required_relations', []):
+        if req.get('relation_type') == 'caption_to_figure':
+            assert any(blocks.get(r.get('target_id'), {}).get('type') == 'figure' for r in rels)
+        if req.get('relation_type') == 'caption_to_table':
+            assert any(blocks.get(r.get('target_id'), {}).get('type') == 'table' for r in rels)
 
 def test_semantic_link_figure_anchor(tmp_path): _,l,_,_,_=run_pipeline('figure_caption_reference',tmp_path); assert sum(1 for a in l['anchors'] if a.get('anchor_type')=='figure')>=1
 def test_semantic_link_equation_anchor(tmp_path): _,l,_,_,_=run_pipeline('equation_label_reference',tmp_path); assert sum(1 for a in l['anchors'] if a.get('anchor_type')=='equation')>=1

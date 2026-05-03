@@ -14,10 +14,7 @@ def run_pipeline(doc_id: str, tmp_path: Path):
     generate_mock_backend_ir(fixture_dir, out, backend_name='groundtruth')
     cfg = {'consensus': {'coordinate_space': 'page_normalised_1000', 'text_similarity_threshold': 0.9, 'weak_text_similarity_threshold': 0.75, 'bbox_iou_threshold': 0.5, 'weak_bbox_iou_threshold': 0.25, 'include_evidence_only_blocks': False}, 'backends': {'groundtruth': {'enabled': True, 'root': str(tmp_path / 'backend' / 'groundtruth')}, 'mineru': {'enabled': False, 'root':'backend/mineru'}, 'paddleocr': {'enabled': False, 'root': 'backend/paddleocr'}, 'deepseek': {'enabled': False, 'root': 'backend/deepseek'}}, 'pymupdf': {'enabled': True, 'extract_text': True}}
     pdf = fixture_dir / 'input' / f'{doc_id}.pdf'
-    old=consensus_report.CANONICAL_BACKENDS
-    consensus_report.CANONICAL_BACKENDS=('groundtruth','mineru','paddleocr','deepseek')
     cons, code = consensus_report.build_consensus_report(pdf, cfg, Path('inline'))
-    consensus_report.CANONICAL_BACKENDS=old
     assert code == 0
     links = semantic_linker.build_semantic_links(cons, Path('inline'))
     sem = semantic_document_builder.build(cons, links, None, {'consensus': '', 'links': '', 'media': None})
@@ -56,8 +53,8 @@ def test_all_features_small_completeness(tmp_path):
     _, _, sem, _, _ = run_pipeline('all_features_small', tmp_path)
     kinds = {b.get('type') for b in sem['blocks']}
     assert 'title' in kinds
-    assert any(b.get('type') in {'section','heading'} and ((b.get('metadata') or {}).get('heading_level') in {1,None} or True) for b in sem['blocks'])
-    assert any(b.get('type') in {'subsection','heading'} for b in sem['blocks'])
+    assert any(b.get('type') in {'section','heading'} and ((b.get('metadata') or {}).get('heading_level') in {1, None}) for b in sem['blocks'])
+    assert any((b.get('type') == 'subsection') or (b.get('type') == 'heading' and (b.get('metadata') or {}).get('heading_level') == 2) for b in sem['blocks'])
     assert 'figure' in kinds
     assert 'table' in kinds
     assert any(t in kinds for t in {'equation','formula'})
