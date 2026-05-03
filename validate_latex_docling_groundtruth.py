@@ -7,6 +7,17 @@ REQ_GT={"schema_name","document_id","nodes","labels","references","features","pa
 REQ_SEM={"document_id","expected_title","expected_sections","expected_labels","required_node_types"}
 REQ_DOC={"document_id","required_docling_kinds"}
 
+
+def canonicalise_backend(name:str)->str:
+    return {
+        "mineruo":"mineru",
+        "minero":"mineru",
+        "paddle":"paddleocr",
+        "paddle_ocr":"paddleocr",
+        "deep_seek":"deepseek",
+        "deepseek_ocr":"deepseek",
+    }.get(name,name)
+
 def check_doc(doc:Path, enabled:list[str])->dict:
     did=doc.name; errs=[]; warns=[]
     gt=doc/'groundtruth'; tex=doc/'input'/f'{did}.tex'
@@ -60,12 +71,12 @@ def check_doc(doc:Path, enabled:list[str])->dict:
             if snip not in txt and snip not in allowed: errs.append(f'missing_snippet:{snip}')
     for b in enabled:
         edir=doc/'backend_ir'/b/'.current'/'extraction_ir'/did
-        if not (edir/'manifest.json').exists(): warns.append(f'missing_backend_manifest_{b}')
+        if not (edir/'manifest.json').exists(): warns.append(f'backend_not_run_{b}')
     return {'document_id':did,'errors':errs,'warnings':warns,'ok':not errs}
 
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('--root',default='.current/latex_docling_groundtruth'); ap.add_argument('--batch',default='batch_001'); ap.add_argument('--config',default='pdf2md.consensus.example.toml'); ap.add_argument('--verbose',action='store_true'); a=ap.parse_args()
-    enabled=[k for k,v in tomllib.load(open(a.config,'rb')).get('backends',{}).items() if v.get('enabled',False)]
+    enabled=[canonicalise_backend(k) for k,v in tomllib.load(open(a.config,'rb')).get('backends',{}).items() if v.get('enabled',False)]
     root=Path(a.root)/a.batch
     reps=[check_doc(d,enabled) for d in root.iterdir() if d.is_dir()]
     out={'batch':a.batch,'documents':reps,'ok':all(r['ok'] for r in reps)}

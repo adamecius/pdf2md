@@ -22,14 +22,44 @@ If no LaTeX engine is found, `.tex` + contracts are still generated and PDF comp
 ```bash
 bash run_latex_docling_backends.sh --batch batch_001 --root .current/latex_docling_groundtruth --config pdf2md.consensus.example.toml --verbose
 ```
-- Discovers enabled backends from selected config `[backends.<name>]`.
-- Tries adapter selection in `backend/<name>/` (`pdf2ir_<name>.py`, then `pdf2ir*.py`) or override env var `PDF2MD_<NAME>_PDF2IR_CMD`.
-- Activates conda env `pdf2md-<backend>`.
+
+Canonical backend names:
+- `mineru`
+- `paddleocr`
+- `deepseek`
+
+Alias names in config are normalised with a warning (for example `mineruo -> mineru`).
+
+Environment names:
+- `pdf2md-mineru`
+- `pdf2md-paddleocr`
+- `pdf2md-deepseek`
+
+Adapter selection order:
+1. Override command env var
+   - `PDF2MD_MINERU_PDF2IR_CMD`
+   - `PDF2MD_PADDLEOCR_PDF2IR_CMD`
+   - `PDF2MD_DEEPSEEK_PDF2IR_CMD`
+2. Exact canonical adapter path
+   - `backend/mineru/pdf2ir_mineru.py`
+   - `backend/paddleocr/pdf2ir_paddleocr.py`
+   - `backend/deepseek/pdf2ir_deepseek.py`
+3. Fallback to sorted `pdf2ir*.py` discovery in `backend/<name>/`.
+
+Canonical DeepSeek adapter filename is:
+- `backend/deepseek/pdf2ir_deepseek.py`
 
 ## Validate outputs
 ```bash
 python validate_latex_docling_groundtruth.py --root .current/latex_docling_groundtruth --batch batch_001 --verbose
 ```
+
+Before backends are run, missing backend manifests are expected and reported as warnings:
+- `backend_not_run_mineru`
+- `backend_not_run_paddleocr`
+- `backend_not_run_deepseek`
+
+These warnings do **not** fail ground-truth validation by themselves.
 
 ## Expected layout
 Under `.current/latex_docling_groundtruth/<batch>/<document_id>/`:
