@@ -76,3 +76,37 @@ def test_cli_writes_files_and_strict_mode(tmp_path:Path, monkeypatch):
       assert da.main()!=0
     finally:
       sys.argv=old
+
+
+def test_docling_ref_per_container_indexes():
+    b=FakeBackend(); sem=_sem([
+      {"id":"block:t1","type":"paragraph","text":"a"},
+      {"id":"block:t2","type":"paragraph","text":"b"},
+      {"id":"block:p1","type":"figure","text":"","media_path":"m.png","anchor_id":"fig:1"},
+      {"id":"block:t3","type":"paragraph","text":"c"},
+    ])
+    _, rel, _, _ = da.adapt_semantic_document(sem, backend=b)
+    assert rel["id_map"]["block:t1"]["docling_ref"] == "#/texts/0"
+    assert rel["id_map"]["block:t2"]["docling_ref"] == "#/texts/1"
+    assert rel["id_map"]["block:p1"]["docling_ref"] == "#/pictures/0"
+    assert rel["id_map"]["block:t3"]["docling_ref"] == "#/texts/2"
+
+
+def test_single_source_geometry_not_from_sources_len_only():
+    b=FakeBackend(); sem=_sem([{"id":"block:x","type":"paragraph","text":"x","sources":["only"]}])
+    _, rel, _, _ = da.adapt_semantic_document(sem, backend=b)
+    assert not any(w=="single_source_geometry:block:x" for w in rel["warnings"])
+
+
+def test_optional_real_docling_backend_integration():
+    try:
+        backend = da.DoclingBackend.load()
+    except da.AdapterError:
+        pytest.skip("docling/docling-core unavailable")
+    backend.add_text("hello")
+    assert isinstance(backend.export_json(), dict)
+    try:
+        md = backend.export_markdown()
+        assert isinstance(md, str)
+    except da.AdapterError:
+        pass

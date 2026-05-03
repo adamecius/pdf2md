@@ -70,3 +70,11 @@ python -m pdf2md.utils.docling_adapter semantic_document.json --output-root out 
 - Missing media warnings: verify relative paths and materialized assets.
 - Strict failures: inspect `docling_adapter_report.json` warnings/errors.
 - Markdown unavailable: inspect `markdown_export_unavailable:*` warning.
+
+## Testing note
+- The repository does **not** include any fake top-level `docling` package.
+- Unit tests use backend injection/mocking inside test code only.
+- CLI execution requires a real `docling`/`docling-core` installation.
+
+## Upstream input gaps tracked
+The adapter currently degrades gracefully and records warnings when upstream semantic inputs are incomplete for richer Docling mapping (page dimensions/provenance granularity, structured table cells, canonical fused formula objects, canonical caption objects, and explicit canonical-vs-debug media policy markers).
