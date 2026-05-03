@@ -51,9 +51,19 @@ def ensure_tmp_clean_dir(path: Path) -> Path:
     return path
 
 
-def run_cli(module: str, *args: str) -> subprocess.CompletedProcess[str]:
+def run_cli(
+    module: str,
+    *args: str,
+    env_overrides: dict[str, str | None] | None = None,
+) -> subprocess.CompletedProcess[str]:
     env = os.environ.copy()
     env["PYTHONPATH"] = "src"
+    if env_overrides:
+        for key, value in env_overrides.items():
+            if value is None:
+                env.pop(key, None)
+            else:
+                env[key] = value
     return subprocess.run([sys.executable, "-m", module, *args], cwd=REPO_ROOT, env=env, text=True, capture_output=True, check=False)
 
 

@@ -189,10 +189,30 @@ def test_consensus_cli_config_resolution_contract(sample_pdf_path: Path, tmp_pat
         pytest.skip("Repo config pdf2md.backends.toml missing; cannot verify implicit consensus config resolution")
 
     default_out = tmp_path / "consensus_default.json"
-    res_default = run_cli("pdf2md.utils.consensus_report", str(sample_pdf_path), "--output", str(default_out), "--json-only")
+    res_default = run_cli(
+        "pdf2md.utils.consensus_report",
+        str(sample_pdf_path),
+        "--output",
+        str(default_out),
+        "--json-only",
+        env_overrides={"PDF2MD_BACKENDS_CONFIG": None},
+    )
     assert res_default.returncode == 0, res_default.stderr
     default_report = json.loads(default_out.read_text(encoding="utf-8"))
     assert Path(default_report["config_path"]).resolve() == repo_config.resolve()
+
+    env_out = tmp_path / "consensus_env.json"
+    res_env = run_cli(
+        "pdf2md.utils.consensus_report",
+        str(sample_pdf_path),
+        "--output",
+        str(env_out),
+        "--json-only",
+        env_overrides={"PDF2MD_BACKENDS_CONFIG": str(repo_config)},
+    )
+    assert res_env.returncode == 0, res_env.stderr
+    env_report = json.loads(env_out.read_text(encoding="utf-8"))
+    assert Path(env_report["config_path"]).resolve() == repo_config.resolve()
 
     explicit_out = tmp_path / "consensus_explicit.json"
     res_explicit = run_cli(
