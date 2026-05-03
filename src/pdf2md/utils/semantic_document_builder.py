@@ -75,7 +75,7 @@ def build(consensus: dict[str, Any], semantic_links: dict[str, Any], media_manif
                 b["metadata"]["media_type"] = ma.get("media_type")
                 b["metadata"]["media_policy"] = ma.get("policy")
                 if ma.get("status") and ma.get("status") != "resolved":
-                    b["warnings"].append(f"media_status:{ma.get("status")}")
+                    b["warnings"].append(f"media_status:{ma.get('status')}")
                 if ma.get("status") == "geometry_conflict":
                     b["status"] = "resolved_with_conflict"
             page_blocks.append(b)
