@@ -71,6 +71,13 @@ def build(consensus: dict[str, Any], semantic_links: dict[str, Any], media_manif
                 ma = media_by_gid[gid]
                 b["media_id"] = ma.get("media_id")
                 b["media_path"] = ma.get("file_path")
+                b["metadata"]["media_status"] = ma.get("status")
+                b["metadata"]["media_type"] = ma.get("media_type")
+                b["metadata"]["media_policy"] = ma.get("policy")
+                if ma.get("status") and ma.get("status") != "resolved":
+                    b["warnings"].append(f"media_status:{ma.get('status')}")
+                if ma.get("status") == "geometry_conflict":
+                    b["status"] = "resolved_with_conflict"
             page_blocks.append(b)
             doc["blocks"].append(b)
         page_blocks.sort(key=lambda x: (x["page_index"], (x["bbox"] or [0, 0, 0, 0])[1], (x["bbox"] or [0, 0, 0, 0])[0], x["order"]))
