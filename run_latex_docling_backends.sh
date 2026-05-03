@@ -5,25 +5,61 @@ while [[ $# -gt 0 ]]; do case "$1" in
   --batch) BATCH="$2"; shift 2;; --root) ROOT="$2"; shift 2;; --config) CONFIG="$2"; shift 2;; --verbose) VERBOSE=1; shift;;
   --allow-missing-backends) ALLOW_MISSING_BACKENDS=1; shift;; --allow-missing-envs) ALLOW_MISSING_ENVS=1; shift;; --allow-stage-failures) ALLOW_STAGE_FAILURES=1; shift;; *) echo "unknown arg $1"; exit 2;; esac; done
 set -e
+
+canonicalise_backend() {
+  case "$1" in
+    mineru|paddleocr|deepseek) echo "$1" ;;
+    mineruo|minero) echo "mineru" ;;
+    paddle|paddle_ocr) echo "paddleocr" ;;
+    deep_seek|deepseek_ocr) echo "deepseek" ;;
+    *) echo "$1" ;;
+  esac
+}
+
+adapter_for_backend() {
+  local b="$1"
+  local exact="backend/$b/pdf2ir_${b}.py"
+  if [[ -f "$exact" ]]; then
+    echo "python $exact"
+    return 0
+  fi
+  local cand
+  cand=$(find "backend/$b" -maxdepth 1 -name 'pdf2ir*.py' | sort | head -n1 || true)
+  if [[ -n "$cand" ]]; then
+    echo "python $cand"
+  fi
+}
+
 batch_root="$ROOT/$BATCH"; [[ -d "$batch_root" ]] || { echo "missing $batch_root"; exit 1; }
-backends=$(python - <<PY
-import tomllib; c=tomllib.load(open('$CONFIG','rb')); print('\n'.join([k for k,v in c.get('backends',{}).items() if v.get('enabled',False)]))
+readarray -t raw_backends < <(python - <<PY
+import tomllib
+c=tomllib.load(open('$CONFIG','rb'))
+print('\\n'.join([k for k,v in c.get('backends',{}).items() if v.get('enabled',False)]))
 PY
 )
-[[ -n "$backends" ]] || { echo "No enabled backends"; exit 1; }
+[[ ${#raw_backends[@]} -gt 0 ]] || { echo "No enabled backends"; exit 1; }
+
+backends=()
+for raw in "${raw_backends[@]}"; do
+  canon=$(canonicalise_backend "$raw")
+  if [[ "$raw" != "$canon" ]]; then
+    echo "warning: backend alias normalised: $raw -> $canon"
+  fi
+  backends+=("$canon")
+done
+
 status=0
 for docdir in "$batch_root"/*; do
   [[ -d "$docdir/input" ]] || continue
   docid=$(basename "$docdir"); pdf="$docdir/input/$docid.pdf"; reports="$docdir/reports"; mkdir -p "$reports"
   run_manifest="$docdir/local_run_manifest.json"; echo '{"document_id":"'$docid'","backends":[],"config":"'$CONFIG'","started_at":"'$(date -u +%FT%TZ)'"}' > "$run_manifest"
-  for b in $backends; do
+  for b in "${backends[@]}"; do
     blog="$reports/backend_${b}.log"; mkdir -p "$docdir/backend_ir/$b/.current/extraction_ir/$docid"
     override_var="PDF2MD_$(echo "$b" | tr '[:lower:]-' '[:upper:]_')_PDF2IR_CMD"; cmd="${!override_var-}"
     if [[ -z "$cmd" ]]; then
-      cand1="backend/$b/pdf2ir_${b}.py"; cand=$(find "backend/$b" -maxdepth 1 -name 'pdf2ir*.py' | sort | head -n1 || true)
-      [[ -f "$cand1" ]] && cmd="python $cand1" || cmd="python ${cand:-}"
+      cmd=$(adapter_for_backend "$b")
     fi
-    if [[ -z "$cmd" || "$cmd" == "python " ]]; then [[ $ALLOW_MISSING_BACKENDS -eq 1 ]] && continue || { echo "missing adapter for $b"; exit 1; }; fi
+    if [[ -z "$cmd" || "$cmd" == "python " ]]; then [[ $ALLOW_MISSING_BACKENDS -eq 1 ]] && continue || { echo "missing pdf2ir adapter for canonical backend $b"; exit 1; }; fi
     if ! command -v conda >/dev/null 2>&1; then [[ $ALLOW_MISSING_ENVS -eq 1 ]] && continue || { echo "conda missing"; exit 1; }; fi
     if ! conda env list | awk '{print $1}' | grep -qx "pdf2md-$b"; then [[ $ALLOW_MISSING_ENVS -eq 1 ]] && continue || { echo "missing conda env pdf2md-$b"; exit 1; }; fi
     help=$($cmd --help 2>/dev/null || true)
@@ -49,24 +85,13 @@ PY
       mapfile -t cands < <(find "$docdir/backend_ir/$b" -name manifest.json)
       if [[ ${#cands[@]} -eq 1 ]]; then
         cp -r "$(dirname "${cands[0]}")"/* "$expected"/
-        manifest_exists=false; pages_exists=false
-        [[ -f "$expected/manifest.json" ]] && manifest_exists=true
-        [[ -d "$expected/pages" ]] && pages_exists=true
-        python - <<PY
-import json
-p="$run_manifest"
-with open(p) as f:d=json.load(f)
-d["backends"][-1]["manifest_exists"]="${manifest_exists}"=="true"
-d["backends"][-1]["pages_exists"]="${pages_exists}"=="true"
-open(p,"w").write(json.dumps(d,indent=2))
-PY
       else status=1; [[ $ALLOW_STAGE_FAILURES -eq 1 ]] || exit 1; fi
     }
   done
   conf="$docdir/consensus/local_consensus.toml"; mkdir -p "$docdir/consensus"
   {
     echo "[consensus]"; echo "output_root = \"$docdir/consensus\""; echo "coordinate_space = \"page_normalised_1000\""; echo "text_similarity_threshold = 0.90"; echo "weak_text_similarity_threshold = 0.75"; echo "bbox_iou_threshold = 0.50"; echo "weak_bbox_iou_threshold = 0.25"; echo "include_evidence_only_blocks = false"
-    for b in $backends; do e="$docdir/backend_ir/$b/.current/extraction_ir/$docid"; [[ -f "$e/manifest.json" && -d "$e/pages" ]] || continue; echo "[backends.$b]"; echo "enabled = true"; echo "root = \"$docdir/backend_ir/$b\""; echo "label = \"$b\""; done
+    for b in "${backends[@]}"; do e="$docdir/backend_ir/$b/.current/extraction_ir/$docid"; [[ -f "$e/manifest.json" && -d "$e/pages" ]] || continue; echo "[backends.$b]"; echo "enabled = true"; echo "root = \"$docdir/backend_ir/$b\""; echo "label = \"$b\""; done
     echo "[pymupdf]"; echo "enabled = true"; echo "extract_text = true"; echo "extract_images = false"
   } > "$conf"
   set +e
