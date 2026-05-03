@@ -65,15 +65,20 @@ def normalize(doc: dict, is_candidate: bool) -> dict:
     equations = [b['_text_n'] for b in out_blocks if b['_canon_type'] == 'equation']
     footnotes = [b['_text_n'] for b in out_blocks if b['_canon_type'] == 'footnote']
     captions = [b['_text_n'] for b in out_blocks if b['_canon_type'] == 'caption']
-    references = Counter((r.get('target_label') or '').strip() for r in (doc.get('references') or []) if (r.get('target_label') or '').strip())
+    references = Counter(((r.get('target_label') or r.get('label') or '').strip()) for r in (doc.get('references') or []) if ((r.get('target_label') or r.get('label') or '').strip()))
     lists = {
         'list_count': sum(1 for b in out_blocks if b['_canon_type'] == 'list'),
         'list_item_count': sum(1 for b in out_blocks if b['_canon_type'] == 'list_item'),
     }
     relations = normalize_relations(doc.get('relations') or [])
 
+    title_val = doc.get('title') or doc.get('expected_title') or ''
+    if not title_val:
+        tblock = next((b for b in out_blocks if b.get('_canon_type') == 'title' and b.get('text')), None)
+        title_val = tblock.get('text') if tblock else ''
+
     return {
-        'title': n(doc.get('title') or doc.get('expected_title') or ''),
+        'title': n(title_val),
         'blocks': out_blocks,
         'labels': labels,
         'type_counts': type_counts,
@@ -114,7 +119,10 @@ def main():
     if gt['title'] and gt['title'] != cd['title']:
         errs.append('title_mismatch')
 
+    helper_types={'page_break','inline_math','display_math','reference','bibliography_like'}
     for t, c in gt['type_counts'].items():
+        if t in helper_types:
+            continue
         if cd['type_counts'].get(t, 0) < c:
             errs.append(f'type_count_lt:{t}:{cd["type_counts"].get(t,0)}<{c}')
 

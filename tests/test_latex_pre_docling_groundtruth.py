@@ -69,9 +69,20 @@ def test_comparator_backend_style_candidate_passes():
             if nb.get('type')=='paragraph': nb['type']='text'
             blocks.append(nb)
         rels=[{'relation_type':('refers_to' if r.get('type')=='reference_to' else r.get('type')),'target_label':r.get('target_label'),'caption_text':r.get('caption_text'),'footnote_text':r.get('footnote_text')} for r in gt.get('relations',[])]
-        cand={'title':gt['title'],'blocks':blocks,'references':gt['references'],'relations':rels}
+        refs_backend=[]
+        for r in gt['references']:
+            rr=dict(r); rr['label']=rr.get('target_label'); rr.pop('target_label',None); refs_backend.append(rr)
+        cand={'blocks':blocks,'references':refs_backend,'relations':rels}
 
         (doc/'reports').mkdir(exist_ok=True)
         cand_path=doc/'reports'/'cand_backend_style.json'; cand_path.write_text(json.dumps(cand))
         rep=doc/'reports'/'cmp_backend_style.json'
         subprocess.run(['python','compare_pre_docling_groundtruth.py','--groundtruth',str(doc/'groundtruth'/'semantic_document_groundtruth.json'),'--candidate',str(cand_path),'--contract',str(ct),'--output',str(rep)],check=True)
+
+        report=json.loads(rep.read_text())
+        assert report['ok']
+        # helper-only source block types absent in backend candidate should still pass
+        helper_trimmed=dict(cand)
+        helper_trimmed['blocks']=[b for b in blocks if b.get('type') not in ('page_break','display_math','inline_math','reference','bibliography_like')]
+        helper_path=doc/'reports'/'cand_backend_style_no_helpers.json'; helper_path.write_text(json.dumps(helper_trimmed))
+        subprocess.run(['python','compare_pre_docling_groundtruth.py','--groundtruth',str(doc/'groundtruth'/'semantic_document_groundtruth.json'),'--candidate',str(helper_path),'--contract',str(ct),'--output',str(rep)],check=True)

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse, json, tomllib
+import argparse, json, tomllib, subprocess
 from pathlib import Path
 
 REQ_GT={"schema_name","document_id","nodes","labels","references","features","pages_expected_min"}
@@ -68,10 +68,11 @@ def check_doc(doc:Path, enabled:list[str])->dict:
     
     cand=doc/'consensus'/'semantic_document.json'
     if cand.exists() and sd and s:
-        c=json.loads(cand.read_text())
-        if c.get('title')!=sd.get('title'): errs.append('candidate_title_mismatch')
-        for lbl in sd.get('labels',{}):
-            if lbl not in c.get('labels',{}): errs.append(f'candidate_missing_label:{lbl}')
+        outp=doc/'reports'/'pre_docling_comparison_report.json'
+        outp.parent.mkdir(exist_ok=True)
+        cp=subprocess.run(['python','compare_pre_docling_groundtruth.py','--groundtruth',str(gt/'semantic_document_groundtruth.json'),'--candidate',str(cand),'--contract',str(gt/'expected_semantic_contract.json'),'--output',str(outp)])
+        if cp.returncode!=0:
+            errs.append('candidate_semantic_mismatch')
 
     preview=doc/'docling'/'docling_preview.md'
     if preview.exists() and s:

@@ -43,7 +43,11 @@ class Parser:
         return ''.join(out), j+1
     def flush_text(self,txt):
         t=' '.join(txt.split())
-        if t: self.add('paragraph',t,parent=self.current_parent())
+        if not t:
+            return
+        if any(c.env=='equation' for c in self.stack):
+            return
+        self.add('paragraph',t,parent=self.current_parent())
     def current_parent(self):
         return next((c.block_id for c in reversed(self.stack) if c.env in ('item','list','figure','table')),None)
     def bind_label(self,lbl):
