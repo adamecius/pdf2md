@@ -180,18 +180,14 @@ Warnings the adapter should emit by default:
 
 ## docling_status
 
-### Phase 1A: LaTeX source-known fixture definitions
-Status: tested, pending_human_approval
+### Phase 1A: expanded fixture generation
+Status: generated/tested
 
-### Phase 1B: Local backend regeneration harness
-Status: generated, local_only
+### Phase 1B: local backend harness
+Status: generated/local_only
 
-Local integration TODOs:
-- MinerU backend pdf2ir CLI is not inferred as a reliable default command in automation; set `PDF2MD_MINERU_PDF2IR_CMD` locally when available.
-- Backend command/environment compatibility is local-machine dependent and must be validated by a human local run.
+### Phase 1C: local validation
+Status: generated/local_only
 
-### Phase 1C: Local contract validation report
-Status: generated, local_only
-
-### Phase 2: Docling scaffolding
-Status: blocked (until Phase 1 human approval)
+### Phase 2
+Status: blocked (awaiting human approval)
