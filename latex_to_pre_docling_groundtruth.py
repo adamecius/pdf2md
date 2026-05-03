@@ -1,171 +1,166 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse, json, re, hashlib
+import argparse, hashlib, json, re
+from collections import Counter
 from dataclasses import dataclass
-from pathlib import Path
 from datetime import datetime, timezone
+from pathlib import Path
 
-CMD_RE = re.compile(r"\\(title|section|subsection|label|caption|ref|footnote)\*?\{")
-ITEM_RE = re.compile(r"\\item\s+")
-BEGIN_RE = re.compile(r"\\begin\{(figure|table|tabular|equation|itemize|enumerate)\}")
-END_RE = re.compile(r"\\end\{(figure|table|tabular|equation|itemize|enumerate)\}")
-NEWPAGE_RE = re.compile(r"\\newpage")
+try:
+    import fitz  # type: ignore
+except Exception:
+    fitz = None
+
+TOK = re.compile(r"\\begin\{(figure|table|tabular|equation|itemize|enumerate)\}|\\end\{(figure|table|tabular|equation|itemize|enumerate)\}|\\(title|section|subsection|label|caption|ref|footnote)\*?\{|\\item\s+|\$\$|\$|\\newpage", re.S)
 
 @dataclass
-class Ctx:
-    env:str
-    block_id:str|None=None
+class Ctx: env:str; block_id:str|None=None
 
-class Builder:
-    def __init__(self,did:str,tex:str):
+class Parser:
+    def __init__(self,did,tex):
         self.did=did; self.tex=tex; self.i=0; self.n=0
-        self.blocks=[]; self.labels={}; self.references=[]; self.relations=[]; self.warnings=[]
-        self.stack=[]; self.pending_label=None; self.pending_footnote_anchor=None
-        self.root_title=None
-    def bid(self,p='b'): self.n+=1; return f"gt:{self.did}:{p}{self.n:04d}"
-    def add(self,tp,text,parent_id=None,source_hint=None,labels=None,extra=None):
-        b={"id":self.bid(),"type":tp,"text":text.strip(),"parent_id":parent_id,"children":[],"labels":labels or [],"references":[],"relations":[],"source_latex_hint":source_hint or ""}
+        self.blocks=[]; self.labels={}; self.refs=[]; self.relations=[]; self.warnings=[]
+        self.stack=[]; self.pending_label=None; self.anchor=None; self.title=did
+    def bid(self): self.n+=1; return f"gt:{self.did}:b{self.n:04d}"
+    def add(self,tp,text,parent=None,extra=None):
+        b={"id":self.bid(),"type":tp,"text":text.strip(),"parent_id":parent,"children":[],"labels":[],"source_latex_hint":tp}
         if extra: b.update(extra)
         self.blocks.append(b)
-        if parent_id:
-            p=next((x for x in self.blocks if x['id']==parent_id),None)
+        if parent:
+            p=next((x for x in self.blocks if x['id']==parent),None)
             if p: p['children'].append(b['id'])
+        if tp in ('paragraph','list_item','section','subsection'): self.anchor=b['id']
         return b
     def parse_group(self,start):
-        j=start; depth=1; out=[]
-        while j < len(self.tex) and depth>0:
+        d=1; j=start; out=[]
+        while j < len(self.tex) and d>0:
             c=self.tex[j]
-            if c=='{': depth+=1
+            if c=='{': d+=1
             elif c=='}':
-                depth-=1
-                if depth==0: break
+                d-=1
+                if d==0: break
             out.append(c); j+=1
         return ''.join(out), j+1
+    def flush_text(self,txt):
+        t=' '.join(txt.split())
+        if t: self.add('paragraph',t,parent=self.current_parent())
+    def current_parent(self):
+        return next((c.block_id for c in reversed(self.stack) if c.env in ('item','list','figure','table')),None)
+    def bind_label(self,lbl):
+        t=next((c.block_id for c in reversed(self.stack) if c.block_id),None)
+        if not t:
+            for b in reversed(self.blocks):
+                if b['type'] in ('section','subsection','figure','table','equation','caption'): t=b['id']; break
+        if t:
+            b=next(x for x in self.blocks if x['id']==t)
+            if lbl not in b['labels']: b['labels'].append(lbl)
+            self.labels[lbl]=t
+        else:
+            self.pending_label=lbl
     def parse(self):
         while self.i < len(self.tex):
-            m=min([x for x in [BEGIN_RE.search(self.tex,self.i),END_RE.search(self.tex,self.i),CMD_RE.search(self.tex,self.i),ITEM_RE.search(self.tex,self.i),NEWPAGE_RE.search(self.tex,self.i)] if x], key=lambda z:z.start(), default=None)
-            if not m:
-                self.parse_text(self.tex[self.i:]); break
-            if m.start()>self.i: self.parse_text(self.tex[self.i:m.start()])
-            s=m.group(0)
+            m=TOK.search(self.tex,self.i)
+            if not m: self.flush_text(self.tex[self.i:]); break
+            self.flush_text(self.tex[self.i:m.start()]); self.i=m.end(); s=m.group(0)
             if s.startswith('\\begin'):
-                env=m.group(1); self.i=m.end(); self.on_begin(env); continue
-            if s.startswith('\\end'):
-                env=m.group(1); self.i=m.end(); self.on_end(env); continue
-            if s.startswith('\\item'):
-                self.i=m.end()
-                end=min([x.start() for x in [BEGIN_RE.search(self.tex,self.i),END_RE.search(self.tex,self.i),CMD_RE.search(self.tex,self.i),ITEM_RE.search(self.tex,self.i),NEWPAGE_RE.search(self.tex,self.i)] if x] or [len(self.tex)])
-                self.on_cmd('item', self.tex[self.i:end].strip(), False)
-                self.i=end
+                env=m.group(1)
+                if env in ('itemize','enumerate'):
+                    l=self.add('list',env,parent=self.current_parent(),extra={'list_kind':env}); self.stack.append(Ctx('list',l['id']))
+                elif env in ('figure','table','equation'):
+                    b=self.add(env,'',parent=None)
+                    self.stack.append(Ctx(env,b['id']))
+                else: self.stack.append(Ctx(env))
                 continue
+            if s.startswith('\\end'):
+                env=m.group(2)
+                if env=='equation':
+                    # capture equation body from last equation start to this end
+                    eq=next((x for x in reversed(self.blocks) if x['type']=='equation' and not x['text']),None)
+                    if eq:
+                        pass
+                if self.stack: self.stack.pop();
+                continue
+            if s in ('$$','$'):
+                term=s; j=self.tex.find(term,self.i)
+                if j!=-1:
+                    math=self.tex[self.i:j].strip(); self.i=j+len(term)
+                    self.add('display_math' if term=='$$' else 'inline_math',math,parent=self.current_parent())
+                continue
+            if s.startswith('\\item'):
+                while self.stack and self.stack[-1].env=='item': self.stack.pop()
+                end=TOK.search(self.tex,self.i); j=end.start() if end else len(self.tex)
+                it=self.add('list_item',' '.join(self.tex[self.i:j].split()),parent=next((c.block_id for c in reversed(self.stack) if c.env=='list'),None))
+                self.stack.append(Ctx('item',it['id'])); self.i=j; continue
             if s.startswith('\\newpage'):
-                self.i=m.end(); self.add('page_break','newpage',source_hint='\\newpage'); continue
+                self.add('page_break','newpage'); continue
             cmd=re.match(r"\\(\w+)\*?\{",s).group(1)
-            grp,ni=self.parse_group(m.end())
-            self.i=ni
-            self.on_cmd(cmd,grp,m.group(0).startswith('\\'+cmd+'*'))
-        self.resolve_refs()
-    def parse_text(self,txt):
-        clean=re.sub(r"\s+"," ",txt).strip()
-        if not clean: return
-        parent=None
-        for c in reversed(self.stack):
-            if c.env in ('item','list','figure','table','equation'): parent=c.block_id; break
-        b=self.add('paragraph',clean,parent_id=parent,source_hint='text')
-        self.pending_footnote_anchor=b['id']
-    def on_begin(self,env):
-        if env in ('itemize','enumerate'):
-            parent=next((c.block_id for c in reversed(self.stack) if c.env in ('item','list')),None)
-            l=self.add('list',env,parent_id=parent,source_hint=f'begin:{env}',extra={'list_kind':env})
-            self.stack.append(Ctx('list',l['id']))
-        elif env in ('figure','table','equation'):
-            b=self.add(env,env,source_hint=f'begin:{env}',labels=([self.pending_label] if self.pending_label else []))
-            if self.pending_label: self.labels[self.pending_label]=b['id']; self.pending_label=None
-            self.stack.append(Ctx(env,b['id']))
-        elif env=='tabular':
-            self.stack.append(Ctx('tabular'))
-        else: self.stack.append(Ctx(env))
-    def on_end(self,env):
-        if self.stack: self.stack.pop()
-    def on_cmd(self,cmd,val,is_star):
-        if cmd=='title': self.root_title=val.strip(); self.add('title',val,source_hint='\\title')
-        elif cmd=='section':
-            b=self.add('section',val,source_hint='\\section*' if is_star else '\\section')
-            if self.pending_label: b['labels'].append(self.pending_label); self.labels[self.pending_label]=b['id']; self.pending_label=None
-        elif cmd=='subsection':
-            b=self.add('subsection',val,source_hint='\\subsection*' if is_star else '\\subsection')
-            if self.pending_label: b['labels'].append(self.pending_label); self.labels[self.pending_label]=b['id']; self.pending_label=None
-        elif cmd=='label':
-            target=next((c for c in reversed(self.stack) if c.block_id),None)
-            if target:
-                tb=next(x for x in self.blocks if x['id']==target.block_id); tb['labels'].append(val); self.labels[val]=tb['id']
-            else: self.pending_label=val
-        elif cmd=='caption':
-            parent=next((c.block_id for c in reversed(self.stack) if c.env in ('figure','table')),None)
-            cap=self.add('caption',val,parent_id=parent,source_hint='\\caption')
-            if parent: self.relations.append({'type':'caption_of','source_id':cap['id'],'target_id':parent})
-        elif cmd=='ref':
-            src=self.add('reference',f"ref:{val}",parent_id=self.pending_footnote_anchor,source_hint='\\ref')
-            self.references.append({'source_block_id':src['id'],'target_label':val,'relation_type':'reference_to'})
-        elif cmd=='footnote':
-            ft=self.add('footnote',val,parent_id=None,source_hint='\\footnote')
-            if self.pending_footnote_anchor: self.relations.append({'type':'footnote_of','source_id':ft['id'],'target_id':self.pending_footnote_anchor})
-        elif cmd=='item':
-            while self.stack and self.stack[-1].env=='item':
-                self.stack.pop()
-            pl=next((c.block_id for c in reversed(self.stack) if c.env=='list'),None)
-            it=self.add('list_item',val,parent_id=pl,source_hint='\\item')
-            self.stack.append(Ctx('item',it['id']))
-        # table rows/cells from tabular raw text are captured as paragraphs; augment later
-    def resolve_refs(self):
-        for r in self.references:
-            tid=self.labels.get(r['target_label'])
-            r['target_block_id']=tid; r['resolved']=tid is not None
-            if tid: self.relations.append({'type':'reference_to','source_id':r['source_block_id'],'target_id':tid,'target_label':r['target_label'],'resolved':True})
+            grp,self.i=self.parse_group(self.i)
+            if cmd=='title': self.title=grp.strip(); self.add('title',grp)
+            elif cmd=='section':
+                b=self.add('section',grp)
+                if grp.strip().lower()=='references': self.add('bibliography_like','References',parent=b['id'])
+                if self.pending_label: self.bind_label(self.pending_label); self.pending_label=None
+            elif cmd=='subsection': self.add('subsection',grp)
+            elif cmd=='label': self.bind_label(grp)
+            elif cmd=='caption':
+                p=next((c.block_id for c in reversed(self.stack) if c.env in ('figure','table')),None)
+                c=self.add('caption',grp,parent=p)
+                if p: self.relations.append({'type':'caption_of','caption_text':grp.strip(),'source_block_id':c['id'],'target_label':next((l for l,v in self.labels.items() if v==p),None)})
+            elif cmd=='ref':
+                r=self.add('reference',f"ref:{grp}",parent=self.anchor)
+                self.refs.append({'id':f'gt:ref:{self.did}:{len(self.refs)}','source_node_id':r['id'],'source_block_id':r['id'],'target_label':grp,'relation_type':'reference_to','reference_text':f'\\ref{{{grp}}}'})
+            elif cmd=='footnote':
+                f=self.add('footnote',grp)
+                if self.anchor: self.relations.append({'type':'footnote_of','source_block_id':f['id'],'target_block_id':self.anchor,'footnote_text':grp.strip()})
+        # equation text extraction
+        for m in re.finditer(r"\\begin\{equation\}(.*?)\\end\{equation\}",self.tex,re.S):
+            t=re.sub(r"\\label\{[^}]+\}",'',m.group(1)).strip()
+            b=next((x for x in self.blocks if x['type']=='equation' and not x['text']),None)
+            if b: b['text']=t
+        for r in self.refs:
+            r['target_block_id']=self.labels.get(r['target_label']); r['target_node_id']=r['target_block_id']; r['resolved']=r['target_block_id'] is not None; r['expected_resolved']=r['resolved']
+            self.relations.append({'type':'reference_to','source_block_id':r['source_block_id'],'target_label':r['target_label'],'resolved':r['resolved']})
 
-
-def extract_table_structures(doc):
-    tex=doc['provenance']['tex_content']
-    tables=[]
-    for tm in re.finditer(r"\\begin\{tabular\}\{[^}]*\}(.*?)\\end\{tabular\}",tex,re.S):
-        body=tm.group(1).replace('\\hline','')
-        rows=[]
+def extract_tables(tex):
+    out=[]
+    for m in re.finditer(r"\\begin\{tabular\}\{[^}]*\}(.*?)\\end\{tabular\}",tex,re.S):
+        rows=[]; body=m.group(1).replace('\\hline','')
         for ri,row in enumerate([r.strip() for r in body.split('\\\\') if r.strip()]):
             cells=[]
-            for ci,c in enumerate(row.split('&')):
-                cells.append({'row':ri,'col':ci,'text':re.sub(r'\s+',' ',c).strip()})
+            for ci,c in enumerate(row.split('&')): cells.append({'row':ri,'col':ci,'text':' '.join(c.split())})
             rows.append({'row':ri,'cells':cells})
-        tables.append(rows)
-    return tables
+        out.append(rows)
+    return out
 
-def sha(p:Path): return hashlib.sha256(p.read_bytes()).hexdigest() if p.exists() else None
+def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest() if p.exists() else None
 
-def process_doc(doc_dir:Path, verbose=False):
+def process(doc_dir):
     did=doc_dir.name; tex=doc_dir/'input'/f'{did}.tex'; pdf=doc_dir/'input'/f'{did}.pdf'; gt=doc_dir/'groundtruth'; gt.mkdir(exist_ok=True)
-    t=tex.read_text()
-    b=Builder(did,t); b.parse()
-    sem={"schema_name":"pdf2md.semantic_document_groundtruth","schema_version":"1.0.0","document_id":did,"title":b.root_title or did,"pages":[],"body":b.blocks,"labels":b.labels,"references":b.references,"relations":b.relations,"warnings":b.warnings,"provenance":{"source_tex":str(tex),"source_pdf":str(pdf) if pdf.exists() else None,"tex_content":t}}
-    tbls=extract_table_structures(sem)
-    for i,rows in enumerate(tbls):
-        tbs=[x for x in sem['body'] if x['type']=='table']
-        if i < len(tbs): tbs[i]['table_rows']=rows
-    src={"schema_name":"pdf2md.source_groundtruth_ir","schema_version":"1.0.0","document_id":did,"nodes":b.blocks,"labels":b.labels,"references":b.references,"relations":b.relations}
-    contract={"expected_title":sem['title'],"expected_sections":[x['text'] for x in b.blocks if x['type']=='section'],"expected_subsections":[x['text'] for x in b.blocks if x['type']=='subsection'],"expected_ordered_block_constraints":[x['type'] for x in b.blocks],"expected_labels":b.labels,"expected_references":b.references,"expected_captions":[r for r in b.relations if r['type']=='caption_of'],"expected_tables":[x.get('table_rows',[]) for x in sem['body'] if x['type']=='table'],"expected_nested_lists":True,"expected_markdown_snippets":[sem['title']],"allowed_warnings":[],"tolerance_policy":{"text_normalization":"whitespace"}}
-    docling={"required_docling_object_kinds":["title","section_header","text","picture","table","formula","caption","list","footnote"],"body_order_constraints":contract['expected_ordered_block_constraints'],"required_caption_relations":contract['expected_captions'],"required_reference_sidecar_entries":[r['target_label'] for r in b.references],"expected_markdown_snippets":[sem['title']],"allowed_degradation_warnings":[],"tolerance_policy":contract['tolerance_policy']}
-    report={"document_id":did,"counts":{k:sum(1 for bl in b.blocks if bl['type']==k) for k in ['section','subsection','figure','table','equation','list','list_item','footnote','reference']}}
-    prov={"document_id":did,"generated_at":datetime.now(timezone.utc).isoformat(),"source_tex":{"path":str(tex),"sha256":sha(tex)},"source_pdf":{"path":str(pdf),"sha256":sha(pdf)} if pdf.exists() else None}
-    sem['provenance'].pop('tex_content')
+    src=tex.read_text(); p=Parser(did,src); p.parse(); counts=Counter(b['type'] for b in p.blocks)
+    tables=extract_tables(src)
+    tblocks=[b for b in p.blocks if b['type']=='table']
+    for i,t in enumerate(tables):
+        if i<len(tblocks): tblocks[i]['table_rows']=t
+    pages=[]
+    if pdf.exists() and fitz is not None:
+        try: pages=[{'page_count':fitz.open(pdf).page_count}]
+        except Exception: pages=[]
+    sem={"schema_name":"pdf2md.semantic_document_groundtruth","schema_version":"1.0.0","document_id":did,"title":p.title,"pages":pages,"body":p.blocks,"labels":p.labels,"references":p.refs,"relations":p.relations,"warnings":p.warnings,"provenance":{"source_tex":str(tex),"source_pdf":str(pdf) if pdf.exists() else None}}
+    sgt={"schema_name":"pdf2md.source_groundtruth_ir","schema_version":"1.0.0","document_id":did,"source_type":"latex","source_tex":str(tex),"expected_pdf":str(pdf),"title":p.title,"nodes":p.blocks,"labels":p.labels,"references":p.refs,"relations":p.relations,"features":dict(counts),"pages_expected_min":(2 if 'multipage' in did else 1)}
+    econ={"document_id":did,"expected_title":p.title,"expected_sections":[b['text'] for b in p.blocks if b['type']=='section'],"expected_subsections":[b['text'] for b in p.blocks if b['type']=='subsection'],"expected_ordered_block_constraints":[b['type'] for b in p.blocks],"expected_labels":list(p.labels.keys()),"expected_references":p.refs,"expected_captions":[r for r in p.relations if r['type']=='caption_of'],"expected_nested_list_structure":True,"expected_table_cells":[tb.get('table_rows',[]) for tb in tblocks],"expected_markdown_snippets":[p.title],"allowed_warnings":[],"tolerance_policy":{"whitespace":True}}
+    dcon={"document_id":did,"required_docling_kinds":["title","section_header","text","picture","table","formula","caption","list","footnote"],"body_order_constraints":econ['expected_ordered_block_constraints'],"required_caption_relations":econ['expected_captions'],"required_reference_sidecar_entries":[r['target_label'] for r in p.refs],"expected_markdown_snippets":[p.title],"allowed_degradation_warnings":[],"tolerance_policy":econ['tolerance_policy']}
     (gt/'semantic_document_groundtruth.json').write_text(json.dumps(sem,indent=2))
-    (gt/'source_groundtruth_ir.json').write_text(json.dumps(src,indent=2))
-    (gt/'expected_semantic_contract.json').write_text(json.dumps(contract,indent=2))
-    (gt/'expected_docling_contract.json').write_text(json.dumps(docling,indent=2))
-    (gt/'latex_groundtruth_report.json').write_text(json.dumps(report,indent=2))
-    (gt/'provenance_manifest.json').write_text(json.dumps(prov,indent=2))
-    if verbose: print('processed',did)
+    (gt/'source_groundtruth_ir.json').write_text(json.dumps(sgt,indent=2))
+    (gt/'expected_semantic_contract.json').write_text(json.dumps(econ,indent=2))
+    (gt/'expected_docling_contract.json').write_text(json.dumps(dcon,indent=2))
+    (gt/'latex_groundtruth_report.json').write_text(json.dumps({'document_id':did,'counts':dict(counts)},indent=2))
+    (gt/'provenance_manifest.json').write_text(json.dumps({'schema_name':'pdf2md.latex_docling_groundtruth_manifest','schema_version':'1.0.0','document_id':did,'batch':doc_dir.parent.name,'generated_at':datetime.now(timezone.utc).isoformat(),'source_tex':{'path':str(tex),'sha256':sha(tex)},'source_pdf':({'path':str(pdf),'sha256':sha(pdf)} if pdf.exists() else None),'generated_files':[str(gt/'source_groundtruth_ir.json'),str(gt/'semantic_document_groundtruth.json'),str(gt/'expected_semantic_contract.json'),str(gt/'expected_docling_contract.json'),str(gt/'latex_groundtruth_report.json'),str(gt/'provenance_manifest.json')],'feature_counts':dict(counts)},indent=2))
 
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('--root',default='.current/latex_docling_groundtruth'); ap.add_argument('--batch',default='batch_001'); ap.add_argument('--verbose',action='store_true'); a=ap.parse_args()
-    root=Path(a.root)/a.batch
-    for d in sorted([x for x in root.iterdir() if x.is_dir()]): process_doc(d,a.verbose)
+    for d in sorted((Path(a.root)/a.batch).iterdir()):
+        if d.is_dir():
+            process(d)
+            if a.verbose: print('processed',d.name)
 
 if __name__=='__main__': main()

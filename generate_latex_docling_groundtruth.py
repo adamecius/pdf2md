@@ -103,7 +103,7 @@ def parse_nodes(doc_id:str,title:str,tex:str):
     return nodes,labels,refs
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument("--batch",default="batch_001"); ap.add_argument("--output-root",default=".current/latex_docling_groundtruth"); ap.add_argument("--count",type=int,default=20); ap.add_argument("--compile",action="store_true"); ap.add_argument("--verbose",action="store_true"); a=ap.parse_args()
+    ap=argparse.ArgumentParser(); ap.add_argument("--batch",default="batch_001"); ap.add_argument("--output-root",default=".current/latex_docling_groundtruth"); ap.add_argument("--count",type=int,default=20); ap.add_argument("--compile",action="store_true"); ap.add_argument("--skip-pre-docling",action="store_true"); ap.add_argument("--verbose",action="store_true"); a=ap.parse_args()
     root=Path(a.output_root)/a.batch; root.mkdir(parents=True,exist_ok=True); eng=detect_engine()
     for did in DOC_IDS[:max(21,a.count)]:
         title=did.replace('_',' ').title(); tex_src=build_tex(did,title)
@@ -133,5 +133,7 @@ def main():
         (gt/'expected_docling_contract.json').write_text(json.dumps(docling,indent=2),encoding='utf-8')
         (gt/'provenance_manifest.json').write_text(json.dumps(prov,indent=2),encoding='utf-8')
         if a.verbose: print(f"generated {did}")
+    if not a.skip_pre_docling:
+        subprocess.run(["python","latex_to_pre_docling_groundtruth.py","--root",a.output_root,"--batch",a.batch] + (["--verbose"] if a.verbose else []), check=True)
 
 if __name__=='__main__': main()
