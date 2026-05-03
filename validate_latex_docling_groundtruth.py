@@ -22,6 +22,24 @@ def check_doc(doc:Path, enabled:list[str])->dict:
         for r in g.get('references',[]):
             tid=r.get('target_node_id'); target=next((n for n in g['nodes'] if n['id']==tid),None)
             if not target or target.get('type')=='reference': errs.append(f'bad_reference_target:{r.get("target_label")}')
+        for lbl,tid in g.get("labels",{}).items():
+            target=next((n for n in g['nodes'] if n['id']==tid),None)
+            if not target: errs.append(f"missing_label_target:{lbl}"); continue
+            want=None
+            if lbl.startswith("fig:"): want="figure"
+            elif lbl.startswith("tab:"): want="table"
+            elif lbl.startswith("eq:"): want="equation"
+            elif lbl.startswith("sec:"): want="section"
+            elif lbl.startswith("sub:"): want="subsection"
+            if want and target.get("type")!=want: errs.append(f"label_type_mismatch:{lbl}:{target.get('type')}!={want}")
+        if "multipage" in did and g.get("pages_expected_min",0) < 2:
+            errs.append("multipage_pages_expected_min_lt_2")
+        if did=="multipage_all_features_references_footnotes":
+            node_types={n.get("type") for n in g.get("nodes",[])}
+            req={"section","subsection","figure","caption","table","equation","list","list_item","footnote","reference","bibliography_like"}
+            if not req.issubset(node_types): errs.append("new_fixture_missing_required_types")
+            if sum(1 for n in g.get("nodes",[]) if n.get("type")=="footnote") < 2: errs.append("new_fixture_footnotes_lt_2")
+            if sum(1 for r in g.get("references",[]) if r.get("expected_resolved")) < 5: errs.append("new_fixture_resolved_refs_lt_5")
     if (gt/'expected_semantic_contract.json').exists():
         s=json.loads((gt/'expected_semantic_contract.json').read_text())
         for k in REQ_SEM:

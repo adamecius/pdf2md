@@ -17,6 +17,7 @@ def test_generator_outputs_and_contracts():
         batch=out/"b1"
         docs=[d for d in batch.iterdir() if d.is_dir()]
         assert len(docs) >= 20
+        assert "multipage_all_features_references_footnotes" in [d.name for d in docs]
         for d in docs:
             did=d.name
             gt=d/"groundtruth"/"source_groundtruth_ir.json"
@@ -53,3 +54,9 @@ def test_generator_outputs_and_contracts():
                 assert next(n for n in g["nodes"] if n["id"]==g["labels"]["eq:one"])["type"]=="equation"
             if 'multipage' in did:
                 assert g['pages_expected_min'] >= 2
+            if did=="multipage_all_features_references_footnotes":
+                req={"section","subsection","figure","caption","table","equation","list","list_item","footnote","reference","bibliography_like"}
+                node_types={n["type"] for n in g["nodes"]}
+                assert req.issubset(node_types)
+                assert sum(1 for n in g["nodes"] if n["type"]=="footnote") >= 2
+                assert sum(1 for r in g["references"] if r["expected_resolved"]) >= 5

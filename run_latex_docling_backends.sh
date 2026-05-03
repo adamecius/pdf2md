@@ -47,7 +47,20 @@ open(p,"w").write(json.dumps(d,indent=2))
 PY
     [[ -f "$expected/manifest.json" && -d "$expected/pages" ]] || {
       mapfile -t cands < <(find "$docdir/backend_ir/$b" -name manifest.json)
-      if [[ ${#cands[@]} -eq 1 ]]; then cp -r "$(dirname "${cands[0]}")"/* "$expected"/; else status=1; [[ $ALLOW_STAGE_FAILURES -eq 1 ]] || exit 1; fi
+      if [[ ${#cands[@]} -eq 1 ]]; then
+        cp -r "$(dirname "${cands[0]}")"/* "$expected"/
+        manifest_exists=false; pages_exists=false
+        [[ -f "$expected/manifest.json" ]] && manifest_exists=true
+        [[ -d "$expected/pages" ]] && pages_exists=true
+        python - <<PY
+import json
+p="$run_manifest"
+with open(p) as f:d=json.load(f)
+d["backends"][-1]["manifest_exists"]="${manifest_exists}"=="true"
+d["backends"][-1]["pages_exists"]="${pages_exists}"=="true"
+open(p,"w").write(json.dumps(d,indent=2))
+PY
+      else status=1; [[ $ALLOW_STAGE_FAILURES -eq 1 ]] || exit 1; fi
     }
   done
   conf="$docdir/consensus/local_consensus.toml"; mkdir -p "$docdir/consensus"
@@ -69,3 +82,4 @@ done
 [[ $status -eq 0 ]] || exit 1
 python validate_latex_docling_groundtruth.py --root "$ROOT" --batch "$BATCH" --config "$CONFIG" || status=1
 echo "Completed with status=$status"
+exit $status

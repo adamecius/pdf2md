@@ -9,7 +9,7 @@ try:
 except Exception:
     fitz = None
 
-DOC_IDS=["simple_title_paragraph","section_subsection_references","figure_caption_reference","two_figures_cross_references","table_caption_reference","table_with_multiline_cells","equation_label_reference","multiple_equations_references","inline_and_display_math","itemize_enumerate_nested","footnotes_basic","footnote_inside_list","repeated_footnote_like_markers","mixed_captions_near_text","unnumbered_sections","multipage_sections","multipage_references","complex_multi_reference_network","bibliography_like_references","all_features_small"]
+DOC_IDS=["simple_title_paragraph","section_subsection_references","figure_caption_reference","two_figures_cross_references","table_caption_reference","table_with_multiline_cells","equation_label_reference","multiple_equations_references","inline_and_display_math","itemize_enumerate_nested","footnotes_basic","footnote_inside_list","repeated_footnote_like_markers","mixed_captions_near_text","unnumbered_sections","multipage_sections","multipage_references","complex_multi_reference_network","bibliography_like_references","all_features_small","multipage_all_features_references_footnotes"]
 FILLER="Deterministic filler sentence for page flow and stable layout. "
 
 def build_tex(doc_id:str,title:str)->str:
@@ -35,6 +35,7 @@ def build_tex(doc_id:str,title:str)->str:
       "complex_multi_reference_network":"\\section{Complex}\\label{sec:complex}\\subsection{Mesh}\\label{sub:mesh}\\begin{figure}[h]\\centering\\fbox{A}\\caption{Boxed figure}\\label{fig:box}\\end{figure}\\begin{table}[h]\\centering\\caption{Sample table}\\label{tab:s}\\begin{tabular}{|l|l|}\\hline A&B\\\\\\hline\\end{tabular}\\end{table}\\begin{equation}E=mc^2\\label{eq:one}\\end{equation} refs \\ref{sec:complex} \\ref{sub:mesh} \\ref{fig:box} \\ref{tab:s} \\ref{eq:one}.",
       "bibliography_like_references":"\\section{Body} cite [1], [2].\\section{References}\\label{sec:refs} [1] Alpha. [2] Beta.",
       "all_features_small":"\\section{All}\\label{sec:all}\\subsection{AllSub}\\label{sub:all}\\begin{figure}[h]\\centering\\fbox{A}\\caption{Boxed figure}\\label{fig:all}\\end{figure}\\begin{table}[h]\\centering\\caption{Sample table}\\label{tab:all}\\begin{tabular}{|l|l|}\\hline A&B\\\\\\hline\\end{tabular}\\end{table}\\begin{equation}E=mc^2\\label{eq:all}\\end{equation}\\begin{itemize}\\item one\\begin{enumerate}\\item sub\\end{enumerate}\\end{itemize}\\footnote{All note} ref \\ref{sec:all} \\ref{sub:all} \\ref{fig:all} \\ref{tab:all} \\ref{eq:all}.\\section{References} [1] Item."
+      ,"multipage_all_features_references_footnotes":"Opening paragraph before refs with marker [*].\\footnote{Paragraph note one.}\\section{Deep Section}\\label{sec:deep} normal paragraph before cross references.\\subsection{Deep Subsection}\\label{sub:deep} Inline math $a+b$ and display $$a^2+b^2=c^2$$. caption-like text: Figure caption: not a real caption.\\begin{figure}[h]\\centering\\fbox{A}\\caption{Deep figure caption}\\label{fig:deep}\\end{figure} Reference section \\ref{sec:deep}, subsection \\ref{sub:deep}, figure \\ref{fig:deep}. "+(FILLER*120)+"\\newpage Continue paragraph after page break.\\begin{table}[h]\\centering\\caption{Deep table caption}\\label{tab:deep}\\begin{tabular}{|l|l|}\\hline X&Y\\\\\\hline\\end{tabular}\\end{table} Equation text \\begin{equation}x=y\\label{eq:deep}\\end{equation} repeated refs \\ref{eq:deep} and again \\ref{eq:deep}.\\begin{itemize}\\item outer one\\footnote{List note two.}\\item outer two\\begin{enumerate}\\item inner enum\\end{enumerate}\\end{itemize} repeated markers [*] [*] near real notes. refs to table \\ref{tab:deep} and section \\ref{sec:deep}. Closing paragraph after cross-references.\\section{References} [1] Alpha source. [2] Beta source."
     }
     body=body_map[doc_id]
     return f"""\\documentclass{{article}}
@@ -104,7 +105,7 @@ def parse_nodes(doc_id:str,title:str,tex:str):
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--batch",default="batch_001"); ap.add_argument("--output-root",default=".current/latex_docling_groundtruth"); ap.add_argument("--count",type=int,default=20); ap.add_argument("--compile",action="store_true"); ap.add_argument("--verbose",action="store_true"); a=ap.parse_args()
     root=Path(a.output_root)/a.batch; root.mkdir(parents=True,exist_ok=True); eng=detect_engine()
-    for did in DOC_IDS[:max(20,a.count)]:
+    for did in DOC_IDS[:max(21,a.count)]:
         title=did.replace('_',' ').title(); tex_src=build_tex(did,title)
         doc=root/did; inp=doc/"input"; gt=doc/"groundtruth"; inp.mkdir(parents=True,exist_ok=True); gt.mkdir(parents=True,exist_ok=True)
         tex=inp/f"{did}.tex"; pdf=inp/f"{did}.pdf"; tex.write_text(tex_src,encoding="utf-8")
