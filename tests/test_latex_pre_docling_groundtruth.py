@@ -49,3 +49,29 @@ def test_comparator_self_and_corruptions():
         cand=doc/'reports'/'cand_bad.json'; cand.write_text(json.dumps(bad))
         p=subprocess.run(["python","compare_pre_docling_groundtruth.py","--groundtruth",str(gt),"--candidate",str(cand),"--contract",str(ct),"--output",str(rep)])
         assert p.returncode!=0
+
+
+def test_comparator_backend_style_candidate_passes():
+    with tempfile.TemporaryDirectory() as td:
+        out=Path(td); _gen(out)
+        doc=out/'b1'/'multipage_all_features_references_footnotes'
+        gt=json.loads((doc/'groundtruth'/'semantic_document_groundtruth.json').read_text())
+        ct=doc/'groundtruth'/'expected_semantic_contract.json'
+
+        blocks=[]
+        for b in gt['body']:
+            nb={k:v for k,v in b.items() if k!='labels'}
+            if b.get('labels'):
+                nb['label']=b['labels'][0]
+            if nb.get('type')=='equation': nb['type']='formula'
+            if nb.get('type')=='figure': nb['type']='picture'
+            if nb.get('type') in ('section','subsection'): nb['type']='section_header'
+            if nb.get('type')=='paragraph': nb['type']='text'
+            blocks.append(nb)
+        rels=[{'relation_type':('refers_to' if r.get('type')=='reference_to' else r.get('type')),'target_label':r.get('target_label'),'caption_text':r.get('caption_text'),'footnote_text':r.get('footnote_text')} for r in gt.get('relations',[])]
+        cand={'title':gt['title'],'blocks':blocks,'references':gt['references'],'relations':rels}
+
+        (doc/'reports').mkdir(exist_ok=True)
+        cand_path=doc/'reports'/'cand_backend_style.json'; cand_path.write_text(json.dumps(cand))
+        rep=doc/'reports'/'cmp_backend_style.json'
+        subprocess.run(['python','compare_pre_docling_groundtruth.py','--groundtruth',str(doc/'groundtruth'/'semantic_document_groundtruth.json'),'--candidate',str(cand_path),'--contract',str(ct),'--output',str(rep)],check=True)
