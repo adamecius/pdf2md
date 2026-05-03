@@ -103,7 +103,7 @@ def test_optional_real_docling_backend_integration():
         backend = da.DoclingBackend.load()
     except da.AdapterError:
         pytest.skip("docling/docling-core unavailable")
-    backend.add_text("hello")
+    backend.add_text("hello", semantic_type="paragraph")
     assert isinstance(backend.export_json(), dict)
     try:
         md = backend.export_markdown()
