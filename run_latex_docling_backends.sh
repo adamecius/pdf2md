@@ -35,6 +35,16 @@ for docdir in "$batch_root"/*; do
     rc=$?
     set -e
     if [[ $rc -ne 0 ]]; then status=1; [[ $ALLOW_STAGE_FAILURES -eq 1 ]] || exit 1; fi
+    manifest_exists=false; pages_exists=false
+    [[ -f "$expected/manifest.json" ]] && manifest_exists=true
+    [[ -d "$expected/pages" ]] && pages_exists=true
+    python - <<PY
+import json
+p="$run_manifest"
+with open(p) as f:d=json.load(f)
+d["backends"].append({"backend":"${b}","command":"${cmd}","conda_env":"pdf2md-${b}","return_code":${rc},"log_path":"${blog}","expected_dir":"${expected}","manifest_exists":"${manifest_exists}"=="true","pages_exists":"${pages_exists}"=="true"})
+open(p,"w").write(json.dumps(d,indent=2))
+PY
     [[ -f "$expected/manifest.json" && -d "$expected/pages" ]] || {
       mapfile -t cands < <(find "$docdir/backend_ir/$b" -name manifest.json)
       if [[ ${#cands[@]} -eq 1 ]]; then cp -r "$(dirname "${cands[0]}")"/* "$expected"/; else status=1; [[ $ALLOW_STAGE_FAILURES -eq 1 ]] || exit 1; fi
@@ -43,7 +53,7 @@ for docdir in "$batch_root"/*; do
   conf="$docdir/consensus/local_consensus.toml"; mkdir -p "$docdir/consensus"
   {
     echo "[consensus]"; echo "output_root = \"$docdir/consensus\""; echo "coordinate_space = \"page_normalised_1000\""; echo "text_similarity_threshold = 0.90"; echo "weak_text_similarity_threshold = 0.75"; echo "bbox_iou_threshold = 0.50"; echo "weak_bbox_iou_threshold = 0.25"; echo "include_evidence_only_blocks = false"
-    for b in $backends; do [[ -d "$docdir/backend_ir/$b" ]] || continue; echo "[backends.$b]"; echo "enabled = true"; echo "root = \"$docdir/backend_ir/$b\""; echo "label = \"$b\""; done
+    for b in $backends; do e="$docdir/backend_ir/$b/.current/extraction_ir/$docid"; [[ -f "$e/manifest.json" && -d "$e/pages" ]] || continue; echo "[backends.$b]"; echo "enabled = true"; echo "root = \"$docdir/backend_ir/$b\""; echo "label = \"$b\""; done
     echo "[pymupdf]"; echo "enabled = true"; echo "extract_text = true"; echo "extract_images = false"
   } > "$conf"
   set +e

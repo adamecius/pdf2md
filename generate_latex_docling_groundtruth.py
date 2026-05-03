@@ -13,7 +13,8 @@ DOC_IDS=["simple_title_paragraph","section_subsection_references","figure_captio
 FILLER="Deterministic filler sentence for page flow and stable layout. "
 
 def build_tex(doc_id:str,title:str)->str:
-    body={
+    # unchanged fixture intent; source-driven IR is derived from these definitions.
+    body_map={
       "simple_title_paragraph":"\\section{Intro}\\label{sec:intro} Plain paragraph for intro.",
       "section_subsection_references":"\\section{Alpha}\\label{sec:alpha}\\subsection{Beta}\\label{sub:beta} See Section~\\ref{sec:alpha} and Subsection~\\ref{sub:beta}.",
       "figure_caption_reference":"\\section{Visual}\\begin{figure}[h]\\centering\\fbox{A}\\caption{Boxed figure}\\label{fig:box}\\end{figure} See Figure~\\ref{fig:box}.",
@@ -34,7 +35,8 @@ def build_tex(doc_id:str,title:str)->str:
       "complex_multi_reference_network":"\\section{Complex}\\label{sec:complex}\\subsection{Mesh}\\label{sub:mesh}\\begin{figure}[h]\\centering\\fbox{A}\\caption{Boxed figure}\\label{fig:box}\\end{figure}\\begin{table}[h]\\centering\\caption{Sample table}\\label{tab:s}\\begin{tabular}{|l|l|}\\hline A&B\\\\\\hline\\end{tabular}\\end{table}\\begin{equation}E=mc^2\\label{eq:one}\\end{equation} refs \\ref{sec:complex} \\ref{sub:mesh} \\ref{fig:box} \\ref{tab:s} \\ref{eq:one}.",
       "bibliography_like_references":"\\section{Body} cite [1], [2].\\section{References}\\label{sec:refs} [1] Alpha. [2] Beta.",
       "all_features_small":"\\section{All}\\label{sec:all}\\subsection{AllSub}\\label{sub:all}\\begin{figure}[h]\\centering\\fbox{A}\\caption{Boxed figure}\\label{fig:all}\\end{figure}\\begin{table}[h]\\centering\\caption{Sample table}\\label{tab:all}\\begin{tabular}{|l|l|}\\hline A&B\\\\\\hline\\end{tabular}\\end{table}\\begin{equation}E=mc^2\\label{eq:all}\\end{equation}\\begin{itemize}\\item one\\begin{enumerate}\\item sub\\end{enumerate}\\end{itemize}\\footnote{All note} ref \\ref{sec:all} \\ref{sub:all} \\ref{fig:all} \\ref{tab:all} \\ref{eq:all}.\\section{References} [1] Item."
-    }[doc_id]
+    }
+    body=body_map[doc_id]
     return f"""\\documentclass{{article}}
 \\usepackage{{amsmath}}
 \\begin{{document}}
@@ -48,59 +50,87 @@ def detect_engine():
         if shutil.which(e): return e
     return None
 
-def sha(p:Path)->str: return hashlib.sha256(p.read_bytes()).hexdigest()
+def sha(path:Path)->str: return hashlib.sha256(path.read_bytes()).hexdigest()
 
-def parse_nodes(doc_id, title, tex):
-    nodes=[]; labels={}; refs=[]; i=0
-    def add(t,txt,label=None,kind="text"):
-        nonlocal i
-        nid=f"gt:block:{doc_id}:{i}"; i+=1
-        nodes.append({"id":nid,"type":t,"text":txt,"label":label,"expected_docling_kind":kind});
+def parse_nodes(doc_id:str,title:str,tex:str):
+    nodes=[]; labels={}; refs=[]; idx=0
+    def add(tp,text,kind="text",parent_id=None,source_hint="",ref_target=None,label=None):
+        nonlocal idx
+        nid=f"gt:block:{doc_id}:{idx}"; idx+=1
+        nodes.append({"id":nid,"type":tp,"text":text,"label":label,"ref_target":ref_target,"order":idx-1,"parent_id":parent_id,"children":[],"expected_docling_kind":kind,"source_latex_hint":source_hint})
+        if parent_id:
+            for n in nodes:
+                if n["id"]==parent_id: n["children"].append(nid)
         if label: labels[label]=nid
         return nid
-    add("title",title,kind="title")
-    for s in re.findall(r"\\section\*?\{([^}]+)\}",tex): add("section",s,kind="section_header")
-    for s in re.findall(r"\\subsection\*?\{([^}]+)\}",tex): add("subsection",s,kind="section_header")
-    for c in re.findall(r"\\caption\{([^}]+)\}",tex): add("caption",c,kind="caption")
-    for _ in re.findall(r"\\begin\{figure\}",tex): add("figure","figure",kind="picture")
-    for _ in re.findall(r"\\begin\{table\}",tex): add("table","table",kind="table")
-    for e in re.findall(r"\\begin\{equation\}(.*?)\\end\{equation\}",tex,re.S): add("equation",e.strip(),kind="formula")
-    for f in re.findall(r"\\footnote\{([^}]+)\}",tex): add("footnote",f,kind="footnote")
-    for _ in re.findall(r"\\begin\{itemize\}",tex): add("list","itemize",kind="list")
-    for _ in re.findall(r"\\begin\{enumerate\}",tex): add("list","enumerate",kind="list")
-    for it in re.findall(r"\\item\s+([^\\]+)",tex): add("list_item",it.strip(),kind="list_item")
-    for lbl in re.findall(r"\\label\{([^}]+)\}",tex):
-        target=next((n["id"] for n in nodes[::-1] if n["type"]!="reference"),None)
-        if target: labels[lbl]=target
-    for j,lbl in enumerate(re.findall(r"\\ref\{([^}]+)\}",tex)):
-        sid=add("reference",f"ref:{lbl}")
-        refs.append({"id":f"gt:ref:{doc_id}:{j}","source_node_id":sid,"target_label":lbl,"target_node_id":labels.get(lbl),"expected_resolved":labels.get(lbl) is not None})
-    if "\\section{References}" in tex: add("bibliography_like","References",kind="text")
+
+    add("title",title,kind="title",source_hint="\\title")
+    # headings with immediate labels
+    for m in re.finditer(r"\\section(\*?)\{([^}]+)\}(?:\\label\{([^}]+)\})?",tex):
+        add("section",m.group(2),kind="section_header",source_hint="\\section",label=m.group(3))
+    for m in re.finditer(r"\\subsection(\*?)\{([^}]+)\}(?:\\label\{([^}]+)\})?",tex):
+        add("subsection",m.group(2),kind="section_header",source_hint="\\subsection",label=m.group(3))
+
+    for fm in re.finditer(r"\\begin\{figure\}(.*?)\\end\{figure\}",tex,re.S):
+        block=fm.group(1); fig=add("figure","figure",kind="picture",source_hint="figure")
+        cm=re.search(r"\\caption\{([^}]+)\}",block)
+        if cm: add("caption",cm.group(1),kind="caption",parent_id=fig,source_hint="\\caption")
+        lm=re.search(r"\\label\{([^}]+)\}",block)
+        if lm: labels[lm.group(1)]=fig
+    for tm in re.finditer(r"\\begin\{table\}(.*?)\\end\{table\}",tex,re.S):
+        block=tm.group(1); tab=add("table","table",kind="table",source_hint="table")
+        cm=re.search(r"\\caption\{([^}]+)\}",block)
+        if cm: add("caption",cm.group(1),kind="caption",parent_id=tab,source_hint="\\caption")
+        lm=re.search(r"\\label\{([^}]+)\}",block)
+        if lm: labels[lm.group(1)]=tab
+    for em in re.finditer(r"\\begin\{equation\}(.*?)\\end\{equation\}",tex,re.S):
+        body=em.group(1); eq=add("equation",re.sub(r"\\label\{[^}]+\}","",body).strip(),kind="formula",source_hint="equation")
+        lm=re.search(r"\\label\{([^}]+)\}",body)
+        if lm: labels[lm.group(1)]=eq
+
+    for m in re.finditer(r"\\footnote\{([^}]+)\}",tex): add("footnote",m.group(1),kind="footnote",source_hint="\\footnote")
+    for m in re.finditer(r"\\begin\{(itemize|enumerate)\}(.*?)\\end\{\1\}",tex,re.S):
+        lid=add("list",m.group(1),kind="list",source_hint=f"\\begin{{{m.group(1)}}}")
+        for it in re.findall(r"\\item\s+([^\\]+)",m.group(2)): add("list_item",it.strip(),kind="list_item",parent_id=lid,source_hint="\\item")
+
+    for p in re.findall(r"\.\s+([A-Z][^.]{10,}?)\.",tex): add("paragraph",p.strip()+".",kind="text",source_hint="text")
+    if "\\section{References}" in tex: add("bibliography_like","References",kind="text",source_hint="References")
+
+    for i,lbl in enumerate(re.findall(r"\\ref\{([^}]+)\}",tex)):
+        rid=add("reference",f"ref:{lbl}",kind="text",ref_target=lbl,source_hint="\\ref")
+        refs.append({"id":f"gt:ref:{doc_id}:{i}","source_node_id":rid,"target_label":lbl,"target_node_id":labels.get(lbl),"reference_text":f"\\ref{{{lbl}}}","expected_resolved":labels.get(lbl) is not None})
     return nodes,labels,refs
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument("--batch",default="batch_001"); ap.add_argument("--output-root",default=".current/latex_docling_groundtruth"); ap.add_argument("--count",type=int,default=20); ap.add_argument("--compile",action="store_true"); a=ap.parse_args()
+    ap=argparse.ArgumentParser(); ap.add_argument("--batch",default="batch_001"); ap.add_argument("--output-root",default=".current/latex_docling_groundtruth"); ap.add_argument("--count",type=int,default=20); ap.add_argument("--compile",action="store_true"); ap.add_argument("--verbose",action="store_true"); a=ap.parse_args()
     root=Path(a.output_root)/a.batch; root.mkdir(parents=True,exist_ok=True); eng=detect_engine()
-    for did in DOC_IDS[:max(a.count,20)]:
-      title=did.replace('_',' ').title(); tex_src=build_tex(did,title)
-      doc=root/did; inp=doc/'input'; gt=doc/'groundtruth'; inp.mkdir(parents=True,exist_ok=True); gt.mkdir(parents=True,exist_ok=True)
-      tex=inp/f"{did}.tex"; pdf=inp/f"{did}.pdf"; tex.write_text(tex_src)
-      rc=None; cmd=None
-      if a.compile and eng:
-        run=[eng,"-pdf","-interaction=nonstopmode",f"-outdir={inp}",str(tex)] if eng=="latexmk" else [eng,"-interaction=nonstopmode",f"-output-directory={inp}",str(tex)]
-        p=subprocess.run(run,capture_output=True,text=True); rc=p.returncode; cmd=" ".join(run)
-      nodes,labels,refs=parse_nodes(did,title,tex_src)
-      feats={k:sum(1 for n in nodes if n["type"]==k[:-1] if k.endswith('s')) for k in ["sections","subsections","figures","tables","equations","footnotes"]}
-      feats.update({"references":len(refs),"captions":sum(1 for n in nodes if n['type']=='caption'),"lists":sum(1 for n in nodes if n['type']=='list')})
-      multipage='multipage' in did; pages_min=2 if multipage else 1
-      sem={"document_id":did,"expected_title":title,"expected_sections":[n['text'] for n in nodes if n['type']=='section'],"expected_subsections":[n['text'] for n in nodes if n['type']=='subsection'],"expected_labels":sorted(labels),"expected_markdown_snippets":[title],"required_node_types":sorted(set(n['type'] for n in nodes if n['type']!='reference'))}
-      docling={"document_id":did,"required_docling_kinds":sorted(set(n['expected_docling_kind'] for n in nodes)),"required_reference_sidecar_entries":[r['target_label'] for r in refs]}
-      sgt={"schema_name":"pdf2md.source_groundtruth_ir","document_id":did,"title":title,"pages_expected_min":pages_min,"nodes":nodes,"labels":labels,"references":refs,"features":feats}
-      page_count=None
-      if pdf.exists() and fitz is not None:
-        try: page_count=fitz.open(pdf).page_count
-        except Exception: pass
-      prov={"document_id":did,"page_count":page_count,"pages_expected_min":pages_min,"page_count_valid":(page_count is None) or (page_count>=pages_min),"latex_engine":eng,"latex_command":cmd,"compilation_return_code":rc}
-      (gt/'source_groundtruth_ir.json').write_text(json.dumps(sgt,indent=2)); (gt/'expected_semantic_contract.json').write_text(json.dumps(sem,indent=2)); (gt/'expected_docling_contract.json').write_text(json.dumps(docling,indent=2)); (gt/'provenance_manifest.json').write_text(json.dumps(prov,indent=2))
+    for did in DOC_IDS[:max(20,a.count)]:
+        title=did.replace('_',' ').title(); tex_src=build_tex(did,title)
+        doc=root/did; inp=doc/"input"; gt=doc/"groundtruth"; inp.mkdir(parents=True,exist_ok=True); gt.mkdir(parents=True,exist_ok=True)
+        tex=inp/f"{did}.tex"; pdf=inp/f"{did}.pdf"; tex.write_text(tex_src,encoding="utf-8")
+        rc=None; cmd=None
+        if a.compile and eng:
+            if eng=="latexmk": runs=[[eng,"-pdf","-interaction=nonstopmode",f"-outdir={inp}",str(tex.resolve())]]
+            elif eng=="pdflatex": runs=[[eng,"-interaction=nonstopmode",f"-output-directory={inp}",str(tex.resolve())]]*2
+            else: runs=[[eng,"-o",str(pdf),str(tex.resolve())]]
+            for r in runs:
+                p=subprocess.run(r,capture_output=True,text=True); rc=p.returncode; cmd=" ".join(r)
+                if p.returncode!=0: break
+        nodes,labels,refs=parse_nodes(did,title,tex_src)
+        feature_counts={k:sum(1 for n in nodes if n['type']==k) for k in ["section","subsection","figure","table","equation","footnote","caption","list","list_item","reference","bibliography_like","paragraph"]}
+        multipage='multipage' in did; pages_min=2 if multipage else 1
+        sgt={"schema_name":"pdf2md.source_groundtruth_ir","schema_version":"0.1.0","document_id":did,"source_type":"latex","source_tex":str(tex),"expected_pdf":str(pdf),"title":title,"pages_expected_min":pages_min,"nodes":nodes,"labels":labels,"references":refs,"features":feature_counts}
+        sem={"document_id":did,"source_tex":str(tex),"expected_title":title,"expected_sections":[n['text'] for n in nodes if n['type']=='section'],"expected_subsections":[n['text'] for n in nodes if n['type']=='subsection'],"expected_labels":sorted(labels),"expected_markdown_snippets":[title],"required_node_types":sorted(set(n['type'] for n in nodes if n['type']!='reference'))}
+        docling={"document_id":did,"required_docling_kinds":sorted(set(n['expected_docling_kind'] for n in nodes)),"required_reference_sidecar_entries":[r['target_label'] for r in refs]}
+        page_count=None
+        if pdf.exists() and fitz is not None:
+            try: page_count=fitz.open(pdf).page_count
+            except Exception: page_count=None
+        prov={"schema_name":"pdf2md.latex_docling_groundtruth_manifest","schema_version":"0.1.0","document_id":did,"batch":a.batch,"generated_at":datetime.now(timezone.utc).isoformat(),"source_tex":{"path":str(tex),"sha256":sha(tex)},"pdf":({"path":str(pdf),"sha256":sha(pdf)} if pdf.exists() else None),"latex_engine":eng,"latex_command":cmd,"compilation_return_code":rc,"page_count":page_count,"pages_expected_min":pages_min,"generated_files":[str(tex),str(gt/'source_groundtruth_ir.json'),str(gt/'expected_semantic_contract.json'),str(gt/'expected_docling_contract.json'),str(gt/'provenance_manifest.json')],"feature_counts":feature_counts}
+        (gt/'source_groundtruth_ir.json').write_text(json.dumps(sgt,indent=2),encoding='utf-8')
+        (gt/'expected_semantic_contract.json').write_text(json.dumps(sem,indent=2),encoding='utf-8')
+        (gt/'expected_docling_contract.json').write_text(json.dumps(docling,indent=2),encoding='utf-8')
+        (gt/'provenance_manifest.json').write_text(json.dumps(prov,indent=2),encoding='utf-8')
+        if a.verbose: print(f"generated {did}")
 
 if __name__=='__main__': main()
