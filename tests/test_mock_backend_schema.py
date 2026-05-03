@@ -84,15 +84,23 @@ def test_consensus_report_can_consume_mock_ir(mock_ir):
     cfg = {
         'consensus': {'coordinate_space': 'page_normalised_1000', 'text_similarity_threshold': 0.9, 'weak_text_similarity_threshold': 0.75, 'bbox_iou_threshold': 0.5, 'weak_bbox_iou_threshold': 0.25, 'include_evidence_only_blocks': False},
         'backends': {
-            'mineru': {'enabled': True, 'root': str(tmp_path / 'backend' / 'groundtruth')},
+            'groundtruth': {'enabled': True, 'root': str(tmp_path / 'backend' / 'groundtruth')},
+            'mineru': {'enabled': False, 'root': 'backend/mineru'},
             'paddleocr': {'enabled': False, 'root': 'backend/paddleocr'},
             'deepseek': {'enabled': False, 'root': 'backend/deepseek'},
         },
         'pymupdf': {'enabled': True, 'extract_text': True},
     }
+    old=consensus_report.CANONICAL_BACKENDS
+    consensus_report.CANONICAL_BACKENDS=('groundtruth','mineru','paddleocr','deepseek')
     report, code = consensus_report.build_consensus_report(fdir / 'input' / f'{doc_id}.pdf', cfg, Path('inline'))
+    consensus_report.CANONICAL_BACKENDS=old
     assert code == 0
-    for p in report['pages']:
-        for g in p.get('candidate_groups', []):
-            if g.get('kind') in {'section', 'subsection', 'table', 'equation', 'caption', 'title', 'paragraph', 'list_item', 'footnote', 'picture'}:
-                assert g['kind'] != 'unknown'
+
+    for pf in sorted((tmp_path / 'backend' / 'groundtruth' / '.current' / 'extraction_ir' / doc_id / 'pages').glob('page_*.json')):
+        pobj = json.loads(pf.read_text())
+        for i,b in enumerate(pobj.get('blocks', [])):
+            assert b.get('comparison',{}).get('compare_as') == b.get('type')
+            ev = consensus_report.normalise_backend_block('groundtruth', b['page_index'], i, b, str(pf), f'/blocks/{i}')
+            if b.get('type') not in {'unknown', None}:
+                assert ev['kind'] != 'unknown'

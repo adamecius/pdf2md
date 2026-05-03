@@ -12,14 +12,14 @@ import fitz
 TYPE_MAP = {
     "paragraph": "paragraph",
     "title": "title",
-    "section": "section",
-    "subsection": "subsection",
+    "section": "section_header",
+    "subsection": "section_header",
     "caption": "caption",
     "footnote": "footnote",
     "list_item": "list_item",
     "figure": "picture",
     "table": "table",
-    "equation": "equation",
+    "equation": "formula",
     "reference": "paragraph",
 }
 
