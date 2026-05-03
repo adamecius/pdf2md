@@ -57,6 +57,18 @@ def run_cli(module: str, *args: str) -> subprocess.CompletedProcess[str]:
     return subprocess.run([sys.executable, "-m", module, *args], cwd=REPO_ROOT, env=env, text=True, capture_output=True, check=False)
 
 
+def resolve_test_consensus_config() -> Path | None:
+    env_config = os.environ.get("PDF2MD_BACKENDS_CONFIG")
+    if env_config:
+        candidate = Path(env_config)
+        if candidate.exists():
+            return candidate
+    cwd_candidate = REPO_ROOT / "pdf2md.backends.toml"
+    if cwd_candidate.exists():
+        return cwd_candidate
+    return None
+
+
 @pytest.fixture(scope="session")
 def sample_pdf_path() -> Path:
     pdf = locate_sample_pdf()
@@ -81,6 +93,9 @@ def backend_ir_root() -> Path:
 
 @pytest.fixture
 def built_pipeline_artifacts(tmp_path: Path, sample_pdf_path: Path, backend_ir_root: Path) -> dict:
+    config_path = resolve_test_consensus_config()
+    if not config_path:
+        pytest.skip("No backend config found for consensus stage. Add pdf2md.backends.toml at repo root, or set PDF2MD_BACKENDS_CONFIG.")
     out_dir = ensure_tmp_clean_dir(tmp_path / "ashcroft_pipeline")
     cons = out_dir / "consensus_report.json"
     sem_links = out_dir / "semantic_links.json"
