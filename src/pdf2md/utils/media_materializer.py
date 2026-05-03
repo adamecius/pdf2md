@@ -64,7 +64,7 @@ def build_manifest(consensus: dict[str, Any], source_consensus_report: Path, sou
 
 def materialize(consensus: dict[str, Any], semantic: dict[str, Any], output_root: Path, *, source_consensus_report: Path, source_semantic_links: Path, strict: bool = False, render_dpi: int = 200, padding_px: int = 8, allow_conflicted_geometry: bool = False, allow_single_source_geometry: bool = True, crop_tables_as_visual_fallback: bool = False, materialize_orphan_images: bool = False) -> tuple[dict[str, Any], int]:
     policy = dict(MEDIA_POLICY_DEFAULTS)
-    policy.update({"render_dpi": render_dpi, "padding_px": padding_px, "allow_conflicted_geometry": allow_conflicted_geometry, "allow_single_source_geometry": allow_single_source_geometry, "materialize_tables_as_visual_fallback": crop_tables_as_visual_fallback})
+    policy.update({"render_dpi": render_dpi, "padding_px": padding_px, "allow_conflicted_geometry": allow_conflicted_geometry, "allow_single_source_geometry": allow_single_source_geometry, "materialize_tables_as_visual_fallback": crop_tables_as_visual_fallback, "materialize_orphan_images": materialize_orphan_images})
     manifest = build_manifest(consensus, source_consensus_report, source_semantic_links, policy)
     pdf_path = Path(consensus.get("pdf_path", ""))
     if not pdf_path.exists():

@@ -95,6 +95,7 @@ def test_orphan_images_only_when_enabled(tmp_path: Path, monkeypatch):
     assert not mf["assets"]
     mf2, _ = mm.materialize(c, {"anchors": []}, tmp_path, source_consensus_report=Path("c"), source_semantic_links=Path("s"), materialize_orphan_images=True)
     assert mf2["assets"]
+    assert mf2["policy"]["materialize_orphan_images"] is True
 
 
 def test_strict_all_fail(tmp_path: Path):

@@ -265,7 +265,7 @@ def build_semantic_links(report: dict[str, Any], source_path: Path) -> dict[str,
             for rtype, lbl, rtxt in ref_specs:
                 cands = anchor_map.get((rtype, lbl), [])
                 resolved = len(cands) == 1
-                rid = f"ref_p{pidx:04d}_{len(references)+1:04d}"
+                rid = f"ref_p{pidx:04d}_{len(raw_refs)+1:04d}"
                 ref = {"reference_id": rid, "reference_type": rtype, "reference_text": rtxt, "label": lbl, "source_group_id": gid, "page_index": pidx, "page_number": pnum, "target_anchor_id": cands[0]["anchor_id"] if resolved else None, "resolved": resolved, "confidence": 0.9 if resolved else 0.2, "method": "exact_label" if resolved else "unresolved", "warnings": ["ambiguous"] if len(cands) > 1 else ([] if resolved else ["not_found"])}
                 raw_refs.append(ref); page_ref_ids.append(rid)
 
@@ -319,6 +319,19 @@ def build_semantic_links(report: dict[str, Any], source_path: Path) -> dict[str,
         else:
             unresolved.append(r)
         references.append(r)
+
+    page_reports = []
+    for page in report.get("pages", []):
+        pidx = int(page.get("page_index", 0))
+        page_reports.append({
+            "page_index": pidx,
+            "page_number": pidx + 1,
+            "anchors": [a["anchor_id"] for a in anchors if a.get("page_index") == pidx],
+            "references": [r["reference_id"] for r in references if r.get("page_index") == pidx],
+            "attachments": [a["attachment_id"] for a in attachments if a.get("page_index") == pidx],
+            "unresolved": [u["reference_id"] for u in unresolved if u.get("page_index") == pidx and u.get("reference_id")],
+            "warnings": [],
+        })
 
     summary = {
         "equation_anchors": sum(1 for a in anchors if a["anchor_type"] == "equation"),

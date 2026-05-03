@@ -126,3 +126,11 @@ def test_figure_compact_target_and_dedup_evidence():
     fig = [a for a in out["anchors"] if a["anchor_id"] == "fig:1.2"]
     assert len(fig) == 1
     assert fig[0]["target_group_id"] == "p_good"
+    assert out["pages"][0]["anchors"].count("fig:1.2") == 1
+
+
+def test_reference_ids_unique_same_page():
+    groups = [{"group_id": "p", "kind": "paragraph", "representative_text": "See Figure 1.2 and Table 1.1", "representative_bbox": [1, 1, 2, 2]}]
+    out = build_semantic_links(_report(groups), Path("in.json"))
+    ids = [r["reference_id"] for r in out["references"]]
+    assert len(ids) == len(set(ids))
