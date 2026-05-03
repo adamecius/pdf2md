@@ -194,4 +194,4 @@ Local integration TODOs:
 Status: generated, local_only
 
 ### Phase 2: Docling scaffolding
-Status: blocked
+Status: blocked (until Phase 1 human approval)

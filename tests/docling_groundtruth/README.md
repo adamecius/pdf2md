@@ -17,3 +17,9 @@ Backend commands may require explicit overrides:
 - `PDF2MD_DEEPSEEK_PDF2IR_CMD`
 
 Expected contracts define **machine-checkable constraints**, not exact final JSON dumps.
+
+
+## Consensus config and backend IR layout
+- Local build generates a per-document consensus TOML using `[backends.<name>]` root fields (not `[paths]`).
+- Expected backend IR layout for consensus is: `<backend_root>/.current/extraction_ir/<pdf_stem>/` with `manifest.json` and `pages/`.
+- Backend commands can require environment-variable command overrides if local CLI wiring differs.
