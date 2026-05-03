@@ -107,3 +107,19 @@ def test_consensus_report_can_consume_mock_ir(mock_ir, _patch_groundtruth_backen
             ev = consensus_report.normalise_backend_block('groundtruth', b['page_index'], i, b, str(pf), f'/blocks/{i}')
             if b.get('type') not in {'unknown', None}:
                 assert ev['kind'] != 'unknown'
+
+
+def test_heading_level_set_for_headings(mock_ir):
+    _,_,pages_dir,_,_=mock_ir
+    for pf in pages_dir.glob('page_*.json'):
+        for b in json.loads(pf.read_text())['blocks']:
+            if b.get('type')=='heading':
+                assert b.get('structure',{}).get('heading_level') in {1,2}
+
+def test_no_latex_artifacts_in_blocks(mock_ir):
+    _,_,pages_dir,_,_=mock_ir
+    bad=['\\documentclass','\\begin{document}','\\usepackage','\\maketitle']
+    for pf in pages_dir.glob('page_*.json'):
+        for b in json.loads(pf.read_text())['blocks']:
+            t=(b.get('content',{}) or {}).get('text','')
+            assert all(x not in t for x in bad)

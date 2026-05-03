@@ -1,2 +1,2 @@
-from .mock_backend_ir import generate_mock_backend_ir
-__all__=["generate_mock_backend_ir"]
+from .mock_backend_ir import build_label_map, generate_mock_backend_ir, get_detectable_references
+__all__=["generate_mock_backend_ir","build_label_map","get_detectable_references"]
