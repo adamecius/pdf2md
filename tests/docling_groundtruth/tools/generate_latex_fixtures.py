@@ -11,18 +11,36 @@ def generate_pdf(tex_path: Path, output_pdf: Path) -> bool:
     if not support.available:
         return False
 
-    output_pdf.parent.mkdir(parents=True, exist_ok=True)
-    workdir = output_pdf.parent
-    if support.engine == "latexmk":
-        cmd = support.command + [str(tex_path)]
-    elif support.engine == "pdflatex":
-        cmd = support.command + [f"-output-directory={workdir}", str(tex_path)]
-    else:
-        cmd = support.command + ["-o", str(output_pdf), str(tex_path)]
+    abs_tex = tex_path.resolve()
+    abs_out = output_pdf.resolve()
+    if not abs_tex.exists():
+        raise FileNotFoundError(f"LaTeX source not found: {abs_tex}")
 
-    subprocess.run(cmd, cwd=workdir, check=True, capture_output=True, text=True)
-    if support.engine in {"latexmk", "pdflatex"}:
-        produced = workdir / (tex_path.stem + ".pdf")
-        if produced != output_pdf and produced.exists():
-            produced.replace(output_pdf)
-    return output_pdf.exists()
+    workdir = abs_out.parent
+    workdir.mkdir(parents=True, exist_ok=True)
+
+    if support.engine == "latexmk":
+        cmd = ["latexmk", "-pdf", "-interaction=nonstopmode", f"-outdir={workdir}", str(abs_tex)]
+        runs = [cmd]
+    elif support.engine == "pdflatex":
+        cmd = ["pdflatex", "-interaction=nonstopmode", f"-output-directory={workdir}", str(abs_tex)]
+        runs = [cmd, cmd]  # second pass for references
+    elif support.engine == "tectonic":
+        cmd = ["tectonic", "-o", str(workdir), str(abs_tex)]
+        runs = [cmd]
+    else:
+        raise RuntimeError(f"Unsupported LaTeX engine: {support.engine}")
+
+    for cmd in runs:
+        proc = subprocess.run(cmd, cwd=workdir, capture_output=True, text=True)
+        if proc.returncode != 0:
+            raise RuntimeError(
+                f"PDF generation failed with engine={support.engine}, returncode={proc.returncode}\n"
+                f"stdout:\n{proc.stdout}\n\nstderr:\n{proc.stderr}"
+            )
+
+    produced = workdir / f"{abs_tex.stem}.pdf"
+    if produced.exists() and produced != abs_out:
+        produced.replace(abs_out)
+
+    return abs_out.exists() and abs_out.stat().st_size > 0

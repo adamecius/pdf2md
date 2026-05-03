@@ -29,3 +29,4 @@ def test_optional_pdf_generation(doc_id: str, tmp_path: Path) -> None:
     tex_path = Path(f"tests/docling_groundtruth/latex_sources/{BATCH}/{doc_id}.tex")
     out_pdf = tmp_path / f"{doc_id}.pdf"
     assert generate_pdf(tex_path, out_pdf)
+    assert out_pdf.exists() and out_pdf.stat().st_size > 0

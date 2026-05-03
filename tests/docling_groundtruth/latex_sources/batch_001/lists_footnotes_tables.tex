@@ -11,9 +11,9 @@
 \section{Structured Content}\label{sec:structured}
 This section contains inline math $a^2 + b^2 = c^2$ and multiple footnotes\footnote{First footnote for list fixture.}\footnote{Second footnote for list fixture.}\footnote{Third footnote for list fixture.}.
 
-\subsection*{Itemize List}
+\subsection{Itemize List Block}\label{subsec:itemize}
 \begin{itemize}
-  \item Top-level bullet
+  \item Top-level bullet\footnote{Footnote attached to a list item.}
   \item Bullet with nested list:
   \begin{enumerate}
     \item Nested ordered item A
@@ -43,8 +43,11 @@ Beta & 2 \\
 
 Table~\ref{tab:fixture-table} is referenced here.
 
-\[
+\begin{equation}
 \int_0^1 x^2\,dx = \frac{1}{3}
-\]
+\label{eq:integral}
+\end{equation}
+
+Equation~\ref{eq:integral} is referenced here.
 
 \end{document}
