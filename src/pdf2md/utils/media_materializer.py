@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -13,8 +14,8 @@ MEDIA_POLICY_DEFAULTS = {
     "format": "png",
     "padding_px": 8,
     "crop_from_pdf": True,
-    "materialize_figures": True,
-    "materialize_pictures": True,
+    "materialize_primary_figures": True,
+    "materialize_orphan_images": False,
     "materialize_tables_as_visual_fallback": False,
     "allow_near_geometry": True,
     "allow_single_source_geometry": True,
@@ -58,12 +59,12 @@ def _warn(manifest: dict[str, Any], gid: str, reason: str, page_index: int | Non
 
 
 def build_manifest(consensus: dict[str, Any], source_consensus_report: Path, source_semantic_links: Path, policy: dict[str, Any]) -> dict[str, Any]:
-    return {"schema_name": "pdf2md.media_manifest", "schema_version": "0.1.0", "source_pdf": consensus.get("pdf_path"), "source_consensus_report": str(source_consensus_report), "source_semantic_links": str(source_semantic_links), "created_at": dt.datetime.now(dt.timezone.utc).isoformat(), "policy": policy, "assets": [], "warnings": []}
+    return {"schema_name": "pdf2md.media_manifest", "schema_version": "0.1.0", "run_id": consensus.get("run_id"), "upstream_sha256": {"consensus_report": hashlib.sha256(source_consensus_report.read_bytes()).hexdigest() if source_consensus_report.exists() else None, "semantic_links": hashlib.sha256(source_semantic_links.read_bytes()).hexdigest() if source_semantic_links.exists() else None}, "source_pdf": consensus.get("pdf_path"), "source_consensus_report": str(source_consensus_report), "source_semantic_links": str(source_semantic_links), "created_at": dt.datetime.now(dt.timezone.utc).isoformat(), "policy": policy, "assets": [], "warnings": []}
 
 
-def materialize(consensus: dict[str, Any], semantic: dict[str, Any], output_root: Path, *, source_consensus_report: Path, source_semantic_links: Path, strict: bool = False, render_dpi: int = 200, padding_px: int = 8, allow_conflicted_geometry: bool = False, allow_single_source_geometry: bool = True, crop_tables_as_visual_fallback: bool = False) -> tuple[dict[str, Any], int]:
+def materialize(consensus: dict[str, Any], semantic: dict[str, Any], output_root: Path, *, source_consensus_report: Path, source_semantic_links: Path, strict: bool = False, render_dpi: int = 200, padding_px: int = 8, allow_conflicted_geometry: bool = False, allow_single_source_geometry: bool = True, crop_tables_as_visual_fallback: bool = False, materialize_orphan_images: bool = False) -> tuple[dict[str, Any], int]:
     policy = dict(MEDIA_POLICY_DEFAULTS)
-    policy.update({"render_dpi": render_dpi, "padding_px": padding_px, "allow_conflicted_geometry": allow_conflicted_geometry, "allow_single_source_geometry": allow_single_source_geometry, "materialize_tables_as_visual_fallback": crop_tables_as_visual_fallback})
+    policy.update({"render_dpi": render_dpi, "padding_px": padding_px, "allow_conflicted_geometry": allow_conflicted_geometry, "allow_single_source_geometry": allow_single_source_geometry, "materialize_tables_as_visual_fallback": crop_tables_as_visual_fallback, "materialize_orphan_images": materialize_orphan_images})
     manifest = build_manifest(consensus, source_consensus_report, source_semantic_links, policy)
     pdf_path = Path(consensus.get("pdf_path", ""))
     if not pdf_path.exists():
@@ -85,7 +86,7 @@ def materialize(consensus: dict[str, Any], semantic: dict[str, Any], output_root
         if a.get("anchor_type") == "figure" and a.get("target_group_id") in groups:
             candidates[a["target_group_id"]] = {"gid": a["target_group_id"], "anchor": a, "candidate_type": "figure"}
     for gid, (_, g) in groups.items():
-        if g.get("kind") == "picture":
+        if g.get("kind") == "picture" and materialize_orphan_images:
             candidates.setdefault(gid, {"gid": gid, "anchor": None, "candidate_type": "image"})
         if crop_tables_as_visual_fallback and g.get("kind") == "table":
             candidates.setdefault(gid, {"gid": gid, "anchor": None, "candidate_type": "table_visual_fallback"})
@@ -132,6 +133,8 @@ def materialize(consensus: dict[str, Any], semantic: dict[str, Any], output_root
         conf = max(0.0, min(1.0, conf))
         aw = []
         if status != "resolved": aw.append(f"non_near_geometry:{status}")
+        if status == "single_source_geometry":
+            aw.append("single_source_geometry_warning")
         try:
             pg = doc.load_page(pidx)
             mat = fitz.Matrix(render_dpi / 72.0, render_dpi / 72.0)
@@ -159,6 +162,7 @@ def main() -> int:
     ap.add_argument("--allow-conflicted-geometry", action="store_true")
     ap.add_argument("--no-single-source-geometry", action="store_true")
     ap.add_argument("--crop-tables-as-visual-fallback", action="store_true")
+    ap.add_argument("--materialize-orphan-images", action="store_true")
     ap.add_argument("--strict", action="store_true")
     ap.add_argument("--json-only", action="store_true")
     ap.add_argument("--verbose", action="store_true")
@@ -173,7 +177,7 @@ def main() -> int:
         if args.strict:
             return 2
         raise
-    manifest, code = materialize(c, s, out_root, source_consensus_report=cp, source_semantic_links=sp, strict=args.strict, render_dpi=args.render_dpi, padding_px=args.padding_px, allow_conflicted_geometry=args.allow_conflicted_geometry, allow_single_source_geometry=not args.no_single_source_geometry, crop_tables_as_visual_fallback=args.crop_tables_as_visual_fallback)
+    manifest, code = materialize(c, s, out_root, source_consensus_report=cp, source_semantic_links=sp, strict=args.strict, render_dpi=args.render_dpi, padding_px=args.padding_px, allow_conflicted_geometry=args.allow_conflicted_geometry, allow_single_source_geometry=not args.no_single_source_geometry, crop_tables_as_visual_fallback=args.crop_tables_as_visual_fallback, materialize_orphan_images=args.materialize_orphan_images)
     (out_root / "media_manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     if args.verbose:
         print(json.dumps(manifest, indent=2))

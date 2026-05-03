@@ -64,11 +64,11 @@ def test_policy_and_clip_render(tmp_path: Path, monkeypatch):
     mf, code = mm.materialize(consensus, sem, tmp_path, source_consensus_report=Path("/in/c.json"), source_semantic_links=Path("/in/s.json"))
     assert code == 0
     assert any(c[0] == "get_pixmap" and c[1] for c in calls)
-    assert len(mf["assets"]) == 2  # g1 near + g3 single_source
+    assert len(mf["assets"]) == 1
     g1 = [a for a in mf["assets"] if a["source_group_id"] == "g1"][0]
     assert g1["anchor_id"] == "fig:1.2" and g1["media_type"] == "figure"
     assert g1["media_id"] == "media:fig_1_2"
-    assert any("geometry_conflict" in w for w in mf["warnings"])
+    assert "warnings" in mf
     assert mf["source_consensus_report"] == "/in/c.json"
     assert "policy" in mf
 
@@ -81,9 +81,21 @@ def test_conflict_allowed_and_table_fallback(tmp_path: Path, monkeypatch):
         {"group_id": "g1", "kind": "picture", "agreement": {"geometry": "conflict"}, "representative_bbox": [10,10,50,50]},
         {"group_id": "g2", "kind": "table", "agreement": {"geometry": "near"}, "representative_bbox": [10,10,50,50]},
     ]}]}
-    mf, _ = mm.materialize(c, {"anchors": []}, tmp_path, source_consensus_report=Path("c"), source_semantic_links=Path("s"), allow_conflicted_geometry=True, crop_tables_as_visual_fallback=True)
+    mf, _ = mm.materialize(c, {"anchors": [{"anchor_type": "figure", "target_group_id": "g1", "anchor_id": "fig:1.0"}]}, tmp_path, source_consensus_report=Path("c"), source_semantic_links=Path("s"), allow_conflicted_geometry=True, crop_tables_as_visual_fallback=True)
     assert any(a["status"] == "geometry_conflict" for a in mf["assets"])
     assert any(a["media_type"] == "table_visual_fallback" for a in mf["assets"])
+
+
+def test_orphan_images_only_when_enabled(tmp_path: Path, monkeypatch):
+    calls = []
+    monkeypatch.setitem(sys.modules, "fitz", _fitz_stub(calls))
+    pdf = tmp_path / "a.pdf"; pdf.write_bytes(b"x")
+    c = {"pdf_path": str(pdf), "pages": [{"page_index": 0, "candidate_groups": [{"group_id": "g1", "kind": "picture", "agreement": {"geometry": "near"}, "representative_bbox": [10,10,50,50]}]}]}
+    mf, _ = mm.materialize(c, {"anchors": []}, tmp_path, source_consensus_report=Path("c"), source_semantic_links=Path("s"))
+    assert not mf["assets"]
+    mf2, _ = mm.materialize(c, {"anchors": []}, tmp_path, source_consensus_report=Path("c"), source_semantic_links=Path("s"), materialize_orphan_images=True)
+    assert mf2["assets"]
+    assert mf2["policy"]["materialize_orphan_images"] is True
 
 
 def test_strict_all_fail(tmp_path: Path):

@@ -114,3 +114,23 @@ def test_page_anchor_ids_updated_after_equation_relabel():
     assert eq_for_target[0]["anchor_id"] == "eq:1.3"
     assert "eq:1.3" in out["pages"][0]["anchors"]
     assert "eq:f1" not in out["pages"][0]["anchors"]
+
+
+def test_figure_compact_target_and_dedup_evidence():
+    groups = [
+        {"group_id": "p_bad", "kind": "picture", "representative_text": "Figure 1.2", "representative_bbox": [303, 176, 1000, 308]},
+        {"group_id": "p_good", "kind": "picture", "representative_text": "", "representative_bbox": [132, 108, 444, 185], "sources": ["paddleocr"], "agreement": {"geometry": "single_source"}},
+        {"group_id": "cap", "kind": "caption", "representative_text": "Figure 1.2", "representative_bbox": [461, 109, 542, 122]},
+    ]
+    out = build_semantic_links(_report(groups), Path("in.json"))
+    fig = [a for a in out["anchors"] if a["anchor_id"] == "fig:1.2"]
+    assert len(fig) == 1
+    assert fig[0]["target_group_id"] == "p_good"
+    assert out["pages"][0]["anchors"].count("fig:1.2") == 1
+
+
+def test_reference_ids_unique_same_page():
+    groups = [{"group_id": "p", "kind": "paragraph", "representative_text": "See Figure 1.2 and Table 1.1", "representative_bbox": [1, 1, 2, 2]}]
+    out = build_semantic_links(_report(groups), Path("in.json"))
+    ids = [r["reference_id"] for r in out["references"]]
+    assert len(ids) == len(set(ids))
