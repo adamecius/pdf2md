@@ -80,6 +80,23 @@ def test_synthetic_orphan_media_default_and_strict():
     assert any(e.startswith("orphan_media_suppressed:block:orphan") for e in rep_strict["errors"])
 
 
+def test_unanchored_figure_without_media_path_is_suppressed():
+    sem = _sem([{"id": "block:no_media", "type": "figure", "text": "", "anchor_id": None}])
+    _, rel, rep, _ = da.adapt_semantic_document(sem, backend=da.DoclingBackend(FakeDoclingLabelText()), mode="inspection")
+    assert rel["id_map"]["block:no_media"]["suppressed"] is True
+    assert "figure_without_media_suppressed:block:no_media" in rel["warnings"]
+    assert not rep["errors"]
+
+
+def test_anchored_figure_without_media_path_degrades_to_text():
+    sem = _sem([{"id": "block:no_media_anchor", "type": "figure", "text": "Figure 1.2", "anchor_id": "fig:1.2"}])
+    _, rel, rep, _ = da.adapt_semantic_document(sem, backend=da.DoclingBackend(FakeDoclingLabelText()), mode="inspection")
+    assert rel["id_map"]["block:no_media_anchor"]["docling_type"] == "text"
+    assert "figure_without_media_degraded:block:no_media_anchor" in rel["warnings"]
+    _, _, rep_strict, _ = da.adapt_semantic_document(sem, backend=da.DoclingBackend(FakeDoclingLabelText()), mode="strict")
+    assert any(e.startswith("figure_without_media_degraded:block:no_media_anchor") for e in rep_strict["errors"])
+
+
 def test_duplicate_formula_and_not_fused_warning():
     sem = _sem([
         {"id": "block:f1", "type": "formula", "text": "x", "anchor_id": "eq:1", "selected_text_source": "mineru", "selected_geometry_source": "paddleocr", "bbox": [1, 2, 3, 4]},

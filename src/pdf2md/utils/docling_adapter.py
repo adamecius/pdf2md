@@ -116,6 +116,23 @@ def adapt_semantic_document(semantic:dict[str,Any], *, source_semantic_document:
         try:
             if btype=="figure":
                 mp=b.get("media_path")
+                if not mp:
+                    if b.get("anchor_id"):
+                        m = f"figure_without_media_degraded:{bid}"
+                        _dedup_push(rel["warnings"], m); _dedup_push(rep["warnings"], m)
+                        if mode == "strict":
+                            rep["errors"].append(m)
+                        _backend_add_text(backend, (b.get("text") or "").strip(), btype)
+                        mapped_type="text"; mapped_ref=f"#/texts/{text_i}"; text_i+=1
+                    else:
+                        m = f"figure_without_media_suppressed:{bid}"
+                        _dedup_push(rel["warnings"], m); _dedup_push(rep["warnings"], m)
+                        if mode == "strict":
+                            rep["errors"].append(m)
+                        rel["id_map"][bid]={"docling_ref":None,"docling_type":None,"semantic_type":btype,"suppressed":True,"reason":"figure_without_media_suppressed"}; rep["stats"]["suppressed"]+=1
+                    if mapped_ref is not None:
+                        rel["id_map"][bid]={"docling_ref":mapped_ref,"docling_type":mapped_type,"semantic_type":btype}; node["docling_ref"]=mapped_ref; node["docling_type"]=mapped_type; rep["stats"]["mapped"]+=1
+                    continue
                 if mp:
                     p=Path(mp)
                     if not p.is_absolute() and source_semantic_document: p=Path(source_semantic_document).parent/p

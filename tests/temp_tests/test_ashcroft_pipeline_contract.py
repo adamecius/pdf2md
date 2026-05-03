@@ -133,6 +133,9 @@ def test_consensus_semantic_media_semanticdoc_contracts(built_pipeline_artifacts
     assert b13["bbox"] == pytest.approx([132.712, 108.553, 444.703, 185.033], abs=0.02)
     b01 = next(b for b in d["blocks"] if b["source_group_id"] == "p0002_g0001")
     assert b01.get("media_id") != "media:p0002_g0001"
+    if b01.get("type") == "figure":
+        page3 = next(p for p in d["pages"] if p["page_index"] == 2)
+        assert b01["id"] not in page3.get("body_block_ids", [])
 
     media_dbg_root = ensure_tmp_clean_dir(tmp_path / "media_out_debug")
     res = run_cli("pdf2md.utils.media_materializer", str(built_pipeline_artifacts["paths"]["consensus_report"]), "--semantic-links", str(built_pipeline_artifacts["paths"]["semantic_links"]), "--output-root", str(media_dbg_root), "--materialize-orphan-images", "--json-only")
@@ -143,3 +146,41 @@ def test_consensus_semantic_media_semanticdoc_contracts(built_pipeline_artifacts
     assert "media:fig_1_2" in by_id
     if "media:p0002_g0001" in by_id:
         assert by_id["media:p0002_g0001"].get("anchor_id") is None
+
+
+def test_docling_adapter_on_fresh_canonical_semantic_document(built_pipeline_artifacts: dict, tmp_path: Path):
+    try:
+        from pdf2md.utils.docling_adapter import DoclingBackend, AdapterError
+        DoclingBackend.load()
+    except Exception:
+        pytest.skip("docling_core unavailable for real adapter integration test")
+
+    out = ensure_tmp_clean_dir(tmp_path / "docling_out")
+    sem_path = built_pipeline_artifacts["paths"]["semantic_document"]
+    res = run_cli(
+        "pdf2md.utils.docling_adapter",
+        str(sem_path),
+        "--output-root",
+        str(out),
+        "--mode",
+        "inspection",
+        "--export-markdown",
+        "--verbose",
+    )
+    assert res.returncode == 0, res.stderr
+    dd = out / "docling_document.json"
+    dr = out / "docling_relations.json"
+    rp = out / "docling_adapter_report.json"
+    assert dd.exists() and dr.exists() and rp.exists()
+    rel = json.loads(dr.read_text(encoding="utf-8"))
+    rep = json.loads(rp.read_text(encoding="utf-8"))
+    assert rep.get("errors") == []
+    assert "block:p0002_g0013" in rel.get("id_map", {})
+    mapped_type = rel["id_map"]["block:p0002_g0013"].get("docling_type")
+    if mapped_type not in {"picture", "text"}:
+        pytest.fail(f"Unexpected mapping for block:p0002_g0013: {mapped_type}")
+    if mapped_type == "text":
+        assert any("degraded_block:block:p0002_g0013:figure->text" in w for w in rel.get("warnings", []) + rep.get("warnings", []))
+    bad = rel.get("id_map", {}).get("block:p0002_g0001")
+    if bad:
+        assert bad.get("docling_type") != "picture"
