@@ -1,0 +1,17 @@
+{
+  "document_id": "multipage_all_features_references_footnotes",
+  "backends": [
+    {
+      "backend": "paddleocr",
+      "command": "python backend/paddleocr/pdf2ir_paddleocr.py",
+      "conda_env": "pdf2md-paddleocr",
+      "return_code": 0,
+      "log_path": ".current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/reports/backend_paddleocr.log",
+      "expected_dir": ".current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes",
+      "manifest_exists": true,
+      "pages_exists": true
+    }
+  ],
+  "config": ".current/latex_paddle_only.toml",
+  "started_at": "2026-05-03T19:58:56Z"
+}

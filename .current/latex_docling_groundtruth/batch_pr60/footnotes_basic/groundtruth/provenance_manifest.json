@@ -1,0 +1,29 @@
+{
+  "schema_name": "pdf2md.latex_docling_groundtruth_manifest",
+  "schema_version": "1.0.0",
+  "document_id": "footnotes_basic",
+  "batch": "batch_pr60",
+  "generated_at": "2026-05-03T19:56:40.217589+00:00",
+  "source_tex": {
+    "path": ".current/latex_docling_groundtruth/batch_pr60/footnotes_basic/input/footnotes_basic.tex",
+    "sha256": "0ec44db333f753b7f82fffdc5634404ff533942e8911896635e4a139aab05d17"
+  },
+  "source_pdf": {
+    "path": ".current/latex_docling_groundtruth/batch_pr60/footnotes_basic/input/footnotes_basic.pdf",
+    "sha256": "a20402cc853317d2767ebc866fdaf5d47e7bb01700a7ccec32cccc38dd52d593"
+  },
+  "generated_files": [
+    ".current/latex_docling_groundtruth/batch_pr60/footnotes_basic/groundtruth/source_groundtruth_ir.json",
+    ".current/latex_docling_groundtruth/batch_pr60/footnotes_basic/groundtruth/semantic_document_groundtruth.json",
+    ".current/latex_docling_groundtruth/batch_pr60/footnotes_basic/groundtruth/expected_semantic_contract.json",
+    ".current/latex_docling_groundtruth/batch_pr60/footnotes_basic/groundtruth/expected_docling_contract.json",
+    ".current/latex_docling_groundtruth/batch_pr60/footnotes_basic/groundtruth/latex_groundtruth_report.json",
+    ".current/latex_docling_groundtruth/batch_pr60/footnotes_basic/groundtruth/provenance_manifest.json"
+  ],
+  "feature_counts": {
+    "paragraph": 5,
+    "title": 1,
+    "section": 1,
+    "footnote": 2
+  }
+}

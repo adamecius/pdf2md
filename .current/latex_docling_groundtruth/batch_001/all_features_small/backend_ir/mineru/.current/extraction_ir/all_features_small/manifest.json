@@ -3,8 +3,8 @@
   "schema_version": "1.0.0",
   "ir_stage": "backend_extraction",
   "run": {
-    "run_id": "run_20260503_184801",
-    "created_at": "2026-05-03T18:48:01.174401Z",
+    "run_id": "run_20260503_190240",
+    "created_at": "2026-05-03T19:02:40.337241Z",
     "pipeline_version": "0.1.0"
   },
   "backend": {
@@ -22,7 +22,7 @@
   "source": {
     "source_id": "all_features_small",
     "source_path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_001/all_features_small/input/all_features_small.pdf",
-    "source_sha256": "sha256:5d36571da7462f5ced7beadc40aee01227f427db5c6a431dfdb11a8391a3d682",
+    "source_sha256": "sha256:c4a0208795b1db88a0844d8cf28f8e5be5fd3e03ae8e0e77ab21572e926c393d",
     "mime_type": "application/pdf",
     "page_count": 1
   },
@@ -45,7 +45,7 @@
       "page_index": 0,
       "page_number": 1,
       "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_001/all_features_small/backend_ir/mineru/.current/extraction_ir/all_features_small/pages/page_0000.json",
-      "sha256": "sha256:685839c356d25eff46d03f28472e38c6a3f027f510e8bde59ec44a406383f3c6",
+      "sha256": "sha256:daced51cb241616e37736c2e3246c6469195dc8e1e1653b7d81afba0acd2edc4",
       "status": "ok"
     }
   ],
@@ -103,7 +103,7 @@
         "relative_path": "pdf2ir_mineru_cli_capture.json",
         "kind": "mineru_official_output",
         "mime_type": "application/json",
-        "sha256": "sha256:a7c528c10e4cd738d8d35469b0cc79c186fef32078553f089b53a0a6a4fde4ab"
+        "sha256": "sha256:b38a845502f67c8344cfb54455f8c0362ae702eb012407464b3a9ef8fea03cf4"
       }
     ],
     "native_output_files": [
@@ -129,7 +129,7 @@
         "relative_path": "all_features_small/auto/all_features_small_origin.pdf",
         "kind": "mineru_official_output",
         "mime_type": "application/pdf",
-        "sha256": "sha256:6c7096a2982fdfeeca1dad6761f18a8885ec3955f65f127b8944c8d852ff812d"
+        "sha256": "sha256:36b0aca058a0330084d5af2c5ea24cb815a2599025809cc88b0a93002973bf35"
       },
       {
         "artifact_id": "mineru_f58f27de0385",
@@ -161,7 +161,7 @@
         "relative_path": "pdf2ir_mineru_stderr.txt",
         "kind": "mineru_markdown_or_text",
         "mime_type": "text/plain",
-        "sha256": "sha256:739a46143345c8c70be88decc3312c24aa650ddc334c67ed51c424fdf1c82081"
+        "sha256": "sha256:204982fb1fb5e73378ce90eaf8f31f1f77c98578bd262fa774b3eead4684e0b4"
       },
       {
         "artifact_id": "mineru_8658c2c484ba",
@@ -169,7 +169,7 @@
         "relative_path": "pdf2ir_mineru_stdout.txt",
         "kind": "mineru_markdown_or_text",
         "mime_type": "text/plain",
-        "sha256": "sha256:327b480eab0722b5637cbb154e02c75e631cf84c75e4b2b307656eb42052fc57"
+        "sha256": "sha256:4cd47f48ce69cf749d8547428eb41e5003a463a9d33b62859d9179d33e995c8d"
       }
     ]
   },

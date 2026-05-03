@@ -1,0 +1,2536 @@
+{
+  "schema_name": "pdf2md.semantic_document",
+  "schema_version": "0.1.0",
+  "source_pdf": ".current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/input/multipage_all_features_references_footnotes.pdf",
+  "source_consensus_report": ".current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/consensus/consensus_report.json",
+  "source_semantic_links": ".current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/consensus/semantic_links.json",
+  "source_media_manifest": ".current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/consensus/media_manifest.json",
+  "run_id": null,
+  "upstream_sha256": {
+    "consensus_report": "5d0f2caeaeb455b1cde443b325410e77bbc4709fee356d1946c3ae7c8ba5eabf",
+    "semantic_links": "b872f1830e7eaa4f64bec408c27775a4d25d1326701c93880eca20ef3ddffbb1",
+    "media_manifest": "e017b8eca357441cd2fefcd92af080e4f0c39b2a765d3a04858997c8c29c9e03"
+  },
+  "created_at": "2026-05-03T19:59:20.002970+00:00",
+  "pages": [
+    {
+      "page_index": 0,
+      "page_number": 1,
+      "block_ids": [
+        "block:p0000_g0001",
+        "block:p0000_g0014",
+        "block:p0000_g0002",
+        "block:p0000_g0015",
+        "block:p0000_g0003",
+        "block:p0000_g0004",
+        "block:p0000_g0016",
+        "block:p0000_g0005",
+        "block:p0000_g0006",
+        "block:p0000_g0017",
+        "block:p0000_g0007",
+        "block:p0000_g0018",
+        "block:p0000_g0008",
+        "block:p0000_g0009",
+        "block:p0000_g0010",
+        "block:p0000_g0011",
+        "block:p0000_g0019",
+        "block:p0000_g0012",
+        "block:p0000_g0013",
+        "block:p0000_g0020",
+        "block:p0000_g0021"
+      ],
+      "body_block_ids": [
+        "block:p0000_g0001",
+        "block:p0000_g0014",
+        "block:p0000_g0002",
+        "block:p0000_g0015",
+        "block:p0000_g0003",
+        "block:p0000_g0004",
+        "block:p0000_g0016",
+        "block:p0000_g0005",
+        "block:p0000_g0006",
+        "block:p0000_g0017",
+        "block:p0000_g0007",
+        "block:p0000_g0018",
+        "block:p0000_g0008",
+        "block:p0000_g0009",
+        "block:p0000_g0010",
+        "block:p0000_g0011",
+        "block:p0000_g0019",
+        "block:p0000_g0012",
+        "block:p0000_g0013",
+        "block:p0000_g0020",
+        "block:p0000_g0021"
+      ],
+      "page_artifact_ids": [],
+      "evidence_block_ids": []
+    },
+    {
+      "page_index": 1,
+      "page_number": 2,
+      "block_ids": [
+        "block:p0001_g0001",
+        "block:p0001_g0002"
+      ],
+      "body_block_ids": [
+        "block:p0001_g0001",
+        "block:p0001_g0002"
+      ],
+      "page_artifact_ids": [],
+      "evidence_block_ids": []
+    },
+    {
+      "page_index": 2,
+      "page_number": 3,
+      "block_ids": [
+        "block:p0002_g0001",
+        "block:p0002_g0002"
+      ],
+      "body_block_ids": [
+        "block:p0002_g0001",
+        "block:p0002_g0002"
+      ],
+      "page_artifact_ids": [],
+      "evidence_block_ids": []
+    },
+    {
+      "page_index": 3,
+      "page_number": 4,
+      "block_ids": [
+        "block:p0003_g0001",
+        "block:p0003_g0002",
+        "block:p0003_g0014",
+        "block:p0003_g0003",
+        "block:p0003_g0015",
+        "block:p0003_g0012",
+        "block:p0003_g0016",
+        "block:p0003_g0004",
+        "block:p0003_g0005",
+        "block:p0003_g0006",
+        "block:p0003_g0007",
+        "block:p0003_g0008",
+        "block:p0003_g0009",
+        "block:p0003_g0010",
+        "block:p0003_g0017",
+        "block:p0003_g0011",
+        "block:p0003_g0013",
+        "block:p0003_g0018",
+        "block:p0003_g0019"
+      ],
+      "body_block_ids": [
+        "block:p0003_g0001",
+        "block:p0003_g0002",
+        "block:p0003_g0014",
+        "block:p0003_g0003",
+        "block:p0003_g0015",
+        "block:p0003_g0016",
+        "block:p0003_g0004",
+        "block:p0003_g0005",
+        "block:p0003_g0006",
+        "block:p0003_g0007",
+        "block:p0003_g0008",
+        "block:p0003_g0009",
+        "block:p0003_g0010",
+        "block:p0003_g0017",
+        "block:p0003_g0011",
+        "block:p0003_g0013",
+        "block:p0003_g0018",
+        "block:p0003_g0019"
+      ],
+      "page_artifact_ids": [],
+      "evidence_block_ids": [
+        "block:p0003_g0012"
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "id": "block:p0000_g0001",
+      "type": "title",
+      "text": "Multipage All Features References Footnotes ",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 0,
+      "bbox": [
+        250.21,
+        191.805,
+        769.941,
+        211.995
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0001",
+      "source_group_members": [
+        "paddleocr:p0000:b0006"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0002",
+      "type": "title",
+      "text": "May 3, 2026",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 1,
+      "bbox": [
+        457.599,
+        259.501,
+        565.071,
+        273.159
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0002",
+      "source_group_members": [
+        "paddleocr:p0000:b0007"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0003",
+      "type": "paragraph",
+      "text": "Opening paragraph before refs with marker $[^{*}].^{1}$ ",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 2,
+      "bbox": [
+        245.172,
+        304.038,
+        602.015,
+        317.102
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0003",
+      "source_group_members": [
+        "paddleocr:p0000:b0008",
+        "pymupdf:p0000:b0002"
+      ],
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "near",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "resolved",
+      "selection_mode": "consensus",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0004",
+      "type": "title",
+      "text": "1Deep Section ",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 3,
+      "bbox": [
+        221.662,
+        340.261,
+        420.655,
+        355.107
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0004",
+      "source_group_members": [
+        "paddleocr:p0000:b0009"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0005",
+      "type": "paragraph",
+      "text": "normal paragraph before cross references.",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 4,
+      "bbox": [
+        220.823,
+        370.546,
+        527.288,
+        381.829
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0005",
+      "source_group_members": [
+        "paddleocr:p0000:b0010",
+        "pymupdf:p0000:b0004"
+      ],
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "exact",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "resolved",
+      "selection_mode": "consensus",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0006",
+      "type": "title",
+      "text": "1.1Deep Subsection ",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 5,
+      "bbox": [
+        220.823,
+        401.425,
+        439.127,
+        414.489
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0006",
+      "source_group_members": [
+        "paddleocr:p0000:b0011"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0007",
+      "type": "paragraph",
+      "text": "Inline math $a+b$ and display ",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 6,
+      "bbox": [
+        220.823,
+        425.178,
+        440.806,
+        437.055
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0007",
+      "source_group_members": [
+        "paddleocr:p0000:b0012",
+        "pymupdf:p0000:b0006"
+      ],
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "near",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "resolved",
+      "selection_mode": "consensus",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0008",
+      "type": "formula",
+      "text": "a^{2}+b^{2}=c^{2}",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 7,
+      "bbox": [
+        465.155,
+        448.931,
+        557.515,
+        460.808
+      ],
+      "anchor_id": "eq:p0000_g0008",
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0008",
+      "source_group_members": [
+        "paddleocr:p0000:b0013"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0009",
+      "type": "paragraph",
+      "text": "caption-like text: Figure caption: not a real caption. Reference section1,",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 8,
+      "bbox": [
+        220.823,
+        476.841,
+        798.489,
+        489.311
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0009",
+      "source_group_members": [
+        "paddleocr:p0000:b0014",
+        "pymupdf:p0000:b0008"
+      ],
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "near",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "resolved",
+      "selection_mode": "consensus",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0010",
+      "type": "paragraph",
+      "text": "A ",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 9,
+      "bbox": [
+        498.741,
+        502.969,
+        524.769,
+        519.596
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0010",
+      "source_group_members": [
+        "paddleocr:p0000:b0015",
+        "pymupdf:p0000:b0009"
+      ],
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "exact",
+        "geometry": "conflict",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0000_c0001",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "geometry_disagreement",
+          "message": "Low geometry agreement",
+          "sources": [
+            "paddleocr",
+            "pymupdf"
+          ],
+          "evidence_ids": [
+            "paddleocr:p0000:b0015",
+            "pymupdf:p0000:b0009"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [
+        "geometry_conflict"
+      ],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0011",
+      "type": "title",
+      "text": "Figure 1: Deep figure caption ",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 10,
+      "bbox": [
+        401.343,
+        531.473,
+        619.647,
+        543.943
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0011",
+      "source_group_members": [
+        "paddleocr:p0000:b0016"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0012",
+      "type": "paragraph",
+      "text": "subsection 1.1, figure 1. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable ",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 11,
+      "bbox": [
+        219.144,
+        559.976,
+        800.168,
+        771.378
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0012",
+      "source_group_members": [
+        "paddleocr:p0000:b0017",
+        "pymupdf:p0000:b0011"
+      ],
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0000_c0002",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "paddleocr",
+            "pymupdf"
+          ],
+          "evidence_ids": [
+            "paddleocr:p0000:b0017",
+            "pymupdf:p0000:b0011"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0013",
+      "type": "unknown",
+      "text": "1Paragraph note one.",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 12,
+      "bbox": [
+        240.134,
+        780.879,
+        375.315,
+        791.568
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0013",
+      "source_group_members": [
+        "paddleocr:p0000:b0018"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0014",
+      "type": "paragraph",
+      "text": "Multipage   All   Features   References   Footnotes",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 13,
+      "bbox": [
+        253.92256148414612,
+        193.81248130463524,
+        772.8920797924578,
+        214.26098736465207
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0014",
+      "source_group_members": [
+        "pymupdf:p0000:b0000"
+      ],
+      "sources": [
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "pymupdf",
+      "selected_geometry_source": "pymupdf",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0015",
+      "type": "paragraph",
+      "text": "May   3,   2026",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 14,
+      "bbox": [
+        460.7056370951221,
+        260.68564702020353,
+        566.1640385186017,
+        274.8860769900314
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0015",
+      "source_group_members": [
+        "pymupdf:p0000:b0001"
+      ],
+      "sources": [
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "pymupdf",
+      "selected_geometry_source": "pymupdf",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0016",
+      "type": "paragraph",
+      "text": "1 Deep   Section",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 15,
+      "bbox": [
+        224.7159387437837,
+        341.3842479435643,
+        421.2038508758636,
+        358.4247059091345
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0016",
+      "source_group_members": [
+        "pymupdf:p0000:b0003"
+      ],
+      "sources": [
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "pymupdf",
+      "selected_geometry_source": "pymupdf",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0017",
+      "type": "paragraph",
+      "text": "1.1 Deep   Subsection",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 16,
+      "bbox": [
+        224.7159387437837,
+        402.64835111776347,
+        440.07075975171546,
+        416.84878108759136
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0017",
+      "source_group_members": [
+        "pymupdf:p0000:b0005"
+      ],
+      "sources": [
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "pymupdf",
+      "selected_geometry_source": "pymupdf",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0018",
+      "type": "paragraph",
+      "text": "a 2   +  b 2   =  c 2",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 17,
+      "bbox": [
+        469.1319657270654,
+        447.4894599103956,
+        556.8678238761769,
+        464.208498972634
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0018",
+      "source_group_members": [
+        "pymupdf:p0000:b0007"
+      ],
+      "sources": [
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "pymupdf",
+      "selected_geometry_source": "pymupdf",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0019",
+      "type": "paragraph",
+      "text": "Figure   1:   Deep   figure   caption",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 18,
+      "bbox": [
+        405.2809073554994,
+        533.054129886731,
+        621.5782586735859,
+        544.8877248645488
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0019",
+      "source_group_members": [
+        "pymupdf:p0000:b0010"
+      ],
+      "sources": [
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "pymupdf",
+      "selected_geometry_source": "pymupdf",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0020",
+      "type": "paragraph",
+      "text": "1 Paragraph   note   one.",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 19,
+      "bbox": [
+        243.34930414245787,
+        781.4872716374334,
+        376.5531884439273,
+        792.4458184223527
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0020",
+      "source_group_members": [
+        "pymupdf:p0000:b0012"
+      ],
+      "sources": [
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "pymupdf",
+      "selected_geometry_source": "pymupdf",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0000_g0021",
+      "type": "paragraph",
+      "text": "1",
+      "label": null,
+      "page_index": 0,
+      "page_number": 1,
+      "order": 20,
+      "bbox": [
+        509.23100395139875,
+        825.3440780841679,
+        517.5990428382974,
+        837.1776730619857
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0000_g0021",
+      "source_group_members": [
+        "pymupdf:p0000:b0013"
+      ],
+      "sources": [
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "pymupdf",
+      "selected_geometry_source": "pymupdf",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0001_g0001",
+      "type": "paragraph",
+      "text": "layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. De",
+      "label": null,
+      "page_index": 1,
+      "page_number": 2,
+      "order": 0,
+      "bbox": [
+        219.144,
+        149.644,
+        801.008,
+        801.663
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0001_g0001",
+      "source_group_members": [
+        "paddleocr:p0001:b0002",
+        "pymupdf:p0001:b0000"
+      ],
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0001_c0001",
+          "page_index": 1,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "paddleocr",
+            "pymupdf"
+          ],
+          "evidence_ids": [
+            "paddleocr:p0001:b0002",
+            "pymupdf:p0001:b0000"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0001_g0002",
+      "type": "paragraph",
+      "text": "2",
+      "label": null,
+      "page_index": 1,
+      "page_number": 2,
+      "order": 1,
+      "bbox": [
+        509.23100395139875,
+        825.3452380486324,
+        517.5990428382974,
+        837.1788330264502
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0001_g0002",
+      "source_group_members": [
+        "pymupdf:p0001:b0001"
+      ],
+      "sources": [
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "pymupdf",
+      "selected_geometry_source": "pymupdf",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0002_g0001",
+      "type": "paragraph",
+      "text": "terministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page fl ow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout.\n",
+      "label": null,
+      "page_index": 2,
+      "page_number": 3,
+      "order": 0,
+      "bbox": [
+        219.983,
+        150.238,
+        800.168,
+        616.39
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0002_g0001",
+      "source_group_members": [
+        "paddleocr:p0002:b0002",
+        "pymupdf:p0002:b0000"
+      ],
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0002_c0001",
+          "page_index": 2,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "paddleocr",
+            "pymupdf"
+          ],
+          "evidence_ids": [
+            "paddleocr:p0002:b0002",
+            "pymupdf:p0002:b0000"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0002_g0002",
+      "type": "paragraph",
+      "text": "3",
+      "label": null,
+      "page_index": 2,
+      "page_number": 3,
+      "order": 1,
+      "bbox": [
+        509.23100395139875,
+        825.3452380486324,
+        517.5990428382974,
+        837.1788330264502
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0002_g0002",
+      "source_group_members": [
+        "pymupdf:p0002:b0001"
+      ],
+      "sources": [
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "pymupdf",
+      "selected_geometry_source": "pymupdf",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0001",
+      "type": "paragraph",
+      "text": "Continue paragraph after page break. Equation text ",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 0,
+      "bbox": [
+        246.012,
+        149.644,
+        632.242,
+        162.114
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0001",
+      "source_group_members": [
+        "paddleocr:p0003:b0007",
+        "pymupdf:p0003:b0000"
+      ],
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "exact",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "resolved",
+      "selection_mode": "consensus",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0002",
+      "type": "title",
+      "text": "Table 1: Deep table caption ",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 1,
+      "bbox": [
+        407.221,
+        185.867,
+        613.77,
+        197.15
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0002",
+      "source_group_members": [
+        "paddleocr:p0003:b0008"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0003",
+      "type": "table",
+      "text": "<html><body><table><tr><td>X</td><td>Y</td></tr></table></body></html>",
+      "label": "1",
+      "page_index": 3,
+      "page_number": 4,
+      "order": 2,
+      "bbox": [
+        479.429,
+        198.931,
+        545.76,
+        214.964
+      ],
+      "anchor_id": "table:1",
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0003",
+      "source_group_members": [
+        "paddleocr:p0003:b0009"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0004",
+      "type": "formula",
+      "text": "x=y ",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 3,
+      "bbox": [
+        489.505,
+        245.249,
+        534.005,
+        254.751
+      ],
+      "anchor_id": "eq:p0003_g0004",
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0004",
+      "source_group_members": [
+        "paddleocr:p0003:b0010"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0005",
+      "type": "paragraph",
+      "text": "repeated refs 1 and again 1.",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 4,
+      "bbox": [
+        219.983,
+        269.002,
+        426.532,
+        280.879
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0005",
+      "source_group_members": [
+        "paddleocr:p0003:b0011",
+        "pymupdf:p0003:b0004"
+      ],
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "exact",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "resolved",
+      "selection_mode": "consensus",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0006",
+      "type": "paragraph",
+      "text": " outer $\\mathrm{o n e^{2}}$ ",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 5,
+      "bbox": [
+        246.851,
+        291.568,
+        342.569,
+        302.85
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0006",
+      "source_group_members": [
+        "paddleocr:p0003:b0012",
+        "pymupdf:p0003:b0005"
+      ],
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "conflict",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [
+        {
+          "conflict_id": "p0003_c0001",
+          "page_index": 3,
+          "severity": "medium",
+          "type": "text_disagreement",
+          "message": "Low text agreement",
+          "sources": [
+            "paddleocr",
+            "pymupdf"
+          ],
+          "evidence_ids": [
+            "paddleocr:p0003:b0012",
+            "pymupdf:p0003:b0005"
+          ]
+        }
+      ],
+      "status": "resolved_with_conflict",
+      "selection_mode": "consensus_with_conflict",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0007",
+      "type": "paragraph",
+      "text": "\u25cf outer two ",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 6,
+      "bbox": [
+        246.851,
+        317.102,
+        336.692,
+        326.603
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0007",
+      "source_group_members": [
+        "paddleocr:p0003:b0013",
+        "pymupdf:p0003:b0006"
+      ],
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "near",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "resolved",
+      "selection_mode": "consensus",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0008",
+      "type": "paragraph",
+      "text": "1. inner enum ",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 7,
+      "bbox": [
+        279.597,
+        340.261,
+        384.551,
+        349.762
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0008",
+      "source_group_members": [
+        "paddleocr:p0003:b0014",
+        "pymupdf:p0003:b0007"
+      ],
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "exact",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "resolved",
+      "selection_mode": "consensus",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0009",
+      "type": "paragraph",
+      "text": "repeated markers [*] [*] near real notes. refs to table 1 and section 1. Closing paragraph after cross-references.\n",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 8,
+      "bbox": [
+        219.144,
+        363.42,
+        800.168,
+        389.549
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0009",
+      "source_group_members": [
+        "paddleocr:p0003:b0015",
+        "pymupdf:p0003:b0008"
+      ],
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "exact",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "resolved",
+      "selection_mode": "consensus",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0010",
+      "type": "title",
+      "text": "2References ",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 9,
+      "bbox": [
+        220.823,
+        413.895,
+        391.268,
+        426.96
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0010",
+      "source_group_members": [
+        "paddleocr:p0003:b0016"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0011",
+      "type": "paragraph",
+      "text": "[1] Alpha source. [2] Beta source.",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 10,
+      "bbox": [
+        220.823,
+        441.805,
+        465.995,
+        455.463
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0011",
+      "source_group_members": [
+        "paddleocr:p0003:b0017",
+        "pymupdf:p0003:b0010"
+      ],
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "exact",
+        "geometry": "near",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "resolved",
+      "selection_mode": "consensus",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0012",
+      "type": "paragraph",
+      "text": "(1)",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 11,
+      "bbox": [
+        780.017,
+        242.874,
+        799.328,
+        255.938
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0012",
+      "source_group_members": [
+        "paddleocr:p0003:b0018"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0013",
+      "type": "unknown",
+      "text": "2List note two.",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 12,
+      "bbox": [
+        240.134,
+        789.786,
+        335.013,
+        799.881
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0013",
+      "source_group_members": [
+        "paddleocr:p0003:b0019"
+      ],
+      "sources": [
+        "paddleocr"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0014",
+      "type": "paragraph",
+      "text": "Table   1:   Deep   table   caption",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 13,
+      "bbox": [
+        411.02278047313024,
+        187.37832154011963,
+        615.8224411314587,
+        199.21193464238223
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0014",
+      "source_group_members": [
+        "pymupdf:p0003:b0001"
+      ],
+      "sources": [
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "pymupdf",
+      "selected_geometry_source": "pymupdf",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0015",
+      "type": "paragraph",
+      "text": "X Y",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 14,
+      "bbox": [
+        490.82108257539574,
+        201.46094261902286,
+        536.0084515516352,
+        213.29455572128546
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0015",
+      "source_group_members": [
+        "pymupdf:p0003:b0002"
+      ],
+      "sources": [
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "pymupdf",
+      "selected_geometry_source": "pymupdf",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0016",
+      "type": "paragraph",
+      "text": "x  =  y (1)",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 15,
+      "bbox": [
+        493.0721330724632,
+        244.12798801408718,
+        802.1173890869704,
+        255.9616011163498
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0016",
+      "source_group_members": [
+        "pymupdf:p0003:b0003"
+      ],
+      "sources": [
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "pymupdf",
+      "selected_geometry_source": "pymupdf",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0017",
+      "type": "paragraph",
+      "text": "2 References",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 16,
+      "bbox": [
+        224.71599001005023,
+        414.0956779289067,
+        392.25978831953483,
+        431.13613589447687
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0017",
+      "source_group_members": [
+        "pymupdf:p0003:b0009"
+      ],
+      "sources": [
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "pymupdf",
+      "selected_geometry_source": "pymupdf",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0018",
+      "type": "paragraph",
+      "text": "2 List   note   two.",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 17,
+      "bbox": [
+        243.34930414245787,
+        790.1665607474115,
+        336.70781570638457,
+        801.1251075323308
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0018",
+      "source_group_members": [
+        "pymupdf:p0003:b0011"
+      ],
+      "sources": [
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "pymupdf",
+      "selected_geometry_source": "pymupdf",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    },
+    {
+      "id": "block:p0003_g0019",
+      "type": "paragraph",
+      "text": "4",
+      "label": null,
+      "page_index": 3,
+      "page_number": 4,
+      "order": 18,
+      "bbox": [
+        509.23100395139875,
+        825.3440780841679,
+        517.5990428382974,
+        837.1776730619857
+      ],
+      "anchor_id": null,
+      "media_id": null,
+      "media_path": null,
+      "source_group_id": "p0003_g0019",
+      "source_group_members": [
+        "pymupdf:p0003:b0012"
+      ],
+      "sources": [
+        "pymupdf"
+      ],
+      "agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "conflicts": [],
+      "status": "single_source",
+      "selection_mode": "single_source",
+      "selected_text_source": "pymupdf",
+      "selected_geometry_source": "pymupdf",
+      "selection_reason": "representative",
+      "warnings": [],
+      "metadata": {
+        "is_page_artifact": false
+      }
+    }
+  ],
+  "relations": [
+    {
+      "relation_id": "rel_0001",
+      "relation_type": "refers_to",
+      "source_id": "block:p0003_g0002",
+      "target_id": "block:p0003_g0003",
+      "anchor_id": "table:1",
+      "reference_id": "ref_p0003_0006",
+      "confidence": 0.9,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "relation_id": "rel_0002",
+      "relation_type": "refers_to",
+      "source_id": "block:p0003_g0009",
+      "target_id": "block:p0003_g0003",
+      "anchor_id": "table:1",
+      "reference_id": "ref_p0003_0008",
+      "confidence": 0.9,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "relation_id": "rel_0003",
+      "relation_type": "refers_to",
+      "source_id": "block:p0003_g0014",
+      "target_id": "block:p0003_g0003",
+      "anchor_id": "table:1",
+      "reference_id": "ref_p0003_0012",
+      "confidence": 0.9,
+      "method": "exact_label",
+      "warnings": []
+    }
+  ],
+  "anchors": [
+    {
+      "anchor_id": "eq:p0000_g0008",
+      "anchor_type": "equation",
+      "label": null,
+      "canonical_text": "a^{2}+b^{2}=c^{2}",
+      "target_group_id": "p0000_g0008",
+      "page_index": 0,
+      "page_number": 1,
+      "bbox": [
+        465.155,
+        448.931,
+        557.515,
+        460.808
+      ],
+      "source_groups": [
+        "p0000_g0008"
+      ],
+      "confidence": 0.5,
+      "status": "unlabelled",
+      "warnings": [],
+      "selection_mode": "consensus",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "formula_group",
+      "formula_candidates": [
+        {
+          "representative_text": "a^{2}+b^{2}=c^{2}",
+          "group_id": "p0000_g0008",
+          "sources": [
+            "paddleocr"
+          ],
+          "members": [
+            "paddleocr:p0000:b0013"
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "conflicts": []
+        }
+      ],
+      "source_group_id": "p0000_g0008",
+      "source_group_kind": "formula",
+      "source_group_sources": [
+        "paddleocr"
+      ],
+      "source_group_members": [
+        "paddleocr:p0000:b0013"
+      ],
+      "source_group_agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "source_group_conflicts": []
+    },
+    {
+      "anchor_id": "table:1",
+      "anchor_type": "table",
+      "label": "1",
+      "canonical_text": "Table 1: Deep table caption ",
+      "target_group_id": "p0003_g0003",
+      "page_index": 3,
+      "page_number": 4,
+      "bbox": [
+        479.429,
+        198.931,
+        545.76,
+        214.964
+      ],
+      "source_groups": [
+        "p0003_g0002"
+      ],
+      "confidence": 0.7,
+      "status": "resolved",
+      "warnings": [],
+      "source_group_id": "p0003_g0002",
+      "source_group_kind": "title",
+      "source_group_sources": [
+        "paddleocr"
+      ],
+      "source_group_members": [
+        "paddleocr:p0003:b0008"
+      ],
+      "source_group_agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "source_group_conflicts": []
+    },
+    {
+      "anchor_id": "eq:p0003_g0004",
+      "anchor_type": "equation",
+      "label": null,
+      "canonical_text": "x=y ",
+      "target_group_id": "p0003_g0004",
+      "page_index": 3,
+      "page_number": 4,
+      "bbox": [
+        489.505,
+        245.249,
+        534.005,
+        254.751
+      ],
+      "source_groups": [
+        "p0003_g0004"
+      ],
+      "confidence": 0.5,
+      "status": "unlabelled",
+      "warnings": [],
+      "selection_mode": "consensus",
+      "selected_text_source": "paddleocr",
+      "selected_geometry_source": "paddleocr",
+      "selection_reason": "formula_group",
+      "formula_candidates": [
+        {
+          "representative_text": "x=y ",
+          "group_id": "p0003_g0004",
+          "sources": [
+            "paddleocr"
+          ],
+          "members": [
+            "paddleocr:p0003:b0010"
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "conflicts": []
+        }
+      ],
+      "source_group_id": "p0003_g0004",
+      "source_group_kind": "formula",
+      "source_group_sources": [
+        "paddleocr"
+      ],
+      "source_group_members": [
+        "paddleocr:p0003:b0010"
+      ],
+      "source_group_agreement": {
+        "text": "single_source",
+        "geometry": "single_source",
+        "kind": "agree"
+      },
+      "source_group_conflicts": []
+    }
+  ],
+  "references": [
+    {
+      "reference_id": "ref_p0000_0001",
+      "reference_type": "footnote",
+      "reference_text": "1",
+      "label": "1",
+      "source_group_id": "p0000_g0003",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0000_0002",
+      "reference_type": "footnote",
+      "reference_text": "2",
+      "label": "2",
+      "source_group_id": "p0000_g0008",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0000_0003",
+      "reference_type": "figure",
+      "reference_text": "Figure 1",
+      "label": "1",
+      "source_group_id": "p0000_g0011",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0000_0004",
+      "reference_type": "figure",
+      "reference_text": "figure 1",
+      "label": "1",
+      "source_group_id": "p0000_g0012",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0000_0005",
+      "reference_type": "figure",
+      "reference_text": "Figure   1",
+      "label": "1",
+      "source_group_id": "p0000_g0019",
+      "page_index": 0,
+      "page_number": 1,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0003_0006",
+      "reference_type": "table",
+      "reference_text": "Table 1",
+      "label": "1",
+      "source_group_id": "p0003_g0002",
+      "page_index": 3,
+      "page_number": 4,
+      "target_anchor_id": "table:1",
+      "resolved": true,
+      "confidence": 0.9,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "reference_id": "ref_p0003_0007",
+      "reference_type": "footnote",
+      "reference_text": "2",
+      "label": "2",
+      "source_group_id": "p0003_g0006",
+      "page_index": 3,
+      "page_number": 4,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0003_0008",
+      "reference_type": "table",
+      "reference_text": "table 1",
+      "label": "1",
+      "source_group_id": "p0003_g0009",
+      "page_index": 3,
+      "page_number": 4,
+      "target_anchor_id": "table:1",
+      "resolved": true,
+      "confidence": 0.9,
+      "method": "exact_label",
+      "warnings": []
+    },
+    {
+      "reference_id": "ref_p0003_0009",
+      "reference_type": "section",
+      "reference_text": "section 1",
+      "label": "1",
+      "source_group_id": "p0003_g0009",
+      "page_index": 3,
+      "page_number": 4,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0003_0010",
+      "reference_type": "bibliography",
+      "reference_text": "[1]",
+      "label": "1",
+      "source_group_id": "p0003_g0011",
+      "page_index": 3,
+      "page_number": 4,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0003_0011",
+      "reference_type": "bibliography",
+      "reference_text": "[2]",
+      "label": "2",
+      "source_group_id": "p0003_g0011",
+      "page_index": 3,
+      "page_number": 4,
+      "target_anchor_id": null,
+      "resolved": false,
+      "confidence": 0.2,
+      "method": "unresolved",
+      "warnings": [
+        "not_found"
+      ]
+    },
+    {
+      "reference_id": "ref_p0003_0012",
+      "reference_type": "table",
+      "reference_text": "Table   1",
+      "label": "1",
+      "source_group_id": "p0003_g0014",
+      "page_index": 3,
+      "page_number": 4,
+      "target_anchor_id": "table:1",
+      "resolved": true,
+      "confidence": 0.9,
+      "method": "exact_label",
+      "warnings": []
+    }
+  ],
+  "conflicts": [
+    {
+      "conflict_id": "p0000_c0001",
+      "page_index": 0,
+      "severity": "medium",
+      "type": "geometry_disagreement",
+      "message": "Low geometry agreement",
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "evidence_ids": [
+        "paddleocr:p0000:b0015",
+        "pymupdf:p0000:b0009"
+      ]
+    },
+    {
+      "conflict_id": "p0000_c0002",
+      "page_index": 0,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "evidence_ids": [
+        "paddleocr:p0000:b0017",
+        "pymupdf:p0000:b0011"
+      ]
+    },
+    {
+      "conflict_id": "p0000_c0003",
+      "page_index": 0,
+      "severity": "low",
+      "type": "pymupdf_text_disagreement",
+      "message": "Very low OCR vs native PDF text similarity",
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "evidence_ids": []
+    },
+    {
+      "conflict_id": "p0001_c0001",
+      "page_index": 1,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "evidence_ids": [
+        "paddleocr:p0001:b0002",
+        "pymupdf:p0001:b0000"
+      ]
+    },
+    {
+      "conflict_id": "p0001_c0002",
+      "page_index": 1,
+      "severity": "low",
+      "type": "pymupdf_text_disagreement",
+      "message": "Very low OCR vs native PDF text similarity",
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "evidence_ids": []
+    },
+    {
+      "conflict_id": "p0002_c0001",
+      "page_index": 2,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "evidence_ids": [
+        "paddleocr:p0002:b0002",
+        "pymupdf:p0002:b0000"
+      ]
+    },
+    {
+      "conflict_id": "p0002_c0002",
+      "page_index": 2,
+      "severity": "low",
+      "type": "pymupdf_text_disagreement",
+      "message": "Very low OCR vs native PDF text similarity",
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "evidence_ids": []
+    },
+    {
+      "conflict_id": "p0003_c0001",
+      "page_index": 3,
+      "severity": "medium",
+      "type": "text_disagreement",
+      "message": "Low text agreement",
+      "sources": [
+        "paddleocr",
+        "pymupdf"
+      ],
+      "evidence_ids": [
+        "paddleocr:p0003:b0012",
+        "pymupdf:p0003:b0005"
+      ]
+    }
+  ],
+  "warnings": [
+    "Unresolved reference: ref_p0000_0001",
+    "Unresolved reference: ref_p0000_0002",
+    "Unresolved reference: ref_p0000_0003",
+    "Unresolved reference: ref_p0000_0004",
+    "Unresolved reference: ref_p0000_0005",
+    "Unresolved reference: ref_p0003_0007",
+    "Unresolved reference: ref_p0003_0009",
+    "Unresolved reference: ref_p0003_0010",
+    "Unresolved reference: ref_p0003_0011"
+  ],
+  "validation": {
+    "duplicate_block_ids": [],
+    "missing_anchor_targets": [],
+    "unresolved_references": [
+      "ref_p0000_0001",
+      "ref_p0000_0002",
+      "ref_p0000_0003",
+      "ref_p0000_0004",
+      "ref_p0000_0005",
+      "ref_p0003_0007",
+      "ref_p0003_0009",
+      "ref_p0003_0010",
+      "ref_p0003_0011"
+    ],
+    "blocks_missing_provenance": [],
+    "media_assets_missing_files": [],
+    "warnings": []
+  }
+}

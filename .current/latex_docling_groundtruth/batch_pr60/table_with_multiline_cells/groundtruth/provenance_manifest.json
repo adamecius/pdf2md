@@ -1,0 +1,30 @@
+{
+  "schema_name": "pdf2md.latex_docling_groundtruth_manifest",
+  "schema_version": "1.0.0",
+  "document_id": "table_with_multiline_cells",
+  "batch": "batch_pr60",
+  "generated_at": "2026-05-03T19:56:40.230671+00:00",
+  "source_tex": {
+    "path": ".current/latex_docling_groundtruth/batch_pr60/table_with_multiline_cells/input/table_with_multiline_cells.tex",
+    "sha256": "b26da9251b245c988294a5f181a718b315dcb365c98e8a864d1fcf80b14a9bdf"
+  },
+  "source_pdf": {
+    "path": ".current/latex_docling_groundtruth/batch_pr60/table_with_multiline_cells/input/table_with_multiline_cells.pdf",
+    "sha256": "a1896b52f93724fa3d7e6c1bf068412947dddc067a3f992bb470163ce389834c"
+  },
+  "generated_files": [
+    ".current/latex_docling_groundtruth/batch_pr60/table_with_multiline_cells/groundtruth/source_groundtruth_ir.json",
+    ".current/latex_docling_groundtruth/batch_pr60/table_with_multiline_cells/groundtruth/semantic_document_groundtruth.json",
+    ".current/latex_docling_groundtruth/batch_pr60/table_with_multiline_cells/groundtruth/expected_semantic_contract.json",
+    ".current/latex_docling_groundtruth/batch_pr60/table_with_multiline_cells/groundtruth/expected_docling_contract.json",
+    ".current/latex_docling_groundtruth/batch_pr60/table_with_multiline_cells/groundtruth/latex_groundtruth_report.json",
+    ".current/latex_docling_groundtruth/batch_pr60/table_with_multiline_cells/groundtruth/provenance_manifest.json"
+  ],
+  "feature_counts": {
+    "paragraph": 5,
+    "title": 1,
+    "section": 1,
+    "table": 1,
+    "caption": 1
+  }
+}

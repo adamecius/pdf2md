@@ -1,104 +1,122 @@
 {
   "schema_name": "pdf2md.source_groundtruth_ir",
-  "schema_version": "0.1.0",
+  "schema_version": "1.0.0",
   "document_id": "itemize_enumerate_nested",
   "source_type": "latex",
   "source_tex": ".current/latex_docling_groundtruth/batch_001/itemize_enumerate_nested/input/itemize_enumerate_nested.tex",
   "expected_pdf": ".current/latex_docling_groundtruth/batch_001/itemize_enumerate_nested/input/itemize_enumerate_nested.pdf",
   "title": "Itemize Enumerate Nested",
-  "pages_expected_min": 1,
   "nodes": [
     {
-      "id": "gt:block:itemize_enumerate_nested:0",
+      "id": "gt:itemize_enumerate_nested:b0001",
+      "type": "paragraph",
+      "text": "\\documentclass{article} \\usepackage{amsmath} \\begin{document}",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:itemize_enumerate_nested:b0002",
       "type": "title",
       "text": "Itemize Enumerate Nested",
-      "label": null,
-      "ref_target": null,
-      "order": 0,
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "title",
-      "source_latex_hint": "\\title"
+      "labels": [],
+      "source_latex_hint": "title"
     },
     {
-      "id": "gt:block:itemize_enumerate_nested:1",
+      "id": "gt:itemize_enumerate_nested:b0003",
+      "type": "paragraph",
+      "text": "\\maketitle",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:itemize_enumerate_nested:b0004",
       "type": "section",
       "text": "Lists",
-      "label": null,
-      "ref_target": null,
-      "order": 1,
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "section_header",
-      "source_latex_hint": "\\section"
+      "labels": [],
+      "source_latex_hint": "section"
     },
     {
-      "id": "gt:block:itemize_enumerate_nested:2",
+      "id": "gt:itemize_enumerate_nested:b0005",
       "type": "list",
       "text": "itemize",
-      "label": null,
-      "ref_target": null,
-      "order": 2,
       "parent_id": null,
       "children": [
-        "gt:block:itemize_enumerate_nested:3",
-        "gt:block:itemize_enumerate_nested:4",
-        "gt:block:itemize_enumerate_nested:5"
+        "gt:itemize_enumerate_nested:b0006",
+        "gt:itemize_enumerate_nested:b0007"
       ],
-      "expected_docling_kind": "list",
-      "source_latex_hint": "\\begin{itemize}"
+      "labels": [],
+      "source_latex_hint": "list",
+      "list_kind": "itemize"
     },
     {
-      "id": "gt:block:itemize_enumerate_nested:3",
+      "id": "gt:itemize_enumerate_nested:b0006",
       "type": "list_item",
       "text": "one",
-      "label": null,
-      "ref_target": null,
-      "order": 3,
-      "parent_id": "gt:block:itemize_enumerate_nested:2",
+      "parent_id": "gt:itemize_enumerate_nested:b0005",
       "children": [],
-      "expected_docling_kind": "list_item",
-      "source_latex_hint": "\\item"
+      "labels": [],
+      "source_latex_hint": "list_item"
     },
     {
-      "id": "gt:block:itemize_enumerate_nested:4",
+      "id": "gt:itemize_enumerate_nested:b0007",
       "type": "list_item",
       "text": "two",
-      "label": null,
-      "ref_target": null,
-      "order": 4,
-      "parent_id": "gt:block:itemize_enumerate_nested:2",
-      "children": [],
-      "expected_docling_kind": "list_item",
-      "source_latex_hint": "\\item"
+      "parent_id": "gt:itemize_enumerate_nested:b0005",
+      "children": [
+        "gt:itemize_enumerate_nested:b0008",
+        "gt:itemize_enumerate_nested:b0010"
+      ],
+      "labels": [],
+      "source_latex_hint": "list_item"
     },
     {
-      "id": "gt:block:itemize_enumerate_nested:5",
+      "id": "gt:itemize_enumerate_nested:b0008",
+      "type": "list",
+      "text": "enumerate",
+      "parent_id": "gt:itemize_enumerate_nested:b0007",
+      "children": [
+        "gt:itemize_enumerate_nested:b0009"
+      ],
+      "labels": [],
+      "source_latex_hint": "list",
+      "list_kind": "enumerate"
+    },
+    {
+      "id": "gt:itemize_enumerate_nested:b0009",
       "type": "list_item",
       "text": "sub",
-      "label": null,
-      "ref_target": null,
-      "order": 5,
-      "parent_id": "gt:block:itemize_enumerate_nested:2",
+      "parent_id": "gt:itemize_enumerate_nested:b0008",
       "children": [],
-      "expected_docling_kind": "list_item",
-      "source_latex_hint": "\\item"
+      "labels": [],
+      "source_latex_hint": "list_item"
+    },
+    {
+      "id": "gt:itemize_enumerate_nested:b0010",
+      "type": "paragraph",
+      "text": "\\end{document}",
+      "parent_id": "gt:itemize_enumerate_nested:b0007",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
     }
   ],
   "labels": {},
   "references": [],
+  "relations": [],
   "features": {
+    "paragraph": 3,
+    "title": 1,
     "section": 1,
-    "subsection": 0,
-    "figure": 0,
-    "table": 0,
-    "equation": 0,
-    "footnote": 0,
-    "caption": 0,
-    "list": 1,
-    "list_item": 3,
-    "reference": 0,
-    "bibliography_like": 0,
-    "paragraph": 0
-  }
+    "list": 2,
+    "list_item": 3
+  },
+  "pages_expected_min": 1
 }

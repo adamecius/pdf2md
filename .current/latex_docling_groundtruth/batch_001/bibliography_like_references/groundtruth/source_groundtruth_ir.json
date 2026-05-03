@@ -1,78 +1,99 @@
 {
   "schema_name": "pdf2md.source_groundtruth_ir",
-  "schema_version": "0.1.0",
+  "schema_version": "1.0.0",
   "document_id": "bibliography_like_references",
   "source_type": "latex",
   "source_tex": ".current/latex_docling_groundtruth/batch_001/bibliography_like_references/input/bibliography_like_references.tex",
   "expected_pdf": ".current/latex_docling_groundtruth/batch_001/bibliography_like_references/input/bibliography_like_references.pdf",
   "title": "Bibliography Like References",
-  "pages_expected_min": 1,
   "nodes": [
     {
-      "id": "gt:block:bibliography_like_references:0",
+      "id": "gt:bibliography_like_references:b0001",
+      "type": "paragraph",
+      "text": "\\documentclass{article} \\usepackage{amsmath} \\begin{document}",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:bibliography_like_references:b0002",
       "type": "title",
       "text": "Bibliography Like References",
-      "label": null,
-      "ref_target": null,
-      "order": 0,
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "title",
-      "source_latex_hint": "\\title"
+      "labels": [],
+      "source_latex_hint": "title"
     },
     {
-      "id": "gt:block:bibliography_like_references:1",
+      "id": "gt:bibliography_like_references:b0003",
+      "type": "paragraph",
+      "text": "\\maketitle",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:bibliography_like_references:b0004",
       "type": "section",
       "text": "Body",
-      "label": null,
-      "ref_target": null,
-      "order": 1,
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "section_header",
-      "source_latex_hint": "\\section"
+      "labels": [],
+      "source_latex_hint": "section"
     },
     {
-      "id": "gt:block:bibliography_like_references:2",
+      "id": "gt:bibliography_like_references:b0005",
+      "type": "paragraph",
+      "text": "cite [1], [2].",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:bibliography_like_references:b0006",
       "type": "section",
       "text": "References",
-      "label": "sec:refs",
-      "ref_target": null,
-      "order": 2,
       "parent_id": null,
-      "children": [],
-      "expected_docling_kind": "section_header",
-      "source_latex_hint": "\\section"
+      "children": [
+        "gt:bibliography_like_references:b0007"
+      ],
+      "labels": [
+        "sec:refs"
+      ],
+      "source_latex_hint": "section"
     },
     {
-      "id": "gt:block:bibliography_like_references:3",
+      "id": "gt:bibliography_like_references:b0007",
       "type": "bibliography_like",
       "text": "References",
-      "label": null,
-      "ref_target": null,
-      "order": 3,
+      "parent_id": "gt:bibliography_like_references:b0006",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "bibliography_like"
+    },
+    {
+      "id": "gt:bibliography_like_references:b0008",
+      "type": "paragraph",
+      "text": "[1] Alpha. [2] Beta. \\end{document}",
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "text",
-      "source_latex_hint": "References"
+      "labels": [],
+      "source_latex_hint": "paragraph"
     }
   ],
   "labels": {
-    "sec:refs": "gt:block:bibliography_like_references:2"
+    "sec:refs": "gt:bibliography_like_references:b0006"
   },
   "references": [],
+  "relations": [],
   "features": {
+    "paragraph": 4,
+    "title": 1,
     "section": 2,
-    "subsection": 0,
-    "figure": 0,
-    "table": 0,
-    "equation": 0,
-    "footnote": 0,
-    "caption": 0,
-    "list": 0,
-    "list_item": 0,
-    "reference": 0,
-    "bibliography_like": 1,
-    "paragraph": 0
-  }
+    "bibliography_like": 1
+  },
+  "pages_expected_min": 1
 }

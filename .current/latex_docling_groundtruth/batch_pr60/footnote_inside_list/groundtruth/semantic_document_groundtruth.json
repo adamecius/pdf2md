@@ -1,0 +1,104 @@
+{
+  "schema_name": "pdf2md.semantic_document_groundtruth",
+  "schema_version": "1.0.0",
+  "document_id": "footnote_inside_list",
+  "title": "Footnote Inside List",
+  "pages": [
+    {
+      "page_count": 1
+    }
+  ],
+  "body": [
+    {
+      "id": "gt:footnote_inside_list:b0001",
+      "type": "paragraph",
+      "text": "\\documentclass{article} \\usepackage{amsmath} \\begin{document}",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:footnote_inside_list:b0002",
+      "type": "title",
+      "text": "Footnote Inside List",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "title"
+    },
+    {
+      "id": "gt:footnote_inside_list:b0003",
+      "type": "paragraph",
+      "text": "\\maketitle",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:footnote_inside_list:b0004",
+      "type": "section",
+      "text": "Notes",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "section"
+    },
+    {
+      "id": "gt:footnote_inside_list:b0005",
+      "type": "list",
+      "text": "itemize",
+      "parent_id": null,
+      "children": [
+        "gt:footnote_inside_list:b0006",
+        "gt:footnote_inside_list:b0008"
+      ],
+      "labels": [],
+      "source_latex_hint": "list",
+      "list_kind": "itemize"
+    },
+    {
+      "id": "gt:footnote_inside_list:b0006",
+      "type": "list_item",
+      "text": "one",
+      "parent_id": "gt:footnote_inside_list:b0005",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "list_item"
+    },
+    {
+      "id": "gt:footnote_inside_list:b0007",
+      "type": "footnote",
+      "text": "List note",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "footnote"
+    },
+    {
+      "id": "gt:footnote_inside_list:b0008",
+      "type": "paragraph",
+      "text": "\\end{document}",
+      "parent_id": "gt:footnote_inside_list:b0005",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    }
+  ],
+  "labels": {},
+  "references": [],
+  "relations": [
+    {
+      "type": "footnote_of",
+      "source_block_id": "gt:footnote_inside_list:b0007",
+      "target_block_id": "gt:footnote_inside_list:b0006",
+      "footnote_text": "List note"
+    }
+  ],
+  "warnings": [],
+  "provenance": {
+    "source_tex": ".current/latex_docling_groundtruth/batch_pr60/footnote_inside_list/input/footnote_inside_list.tex",
+    "source_pdf": ".current/latex_docling_groundtruth/batch_pr60/footnote_inside_list/input/footnote_inside_list.pdf"
+  }
+}

@@ -1,41 +1,30 @@
 {
   "schema_name": "pdf2md.latex_docling_groundtruth_manifest",
-  "schema_version": "0.1.0",
+  "schema_version": "1.0.0",
   "document_id": "unnumbered_sections",
   "batch": "batch_001",
-  "generated_at": "2026-05-03T18:47:10.881942+00:00",
+  "generated_at": "2026-05-03T19:57:01.510964+00:00",
   "source_tex": {
     "path": ".current/latex_docling_groundtruth/batch_001/unnumbered_sections/input/unnumbered_sections.tex",
     "sha256": "ae43578223068af85e64b38e4d89b69efc2b1e9c88e0e074551a7a35a308136f"
   },
-  "pdf": {
+  "source_pdf": {
     "path": ".current/latex_docling_groundtruth/batch_001/unnumbered_sections/input/unnumbered_sections.pdf",
-    "sha256": "38b1bd07ee47d0af0224107c4b8adedadcb28e66c6e5adb9a8c3e39f6446a3ee"
+    "sha256": "ba09d5afb5121f0063bef230c498884b7538593d81cbb9cd4dae2840f48c3f6c"
   },
-  "latex_engine": "pdflatex",
-  "latex_command": "pdflatex -interaction=nonstopmode -output-directory=.current/latex_docling_groundtruth/batch_001/unnumbered_sections/input /home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_001/unnumbered_sections/input/unnumbered_sections.tex",
-  "compilation_return_code": 0,
-  "page_count": 1,
-  "pages_expected_min": 1,
   "generated_files": [
-    ".current/latex_docling_groundtruth/batch_001/unnumbered_sections/input/unnumbered_sections.tex",
     ".current/latex_docling_groundtruth/batch_001/unnumbered_sections/groundtruth/source_groundtruth_ir.json",
+    ".current/latex_docling_groundtruth/batch_001/unnumbered_sections/groundtruth/semantic_document_groundtruth.json",
     ".current/latex_docling_groundtruth/batch_001/unnumbered_sections/groundtruth/expected_semantic_contract.json",
     ".current/latex_docling_groundtruth/batch_001/unnumbered_sections/groundtruth/expected_docling_contract.json",
+    ".current/latex_docling_groundtruth/batch_001/unnumbered_sections/groundtruth/latex_groundtruth_report.json",
     ".current/latex_docling_groundtruth/batch_001/unnumbered_sections/groundtruth/provenance_manifest.json"
   ],
   "feature_counts": {
+    "paragraph": 6,
+    "title": 1,
     "section": 2,
     "subsection": 1,
-    "figure": 0,
-    "table": 0,
-    "equation": 0,
-    "footnote": 0,
-    "caption": 0,
-    "list": 0,
-    "list_item": 0,
-    "reference": 1,
-    "bibliography_like": 0,
-    "paragraph": 0
+    "reference": 1
   }
 }

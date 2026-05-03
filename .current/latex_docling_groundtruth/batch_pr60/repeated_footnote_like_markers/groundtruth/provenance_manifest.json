@@ -1,0 +1,29 @@
+{
+  "schema_name": "pdf2md.latex_docling_groundtruth_manifest",
+  "schema_version": "1.0.0",
+  "document_id": "repeated_footnote_like_markers",
+  "batch": "batch_pr60",
+  "generated_at": "2026-05-03T19:56:40.226815+00:00",
+  "source_tex": {
+    "path": ".current/latex_docling_groundtruth/batch_pr60/repeated_footnote_like_markers/input/repeated_footnote_like_markers.tex",
+    "sha256": "5ed04de7c162ac436fdb4b9b52813b2e4e310a08927d8a974f4535f09c7c951d"
+  },
+  "source_pdf": {
+    "path": ".current/latex_docling_groundtruth/batch_pr60/repeated_footnote_like_markers/input/repeated_footnote_like_markers.pdf",
+    "sha256": "5b8cc7a9322ce98f18852cbaf004a2609d27ec10d5aee342fa9d00cbea16625c"
+  },
+  "generated_files": [
+    ".current/latex_docling_groundtruth/batch_pr60/repeated_footnote_like_markers/groundtruth/source_groundtruth_ir.json",
+    ".current/latex_docling_groundtruth/batch_pr60/repeated_footnote_like_markers/groundtruth/semantic_document_groundtruth.json",
+    ".current/latex_docling_groundtruth/batch_pr60/repeated_footnote_like_markers/groundtruth/expected_semantic_contract.json",
+    ".current/latex_docling_groundtruth/batch_pr60/repeated_footnote_like_markers/groundtruth/expected_docling_contract.json",
+    ".current/latex_docling_groundtruth/batch_pr60/repeated_footnote_like_markers/groundtruth/latex_groundtruth_report.json",
+    ".current/latex_docling_groundtruth/batch_pr60/repeated_footnote_like_markers/groundtruth/provenance_manifest.json"
+  ],
+  "feature_counts": {
+    "paragraph": 4,
+    "title": 1,
+    "section": 1,
+    "footnote": 1
+  }
+}

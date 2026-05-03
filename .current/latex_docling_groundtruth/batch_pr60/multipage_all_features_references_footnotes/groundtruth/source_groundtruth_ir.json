@@ -1,0 +1,695 @@
+{
+  "schema_name": "pdf2md.source_groundtruth_ir",
+  "schema_version": "1.0.0",
+  "document_id": "multipage_all_features_references_footnotes",
+  "source_type": "latex",
+  "source_tex": ".current/latex_docling_groundtruth/batch_pr60/multipage_all_features_references_footnotes/input/multipage_all_features_references_footnotes.tex",
+  "expected_pdf": ".current/latex_docling_groundtruth/batch_pr60/multipage_all_features_references_footnotes/input/multipage_all_features_references_footnotes.pdf",
+  "title": "Multipage All Features References Footnotes",
+  "nodes": [
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0001",
+      "type": "paragraph",
+      "text": "\\documentclass{article} \\usepackage{amsmath} \\begin{document}",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0002",
+      "type": "title",
+      "text": "Multipage All Features References Footnotes",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "title"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0003",
+      "type": "paragraph",
+      "text": "\\maketitle Opening paragraph before refs with marker [*].",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0004",
+      "type": "footnote",
+      "text": "Paragraph note one.",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "footnote"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0005",
+      "type": "section",
+      "text": "Deep Section",
+      "parent_id": null,
+      "children": [],
+      "labels": [
+        "sec:deep"
+      ],
+      "source_latex_hint": "section"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0006",
+      "type": "paragraph",
+      "text": "normal paragraph before cross references.",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0007",
+      "type": "subsection",
+      "text": "Deep Subsection",
+      "parent_id": null,
+      "children": [],
+      "labels": [
+        "sub:deep"
+      ],
+      "source_latex_hint": "subsection"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0008",
+      "type": "paragraph",
+      "text": "Inline math",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0009",
+      "type": "inline_math",
+      "text": "a+b",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "inline_math"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0010",
+      "type": "paragraph",
+      "text": "and display",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0011",
+      "type": "display_math",
+      "text": "a^2+b^2=c^2",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "display_math"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0012",
+      "type": "paragraph",
+      "text": ". caption-like text: Figure caption: not a real caption.",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0013",
+      "type": "figure",
+      "text": "",
+      "parent_id": null,
+      "children": [
+        "gt:multipage_all_features_references_footnotes:b0014",
+        "gt:multipage_all_features_references_footnotes:b0015"
+      ],
+      "labels": [
+        "fig:deep"
+      ],
+      "source_latex_hint": "figure"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0014",
+      "type": "paragraph",
+      "text": "[h]\\centering\\fbox{A}",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0013",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0015",
+      "type": "caption",
+      "text": "Deep figure caption",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0013",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "caption"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0016",
+      "type": "paragraph",
+      "text": "Reference section",
+      "parent_id": null,
+      "children": [
+        "gt:multipage_all_features_references_footnotes:b0017"
+      ],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0017",
+      "type": "reference",
+      "text": "ref:sec:deep",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0016",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "reference"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0018",
+      "type": "paragraph",
+      "text": ", subsection",
+      "parent_id": null,
+      "children": [
+        "gt:multipage_all_features_references_footnotes:b0019"
+      ],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0019",
+      "type": "reference",
+      "text": "ref:sub:deep",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0018",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "reference"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0020",
+      "type": "paragraph",
+      "text": ", figure",
+      "parent_id": null,
+      "children": [
+        "gt:multipage_all_features_references_footnotes:b0021"
+      ],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0021",
+      "type": "reference",
+      "text": "ref:fig:deep",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0020",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "reference"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0022",
+      "type": "paragraph",
+      "text": ". Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout.",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0023",
+      "type": "page_break",
+      "text": "newpage",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "page_break"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0024",
+      "type": "paragraph",
+      "text": "Continue paragraph after page break.",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0025",
+      "type": "table",
+      "text": "",
+      "parent_id": null,
+      "children": [
+        "gt:multipage_all_features_references_footnotes:b0026",
+        "gt:multipage_all_features_references_footnotes:b0027",
+        "gt:multipage_all_features_references_footnotes:b0028"
+      ],
+      "labels": [
+        "tab:deep"
+      ],
+      "source_latex_hint": "table",
+      "table_rows": [
+        {
+          "row": 0,
+          "cells": [
+            {
+              "row": 0,
+              "col": 0,
+              "text": "X"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "text": "Y"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0026",
+      "type": "paragraph",
+      "text": "[h]\\centering",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0025",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0027",
+      "type": "caption",
+      "text": "Deep table caption",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0025",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "caption"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0028",
+      "type": "paragraph",
+      "text": "{|l|l|}\\hline X&Y\\\\\\hline",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0025",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0029",
+      "type": "paragraph",
+      "text": "Equation text",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0030",
+      "type": "equation",
+      "text": "x=y",
+      "parent_id": null,
+      "children": [],
+      "labels": [
+        "eq:deep"
+      ],
+      "source_latex_hint": "equation"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0031",
+      "type": "paragraph",
+      "text": "repeated refs",
+      "parent_id": null,
+      "children": [
+        "gt:multipage_all_features_references_footnotes:b0032"
+      ],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0032",
+      "type": "reference",
+      "text": "ref:eq:deep",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0031",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "reference"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0033",
+      "type": "paragraph",
+      "text": "and again",
+      "parent_id": null,
+      "children": [
+        "gt:multipage_all_features_references_footnotes:b0034"
+      ],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0034",
+      "type": "reference",
+      "text": "ref:eq:deep",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0033",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "reference"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0035",
+      "type": "paragraph",
+      "text": ".",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0036",
+      "type": "list",
+      "text": "itemize",
+      "parent_id": null,
+      "children": [
+        "gt:multipage_all_features_references_footnotes:b0037",
+        "gt:multipage_all_features_references_footnotes:b0039"
+      ],
+      "labels": [],
+      "source_latex_hint": "list",
+      "list_kind": "itemize"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0037",
+      "type": "list_item",
+      "text": "outer one",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0036",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "list_item"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0038",
+      "type": "footnote",
+      "text": "List note two.",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "footnote"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0039",
+      "type": "list_item",
+      "text": "outer two",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0036",
+      "children": [
+        "gt:multipage_all_features_references_footnotes:b0040",
+        "gt:multipage_all_features_references_footnotes:b0042",
+        "gt:multipage_all_features_references_footnotes:b0044",
+        "gt:multipage_all_features_references_footnotes:b0046",
+        "gt:multipage_all_features_references_footnotes:b0049"
+      ],
+      "labels": [],
+      "source_latex_hint": "list_item"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0040",
+      "type": "list",
+      "text": "enumerate",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0039",
+      "children": [
+        "gt:multipage_all_features_references_footnotes:b0041"
+      ],
+      "labels": [],
+      "source_latex_hint": "list",
+      "list_kind": "enumerate"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0041",
+      "type": "list_item",
+      "text": "inner enum",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0040",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "list_item"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0042",
+      "type": "paragraph",
+      "text": "repeated markers [*] [*] near real notes. refs to table",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0039",
+      "children": [
+        "gt:multipage_all_features_references_footnotes:b0043"
+      ],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0043",
+      "type": "reference",
+      "text": "ref:tab:deep",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0042",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "reference"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0044",
+      "type": "paragraph",
+      "text": "and section",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0039",
+      "children": [
+        "gt:multipage_all_features_references_footnotes:b0045"
+      ],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0045",
+      "type": "reference",
+      "text": "ref:sec:deep",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0044",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "reference"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0046",
+      "type": "paragraph",
+      "text": ". Closing paragraph after cross-references.",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0039",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0047",
+      "type": "section",
+      "text": "References",
+      "parent_id": null,
+      "children": [
+        "gt:multipage_all_features_references_footnotes:b0048"
+      ],
+      "labels": [],
+      "source_latex_hint": "section"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0048",
+      "type": "bibliography_like",
+      "text": "References",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0047",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "bibliography_like"
+    },
+    {
+      "id": "gt:multipage_all_features_references_footnotes:b0049",
+      "type": "paragraph",
+      "text": "[1] Alpha source. [2] Beta source. \\end{document}",
+      "parent_id": "gt:multipage_all_features_references_footnotes:b0039",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    }
+  ],
+  "labels": {
+    "sec:deep": "gt:multipage_all_features_references_footnotes:b0005",
+    "sub:deep": "gt:multipage_all_features_references_footnotes:b0007",
+    "fig:deep": "gt:multipage_all_features_references_footnotes:b0013",
+    "tab:deep": "gt:multipage_all_features_references_footnotes:b0025",
+    "eq:deep": "gt:multipage_all_features_references_footnotes:b0030"
+  },
+  "references": [
+    {
+      "id": "gt:ref:multipage_all_features_references_footnotes:0",
+      "source_node_id": "gt:multipage_all_features_references_footnotes:b0017",
+      "source_block_id": "gt:multipage_all_features_references_footnotes:b0017",
+      "target_label": "sec:deep",
+      "relation_type": "reference_to",
+      "reference_text": "\\ref{sec:deep}",
+      "target_block_id": "gt:multipage_all_features_references_footnotes:b0005",
+      "target_node_id": "gt:multipage_all_features_references_footnotes:b0005",
+      "resolved": true,
+      "expected_resolved": true
+    },
+    {
+      "id": "gt:ref:multipage_all_features_references_footnotes:1",
+      "source_node_id": "gt:multipage_all_features_references_footnotes:b0019",
+      "source_block_id": "gt:multipage_all_features_references_footnotes:b0019",
+      "target_label": "sub:deep",
+      "relation_type": "reference_to",
+      "reference_text": "\\ref{sub:deep}",
+      "target_block_id": "gt:multipage_all_features_references_footnotes:b0007",
+      "target_node_id": "gt:multipage_all_features_references_footnotes:b0007",
+      "resolved": true,
+      "expected_resolved": true
+    },
+    {
+      "id": "gt:ref:multipage_all_features_references_footnotes:2",
+      "source_node_id": "gt:multipage_all_features_references_footnotes:b0021",
+      "source_block_id": "gt:multipage_all_features_references_footnotes:b0021",
+      "target_label": "fig:deep",
+      "relation_type": "reference_to",
+      "reference_text": "\\ref{fig:deep}",
+      "target_block_id": "gt:multipage_all_features_references_footnotes:b0013",
+      "target_node_id": "gt:multipage_all_features_references_footnotes:b0013",
+      "resolved": true,
+      "expected_resolved": true
+    },
+    {
+      "id": "gt:ref:multipage_all_features_references_footnotes:3",
+      "source_node_id": "gt:multipage_all_features_references_footnotes:b0032",
+      "source_block_id": "gt:multipage_all_features_references_footnotes:b0032",
+      "target_label": "eq:deep",
+      "relation_type": "reference_to",
+      "reference_text": "\\ref{eq:deep}",
+      "target_block_id": "gt:multipage_all_features_references_footnotes:b0030",
+      "target_node_id": "gt:multipage_all_features_references_footnotes:b0030",
+      "resolved": true,
+      "expected_resolved": true
+    },
+    {
+      "id": "gt:ref:multipage_all_features_references_footnotes:4",
+      "source_node_id": "gt:multipage_all_features_references_footnotes:b0034",
+      "source_block_id": "gt:multipage_all_features_references_footnotes:b0034",
+      "target_label": "eq:deep",
+      "relation_type": "reference_to",
+      "reference_text": "\\ref{eq:deep}",
+      "target_block_id": "gt:multipage_all_features_references_footnotes:b0030",
+      "target_node_id": "gt:multipage_all_features_references_footnotes:b0030",
+      "resolved": true,
+      "expected_resolved": true
+    },
+    {
+      "id": "gt:ref:multipage_all_features_references_footnotes:5",
+      "source_node_id": "gt:multipage_all_features_references_footnotes:b0043",
+      "source_block_id": "gt:multipage_all_features_references_footnotes:b0043",
+      "target_label": "tab:deep",
+      "relation_type": "reference_to",
+      "reference_text": "\\ref{tab:deep}",
+      "target_block_id": "gt:multipage_all_features_references_footnotes:b0025",
+      "target_node_id": "gt:multipage_all_features_references_footnotes:b0025",
+      "resolved": true,
+      "expected_resolved": true
+    },
+    {
+      "id": "gt:ref:multipage_all_features_references_footnotes:6",
+      "source_node_id": "gt:multipage_all_features_references_footnotes:b0045",
+      "source_block_id": "gt:multipage_all_features_references_footnotes:b0045",
+      "target_label": "sec:deep",
+      "relation_type": "reference_to",
+      "reference_text": "\\ref{sec:deep}",
+      "target_block_id": "gt:multipage_all_features_references_footnotes:b0005",
+      "target_node_id": "gt:multipage_all_features_references_footnotes:b0005",
+      "resolved": true,
+      "expected_resolved": true
+    }
+  ],
+  "relations": [
+    {
+      "type": "footnote_of",
+      "source_block_id": "gt:multipage_all_features_references_footnotes:b0004",
+      "target_block_id": "gt:multipage_all_features_references_footnotes:b0003",
+      "footnote_text": "Paragraph note one."
+    },
+    {
+      "type": "caption_of",
+      "caption_text": "Deep figure caption",
+      "source_block_id": "gt:multipage_all_features_references_footnotes:b0015",
+      "target_label": null
+    },
+    {
+      "type": "caption_of",
+      "caption_text": "Deep table caption",
+      "source_block_id": "gt:multipage_all_features_references_footnotes:b0027",
+      "target_label": null
+    },
+    {
+      "type": "footnote_of",
+      "source_block_id": "gt:multipage_all_features_references_footnotes:b0038",
+      "target_block_id": "gt:multipage_all_features_references_footnotes:b0037",
+      "footnote_text": "List note two."
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:multipage_all_features_references_footnotes:b0017",
+      "target_label": "sec:deep",
+      "resolved": true
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:multipage_all_features_references_footnotes:b0019",
+      "target_label": "sub:deep",
+      "resolved": true
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:multipage_all_features_references_footnotes:b0021",
+      "target_label": "fig:deep",
+      "resolved": true
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:multipage_all_features_references_footnotes:b0032",
+      "target_label": "eq:deep",
+      "resolved": true
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:multipage_all_features_references_footnotes:b0034",
+      "target_label": "eq:deep",
+      "resolved": true
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:multipage_all_features_references_footnotes:b0043",
+      "target_label": "tab:deep",
+      "resolved": true
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:multipage_all_features_references_footnotes:b0045",
+      "target_label": "sec:deep",
+      "resolved": true
+    }
+  ],
+  "features": {
+    "paragraph": 22,
+    "title": 1,
+    "footnote": 2,
+    "section": 2,
+    "subsection": 1,
+    "inline_math": 1,
+    "display_math": 1,
+    "figure": 1,
+    "caption": 2,
+    "reference": 7,
+    "page_break": 1,
+    "table": 1,
+    "equation": 1,
+    "list": 2,
+    "list_item": 3,
+    "bibliography_like": 1
+  },
+  "pages_expected_min": 2
+}

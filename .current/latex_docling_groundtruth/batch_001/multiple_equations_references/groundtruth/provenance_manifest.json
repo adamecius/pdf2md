@@ -1,41 +1,30 @@
 {
   "schema_name": "pdf2md.latex_docling_groundtruth_manifest",
-  "schema_version": "0.1.0",
+  "schema_version": "1.0.0",
   "document_id": "multiple_equations_references",
   "batch": "batch_001",
-  "generated_at": "2026-05-03T18:47:10.155088+00:00",
+  "generated_at": "2026-05-03T19:57:01.503903+00:00",
   "source_tex": {
     "path": ".current/latex_docling_groundtruth/batch_001/multiple_equations_references/input/multiple_equations_references.tex",
     "sha256": "f8512af0f557a9da4455831b1c1395702cc61b6ca77bce90a6216317e2e0edfd"
   },
-  "pdf": {
+  "source_pdf": {
     "path": ".current/latex_docling_groundtruth/batch_001/multiple_equations_references/input/multiple_equations_references.pdf",
-    "sha256": "99c1663752eac87829b4e2f4ec7b302dbfd94ff826680e035e082f457cabf4f2"
+    "sha256": "8bef5462df1ef234365060492d26a6bb681529965f9c9daabf0b140c7a4c669f"
   },
-  "latex_engine": "pdflatex",
-  "latex_command": "pdflatex -interaction=nonstopmode -output-directory=.current/latex_docling_groundtruth/batch_001/multiple_equations_references/input /home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_001/multiple_equations_references/input/multiple_equations_references.tex",
-  "compilation_return_code": 0,
-  "page_count": 1,
-  "pages_expected_min": 1,
   "generated_files": [
-    ".current/latex_docling_groundtruth/batch_001/multiple_equations_references/input/multiple_equations_references.tex",
     ".current/latex_docling_groundtruth/batch_001/multiple_equations_references/groundtruth/source_groundtruth_ir.json",
+    ".current/latex_docling_groundtruth/batch_001/multiple_equations_references/groundtruth/semantic_document_groundtruth.json",
     ".current/latex_docling_groundtruth/batch_001/multiple_equations_references/groundtruth/expected_semantic_contract.json",
     ".current/latex_docling_groundtruth/batch_001/multiple_equations_references/groundtruth/expected_docling_contract.json",
+    ".current/latex_docling_groundtruth/batch_001/multiple_equations_references/groundtruth/latex_groundtruth_report.json",
     ".current/latex_docling_groundtruth/batch_001/multiple_equations_references/groundtruth/provenance_manifest.json"
   ],
   "feature_counts": {
+    "paragraph": 4,
+    "title": 1,
     "section": 1,
-    "subsection": 0,
-    "figure": 0,
-    "table": 0,
     "equation": 2,
-    "footnote": 0,
-    "caption": 0,
-    "list": 0,
-    "list_item": 0,
-    "reference": 3,
-    "bibliography_like": 0,
-    "paragraph": 0
+    "reference": 3
   }
 }

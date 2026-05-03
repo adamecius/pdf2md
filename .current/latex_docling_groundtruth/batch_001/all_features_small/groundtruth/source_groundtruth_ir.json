@@ -1,310 +1,451 @@
 {
   "schema_name": "pdf2md.source_groundtruth_ir",
-  "schema_version": "0.1.0",
+  "schema_version": "1.0.0",
   "document_id": "all_features_small",
   "source_type": "latex",
   "source_tex": ".current/latex_docling_groundtruth/batch_001/all_features_small/input/all_features_small.tex",
   "expected_pdf": ".current/latex_docling_groundtruth/batch_001/all_features_small/input/all_features_small.pdf",
   "title": "All Features Small",
-  "pages_expected_min": 1,
   "nodes": [
     {
-      "id": "gt:block:all_features_small:0",
+      "id": "gt:all_features_small:b0001",
+      "type": "paragraph",
+      "text": "\\documentclass{article} \\usepackage{amsmath} \\begin{document}",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:all_features_small:b0002",
       "type": "title",
       "text": "All Features Small",
-      "label": null,
-      "ref_target": null,
-      "order": 0,
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "title",
-      "source_latex_hint": "\\title"
+      "labels": [],
+      "source_latex_hint": "title"
     },
     {
-      "id": "gt:block:all_features_small:1",
+      "id": "gt:all_features_small:b0003",
+      "type": "paragraph",
+      "text": "\\maketitle",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:all_features_small:b0004",
       "type": "section",
       "text": "All",
-      "label": "sec:all",
-      "ref_target": null,
-      "order": 1,
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "section_header",
-      "source_latex_hint": "\\section"
+      "labels": [
+        "sec:all"
+      ],
+      "source_latex_hint": "section"
     },
     {
-      "id": "gt:block:all_features_small:2",
-      "type": "section",
-      "text": "References",
-      "label": null,
-      "ref_target": null,
-      "order": 2,
-      "parent_id": null,
-      "children": [],
-      "expected_docling_kind": "section_header",
-      "source_latex_hint": "\\section"
-    },
-    {
-      "id": "gt:block:all_features_small:3",
+      "id": "gt:all_features_small:b0005",
       "type": "subsection",
       "text": "AllSub",
-      "label": "sub:all",
-      "ref_target": null,
-      "order": 3,
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "section_header",
-      "source_latex_hint": "\\subsection"
+      "labels": [
+        "sub:all"
+      ],
+      "source_latex_hint": "subsection"
     },
     {
-      "id": "gt:block:all_features_small:4",
+      "id": "gt:all_features_small:b0006",
       "type": "figure",
-      "text": "figure",
-      "label": null,
-      "ref_target": null,
-      "order": 4,
+      "text": "",
       "parent_id": null,
       "children": [
-        "gt:block:all_features_small:5"
+        "gt:all_features_small:b0007",
+        "gt:all_features_small:b0008"
       ],
-      "expected_docling_kind": "picture",
+      "labels": [
+        "fig:all"
+      ],
       "source_latex_hint": "figure"
     },
     {
-      "id": "gt:block:all_features_small:5",
+      "id": "gt:all_features_small:b0007",
+      "type": "paragraph",
+      "text": "[h]\\centering\\fbox{A}",
+      "parent_id": "gt:all_features_small:b0006",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:all_features_small:b0008",
       "type": "caption",
       "text": "Boxed figure",
-      "label": null,
-      "ref_target": null,
-      "order": 5,
-      "parent_id": "gt:block:all_features_small:4",
+      "parent_id": "gt:all_features_small:b0006",
       "children": [],
-      "expected_docling_kind": "caption",
-      "source_latex_hint": "\\caption"
+      "labels": [],
+      "source_latex_hint": "caption"
     },
     {
-      "id": "gt:block:all_features_small:6",
+      "id": "gt:all_features_small:b0009",
       "type": "table",
-      "text": "table",
-      "label": null,
-      "ref_target": null,
-      "order": 6,
+      "text": "",
       "parent_id": null,
       "children": [
-        "gt:block:all_features_small:7"
+        "gt:all_features_small:b0010",
+        "gt:all_features_small:b0011",
+        "gt:all_features_small:b0012"
       ],
-      "expected_docling_kind": "table",
-      "source_latex_hint": "table"
+      "labels": [
+        "tab:all"
+      ],
+      "source_latex_hint": "table",
+      "table_rows": [
+        {
+          "row": 0,
+          "cells": [
+            {
+              "row": 0,
+              "col": 0,
+              "text": "A"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "text": "B"
+            }
+          ]
+        }
+      ]
     },
     {
-      "id": "gt:block:all_features_small:7",
+      "id": "gt:all_features_small:b0010",
+      "type": "paragraph",
+      "text": "[h]\\centering",
+      "parent_id": "gt:all_features_small:b0009",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:all_features_small:b0011",
       "type": "caption",
       "text": "Sample table",
-      "label": null,
-      "ref_target": null,
-      "order": 7,
-      "parent_id": "gt:block:all_features_small:6",
+      "parent_id": "gt:all_features_small:b0009",
       "children": [],
-      "expected_docling_kind": "caption",
-      "source_latex_hint": "\\caption"
+      "labels": [],
+      "source_latex_hint": "caption"
     },
     {
-      "id": "gt:block:all_features_small:8",
+      "id": "gt:all_features_small:b0012",
+      "type": "paragraph",
+      "text": "{|l|l|}\\hline A&B\\\\\\hline",
+      "parent_id": "gt:all_features_small:b0009",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:all_features_small:b0013",
       "type": "equation",
       "text": "E=mc^2",
-      "label": null,
-      "ref_target": null,
-      "order": 8,
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "formula",
+      "labels": [
+        "eq:all"
+      ],
       "source_latex_hint": "equation"
     },
     {
-      "id": "gt:block:all_features_small:9",
-      "type": "footnote",
-      "text": "All note",
-      "label": null,
-      "ref_target": null,
-      "order": 9,
-      "parent_id": null,
-      "children": [],
-      "expected_docling_kind": "footnote",
-      "source_latex_hint": "\\footnote"
-    },
-    {
-      "id": "gt:block:all_features_small:10",
+      "id": "gt:all_features_small:b0014",
       "type": "list",
       "text": "itemize",
-      "label": null,
-      "ref_target": null,
-      "order": 10,
       "parent_id": null,
       "children": [
-        "gt:block:all_features_small:11",
-        "gt:block:all_features_small:12"
+        "gt:all_features_small:b0015"
       ],
-      "expected_docling_kind": "list",
-      "source_latex_hint": "\\begin{itemize}"
+      "labels": [],
+      "source_latex_hint": "list",
+      "list_kind": "itemize"
     },
     {
-      "id": "gt:block:all_features_small:11",
+      "id": "gt:all_features_small:b0015",
       "type": "list_item",
       "text": "one",
-      "label": null,
-      "ref_target": null,
-      "order": 11,
-      "parent_id": "gt:block:all_features_small:10",
-      "children": [],
-      "expected_docling_kind": "list_item",
-      "source_latex_hint": "\\item"
+      "parent_id": "gt:all_features_small:b0014",
+      "children": [
+        "gt:all_features_small:b0016",
+        "gt:all_features_small:b0019",
+        "gt:all_features_small:b0025",
+        "gt:all_features_small:b0028"
+      ],
+      "labels": [],
+      "source_latex_hint": "list_item"
     },
     {
-      "id": "gt:block:all_features_small:12",
+      "id": "gt:all_features_small:b0016",
+      "type": "list",
+      "text": "enumerate",
+      "parent_id": "gt:all_features_small:b0015",
+      "children": [
+        "gt:all_features_small:b0017"
+      ],
+      "labels": [],
+      "source_latex_hint": "list",
+      "list_kind": "enumerate"
+    },
+    {
+      "id": "gt:all_features_small:b0017",
       "type": "list_item",
       "text": "sub",
-      "label": null,
-      "ref_target": null,
-      "order": 12,
-      "parent_id": "gt:block:all_features_small:10",
+      "parent_id": "gt:all_features_small:b0016",
       "children": [],
-      "expected_docling_kind": "list_item",
-      "source_latex_hint": "\\item"
+      "labels": [],
+      "source_latex_hint": "list_item"
     },
     {
-      "id": "gt:block:all_features_small:13",
-      "type": "bibliography_like",
-      "text": "References",
-      "label": null,
-      "ref_target": null,
-      "order": 13,
+      "id": "gt:all_features_small:b0018",
+      "type": "footnote",
+      "text": "All note",
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "text",
-      "source_latex_hint": "References"
+      "labels": [],
+      "source_latex_hint": "footnote"
     },
     {
-      "id": "gt:block:all_features_small:14",
+      "id": "gt:all_features_small:b0019",
+      "type": "paragraph",
+      "text": "ref",
+      "parent_id": "gt:all_features_small:b0015",
+      "children": [
+        "gt:all_features_small:b0020",
+        "gt:all_features_small:b0021",
+        "gt:all_features_small:b0022",
+        "gt:all_features_small:b0023",
+        "gt:all_features_small:b0024"
+      ],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:all_features_small:b0020",
       "type": "reference",
       "text": "ref:sec:all",
-      "label": null,
-      "ref_target": "sec:all",
-      "order": 14,
-      "parent_id": null,
+      "parent_id": "gt:all_features_small:b0019",
       "children": [],
-      "expected_docling_kind": "text",
-      "source_latex_hint": "\\ref"
+      "labels": [],
+      "source_latex_hint": "reference"
     },
     {
-      "id": "gt:block:all_features_small:15",
+      "id": "gt:all_features_small:b0021",
       "type": "reference",
       "text": "ref:sub:all",
-      "label": null,
-      "ref_target": "sub:all",
-      "order": 15,
-      "parent_id": null,
+      "parent_id": "gt:all_features_small:b0019",
       "children": [],
-      "expected_docling_kind": "text",
-      "source_latex_hint": "\\ref"
+      "labels": [],
+      "source_latex_hint": "reference"
     },
     {
-      "id": "gt:block:all_features_small:16",
+      "id": "gt:all_features_small:b0022",
       "type": "reference",
       "text": "ref:fig:all",
-      "label": null,
-      "ref_target": "fig:all",
-      "order": 16,
-      "parent_id": null,
+      "parent_id": "gt:all_features_small:b0019",
       "children": [],
-      "expected_docling_kind": "text",
-      "source_latex_hint": "\\ref"
+      "labels": [],
+      "source_latex_hint": "reference"
     },
     {
-      "id": "gt:block:all_features_small:17",
+      "id": "gt:all_features_small:b0023",
       "type": "reference",
       "text": "ref:tab:all",
-      "label": null,
-      "ref_target": "tab:all",
-      "order": 17,
-      "parent_id": null,
+      "parent_id": "gt:all_features_small:b0019",
       "children": [],
-      "expected_docling_kind": "text",
-      "source_latex_hint": "\\ref"
+      "labels": [],
+      "source_latex_hint": "reference"
     },
     {
-      "id": "gt:block:all_features_small:18",
+      "id": "gt:all_features_small:b0024",
       "type": "reference",
       "text": "ref:eq:all",
-      "label": null,
-      "ref_target": "eq:all",
-      "order": 18,
-      "parent_id": null,
+      "parent_id": "gt:all_features_small:b0019",
       "children": [],
-      "expected_docling_kind": "text",
-      "source_latex_hint": "\\ref"
+      "labels": [],
+      "source_latex_hint": "reference"
+    },
+    {
+      "id": "gt:all_features_small:b0025",
+      "type": "paragraph",
+      "text": ".",
+      "parent_id": "gt:all_features_small:b0015",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:all_features_small:b0026",
+      "type": "section",
+      "text": "References",
+      "parent_id": null,
+      "children": [
+        "gt:all_features_small:b0027"
+      ],
+      "labels": [],
+      "source_latex_hint": "section"
+    },
+    {
+      "id": "gt:all_features_small:b0027",
+      "type": "bibliography_like",
+      "text": "References",
+      "parent_id": "gt:all_features_small:b0026",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "bibliography_like"
+    },
+    {
+      "id": "gt:all_features_small:b0028",
+      "type": "paragraph",
+      "text": "[1] Item. \\end{document}",
+      "parent_id": "gt:all_features_small:b0015",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
     }
   ],
   "labels": {
-    "sec:all": "gt:block:all_features_small:1",
-    "sub:all": "gt:block:all_features_small:3",
-    "fig:all": "gt:block:all_features_small:4",
-    "tab:all": "gt:block:all_features_small:6",
-    "eq:all": "gt:block:all_features_small:8"
+    "sec:all": "gt:all_features_small:b0004",
+    "sub:all": "gt:all_features_small:b0005",
+    "fig:all": "gt:all_features_small:b0006",
+    "tab:all": "gt:all_features_small:b0009",
+    "eq:all": "gt:all_features_small:b0013"
   },
   "references": [
     {
       "id": "gt:ref:all_features_small:0",
-      "source_node_id": "gt:block:all_features_small:14",
+      "source_node_id": "gt:all_features_small:b0020",
+      "source_block_id": "gt:all_features_small:b0020",
       "target_label": "sec:all",
-      "target_node_id": "gt:block:all_features_small:1",
+      "relation_type": "reference_to",
       "reference_text": "\\ref{sec:all}",
+      "target_block_id": "gt:all_features_small:b0004",
+      "target_node_id": "gt:all_features_small:b0004",
+      "resolved": true,
       "expected_resolved": true
     },
     {
       "id": "gt:ref:all_features_small:1",
-      "source_node_id": "gt:block:all_features_small:15",
+      "source_node_id": "gt:all_features_small:b0021",
+      "source_block_id": "gt:all_features_small:b0021",
       "target_label": "sub:all",
-      "target_node_id": "gt:block:all_features_small:3",
+      "relation_type": "reference_to",
       "reference_text": "\\ref{sub:all}",
+      "target_block_id": "gt:all_features_small:b0005",
+      "target_node_id": "gt:all_features_small:b0005",
+      "resolved": true,
       "expected_resolved": true
     },
     {
       "id": "gt:ref:all_features_small:2",
-      "source_node_id": "gt:block:all_features_small:16",
+      "source_node_id": "gt:all_features_small:b0022",
+      "source_block_id": "gt:all_features_small:b0022",
       "target_label": "fig:all",
-      "target_node_id": "gt:block:all_features_small:4",
+      "relation_type": "reference_to",
       "reference_text": "\\ref{fig:all}",
+      "target_block_id": "gt:all_features_small:b0006",
+      "target_node_id": "gt:all_features_small:b0006",
+      "resolved": true,
       "expected_resolved": true
     },
     {
       "id": "gt:ref:all_features_small:3",
-      "source_node_id": "gt:block:all_features_small:17",
+      "source_node_id": "gt:all_features_small:b0023",
+      "source_block_id": "gt:all_features_small:b0023",
       "target_label": "tab:all",
-      "target_node_id": "gt:block:all_features_small:6",
+      "relation_type": "reference_to",
       "reference_text": "\\ref{tab:all}",
+      "target_block_id": "gt:all_features_small:b0009",
+      "target_node_id": "gt:all_features_small:b0009",
+      "resolved": true,
       "expected_resolved": true
     },
     {
       "id": "gt:ref:all_features_small:4",
-      "source_node_id": "gt:block:all_features_small:18",
+      "source_node_id": "gt:all_features_small:b0024",
+      "source_block_id": "gt:all_features_small:b0024",
       "target_label": "eq:all",
-      "target_node_id": "gt:block:all_features_small:8",
+      "relation_type": "reference_to",
       "reference_text": "\\ref{eq:all}",
+      "target_block_id": "gt:all_features_small:b0013",
+      "target_node_id": "gt:all_features_small:b0013",
+      "resolved": true,
       "expected_resolved": true
     }
   ],
+  "relations": [
+    {
+      "type": "caption_of",
+      "caption_text": "Boxed figure",
+      "source_block_id": "gt:all_features_small:b0008",
+      "target_label": null
+    },
+    {
+      "type": "caption_of",
+      "caption_text": "Sample table",
+      "source_block_id": "gt:all_features_small:b0011",
+      "target_label": null
+    },
+    {
+      "type": "footnote_of",
+      "source_block_id": "gt:all_features_small:b0018",
+      "target_block_id": "gt:all_features_small:b0017",
+      "footnote_text": "All note"
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:all_features_small:b0020",
+      "target_label": "sec:all",
+      "resolved": true
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:all_features_small:b0021",
+      "target_label": "sub:all",
+      "resolved": true
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:all_features_small:b0022",
+      "target_label": "fig:all",
+      "resolved": true
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:all_features_small:b0023",
+      "target_label": "tab:all",
+      "resolved": true
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:all_features_small:b0024",
+      "target_label": "eq:all",
+      "resolved": true
+    }
+  ],
   "features": {
+    "paragraph": 8,
+    "title": 1,
     "section": 2,
     "subsection": 1,
     "figure": 1,
+    "caption": 2,
     "table": 1,
     "equation": 1,
-    "footnote": 1,
-    "caption": 2,
-    "list": 1,
+    "list": 2,
     "list_item": 2,
+    "footnote": 1,
     "reference": 5,
-    "bibliography_like": 1,
-    "paragraph": 0
-  }
+    "bibliography_like": 1
+  },
+  "pages_expected_min": 1
 }

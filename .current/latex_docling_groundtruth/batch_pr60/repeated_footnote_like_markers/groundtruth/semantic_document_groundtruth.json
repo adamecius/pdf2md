@@ -1,0 +1,91 @@
+{
+  "schema_name": "pdf2md.semantic_document_groundtruth",
+  "schema_version": "1.0.0",
+  "document_id": "repeated_footnote_like_markers",
+  "title": "Repeated Footnote Like Markers",
+  "pages": [
+    {
+      "page_count": 1
+    }
+  ],
+  "body": [
+    {
+      "id": "gt:repeated_footnote_like_markers:b0001",
+      "type": "paragraph",
+      "text": "\\documentclass{article} \\usepackage{amsmath} \\begin{document}",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:repeated_footnote_like_markers:b0002",
+      "type": "title",
+      "text": "Repeated Footnote Like Markers",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "title"
+    },
+    {
+      "id": "gt:repeated_footnote_like_markers:b0003",
+      "type": "paragraph",
+      "text": "\\maketitle",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:repeated_footnote_like_markers:b0004",
+      "type": "section",
+      "text": "Notes",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "section"
+    },
+    {
+      "id": "gt:repeated_footnote_like_markers:b0005",
+      "type": "paragraph",
+      "text": "markers [*] [*] and one real",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:repeated_footnote_like_markers:b0006",
+      "type": "footnote",
+      "text": "Only real note",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "footnote"
+    },
+    {
+      "id": "gt:repeated_footnote_like_markers:b0007",
+      "type": "paragraph",
+      "text": ". \\end{document}",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    }
+  ],
+  "labels": {},
+  "references": [],
+  "relations": [
+    {
+      "type": "footnote_of",
+      "source_block_id": "gt:repeated_footnote_like_markers:b0006",
+      "target_block_id": "gt:repeated_footnote_like_markers:b0005",
+      "footnote_text": "Only real note"
+    }
+  ],
+  "warnings": [],
+  "provenance": {
+    "source_tex": ".current/latex_docling_groundtruth/batch_pr60/repeated_footnote_like_markers/input/repeated_footnote_like_markers.tex",
+    "source_pdf": ".current/latex_docling_groundtruth/batch_pr60/repeated_footnote_like_markers/input/repeated_footnote_like_markers.pdf"
+  }
+}

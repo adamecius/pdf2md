@@ -1,0 +1,3002 @@
+{
+  "schema_name": "pdf2md.extraction_ir_page",
+  "schema_version": "1.0.0",
+  "ir_stage": "backend_extraction_page",
+  "page_id": "paddleocr_pp_structurev3_p0002",
+  "document_id": "multipage_all_features_references_footnotes",
+  "backend_id": "paddleocr_pp_structurev3",
+  "backend_name": "paddleocr_pp_structurev3",
+  "run_id": "run_20260503_195858",
+  "page_index": 2,
+  "page_number": 3,
+  "status": "ok",
+  "dimensions": {
+    "width": null,
+    "height": null,
+    "unit": null,
+    "rotation": null,
+    "native_width_px": 1191.0,
+    "native_height_px": 1684.0
+  },
+  "rendering": {
+    "page_image_ref": {
+      "artifact_id": "paddleocr_pp_structurev3_p0002_image",
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/page_images/page_0002.png",
+      "mime_type": "image/png",
+      "dpi": 300,
+      "width_px": 3573,
+      "height_px": 1709,
+      "sha256": "sha256:99bfc7edc60f0a5fdfdc20b658c9404c44cd7697fae14ecbb57b4954cf72c6b1",
+      "status": "available_from_paddleocr_official_output"
+    },
+    "page_image_quality": {
+      "available": true,
+      "dpi": 300,
+      "width_px": 3573,
+      "height_px": 1709,
+      "aspect_ratio": 2.090696,
+      "mean_luma": 247.501,
+      "std_luma": 33.719,
+      "contrast_estimate": 0.264461,
+      "dark_fraction": 0.004666,
+      "bright_fraction": 0.946639,
+      "edge_energy": 11.916611,
+      "laplacian_variance": 3928.608887
+    },
+    "inference_input_ref": {
+      "mode": "pdf",
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/input/multipage_all_features_references_footnotes.pdf",
+      "coordinate_alignment": "normalised_geometry_projected_to_evidence_image"
+    }
+  },
+  "blocks": [
+    {
+      "block_id": "paddleocr_pp_structurev3_p0002_b0000",
+      "page_id": "paddleocr_pp_structurev3_p0002",
+      "document_id": "multipage_all_features_references_footnotes",
+      "backend_id": "paddleocr_pp_structurev3",
+      "page_index": 2,
+      "page_number": 3,
+      "order": 0,
+      "type": "unknown",
+      "subtype": "generated_markdown_page",
+      "semantic_role": "raw_generated_page_evidence",
+      "docling_label_hint": "text",
+      "docling": {
+        "label_hint": "text",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": true,
+        "notes": [
+          "PaddleOCR page Markdown. Prefer structural blocks when parsing_res_list is present."
+        ],
+        "compile_role": "evidence_only",
+        "compile_notes": []
+      },
+      "geometry": null,
+      "content": {
+        "text": "terministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page fl ow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout.\n\n",
+        "normalised_text": "terministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page fl ow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout.",
+        "markdown": "terministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page fl ow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout.\n\n",
+        "html": null,
+        "latex": null,
+        "language": null
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": null,
+        "child_block_ids": [
+          "paddleocr_pp_structurev3_p0002_m0000"
+        ]
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [],
+        "span_refs": [],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [],
+      "spans": [],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.7,
+        "structure": 0.5
+      },
+      "comparison": {
+        "compare_as": "generated_page_markdown",
+        "text_hash": "sha256:9da91cc72a4e4335f9c3ff92052ce738f86881475215a9922194b668bea7d172",
+        "geometry_hash": null,
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "normalised_text"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "paddleocr_pp_structurev3_p0002_b0000_src0",
+          "backend_id": "paddleocr_pp_structurev3",
+          "backend_name": "paddleocr_pp_structurev3",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/raw_pages/page_0002.official.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/raw_pages/page_0002.clean.md",
+          "json_pointer": "/markdown",
+          "raw_id": "page_2",
+          "native_type": "markdown_generation",
+          "native_bbox": null,
+          "native_polygon": null,
+          "native_coordinate_space": null,
+          "confidence": null,
+          "sha256": "sha256:3dcc5bf7c25770ae9959c21181dec25758ae9c46e96b5b238228e76cb49067d6",
+          "clean_sha256": "sha256:25f1f6ecf6abeacd5a6a966619e39ae93b0ca7493fe65739b730153b6ede6273"
+        }
+      ],
+      "flags": [
+        {
+          "code": "generated_page_markdown",
+          "severity": "low",
+          "message": "PaddleOCR generated page Markdown preserved as page-level evidence."
+        },
+        {
+          "code": "raw_page_block_excluded_from_docling",
+          "severity": "low",
+          "message": "Semantic Markdown-derived blocks are available; this page-level evidence block should not be compiled directly into Docling."
+        }
+      ],
+      "block_family": "raw_page_evidence"
+    },
+    {
+      "block_id": "paddleocr_pp_structurev3_p0002_m0000",
+      "page_id": "paddleocr_pp_structurev3_p0002",
+      "document_id": "multipage_all_features_references_footnotes",
+      "backend_id": "paddleocr_pp_structurev3",
+      "page_index": 2,
+      "page_number": 3,
+      "order": 1,
+      "type": "paragraph",
+      "subtype": null,
+      "semantic_role": "body_text",
+      "docling_label_hint": "text",
+      "docling": {
+        "label_hint": "text",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": true,
+        "notes": [
+          "Provisional semantic block parsed from PaddleOCR generated Markdown; native PaddleOCR layout blocks may provide geometry."
+        ],
+        "compile_role": "duplicate_candidate",
+        "compile_notes": []
+      },
+      "geometry": null,
+      "content": {
+        "text": "terministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page fl ow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout.",
+        "normalised_text": "terministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page fl ow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout.",
+        "markdown": "terministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page fl ow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout.",
+        "html": null,
+        "latex": null,
+        "language": null,
+        "char_span": {
+          "start": 0,
+          "end": 2644
+        }
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": "paddleocr_pp_structurev3_p0002_b0000",
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [],
+        "span_refs": [],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null,
+        "native_match_refs": [
+          "paddleocr_pp_structurev3_p0002_r0000"
+        ]
+      },
+      "lines": [],
+      "spans": [],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.65,
+        "structure": 0.55
+      },
+      "comparison": {
+        "compare_as": "semantic_markdown_block",
+        "text_hash": "sha256:9da91cc72a4e4335f9c3ff92052ce738f86881475215a9922194b668bea7d172",
+        "geometry_hash": null,
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "normalised_text"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "paddleocr_pp_structurev3_p0002_m0000_src0",
+          "backend_id": "paddleocr_pp_structurev3",
+          "backend_name": "paddleocr_pp_structurev3",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/raw_pages/page_0002.official.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/raw_pages/page_0002.clean.md",
+          "json_pointer": null,
+          "raw_id": "page_2_markdown_block_0",
+          "native_type": "markdown_enrichment:paragraph",
+          "native_bbox": null,
+          "native_polygon": null,
+          "native_coordinate_space": null,
+          "confidence": null,
+          "sha256": "sha256:3dcc5bf7c25770ae9959c21181dec25758ae9c46e96b5b238228e76cb49067d6",
+          "clean_sha256": "sha256:25f1f6ecf6abeacd5a6a966619e39ae93b0ca7493fe65739b730153b6ede6273",
+          "clean_char_start": 0,
+          "clean_char_end": 2644
+        }
+      ],
+      "flags": [
+        {
+          "code": "geometry_missing",
+          "severity": "low",
+          "message": "Block was parsed from generated Markdown and has no direct Markdown geometry; PaddleOCR native layout blocks may provide geometry separately."
+        },
+        {
+          "code": "duplicate_docling_candidate",
+          "severity": "low",
+          "message": "Markdown semantic block appears to duplicate a native PaddleOCR layout block."
+        }
+      ],
+      "block_family": "markdown_semantic"
+    },
+    {
+      "block_id": "paddleocr_pp_structurev3_p0002_r0000",
+      "page_id": "paddleocr_pp_structurev3_p0002",
+      "document_id": "multipage_all_features_references_footnotes",
+      "backend_id": "paddleocr_pp_structurev3",
+      "page_index": 2,
+      "page_number": 3,
+      "order": 3,
+      "type": "paragraph",
+      "subtype": null,
+      "semantic_role": "body_text",
+      "docling_label_hint": "text",
+      "docling": {
+        "label_hint": "text",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Block created from PaddleOCR parsing_res_list."
+        ],
+        "compile_role": "use",
+        "compile_notes": []
+      },
+      "geometry": {
+        "bbox": [
+          219.983,
+          150.238,
+          800.168,
+          616.39
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "terministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page fl ow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout.\n",
+        "normalised_text": "terministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page fl ow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout.",
+        "markdown": "terministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page fl ow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout.\n",
+        "html": null,
+        "latex": null,
+        "language": null
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": null,
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [
+          "paddleocr_pp_structurev3_p0002_l0000",
+          "paddleocr_pp_structurev3_p0002_l0001",
+          "paddleocr_pp_structurev3_p0002_l0002",
+          "paddleocr_pp_structurev3_p0002_l0003",
+          "paddleocr_pp_structurev3_p0002_l0004",
+          "paddleocr_pp_structurev3_p0002_l0005",
+          "paddleocr_pp_structurev3_p0002_l0006",
+          "paddleocr_pp_structurev3_p0002_l0007",
+          "paddleocr_pp_structurev3_p0002_l0008",
+          "paddleocr_pp_structurev3_p0002_l0009",
+          "paddleocr_pp_structurev3_p0002_l0010",
+          "paddleocr_pp_structurev3_p0002_l0011",
+          "paddleocr_pp_structurev3_p0002_l0012",
+          "paddleocr_pp_structurev3_p0002_l0013",
+          "paddleocr_pp_structurev3_p0002_l0014",
+          "paddleocr_pp_structurev3_p0002_l0015",
+          "paddleocr_pp_structurev3_p0002_l0016",
+          "paddleocr_pp_structurev3_p0002_l0017",
+          "paddleocr_pp_structurev3_p0002_l0018",
+          "paddleocr_pp_structurev3_p0002_l0019",
+          "paddleocr_pp_structurev3_p0002_l0020",
+          "paddleocr_pp_structurev3_p0002_l0021",
+          "paddleocr_pp_structurev3_p0002_l0022",
+          "paddleocr_pp_structurev3_p0002_l0023",
+          "paddleocr_pp_structurev3_p0002_l0024",
+          "paddleocr_pp_structurev3_p0002_l0025",
+          "paddleocr_pp_structurev3_p0002_l0026",
+          "paddleocr_pp_structurev3_p0002_l0027",
+          "paddleocr_pp_structurev3_p0002_l0028",
+          "paddleocr_pp_structurev3_p0002_l0029",
+          "paddleocr_pp_structurev3_p0002_l0030",
+          "paddleocr_pp_structurev3_p0002_l0031",
+          "paddleocr_pp_structurev3_p0002_l0032"
+        ],
+        "span_refs": [],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null,
+        "semantic_match_refs": [
+          "paddleocr_pp_structurev3_p0002_m0000"
+        ]
+      },
+      "lines": [
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0000",
+          "order": 0,
+          "text": "terministic filler sentence for page flow and stable layout. Deterministic filler",
+          "normalised_text": "terministic filler sentence for page flow and stable layout. deterministic filler",
+          "geometry": {
+            "bbox": [
+              223.342,
+              149.644,
+              801.008,
+              161.52
+            ],
+            "polygon": [
+              [
+                223.342,
+                149.644
+              ],
+              [
+                801.008,
+                149.644
+              ],
+              [
+                801.008,
+                161.52
+              ],
+              [
+                223.342,
+                161.52
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.967574417591095
+          },
+          "native": {
+            "bbox": [
+              266.0,
+              252.0,
+              954.0,
+              272.0
+            ],
+            "polygon": [
+              [
+                266.0,
+                252.0
+              ],
+              [
+                954.0,
+                252.0
+              ],
+              [
+                954.0,
+                272.0
+              ],
+              [
+                266.0,
+                272.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.967574417591095,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0001",
+          "order": 1,
+          "text": "sentence for page flow and stable layout. Deterministic filler sentence for page",
+          "normalised_text": "sentence for page flow and stable layout. deterministic filler sentence for page",
+          "geometry": {
+            "bbox": [
+              222.502,
+              163.895,
+              802.687,
+              176.366
+            ],
+            "polygon": [
+              [
+                222.502,
+                163.895
+              ],
+              [
+                802.687,
+                164.489
+              ],
+              [
+                802.687,
+                176.366
+              ],
+              [
+                222.502,
+                175.772
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9617417454719543
+          },
+          "native": {
+            "bbox": [
+              265.0,
+              276.0,
+              956.0,
+              297.0
+            ],
+            "polygon": [
+              [
+                265.0,
+                276.0
+              ],
+              [
+                956.0,
+                277.0
+              ],
+              [
+                956.0,
+                297.0
+              ],
+              [
+                265.0,
+                296.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9617417454719543,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0002",
+          "order": 2,
+          "text": "flow and stable layout. Deterministic filler sentence for page flow and stable",
+          "normalised_text": "flow and stable layout. deterministic filler sentence for page flow and stable",
+          "geometry": {
+            "bbox": [
+              222.502,
+              177.553,
+              802.687,
+              190.024
+            ],
+            "polygon": [
+              [
+                222.502,
+                178.147
+              ],
+              [
+                802.687,
+                177.553
+              ],
+              [
+                802.687,
+                189.43
+              ],
+              [
+                222.502,
+                190.024
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9578262567520142
+          },
+          "native": {
+            "bbox": [
+              265.0,
+              299.0,
+              956.0,
+              320.0
+            ],
+            "polygon": [
+              [
+                265.0,
+                300.0
+              ],
+              [
+                956.0,
+                299.0
+              ],
+              [
+                956.0,
+                319.0
+              ],
+              [
+                265.0,
+                320.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9578262567520142,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0003",
+          "order": 3,
+          "text": "layout. Deterministic filler sentence for page flow and stable layout. Determin-",
+          "normalised_text": "layout. deterministic filler sentence for page flow and stable layout. determin-",
+          "geometry": {
+            "bbox": [
+              224.181,
+              193.587,
+              801.008,
+              203.682
+            ],
+            "polygon": [
+              [
+                224.181,
+                193.587
+              ],
+              [
+                801.008,
+                193.587
+              ],
+              [
+                801.008,
+                203.682
+              ],
+              [
+                224.181,
+                203.682
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9553640484809875
+          },
+          "native": {
+            "bbox": [
+              267.0,
+              326.0,
+              954.0,
+              343.0
+            ],
+            "polygon": [
+              [
+                267.0,
+                326.0
+              ],
+              [
+                954.0,
+                326.0
+              ],
+              [
+                954.0,
+                343.0
+              ],
+              [
+                267.0,
+                343.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9553640484809875,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0004",
+          "order": 4,
+          "text": "istic filler sentence for page flow and stable layout. Deterministic filler sentence",
+          "normalised_text": "istic filler sentence for page flow and stable layout. deterministic filler sentence",
+          "geometry": {
+            "bbox": [
+              223.342,
+              207.245,
+              802.687,
+              218.527
+            ],
+            "polygon": [
+              [
+                223.342,
+                207.245
+              ],
+              [
+                802.687,
+                207.245
+              ],
+              [
+                802.687,
+                218.527
+              ],
+              [
+                223.342,
+                218.527
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9680952429771423
+          },
+          "native": {
+            "bbox": [
+              266.0,
+              349.0,
+              956.0,
+              368.0
+            ],
+            "polygon": [
+              [
+                266.0,
+                349.0
+              ],
+              [
+                956.0,
+                349.0
+              ],
+              [
+                956.0,
+                368.0
+              ],
+              [
+                266.0,
+                368.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9680952429771423,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0005",
+          "order": 5,
+          "text": "for page flow and stable layout. Deterministic filler sentence for page flow and",
+          "normalised_text": "for page flow and stable layout. deterministic filler sentence for page flow and",
+          "geometry": {
+            "bbox": [
+              222.502,
+              220.309,
+              802.687,
+              232.779
+            ],
+            "polygon": [
+              [
+                222.502,
+                220.903
+              ],
+              [
+                802.687,
+                220.309
+              ],
+              [
+                802.687,
+                232.185
+              ],
+              [
+                222.502,
+                232.779
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9609569311141968
+          },
+          "native": {
+            "bbox": [
+              265.0,
+              371.0,
+              956.0,
+              392.0
+            ],
+            "polygon": [
+              [
+                265.0,
+                372.0
+              ],
+              [
+                956.0,
+                371.0
+              ],
+              [
+                956.0,
+                391.0
+              ],
+              [
+                265.0,
+                392.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9609569311141968,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0006",
+          "order": 6,
+          "text": "stable layout. Deterministic filler sentence for page flow and stable layout. De-",
+          "normalised_text": "stable layout. deterministic filler sentence for page flow and stable layout. de-",
+          "geometry": {
+            "bbox": [
+              222.502,
+              234.561,
+              801.847,
+              247.031
+            ],
+            "polygon": [
+              [
+                222.502,
+                235.154
+              ],
+              [
+                801.847,
+                234.561
+              ],
+              [
+                801.847,
+                246.437
+              ],
+              [
+                222.502,
+                247.031
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.97245192527771
+          },
+          "native": {
+            "bbox": [
+              265.0,
+              395.0,
+              955.0,
+              416.0
+            ],
+            "polygon": [
+              [
+                265.0,
+                396.0
+              ],
+              [
+                955.0,
+                395.0
+              ],
+              [
+                955.0,
+                415.0
+              ],
+              [
+                265.0,
+                416.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.97245192527771,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0007",
+          "order": 7,
+          "text": "terministic filler sentence for page flow and stable layout. Deterministic filler",
+          "normalised_text": "terministic filler sentence for page flow and stable layout. deterministic filler",
+          "geometry": {
+            "bbox": [
+              222.502,
+              248.812,
+              802.687,
+              261.283
+            ],
+            "polygon": [
+              [
+                222.502,
+                249.406
+              ],
+              [
+                802.687,
+                248.812
+              ],
+              [
+                802.687,
+                260.689
+              ],
+              [
+                222.502,
+                261.283
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9637054800987244
+          },
+          "native": {
+            "bbox": [
+              265.0,
+              419.0,
+              956.0,
+              440.0
+            ],
+            "polygon": [
+              [
+                265.0,
+                420.0
+              ],
+              [
+                956.0,
+                419.0
+              ],
+              [
+                956.0,
+                439.0
+              ],
+              [
+                265.0,
+                440.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9637054800987244,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0008",
+          "order": 8,
+          "text": "sentence for page flow and stable layout. Deterministic filler sentence for page",
+          "normalised_text": "sentence for page flow and stable layout. deterministic filler sentence for page",
+          "geometry": {
+            "bbox": [
+              222.502,
+              263.658,
+              802.687,
+              276.128
+            ],
+            "polygon": [
+              [
+                222.502,
+                263.658
+              ],
+              [
+                802.687,
+                264.252
+              ],
+              [
+                802.687,
+                276.128
+              ],
+              [
+                222.502,
+                275.534
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9617417454719543
+          },
+          "native": {
+            "bbox": [
+              265.0,
+              444.0,
+              956.0,
+              465.0
+            ],
+            "polygon": [
+              [
+                265.0,
+                444.0
+              ],
+              [
+                956.0,
+                445.0
+              ],
+              [
+                956.0,
+                465.0
+              ],
+              [
+                265.0,
+                464.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9617417454719543,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0009",
+          "order": 9,
+          "text": "flow and stable layout. Deterministic filler sentence for page flow and stable",
+          "normalised_text": "flow and stable layout. deterministic filler sentence for page flow and stable",
+          "geometry": {
+            "bbox": [
+              224.181,
+              279.097,
+              801.847,
+              289.192
+            ],
+            "polygon": [
+              [
+                224.181,
+                279.097
+              ],
+              [
+                801.847,
+                279.097
+              ],
+              [
+                801.847,
+                289.192
+              ],
+              [
+                224.181,
+                289.192
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9590844511985779
+          },
+          "native": {
+            "bbox": [
+              267.0,
+              470.0,
+              955.0,
+              487.0
+            ],
+            "polygon": [
+              [
+                267.0,
+                470.0
+              ],
+              [
+                955.0,
+                470.0
+              ],
+              [
+                955.0,
+                487.0
+              ],
+              [
+                267.0,
+                487.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9590844511985779,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0010",
+          "order": 10,
+          "text": "layout. Deterministic filler sentence for page flow and stable layout. Determin-",
+          "normalised_text": "layout. deterministic filler sentence for page flow and stable layout. determin-",
+          "geometry": {
+            "bbox": [
+              222.502,
+              291.568,
+              801.847,
+              304.038
+            ],
+            "polygon": [
+              [
+                222.502,
+                292.162
+              ],
+              [
+                801.847,
+                291.568
+              ],
+              [
+                801.847,
+                303.444
+              ],
+              [
+                222.502,
+                304.038
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9571755528450012
+          },
+          "native": {
+            "bbox": [
+              265.0,
+              491.0,
+              955.0,
+              512.0
+            ],
+            "polygon": [
+              [
+                265.0,
+                492.0
+              ],
+              [
+                955.0,
+                491.0
+              ],
+              [
+                955.0,
+                511.0
+              ],
+              [
+                265.0,
+                512.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9571755528450012,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0011",
+          "order": 11,
+          "text": "istic filler sentence for page flow and stable layout. Deterministic filler sentence",
+          "normalised_text": "istic filler sentence for page flow and stable layout. deterministic filler sentence",
+          "geometry": {
+            "bbox": [
+              223.342,
+              306.413,
+              802.687,
+              318.29
+            ],
+            "polygon": [
+              [
+                223.342,
+                306.413
+              ],
+              [
+                802.687,
+                306.413
+              ],
+              [
+                802.687,
+                318.29
+              ],
+              [
+                223.342,
+                318.29
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9703670740127563
+          },
+          "native": {
+            "bbox": [
+              266.0,
+              516.0,
+              956.0,
+              536.0
+            ],
+            "polygon": [
+              [
+                266.0,
+                516.0
+              ],
+              [
+                956.0,
+                516.0
+              ],
+              [
+                956.0,
+                536.0
+              ],
+              [
+                266.0,
+                536.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9703670740127563,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0012",
+          "order": 12,
+          "text": "for page flow and stable layout. Deterministic filler sentence for page flow and",
+          "normalised_text": "for page flow and stable layout. deterministic filler sentence for page flow and",
+          "geometry": {
+            "bbox": [
+              222.502,
+              320.071,
+              802.687,
+              332.542
+            ],
+            "polygon": [
+              [
+                222.502,
+                320.665
+              ],
+              [
+                802.687,
+                320.071
+              ],
+              [
+                802.687,
+                331.948
+              ],
+              [
+                222.502,
+                332.542
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9598386883735657
+          },
+          "native": {
+            "bbox": [
+              265.0,
+              539.0,
+              956.0,
+              560.0
+            ],
+            "polygon": [
+              [
+                265.0,
+                540.0
+              ],
+              [
+                956.0,
+                539.0
+              ],
+              [
+                956.0,
+                559.0
+              ],
+              [
+                265.0,
+                560.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9598386883735657,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0013",
+          "order": 13,
+          "text": "stable layout. Deterministic filler sentence for page flow and stable layout. De-",
+          "normalised_text": "stable layout. deterministic filler sentence for page flow and stable layout. de-",
+          "geometry": {
+            "bbox": [
+              224.181,
+              335.511,
+              801.008,
+              345.606
+            ],
+            "polygon": [
+              [
+                224.181,
+                335.511
+              ],
+              [
+                801.008,
+                335.511
+              ],
+              [
+                801.008,
+                345.606
+              ],
+              [
+                224.181,
+                345.606
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9546942710876465
+          },
+          "native": {
+            "bbox": [
+              267.0,
+              565.0,
+              954.0,
+              582.0
+            ],
+            "polygon": [
+              [
+                267.0,
+                565.0
+              ],
+              [
+                954.0,
+                565.0
+              ],
+              [
+                954.0,
+                582.0
+              ],
+              [
+                267.0,
+                582.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9546942710876465,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0014",
+          "order": 14,
+          "text": "terministic filler sentence for page flow and stable layout. Deterministic filler",
+          "normalised_text": "terministic filler sentence for page flow and stable layout. deterministic filler",
+          "geometry": {
+            "bbox": [
+              222.502,
+              347.981,
+              802.687,
+              361.045
+            ],
+            "polygon": [
+              [
+                222.502,
+                348.575
+              ],
+              [
+                802.687,
+                347.981
+              ],
+              [
+                802.687,
+                360.451
+              ],
+              [
+                222.502,
+                361.045
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9507965445518494
+          },
+          "native": {
+            "bbox": [
+              265.0,
+              586.0,
+              956.0,
+              608.0
+            ],
+            "polygon": [
+              [
+                265.0,
+                587.0
+              ],
+              [
+                956.0,
+                586.0
+              ],
+              [
+                956.0,
+                607.0
+              ],
+              [
+                265.0,
+                608.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9507965445518494,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0015",
+          "order": 15,
+          "text": "sentence for page flow and stable layout. Deterministic filler sentence for page",
+          "normalised_text": "sentence for page flow and stable layout. deterministic filler sentence for page",
+          "geometry": {
+            "bbox": [
+              224.181,
+              364.608,
+              801.847,
+              374.703
+            ],
+            "polygon": [
+              [
+                224.181,
+                364.608
+              ],
+              [
+                801.847,
+                364.608
+              ],
+              [
+                801.847,
+                374.703
+              ],
+              [
+                224.181,
+                374.703
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9687067866325378
+          },
+          "native": {
+            "bbox": [
+              267.0,
+              614.0,
+              955.0,
+              631.0
+            ],
+            "polygon": [
+              [
+                267.0,
+                614.0
+              ],
+              [
+                955.0,
+                614.0
+              ],
+              [
+                955.0,
+                631.0
+              ],
+              [
+                267.0,
+                631.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9687067866325378,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0016",
+          "order": 16,
+          "text": "flow and stable layout. Deterministic filler sentence for page flow and stable",
+          "normalised_text": "flow and stable layout. deterministic filler sentence for page flow and stable",
+          "geometry": {
+            "bbox": [
+              223.342,
+              377.078,
+              802.687,
+              388.955
+            ],
+            "polygon": [
+              [
+                223.342,
+                377.078
+              ],
+              [
+                802.687,
+                377.078
+              ],
+              [
+                802.687,
+                388.955
+              ],
+              [
+                223.342,
+                388.955
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9338430762290955
+          },
+          "native": {
+            "bbox": [
+              266.0,
+              635.0,
+              956.0,
+              655.0
+            ],
+            "polygon": [
+              [
+                266.0,
+                635.0
+              ],
+              [
+                956.0,
+                635.0
+              ],
+              [
+                956.0,
+                655.0
+              ],
+              [
+                266.0,
+                655.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9338430762290955,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0017",
+          "order": 17,
+          "text": "layout. Deterministic filler sentence for page flow and stable layout. Determin-",
+          "normalised_text": "layout. deterministic filler sentence for page flow and stable layout. determin-",
+          "geometry": {
+            "bbox": [
+              222.502,
+              390.736,
+              801.847,
+              403.207
+            ],
+            "polygon": [
+              [
+                222.502,
+                391.33
+              ],
+              [
+                801.847,
+                390.736
+              ],
+              [
+                801.847,
+                402.613
+              ],
+              [
+                222.502,
+                403.207
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9745081663131714
+          },
+          "native": {
+            "bbox": [
+              265.0,
+              658.0,
+              955.0,
+              679.0
+            ],
+            "polygon": [
+              [
+                265.0,
+                659.0
+              ],
+              [
+                955.0,
+                658.0
+              ],
+              [
+                955.0,
+                678.0
+              ],
+              [
+                265.0,
+                679.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9745081663131714,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0018",
+          "order": 18,
+          "text": "istic filler sentence for page flow and stable layout. Deterministic filler sentence",
+          "normalised_text": "istic filler sentence for page flow and stable layout. deterministic filler sentence",
+          "geometry": {
+            "bbox": [
+              224.181,
+              406.77,
+              801.847,
+              416.865
+            ],
+            "polygon": [
+              [
+                224.181,
+                406.77
+              ],
+              [
+                801.847,
+                406.77
+              ],
+              [
+                801.847,
+                416.865
+              ],
+              [
+                224.181,
+                416.865
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9657590985298157
+          },
+          "native": {
+            "bbox": [
+              267.0,
+              685.0,
+              955.0,
+              702.0
+            ],
+            "polygon": [
+              [
+                267.0,
+                685.0
+              ],
+              [
+                955.0,
+                685.0
+              ],
+              [
+                955.0,
+                702.0
+              ],
+              [
+                267.0,
+                702.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9657590985298157,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0019",
+          "order": 19,
+          "text": "for page flow and stable layout. Deterministic filler sentence for page flow and",
+          "normalised_text": "for page flow and stable layout. deterministic filler sentence for page flow and",
+          "geometry": {
+            "bbox": [
+              224.181,
+              421.021,
+              801.847,
+              431.116
+            ],
+            "polygon": [
+              [
+                224.181,
+                421.021
+              ],
+              [
+                801.847,
+                421.021
+              ],
+              [
+                801.847,
+                431.116
+              ],
+              [
+                224.181,
+                431.116
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9526067972183228
+          },
+          "native": {
+            "bbox": [
+              267.0,
+              709.0,
+              955.0,
+              726.0
+            ],
+            "polygon": [
+              [
+                267.0,
+                709.0
+              ],
+              [
+                955.0,
+                709.0
+              ],
+              [
+                955.0,
+                726.0
+              ],
+              [
+                267.0,
+                726.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9526067972183228,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0020",
+          "order": 20,
+          "text": "stable layout. Deterministic filler sentence for page flow and stable layout. De-",
+          "normalised_text": "stable layout. deterministic filler sentence for page flow and stable layout. de-",
+          "geometry": {
+            "bbox": [
+              224.181,
+              435.273,
+              801.008,
+              445.368
+            ],
+            "polygon": [
+              [
+                224.181,
+                435.273
+              ],
+              [
+                801.008,
+                435.273
+              ],
+              [
+                801.008,
+                445.368
+              ],
+              [
+                224.181,
+                445.368
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9546942710876465
+          },
+          "native": {
+            "bbox": [
+              267.0,
+              733.0,
+              954.0,
+              750.0
+            ],
+            "polygon": [
+              [
+                267.0,
+                733.0
+              ],
+              [
+                954.0,
+                733.0
+              ],
+              [
+                954.0,
+                750.0
+              ],
+              [
+                267.0,
+                750.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9546942710876465,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0021",
+          "order": 21,
+          "text": "terministic filler sentence for page flow and stable layout. Deterministic filler",
+          "normalised_text": "terministic filler sentence for page flow and stable layout. deterministic filler",
+          "geometry": {
+            "bbox": [
+              222.502,
+              448.337,
+              802.687,
+              460.214
+            ],
+            "polygon": [
+              [
+                222.502,
+                448.931
+              ],
+              [
+                802.687,
+                448.337
+              ],
+              [
+                802.687,
+                459.62
+              ],
+              [
+                222.502,
+                460.214
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9494661688804626
+          },
+          "native": {
+            "bbox": [
+              265.0,
+              755.0,
+              956.0,
+              775.0
+            ],
+            "polygon": [
+              [
+                265.0,
+                756.0
+              ],
+              [
+                956.0,
+                755.0
+              ],
+              [
+                956.0,
+                774.0
+              ],
+              [
+                265.0,
+                775.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9494661688804626,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0022",
+          "order": 22,
+          "text": "sentence for page flow and stable layout. Deterministic filler sentence for page",
+          "normalised_text": "sentence for page flow and stable layout. deterministic filler sentence for page",
+          "geometry": {
+            "bbox": [
+              224.181,
+              463.777,
+              801.847,
+              473.872
+            ],
+            "polygon": [
+              [
+                224.181,
+                463.777
+              ],
+              [
+                801.847,
+                463.777
+              ],
+              [
+                801.847,
+                473.872
+              ],
+              [
+                224.181,
+                473.872
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9636991620063782
+          },
+          "native": {
+            "bbox": [
+              267.0,
+              781.0,
+              955.0,
+              798.0
+            ],
+            "polygon": [
+              [
+                267.0,
+                781.0
+              ],
+              [
+                955.0,
+                781.0
+              ],
+              [
+                955.0,
+                798.0
+              ],
+              [
+                267.0,
+                798.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9636991620063782,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0023",
+          "order": 23,
+          "text": "flow and stable layout. Deterministic filler sentence for page flow and stable",
+          "normalised_text": "flow and stable layout. deterministic filler sentence for page flow and stable",
+          "geometry": {
+            "bbox": [
+              222.502,
+              476.247,
+              801.847,
+              488.717
+            ],
+            "polygon": [
+              [
+                222.502,
+                476.841
+              ],
+              [
+                801.847,
+                476.247
+              ],
+              [
+                801.847,
+                488.124
+              ],
+              [
+                222.502,
+                488.717
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.967319905757904
+          },
+          "native": {
+            "bbox": [
+              265.0,
+              802.0,
+              955.0,
+              823.0
+            ],
+            "polygon": [
+              [
+                265.0,
+                803.0
+              ],
+              [
+                955.0,
+                802.0
+              ],
+              [
+                955.0,
+                822.0
+              ],
+              [
+                265.0,
+                823.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.967319905757904,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0024",
+          "order": 24,
+          "text": "layout. Deterministic filler sentence for page flow and stable layout. Determin-",
+          "normalised_text": "layout. deterministic filler sentence for page flow and stable layout. determin-",
+          "geometry": {
+            "bbox": [
+              224.181,
+              491.686,
+              801.008,
+              501.781
+            ],
+            "polygon": [
+              [
+                224.181,
+                491.686
+              ],
+              [
+                801.008,
+                491.686
+              ],
+              [
+                801.008,
+                501.781
+              ],
+              [
+                224.181,
+                501.781
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9553640484809875
+          },
+          "native": {
+            "bbox": [
+              267.0,
+              828.0,
+              954.0,
+              845.0
+            ],
+            "polygon": [
+              [
+                267.0,
+                828.0
+              ],
+              [
+                954.0,
+                828.0
+              ],
+              [
+                954.0,
+                845.0
+              ],
+              [
+                267.0,
+                845.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9553640484809875,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0025",
+          "order": 25,
+          "text": "istic filler sentence for page flow and stable layout. Deterministic filler sentence",
+          "normalised_text": "istic filler sentence for page flow and stable layout. deterministic filler sentence",
+          "geometry": {
+            "bbox": [
+              223.342,
+              505.344,
+              802.687,
+              517.221
+            ],
+            "polygon": [
+              [
+                223.342,
+                505.344
+              ],
+              [
+                802.687,
+                505.344
+              ],
+              [
+                802.687,
+                517.221
+              ],
+              [
+                223.342,
+                517.221
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9622920155525208
+          },
+          "native": {
+            "bbox": [
+              266.0,
+              851.0,
+              956.0,
+              871.0
+            ],
+            "polygon": [
+              [
+                266.0,
+                851.0
+              ],
+              [
+                956.0,
+                851.0
+              ],
+              [
+                956.0,
+                871.0
+              ],
+              [
+                266.0,
+                871.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9622920155525208,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0026",
+          "order": 26,
+          "text": "for page flow and stable layout. Deterministic filler sentence for page flow and",
+          "normalised_text": "for page flow and stable layout. deterministic filler sentence for page flow and",
+          "geometry": {
+            "bbox": [
+              222.502,
+              519.002,
+              802.687,
+              531.473
+            ],
+            "polygon": [
+              [
+                222.502,
+                519.596
+              ],
+              [
+                802.687,
+                519.002
+              ],
+              [
+                802.687,
+                530.879
+              ],
+              [
+                222.502,
+                531.473
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9568346738815308
+          },
+          "native": {
+            "bbox": [
+              265.0,
+              874.0,
+              956.0,
+              895.0
+            ],
+            "polygon": [
+              [
+                265.0,
+                875.0
+              ],
+              [
+                956.0,
+                874.0
+              ],
+              [
+                956.0,
+                894.0
+              ],
+              [
+                265.0,
+                895.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9568346738815308,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0027",
+          "order": 27,
+          "text": "stable layout. Deterministic filler sentence for page flow and stable layout. De-",
+          "normalised_text": "stable layout. deterministic filler sentence for page flow and stable layout. de-",
+          "geometry": {
+            "bbox": [
+              222.502,
+              533.254,
+              801.847,
+              545.131
+            ],
+            "polygon": [
+              [
+                222.502,
+                533.848
+              ],
+              [
+                801.847,
+                533.254
+              ],
+              [
+                801.847,
+                544.537
+              ],
+              [
+                222.502,
+                545.131
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9614619612693787
+          },
+          "native": {
+            "bbox": [
+              265.0,
+              898.0,
+              955.0,
+              918.0
+            ],
+            "polygon": [
+              [
+                265.0,
+                899.0
+              ],
+              [
+                955.0,
+                898.0
+              ],
+              [
+                955.0,
+                917.0
+              ],
+              [
+                265.0,
+                918.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9614619612693787,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0028",
+          "order": 28,
+          "text": "terministic filler sentence for page flow and stable layout. Deterministic filler",
+          "normalised_text": "terministic filler sentence for page flow and stable layout. deterministic filler",
+          "geometry": {
+            "bbox": [
+              222.502,
+              546.912,
+              802.687,
+              559.382
+            ],
+            "polygon": [
+              [
+                222.502,
+                547.506
+              ],
+              [
+                802.687,
+                546.912
+              ],
+              [
+                802.687,
+                558.789
+              ],
+              [
+                222.502,
+                559.382
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9697499871253967
+          },
+          "native": {
+            "bbox": [
+              265.0,
+              921.0,
+              956.0,
+              942.0
+            ],
+            "polygon": [
+              [
+                265.0,
+                922.0
+              ],
+              [
+                956.0,
+                921.0
+              ],
+              [
+                956.0,
+                941.0
+              ],
+              [
+                265.0,
+                942.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9697499871253967,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0029",
+          "order": 29,
+          "text": "sentence for page flow and stable layout. Deterministic filler sentence for page",
+          "normalised_text": "sentence for page flow and stable layout. deterministic filler sentence for page",
+          "geometry": {
+            "bbox": [
+              222.502,
+              561.758,
+              802.687,
+              574.228
+            ],
+            "polygon": [
+              [
+                222.502,
+                561.758
+              ],
+              [
+                802.687,
+                562.352
+              ],
+              [
+                802.687,
+                574.228
+              ],
+              [
+                222.502,
+                573.634
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9681395292282104
+          },
+          "native": {
+            "bbox": [
+              265.0,
+              946.0,
+              956.0,
+              967.0
+            ],
+            "polygon": [
+              [
+                265.0,
+                946.0
+              ],
+              [
+                956.0,
+                947.0
+              ],
+              [
+                956.0,
+                967.0
+              ],
+              [
+                265.0,
+                966.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9681395292282104,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0030",
+          "order": 30,
+          "text": "fl ow and stable layout. Deterministic filler sentence for page flow and stable lay-",
+          "normalised_text": "fl ow and stable layout. deterministic filler sentence for page flow and stable lay-",
+          "geometry": {
+            "bbox": [
+              224.181,
+              577.197,
+              800.168,
+              587.292
+            ],
+            "polygon": [
+              [
+                224.181,
+                577.197
+              ],
+              [
+                800.168,
+                577.197
+              ],
+              [
+                800.168,
+                587.292
+              ],
+              [
+                224.181,
+                587.292
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9449059367179871
+          },
+          "native": {
+            "bbox": [
+              267.0,
+              972.0,
+              953.0,
+              989.0
+            ],
+            "polygon": [
+              [
+                267.0,
+                972.0
+              ],
+              [
+                953.0,
+                972.0
+              ],
+              [
+                953.0,
+                989.0
+              ],
+              [
+                267.0,
+                989.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9449059367179871,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0031",
+          "order": 31,
+          "text": "out. Deterministic filler sentence for page flow and stable layout. Deterministic",
+          "normalised_text": "out. deterministic filler sentence for page flow and stable layout. deterministic",
+          "geometry": {
+            "bbox": [
+              223.342,
+              591.449,
+              800.168,
+              601.544
+            ],
+            "polygon": [
+              [
+                223.342,
+                591.449
+              ],
+              [
+                800.168,
+                591.449
+              ],
+              [
+                800.168,
+                601.544
+              ],
+              [
+                223.342,
+                601.544
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9575685262680054
+          },
+          "native": {
+            "bbox": [
+              266.0,
+              996.0,
+              953.0,
+              1013.0
+            ],
+            "polygon": [
+              [
+                266.0,
+                996.0
+              ],
+              [
+                953.0,
+                996.0
+              ],
+              [
+                953.0,
+                1013.0
+              ],
+              [
+                266.0,
+                1013.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9575685262680054,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0032",
+          "order": 32,
+          "text": "filler sentence for page flow and stable layout.",
+          "normalised_text": "filler sentence for page flow and stable layout.",
+          "geometry": {
+            "bbox": [
+              222.502,
+              604.513,
+              559.194,
+              616.983
+            ],
+            "polygon": [
+              [
+                222.502,
+                604.513
+              ],
+              [
+                559.194,
+                605.107
+              ],
+              [
+                559.194,
+                616.983
+              ],
+              [
+                222.502,
+                616.39
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9518988728523254
+          },
+          "native": {
+            "bbox": [
+              265.0,
+              1018.0,
+              666.0,
+              1039.0
+            ],
+            "polygon": [
+              [
+                265.0,
+                1018.0
+              ],
+              [
+                666.0,
+                1019.0
+              ],
+              [
+                666.0,
+                1039.0
+              ],
+              [
+                265.0,
+                1038.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9518988728523254,
+            "detection": null
+          }
+        }
+      ],
+      "spans": [],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.85,
+        "structure": 0.75
+      },
+      "comparison": {
+        "compare_as": "grounded_text_block",
+        "text_hash": "sha256:9da91cc72a4e4335f9c3ff92052ce738f86881475215a9922194b668bea7d172",
+        "geometry_hash": "sha256:01e924d572f61137b9ff0431cc048e6681d5d0346188448d3acecd8296e1c657",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "bbox_iou",
+          "normalised_text"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "paddleocr_pp_structurev3_p0002_r0000_src0",
+          "backend_id": "paddleocr_pp_structurev3",
+          "backend_name": "paddleocr_pp_structurev3",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/raw_pages/page_0002.official.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/raw_pages/page_0002.clean.md",
+          "json_pointer": "/parsing_res_list/0",
+          "raw_id": "page_2_block_0",
+          "native_type": "paddleocr_layout:text",
+          "native_bbox": [
+            262.0,
+            253.0,
+            953.0,
+            1038.0
+          ],
+          "native_polygon": null,
+          "native_coordinate_space": "paddleocr_image_pixels",
+          "confidence": null,
+          "sha256": "sha256:3dcc5bf7c25770ae9959c21181dec25758ae9c46e96b5b238228e76cb49067d6",
+          "clean_sha256": "sha256:25f1f6ecf6abeacd5a6a966619e39ae93b0ca7493fe65739b730153b6ede6273"
+        }
+      ],
+      "flags": [],
+      "block_family": "paddleocr_layout_native"
+    },
+    {
+      "block_id": "paddleocr_pp_structurev3_p0002_r0001",
+      "page_id": "paddleocr_pp_structurev3_p0002",
+      "document_id": "multipage_all_features_references_footnotes",
+      "backend_id": "paddleocr_pp_structurev3",
+      "page_index": 2,
+      "page_number": 3,
+      "order": 4,
+      "type": "page_number",
+      "subtype": null,
+      "semantic_role": "page_number",
+      "docling_label_hint": "page_number",
+      "docling": {
+        "label_hint": "page_number",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": true,
+        "notes": [
+          "Block created from PaddleOCR parsing_res_list."
+        ],
+        "compile_role": "evidence_only",
+        "compile_notes": []
+      },
+      "geometry": {
+        "bbox": [
+          507.976,
+          824.822,
+          516.373,
+          833.729
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "3",
+        "normalised_text": "3",
+        "markdown": "3",
+        "html": null,
+        "latex": null,
+        "language": null
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": null,
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [
+          "paddleocr_pp_structurev3_p0002_l0033"
+        ],
+        "span_refs": [],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [
+        {
+          "line_id": "paddleocr_pp_structurev3_p0002_l0033",
+          "order": 33,
+          "text": "3",
+          "normalised_text": "3",
+          "geometry": {
+            "bbox": [
+              506.297,
+              824.228,
+              519.731,
+              836.105
+            ],
+            "polygon": [
+              [
+                506.297,
+                824.228
+              ],
+              [
+                519.731,
+                824.228
+              ],
+              [
+                519.731,
+                836.105
+              ],
+              [
+                506.297,
+                836.105
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9986258745193481
+          },
+          "native": {
+            "bbox": [
+              603.0,
+              1388.0,
+              619.0,
+              1408.0
+            ],
+            "polygon": [
+              [
+                603.0,
+                1388.0
+              ],
+              [
+                619.0,
+                1388.0
+              ],
+              [
+                619.0,
+                1408.0
+              ],
+              [
+                603.0,
+                1408.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9986258745193481,
+            "detection": null
+          }
+        }
+      ],
+      "spans": [],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.85,
+        "structure": 0.75
+      },
+      "comparison": {
+        "compare_as": "grounded_text_block",
+        "text_hash": "sha256:4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+        "geometry_hash": "sha256:1903e0828986b36fe4be8438c487139ce12689e7b92bcc73986e50ba21025a52",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "bbox_iou",
+          "normalised_text"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "paddleocr_pp_structurev3_p0002_r0001_src0",
+          "backend_id": "paddleocr_pp_structurev3",
+          "backend_name": "paddleocr_pp_structurev3",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/raw_pages/page_0002.official.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/raw_pages/page_0002.clean.md",
+          "json_pointer": "/parsing_res_list/1",
+          "raw_id": "page_2_block_1",
+          "native_type": "paddleocr_layout:number",
+          "native_bbox": [
+            605.0,
+            1389.0,
+            615.0,
+            1404.0
+          ],
+          "native_polygon": null,
+          "native_coordinate_space": "paddleocr_image_pixels",
+          "confidence": null,
+          "sha256": "sha256:3dcc5bf7c25770ae9959c21181dec25758ae9c46e96b5b238228e76cb49067d6",
+          "clean_sha256": "sha256:25f1f6ecf6abeacd5a6a966619e39ae93b0ca7493fe65739b730153b6ede6273"
+        }
+      ],
+      "flags": [],
+      "block_family": "paddleocr_layout_native"
+    }
+  ],
+  "relationships": {
+    "reading_order": [
+      "paddleocr_pp_structurev3_p0002_b0000",
+      "paddleocr_pp_structurev3_p0002_m0000",
+      "paddleocr_pp_structurev3_p0002_r0000",
+      "paddleocr_pp_structurev3_p0002_r0001"
+    ],
+    "parent_child": [],
+    "caption_links": [],
+    "footnote_links": [],
+    "media_refs": [],
+    "semantic_to_native_matches": [
+      {
+        "semantic_block_id": "paddleocr_pp_structurev3_p0002_m0000",
+        "native_block_id": "paddleocr_pp_structurev3_p0002_r0000",
+        "text_similarity": 1.0,
+        "bbox_iou": 0.0,
+        "confidence": 1.0
+      }
+    ],
+    "native_to_semantic_matches": [
+      {
+        "native_block_id": "paddleocr_pp_structurev3_p0002_r0000",
+        "semantic_matches": [
+          {
+            "semantic_block_id": "paddleocr_pp_structurev3_p0002_m0000",
+            "native_block_id": "paddleocr_pp_structurev3_p0002_r0000",
+            "text_similarity": 1.0,
+            "bbox_iou": 0.0,
+            "confidence": 1.0
+          }
+        ]
+      }
+    ],
+    "docling_reading_order": [
+      "paddleocr_pp_structurev3_p0002_r0000"
+    ],
+    "table_refs": [],
+    "formula_refs": [],
+    "media_block_refs": []
+  },
+  "page_text": {
+    "plain_text": "terministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page fl ow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout.\n\n",
+    "normalised_text": "terministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page fl ow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout. deterministic filler sentence for page flow and stable layout.",
+    "markdown": "terministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page fl ow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout.\n\n",
+    "text_hash": "sha256:9da91cc72a4e4335f9c3ff92052ce738f86881475215a9922194b668bea7d172"
+  },
+  "provenance": {
+    "source_pdf": {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/input/multipage_all_features_references_footnotes.pdf",
+      "sha256": "sha256:9ace3dc89a9470df1a5b44c224a7eef9684bef07dc08bebde56afeadeed9fc9f",
+      "page_index": 2,
+      "page_number": 3
+    },
+    "model": {
+      "model_id": "pp_structurev3",
+      "model_path": null,
+      "prompt": null,
+      "prompt_mode": null,
+      "dpi": 300,
+      "base_size": null,
+      "image_size": null
+    },
+    "raw_backend_refs": [
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0002_official_json",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/raw_pages/page_0002.official.json",
+        "kind": "paddleocr_result_json_attribute",
+        "sha256": "sha256:3dcc5bf7c25770ae9959c21181dec25758ae9c46e96b5b238228e76cb49067d6"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0002_markdown_json",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/raw_pages/page_0002.markdown.json",
+        "kind": "paddleocr_markdown_attribute",
+        "sha256": "sha256:6415d9016314fd4a1e322d7aaa6224f4ec6629a068684eaefb788d4eced1bb53"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0002_clean_markdown",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/raw_pages/page_0002.clean.md",
+        "kind": "paddleocr_clean_markdown",
+        "sha256": "sha256:25f1f6ecf6abeacd5a6a966619e39ae93b0ca7493fe65739b730153b6ede6273"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0002_capture_metadata",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/raw_pages/page_0002.capture.json",
+        "kind": "paddleocr_capture_metadata",
+        "sha256": "sha256:4584d064e8cf56a0fa879cd1a75784469a5d5841e4a35298b9e81c80ea4813bb"
+      }
+    ],
+    "official_output_dir": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/official_results/page_0002",
+    "official_saved_files": [
+      {
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/official_results/page_0002/multipage_all_features_references_footnotes_2.md",
+        "size": 2646,
+        "sha256": "sha256:25f1f6ecf6abeacd5a6a966619e39ae93b0ca7493fe65739b730153b6ede6273",
+        "suffix": ".md"
+      },
+      {
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/official_results/page_0002/multipage_all_features_references_footnotes_2_layout_det_res.png",
+        "size": 607130,
+        "sha256": "sha256:ad435db02e0aa38e9b81e4cb5cde0a405292f896fb47cbec26880b3800cd40a4",
+        "suffix": ".png"
+      },
+      {
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/official_results/page_0002/multipage_all_features_references_footnotes_2_layout_order_res.png",
+        "size": 586402,
+        "sha256": "sha256:6db314f7862063190260a0196a976fcb6a706f40ece7588a363860bf3dd54ab8",
+        "suffix": ".png"
+      },
+      {
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/official_results/page_0002/multipage_all_features_references_footnotes_2_overall_ocr_res.png",
+        "size": 925544,
+        "sha256": "sha256:8a88f53ec2e7f0a52efad350d03478a19958a2332be5177fcd3f041d7eee306a",
+        "suffix": ".png"
+      },
+      {
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/official_results/page_0002/multipage_all_features_references_footnotes_2_preprocessed_img.png",
+        "size": 1729610,
+        "sha256": "sha256:99bfc7edc60f0a5fdfdc20b658c9404c44cd7697fae14ecbb57b4954cf72c6b1",
+        "suffix": ".png"
+      },
+      {
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/official_results/page_0002/multipage_all_features_references_footnotes_2_region_det_res.png",
+        "size": 612211,
+        "sha256": "sha256:a3cea7ec2618c2299cde38eb65d5aadbef12f6ac6e2a1972141ab1218ff8b16a",
+        "suffix": ".png"
+      },
+      {
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/official_results/page_0002/multipage_all_features_references_footnotes_2_res.json",
+        "size": 39770,
+        "sha256": "sha256:14ed56b386e7953f9ccb7536593fa89970324be31029aad578989fd717990e73",
+        "suffix": ".json"
+      }
+    ]
+  },
+  "observed_capabilities": {
+    "ocr_text_found": true,
+    "layout_blocks_found": true,
+    "layout_block_count": 2,
+    "semantic_markdown_block_count": 1,
+    "ocr_line_count": 34,
+    "table_count": 0,
+    "formula_count": 0,
+    "seal_count": 0,
+    "media_count": 0,
+    "markdown_image_count": 0,
+    "has_markdown_payload": true,
+    "scan_profile": "digital_pdf",
+    "predict_from_page_images": false,
+    "page_image_quality_available": true
+  },
+  "flags": [],
+  "extraction_summary": {
+    "block_counts_by_type": {
+      "unknown": 1,
+      "paragraph": 2,
+      "page_number": 1
+    },
+    "block_counts_by_family": {
+      "raw_page_evidence": 1,
+      "markdown_semantic": 1,
+      "paddleocr_layout_native": 2
+    },
+    "docling_candidate_counts": {
+      "evidence_only": 2,
+      "duplicate_candidate": 1,
+      "use": 1
+    },
+    "flags_by_severity": {
+      "low": 4
+    },
+    "has_page_image": true,
+    "has_native_layout": true,
+    "has_ocr_lines": true,
+    "has_tables": false,
+    "has_formulas": false,
+    "has_media": false,
+    "semantic_native_match_count": 1
+  }
+}

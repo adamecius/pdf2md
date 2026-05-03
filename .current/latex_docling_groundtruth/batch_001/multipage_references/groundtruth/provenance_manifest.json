@@ -1,41 +1,30 @@
 {
   "schema_name": "pdf2md.latex_docling_groundtruth_manifest",
-  "schema_version": "0.1.0",
+  "schema_version": "1.0.0",
   "document_id": "multipage_references",
   "batch": "batch_001",
-  "generated_at": "2026-05-03T18:47:11.101674+00:00",
+  "generated_at": "2026-05-03T19:57:01.501638+00:00",
   "source_tex": {
     "path": ".current/latex_docling_groundtruth/batch_001/multipage_references/input/multipage_references.tex",
     "sha256": "cbc104782865d7e7ffa1669358be508a5fb6ae5aec70490bc5191c20f8da0edd"
   },
-  "pdf": {
+  "source_pdf": {
     "path": ".current/latex_docling_groundtruth/batch_001/multipage_references/input/multipage_references.pdf",
-    "sha256": "95ac5cfbdacf9f6c3262678e42b1278771d1227495e92c7d450be5bd5bc1bd5e"
+    "sha256": "6197f86ce14e6f405be3d3f2d80dbabe6bc15ba2ad0b73040ff8bca806de06da"
   },
-  "latex_engine": "pdflatex",
-  "latex_command": "pdflatex -interaction=nonstopmode -output-directory=.current/latex_docling_groundtruth/batch_001/multipage_references/input /home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_001/multipage_references/input/multipage_references.tex",
-  "compilation_return_code": 0,
-  "page_count": 5,
-  "pages_expected_min": 2,
   "generated_files": [
-    ".current/latex_docling_groundtruth/batch_001/multipage_references/input/multipage_references.tex",
     ".current/latex_docling_groundtruth/batch_001/multipage_references/groundtruth/source_groundtruth_ir.json",
+    ".current/latex_docling_groundtruth/batch_001/multipage_references/groundtruth/semantic_document_groundtruth.json",
     ".current/latex_docling_groundtruth/batch_001/multipage_references/groundtruth/expected_semantic_contract.json",
     ".current/latex_docling_groundtruth/batch_001/multipage_references/groundtruth/expected_docling_contract.json",
+    ".current/latex_docling_groundtruth/batch_001/multipage_references/groundtruth/latex_groundtruth_report.json",
     ".current/latex_docling_groundtruth/batch_001/multipage_references/groundtruth/provenance_manifest.json"
   ],
   "feature_counts": {
+    "paragraph": 5,
+    "title": 1,
     "section": 2,
-    "subsection": 0,
-    "figure": 0,
-    "table": 0,
-    "equation": 0,
-    "footnote": 0,
-    "caption": 0,
-    "list": 0,
-    "list_item": 0,
-    "reference": 1,
-    "bibliography_like": 0,
-    "paragraph": 110
+    "page_break": 1,
+    "reference": 1
   }
 }

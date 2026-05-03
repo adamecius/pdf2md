@@ -1,41 +1,30 @@
 {
   "schema_name": "pdf2md.latex_docling_groundtruth_manifest",
-  "schema_version": "0.1.0",
+  "schema_version": "1.0.0",
   "document_id": "itemize_enumerate_nested",
   "batch": "batch_001",
-  "generated_at": "2026-05-03T18:47:10.362614+00:00",
+  "generated_at": "2026-05-03T19:57:01.497286+00:00",
   "source_tex": {
     "path": ".current/latex_docling_groundtruth/batch_001/itemize_enumerate_nested/input/itemize_enumerate_nested.tex",
     "sha256": "19e61667dd4a128b3c37be5153f104ec0caf4b38b89cd8717fa137ee6d8c6b11"
   },
-  "pdf": {
+  "source_pdf": {
     "path": ".current/latex_docling_groundtruth/batch_001/itemize_enumerate_nested/input/itemize_enumerate_nested.pdf",
-    "sha256": "d08deb402a4fde96dd0d72cb23734b53b4a28539954fddecf1dd0bdf1d30a27d"
+    "sha256": "5adeebe1447efc9da61317f02eefd861ec99dc9c6be87848707e22f1230fd9d8"
   },
-  "latex_engine": "pdflatex",
-  "latex_command": "pdflatex -interaction=nonstopmode -output-directory=.current/latex_docling_groundtruth/batch_001/itemize_enumerate_nested/input /home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_001/itemize_enumerate_nested/input/itemize_enumerate_nested.tex",
-  "compilation_return_code": 0,
-  "page_count": 1,
-  "pages_expected_min": 1,
   "generated_files": [
-    ".current/latex_docling_groundtruth/batch_001/itemize_enumerate_nested/input/itemize_enumerate_nested.tex",
     ".current/latex_docling_groundtruth/batch_001/itemize_enumerate_nested/groundtruth/source_groundtruth_ir.json",
+    ".current/latex_docling_groundtruth/batch_001/itemize_enumerate_nested/groundtruth/semantic_document_groundtruth.json",
     ".current/latex_docling_groundtruth/batch_001/itemize_enumerate_nested/groundtruth/expected_semantic_contract.json",
     ".current/latex_docling_groundtruth/batch_001/itemize_enumerate_nested/groundtruth/expected_docling_contract.json",
+    ".current/latex_docling_groundtruth/batch_001/itemize_enumerate_nested/groundtruth/latex_groundtruth_report.json",
     ".current/latex_docling_groundtruth/batch_001/itemize_enumerate_nested/groundtruth/provenance_manifest.json"
   ],
   "feature_counts": {
+    "paragraph": 3,
+    "title": 1,
     "section": 1,
-    "subsection": 0,
-    "figure": 0,
-    "table": 0,
-    "equation": 0,
-    "footnote": 0,
-    "caption": 0,
-    "list": 1,
-    "list_item": 3,
-    "reference": 0,
-    "bibliography_like": 0,
-    "paragraph": 0
+    "list": 2,
+    "list_item": 3
   }
 }

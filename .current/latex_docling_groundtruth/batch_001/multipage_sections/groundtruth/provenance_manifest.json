@@ -1,41 +1,28 @@
 {
   "schema_name": "pdf2md.latex_docling_groundtruth_manifest",
-  "schema_version": "0.1.0",
+  "schema_version": "1.0.0",
   "document_id": "multipage_sections",
   "batch": "batch_001",
-  "generated_at": "2026-05-03T18:47:10.992195+00:00",
+  "generated_at": "2026-05-03T19:57:01.502835+00:00",
   "source_tex": {
     "path": ".current/latex_docling_groundtruth/batch_001/multipage_sections/input/multipage_sections.tex",
     "sha256": "ed2567ede6c8c366ca167b040d27e4ed20786bf6d38624e2a5bf032ed2828c95"
   },
-  "pdf": {
+  "source_pdf": {
     "path": ".current/latex_docling_groundtruth/batch_001/multipage_sections/input/multipage_sections.pdf",
-    "sha256": "d740be7228f2583825455ee66031594acfc54f808d0626940d51e713a8bf4d52"
+    "sha256": "f252c9981908c91f73e9daf9c6e02e562605f8af219392fa38b79c1ce1c6b670"
   },
-  "latex_engine": "pdflatex",
-  "latex_command": "pdflatex -interaction=nonstopmode -output-directory=.current/latex_docling_groundtruth/batch_001/multipage_sections/input /home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_001/multipage_sections/input/multipage_sections.tex",
-  "compilation_return_code": 0,
-  "page_count": 5,
-  "pages_expected_min": 2,
   "generated_files": [
-    ".current/latex_docling_groundtruth/batch_001/multipage_sections/input/multipage_sections.tex",
     ".current/latex_docling_groundtruth/batch_001/multipage_sections/groundtruth/source_groundtruth_ir.json",
+    ".current/latex_docling_groundtruth/batch_001/multipage_sections/groundtruth/semantic_document_groundtruth.json",
     ".current/latex_docling_groundtruth/batch_001/multipage_sections/groundtruth/expected_semantic_contract.json",
     ".current/latex_docling_groundtruth/batch_001/multipage_sections/groundtruth/expected_docling_contract.json",
+    ".current/latex_docling_groundtruth/batch_001/multipage_sections/groundtruth/latex_groundtruth_report.json",
     ".current/latex_docling_groundtruth/batch_001/multipage_sections/groundtruth/provenance_manifest.json"
   ],
   "feature_counts": {
-    "section": 1,
-    "subsection": 0,
-    "figure": 0,
-    "table": 0,
-    "equation": 0,
-    "footnote": 0,
-    "caption": 0,
-    "list": 0,
-    "list_item": 0,
-    "reference": 0,
-    "bibliography_like": 0,
-    "paragraph": 125
+    "paragraph": 3,
+    "title": 1,
+    "section": 1
   }
 }

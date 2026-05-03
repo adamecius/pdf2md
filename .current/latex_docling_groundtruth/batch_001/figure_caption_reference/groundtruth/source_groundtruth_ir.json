@@ -1,101 +1,148 @@
 {
   "schema_name": "pdf2md.source_groundtruth_ir",
-  "schema_version": "0.1.0",
+  "schema_version": "1.0.0",
   "document_id": "figure_caption_reference",
   "source_type": "latex",
   "source_tex": ".current/latex_docling_groundtruth/batch_001/figure_caption_reference/input/figure_caption_reference.tex",
   "expected_pdf": ".current/latex_docling_groundtruth/batch_001/figure_caption_reference/input/figure_caption_reference.pdf",
   "title": "Figure Caption Reference",
-  "pages_expected_min": 1,
   "nodes": [
     {
-      "id": "gt:block:figure_caption_reference:0",
+      "id": "gt:figure_caption_reference:b0001",
+      "type": "paragraph",
+      "text": "\\documentclass{article} \\usepackage{amsmath} \\begin{document}",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:figure_caption_reference:b0002",
       "type": "title",
       "text": "Figure Caption Reference",
-      "label": null,
-      "ref_target": null,
-      "order": 0,
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "title",
-      "source_latex_hint": "\\title"
+      "labels": [],
+      "source_latex_hint": "title"
     },
     {
-      "id": "gt:block:figure_caption_reference:1",
+      "id": "gt:figure_caption_reference:b0003",
+      "type": "paragraph",
+      "text": "\\maketitle",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:figure_caption_reference:b0004",
       "type": "section",
       "text": "Visual",
-      "label": null,
-      "ref_target": null,
-      "order": 1,
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "section_header",
-      "source_latex_hint": "\\section"
+      "labels": [],
+      "source_latex_hint": "section"
     },
     {
-      "id": "gt:block:figure_caption_reference:2",
+      "id": "gt:figure_caption_reference:b0005",
       "type": "figure",
-      "text": "figure",
-      "label": null,
-      "ref_target": null,
-      "order": 2,
+      "text": "",
       "parent_id": null,
       "children": [
-        "gt:block:figure_caption_reference:3"
+        "gt:figure_caption_reference:b0006",
+        "gt:figure_caption_reference:b0007"
       ],
-      "expected_docling_kind": "picture",
+      "labels": [
+        "fig:box"
+      ],
       "source_latex_hint": "figure"
     },
     {
-      "id": "gt:block:figure_caption_reference:3",
-      "type": "caption",
-      "text": "Boxed figure",
-      "label": null,
-      "ref_target": null,
-      "order": 3,
-      "parent_id": "gt:block:figure_caption_reference:2",
+      "id": "gt:figure_caption_reference:b0006",
+      "type": "paragraph",
+      "text": "[h]\\centering\\fbox{A}",
+      "parent_id": "gt:figure_caption_reference:b0005",
       "children": [],
-      "expected_docling_kind": "caption",
-      "source_latex_hint": "\\caption"
+      "labels": [],
+      "source_latex_hint": "paragraph"
     },
     {
-      "id": "gt:block:figure_caption_reference:4",
+      "id": "gt:figure_caption_reference:b0007",
+      "type": "caption",
+      "text": "Boxed figure",
+      "parent_id": "gt:figure_caption_reference:b0005",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "caption"
+    },
+    {
+      "id": "gt:figure_caption_reference:b0008",
+      "type": "paragraph",
+      "text": "See Figure~",
+      "parent_id": null,
+      "children": [
+        "gt:figure_caption_reference:b0009"
+      ],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:figure_caption_reference:b0009",
       "type": "reference",
       "text": "ref:fig:box",
-      "label": null,
-      "ref_target": "fig:box",
-      "order": 4,
+      "parent_id": "gt:figure_caption_reference:b0008",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "reference"
+    },
+    {
+      "id": "gt:figure_caption_reference:b0010",
+      "type": "paragraph",
+      "text": ". \\end{document}",
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "text",
-      "source_latex_hint": "\\ref"
+      "labels": [],
+      "source_latex_hint": "paragraph"
     }
   ],
   "labels": {
-    "fig:box": "gt:block:figure_caption_reference:2"
+    "fig:box": "gt:figure_caption_reference:b0005"
   },
   "references": [
     {
       "id": "gt:ref:figure_caption_reference:0",
-      "source_node_id": "gt:block:figure_caption_reference:4",
+      "source_node_id": "gt:figure_caption_reference:b0009",
+      "source_block_id": "gt:figure_caption_reference:b0009",
       "target_label": "fig:box",
-      "target_node_id": "gt:block:figure_caption_reference:2",
+      "relation_type": "reference_to",
       "reference_text": "\\ref{fig:box}",
+      "target_block_id": "gt:figure_caption_reference:b0005",
+      "target_node_id": "gt:figure_caption_reference:b0005",
+      "resolved": true,
       "expected_resolved": true
     }
   ],
+  "relations": [
+    {
+      "type": "caption_of",
+      "caption_text": "Boxed figure",
+      "source_block_id": "gt:figure_caption_reference:b0007",
+      "target_label": null
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:figure_caption_reference:b0009",
+      "target_label": "fig:box",
+      "resolved": true
+    }
+  ],
   "features": {
+    "paragraph": 5,
+    "title": 1,
     "section": 1,
-    "subsection": 0,
     "figure": 1,
-    "table": 0,
-    "equation": 0,
-    "footnote": 0,
     "caption": 1,
-    "list": 0,
-    "list_item": 0,
-    "reference": 1,
-    "bibliography_like": 0,
-    "paragraph": 0
-  }
+    "reference": 1
+  },
+  "pages_expected_min": 1
 }

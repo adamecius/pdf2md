@@ -1,0 +1,29 @@
+{
+  "schema_name": "pdf2md.latex_docling_groundtruth_manifest",
+  "schema_version": "1.0.0",
+  "document_id": "bibliography_like_references",
+  "batch": "batch_pr60",
+  "generated_at": "2026-05-03T19:56:40.211868+00:00",
+  "source_tex": {
+    "path": ".current/latex_docling_groundtruth/batch_pr60/bibliography_like_references/input/bibliography_like_references.tex",
+    "sha256": "40d5ffeea9107b795448569a5d814094b11a649f666e7d5850e0d24a9bc26888"
+  },
+  "source_pdf": {
+    "path": ".current/latex_docling_groundtruth/batch_pr60/bibliography_like_references/input/bibliography_like_references.pdf",
+    "sha256": "5528b2e18403d7b06f12953fe122f74a7f22ca93b22be92099528c6106fae1ea"
+  },
+  "generated_files": [
+    ".current/latex_docling_groundtruth/batch_pr60/bibliography_like_references/groundtruth/source_groundtruth_ir.json",
+    ".current/latex_docling_groundtruth/batch_pr60/bibliography_like_references/groundtruth/semantic_document_groundtruth.json",
+    ".current/latex_docling_groundtruth/batch_pr60/bibliography_like_references/groundtruth/expected_semantic_contract.json",
+    ".current/latex_docling_groundtruth/batch_pr60/bibliography_like_references/groundtruth/expected_docling_contract.json",
+    ".current/latex_docling_groundtruth/batch_pr60/bibliography_like_references/groundtruth/latex_groundtruth_report.json",
+    ".current/latex_docling_groundtruth/batch_pr60/bibliography_like_references/groundtruth/provenance_manifest.json"
+  ],
+  "feature_counts": {
+    "paragraph": 4,
+    "title": 1,
+    "section": 2,
+    "bibliography_like": 1
+  }
+}

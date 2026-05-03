@@ -1,0 +1,66 @@
+{
+  "pipeline": "pp_structurev3",
+  "result_type": "LayoutParsingResultV2",
+  "official_output_dir": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/official_results/page_0001",
+  "save_status": {
+    "save_to_json": true,
+    "save_to_markdown": true,
+    "save_to_img": true
+  },
+  "official_saved_files": [
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/official_results/page_0001/multipage_all_features_references_footnotes_1.md",
+      "size": 3727,
+      "sha256": "sha256:85a0e02bafc43ce927436c80a3c7827787c272b23ecf851419031d7d84e8f79a",
+      "suffix": ".md"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/official_results/page_0001/multipage_all_features_references_footnotes_1_layout_det_res.png",
+      "size": 849179,
+      "sha256": "sha256:dc4e800a51ade547dc54b4cbbccde68cf470f8d3c5890527ccf2fc8cb9b05892",
+      "suffix": ".png"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/official_results/page_0001/multipage_all_features_references_footnotes_1_layout_order_res.png",
+      "size": 820878,
+      "sha256": "sha256:66a0d4b0e26a5f29edf8a5cf6df8a7f9ac56e62598a8c6b5562b0bf422f1b8ca",
+      "suffix": ".png"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/official_results/page_0001/multipage_all_features_references_footnotes_1_overall_ocr_res.png",
+      "size": 1318133,
+      "sha256": "sha256:aa0790af3108a2c4851921ecbc6f3541d4f032f5290984e3eb213e2fc48c8606",
+      "suffix": ".png"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/official_results/page_0001/multipage_all_features_references_footnotes_1_preprocessed_img.png",
+      "size": 2423788,
+      "sha256": "sha256:f7b29b320b3ad5c93c78a3b65b323c9f0bb9914261efffaa65bc3d2a51ac895f",
+      "suffix": ".png"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/official_results/page_0001/multipage_all_features_references_footnotes_1_region_det_res.png",
+      "size": 853892,
+      "sha256": "sha256:152f8b3f389d2d1a981c965b03d2c65e1e0f85cb2326a2baf01d132248d3d625",
+      "suffix": ".png"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/backend_ir/paddleocr/.current/extraction_ir/multipage_all_features_references_footnotes/official_results/page_0001/multipage_all_features_references_footnotes_1_res.json",
+      "size": 54022,
+      "sha256": "sha256:5de7021d65f30f71a53c83041e6203ab6e71b7fe50d841bc0d0e7d7124291b71",
+      "suffix": ".json"
+    }
+  ],
+  "markdown_length": 3727,
+  "markdown_image_count": 0,
+  "result_json_keys": [
+    "res"
+  ],
+  "markdown_keys": [
+    "input_path",
+    "markdown_images",
+    "markdown_texts",
+    "page_continuation_flags",
+    "page_index"
+  ]
+}

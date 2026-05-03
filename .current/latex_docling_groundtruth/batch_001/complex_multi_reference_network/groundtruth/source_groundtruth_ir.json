@@ -1,235 +1,356 @@
 {
   "schema_name": "pdf2md.source_groundtruth_ir",
-  "schema_version": "0.1.0",
+  "schema_version": "1.0.0",
   "document_id": "complex_multi_reference_network",
   "source_type": "latex",
   "source_tex": ".current/latex_docling_groundtruth/batch_001/complex_multi_reference_network/input/complex_multi_reference_network.tex",
   "expected_pdf": ".current/latex_docling_groundtruth/batch_001/complex_multi_reference_network/input/complex_multi_reference_network.pdf",
   "title": "Complex Multi Reference Network",
-  "pages_expected_min": 1,
   "nodes": [
     {
-      "id": "gt:block:complex_multi_reference_network:0",
+      "id": "gt:complex_multi_reference_network:b0001",
+      "type": "paragraph",
+      "text": "\\documentclass{article} \\usepackage{amsmath} \\begin{document}",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:complex_multi_reference_network:b0002",
       "type": "title",
       "text": "Complex Multi Reference Network",
-      "label": null,
-      "ref_target": null,
-      "order": 0,
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "title",
-      "source_latex_hint": "\\title"
+      "labels": [],
+      "source_latex_hint": "title"
     },
     {
-      "id": "gt:block:complex_multi_reference_network:1",
+      "id": "gt:complex_multi_reference_network:b0003",
+      "type": "paragraph",
+      "text": "\\maketitle",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:complex_multi_reference_network:b0004",
       "type": "section",
       "text": "Complex",
-      "label": "sec:complex",
-      "ref_target": null,
-      "order": 1,
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "section_header",
-      "source_latex_hint": "\\section"
+      "labels": [
+        "sec:complex"
+      ],
+      "source_latex_hint": "section"
     },
     {
-      "id": "gt:block:complex_multi_reference_network:2",
+      "id": "gt:complex_multi_reference_network:b0005",
       "type": "subsection",
       "text": "Mesh",
-      "label": "sub:mesh",
-      "ref_target": null,
-      "order": 2,
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "section_header",
-      "source_latex_hint": "\\subsection"
+      "labels": [
+        "sub:mesh"
+      ],
+      "source_latex_hint": "subsection"
     },
     {
-      "id": "gt:block:complex_multi_reference_network:3",
+      "id": "gt:complex_multi_reference_network:b0006",
       "type": "figure",
-      "text": "figure",
-      "label": null,
-      "ref_target": null,
-      "order": 3,
+      "text": "",
       "parent_id": null,
       "children": [
-        "gt:block:complex_multi_reference_network:4"
+        "gt:complex_multi_reference_network:b0007",
+        "gt:complex_multi_reference_network:b0008"
       ],
-      "expected_docling_kind": "picture",
+      "labels": [
+        "fig:box"
+      ],
       "source_latex_hint": "figure"
     },
     {
-      "id": "gt:block:complex_multi_reference_network:4",
+      "id": "gt:complex_multi_reference_network:b0007",
+      "type": "paragraph",
+      "text": "[h]\\centering\\fbox{A}",
+      "parent_id": "gt:complex_multi_reference_network:b0006",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:complex_multi_reference_network:b0008",
       "type": "caption",
       "text": "Boxed figure",
-      "label": null,
-      "ref_target": null,
-      "order": 4,
-      "parent_id": "gt:block:complex_multi_reference_network:3",
+      "parent_id": "gt:complex_multi_reference_network:b0006",
       "children": [],
-      "expected_docling_kind": "caption",
-      "source_latex_hint": "\\caption"
+      "labels": [],
+      "source_latex_hint": "caption"
     },
     {
-      "id": "gt:block:complex_multi_reference_network:5",
+      "id": "gt:complex_multi_reference_network:b0009",
       "type": "table",
-      "text": "table",
-      "label": null,
-      "ref_target": null,
-      "order": 5,
+      "text": "",
       "parent_id": null,
       "children": [
-        "gt:block:complex_multi_reference_network:6"
+        "gt:complex_multi_reference_network:b0010",
+        "gt:complex_multi_reference_network:b0011",
+        "gt:complex_multi_reference_network:b0012"
       ],
-      "expected_docling_kind": "table",
-      "source_latex_hint": "table"
+      "labels": [
+        "tab:s"
+      ],
+      "source_latex_hint": "table",
+      "table_rows": [
+        {
+          "row": 0,
+          "cells": [
+            {
+              "row": 0,
+              "col": 0,
+              "text": "A"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "text": "B"
+            }
+          ]
+        }
+      ]
     },
     {
-      "id": "gt:block:complex_multi_reference_network:6",
+      "id": "gt:complex_multi_reference_network:b0010",
+      "type": "paragraph",
+      "text": "[h]\\centering",
+      "parent_id": "gt:complex_multi_reference_network:b0009",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:complex_multi_reference_network:b0011",
       "type": "caption",
       "text": "Sample table",
-      "label": null,
-      "ref_target": null,
-      "order": 6,
-      "parent_id": "gt:block:complex_multi_reference_network:5",
+      "parent_id": "gt:complex_multi_reference_network:b0009",
       "children": [],
-      "expected_docling_kind": "caption",
-      "source_latex_hint": "\\caption"
+      "labels": [],
+      "source_latex_hint": "caption"
     },
     {
-      "id": "gt:block:complex_multi_reference_network:7",
+      "id": "gt:complex_multi_reference_network:b0012",
+      "type": "paragraph",
+      "text": "{|l|l|}\\hline A&B\\\\\\hline",
+      "parent_id": "gt:complex_multi_reference_network:b0009",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:complex_multi_reference_network:b0013",
       "type": "equation",
       "text": "E=mc^2",
-      "label": null,
-      "ref_target": null,
-      "order": 7,
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "formula",
+      "labels": [
+        "eq:one"
+      ],
       "source_latex_hint": "equation"
     },
     {
-      "id": "gt:block:complex_multi_reference_network:8",
+      "id": "gt:complex_multi_reference_network:b0014",
+      "type": "paragraph",
+      "text": "refs",
+      "parent_id": null,
+      "children": [
+        "gt:complex_multi_reference_network:b0015",
+        "gt:complex_multi_reference_network:b0016",
+        "gt:complex_multi_reference_network:b0017",
+        "gt:complex_multi_reference_network:b0018",
+        "gt:complex_multi_reference_network:b0019"
+      ],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:complex_multi_reference_network:b0015",
       "type": "reference",
       "text": "ref:sec:complex",
-      "label": null,
-      "ref_target": "sec:complex",
-      "order": 8,
-      "parent_id": null,
+      "parent_id": "gt:complex_multi_reference_network:b0014",
       "children": [],
-      "expected_docling_kind": "text",
-      "source_latex_hint": "\\ref"
+      "labels": [],
+      "source_latex_hint": "reference"
     },
     {
-      "id": "gt:block:complex_multi_reference_network:9",
+      "id": "gt:complex_multi_reference_network:b0016",
       "type": "reference",
       "text": "ref:sub:mesh",
-      "label": null,
-      "ref_target": "sub:mesh",
-      "order": 9,
-      "parent_id": null,
+      "parent_id": "gt:complex_multi_reference_network:b0014",
       "children": [],
-      "expected_docling_kind": "text",
-      "source_latex_hint": "\\ref"
+      "labels": [],
+      "source_latex_hint": "reference"
     },
     {
-      "id": "gt:block:complex_multi_reference_network:10",
+      "id": "gt:complex_multi_reference_network:b0017",
       "type": "reference",
       "text": "ref:fig:box",
-      "label": null,
-      "ref_target": "fig:box",
-      "order": 10,
-      "parent_id": null,
+      "parent_id": "gt:complex_multi_reference_network:b0014",
       "children": [],
-      "expected_docling_kind": "text",
-      "source_latex_hint": "\\ref"
+      "labels": [],
+      "source_latex_hint": "reference"
     },
     {
-      "id": "gt:block:complex_multi_reference_network:11",
+      "id": "gt:complex_multi_reference_network:b0018",
       "type": "reference",
       "text": "ref:tab:s",
-      "label": null,
-      "ref_target": "tab:s",
-      "order": 11,
-      "parent_id": null,
+      "parent_id": "gt:complex_multi_reference_network:b0014",
       "children": [],
-      "expected_docling_kind": "text",
-      "source_latex_hint": "\\ref"
+      "labels": [],
+      "source_latex_hint": "reference"
     },
     {
-      "id": "gt:block:complex_multi_reference_network:12",
+      "id": "gt:complex_multi_reference_network:b0019",
       "type": "reference",
       "text": "ref:eq:one",
-      "label": null,
-      "ref_target": "eq:one",
-      "order": 12,
+      "parent_id": "gt:complex_multi_reference_network:b0014",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "reference"
+    },
+    {
+      "id": "gt:complex_multi_reference_network:b0020",
+      "type": "paragraph",
+      "text": ". \\end{document}",
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "text",
-      "source_latex_hint": "\\ref"
+      "labels": [],
+      "source_latex_hint": "paragraph"
     }
   ],
   "labels": {
-    "sec:complex": "gt:block:complex_multi_reference_network:1",
-    "sub:mesh": "gt:block:complex_multi_reference_network:2",
-    "fig:box": "gt:block:complex_multi_reference_network:3",
-    "tab:s": "gt:block:complex_multi_reference_network:5",
-    "eq:one": "gt:block:complex_multi_reference_network:7"
+    "sec:complex": "gt:complex_multi_reference_network:b0004",
+    "sub:mesh": "gt:complex_multi_reference_network:b0005",
+    "fig:box": "gt:complex_multi_reference_network:b0006",
+    "tab:s": "gt:complex_multi_reference_network:b0009",
+    "eq:one": "gt:complex_multi_reference_network:b0013"
   },
   "references": [
     {
       "id": "gt:ref:complex_multi_reference_network:0",
-      "source_node_id": "gt:block:complex_multi_reference_network:8",
+      "source_node_id": "gt:complex_multi_reference_network:b0015",
+      "source_block_id": "gt:complex_multi_reference_network:b0015",
       "target_label": "sec:complex",
-      "target_node_id": "gt:block:complex_multi_reference_network:1",
+      "relation_type": "reference_to",
       "reference_text": "\\ref{sec:complex}",
+      "target_block_id": "gt:complex_multi_reference_network:b0004",
+      "target_node_id": "gt:complex_multi_reference_network:b0004",
+      "resolved": true,
       "expected_resolved": true
     },
     {
       "id": "gt:ref:complex_multi_reference_network:1",
-      "source_node_id": "gt:block:complex_multi_reference_network:9",
+      "source_node_id": "gt:complex_multi_reference_network:b0016",
+      "source_block_id": "gt:complex_multi_reference_network:b0016",
       "target_label": "sub:mesh",
-      "target_node_id": "gt:block:complex_multi_reference_network:2",
+      "relation_type": "reference_to",
       "reference_text": "\\ref{sub:mesh}",
+      "target_block_id": "gt:complex_multi_reference_network:b0005",
+      "target_node_id": "gt:complex_multi_reference_network:b0005",
+      "resolved": true,
       "expected_resolved": true
     },
     {
       "id": "gt:ref:complex_multi_reference_network:2",
-      "source_node_id": "gt:block:complex_multi_reference_network:10",
+      "source_node_id": "gt:complex_multi_reference_network:b0017",
+      "source_block_id": "gt:complex_multi_reference_network:b0017",
       "target_label": "fig:box",
-      "target_node_id": "gt:block:complex_multi_reference_network:3",
+      "relation_type": "reference_to",
       "reference_text": "\\ref{fig:box}",
+      "target_block_id": "gt:complex_multi_reference_network:b0006",
+      "target_node_id": "gt:complex_multi_reference_network:b0006",
+      "resolved": true,
       "expected_resolved": true
     },
     {
       "id": "gt:ref:complex_multi_reference_network:3",
-      "source_node_id": "gt:block:complex_multi_reference_network:11",
+      "source_node_id": "gt:complex_multi_reference_network:b0018",
+      "source_block_id": "gt:complex_multi_reference_network:b0018",
       "target_label": "tab:s",
-      "target_node_id": "gt:block:complex_multi_reference_network:5",
+      "relation_type": "reference_to",
       "reference_text": "\\ref{tab:s}",
+      "target_block_id": "gt:complex_multi_reference_network:b0009",
+      "target_node_id": "gt:complex_multi_reference_network:b0009",
+      "resolved": true,
       "expected_resolved": true
     },
     {
       "id": "gt:ref:complex_multi_reference_network:4",
-      "source_node_id": "gt:block:complex_multi_reference_network:12",
+      "source_node_id": "gt:complex_multi_reference_network:b0019",
+      "source_block_id": "gt:complex_multi_reference_network:b0019",
       "target_label": "eq:one",
-      "target_node_id": "gt:block:complex_multi_reference_network:7",
+      "relation_type": "reference_to",
       "reference_text": "\\ref{eq:one}",
+      "target_block_id": "gt:complex_multi_reference_network:b0013",
+      "target_node_id": "gt:complex_multi_reference_network:b0013",
+      "resolved": true,
       "expected_resolved": true
     }
   ],
+  "relations": [
+    {
+      "type": "caption_of",
+      "caption_text": "Boxed figure",
+      "source_block_id": "gt:complex_multi_reference_network:b0008",
+      "target_label": null
+    },
+    {
+      "type": "caption_of",
+      "caption_text": "Sample table",
+      "source_block_id": "gt:complex_multi_reference_network:b0011",
+      "target_label": null
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:complex_multi_reference_network:b0015",
+      "target_label": "sec:complex",
+      "resolved": true
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:complex_multi_reference_network:b0016",
+      "target_label": "sub:mesh",
+      "resolved": true
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:complex_multi_reference_network:b0017",
+      "target_label": "fig:box",
+      "resolved": true
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:complex_multi_reference_network:b0018",
+      "target_label": "tab:s",
+      "resolved": true
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:complex_multi_reference_network:b0019",
+      "target_label": "eq:one",
+      "resolved": true
+    }
+  ],
   "features": {
+    "paragraph": 7,
+    "title": 1,
     "section": 1,
     "subsection": 1,
     "figure": 1,
+    "caption": 2,
     "table": 1,
     "equation": 1,
-    "footnote": 0,
-    "caption": 2,
-    "list": 0,
-    "list_item": 0,
-    "reference": 5,
-    "bibliography_like": 0,
-    "paragraph": 0
-  }
+    "reference": 5
+  },
+  "pages_expected_min": 1
 }

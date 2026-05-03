@@ -1,0 +1,18 @@
+[consensus]
+output_root = ".current/consensus"
+coordinate_space = "page_normalised_1000"
+text_similarity_threshold = 0.90
+weak_text_similarity_threshold = 0.75
+bbox_iou_threshold = 0.50
+weak_bbox_iou_threshold = 0.25
+include_evidence_only_blocks = false
+
+[backends.paddleocr]
+enabled = true
+root = "backend/paddleocr"
+label = "paddleocr"
+
+[pymupdf]
+enabled = true
+extract_text = true
+extract_images = false

@@ -1,148 +1,225 @@
 {
   "schema_name": "pdf2md.source_groundtruth_ir",
-  "schema_version": "0.1.0",
+  "schema_version": "1.0.0",
   "document_id": "two_figures_cross_references",
   "source_type": "latex",
   "source_tex": ".current/latex_docling_groundtruth/batch_001/two_figures_cross_references/input/two_figures_cross_references.tex",
   "expected_pdf": ".current/latex_docling_groundtruth/batch_001/two_figures_cross_references/input/two_figures_cross_references.pdf",
   "title": "Two Figures Cross References",
-  "pages_expected_min": 1,
   "nodes": [
     {
-      "id": "gt:block:two_figures_cross_references:0",
+      "id": "gt:two_figures_cross_references:b0001",
+      "type": "paragraph",
+      "text": "\\documentclass{article} \\usepackage{amsmath} \\begin{document}",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:two_figures_cross_references:b0002",
       "type": "title",
       "text": "Two Figures Cross References",
-      "label": null,
-      "ref_target": null,
-      "order": 0,
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "title",
-      "source_latex_hint": "\\title"
+      "labels": [],
+      "source_latex_hint": "title"
     },
     {
-      "id": "gt:block:two_figures_cross_references:1",
+      "id": "gt:two_figures_cross_references:b0003",
+      "type": "paragraph",
+      "text": "\\maketitle",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:two_figures_cross_references:b0004",
       "type": "section",
       "text": "Visuals",
-      "label": null,
-      "ref_target": null,
-      "order": 1,
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "section_header",
-      "source_latex_hint": "\\section"
+      "labels": [],
+      "source_latex_hint": "section"
     },
     {
-      "id": "gt:block:two_figures_cross_references:2",
+      "id": "gt:two_figures_cross_references:b0005",
       "type": "figure",
-      "text": "figure",
-      "label": null,
-      "ref_target": null,
-      "order": 2,
+      "text": "",
       "parent_id": null,
       "children": [
-        "gt:block:two_figures_cross_references:3"
+        "gt:two_figures_cross_references:b0006",
+        "gt:two_figures_cross_references:b0007"
       ],
-      "expected_docling_kind": "picture",
+      "labels": [
+        "fig:one"
+      ],
       "source_latex_hint": "figure"
     },
     {
-      "id": "gt:block:two_figures_cross_references:3",
+      "id": "gt:two_figures_cross_references:b0006",
+      "type": "paragraph",
+      "text": "[h]\\centering\\fbox{A}",
+      "parent_id": "gt:two_figures_cross_references:b0005",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:two_figures_cross_references:b0007",
       "type": "caption",
       "text": "First",
-      "label": null,
-      "ref_target": null,
-      "order": 3,
-      "parent_id": "gt:block:two_figures_cross_references:2",
+      "parent_id": "gt:two_figures_cross_references:b0005",
       "children": [],
-      "expected_docling_kind": "caption",
-      "source_latex_hint": "\\caption"
+      "labels": [],
+      "source_latex_hint": "caption"
     },
     {
-      "id": "gt:block:two_figures_cross_references:4",
+      "id": "gt:two_figures_cross_references:b0008",
       "type": "figure",
-      "text": "figure",
-      "label": null,
-      "ref_target": null,
-      "order": 4,
+      "text": "",
       "parent_id": null,
       "children": [
-        "gt:block:two_figures_cross_references:5"
+        "gt:two_figures_cross_references:b0009",
+        "gt:two_figures_cross_references:b0010"
       ],
-      "expected_docling_kind": "picture",
+      "labels": [
+        "fig:two"
+      ],
       "source_latex_hint": "figure"
     },
     {
-      "id": "gt:block:two_figures_cross_references:5",
+      "id": "gt:two_figures_cross_references:b0009",
+      "type": "paragraph",
+      "text": "[h]\\centering\\fbox{B}",
+      "parent_id": "gt:two_figures_cross_references:b0008",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:two_figures_cross_references:b0010",
       "type": "caption",
       "text": "Second",
-      "label": null,
-      "ref_target": null,
-      "order": 5,
-      "parent_id": "gt:block:two_figures_cross_references:4",
+      "parent_id": "gt:two_figures_cross_references:b0008",
       "children": [],
-      "expected_docling_kind": "caption",
-      "source_latex_hint": "\\caption"
+      "labels": [],
+      "source_latex_hint": "caption"
     },
     {
-      "id": "gt:block:two_figures_cross_references:6",
+      "id": "gt:two_figures_cross_references:b0011",
+      "type": "paragraph",
+      "text": "refs",
+      "parent_id": null,
+      "children": [
+        "gt:two_figures_cross_references:b0012"
+      ],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:two_figures_cross_references:b0012",
       "type": "reference",
       "text": "ref:fig:one",
-      "label": null,
-      "ref_target": "fig:one",
-      "order": 6,
-      "parent_id": null,
+      "parent_id": "gt:two_figures_cross_references:b0011",
       "children": [],
-      "expected_docling_kind": "text",
-      "source_latex_hint": "\\ref"
+      "labels": [],
+      "source_latex_hint": "reference"
     },
     {
-      "id": "gt:block:two_figures_cross_references:7",
+      "id": "gt:two_figures_cross_references:b0013",
+      "type": "paragraph",
+      "text": ",",
+      "parent_id": null,
+      "children": [
+        "gt:two_figures_cross_references:b0014"
+      ],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:two_figures_cross_references:b0014",
       "type": "reference",
       "text": "ref:fig:two",
-      "label": null,
-      "ref_target": "fig:two",
-      "order": 7,
+      "parent_id": "gt:two_figures_cross_references:b0013",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "reference"
+    },
+    {
+      "id": "gt:two_figures_cross_references:b0015",
+      "type": "paragraph",
+      "text": ". \\end{document}",
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "text",
-      "source_latex_hint": "\\ref"
+      "labels": [],
+      "source_latex_hint": "paragraph"
     }
   ],
   "labels": {
-    "fig:one": "gt:block:two_figures_cross_references:2",
-    "fig:two": "gt:block:two_figures_cross_references:4"
+    "fig:one": "gt:two_figures_cross_references:b0005",
+    "fig:two": "gt:two_figures_cross_references:b0008"
   },
   "references": [
     {
       "id": "gt:ref:two_figures_cross_references:0",
-      "source_node_id": "gt:block:two_figures_cross_references:6",
+      "source_node_id": "gt:two_figures_cross_references:b0012",
+      "source_block_id": "gt:two_figures_cross_references:b0012",
       "target_label": "fig:one",
-      "target_node_id": "gt:block:two_figures_cross_references:2",
+      "relation_type": "reference_to",
       "reference_text": "\\ref{fig:one}",
+      "target_block_id": "gt:two_figures_cross_references:b0005",
+      "target_node_id": "gt:two_figures_cross_references:b0005",
+      "resolved": true,
       "expected_resolved": true
     },
     {
       "id": "gt:ref:two_figures_cross_references:1",
-      "source_node_id": "gt:block:two_figures_cross_references:7",
+      "source_node_id": "gt:two_figures_cross_references:b0014",
+      "source_block_id": "gt:two_figures_cross_references:b0014",
       "target_label": "fig:two",
-      "target_node_id": "gt:block:two_figures_cross_references:4",
+      "relation_type": "reference_to",
       "reference_text": "\\ref{fig:two}",
+      "target_block_id": "gt:two_figures_cross_references:b0008",
+      "target_node_id": "gt:two_figures_cross_references:b0008",
+      "resolved": true,
       "expected_resolved": true
     }
   ],
+  "relations": [
+    {
+      "type": "caption_of",
+      "caption_text": "First",
+      "source_block_id": "gt:two_figures_cross_references:b0007",
+      "target_label": null
+    },
+    {
+      "type": "caption_of",
+      "caption_text": "Second",
+      "source_block_id": "gt:two_figures_cross_references:b0010",
+      "target_label": null
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:two_figures_cross_references:b0012",
+      "target_label": "fig:one",
+      "resolved": true
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:two_figures_cross_references:b0014",
+      "target_label": "fig:two",
+      "resolved": true
+    }
+  ],
   "features": {
+    "paragraph": 7,
+    "title": 1,
     "section": 1,
-    "subsection": 0,
     "figure": 2,
-    "table": 0,
-    "equation": 0,
-    "footnote": 0,
     "caption": 2,
-    "list": 0,
-    "list_item": 0,
-    "reference": 2,
-    "bibliography_like": 0,
-    "paragraph": 0
-  }
+    "reference": 2
+  },
+  "pages_expected_min": 1
 }

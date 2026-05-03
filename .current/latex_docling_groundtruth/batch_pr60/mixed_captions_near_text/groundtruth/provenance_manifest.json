@@ -1,0 +1,31 @@
+{
+  "schema_name": "pdf2md.latex_docling_groundtruth_manifest",
+  "schema_version": "1.0.0",
+  "document_id": "mixed_captions_near_text",
+  "batch": "batch_pr60",
+  "generated_at": "2026-05-03T19:56:40.220530+00:00",
+  "source_tex": {
+    "path": ".current/latex_docling_groundtruth/batch_pr60/mixed_captions_near_text/input/mixed_captions_near_text.tex",
+    "sha256": "af1860823dc1e75a0886ac9a14ca5ce23204aac40f0ff3c88943833220808c4f"
+  },
+  "source_pdf": {
+    "path": ".current/latex_docling_groundtruth/batch_pr60/mixed_captions_near_text/input/mixed_captions_near_text.pdf",
+    "sha256": "2b3c2d0e072f668225f0ea4db97972a07a59606a1294e8a1497bf10a611991a5"
+  },
+  "generated_files": [
+    ".current/latex_docling_groundtruth/batch_pr60/mixed_captions_near_text/groundtruth/source_groundtruth_ir.json",
+    ".current/latex_docling_groundtruth/batch_pr60/mixed_captions_near_text/groundtruth/semantic_document_groundtruth.json",
+    ".current/latex_docling_groundtruth/batch_pr60/mixed_captions_near_text/groundtruth/expected_semantic_contract.json",
+    ".current/latex_docling_groundtruth/batch_pr60/mixed_captions_near_text/groundtruth/expected_docling_contract.json",
+    ".current/latex_docling_groundtruth/batch_pr60/mixed_captions_near_text/groundtruth/latex_groundtruth_report.json",
+    ".current/latex_docling_groundtruth/batch_pr60/mixed_captions_near_text/groundtruth/provenance_manifest.json"
+  ],
+  "feature_counts": {
+    "paragraph": 7,
+    "title": 1,
+    "section": 1,
+    "figure": 1,
+    "caption": 2,
+    "table": 1
+  }
+}

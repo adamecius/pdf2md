@@ -1,0 +1,30 @@
+{
+  "schema_name": "pdf2md.latex_docling_groundtruth_manifest",
+  "schema_version": "1.0.0",
+  "document_id": "equation_label_reference",
+  "batch": "batch_pr60",
+  "generated_at": "2026-05-03T19:56:40.214664+00:00",
+  "source_tex": {
+    "path": ".current/latex_docling_groundtruth/batch_pr60/equation_label_reference/input/equation_label_reference.tex",
+    "sha256": "1906eb0ecd44d16e8b1291eaef188688d96f8ccf050d0ee6cddf28caa3fb4b06"
+  },
+  "source_pdf": {
+    "path": ".current/latex_docling_groundtruth/batch_pr60/equation_label_reference/input/equation_label_reference.pdf",
+    "sha256": "7087bcf6e2ef7d9a14ed65702113589f2d6f8803d52949664f35feb55b602100"
+  },
+  "generated_files": [
+    ".current/latex_docling_groundtruth/batch_pr60/equation_label_reference/groundtruth/source_groundtruth_ir.json",
+    ".current/latex_docling_groundtruth/batch_pr60/equation_label_reference/groundtruth/semantic_document_groundtruth.json",
+    ".current/latex_docling_groundtruth/batch_pr60/equation_label_reference/groundtruth/expected_semantic_contract.json",
+    ".current/latex_docling_groundtruth/batch_pr60/equation_label_reference/groundtruth/expected_docling_contract.json",
+    ".current/latex_docling_groundtruth/batch_pr60/equation_label_reference/groundtruth/latex_groundtruth_report.json",
+    ".current/latex_docling_groundtruth/batch_pr60/equation_label_reference/groundtruth/provenance_manifest.json"
+  ],
+  "feature_counts": {
+    "paragraph": 4,
+    "title": 1,
+    "section": 1,
+    "equation": 1,
+    "reference": 1
+  }
+}

@@ -1,54 +1,69 @@
 {
   "schema_name": "pdf2md.source_groundtruth_ir",
-  "schema_version": "0.1.0",
+  "schema_version": "1.0.0",
   "document_id": "simple_title_paragraph",
   "source_type": "latex",
   "source_tex": ".current/latex_docling_groundtruth/batch_001/simple_title_paragraph/input/simple_title_paragraph.tex",
   "expected_pdf": ".current/latex_docling_groundtruth/batch_001/simple_title_paragraph/input/simple_title_paragraph.pdf",
   "title": "Simple Title Paragraph",
-  "pages_expected_min": 1,
   "nodes": [
     {
-      "id": "gt:block:simple_title_paragraph:0",
-      "type": "title",
-      "text": "Simple Title Paragraph",
-      "label": null,
-      "ref_target": null,
-      "order": 0,
+      "id": "gt:simple_title_paragraph:b0001",
+      "type": "paragraph",
+      "text": "\\documentclass{article} \\usepackage{amsmath} \\begin{document}",
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "title",
-      "source_latex_hint": "\\title"
+      "labels": [],
+      "source_latex_hint": "paragraph"
     },
     {
-      "id": "gt:block:simple_title_paragraph:1",
-      "type": "section",
-      "text": "Intro",
-      "label": "sec:intro",
-      "ref_target": null,
-      "order": 1,
+      "id": "gt:simple_title_paragraph:b0002",
+      "type": "title",
+      "text": "Simple Title Paragraph",
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "section_header",
-      "source_latex_hint": "\\section"
+      "labels": [],
+      "source_latex_hint": "title"
+    },
+    {
+      "id": "gt:simple_title_paragraph:b0003",
+      "type": "paragraph",
+      "text": "\\maketitle",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:simple_title_paragraph:b0004",
+      "type": "section",
+      "text": "Intro",
+      "parent_id": null,
+      "children": [],
+      "labels": [
+        "sec:intro"
+      ],
+      "source_latex_hint": "section"
+    },
+    {
+      "id": "gt:simple_title_paragraph:b0005",
+      "type": "paragraph",
+      "text": "Plain paragraph for intro. \\end{document}",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
     }
   ],
   "labels": {
-    "sec:intro": "gt:block:simple_title_paragraph:1"
+    "sec:intro": "gt:simple_title_paragraph:b0004"
   },
   "references": [],
+  "relations": [],
   "features": {
-    "section": 1,
-    "subsection": 0,
-    "figure": 0,
-    "table": 0,
-    "equation": 0,
-    "footnote": 0,
-    "caption": 0,
-    "list": 0,
-    "list_item": 0,
-    "reference": 0,
-    "bibliography_like": 0,
-    "paragraph": 0
-  }
+    "paragraph": 3,
+    "title": 1,
+    "section": 1
+  },
+  "pages_expected_min": 1
 }

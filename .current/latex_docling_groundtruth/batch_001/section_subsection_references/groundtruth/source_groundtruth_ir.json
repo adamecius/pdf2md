@@ -1,108 +1,161 @@
 {
   "schema_name": "pdf2md.source_groundtruth_ir",
-  "schema_version": "0.1.0",
+  "schema_version": "1.0.0",
   "document_id": "section_subsection_references",
   "source_type": "latex",
   "source_tex": ".current/latex_docling_groundtruth/batch_001/section_subsection_references/input/section_subsection_references.tex",
   "expected_pdf": ".current/latex_docling_groundtruth/batch_001/section_subsection_references/input/section_subsection_references.pdf",
   "title": "Section Subsection References",
-  "pages_expected_min": 1,
   "nodes": [
     {
-      "id": "gt:block:section_subsection_references:0",
+      "id": "gt:section_subsection_references:b0001",
+      "type": "paragraph",
+      "text": "\\documentclass{article} \\usepackage{amsmath} \\begin{document}",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:section_subsection_references:b0002",
       "type": "title",
       "text": "Section Subsection References",
-      "label": null,
-      "ref_target": null,
-      "order": 0,
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "title",
-      "source_latex_hint": "\\title"
+      "labels": [],
+      "source_latex_hint": "title"
     },
     {
-      "id": "gt:block:section_subsection_references:1",
+      "id": "gt:section_subsection_references:b0003",
+      "type": "paragraph",
+      "text": "\\maketitle",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:section_subsection_references:b0004",
       "type": "section",
       "text": "Alpha",
-      "label": "sec:alpha",
-      "ref_target": null,
-      "order": 1,
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "section_header",
-      "source_latex_hint": "\\section"
+      "labels": [
+        "sec:alpha"
+      ],
+      "source_latex_hint": "section"
     },
     {
-      "id": "gt:block:section_subsection_references:2",
+      "id": "gt:section_subsection_references:b0005",
       "type": "subsection",
       "text": "Beta",
-      "label": "sub:beta",
-      "ref_target": null,
-      "order": 2,
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "section_header",
-      "source_latex_hint": "\\subsection"
+      "labels": [
+        "sub:beta"
+      ],
+      "source_latex_hint": "subsection"
     },
     {
-      "id": "gt:block:section_subsection_references:3",
+      "id": "gt:section_subsection_references:b0006",
+      "type": "paragraph",
+      "text": "See Section~",
+      "parent_id": null,
+      "children": [
+        "gt:section_subsection_references:b0007"
+      ],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:section_subsection_references:b0007",
       "type": "reference",
       "text": "ref:sec:alpha",
-      "label": null,
-      "ref_target": "sec:alpha",
-      "order": 3,
-      "parent_id": null,
+      "parent_id": "gt:section_subsection_references:b0006",
       "children": [],
-      "expected_docling_kind": "text",
-      "source_latex_hint": "\\ref"
+      "labels": [],
+      "source_latex_hint": "reference"
     },
     {
-      "id": "gt:block:section_subsection_references:4",
+      "id": "gt:section_subsection_references:b0008",
+      "type": "paragraph",
+      "text": "and Subsection~",
+      "parent_id": null,
+      "children": [
+        "gt:section_subsection_references:b0009"
+      ],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:section_subsection_references:b0009",
       "type": "reference",
       "text": "ref:sub:beta",
-      "label": null,
-      "ref_target": "sub:beta",
-      "order": 4,
+      "parent_id": "gt:section_subsection_references:b0008",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "reference"
+    },
+    {
+      "id": "gt:section_subsection_references:b0010",
+      "type": "paragraph",
+      "text": ". \\end{document}",
       "parent_id": null,
       "children": [],
-      "expected_docling_kind": "text",
-      "source_latex_hint": "\\ref"
+      "labels": [],
+      "source_latex_hint": "paragraph"
     }
   ],
   "labels": {
-    "sec:alpha": "gt:block:section_subsection_references:1",
-    "sub:beta": "gt:block:section_subsection_references:2"
+    "sec:alpha": "gt:section_subsection_references:b0004",
+    "sub:beta": "gt:section_subsection_references:b0005"
   },
   "references": [
     {
       "id": "gt:ref:section_subsection_references:0",
-      "source_node_id": "gt:block:section_subsection_references:3",
+      "source_node_id": "gt:section_subsection_references:b0007",
+      "source_block_id": "gt:section_subsection_references:b0007",
       "target_label": "sec:alpha",
-      "target_node_id": "gt:block:section_subsection_references:1",
+      "relation_type": "reference_to",
       "reference_text": "\\ref{sec:alpha}",
+      "target_block_id": "gt:section_subsection_references:b0004",
+      "target_node_id": "gt:section_subsection_references:b0004",
+      "resolved": true,
       "expected_resolved": true
     },
     {
       "id": "gt:ref:section_subsection_references:1",
-      "source_node_id": "gt:block:section_subsection_references:4",
+      "source_node_id": "gt:section_subsection_references:b0009",
+      "source_block_id": "gt:section_subsection_references:b0009",
       "target_label": "sub:beta",
-      "target_node_id": "gt:block:section_subsection_references:2",
+      "relation_type": "reference_to",
       "reference_text": "\\ref{sub:beta}",
+      "target_block_id": "gt:section_subsection_references:b0005",
+      "target_node_id": "gt:section_subsection_references:b0005",
+      "resolved": true,
       "expected_resolved": true
     }
   ],
+  "relations": [
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:section_subsection_references:b0007",
+      "target_label": "sec:alpha",
+      "resolved": true
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:section_subsection_references:b0009",
+      "target_label": "sub:beta",
+      "resolved": true
+    }
+  ],
   "features": {
+    "paragraph": 5,
+    "title": 1,
     "section": 1,
     "subsection": 1,
-    "figure": 0,
-    "table": 0,
-    "equation": 0,
-    "footnote": 0,
-    "caption": 0,
-    "list": 0,
-    "list_item": 0,
-    "reference": 2,
-    "bibliography_like": 0,
-    "paragraph": 0
-  }
+    "reference": 2
+  },
+  "pages_expected_min": 1
 }

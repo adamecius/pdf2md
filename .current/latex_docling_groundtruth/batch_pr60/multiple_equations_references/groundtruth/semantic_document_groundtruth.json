@@ -1,0 +1,187 @@
+{
+  "schema_name": "pdf2md.semantic_document_groundtruth",
+  "schema_version": "1.0.0",
+  "document_id": "multiple_equations_references",
+  "title": "Multiple Equations References",
+  "pages": [
+    {
+      "page_count": 1
+    }
+  ],
+  "body": [
+    {
+      "id": "gt:multiple_equations_references:b0001",
+      "type": "paragraph",
+      "text": "\\documentclass{article} \\usepackage{amsmath} \\begin{document}",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multiple_equations_references:b0002",
+      "type": "title",
+      "text": "Multiple Equations References",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "title"
+    },
+    {
+      "id": "gt:multiple_equations_references:b0003",
+      "type": "paragraph",
+      "text": "\\maketitle",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multiple_equations_references:b0004",
+      "type": "section",
+      "text": "Math",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "section"
+    },
+    {
+      "id": "gt:multiple_equations_references:b0005",
+      "type": "equation",
+      "text": "a=b",
+      "parent_id": null,
+      "children": [],
+      "labels": [
+        "eq:a"
+      ],
+      "source_latex_hint": "equation"
+    },
+    {
+      "id": "gt:multiple_equations_references:b0006",
+      "type": "equation",
+      "text": "c=d",
+      "parent_id": null,
+      "children": [],
+      "labels": [
+        "eq:c"
+      ],
+      "source_latex_hint": "equation"
+    },
+    {
+      "id": "gt:multiple_equations_references:b0007",
+      "type": "paragraph",
+      "text": "refs",
+      "parent_id": null,
+      "children": [
+        "gt:multiple_equations_references:b0008",
+        "gt:multiple_equations_references:b0009",
+        "gt:multiple_equations_references:b0010"
+      ],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:multiple_equations_references:b0008",
+      "type": "reference",
+      "text": "ref:eq:a",
+      "parent_id": "gt:multiple_equations_references:b0007",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "reference"
+    },
+    {
+      "id": "gt:multiple_equations_references:b0009",
+      "type": "reference",
+      "text": "ref:eq:c",
+      "parent_id": "gt:multiple_equations_references:b0007",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "reference"
+    },
+    {
+      "id": "gt:multiple_equations_references:b0010",
+      "type": "reference",
+      "text": "ref:eq:a",
+      "parent_id": "gt:multiple_equations_references:b0007",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "reference"
+    },
+    {
+      "id": "gt:multiple_equations_references:b0011",
+      "type": "paragraph",
+      "text": ". \\end{document}",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    }
+  ],
+  "labels": {
+    "eq:a": "gt:multiple_equations_references:b0005",
+    "eq:c": "gt:multiple_equations_references:b0006"
+  },
+  "references": [
+    {
+      "id": "gt:ref:multiple_equations_references:0",
+      "source_node_id": "gt:multiple_equations_references:b0008",
+      "source_block_id": "gt:multiple_equations_references:b0008",
+      "target_label": "eq:a",
+      "relation_type": "reference_to",
+      "reference_text": "\\ref{eq:a}",
+      "target_block_id": "gt:multiple_equations_references:b0005",
+      "target_node_id": "gt:multiple_equations_references:b0005",
+      "resolved": true,
+      "expected_resolved": true
+    },
+    {
+      "id": "gt:ref:multiple_equations_references:1",
+      "source_node_id": "gt:multiple_equations_references:b0009",
+      "source_block_id": "gt:multiple_equations_references:b0009",
+      "target_label": "eq:c",
+      "relation_type": "reference_to",
+      "reference_text": "\\ref{eq:c}",
+      "target_block_id": "gt:multiple_equations_references:b0006",
+      "target_node_id": "gt:multiple_equations_references:b0006",
+      "resolved": true,
+      "expected_resolved": true
+    },
+    {
+      "id": "gt:ref:multiple_equations_references:2",
+      "source_node_id": "gt:multiple_equations_references:b0010",
+      "source_block_id": "gt:multiple_equations_references:b0010",
+      "target_label": "eq:a",
+      "relation_type": "reference_to",
+      "reference_text": "\\ref{eq:a}",
+      "target_block_id": "gt:multiple_equations_references:b0005",
+      "target_node_id": "gt:multiple_equations_references:b0005",
+      "resolved": true,
+      "expected_resolved": true
+    }
+  ],
+  "relations": [
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:multiple_equations_references:b0008",
+      "target_label": "eq:a",
+      "resolved": true
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:multiple_equations_references:b0009",
+      "target_label": "eq:c",
+      "resolved": true
+    },
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:multiple_equations_references:b0010",
+      "target_label": "eq:a",
+      "resolved": true
+    }
+  ],
+  "warnings": [],
+  "provenance": {
+    "source_tex": ".current/latex_docling_groundtruth/batch_pr60/multiple_equations_references/input/multiple_equations_references.tex",
+    "source_pdf": ".current/latex_docling_groundtruth/batch_pr60/multiple_equations_references/input/multiple_equations_references.pdf"
+  }
+}

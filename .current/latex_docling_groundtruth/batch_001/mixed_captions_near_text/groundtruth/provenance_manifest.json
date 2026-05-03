@@ -1,41 +1,31 @@
 {
   "schema_name": "pdf2md.latex_docling_groundtruth_manifest",
-  "schema_version": "0.1.0",
+  "schema_version": "1.0.0",
   "document_id": "mixed_captions_near_text",
   "batch": "batch_001",
-  "generated_at": "2026-05-03T18:47:10.778984+00:00",
+  "generated_at": "2026-05-03T19:57:01.498366+00:00",
   "source_tex": {
     "path": ".current/latex_docling_groundtruth/batch_001/mixed_captions_near_text/input/mixed_captions_near_text.tex",
     "sha256": "af1860823dc1e75a0886ac9a14ca5ce23204aac40f0ff3c88943833220808c4f"
   },
-  "pdf": {
+  "source_pdf": {
     "path": ".current/latex_docling_groundtruth/batch_001/mixed_captions_near_text/input/mixed_captions_near_text.pdf",
-    "sha256": "665fbbc50adf579de5f811222e1df46b67ecc994d1613736a6d40489bf1653a8"
+    "sha256": "f5b4ef0f389670a9e273ccd0ae27bfcf81e326aa0f82fbc7bc5a957e6c03ca16"
   },
-  "latex_engine": "pdflatex",
-  "latex_command": "pdflatex -interaction=nonstopmode -output-directory=.current/latex_docling_groundtruth/batch_001/mixed_captions_near_text/input /home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_001/mixed_captions_near_text/input/mixed_captions_near_text.tex",
-  "compilation_return_code": 0,
-  "page_count": 1,
-  "pages_expected_min": 1,
   "generated_files": [
-    ".current/latex_docling_groundtruth/batch_001/mixed_captions_near_text/input/mixed_captions_near_text.tex",
     ".current/latex_docling_groundtruth/batch_001/mixed_captions_near_text/groundtruth/source_groundtruth_ir.json",
+    ".current/latex_docling_groundtruth/batch_001/mixed_captions_near_text/groundtruth/semantic_document_groundtruth.json",
     ".current/latex_docling_groundtruth/batch_001/mixed_captions_near_text/groundtruth/expected_semantic_contract.json",
     ".current/latex_docling_groundtruth/batch_001/mixed_captions_near_text/groundtruth/expected_docling_contract.json",
+    ".current/latex_docling_groundtruth/batch_001/mixed_captions_near_text/groundtruth/latex_groundtruth_report.json",
     ".current/latex_docling_groundtruth/batch_001/mixed_captions_near_text/groundtruth/provenance_manifest.json"
   ],
   "feature_counts": {
+    "paragraph": 7,
+    "title": 1,
     "section": 1,
-    "subsection": 0,
     "figure": 1,
-    "table": 1,
-    "equation": 0,
-    "footnote": 0,
     "caption": 2,
-    "list": 0,
-    "list_item": 0,
-    "reference": 0,
-    "bibliography_like": 0,
-    "paragraph": 0
+    "table": 1
   }
 }

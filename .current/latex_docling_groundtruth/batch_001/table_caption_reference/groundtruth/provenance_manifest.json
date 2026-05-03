@@ -1,41 +1,31 @@
 {
   "schema_name": "pdf2md.latex_docling_groundtruth_manifest",
-  "schema_version": "0.1.0",
+  "schema_version": "1.0.0",
   "document_id": "table_caption_reference",
   "batch": "batch_001",
-  "generated_at": "2026-05-03T18:47:09.847498+00:00",
+  "generated_at": "2026-05-03T19:57:01.507883+00:00",
   "source_tex": {
     "path": ".current/latex_docling_groundtruth/batch_001/table_caption_reference/input/table_caption_reference.tex",
     "sha256": "3daf6329e94686cfb2ad7a0fbcbdb46e094f97ab901cc15d6e6ef4c2a887fad5"
   },
-  "pdf": {
+  "source_pdf": {
     "path": ".current/latex_docling_groundtruth/batch_001/table_caption_reference/input/table_caption_reference.pdf",
-    "sha256": "c12b0e9cd200de49d4f7c6448b3f20977f3a91b89608e48f18e80c1afa674a29"
+    "sha256": "a82daf974f0ad2ef681d3157b91694a76795a1883098892141b12bd359102bb7"
   },
-  "latex_engine": "pdflatex",
-  "latex_command": "pdflatex -interaction=nonstopmode -output-directory=.current/latex_docling_groundtruth/batch_001/table_caption_reference/input /home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_001/table_caption_reference/input/table_caption_reference.tex",
-  "compilation_return_code": 0,
-  "page_count": 1,
-  "pages_expected_min": 1,
   "generated_files": [
-    ".current/latex_docling_groundtruth/batch_001/table_caption_reference/input/table_caption_reference.tex",
     ".current/latex_docling_groundtruth/batch_001/table_caption_reference/groundtruth/source_groundtruth_ir.json",
+    ".current/latex_docling_groundtruth/batch_001/table_caption_reference/groundtruth/semantic_document_groundtruth.json",
     ".current/latex_docling_groundtruth/batch_001/table_caption_reference/groundtruth/expected_semantic_contract.json",
     ".current/latex_docling_groundtruth/batch_001/table_caption_reference/groundtruth/expected_docling_contract.json",
+    ".current/latex_docling_groundtruth/batch_001/table_caption_reference/groundtruth/latex_groundtruth_report.json",
     ".current/latex_docling_groundtruth/batch_001/table_caption_reference/groundtruth/provenance_manifest.json"
   ],
   "feature_counts": {
+    "paragraph": 6,
+    "title": 1,
     "section": 1,
-    "subsection": 0,
-    "figure": 0,
     "table": 1,
-    "equation": 0,
-    "footnote": 0,
     "caption": 1,
-    "list": 0,
-    "list_item": 0,
-    "reference": 1,
-    "bibliography_like": 0,
-    "paragraph": 0
+    "reference": 1
   }
 }

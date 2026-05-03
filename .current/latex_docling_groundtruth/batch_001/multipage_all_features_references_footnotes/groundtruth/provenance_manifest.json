@@ -1,41 +1,41 @@
 {
   "schema_name": "pdf2md.latex_docling_groundtruth_manifest",
-  "schema_version": "0.1.0",
+  "schema_version": "1.0.0",
   "document_id": "multipage_all_features_references_footnotes",
   "batch": "batch_001",
-  "generated_at": "2026-05-03T18:47:11.531935+00:00",
+  "generated_at": "2026-05-03T19:57:01.500345+00:00",
   "source_tex": {
     "path": ".current/latex_docling_groundtruth/batch_001/multipage_all_features_references_footnotes/input/multipage_all_features_references_footnotes.tex",
     "sha256": "6bb080152d912f0fdd34cf624253b1d46d9fe0e54ef431d3abb0e08315b43f54"
   },
-  "pdf": {
+  "source_pdf": {
     "path": ".current/latex_docling_groundtruth/batch_001/multipage_all_features_references_footnotes/input/multipage_all_features_references_footnotes.pdf",
-    "sha256": "ebe460bbef11bea9f28ee562d829fffb956b9a793ddda4836b76d7bb7a7bca0a"
+    "sha256": "33818a5a6f80b2152c509e1d03601c1ee47194a3518a794e9881ee605a793108"
   },
-  "latex_engine": "pdflatex",
-  "latex_command": "pdflatex -interaction=nonstopmode -output-directory=.current/latex_docling_groundtruth/batch_001/multipage_all_features_references_footnotes/input /home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_001/multipage_all_features_references_footnotes/input/multipage_all_features_references_footnotes.tex",
-  "compilation_return_code": 0,
-  "page_count": 4,
-  "pages_expected_min": 2,
   "generated_files": [
-    ".current/latex_docling_groundtruth/batch_001/multipage_all_features_references_footnotes/input/multipage_all_features_references_footnotes.tex",
     ".current/latex_docling_groundtruth/batch_001/multipage_all_features_references_footnotes/groundtruth/source_groundtruth_ir.json",
+    ".current/latex_docling_groundtruth/batch_001/multipage_all_features_references_footnotes/groundtruth/semantic_document_groundtruth.json",
     ".current/latex_docling_groundtruth/batch_001/multipage_all_features_references_footnotes/groundtruth/expected_semantic_contract.json",
     ".current/latex_docling_groundtruth/batch_001/multipage_all_features_references_footnotes/groundtruth/expected_docling_contract.json",
+    ".current/latex_docling_groundtruth/batch_001/multipage_all_features_references_footnotes/groundtruth/latex_groundtruth_report.json",
     ".current/latex_docling_groundtruth/batch_001/multipage_all_features_references_footnotes/groundtruth/provenance_manifest.json"
   ],
   "feature_counts": {
+    "paragraph": 22,
+    "title": 1,
+    "footnote": 2,
     "section": 2,
     "subsection": 1,
+    "inline_math": 1,
+    "display_math": 1,
     "figure": 1,
+    "caption": 2,
+    "reference": 7,
+    "page_break": 1,
     "table": 1,
     "equation": 1,
-    "footnote": 2,
-    "caption": 2,
-    "list": 1,
+    "list": 2,
     "list_item": 3,
-    "reference": 7,
-    "bibliography_like": 1,
-    "paragraph": 61
+    "bibliography_like": 1
   }
 }

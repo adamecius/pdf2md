@@ -1,0 +1,17 @@
+{
+  "markdown_texts": "# Multipage All Features References Footnotes \n\n## May 3, 2026\n\nOpening paragraph before refs with marker $[^{*}].^{1}$ \n\n## 1 Deep Section \n\nnormal paragraph before cross references.\n\n### 1.1 Deep Subsection \n\nInline math $a+b$ and display \n\n$$a^{2}+b^{2}=c^{2}$$\n\ncaption-like text: Figure caption: not a real caption. Reference section1,\n\nA \n\n<div style=\"text-align: center;\">Figure 1: Deep figure caption </div>\n\n\nsubsection 1.1, figure 1. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable ",
+  "markdown_images": {
+    "imgs/img_in_formula_box_554_756_664_776.jpg": {
+      "__kind__": "image_object",
+      "class": "Image",
+      "width": 110,
+      "height": 20
+    }
+  },
+  "page_continuation_flags": [
+    false,
+    true
+  ],
+  "page_index": 0,
+  "input_path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/input/multipage_all_features_references_footnotes.pdf"
+}

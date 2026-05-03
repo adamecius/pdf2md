@@ -1,0 +1,115 @@
+{
+  "schema_name": "pdf2md.semantic_document_groundtruth",
+  "schema_version": "1.0.0",
+  "document_id": "footnotes_basic",
+  "title": "Footnotes Basic",
+  "pages": [
+    {
+      "page_count": 1
+    }
+  ],
+  "body": [
+    {
+      "id": "gt:footnotes_basic:b0001",
+      "type": "paragraph",
+      "text": "\\documentclass{article} \\usepackage{amsmath} \\begin{document}",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:footnotes_basic:b0002",
+      "type": "title",
+      "text": "Footnotes Basic",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "title"
+    },
+    {
+      "id": "gt:footnotes_basic:b0003",
+      "type": "paragraph",
+      "text": "\\maketitle",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:footnotes_basic:b0004",
+      "type": "section",
+      "text": "Notes",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "section"
+    },
+    {
+      "id": "gt:footnotes_basic:b0005",
+      "type": "paragraph",
+      "text": "Footnote here",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:footnotes_basic:b0006",
+      "type": "footnote",
+      "text": "First note.",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "footnote"
+    },
+    {
+      "id": "gt:footnotes_basic:b0007",
+      "type": "paragraph",
+      "text": "and more",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:footnotes_basic:b0008",
+      "type": "footnote",
+      "text": "Second note",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "footnote"
+    },
+    {
+      "id": "gt:footnotes_basic:b0009",
+      "type": "paragraph",
+      "text": ". \\end{document}",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    }
+  ],
+  "labels": {},
+  "references": [],
+  "relations": [
+    {
+      "type": "footnote_of",
+      "source_block_id": "gt:footnotes_basic:b0006",
+      "target_block_id": "gt:footnotes_basic:b0005",
+      "footnote_text": "First note."
+    },
+    {
+      "type": "footnote_of",
+      "source_block_id": "gt:footnotes_basic:b0008",
+      "target_block_id": "gt:footnotes_basic:b0007",
+      "footnote_text": "Second note"
+    }
+  ],
+  "warnings": [],
+  "provenance": {
+    "source_tex": ".current/latex_docling_groundtruth/batch_pr60/footnotes_basic/input/footnotes_basic.tex",
+    "source_pdf": ".current/latex_docling_groundtruth/batch_pr60/footnotes_basic/input/footnotes_basic.pdf"
+  }
+}

@@ -1,60 +1,60 @@
-2026-05-03 20:48:02.826 | INFO     | mineru.cli.client:run_orchestrated_cli:874 - Started local mineru-api at http://127.0.0.1:39821
-2026-05-03 20:48:04.569 | INFO     | __main__:create_app:260 - Request concurrency limited to 3
-INFO:     Started server process [1018715]
+2026-05-03 21:02:41.965 | INFO     | mineru.cli.client:run_orchestrated_cli:874 - Started local mineru-api at http://127.0.0.1:33915
+2026-05-03 21:02:43.708 | INFO     | __main__:create_app:260 - Request concurrency limited to 3
+INFO:     Started server process [1108084]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:     Uvicorn running on http://127.0.0.1:39821 (Press CTRL+C to quit)
-2026-05-03 20:48:04.837 | INFO     | mineru.cli.client:run_planned_task:771 - Submitting batch 1/1 | 1 document, 1 page in this batch | 1 page total | task#1 [all_features_small]
-2026-05-03 20:48:07.047 | INFO     | mineru.backend.pipeline.pipeline_analyze:doc_analyze_streaming:183 - Pipeline processing-window multi-file run. doc_count=1, total_pages=1, window_size=64, total_batches=1
-2026-05-03 20:48:08.834 | INFO     | mineru.backend.pipeline.pipeline_analyze:doc_analyze_streaming:235 - Pipeline processing window batch 1/1: 1/1 pages, batch_pages=1, doc_slices=doc0:1-1
-2026-05-03 20:48:09.240 | INFO     | mineru.backend.pipeline.pipeline_analyze:batch_image_analyze:328 - GPU Memory: 47 GB, Batch Ratio: 16. 
-2026-05-03 20:48:09.240 | INFO     | mineru.backend.pipeline.model_init:__init__:207 - DocAnalysis init, this may take some times......
+INFO:     Uvicorn running on http://127.0.0.1:33915 (Press CTRL+C to quit)
+2026-05-03 21:02:43.975 | INFO     | mineru.cli.client:run_planned_task:771 - Submitting batch 1/1 | 1 document, 1 page in this batch | 1 page total | task#1 [all_features_small]
+2026-05-03 21:02:46.165 | INFO     | mineru.backend.pipeline.pipeline_analyze:doc_analyze_streaming:183 - Pipeline processing-window multi-file run. doc_count=1, total_pages=1, window_size=64, total_batches=1
+2026-05-03 21:02:48.056 | INFO     | mineru.backend.pipeline.pipeline_analyze:doc_analyze_streaming:235 - Pipeline processing window batch 1/1: 1/1 pages, batch_pages=1, doc_slices=doc0:1-1
+2026-05-03 21:02:48.465 | INFO     | mineru.backend.pipeline.pipeline_analyze:batch_image_analyze:328 - GPU Memory: 47 GB, Batch Ratio: 16. 
+2026-05-03 21:02:48.466 | INFO     | mineru.backend.pipeline.model_init:__init__:207 - DocAnalysis init, this may take some times......
 
 Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]
-Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 54981.51it/s]
+Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 61551.63it/s]
 
 Fetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]
-Fetching 3 files: 100%|██████████| 3/3 [00:00<00:00, 8786.95it/s]
+Fetching 3 files: 100%|██████████| 3/3 [00:00<00:00, 10884.87it/s]
 
 Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]
-Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 3141.80it/s]
+Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 2571.61it/s]
 
 Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]
-Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 7025.63it/s]
+Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 5197.40it/s]
 
 Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]
-Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 3037.15it/s]
+Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 3201.76it/s]
 
 Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]
-Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 4401.16it/s]
+Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 11008.67it/s]
 
 Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]
-Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 3310.42it/s]
+Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 2835.91it/s]
 
 Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]
-Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 7958.83it/s]
+Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 11244.78it/s]
 
 Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]
-Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 3426.72it/s]
+Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 11305.40it/s]
 
 Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]
-Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 9020.01it/s]
+Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 10699.76it/s]
 
 Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]
-Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 2219.21it/s]
+Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 7612.17it/s]
 
 Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]
-Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 2608.40it/s]
-2026-05-03 20:48:14.321 | INFO     | mineru.backend.pipeline.model_init:__init__:260 - DocAnalysis init done!
-2026-05-03 20:48:14.321 | INFO     | mineru.backend.pipeline.pipeline_analyze:custom_model_init:83 - model init cost: 5.080362319946289
+Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 3165.51it/s]
+2026-05-03 21:02:53.313 | INFO     | mineru.backend.pipeline.model_init:__init__:260 - DocAnalysis init done!
+2026-05-03 21:02:53.313 | INFO     | mineru.backend.pipeline.pipeline_analyze:custom_model_init:83 - model init cost: 4.846971035003662
 
 Layout Predict:   0%|          | 0/1 [00:00<?, ?it/s]
-Layout Predict: 100%|██████████| 1/1 [00:00<00:00,  2.24it/s]
-Layout Predict: 100%|██████████| 1/1 [00:00<00:00,  2.24it/s]
+Layout Predict: 100%|██████████| 1/1 [00:00<00:00,  2.38it/s]
+Layout Predict: 100%|██████████| 1/1 [00:00<00:00,  2.38it/s]
 
 MFR Predict:   0%|          | 0/1 [00:00<?, ?it/s]
-MFR Predict: 100%|██████████| 1/1 [00:00<00:00,  4.01it/s]
-MFR Predict: 100%|██████████| 1/1 [00:00<00:00,  4.01it/s]
+MFR Predict: 100%|██████████| 1/1 [00:00<00:00,  4.42it/s]
+MFR Predict: 100%|██████████| 1/1 [00:00<00:00,  4.41it/s]
 
 Table-ocr det: 0it [00:00, ?it/s]
 Table-ocr det: 0it [00:00, ?it/s]
@@ -63,22 +63,22 @@ Table-wireless Predict: 0it [00:00, ?it/s]
 Table-wireless Predict: 0it [00:00, ?it/s]
 
 Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]
-Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 2061.08it/s]
+Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 11715.93it/s]
 
 Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]
-Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 5370.43it/s]
+Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 9137.92it/s]
 
 OCR-det en:   0%|          | 0/7 [00:00<?, ?it/s]
-OCR-det en:  71%|███████▏  | 5/7 [00:00<00:00, 46.54it/s]
-OCR-det en: 100%|██████████| 7/7 [00:00<00:00, 55.53it/s]
+OCR-det en:  71%|███████▏  | 5/7 [00:00<00:00, 46.95it/s]
+OCR-det en: 100%|██████████| 7/7 [00:00<00:00, 56.01it/s]
 
 Seal Predict: 0it [00:00, ?it/s]
 Seal Predict: 0it [00:00, ?it/s]
 
 Processing pages:   0%|          | 0/1 [00:00<?, ?it/s]
-Processing pages: 100%|██████████| 1/1 [00:00<00:00, 32.80it/s]
-2026-05-03 20:48:16.420 | INFO     | mineru.cli.client:run_planned_task:807 - Completed batch 1/1 | Processed 1/1 page | 1 of 1 batch finished | task#1 [all_features_small]
+Processing pages: 100%|██████████| 1/1 [00:00<00:00, 34.79it/s]
+2026-05-03 21:02:55.490 | INFO     | mineru.cli.client:run_planned_task:807 - Completed batch 1/1 | Processed 1/1 page | 1 of 1 batch finished | task#1 [all_features_small]
 INFO:     Shutting down
 INFO:     Waiting for application shutdown.
 INFO:     Application shutdown complete.
-INFO:     Finished server process [1018715]
+INFO:     Finished server process [1108084]

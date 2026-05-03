@@ -1,0 +1,120 @@
+{
+  "schema_name": "pdf2md.source_groundtruth_ir",
+  "schema_version": "1.0.0",
+  "document_id": "equation_label_reference",
+  "source_type": "latex",
+  "source_tex": ".current/latex_docling_groundtruth/batch_pr60/equation_label_reference/input/equation_label_reference.tex",
+  "expected_pdf": ".current/latex_docling_groundtruth/batch_pr60/equation_label_reference/input/equation_label_reference.pdf",
+  "title": "Equation Label Reference",
+  "nodes": [
+    {
+      "id": "gt:equation_label_reference:b0001",
+      "type": "paragraph",
+      "text": "\\documentclass{article} \\usepackage{amsmath} \\begin{document}",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:equation_label_reference:b0002",
+      "type": "title",
+      "text": "Equation Label Reference",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "title"
+    },
+    {
+      "id": "gt:equation_label_reference:b0003",
+      "type": "paragraph",
+      "text": "\\maketitle",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:equation_label_reference:b0004",
+      "type": "section",
+      "text": "Math",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "section"
+    },
+    {
+      "id": "gt:equation_label_reference:b0005",
+      "type": "equation",
+      "text": "E=mc^2",
+      "parent_id": null,
+      "children": [],
+      "labels": [
+        "eq:one"
+      ],
+      "source_latex_hint": "equation"
+    },
+    {
+      "id": "gt:equation_label_reference:b0006",
+      "type": "paragraph",
+      "text": "Eq.~",
+      "parent_id": null,
+      "children": [
+        "gt:equation_label_reference:b0007"
+      ],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    },
+    {
+      "id": "gt:equation_label_reference:b0007",
+      "type": "reference",
+      "text": "ref:eq:one",
+      "parent_id": "gt:equation_label_reference:b0006",
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "reference"
+    },
+    {
+      "id": "gt:equation_label_reference:b0008",
+      "type": "paragraph",
+      "text": ". \\end{document}",
+      "parent_id": null,
+      "children": [],
+      "labels": [],
+      "source_latex_hint": "paragraph"
+    }
+  ],
+  "labels": {
+    "eq:one": "gt:equation_label_reference:b0005"
+  },
+  "references": [
+    {
+      "id": "gt:ref:equation_label_reference:0",
+      "source_node_id": "gt:equation_label_reference:b0007",
+      "source_block_id": "gt:equation_label_reference:b0007",
+      "target_label": "eq:one",
+      "relation_type": "reference_to",
+      "reference_text": "\\ref{eq:one}",
+      "target_block_id": "gt:equation_label_reference:b0005",
+      "target_node_id": "gt:equation_label_reference:b0005",
+      "resolved": true,
+      "expected_resolved": true
+    }
+  ],
+  "relations": [
+    {
+      "type": "reference_to",
+      "source_block_id": "gt:equation_label_reference:b0007",
+      "target_label": "eq:one",
+      "resolved": true
+    }
+  ],
+  "features": {
+    "paragraph": 4,
+    "title": 1,
+    "section": 1,
+    "equation": 1,
+    "reference": 1
+  },
+  "pages_expected_min": 1
+}

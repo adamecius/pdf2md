@@ -1,41 +1,28 @@
 {
   "schema_name": "pdf2md.latex_docling_groundtruth_manifest",
-  "schema_version": "0.1.0",
+  "schema_version": "1.0.0",
   "document_id": "simple_title_paragraph",
   "batch": "batch_001",
-  "generated_at": "2026-05-03T18:47:09.437239+00:00",
+  "generated_at": "2026-05-03T19:57:01.506807+00:00",
   "source_tex": {
     "path": ".current/latex_docling_groundtruth/batch_001/simple_title_paragraph/input/simple_title_paragraph.tex",
     "sha256": "4e726ea0df1eab6e098eba4b5220a8d126c8161003c295767ab049f3dd867b72"
   },
-  "pdf": {
+  "source_pdf": {
     "path": ".current/latex_docling_groundtruth/batch_001/simple_title_paragraph/input/simple_title_paragraph.pdf",
-    "sha256": "06c1b2054194e4a97dc16f02e8b1408a843cb0a9894d2464ffa7adec7781e34b"
+    "sha256": "47142235a097152fc71ff4c9b2425f6e91ec474cd2573f3b82c95a285897710d"
   },
-  "latex_engine": "pdflatex",
-  "latex_command": "pdflatex -interaction=nonstopmode -output-directory=.current/latex_docling_groundtruth/batch_001/simple_title_paragraph/input /home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_001/simple_title_paragraph/input/simple_title_paragraph.tex",
-  "compilation_return_code": 0,
-  "page_count": 1,
-  "pages_expected_min": 1,
   "generated_files": [
-    ".current/latex_docling_groundtruth/batch_001/simple_title_paragraph/input/simple_title_paragraph.tex",
     ".current/latex_docling_groundtruth/batch_001/simple_title_paragraph/groundtruth/source_groundtruth_ir.json",
+    ".current/latex_docling_groundtruth/batch_001/simple_title_paragraph/groundtruth/semantic_document_groundtruth.json",
     ".current/latex_docling_groundtruth/batch_001/simple_title_paragraph/groundtruth/expected_semantic_contract.json",
     ".current/latex_docling_groundtruth/batch_001/simple_title_paragraph/groundtruth/expected_docling_contract.json",
+    ".current/latex_docling_groundtruth/batch_001/simple_title_paragraph/groundtruth/latex_groundtruth_report.json",
     ".current/latex_docling_groundtruth/batch_001/simple_title_paragraph/groundtruth/provenance_manifest.json"
   ],
   "feature_counts": {
-    "section": 1,
-    "subsection": 0,
-    "figure": 0,
-    "table": 0,
-    "equation": 0,
-    "footnote": 0,
-    "caption": 0,
-    "list": 0,
-    "list_item": 0,
-    "reference": 0,
-    "bibliography_like": 0,
-    "paragraph": 0
+    "paragraph": 3,
+    "title": 1,
+    "section": 1
   }
 }

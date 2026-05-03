@@ -3,8 +3,8 @@
   "schema_version": "1.0.0",
   "ir_stage": "backend_extraction",
   "run": {
-    "run_id": "run_20260503_184830",
-    "created_at": "2026-05-03T18:48:46.758931Z",
+    "run_id": "run_20260503_190309",
+    "created_at": "2026-05-03T19:03:25.583301Z",
     "pipeline_version": "0.1.0"
   },
   "backend": {
@@ -22,7 +22,7 @@
   "source": {
     "source_id": "all_features_small",
     "source_path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_001/all_features_small/input/all_features_small.pdf",
-    "source_sha256": "sha256:5d36571da7462f5ced7beadc40aee01227f427db5c6a431dfdb11a8391a3d682",
+    "source_sha256": "sha256:c4a0208795b1db88a0844d8cf28f8e5be5fd3e03ae8e0e77ab21572e926c393d",
     "mime_type": "application/pdf",
     "page_count": 1
   },
@@ -40,7 +40,7 @@
       "page_index": 0,
       "page_number": 1,
       "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_001/all_features_small/backend_ir/paddleocr/.current/extraction_ir/all_features_small/pages/page_0000.json",
-      "sha256": "sha256:487562910c07c61e23e5abb5d90fd150cb770cfa4a73939bb7da039d8648ccfe",
+      "sha256": "sha256:0e8bfe9a8a2ee9dcddb5d06e9437a5e9e285f3e8928d04ba27e3db6242341951",
       "status": "ok"
     }
   ],
