@@ -87,14 +87,22 @@ def _center(b: list[float] | None) -> tuple[float, float] | None:
     return ((b[0] + b[2]) / 2.0, (b[1] + b[3]) / 2.0)
 
 
-def _has_conflict(g: dict[str, Any], page: dict[str, Any]) -> bool:
-    if g.get("conflicts"):
-        return True
+def _conflicts_for_group(g: dict[str, Any], page: dict[str, Any]) -> list[dict[str, Any]]:
     gid = g.get("group_id")
+    members = set(g.get("members") or [])
+    out: list[dict[str, Any]] = []
     for c in page.get("conflicts") or []:
         if gid in c.get("group_ids", []) or gid == c.get("group_id"):
-            return True
-    return False
+            out.append(c)
+            continue
+        evidence_ids = set(c.get("evidence_ids") or [])
+        if members and evidence_ids and members.intersection(evidence_ids):
+            out.append(c)
+    return out
+
+
+def _has_conflict(g: dict[str, Any], page: dict[str, Any]) -> bool:
+    return bool(g.get("conflicts") or _conflicts_for_group(g, page))
 
 
 def _anchor_source_fields(g: dict[str, Any], page: dict[str, Any]) -> dict[str, Any]:
@@ -104,7 +112,7 @@ def _anchor_source_fields(g: dict[str, Any], page: dict[str, Any]) -> dict[str, 
         "source_group_sources": g.get("sources") or [],
         "source_group_members": g.get("members") or [],
         "source_group_agreement": g.get("agreement"),
-        "source_group_conflicts": g.get("conflicts") or [c for c in (page.get("conflicts") or []) if g.get("group_id") in c.get("group_ids", [])],
+        "source_group_conflicts": g.get("conflicts") or _conflicts_for_group(g, page),
     }
 
 
@@ -172,8 +180,10 @@ def build_semantic_links(report: dict[str, Any], source_path: Path) -> dict[str,
                     if existing:
                         if existing["anchor_id"] != aid:
                             existing.setdefault("alias_ids", []).append(existing["anchor_id"])
+                            old_id = existing["anchor_id"]
                             existing["anchor_id"] = aid
                             existing["label"] = eq_num
+                            page_anchor_ids[:] = [aid if x == old_id else x for x in page_anchor_ids]
                             if existing["status"] == "unlabelled":
                                 existing["status"] = "resolved_with_conflict" if _has_conflict(f, page) else "resolved"
                             anchor_map.setdefault(("equation", eq_num), []).append(existing)

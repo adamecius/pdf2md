@@ -84,3 +84,33 @@ def test_formula_normalization_still_works():
     a = normalise_latex(r"\mathbf{E}=\rho\mathbf{j}. \quad (1.3)")
     b = normalise_latex(r"{ \bf E } = \rho { \bf j } .\tag{1.3}")
     assert a["label"] == b["label"] == "1.3"
+
+
+def test_conflict_via_evidence_ids_real_shape():
+    groups = [{
+        "group_id": "p0003_g0003",
+        "kind": "formula",
+        "representative_text": r"x=1 \tag{1.3}",
+        "members": ["mineru:p0003:b0003", "paddleocr:p0003:b0011"],
+        "sources": ["mineru", "paddleocr"],
+        "agreement": {"text": "conflict", "geometry": "near"},
+        "representative_bbox": [1, 1, 2, 2],
+    }]
+    conflicts = [{"type": "formula_disagreement", "evidence_ids": ["mineru:p0003:b0003", "paddleocr:p0003:b0011"]}]
+    out = build_semantic_links(_report(groups, conflicts=conflicts), Path("in.json"))
+    a = next(x for x in out["anchors"] if x["anchor_type"] == "equation")
+    assert a["status"] == "resolved_with_conflict"
+    assert any(c.get("type") == "formula_disagreement" for c in a.get("source_group_conflicts", []))
+
+
+def test_page_anchor_ids_updated_after_equation_relabel():
+    groups = [
+        {"group_id": "f1", "kind": "formula", "representative_text": "E=mc^2", "representative_bbox": [100, 200, 300, 260]},
+        {"group_id": "n1", "kind": "paragraph", "representative_text": "(1.3)", "representative_bbox": [320, 210, 360, 240]},
+    ]
+    out = build_semantic_links(_report(groups), Path("in.json"))
+    eq_for_target = [a for a in out["anchors"] if a["anchor_type"] == "equation" and a["target_group_id"] == "f1"]
+    assert len(eq_for_target) == 1
+    assert eq_for_target[0]["anchor_id"] == "eq:1.3"
+    assert "eq:1.3" in out["pages"][0]["anchors"]
+    assert "eq:f1" not in out["pages"][0]["anchors"]
