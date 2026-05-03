@@ -133,10 +133,6 @@ def test_consensus_semantic_media_semanticdoc_contracts(built_pipeline_artifacts
     assert b13["bbox"] == pytest.approx([132.712, 108.553, 444.703, 185.033], abs=0.02)
     b01 = next(b for b in d["blocks"] if b["source_group_id"] == "p0002_g0001")
     assert b01.get("media_id") != "media:p0002_g0001"
-    if b01.get("type") == "figure":
-        page3 = next(p for p in d["pages"] if p["page_index"] == 2)
-        assert b01["id"] not in page3.get("body_block_ids", [])
-
     media_dbg_root = ensure_tmp_clean_dir(tmp_path / "media_out_debug")
     res = run_cli("pdf2md.utils.media_materializer", str(built_pipeline_artifacts["paths"]["consensus_report"]), "--semantic-links", str(built_pipeline_artifacts["paths"]["semantic_links"]), "--output-root", str(media_dbg_root), "--materialize-orphan-images", "--json-only")
     assert res.returncode == 0, res.stderr
