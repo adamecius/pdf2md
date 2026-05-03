@@ -1,0 +1,21 @@
+{
+  "document_id": "lists_footnotes_tables",
+  "source_tex": "tests/docling_groundtruth/latex_sources/batch_001/lists_footnotes_tables.tex",
+  "expected_title": "Lists Footnotes and Tables Fixture",
+  "expected_sections": ["Structured Content"],
+  "expected_labels": ["sec:structured", "tab:fixture-table"],
+  "expected_references": ["tab:fixture-table"],
+  "expected_figures": {"count_min": 0, "labels": []},
+  "expected_tables": {"count_min": 1, "labels": ["tab:fixture-table"]},
+  "expected_equations": {"count_min": 1, "labels": []},
+  "expected_footnotes": {"count_min": 3},
+  "expected_list_types": ["itemize", "enumerate", "nested"],
+  "expected_captions": ["A labelled fixture table for cross-reference checks."],
+  "expected_markdown_snippets": ["Structured Content", "Table"],
+  "allowed_warnings": ["inspection_mode_advisory"],
+  "tolerance_policy": {
+    "exact_json_match_required": false,
+    "allow_additional_nodes": true,
+    "allow_reference_order_changes": true
+  }
+}
