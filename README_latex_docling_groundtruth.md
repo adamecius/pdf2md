@@ -75,3 +75,11 @@ Under `.current/latex_docling_groundtruth/<batch>/<document_id>/`:
 - Local-only operational tooling; not CI.
 - Generated `.current` files are runtime artifacts, not source-of-truth.
 - These root-level scripts are temporary and may be deleted later.
+
+## Canonical pre-Docling ground truth
+
+LaTeX source (`input/*.tex`) and compiled PDF (`input/*.pdf`) are the source of truth. `semantic_document_groundtruth.json` is a deterministic LaTeX-derived pre-Docling benchmark target produced by `latex_to_pre_docling_groundtruth.py`.
+
+Backend semantic outputs (for example `consensus/semantic_document.json`) are compared against this pre-Docling ground truth using `compare_pre_docling_groundtruth.py` before Docling export checks. Docling export is downstream verification only.
+
+In this benchmark phase, exact geometric coordinates are optional unless explicitly provided by source artifacts.
