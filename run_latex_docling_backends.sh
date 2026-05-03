@@ -15,16 +15,17 @@ status=0
 for docdir in "$batch_root"/*; do
   [[ -d "$docdir/input" ]] || continue
   docid=$(basename "$docdir"); pdf="$docdir/input/$docid.pdf"; reports="$docdir/reports"; mkdir -p "$reports"
-  run_manifest="$docdir/local_run_manifest.json"; echo '{"document_id":"'$docid'","backends":[]}' > "$run_manifest"
+  run_manifest="$docdir/local_run_manifest.json"; echo '{"document_id":"'$docid'","backends":[],"config":"'$CONFIG'","started_at":"'$(date -u +%FT%TZ)'"}' > "$run_manifest"
   for b in $backends; do
     blog="$reports/backend_${b}.log"; mkdir -p "$docdir/backend_ir/$b/.current/extraction_ir/$docid"
     override_var="PDF2MD_$(echo "$b" | tr '[:lower:]-' '[:upper:]_')_PDF2IR_CMD"; cmd="${!override_var-}"
     if [[ -z "$cmd" ]]; then
-      cand1="backend/$b/pdf2ir_${b}.py"; cand=$(find "backend/$b" -maxdepth 1 -name 'pdf2ir*.py' | head -n1 || true)
+      cand1="backend/$b/pdf2ir_${b}.py"; cand=$(find "backend/$b" -maxdepth 1 -name 'pdf2ir*.py' | sort | head -n1 || true)
       [[ -f "$cand1" ]] && cmd="python $cand1" || cmd="python ${cand:-}"
     fi
     if [[ -z "$cmd" || "$cmd" == "python " ]]; then [[ $ALLOW_MISSING_BACKENDS -eq 1 ]] && continue || { echo "missing adapter for $b"; exit 1; }; fi
     if ! command -v conda >/dev/null 2>&1; then [[ $ALLOW_MISSING_ENVS -eq 1 ]] && continue || { echo "conda missing"; exit 1; }; fi
+    if ! conda env list | awk '{print $1}' | grep -qx "pdf2md-$b"; then [[ $ALLOW_MISSING_ENVS -eq 1 ]] && continue || { echo "missing conda env pdf2md-$b"; exit 1; }; fi
     help=$($cmd --help 2>/dev/null || true)
     outbase="$docdir/backend_ir/$b/.current"; expected="$outbase/extraction_ir/$docid"; mkdir -p "$expected"
     arg_in="$pdf"; [[ "$help" == *"--input"* ]] && arg_in="--input $pdf" || ([[ "$help" == *"-i"* ]] && arg_in="-i $pdf")
@@ -34,15 +35,38 @@ for docdir in "$batch_root"/*; do
     rc=$?
     set -e
     if [[ $rc -ne 0 ]]; then status=1; [[ $ALLOW_STAGE_FAILURES -eq 1 ]] || exit 1; fi
+    manifest_exists=false; pages_exists=false
+    [[ -f "$expected/manifest.json" ]] && manifest_exists=true
+    [[ -d "$expected/pages" ]] && pages_exists=true
+    python - <<PY
+import json
+p="$run_manifest"
+with open(p) as f:d=json.load(f)
+d["backends"].append({"backend":"${b}","command":"${cmd}","conda_env":"pdf2md-${b}","return_code":${rc},"log_path":"${blog}","expected_dir":"${expected}","manifest_exists":"${manifest_exists}"=="true","pages_exists":"${pages_exists}"=="true"})
+open(p,"w").write(json.dumps(d,indent=2))
+PY
     [[ -f "$expected/manifest.json" && -d "$expected/pages" ]] || {
       mapfile -t cands < <(find "$docdir/backend_ir/$b" -name manifest.json)
-      if [[ ${#cands[@]} -eq 1 ]]; then cp -r "$(dirname "${cands[0]}")"/* "$expected"/; else status=1; [[ $ALLOW_STAGE_FAILURES -eq 1 ]] || exit 1; fi
+      if [[ ${#cands[@]} -eq 1 ]]; then
+        cp -r "$(dirname "${cands[0]}")"/* "$expected"/
+        manifest_exists=false; pages_exists=false
+        [[ -f "$expected/manifest.json" ]] && manifest_exists=true
+        [[ -d "$expected/pages" ]] && pages_exists=true
+        python - <<PY
+import json
+p="$run_manifest"
+with open(p) as f:d=json.load(f)
+d["backends"][-1]["manifest_exists"]="${manifest_exists}"=="true"
+d["backends"][-1]["pages_exists"]="${pages_exists}"=="true"
+open(p,"w").write(json.dumps(d,indent=2))
+PY
+      else status=1; [[ $ALLOW_STAGE_FAILURES -eq 1 ]] || exit 1; fi
     }
   done
   conf="$docdir/consensus/local_consensus.toml"; mkdir -p "$docdir/consensus"
   {
     echo "[consensus]"; echo "output_root = \"$docdir/consensus\""; echo "coordinate_space = \"page_normalised_1000\""; echo "text_similarity_threshold = 0.90"; echo "weak_text_similarity_threshold = 0.75"; echo "bbox_iou_threshold = 0.50"; echo "weak_bbox_iou_threshold = 0.25"; echo "include_evidence_only_blocks = false"
-    for b in $backends; do echo "[backends.$b]"; echo "enabled = true"; echo "root = \"$docdir/backend_ir/$b\""; echo "label = \"$b\""; done
+    for b in $backends; do e="$docdir/backend_ir/$b/.current/extraction_ir/$docid"; [[ -f "$e/manifest.json" && -d "$e/pages" ]] || continue; echo "[backends.$b]"; echo "enabled = true"; echo "root = \"$docdir/backend_ir/$b\""; echo "label = \"$b\""; done
     echo "[pymupdf]"; echo "enabled = true"; echo "extract_text = true"; echo "extract_images = false"
   } > "$conf"
   set +e
@@ -56,4 +80,6 @@ for docdir in "$batch_root"/*; do
   [[ $status -eq 0 || $ALLOW_STAGE_FAILURES -eq 1 ]] || exit 1
 done
 [[ $status -eq 0 ]] || exit 1
+python validate_latex_docling_groundtruth.py --root "$ROOT" --batch "$BATCH" --config "$CONFIG" || status=1
 echo "Completed with status=$status"
+exit $status
