@@ -68,14 +68,14 @@ def run_cli(
 
 
 def resolve_test_consensus_config() -> Path | None:
-    env_config = os.environ.get("PDF2MD_BACKENDS_CONFIG")
+    env_config = os.environ.get("PDF2MD_CONSENSUS_CONFIG")
     if env_config:
         candidate = Path(env_config)
         if candidate.exists():
             return candidate
-    cwd_candidate = REPO_ROOT / "pdf2md.backends.toml"
-    if cwd_candidate.exists():
-        return cwd_candidate
+    repo_candidate = REPO_ROOT / "pdf2md.consensus.example.toml"
+    if repo_candidate.exists():
+        return repo_candidate
     return None
 
 
@@ -105,21 +105,31 @@ def backend_ir_root() -> Path:
 def built_pipeline_artifacts(tmp_path: Path, sample_pdf_path: Path, backend_ir_root: Path) -> dict:
     config_path = resolve_test_consensus_config()
     if not config_path:
-        pytest.skip("No backend config found for consensus stage. Add pdf2md.backends.toml at repo root, or set PDF2MD_BACKENDS_CONFIG.")
+        pytest.skip("No consensus config found for Ashcroft sample pipeline. Set PDF2MD_CONSENSUS_CONFIG or add pdf2md.consensus.example.toml at repo root.")
     out_dir = ensure_tmp_clean_dir(tmp_path / "ashcroft_pipeline")
-    cons = out_dir / "consensus_report.json"
+    consensus_root = ensure_tmp_clean_dir(tmp_path / "consensus")
+    tmp_config = tmp_path / "pdf2md.consensus.test.toml"
+    cfg_text = config_path.read_text(encoding="utf-8")
+    cfg_text = cfg_text.replace(
+        'output_root = ".current/consensus"',
+        f'output_root = "{consensus_root.as_posix()}"',
+        1,
+    )
+    tmp_config.write_text(cfg_text, encoding="utf-8")
+
+    cons = consensus_root / "Ashcroft_Mermin_sub" / "consensus_report.json"
     sem_links = out_dir / "semantic_links.json"
-    media_out = ensure_tmp_clean_dir(out_dir / "media_out")
-    media_manifest = media_out / "media_manifest.json"
+    media_manifest = out_dir / "media_manifest.json"
     sem_doc = out_dir / "semantic_document.json"
 
-    res = run_cli("pdf2md.utils.consensus_report", str(sample_pdf_path), "--output", str(cons), "--json-only")
+    res = run_cli("pdf2md.utils.consensus_report", str(sample_pdf_path), "--config", str(tmp_config), "--verbose")
     assert res.returncode == 0, res.stderr
-    res = run_cli("pdf2md.utils.semantic_linker", str(cons), "--output", str(sem_links), "--json-only")
+    assert cons.exists(), f"Expected consensus output at {cons}"
+    res = run_cli("pdf2md.utils.semantic_linker", str(cons), "--output", str(sem_links), "--verbose")
     assert res.returncode == 0, res.stderr
-    res = run_cli("pdf2md.utils.media_materializer", str(cons), "--semantic-links", str(sem_links), "--output-root", str(media_out), "--json-only")
+    res = run_cli("pdf2md.utils.media_materializer", str(cons), "--semantic-links", str(sem_links), "--output-root", str(out_dir), "--verbose")
     assert res.returncode == 0, res.stderr
-    res = run_cli("pdf2md.utils.semantic_document_builder", str(cons), "--semantic-links", str(sem_links), "--media-manifest", str(media_manifest), "--output", str(sem_doc), "--json-only")
+    res = run_cli("pdf2md.utils.semantic_document_builder", str(cons), "--semantic-links", str(sem_links), "--media-manifest", str(media_manifest), "--output", str(sem_doc), "--verbose")
     assert res.returncode == 0, res.stderr
 
     return {
@@ -133,6 +143,6 @@ def built_pipeline_artifacts(tmp_path: Path, sample_pdf_path: Path, backend_ir_r
             "semantic_links": sem_links,
             "media_manifest": media_manifest,
             "semantic_document": sem_doc,
-            "media_root": media_out,
+            "media_root": out_dir,
         },
     }

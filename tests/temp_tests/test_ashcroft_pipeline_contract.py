@@ -125,6 +125,7 @@ def test_consensus_semantic_media_semanticdoc_contracts(built_pipeline_artifacts
     assert not (built_pipeline_artifacts["paths"]["media_root"] / "media" / "p0002_g0013.png").exists()
 
     assert d["schema_name"] == "pdf2md.semantic_document"
+    assert not any("hash mismatch" in w.lower() for w in d.get("warnings", []))
     b13 = next(b for b in d["blocks"] if b["source_group_id"] == "p0002_g0013")
     assert b13["type"] == "figure"
     assert b13["anchor_id"] == "fig:1.2"
@@ -168,9 +169,12 @@ def test_docling_adapter_on_fresh_canonical_semantic_document(built_pipeline_art
     dr = out / "docling_relations.json"
     rp = out / "docling_adapter_report.json"
     assert dd.exists() and dr.exists() and rp.exists()
+    preview = out / "docling_preview.md"
     rel = json.loads(dr.read_text(encoding="utf-8"))
     rep = json.loads(rp.read_text(encoding="utf-8"))
     assert rep.get("errors") == []
+    if rep.get("markdown_exported"):
+        assert preview.exists()
     assert "block:p0002_g0013" in rel.get("id_map", {})
     mapped_type = rel["id_map"]["block:p0002_g0013"].get("docling_type")
     if mapped_type not in {"picture", "text"}:
