@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import hashlib
 import json
 from pathlib import Path
 from typing import Any
@@ -30,6 +31,12 @@ def build(consensus: dict[str, Any], semantic_links: dict[str, Any], media_manif
     doc = {
         "schema_name": "pdf2md.semantic_document", "schema_version": "0.1.0", "source_pdf": consensus.get("pdf_path", ""),
         "source_consensus_report": srcs["consensus"], "source_semantic_links": srcs["links"], "source_media_manifest": srcs.get("media"),
+        "run_id": consensus.get("run_id"),
+        "upstream_sha256": {
+            "consensus_report": hashlib.sha256(Path(srcs["consensus"]).read_bytes()).hexdigest() if srcs.get("consensus") and Path(srcs["consensus"]).exists() else None,
+            "semantic_links": hashlib.sha256(Path(srcs["links"]).read_bytes()).hexdigest() if srcs.get("links") and Path(srcs["links"]).exists() else None,
+            "media_manifest": hashlib.sha256(Path(srcs["media"]).read_bytes()).hexdigest() if srcs.get("media") and Path(srcs["media"]).exists() else None,
+        },
         "created_at": dt.datetime.now(dt.timezone.utc).isoformat(), "pages": [], "blocks": [], "relations": [], "anchors": [], "references": [], "conflicts": [], "warnings": [],
         "validation": {"duplicate_block_ids": [], "missing_anchor_targets": [], "unresolved_references": [], "blocks_missing_provenance": [], "media_assets_missing_files": [], "warnings": []},
     }
@@ -60,7 +67,8 @@ def build(consensus: dict[str, Any], semantic_links: dict[str, Any], media_manif
                 "order": order, "bbox": g.get("representative_bbox"), "anchor_id": None, "media_id": None, "media_path": None,
                 "source_group_id": gid, "source_group_members": g.get("members") or [], "sources": g.get("sources") or [],
                 "agreement": agreement, "conflicts": (g.get("conflicts") or []) + attached_conflicts, "status": status,
-                "selected_text_source": None, "selected_geometry_source": None, "selection_reason": "representative",
+                "selection_mode": "consensus" if agreement.get("text") == "near" else ("single_source" if agreement.get("text") == "single_source" else "fallback_default_backend"),
+                "selected_text_source": (g.get("sources") or [None])[0], "selected_geometry_source": (g.get("sources") or [None])[0], "selection_reason": "representative",
                 "warnings": [], "metadata": {"is_page_artifact": kind in {"header", "footer", "page_number"}},
             }
             if agreement.get("geometry") == "conflict":
@@ -81,7 +89,10 @@ def build(consensus: dict[str, Any], semantic_links: dict[str, Any], media_manif
             page_blocks.append(b)
             doc["blocks"].append(b)
         page_blocks.sort(key=lambda x: (x["page_index"], (x["bbox"] or [0, 0, 0, 0])[1], (x["bbox"] or [0, 0, 0, 0])[0], x["order"]))
-        doc["pages"].append({"page_index": page.get("page_index", 0), "page_number": page.get("page_index", 0) + 1, "block_ids": [b["id"] for b in page_blocks]})
+        block_ids = [b["id"] for b in page_blocks]
+        page_artifact_ids = [b["id"] for b in page_blocks if b["metadata"].get("is_page_artifact")]
+        body_block_ids = [b["id"] for b in page_blocks if b["id"] not in page_artifact_ids]
+        doc["pages"].append({"page_index": page.get("page_index", 0), "page_number": page.get("page_index", 0) + 1, "block_ids": block_ids, "body_block_ids": body_block_ids, "page_artifact_ids": page_artifact_ids, "evidence_block_ids": []})
 
     anchor_by_gid = {a.get("target_group_id"): a for a in doc["anchors"]}
     for b in doc["blocks"]:

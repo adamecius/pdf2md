@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -140,13 +141,13 @@ def build_semantic_links(report: dict[str, Any], source_path: Path) -> dict[str,
             kind = g.get("kind")
             bbox = g.get("representative_bbox")
 
-            if kind == "formula" or any(tok in text for tok in ["\\frac", "\\mathbf", "\\begin", "\\boxed", "=", "\\tag", "\\quad"]):
+            if kind == "formula":
                 norm = normalise_latex(text)
                 label = norm["label"]
                 aid = f"eq:{label}" if label else f"eq:{gid}"
                 status = "resolved_with_conflict" if _has_conflict(g, page) and label else ("resolved" if label else "unlabelled")
                 src = _anchor_source_fields(g, page)
-                a = {"anchor_id": aid, "anchor_type": "equation", "label": label, "canonical_text": text, "target_group_id": gid, "page_index": pidx, "page_number": pnum, "bbox": bbox, "source_groups": [gid], "confidence": 0.8 if label else 0.5, "status": status, "warnings": [], "formula_candidates": [{"representative_text": text, "group_id": gid, "sources": g.get("sources") or [], "members": g.get("members") or [], "agreement": g.get("agreement"), "conflicts": g.get("conflicts") or []}], **src}
+                a = {"anchor_id": aid, "anchor_type": "equation", "label": label, "canonical_text": text, "target_group_id": gid, "page_index": pidx, "page_number": pnum, "bbox": bbox, "source_groups": [gid], "confidence": 0.8 if label else 0.5, "status": status, "warnings": [], "selection_mode": "consensus", "selected_text_source": (g.get("sources") or [None])[0], "selected_geometry_source": (g.get("sources") or [None])[0], "selection_reason": "formula_group", "formula_candidates": [{"representative_text": text, "group_id": gid, "sources": g.get("sources") or [], "members": g.get("members") or [], "agreement": g.get("agreement"), "conflicts": g.get("conflicts") or []}], **src}
                 anchors.append(a); page_anchor_ids.append(aid)
                 eq_anchor_by_target[gid] = a
                 if label:
@@ -202,10 +203,29 @@ def build_semantic_links(report: dict[str, Any], source_path: Path) -> dict[str,
             fl = extract_figure_label(text)
             create_fig_anchor = bool(fl) and (kind in {"caption", "picture"} or (kind == "title" and (pictures or tables)))
             if create_fig_anchor:
-                target = pictures[0] if pictures else g
+                def _fig_score(pic: dict[str, Any]) -> float:
+                    pb = pic.get("representative_bbox") or [0, 0, 1000, 1000]
+                    gb = g.get("representative_bbox") or pb
+                    w, h = max(0.0, pb[2]-pb[0]), max(0.0, pb[3]-pb[1])
+                    area = w * h
+                    score = 1.0 - min(0.8, area / 700000.0)
+                    if w > 850:
+                        score -= 0.7
+                    if pb[0] < 10 or pb[1] < 10 or pb[2] > 990 or pb[3] > 990:
+                        score -= 0.4
+                    pc = _center(pb) or (0.0, 0.0)
+                    gc = _center(gb) or (0.0, 0.0)
+                    score -= abs(pc[1] - gc[1]) / 1000.0
+                    ptxt = (pic.get("representative_text") or "").lower()
+                    if "figure" in ptxt or "fig." in ptxt:
+                        score -= 0.4
+                    return score
+                target = max(pictures, key=_fig_score) if pictures else g
                 aid = f"fig:{fl}"
                 src = _anchor_source_fields(g, page)
-                a = {"anchor_id": aid, "anchor_type": "figure", "label": fl, "canonical_text": text, "target_group_id": target.get("group_id"), "page_index": pidx, "page_number": pnum, "bbox": target.get("representative_bbox"), "source_groups": [gid], "confidence": 0.7 if pictures else 0.45, "status": "resolved_with_conflict" if _has_conflict(g, page) and pictures else ("resolved" if pictures else "caption_only"), "warnings": [], **src}
+                has_consensus = bool(target.get("agreement", {}).get("geometry") == "near")
+                mode = "consensus" if has_consensus else ("fallback_default_backend" if pictures else "unresolved")
+                a = {"anchor_id": aid, "anchor_type": "figure", "label": fl, "canonical_text": text, "target_group_id": target.get("group_id"), "page_index": pidx, "page_number": pnum, "bbox": target.get("representative_bbox"), "source_groups": [gid], "confidence": 0.7 if pictures else 0.45, "status": "resolved_with_conflict" if _has_conflict(g, page) and pictures else ("resolved" if pictures else "caption_only"), "warnings": ([] if mode != "fallback_default_backend" else ["fallback_default_backend:default_figure_geometry_backend=paddleocr"]), "selection_mode": mode, "selected_text_source": (g.get("sources") or [None])[0], "selected_geometry_source": (target.get("sources") or ["paddleocr"])[0], "selection_reason": "caption_label_picture_scoring", **src}
                 anchors.append(a); page_anchor_ids.append(aid); anchor_map.setdefault(("figure", fl), []).append(a)
                 if pictures and gid != target.get("group_id"):
                     att_id = f"attach_p{pidx:04d}_{len(attachments)+1:04d}"
@@ -262,6 +282,16 @@ def build_semantic_links(report: dict[str, Any], source_path: Path) -> dict[str,
                 r["method"] = "exact_label"
                 r["warnings"] = []
 
+    dedup: dict[str, dict[str, Any]] = {}
+    for a in anchors:
+        aid = a["anchor_id"]
+        if aid not in dedup:
+            dedup[aid] = a
+        else:
+            dedup[aid].setdefault("evidence_groups", []).append(a.get("source_group_id"))
+            dedup[aid].setdefault("aliases", []).append(a.get("target_group_id"))
+    anchors = list(dedup.values())
+
     summary = {
         "equation_anchors": sum(1 for a in anchors if a["anchor_type"] == "equation"),
         "figure_anchors": sum(1 for a in anchors if a["anchor_type"] == "figure"),
@@ -275,7 +305,8 @@ def build_semantic_links(report: dict[str, Any], source_path: Path) -> dict[str,
         "footnote_markers_detected": sum(1 for r in references if r["reference_type"] == "footnote"),
         "footnote_markers_resolved": sum(1 for r in references if r["reference_type"] == "footnote" and r["resolved"]),
     }
-    return {"schema_name": "pdf2md.semantic_links", "schema_version": "0.1.0", "source_report": str(source_path), "pdf_path": report.get("pdf_path"), "pdf_stem": report.get("pdf_stem"), "created_at": dt.datetime.now(dt.timezone.utc).isoformat(), "summary": summary, "anchors": anchors, "references": references, "attachments": attachments, "unresolved": unresolved, "pages": page_reports}
+    upstream_sha = hashlib.sha256(source_path.read_bytes()).hexdigest() if source_path.exists() else None
+    return {"schema_name": "pdf2md.semantic_links", "schema_version": "0.1.0", "run_id": report.get("run_id"), "source_report": str(source_path), "upstream_sha256": {"consensus_report": upstream_sha}, "pdf_path": report.get("pdf_path"), "pdf_stem": report.get("pdf_stem"), "created_at": dt.datetime.now(dt.timezone.utc).isoformat(), "summary": summary, "anchors": anchors, "references": references, "attachments": attachments, "unresolved": unresolved, "pages": page_reports}
 
 
 def main() -> None:

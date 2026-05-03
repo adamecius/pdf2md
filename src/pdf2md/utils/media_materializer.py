@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -58,7 +59,7 @@ def _warn(manifest: dict[str, Any], gid: str, reason: str, page_index: int | Non
 
 
 def build_manifest(consensus: dict[str, Any], source_consensus_report: Path, source_semantic_links: Path, policy: dict[str, Any]) -> dict[str, Any]:
-    return {"schema_name": "pdf2md.media_manifest", "schema_version": "0.1.0", "source_pdf": consensus.get("pdf_path"), "source_consensus_report": str(source_consensus_report), "source_semantic_links": str(source_semantic_links), "created_at": dt.datetime.now(dt.timezone.utc).isoformat(), "policy": policy, "assets": [], "warnings": []}
+    return {"schema_name": "pdf2md.media_manifest", "schema_version": "0.1.0", "run_id": consensus.get("run_id"), "upstream_sha256": {"consensus_report": hashlib.sha256(source_consensus_report.read_bytes()).hexdigest() if source_consensus_report.exists() else None, "semantic_links": hashlib.sha256(source_semantic_links.read_bytes()).hexdigest() if source_semantic_links.exists() else None}, "source_pdf": consensus.get("pdf_path"), "source_consensus_report": str(source_consensus_report), "source_semantic_links": str(source_semantic_links), "created_at": dt.datetime.now(dt.timezone.utc).isoformat(), "policy": policy, "assets": [], "warnings": []}
 
 
 def materialize(consensus: dict[str, Any], semantic: dict[str, Any], output_root: Path, *, source_consensus_report: Path, source_semantic_links: Path, strict: bool = False, render_dpi: int = 200, padding_px: int = 8, allow_conflicted_geometry: bool = False, allow_single_source_geometry: bool = True, crop_tables_as_visual_fallback: bool = False) -> tuple[dict[str, Any], int]:
@@ -85,7 +86,7 @@ def materialize(consensus: dict[str, Any], semantic: dict[str, Any], output_root
         if a.get("anchor_type") == "figure" and a.get("target_group_id") in groups:
             candidates[a["target_group_id"]] = {"gid": a["target_group_id"], "anchor": a, "candidate_type": "figure"}
     for gid, (_, g) in groups.items():
-        if g.get("kind") == "picture":
+        if g.get("kind") == "picture" and policy.get("materialize_pictures", True):
             candidates.setdefault(gid, {"gid": gid, "anchor": None, "candidate_type": "image"})
         if crop_tables_as_visual_fallback and g.get("kind") == "table":
             candidates.setdefault(gid, {"gid": gid, "anchor": None, "candidate_type": "table_visual_fallback"})
@@ -132,6 +133,8 @@ def materialize(consensus: dict[str, Any], semantic: dict[str, Any], output_root
         conf = max(0.0, min(1.0, conf))
         aw = []
         if status != "resolved": aw.append(f"non_near_geometry:{status}")
+        if status == "single_source_geometry":
+            aw.append("single_source_geometry_warning")
         try:
             pg = doc.load_page(pidx)
             mat = fitz.Matrix(render_dpi / 72.0, render_dpi / 72.0)
