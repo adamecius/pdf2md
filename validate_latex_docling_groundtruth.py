@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse, json, tomllib
+import argparse, json, tomllib, subprocess
 from pathlib import Path
 
 REQ_GT={"schema_name","document_id","nodes","labels","references","features","pages_expected_min"}
-REQ_SEM={"document_id","expected_title","expected_sections","expected_labels","required_node_types"}
+REQ_SEM={"document_id","expected_title","expected_sections","expected_labels"}
 REQ_DOC={"document_id","required_docling_kinds"}
 
 
@@ -24,7 +24,7 @@ def check_doc(doc:Path, enabled:list[str])->dict:
     for f in ['source_groundtruth_ir.json','expected_semantic_contract.json','expected_docling_contract.json','provenance_manifest.json']:
         if not (gt/f).exists(): errs.append(f'missing_{f}')
     if not tex.exists(): errs.append('missing_tex')
-    g=s=d=None
+    g=s=d=sd=None
     if (gt/'source_groundtruth_ir.json').exists():
         g=json.loads((gt/'source_groundtruth_ir.json').read_text())
         for k in REQ_GT:
@@ -51,6 +51,8 @@ def check_doc(doc:Path, enabled:list[str])->dict:
             if not req.issubset(node_types): errs.append("new_fixture_missing_required_types")
             if sum(1 for n in g.get("nodes",[]) if n.get("type")=="footnote") < 2: errs.append("new_fixture_footnotes_lt_2")
             if sum(1 for r in g.get("references",[]) if r.get("expected_resolved")) < 5: errs.append("new_fixture_resolved_refs_lt_5")
+    if (gt/'semantic_document_groundtruth.json').exists():
+        sd=json.loads((gt/'semantic_document_groundtruth.json').read_text())
     if (gt/'expected_semantic_contract.json').exists():
         s=json.loads((gt/'expected_semantic_contract.json').read_text())
         for k in REQ_SEM:
@@ -63,6 +65,15 @@ def check_doc(doc:Path, enabled:list[str])->dict:
         src=tex.read_text()
         for lbl in s.get('expected_labels',[]):
             if f'\\label{{{lbl}}}' not in src: errs.append(f'label_not_in_tex:{lbl}')
+    
+    cand=doc/'consensus'/'semantic_document.json'
+    if cand.exists() and sd and s:
+        outp=doc/'reports'/'pre_docling_comparison_report.json'
+        outp.parent.mkdir(exist_ok=True)
+        cp=subprocess.run(['python','compare_pre_docling_groundtruth.py','--groundtruth',str(gt/'semantic_document_groundtruth.json'),'--candidate',str(cand),'--contract',str(gt/'expected_semantic_contract.json'),'--output',str(outp)])
+        if cp.returncode!=0:
+            errs.append('candidate_semantic_mismatch')
+
     preview=doc/'docling'/'docling_preview.md'
     if preview.exists() and s:
         txt=preview.read_text()
