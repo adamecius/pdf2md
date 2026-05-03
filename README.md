@@ -91,3 +91,8 @@ This repository now includes folder/file scaffolding for staged architecture wor
 - `tests/test_ir_scaffolding.py` as the planned home for serialization and parser transformation tests
 
 At this step, these files intentionally contain brief descriptions and placeholders only. Existing `Document -> Page -> Block` remains the active schema.
+
+## 14) License and contribution policy
+- Public open-source license: **AGPL-3.0-or-later** (see `LICENSE`).
+- Closed-source/proprietary use requires separate written authorisation from **[COPYRIGHT HOLDER]** (see `NOTICE`).
+- Contributions require agreement with `CLA.md` (see `CONTRIBUTING.md`).
