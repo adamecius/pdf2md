@@ -1,0 +1,34 @@
+\DocumentMetadata{testphase=phase-III, pdfstandard=ua-2}
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\title{Linked Sections and Figures Fixture}
+\author{pdf2md Phase 1A}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Overview}\label{sec:overview}
+This section introduces the fixture and includes a footnote\footnote{Fixture footnote for linked sections.}.
+
+\subsection{Figure and Equation Links}\label{sec:links}
+Figure~\ref{fig:box-diagram} and Equation~\ref{eq:energy} are referenced from this subsection.
+
+\begin{figure}[h]
+\centering
+\fbox{\rule{0pt}{1.2in}\rule{2.0in}{0pt}}
+\caption{A simple boxed figure created with LaTeX primitives.}
+\label{fig:box-diagram}
+\end{figure}
+
+\begin{equation}
+E = mc^2
+\label{eq:energy}
+\end{equation}
+
+\section{Cross References}\label{sec:cross}
+As discussed in Section~\ref{sec:overview}, this fixture validates section linking.
+
+\end{document}
