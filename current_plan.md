@@ -12,6 +12,7 @@ Then scan the whole repository for any remaining references to those deleted `.t
 - `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex`
 
 The canonical `groundtruth/corpus/latex/**` tree remains the only accepted source of truth for LaTeX ground-truth fixtures.
+Legacy references in `.current/**` JSON artifacts that still point to deleted `.tex`/`.pdf` paths must also be rewritten to canonical `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex` targets.
 
 To keep `run_log.md` compact, large intermediate diagnostic listings must be written to `booking.log` during execution and removed before task completion once verification is complete.
 
@@ -23,6 +24,7 @@ Files the agent may create, modify, or delete under this plan. Anything else is 
 - `.current/docling_groundtruth/**/*.pdf`                  deletion only
 - `.current/latex_docling_groundtruth/**/*.tex`            deletion only
 - `.current/latex_docling_groundtruth/**/*.pdf`            deletion only
+- `.current/**/*.json`                                    reference-redirection only: replace legacy `.current/.../*.tex|.pdf` strings with canonical `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex`
 - `groundtruth/corpus/latex/**`
 - `run_log.md`
 - `booking.log`                                           create/update/delete during diagnostic-only evidence capture
@@ -70,7 +72,9 @@ Where `<doc_id>` must match the canonical document directory already created dur
 
 For deleted `.pdf` references, redirect to the corresponding canonical `.tex` file when the reference is part of the ground-truth fixture workflow. If a `.pdf` reference semantically requires an actual PDF file and cannot be safely redirected to LaTeX, record it as a blocker in `run_log.md` and do not mark T3 done.
 
-Files: reference-bearing files discovered by the scan, `groundtruth/corpus/latex/**`, `run_log.md`, `booking.log` (temporary evidence file, must be deleted before task end).
+For any matched `.current/**` JSON artifact references, update only the string values that point to deleted `.current/.../*.tex` or `.current/.../*.pdf` paths; do not alter unrelated JSON fields.
+
+Files: reference-bearing files discovered by the scan, `groundtruth/corpus/latex/**`, `.current/**/*.json` (reference-redirection only), `run_log.md`, `booking.log` (temporary evidence file, must be deleted before task end).
 
 ## Tests
 
@@ -187,3 +191,10 @@ Feedback
   - Required check #5 passed: no dependencies or external tools were added/used.
   - Required check #6 passed: no silent retries are evidenced in PR #5 logs.
   - Required check #7 outcome: T3 is not eligible for promotion to `done` because verdict is fail and A6 failed.
+
+
+## Feedback #5
+- Responding to `PR_review #5`.
+- Accepted request: promote blocked `.current/**` JSON reference files into the whitelist for T3 redirection work.
+- Plan update: `.current/**/*.json` is now writable for **reference-redirection only** so legacy `.current/.../*.tex|.pdf` strings can be rewritten to canonical `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex` paths.
+- Status impact: no demotion applied; `T3` remains pending and is now unblocked for the previously blocked file class.
