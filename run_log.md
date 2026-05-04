@@ -19,3 +19,11 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
 - external_tools_used: []
 - blockers: ["current_plan.md has no '## Status' section, so the next pending task cannot be determined as requested by agent-mode protocol."]
 - status: halted
+
+## PR #2 — 2026-05-04T22:30:41Z — mode: agent
+- tasks_attempted:
+    - T1: files_touched=[groundtruth/corpus/latex/**], tests_pass=[A1,A2,A3], tests_fail_env=[], tests_fail_real=[]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: []
+- status: ready_for_review
