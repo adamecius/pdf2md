@@ -8,7 +8,7 @@ from pathlib import Path
 import re
 from typing import Any
 
-EQ_NUM_RE = re.compile(r"^\(?\s*(\d+(?:\.\d+)+)\s*\)?$")
+EQ_NUM_RE = re.compile(r"^\(?\s*(\d+(?:\.\d+)*)\s*\)?$")
 EQ_TAG_RE = re.compile(r"\\tag\{\s*(\d+(?:\.\d+)*)\s*\}")
 EQ_REF_RE = re.compile(r"\b(?:Eq\.?|Equation)\s*\(?\s*(\d+(?:\.\d+)*)\s*\)?", re.IGNORECASE)
 FIG_LABEL_RE = re.compile(r"\b(?:Figure|Fig\.)\s+(\d+(?:\.\d+)*)", re.IGNORECASE)
@@ -41,7 +41,7 @@ def extract_equation_number(text: str | None) -> str | None:
         m = rex.search(t)
         if m:
             return m.group(1)
-    m = re.search(r"\(\s*(\d+(?:\.\d+)+)\s*\)$", t)
+    m = re.search(r"\(\s*(\d+(?:\.\d+)*)\s*\)$", t)
     if m:
         return m.group(1)
     m = EQ_NUM_RE.match(t)
@@ -74,7 +74,7 @@ def normalise_latex(text: str | None) -> dict[str, str | None]:
     t = (text or "").strip()
     label = extract_equation_number(t)
     t = EQ_TAG_RE.sub("", t)
-    t = re.sub(r"\(\s*\d+(?:\.\d+)+\s*\)\s*$", "", t)
+    t = re.sub(r"\(\s*\d+(?:\.\d+)*\s*\)\s*$", "", t)
     t = t.replace("\\left", "").replace("\\right", "")
     t = re.sub(r"\{\s*\\bf\s+([^}]+)\}", r"\\mathbf{\1}", t)
     t = re.sub(r"\\(?:quad|,|\s)", "", t)

@@ -9,6 +9,7 @@ TAB_RE = re.compile(r'\bTable\s+(\d+(?:\.\d+)*)', re.I)
 EQ_RE = re.compile(r'\b(?:Eq\.?|Equation)\s*\(?\s*(\d+(?:\.\d+)*)\s*\)?', re.I)
 SEC_RE = re.compile(r'^\s*(\d+)\s+[A-Z]')
 SUB_RE = re.compile(r'^\s*(\d+\.\d+)\s+[A-Z]')
+FOOTNOTE_BODY_RE = re.compile(r'^\s*(\d+)\s+')
 
 
 def _norm_text(t: str) -> str: return re.sub(r'\s+', ' ', (t or '').strip().lower())
@@ -16,6 +17,15 @@ def _sha(v: str) -> str: return 'sha256:' + hashlib.sha256((v or '').encode()).h
 def _bbox_norm(bb: list[float], w: float, h: float) -> list[float]:
     x0,y0,x1,y1=bb
     return [round(max(0,min(1000,x0/w*1000)),3),round(max(0,min(1000,y0/h*1000)),3),round(max(0,min(1000,x1/w*1000)),3),round(max(0,min(1000,y1/h*1000)),3)]
+def _set_block_type(block: dict[str, Any], typ: str) -> None:
+    block["type"] = typ
+    block["semantic_role"] = typ
+    block["docling_label_hint"] = typ
+    block["docling"]["label_hint"] = typ
+    block["comparison"]["compare_as"] = typ
+
+def _token_set(text: str) -> set[str]:
+    return {t for t in re.findall(r"[a-z0-9]+", (text or "").lower()) if t}
 
 def assign_block_type(text: str, y_normalised: float, page_drawings: int) -> tuple[str, int|None]:
     t=text.strip()
@@ -84,7 +94,8 @@ def get_detectable_references(fixture_dir: Path) -> list[dict]:
 def generate_mock_backend_ir(fixture_dir: Path, out_dir: Path, backend_name: str='mineru'):
     fixture_dir,out_dir=Path(fixture_dir),Path(out_dir)
     gt=json.loads((fixture_dir/'groundtruth'/'source_groundtruth_ir.json').read_text())
-    has_figure=any(n.get('type')=='figure' for n in gt.get('nodes',[]))
+    nodes=gt.get('nodes',[])
+    has_figure=any(n.get('type')=='figure' for n in nodes)
     pages=out_dir/'pages'; pages.mkdir(parents=True,exist_ok=True)
     pdf=fixture_dir/'input'/f'{fixture_dir.name}.pdf'
     refs=[]
@@ -107,9 +118,51 @@ def generate_mock_backend_ir(fixture_dir: Path, out_dir: Path, backend_name: str
             continue
           text_blocks.append(_build_block(fixture_dir.name,pidx,order,t,bb,typ,hl)); order+=1
         blocks.extend(text_blocks)
+        gt_nodes=[n for n in nodes if n.get("type") in {"figure","table"} and n.get("page")==pidx+1]
+        for n in gt_nodes:
+          target_type='picture' if n.get("type")=='figure' else 'table'
+          ntext=n.get("text") or ""
+          ntoks=_token_set(ntext)
+          best_idx=None
+          best_score=-1.0
+          for i,bk in enumerate(text_blocks):
+            if bk["type"]!="paragraph":
+              continue
+            btoks=_token_set(bk["content"]["text"])
+            if ntoks and btoks:
+              overlap=len(ntoks & btoks)
+              score=(2*overlap)/(len(ntoks)+len(btoks)) if (len(ntoks)+len(btoks)) else 0.0
+            else:
+              score=0.0
+            if score>best_score:
+              best_score=score; best_idx=i
+          if best_idx is None:
+            continue
+          if best_score<=0:
+            ny=(n.get("bbox") or [0,0,0,0])[1]
+            best_dist=None
+            for i,bk in enumerate(text_blocks):
+              if bk["type"]!="paragraph":
+                continue
+              by=bk["geometry"]["bbox"][1]
+              dist=abs(by-ny)
+              if best_dist is None or dist<best_dist:
+                best_dist=dist; best_idx=i
+          if best_idx is not None:
+            _set_block_type(text_blocks[best_idx],target_type)
+
+        has_gt_footnote=any(n.get("type")=="footnote" and n.get("page")==pidx+1 for n in nodes)
+        for bk in text_blocks:
+          y=bk["geometry"]["bbox"][1]
+          txt=bk["content"]["text"]
+          if FOOTNOTE_BODY_RE.match(txt) and 750<y<800 and has_gt_footnote and bk["type"] in {"paragraph","footer","caption","unknown"}:
+            delta=801-y
+            bk["geometry"]["bbox"][1]=round(min(1000,bk["geometry"]["bbox"][1]+delta),3)
+            bk["geometry"]["bbox"][3]=round(min(1000,bk["geometry"]["bbox"][3]+delta),3)
         for dr in drawings:
           bb=_bbox_norm([dr['rect'].x0,dr['rect'].y0,dr['rect'].x1,dr['rect'].y1],w,h)
-          if (bb[2]-bb[0])>20 and (bb[3]-bb[1])>20:
+          min_dim=10 if has_figure else 20
+          if (bb[2]-bb[0])>min_dim and (bb[3]-bb[1])>min_dim:
             blocks.append(_build_block(fixture_dir.name,pidx,order,'',bb,'picture',None)); order+=1
         pf=pages/f'page_{pidx:04d}.json'; pf.write_text(json.dumps({'schema_name':'pdf2md.extraction_ir_page','page_index':pidx,'page_number':pidx+1,'blocks':blocks},indent=2))
         refs.append(str(pf))
