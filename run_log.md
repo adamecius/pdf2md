@@ -29,3 +29,11 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
 - blockers:
     - A4 currently has no integration test case implementation (`-k integration` deselected all tests).
 - status: ready_for_review
+
+## PR #3 — 2026-05-04T16:40:00Z — mode: agent
+- tasks_completed:
+    - T2: files_touched=[scripts/compile_corpus.py], tests_pass=[A1,A2], tests_fail_env=[], tests_fail_real=[]
+    - T3: files_touched=[scripts/certify_corpus.py], tests_pass=[A3], tests_fail_env=[], tests_fail_real=[]
+    - T5: files_touched=[tests/test_corpus_tooling.py], tests_pass=[A5], tests_fail_env=[A4], tests_fail_real=[]
+- blockers: []
+- status: ready_for_review
