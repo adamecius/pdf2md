@@ -32,3 +32,22 @@ def test_alignment_footnote_no_space_marker():
     gt=_fixture(); blocks=[{'block_id':'b1','type':'unknown','content':{'text':'1First note.'}}]
     als=align_groundtruth_to_backend(gt,blocks,backend='mineru',doc_id='d')
     assert any(a['object_type']=='footnote' for a in als)
+
+def test_alignment_table_caption_only_is_partial():
+    gt=extract_groundtruth_objects(r"\begin{table}\caption{Sample table}\label{tab:one}\begin{tabular}{cc}A & B\\1 & 2\end{tabular}\end{table}")
+    als=align_groundtruth_to_backend(gt,[{'block_id':'b','type':'paragraph','content':{'text':'Table 1: Sample table'}}],backend='mineru',doc_id='d')
+    rec=[a for a in als if a['object_type']=='table'][0]
+    assert rec['status']=='partial'
+
+
+def test_alignment_reference_missing_fails():
+    gt=extract_groundtruth_objects(r"\ref{fig:one}")
+    als=align_groundtruth_to_backend(gt,[{'block_id':'b','type':'paragraph','content':{'text':'nothing'}}],backend='mineru',doc_id='d')
+    rec=[a for a in als if a['object_type']=='reference'][0]
+    assert rec['status']=='missed' and rec['unmatched_reason']
+
+
+def test_alignment_unsupported_status_exists():
+    gt={'objects':[{'gt_id':'d:x:1','object_type':'unknown','doc_id':'d','required':True}]}
+    rec=align_groundtruth_to_backend(gt,[],backend='x',doc_id='d')[0]
+    assert rec['status'] in {'missed','unsupported'}

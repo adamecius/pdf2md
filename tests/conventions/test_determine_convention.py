@@ -14,7 +14,7 @@ def _mk(tmp: Path, missing=False):
 
 
 def _run(root, out, monkeypatch, extra=None):
-    argv=['x','--root',str(root.parent),'--batch','batch_test','--output',str(out),'--write-proposed-config']+(extra or [])
+    argv=['x','--root',str(root.parent),'--batch','batch_test','--output',str(out),'--write-proposed-config','--backend','mineru','--backend','paddleocr','--backend','deepseek']+(extra or [])
     monkeypatch.setattr(sys,'argv',argv); determine_main()
 
 
@@ -64,3 +64,12 @@ def test_proposed_rules_reference_supporting_gt_ids(tmp_path, monkeypatch):
     rep=json.loads((out/'conventions_report.json').read_text())
     rules=rep['backends']['paddleocr']['proposed_rules']
     assert rules and rules[0]['supporting_gt_ids']
+
+def test_strict_mode_exits_zero_on_pass(tmp_path, monkeypatch):
+    root=_mk(tmp_path); out=root/'diag'
+    _run(root,out,monkeypatch,['--strict','--allow-partial'])
+
+
+def test_strict_mode_warn_passes_with_allow_partial(tmp_path, monkeypatch):
+    root=_mk(tmp_path); out=root/'diag'
+    _run(root,out,monkeypatch,['--strict','--allow-partial'])

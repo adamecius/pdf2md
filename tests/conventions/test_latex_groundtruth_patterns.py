@@ -45,3 +45,19 @@ def test_caption_optional_short_form_detected():
 def test_footnotemark_and_footnotetext_detected():
     out = extract_groundtruth_objects(r"x\footnotemark y\footnotetext{First note.}")
     assert len(out["footnotes"]) == 2
+
+def test_table_with_optional_position_has_gt_object():
+    tex=r"""\begin{table}[h]\caption{Sample table}\label{tab:one}\begin{tabular}{cc}A & B \\ 1 & 2\end{tabular}\end{table}"""
+    out=extract_groundtruth_objects(tex)
+    t=out['tables'][0]
+    assert t['object_type']=='table' and 'tab:one' in t['gt_id'] and t['caption_key']=='sampletable'
+    assert 'ab12' in t['cell_text_key'] or set(['A','B','1','2']).issubset(set(t['cell_texts']))
+
+
+def test_source_environment_is_correct():
+    tex=r"""\begin{equation}x\end{equation}\begin{figure}\caption{c}\end{figure}\begin{table}\caption{t}\end{table}\begin{longtable}{cc}A&B\end{longtable}"""
+    out=extract_groundtruth_objects(tex)
+    assert out['equations'][0]['source_environment']=='equation'
+    assert out['figures'][0]['source_environment']=='figure'
+    assert any(t['source_environment']=='table' for t in out['tables'])
+    assert any(t['source_environment']=='longtable' for t in out['tables'])
