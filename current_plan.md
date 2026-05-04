@@ -2,55 +2,47 @@
 
 ## Goal
 
-Migrate every ad-hoc `.tex` file (from `create_latex_examples.sh` and any other generators) into the new canonical layout `groundtruth/corpus/latex/<doc_id>/`. This becomes the single source of truth for all LaTeX-based ground truth.
+Create `scripts/compile_corpus.py` — an idempotent compiler that turns the canonical corpus from Plan 1 into tagged PDFs using `lualatex` + `biber`.
 
 ## Scope and non-goals
 
-In scope: creating the new folder tree, moving/copying `.tex` files, adding `meta.toml` for each document, placing optional `.bib` and `assets/`.
+In scope: new compilation script with hash gating, build.log, and explicit HUMAN TASK flagging if lualatex/biber are missing.
 
-Out of scope: any compilation, certification, or pipeline changes. Those come in later plans.
+Out of scope: certification, pipeline updates, README changes.
 
 ## Whitelist
 
-Files the agent may create, modify, move, or delete under this plan. Anything else is forbidden.
-
 Create or write:
-- `groundtruth/corpus/latex/**`                           (corpus tree, one folder per document)
+- `scripts/compile_corpus.py`                             (new, has CLI)
 
-Delete (after successful migration):
-- `create_latex_examples.sh`                              (will be replaced in Plan 2)
-
-No other files may be touched.
-
-## Per-document layout (under `groundtruth/corpus/latex/<doc_id>/`)
-
-- `<doc_id>.tex`             source of truth, version-controlled
-- `<doc_id>.bib`             optional, version-controlled if present
-- `assets/`                  optional, for included figures
-- `meta.toml`                version-controlled metadata
-
-`meta.toml` schema (minimal for this plan):
-
-    document_id = "<doc_id>"
-    documentclass = "article"
-    expected_features = ["equations", "figures", "tables", "footnotes", "references", "bibliography"]
-    expected_counts = { sections = 3, figures = 2, tables = 1, equations = 5, footnotes = 2 }
-    notes = "free text"
-
-Every `.tex` must start with `\DocumentMetadata{testphase=phase-III, pdfstandard=ua-2}` before `\documentclass`.
+Modify: none
 
 ## Tasks
 
-### T1 — Migrate corpus to canonical layout
+### T2 — `scripts/compile_corpus.py`
 
-Extract every `.tex` currently embedded in `create_latex_examples.sh` (and any other generator scripts) into versioned files under `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex`.
+Walk the corpus (`groundtruth/corpus/latex/`), compile each fixture with `lualatex` (run twice + `biber` if `.bib` exists and is referenced).
 
-For each document:
-- Ensure `\DocumentMetadata{testphase=phase-III, pdfstandard=ua-2}` is the first non-comment line.
-- Ensure `\usepackage{hyperref}` is present (or implied by the metadata mode).
-- Write a `meta.toml` with declared counts derived by inspection of the `.tex`.
-- If a `.bib` or `assets/` folder is referenced, place them in the correct location.
+**Critical requirement for missing tools:**
+- At startup, check if `lualatex` and `biber` are available (use `shutil.which`).
+- If either is missing, print the following exact block and exit gracefully (exit code 42):
+HUMAN TASK: lualatex and/or biber not found on this system.
+Please install a full TeX Live distribution that includes LuaLaTeX and biber:
+https://www.tug.org/texlive/
+After installation, verify with:
+which lualatex
+which biber
+Then re-run:
+python scripts/compile_corpus.py --corpus-root groundtruth/corpus/latex
+text- Do NOT attempt to install anything or continue. Just flag and exit.
 
-After migration, verify the tree structure manually before moving to Plan 2.
+Capture `build.log`.  
+Idempotent via SHA-256 hash of `.tex` + `.bib` + `assets/*` stored in the header of `build.log`.
 
-Files: `groundtruth/corpus/latex/**`
+CLI:
+
+python scripts/compile_corpus.py --corpus-root groundtruth/corpus/latex [--doc <id>] [--force]
+
+Exit 0 on full success. Exit 42 on HUMAN TASK (missing TeX tools). Exit non-zero with per-document summary on any other failure (parsed from `! ` lines, undefined references/citations).
+
+Files: `scripts/compile_corpus.py`
