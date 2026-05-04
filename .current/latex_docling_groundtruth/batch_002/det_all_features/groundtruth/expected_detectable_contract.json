@@ -1,0 +1,56 @@
+{
+  "document_id": "det_all_features",
+  "expected_title": "All Features",
+  "expected_sections": [
+    "All"
+  ],
+  "expected_anchors": [
+    {
+      "anchor_type": "figure",
+      "numeric_label": "1"
+    },
+    {
+      "anchor_type": "table",
+      "numeric_label": "1"
+    },
+    {
+      "anchor_type": "equation",
+      "numeric_label": "1"
+    }
+  ],
+  "expected_resolved_references": [
+    {
+      "reference_type": "figure",
+      "label": "1",
+      "should_resolve": true
+    },
+    {
+      "reference_type": "table",
+      "label": "1",
+      "should_resolve": true
+    },
+    {
+      "reference_type": "equation",
+      "label": "1",
+      "should_resolve": true
+    },
+    {
+      "reference_type": "section",
+      "label": "1",
+      "should_resolve": false
+    }
+  ],
+  "expected_block_types": [
+    "title",
+    "heading",
+    "caption",
+    "figure",
+    "table",
+    "formula",
+    "paragraph"
+  ],
+  "expected_footnote_count": 1,
+  "expected_bibliography_refs": [
+    "1"
+  ]
+}
