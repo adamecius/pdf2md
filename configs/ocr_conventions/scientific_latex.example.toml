@@ -1,7 +1,36 @@
 [[rules]]
+id = "equation.parenthesised_label"
+backend = "*"
+object_type = "*"
+text_regex = "\\(\\s*(\\d+(\\.\\d+)*)\\s*\\)\\s*$"
+extract_equation_label = true
+
+[[rules]]
+id = "equation.latex_tag_label"
+backend = "*"
+object_type = "*"
+text_regex = "\\\\tag\\{\\s*(\\d+(\\.\\d+)*)\\s*\\}"
+extract_equation_label = true
+
+[[rules]]
 id = "equation.number_split_block"
 backend = "paddleocr"
-object_type = "equation_number"
+object_type = "*"
 text_regex = "^\\s*\\(\\s*\\d+(\\.\\d+)*\\s*\\)\\s*$"
 normalised_type = "equation_number"
 merge_with_nearby_formula = true
+
+[[rules]]
+id = "table.flattened_paragraph"
+backend = "*"
+object_type = "*"
+text_regex = "^\\s*Table\\s+\\d+\\s*:\\s*.+"
+normalised_type = "table"
+
+[[rules]]
+id = "deepseek.geometryless_exact_text_merge_hint"
+backend = "deepseek"
+object_type = "*"
+text_regex = ".+"
+geometry_required = false
+merge_when_text_exact = true
