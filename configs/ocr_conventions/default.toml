@@ -1,0 +1,46 @@
+[[rules]]
+id = "caption.figure_or_table_prefix"
+backend = "*"
+object_type = "*"
+text_regex = "^\\s*(Figure|Fig\\.|Table)\\s+\\d+(\\.\\d+)?"
+normalised_type = "caption"
+
+[[rules]]
+id = "figure.placeholder_fig_near_caption"
+backend = "*"
+object_type = "*"
+text_regex = "^\\s*FIG\\s*$"
+requires_near_caption_regex = "^\\s*(Figure|Fig\\.)\\s+\\d+"
+normalised_type = "picture"
+
+[[rules]]
+id = "footnote.leading_digit_without_space"
+backend = "*"
+object_type = "*"
+text_regex = "^\\s*(\\d+)([A-Za-z].*)"
+normalised_text_rewrite = "\\1 \\2"
+normalised_type = "footnote"
+
+[[rules]]
+id = "footnote.superscript_marker"
+backend = "*"
+object_type = "*"
+text_regex = "^\\s*([¹²³⁴⁵⁶⁷⁸⁹])\\s*([A-Za-z].*)"
+normalised_text_rewrite = "1 \\2"
+normalised_type = "footnote"
+
+[[rules]]
+id = "footnote.caret_marker"
+backend = "*"
+object_type = "*"
+text_regex = "^\\s*\\^(\\d+)\\s*([A-Za-z].*)"
+normalised_text_rewrite = "\\1 \\2"
+normalised_type = "footnote"
+
+[[rules]]
+id = "footnote.parenthesised_marker"
+backend = "*"
+object_type = "*"
+text_regex = "^\\s*\\((\\d+)\\)\\s*([A-Za-z].*)"
+normalised_text_rewrite = "\\1 \\2"
+normalised_type = "footnote"
