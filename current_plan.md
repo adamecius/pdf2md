@@ -170,3 +170,20 @@ Feedback
   - No dependencies or environment-modifying tools were added/used.
   - No silent retries were evidenced in PR #4 log entry.
   - T2 was already promoted to `done` by prior pass review; no additional status change is needed in this re-review.
+
+
+## PR_review #5
+- verdict: fail
+- whitelist_violations: []
+- test_contract_violations:
+  - A6 failed: unresolved legacy references remained (`tests_fail_real=[A6]`) and blocker was recorded for non-writable `.current/**` JSON files under the present whitelist constraints.
+- dependency_violations: []
+- tasks_promoted: []
+- notes:
+  - Required check #1 passed: modified files (`groundtruth/corpus/latex/**`, `run_log.md`) are within whitelist scope; temporary `booking.log` usage/deletion is also allowed.
+  - Required check #2 passed: attempted task T3 has explicit evidence in `run_log.md` PR #5 entry.
+  - Required check #3 failed: gating automated tests for T3 did not all pass (A7 pass, A6 real fail).
+  - Required check #4 passed: no human re-tagging occurred.
+  - Required check #5 passed: no dependencies or external tools were added/used.
+  - Required check #6 passed: no silent retries are evidenced in PR #5 logs.
+  - Required check #7 outcome: T3 is not eligible for promotion to `done` because verdict is fail and A6 failed.
