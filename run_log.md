@@ -35,3 +35,11 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
 - external_tools_used: []
 - blockers: ["A4 evidence requirement not satisfied: deletion-candidate list was generated but not recorded in run_log.md before deletion."]
 - status: halted
+
+## PR #4 — 2026-05-04T23:10:00Z — mode: agent
+- tasks_attempted:
+    - T2: files_touched=[run_log.md, booking.log (temporary, deleted)], tests_pass=[A4,A5], tests_fail_env=[], tests_fail_real=[]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: []
+- status: ready_for_review
