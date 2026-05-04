@@ -80,20 +80,32 @@ def main() -> None:
     out.mkdir(parents=True, exist_ok=True)
     rules = _load_rules(Path(args.config) if args.config else None)
     preview = []
-    for backend_dir in inp.glob("backend_ir/*"):
-        backend = backend_dir.name
-        for f in backend_dir.rglob("*.json"):
-            data = json.loads(f.read_text())
-            blocks = data.get("blocks") if isinstance(data, dict) else None
-            if not isinstance(blocks, list):
+    for doc_dir in inp.iterdir():
+        if not doc_dir.is_dir() or doc_dir.name.startswith('.'):
+            continue
+        backend_root = doc_dir / 'backend_ir'
+        if not backend_root.exists():
+            continue
+        doc_id = doc_dir.name
+        for backend_dir in backend_root.iterdir():
+            if not backend_dir.is_dir():
                 continue
-            nblocks = normalise_blocks(blocks, backend, rules)
-            dest = out / backend / f.relative_to(backend_dir)
-            dest.parent.mkdir(parents=True, exist_ok=True)
-            new_data = dict(data)
-            new_data["blocks"] = nblocks
-            dest.write_text(json.dumps(new_data, indent=2))
-            preview.extend([b for b in nblocks if b.get("normalisation")])
+            backend = backend_dir.name
+            extraction_root = backend_dir / '.current' / 'extraction_ir' / doc_id
+            if not extraction_root.exists():
+                continue
+            for f in extraction_root.rglob('*.json'):
+                data = json.loads(f.read_text())
+                blocks = data.get('blocks') if isinstance(data, dict) else None
+                if not isinstance(blocks, list):
+                    continue
+                nblocks = normalise_blocks(blocks, backend, rules)
+                dest = out / doc_id / 'backend_ir' / backend / '.current' / 'extraction_ir' / doc_id / f.relative_to(extraction_root)
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                new_data = dict(data)
+                new_data['blocks'] = nblocks
+                dest.write_text(json.dumps(new_data, indent=2))
+                preview.extend([b for b in nblocks if b.get('normalisation')])
     (out.parent / "diagnostics" / "conventions").mkdir(parents=True, exist_ok=True)
     (out.parent / "diagnostics" / "conventions" / "normalised_blocks_preview.json").write_text(json.dumps(preview, indent=2))
 
