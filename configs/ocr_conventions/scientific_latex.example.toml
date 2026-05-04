@@ -1,0 +1,7 @@
+[[rules]]
+id = "equation.number_split_block"
+backend = "paddleocr"
+object_type = "equation_number"
+text_regex = "^\\s*\\(\\s*\\d+(\\.\\d+)*\\s*\\)\\s*$"
+normalised_type = "equation_number"
+merge_with_nearby_formula = true

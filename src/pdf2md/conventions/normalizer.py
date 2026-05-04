@@ -1,0 +1,74 @@
+from __future__ import annotations
+import argparse, json, re
+from pathlib import Path
+import tomllib
+from .rules import default_rules, rule_matches
+from .schemas import Rule
+
+
+def _load_rules(path: Path | None) -> list[Rule]:
+    if not path or not path.exists():
+        return default_rules()
+    data = tomllib.loads(path.read_text())
+    rules = []
+    for r in data.get("rules", []):
+        rules.append(Rule(**r))
+    return rules or default_rules()
+
+
+def normalise_blocks(blocks: list[dict], backend: str, rules: list[Rule]) -> list[dict]:
+    out = []
+    for b in blocks:
+        nb = json.loads(json.dumps(b))
+        text = ((nb.get("content") or {}).get("text") or nb.get("text") or "")
+        typ = nb.get("type", "paragraph")
+        y = (((nb.get("geometry") or {}).get("bbox") or [None, None, None, None])[1])
+        applied = []
+        for r in rules:
+            m = rule_matches(r, backend, typ, text, y)
+            if not m:
+                continue
+            if r.normalised_type:
+                nb["type"] = r.normalised_type
+            if r.normalised_text_rewrite:
+                text = re.sub(r.text_regex, r.normalised_text_rewrite, text)
+                if "content" in nb:
+                    nb["content"]["text"] = text
+            applied.append({"rule_id": r.id, "source": "ocr_conventions.proposed.toml", "reason": f"text matched {r.text_regex}"})
+        if applied:
+            nb["normalisation"] = {"backend": backend, "original_type": typ, "normalised_type": nb.get("type", typ), "original_text": ((b.get('content') or {}).get('text') or b.get('text') or ''), "normalised_text": ((nb.get('content') or {}).get('text') or nb.get('text') or ''), "rules_applied": applied}
+        out.append(nb)
+    return out
+
+
+def main() -> None:
+    p = argparse.ArgumentParser()
+    p.add_argument("--input-root", required=True)
+    p.add_argument("--config")
+    p.add_argument("--output-root", required=True)
+    args = p.parse_args()
+    inp, out = Path(args.input_root), Path(args.output_root)
+    out.mkdir(parents=True, exist_ok=True)
+    rules = _load_rules(Path(args.config) if args.config else None)
+    preview = []
+    for backend_dir in inp.glob("backend_ir/*"):
+        backend = backend_dir.name
+        for f in backend_dir.rglob("*.json"):
+            data = json.loads(f.read_text())
+            blocks = data.get("blocks") if isinstance(data, dict) else None
+            if not isinstance(blocks, list):
+                continue
+            nblocks = normalise_blocks(blocks, backend, rules)
+            rel = f.relative_to(backend_dir)
+            dest = out / backend / rel
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            new_data = dict(data)
+            new_data["blocks"] = nblocks
+            dest.write_text(json.dumps(new_data, indent=2))
+            preview.extend([b for b in nblocks if b.get("normalisation")])
+    (out.parent / "diagnostics" / "conventions").mkdir(parents=True, exist_ok=True)
+    (out.parent / "diagnostics" / "conventions" / "normalised_blocks_preview.json").write_text(json.dumps(preview, indent=2))
+
+
+if __name__ == "__main__":
+    main()

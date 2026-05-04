@@ -1,0 +1,6 @@
+[[rules]]
+id = "caption.figure_or_table_prefix"
+backend = "*"
+object_type = "caption"
+text_regex = "^\\s*(Figure|Fig\\.|Table)\\s+\\d+(\\.\\d+)?\\b"
+normalised_type = "caption"
