@@ -83,3 +83,11 @@ LaTeX source (`input/*.tex`) and compiled PDF (`input/*.pdf`) are the source of 
 Backend semantic outputs (for example `consensus/semantic_document.json`) are compared against this pre-Docling ground truth using `compare_pre_docling_groundtruth.py` before Docling export checks. Docling export is downstream verification only.
 
 In this benchmark phase, exact geometric coordinates are optional unless explicitly provided by source artifacts.
+
+## Canonical corpus
+Use `groundtruth/corpus/latex` as canonical source.
+
+1. `python scripts/compile_corpus.py --corpus-root groundtruth/corpus/latex`
+2. `python scripts/certify_corpus.py --corpus-root groundtruth/corpus/latex`
+3. run derivation scripts with `--corpus-root`.
+

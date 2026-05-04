@@ -1,3 +1,4 @@
+CORPUS_ROOT=${CORPUS_ROOT:-groundtruth/corpus/latex}
 #!/usr/bin/env bash
 set -u
 BATCH=batch_001; ROOT=.current/latex_docling_groundtruth; CONFIG=pdf2md.consensus.example.toml; VERBOSE=0; ALLOW_MISSING_BACKENDS=0; ALLOW_MISSING_ENVS=0; ALLOW_STAGE_FAILURES=0

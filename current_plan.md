@@ -179,3 +179,28 @@ Tests are automated by default. A test re-tagged `human` in `run_log.md` after a
 ## Feedback
 
 (Empty. Filled by feedback mode in response to PR_reviews and human input.)
+
+## PR_review #1
+
+- verdict: fail
+- whitelist_violations: []
+- test_contract_violations:
+  - Agent-mode execution halted before running any plan-defined automated tests (A1-A5) without a plan-level environmental failure tied to a specific test.
+  - Run log recorded T1 with no files touched and no task evidence for T2-T5, so plan execution contract was not satisfied.
+- notes:
+  - The only modified file (`run_log.md`) is whitelisted, so there is no scope violation.
+  - The blocker reason is not a plan inconsistency or missing prerequisite in the repository; the invocation explicitly asked the agent to execute the current plan, so halting on declaration format alone was not justified.
+  - PR #1 does not achieve the stated plan goal and should be superseded by a new agent-mode run that executes T1-T5 and A1-A5.
+
+## PR_review #2
+
+- verdict: fail
+- whitelist_violations:
+  - `current_plan.md` was modified by the agent-mode implementation PR, but plan explicitly forbids agent-mode edits to plan content.
+- test_contract_violations:
+  - A4 (`-k integration`) was not executed as a real integration test; run output indicates deselection, not pass/fail evidence.
+  - A3 scope in plan requires per-check blocking coverage with pass/fail synthetic cases; submitted tests only assert corpus path existence and do not exercise certification checks.
+  - A5 requires each updated pipeline script to accept `--corpus-root`, default correctly, and fail clearly on missing path; submitted tests do not validate those CLI behaviors.
+- notes:
+  - Corpus/tooling changes are partial and do not satisfy full task semantics (notably certification checks 1-11 were substantially unimplemented).
+  - `run_log.md` status marked `ready_for_review` despite unmet automated-test contract and incomplete task coverage.

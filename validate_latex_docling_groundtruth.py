@@ -86,7 +86,7 @@ def check_doc(doc:Path, enabled:list[str])->dict:
     return {'document_id':did,'errors':errs,'warnings':warns,'ok':not errs}
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument('--root',default='.current/latex_docling_groundtruth'); ap.add_argument('--batch',default='batch_001'); ap.add_argument('--config',default='pdf2md.consensus.example.toml'); ap.add_argument('--verbose',action='store_true'); a=ap.parse_args()
+    ap=argparse.ArgumentParser(); ap.add_argument('--corpus-root',default='groundtruth/corpus/latex'); ap.add_argument('--root',default='.current/latex_docling_groundtruth'); ap.add_argument('--batch',default='batch_001'); ap.add_argument('--config',default='pdf2md.consensus.example.toml'); ap.add_argument('--verbose',action='store_true'); a=ap.parse_args()
     enabled=[canonicalise_backend(k) for k,v in tomllib.load(open(a.config,'rb')).get('backends',{}).items() if v.get('enabled',False)]
     root=Path(a.root)/a.batch
     reps=[check_doc(d,enabled) for d in root.iterdir() if d.is_dir()]

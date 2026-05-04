@@ -23,3 +23,11 @@ runs/
 pdf2md.backends.toml
 .tmp/
 .local_models/
+# corpus artifacts
+groundtruth/corpus/latex/**/*.pdf
+groundtruth/corpus/latex/**/build.log
+groundtruth/corpus/latex/**/certification.json
+groundtruth/corpus/latex/corpus_report.json
+groundtruth/corpus/latex/**/*.aux
+groundtruth/corpus/latex/**/*.toc
+groundtruth/corpus/latex/**/*.out
