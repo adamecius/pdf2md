@@ -43,3 +43,11 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
 - external_tools_used: []
 - blockers: []
 - status: ready_for_review
+
+## PR #5 — 2026-05-04T23:45:00Z — mode: agent
+- tasks_attempted:
+    - T3: files_touched=[groundtruth/corpus/latex/**, run_log.md, booking.log (temporary, deleted)], tests_pass=[A7], tests_fail_env=[], tests_fail_real=[A6]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: ["A6 unresolved legacy references remain in 174 files under .current/** (mostly groundtruth/provenance/backend_ir JSON). Those files are not writable under the whitelist for T3 because only .current/**/*.tex|.pdf are allowed there."]
+- status: halted
