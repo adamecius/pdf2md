@@ -2,99 +2,114 @@
 
 ## Goal
 
-Collect every `*.tex` file present in this repository and copy it into the canonical ground-truth corpus layout at `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex`, with one document directory per copied source. The canonical corpus becomes the single source of truth for LaTeX-based ground truth fixtures.
+Remove the legacy LaTeX and PDF fixture files from:
 
-## Whitelist
+- `.current/docling_groundtruth/**`
+- `.current/latex_docling_groundtruth/**`
 
-Files the agent may create or modify under this plan. Anything else is forbidden.
-
-- `groundtruth/corpus/latex/**`
-- `create_latex_examples.sh`                              (for deletion after migration)
-- `run_log.md`
-
-## Tasks
-
-### T1 — Repository-wide LaTeX corpus migration
-
-Find all repository files matching `*.tex` (including files under `.current/latex_docling_groundtruth/**` and any other subdirectory), and copy each source into canonical layout as:
+Then scan the whole repository for any remaining references to those deleted `.tex` or `.pdf` files. Any reference found must be redirected to the canonical corpus location under:
 
 - `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex`
 
-Where `<doc_id>` is a stable, collision-free identifier derived from the source path.
+The canonical `groundtruth/corpus/latex/**` tree remains the only accepted source of truth for LaTeX ground-truth fixtures.
 
-For each copied document:
-- preserve the exact source `.tex` content (byte-for-byte),
-- include a `meta.toml` alongside each canonical `.tex`,
-- keep canonical tree flat at one directory per `doc_id`.
+## Whitelist
 
-After migration, verify the tree structure and content equality before moving to Plan 2.
+Files the agent may create, modify, or delete under this plan. Anything else is forbidden unless first recorded as a matched legacy-reference file in `run_log.md`.
 
-Files: `groundtruth/corpus/latex/**`, `create_latex_examples.sh`.
+- `.current/docling_groundtruth/**/*.tex`                  deletion only
+- `.current/docling_groundtruth/**/*.pdf`                  deletion only
+- `.current/latex_docling_groundtruth/**/*.tex`            deletion only
+- `.current/latex_docling_groundtruth/**/*.pdf`            deletion only
+- `groundtruth/corpus/latex/**`
+- `run_log.md`
+- Files discovered by the reference scan as containing legacy `.current/.../*.tex` or `.current/.../*.pdf` references, only for replacing those references with their canonical `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex` path. Each such file must be listed in `run_log.md` before modification.
+
+## Tasks
+
+### T2 — Delete legacy `.tex` and `.pdf` files from `.current`
+
+Find and delete every `.tex` and `.pdf` file under:
+
+- `.current/docling_groundtruth/**`
+- `.current/latex_docling_groundtruth/**`
+
+Only files matching these patterns may be deleted:
+
+- `.current/docling_groundtruth/**/*.tex`
+- `.current/docling_groundtruth/**/*.pdf`
+- `.current/latex_docling_groundtruth/**/*.tex`
+- `.current/latex_docling_groundtruth/**/*.pdf`
+
+Directories may be left in place unless they become clearly obsolete and are explicitly allowed by a later plan.
+
+Files: `.current/docling_groundtruth/**/*.tex`, `.current/docling_groundtruth/**/*.pdf`, `.current/latex_docling_groundtruth/**/*.tex`, `.current/latex_docling_groundtruth/**/*.pdf`, `run_log.md`.
+
+### T3 — Repository-wide legacy reference scan and redirection
+
+Build the full list of deleted legacy `.tex` and `.pdf` source paths from within:
+
+- `.current/docling_groundtruth/**`
+- `.current/latex_docling_groundtruth/**`
+
+For each deleted file, search every repository file for references to:
+
+- the full legacy path,
+- the relative legacy path without leading `./`,
+- the filename,
+- any obvious path fragments rooted at `.current/`.
+
+If any reference is found, update the referencing file so that it points to the corresponding canonical LaTeX document under:
+
+- `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex`
+
+Where `<doc_id>` must match the canonical document directory already created during T1.
+
+For deleted `.pdf` references, redirect to the corresponding canonical `.tex` file when the reference is part of the ground-truth fixture workflow. If a `.pdf` reference semantically requires an actual PDF file and cannot be safely redirected to LaTeX, record it as a blocker in `run_log.md` and do not mark T3 done.
+
+Files: reference-bearing files discovered by the scan, `groundtruth/corpus/latex/**`, `run_log.md`.
 
 ## Tests
 
 Tests are automated by default. A test re-tagged `human` in `run_log.md` after a verifiable environmental failure is reported but does not block `ready_for_review`.
 
-### A1 — Enumerate all repository `.tex` sources
-- command: `rg --files -g '*.tex'`
-- pass: command lists all `.tex` sources to be migrated.
+### A4 — Enumerate legacy `.tex` and `.pdf` deletion candidates
 
-### A2 — Canonical layout verification
-- command: `find groundtruth/corpus/latex -mindepth 2 -maxdepth 2 -type f | sort`
-- pass: every canonical document directory contains `<doc_id>.tex` and `meta.toml` only.
+- command:
+  ```sh
+  find .current/docling_groundtruth .current/latex_docling_groundtruth \
+    -type f \( -name '*.tex' -o -name '*.pdf' \) | sort
+pass: command lists every legacy .tex and .pdf file targeted for deletion, and the list is recorded in run_log.md before deletion.
+A5 — Confirm legacy .tex and .pdf files were deleted
 
-### A3 — Content equality verification
-- command: implementation-defined automated check (script or shell) comparing each source `*.tex` against its copied canonical `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex`.
-- pass: all copied canonical files are content-identical to their original sources.
+command:
 
-### H1 — Manual tree review (human)
-- tag: human.
-- command: visual inspection of `groundtruth/corpus/latex/`.
-- pass: human confirms layout matches the spec before proceeding to Plan 2.
-
-## Status
-
-- T1: done
-
-## PR_reviews
+find .current/docling_groundtruth .current/latex_docling_groundtruth \
+  -type f \( -name '*.tex' -o -name '*.pdf' \) | sort
+pass: command returns no files.
+A6 — Repository-wide reference scan for deleted legacy paths and names
+command: implementation-defined automated check that searches every repository file for every deleted .tex and .pdf legacy reference pattern.
+required search scope: whole repository.
+required target patterns: all deleted .tex and .pdf files formerly located under .current/docling_groundtruth/** and .current/latex_docling_groundtruth/**.
+pass: no repository file contains unresolved references to deleted .current/.../*.tex or .current/.../*.pdf files.
+A7 — Canonical redirection verification
+command: implementation-defined automated check.
+pass:
+every updated reference points to an existing canonical file under groundtruth/corpus/latex/<doc_id>/<doc_id>.tex;
+every referenced canonical .tex file exists;
+no updated reference points back into .current/docling_groundtruth/** or .current/latex_docling_groundtruth/**.
+H2 — Manual reference review (human)
+tag: human.
+command: visual inspection of the run_log.md evidence for deleted files, matched references, replacements, and any blockers.
+pass: human confirms that all legacy .tex and .pdf references were either correctly redirected or explicitly blocked.
+Status
+T1: done
+T2: pending
+T3: pending
+PR_reviews
 
 (Empty. Filled by review mode, one section per PR.)
 
-## PR_review #1
-
-- verdict: fail
-- whitelist_violations: []
-- test_contract_violations: ["T1 was marked attempted, but gating automated test A1 was not executed and no environmental failure was recorded."]
-- dependency_violations: []
-- tasks_promoted: []
-- notes:
-  - "`run_log.md` was the only modified file in PR #1 and is allowed by agent protocol as whitelisted-by-default evidence log."
-  - "PR #1 correctly recorded a blocker and halted status, but test execution requirements for an attempted task were not met."
-  - "No `## Status` section exists in `current_plan.md`; therefore no task state promotion could be applied in this review."
-
-## Feedback
+Feedback
 
 (Empty. Filled by feedback mode in response to PR_reviews and human input.)
-
-## Feedback #1
-
-- closes: PR_review #1
-- summary:
-  - Updated the plan to remove ambiguity about next-task selection by adding `## Status` with `T1: pending`.
-  - Expanded migration scope from generator-embedded fixtures to all repository `*.tex` files, explicitly including `.current/latex_docling_groundtruth/**`.
-  - Added explicit automated checks for source enumeration (A1), canonical folder structure (A2), and source-to-copy content equality (A3).
-- rationale:
-  - Human feedback requested repository-wide `*.tex` copying and a primary verification workflow based on listing files, confirming agreed folder structure, and confirming copied content equality.
-
-
-## PR_review #2
-
-- verdict: pass
-- whitelist_violations: []
-- test_contract_violations: []
-- dependency_violations: []
-- tasks_promoted: [T1]
-- notes:
-  - "Modified files in PR #2 were restricted to `groundtruth/corpus/latex/**` and `run_log.md`, both allowed by the plan whitelist."
-  - "`run_log.md` includes a single PR #2 entry with task evidence and reported A1/A2/A3 automated test passes for attempted task T1."
-  - "No dependency additions or environment-modifying external tools were reported."
