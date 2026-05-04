@@ -1,6 +1,8 @@
 import json, re, sys, tomllib, pytest
 from pathlib import Path
 from pdf2md.conventions.determine_convention import main as determine_main
+from pdf2md.conventions.normalizer import normalise_blocks
+from pdf2md.conventions.rules import Rule
 
 
 def _mk(tmp: Path, missing=False):
@@ -92,6 +94,15 @@ def test_table_flattened_regex_matches_table_like_text_only(tmp_path, monkeypatc
     rgx = rules['mineru.table_flattened_paragraph']['text_regex']
     assert re.match(rgx, 'Table 1: Sample table A B 1 2') is not None
     assert re.match(rgx, 'Figure 1: Boxed figure') is None
+
+
+def test_generated_footnote_rewrite_normalises_missing_space(tmp_path, monkeypatch):
+    root=_mk(tmp_path); out=root/'diag'; _run(root,out,monkeypatch)
+    cfg = tomllib.loads((out/'ocr_conventions.proposed.toml').read_text())
+    rules = [Rule(**r) for r in cfg.get('rules', [])]
+    block = {'block_id':'x1','type':'paragraph','content':{'text':'1First note.'},'bbox':[0,800,10,820]}
+    out_blocks = normalise_blocks([block], 'mineru', rules)
+    assert out_blocks[0]['content']['text'] == '1 First note.'
 
 
 def test_proposed_rules_reference_supporting_gt_ids(tmp_path, monkeypatch):

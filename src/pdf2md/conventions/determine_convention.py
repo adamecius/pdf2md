@@ -13,9 +13,9 @@ SAFE_PROPOSED_RULES_BY_CONVENTION = {
         'normalised_type': 'paragraph',
     },
     'footnote_no_space_after_marker': {
-        'text_regex': r"^\s*\d+\S.*$",
+        'text_regex': r"^\s*(\d+)(\S.*)$",
         'normalised_type': 'paragraph',
-        'normalised_text_rewrite': r"^(\s*\d+)(\S.*)$ -> \1 \2",
+        'normalised_text_rewrite': r"\1 \2",
     },
     'table_flattened_paragraph': {
         'text_regex': r"^\s*Table\s+\d+(?:\.\d+)?\s*[:.]?.+",
