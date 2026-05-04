@@ -13,6 +13,8 @@ Then scan the whole repository for any remaining references to those deleted `.t
 
 The canonical `groundtruth/corpus/latex/**` tree remains the only accepted source of truth for LaTeX ground-truth fixtures.
 
+To keep `run_log.md` compact, large intermediate diagnostic listings must be written to `booking.log` during execution and removed before task completion once verification is complete.
+
 ## Whitelist
 
 Files the agent may create, modify, or delete under this plan. Anything else is forbidden unless first recorded as a matched legacy-reference file in `run_log.md`.
@@ -23,6 +25,7 @@ Files the agent may create, modify, or delete under this plan. Anything else is 
 - `.current/latex_docling_groundtruth/**/*.pdf`            deletion only
 - `groundtruth/corpus/latex/**`
 - `run_log.md`
+- `booking.log`                                           create/update/delete during diagnostic-only evidence capture
 - Files discovered by the reference scan as containing legacy `.current/.../*.tex` or `.current/.../*.pdf` references, only for replacing those references with their canonical `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex` path. Each such file must be listed in `run_log.md` before modification.
 
 ## Tasks
@@ -43,7 +46,7 @@ Only files matching these patterns may be deleted:
 
 Directories may be left in place unless they become clearly obsolete and are explicitly allowed by a later plan.
 
-Files: `.current/docling_groundtruth/**/*.tex`, `.current/docling_groundtruth/**/*.pdf`, `.current/latex_docling_groundtruth/**/*.tex`, `.current/latex_docling_groundtruth/**/*.pdf`, `run_log.md`.
+Files: `.current/docling_groundtruth/**/*.tex`, `.current/docling_groundtruth/**/*.pdf`, `.current/latex_docling_groundtruth/**/*.tex`, `.current/latex_docling_groundtruth/**/*.pdf`, `run_log.md`, `booking.log` (temporary evidence file, must be deleted before task end).
 
 ### T3 — Repository-wide legacy reference scan and redirection
 
@@ -67,7 +70,7 @@ Where `<doc_id>` must match the canonical document directory already created dur
 
 For deleted `.pdf` references, redirect to the corresponding canonical `.tex` file when the reference is part of the ground-truth fixture workflow. If a `.pdf` reference semantically requires an actual PDF file and cannot be safely redirected to LaTeX, record it as a blocker in `run_log.md` and do not mark T3 done.
 
-Files: reference-bearing files discovered by the scan, `groundtruth/corpus/latex/**`, `run_log.md`.
+Files: reference-bearing files discovered by the scan, `groundtruth/corpus/latex/**`, `run_log.md`, `booking.log` (temporary evidence file, must be deleted before task end).
 
 ## Tests
 
@@ -79,7 +82,7 @@ Tests are automated by default. A test re-tagged `human` in `run_log.md` after a
   ```sh
   find .current/docling_groundtruth .current/latex_docling_groundtruth \
     -type f \( -name '*.tex' -o -name '*.pdf' \) | sort
-pass: command lists every legacy .tex and .pdf file targeted for deletion, and the list is recorded in run_log.md before deletion.
+pass: command lists every legacy .tex and .pdf file targeted for deletion; the full list is recorded in `booking.log` before deletion; `run_log.md` includes a concise pointer and summary count only.
 A5 — Confirm legacy .tex and .pdf files were deleted
 
 command:
@@ -100,8 +103,8 @@ every referenced canonical .tex file exists;
 no updated reference points back into .current/docling_groundtruth/** or .current/latex_docling_groundtruth/**.
 H2 — Manual reference review (human)
 tag: human.
-command: visual inspection of the run_log.md evidence for deleted files, matched references, replacements, and any blockers.
-pass: human confirms that all legacy .tex and .pdf references were either correctly redirected or explicitly blocked.
+command: visual inspection of the `run_log.md` summary plus `booking.log` evidence (if present during run) for deleted files, matched references, replacements, and any blockers.
+pass: human confirms that all legacy .tex and .pdf references were either correctly redirected or explicitly blocked, and that `booking.log` was deleted after verification.
 Status
 T1: done
 T2: pending
@@ -129,3 +132,10 @@ Feedback
   - Required check #5 passed: no dependencies added and no external tools used.
   - Required check #6 passed: no silent retries observed in the PR evidence.
   - Required check #7 outcome: T2 is not eligible for promotion to `done` because A4 failed and verdict is `fail`.
+
+
+## Feedback #3
+- Responding to `PR_review #3`.
+- Accepted change: diagnostic outputs that may be very large should be written to `booking.log` first, not expanded into `run_log.md`.
+- Process update: agent should run diagnostics, keep full path lists in `booking.log`, write only compact counts/pointers in `run_log.md`, and remove `booking.log` at the end after dangling-reference verification.
+- Status impact: no task demotion applied; `T2` and `T3` remain pending until re-attempt under updated evidence flow.
