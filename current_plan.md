@@ -107,7 +107,7 @@ command: visual inspection of the `run_log.md` summary plus `booking.log` eviden
 pass: human confirms that all legacy .tex and .pdf references were either correctly redirected or explicitly blocked, and that `booking.log` was deleted after verification.
 Status
 T1: done
-T2: pending
+T2: done
 T3: pending
 PR_reviews
 
@@ -139,3 +139,19 @@ Feedback
 - Accepted change: diagnostic outputs that may be very large should be written to `booking.log` first, not expanded into `run_log.md`.
 - Process update: agent should run diagnostics, keep full path lists in `booking.log`, write only compact counts/pointers in `run_log.md`, and remove `booking.log` at the end after dangling-reference verification.
 - Status impact: no task demotion applied; `T2` and `T3` remain pending until re-attempt under updated evidence flow.
+
+
+## PR_review #4
+- verdict: pass
+- whitelist_violations: []
+- test_contract_violations: []
+- dependency_violations: []
+- tasks_promoted: [T2]
+- notes:
+  - Required check #1 passed: PR #4 modified only `run_log.md`; temporary `booking.log` usage is explicitly allowed by whitelist and was removed.
+  - Required check #2 passed: attempted task T2 has explicit evidence in `run_log.md` PR #4 entry.
+  - Required check #3 passed: gating automated tests for T2 (A4, A5) are both recorded as passed.
+  - Required check #4 passed: no re-tagged human tests in this PR.
+  - Required check #5 passed: no dependencies added and no external tools used.
+  - Required check #6 passed: no silent retries observed in PR #4 evidence.
+  - Required check #7 passed: T2 is eligible and promoted to `done`.
