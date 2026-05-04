@@ -1,0 +1,24 @@
+[consensus]
+output_root = ".current/latex_docling_groundtruth/batch_002/det_all_features/consensus"
+coordinate_space = "page_normalised_1000"
+text_similarity_threshold = 0.90
+weak_text_similarity_threshold = 0.75
+bbox_iou_threshold = 0.50
+weak_bbox_iou_threshold = 0.25
+include_evidence_only_blocks = false
+[backends.mineru]
+enabled = true
+root = ".current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru"
+label = "mineru"
+[backends.paddleocr]
+enabled = true
+root = ".current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr"
+label = "paddleocr"
+[backends.deepseek]
+enabled = true
+root = ".current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/deepseek"
+label = "deepseek"
+[pymupdf]
+enabled = true
+extract_text = true
+extract_images = false

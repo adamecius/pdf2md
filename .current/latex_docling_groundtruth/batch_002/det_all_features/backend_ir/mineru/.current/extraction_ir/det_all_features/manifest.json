@@ -1,0 +1,257 @@
+{
+  "schema_name": "pdf2md.extraction_ir_manifest",
+  "schema_version": "1.0.0",
+  "ir_stage": "backend_extraction",
+  "run": {
+    "run_id": "run_20260504_101728",
+    "created_at": "2026-05-04T10:17:28.193976Z",
+    "pipeline_version": "0.1.0"
+  },
+  "backend": {
+    "backend_id": "mineru",
+    "backend_name": "mineru",
+    "backend_type": "local_or_api_cli",
+    "backend_version": "3.1.6",
+    "backend_mode": "pipeline",
+    "adapter_name": "mineru_adapter",
+    "adapter_version": "0.3.0",
+    "config_ref": "backends.mineru",
+    "model_id": null,
+    "model_path": null
+  },
+  "source": {
+    "source_id": "det_all_features",
+    "source_path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/input/det_all_features.pdf",
+    "source_sha256": "sha256:e557fce3dfba84e061d697978f40adf939182da80a29928eea1bc94fedf42c30",
+    "mime_type": "application/pdf",
+    "page_count": 1
+  },
+  "normalisation": {
+    "coordinate_space": "page_normalised_1000",
+    "origin": "top_left",
+    "bbox_format": "x0_y0_x1_y1",
+    "text_normalisation": "unicode_nfkc_whitespace_collapsed_lowercase",
+    "reading_order_base": "page_local_zero_based",
+    "native_mineru_coordinate_spaces": [
+      "content_list_0_1000",
+      "middle_page_coordinates",
+      "vlm_model_0_1",
+      "pipeline_model_pixels"
+    ]
+  },
+  "page_refs": [
+    {
+      "page_id": "mineru_p0000",
+      "page_index": 0,
+      "page_number": 1,
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/pages/page_0000.json",
+      "sha256": "sha256:432c2f4cd4af54599c92440eeed2d58a6103f9422211346bf45fcf68689e75bc",
+      "status": "ok"
+    }
+  ],
+  "artifacts": {
+    "ir_dir": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features",
+    "pages_dir": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/pages",
+    "page_image_dir": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/page_images",
+    "raw_pages_dir": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/raw_pages",
+    "official_results_dir": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results",
+    "media_dir": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/media",
+    "content_list_v2_json": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_content_list_v2.json",
+    "content_list_json": null,
+    "middle_json": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_middle.json",
+    "model_json": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_model.json",
+    "model_output_txt": null,
+    "markdown": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features.md",
+    "layout_pdf": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_layout.pdf",
+    "span_pdf": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_span.pdf",
+    "native_json_files": [
+      {
+        "artifact_id": "mineru_eb8e196158a6",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_content_list.json",
+        "relative_path": "det_all_features/auto/det_all_features_content_list.json",
+        "kind": "mineru_content_list_json",
+        "mime_type": "application/json",
+        "sha256": "sha256:79d67a4f450bfd9d0305c3e0de45ff4e98829bac40927412d3aafae5a400a741"
+      },
+      {
+        "artifact_id": "mineru_d0a743b82919",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_content_list_v2.json",
+        "relative_path": "det_all_features/auto/det_all_features_content_list_v2.json",
+        "kind": "mineru_content_list_v2_json",
+        "mime_type": "application/json",
+        "sha256": "sha256:80325e27e196527f82c4aa5a43cd80ce239320ddd22f7bccf490b842a9ef0c69"
+      },
+      {
+        "artifact_id": "mineru_c7174294eac0",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_middle.json",
+        "relative_path": "det_all_features/auto/det_all_features_middle.json",
+        "kind": "mineru_middle_json",
+        "mime_type": "application/json",
+        "sha256": "sha256:df0d33f781ccf3fd9bc2254d9dd20bac9171a3188d383278c021dae3a10253c8"
+      },
+      {
+        "artifact_id": "mineru_68f36ed54f80",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_model.json",
+        "relative_path": "det_all_features/auto/det_all_features_model.json",
+        "kind": "mineru_model_json",
+        "mime_type": "application/json",
+        "sha256": "sha256:91a2279287163aa103d704770c95d2e19faf6a9cc539bcce06f7dfccac418346"
+      },
+      {
+        "artifact_id": "mineru_be1e94743940",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/pdf2ir_mineru_cli_capture.json",
+        "relative_path": "pdf2ir_mineru_cli_capture.json",
+        "kind": "mineru_official_output",
+        "mime_type": "application/json",
+        "sha256": "sha256:b0a13bd0443725a18568dfc4f55789393bb09e50c5119cf35b5cdc1b6ff7ae5d"
+      }
+    ],
+    "native_output_files": [
+      {
+        "artifact_id": "mineru_6f8b0d703ad7",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features.md",
+        "relative_path": "det_all_features/auto/det_all_features.md",
+        "kind": "mineru_markdown_or_text",
+        "mime_type": "text/markdown",
+        "sha256": "sha256:aa1003256f6dec995bd17c46ddbf2236cf8eaf063e81ee416c5c25f9a0fa5fa7"
+      },
+      {
+        "artifact_id": "mineru_1e9583dea6e3",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_layout.pdf",
+        "relative_path": "det_all_features/auto/det_all_features_layout.pdf",
+        "kind": "mineru_layout_debug_pdf",
+        "mime_type": "application/pdf",
+        "sha256": "sha256:7a9000751364d34ae28d4cc0b4a91579268eb8d7a8d8c7e92c02ac97072dbe1a"
+      },
+      {
+        "artifact_id": "mineru_36146b230fe7",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_origin.pdf",
+        "relative_path": "det_all_features/auto/det_all_features_origin.pdf",
+        "kind": "mineru_official_output",
+        "mime_type": "application/pdf",
+        "sha256": "sha256:9849339c625e68ec52716b26fe3c4ab3b3b4ee66af45b4b5c9c5a029baafa340"
+      },
+      {
+        "artifact_id": "mineru_d651c61f6775",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_span.pdf",
+        "relative_path": "det_all_features/auto/det_all_features_span.pdf",
+        "kind": "mineru_span_debug_pdf",
+        "mime_type": "application/pdf",
+        "sha256": "sha256:3c35c1f8b1ee5f0c3b71d3e9796560ef895a750c8742a8d2be9cf0fd1f6cbf47"
+      },
+      {
+        "artifact_id": "mineru_09bbdd773411",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/images/8f17f69121f2d6fe4fd10058f14e31d2e20b45db631a3cd76953a53002df4419.jpg",
+        "relative_path": "det_all_features/auto/images/8f17f69121f2d6fe4fd10058f14e31d2e20b45db631a3cd76953a53002df4419.jpg",
+        "kind": "mineru_media_image",
+        "mime_type": "image/jpeg",
+        "sha256": "sha256:4a608301877a90cfe2865fa995a0c216e48e879cf8a407f075b036800e5d4e0e"
+      },
+      {
+        "artifact_id": "mineru_de09c25f0829",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/pdf2ir_mineru_stderr.txt",
+        "relative_path": "pdf2ir_mineru_stderr.txt",
+        "kind": "mineru_markdown_or_text",
+        "mime_type": "text/plain",
+        "sha256": "sha256:1faeceb435d7b7b03ed9a74e2894c307e386ec1b76deaa14288f89d187362942"
+      },
+      {
+        "artifact_id": "mineru_8658c2c484ba",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/pdf2ir_mineru_stdout.txt",
+        "relative_path": "pdf2ir_mineru_stdout.txt",
+        "kind": "mineru_markdown_or_text",
+        "mime_type": "text/plain",
+        "sha256": "sha256:36986e4ee186594549ea8d82ac3fc758d1419099aeae0091b4e2922903615fdc"
+      }
+    ]
+  },
+  "mineru_execution": {
+    "skip_mineru": false,
+    "mineru_bin": "mineru",
+    "mineru_backend": "pipeline",
+    "method": "auto",
+    "lang": "en",
+    "formula": true,
+    "table": true,
+    "api_url": null,
+    "url": null,
+    "start": null,
+    "end": null
+  },
+  "capabilities": {
+    "layout_blocks": true,
+    "reading_order": true,
+    "ocr_lines": true,
+    "ocr_spans": true,
+    "tables": false,
+    "table_cells": true,
+    "formulas": true,
+    "figures": false,
+    "captions": false,
+    "headers_footers": true,
+    "page_numbers": true,
+    "geometry": true,
+    "confidence_scores": true,
+    "markdown": true,
+    "html": false,
+    "latex": true,
+    "content_list_v2": true,
+    "content_list": false,
+    "middle_json": true,
+    "model_json": true
+  },
+  "observed_capabilities": {
+    "page_count": 1,
+    "pages_with_ocr_text": 1,
+    "pages_with_geometry": 1,
+    "semantic_block_count": 9,
+    "table_block_count": 0,
+    "formula_block_count": 1,
+    "heading_block_count": 2,
+    "picture_reference_count": 0,
+    "caption_block_count": 0,
+    "footnote_block_count": 1,
+    "list_item_block_count": 0,
+    "paragraph_block_count": 4,
+    "code_block_count": 0,
+    "line_count": 3,
+    "span_count": 16,
+    "middle_line_count": 3,
+    "middle_span_count": 5,
+    "blocks_with_middle_enrichment": 3,
+    "blocks_with_missing_text": 0,
+    "blocks_with_recovered_text": 0,
+    "table_image_ref_count": 0,
+    "formula_image_ref_count": 1,
+    "media_image_ref_count": 0
+  },
+  "quality": {
+    "page_count": 1,
+    "pages_with_ocr_text": 1,
+    "pages_with_geometry": 1,
+    "semantic_block_count": 9,
+    "table_block_count": 0,
+    "formula_block_count": 1,
+    "heading_block_count": 2,
+    "picture_reference_count": 0,
+    "caption_block_count": 0,
+    "footnote_block_count": 1,
+    "list_item_block_count": 0,
+    "paragraph_block_count": 4,
+    "code_block_count": 0,
+    "line_count": 3,
+    "span_count": 16,
+    "middle_line_count": 3,
+    "middle_span_count": 5,
+    "blocks_with_middle_enrichment": 3,
+    "blocks_with_missing_text": 0,
+    "blocks_with_recovered_text": 0,
+    "table_image_ref_count": 0,
+    "formula_image_ref_count": 1,
+    "media_image_ref_count": 0,
+    "pages_total": 1,
+    "pages_ok": 1,
+    "pages_empty": 0
+  },
+  "flags": []
+}

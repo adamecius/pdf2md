@@ -1,0 +1,2804 @@
+{
+  "schema_name": "pdf2md.extraction_ir_page",
+  "schema_version": "1.0.0",
+  "ir_stage": "backend_extraction_page",
+  "page_id": "paddleocr_pp_structurev3_p0000",
+  "document_id": "det_all_features",
+  "backend_id": "paddleocr_pp_structurev3",
+  "backend_name": "paddleocr_pp_structurev3",
+  "run_id": "run_20260504_101758",
+  "page_index": 0,
+  "page_number": 1,
+  "status": "ok",
+  "dimensions": {
+    "width": null,
+    "height": null,
+    "unit": null,
+    "rotation": null,
+    "native_width_px": 1191.0,
+    "native_height_px": 1684.0
+  },
+  "rendering": {
+    "page_image_ref": {
+      "artifact_id": "paddleocr_pp_structurev3_p0000_image",
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/page_images/page_0000.png",
+      "mime_type": "image/png",
+      "dpi": 300,
+      "width_px": 3573,
+      "height_px": 1709,
+      "sha256": "sha256:5ab8f491b42a6c2c1c82ec651b284fd11717bace69fed4e5ceef7064e2e34130",
+      "status": "available_from_paddleocr_official_output"
+    },
+    "page_image_quality": {
+      "available": true,
+      "dpi": 300,
+      "width_px": 3573,
+      "height_px": 1709,
+      "aspect_ratio": 2.090696,
+      "mean_luma": 254.286,
+      "std_luma": 11.035,
+      "contrast_estimate": 0.086551,
+      "dark_fraction": 0.00078,
+      "bright_fraction": 0.995114,
+      "edge_energy": 1.065876,
+      "laplacian_variance": 369.710266
+    },
+    "inference_input_ref": {
+      "mode": "pdf",
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/input/det_all_features.pdf",
+      "coordinate_alignment": "normalised_geometry_projected_to_evidence_image"
+    }
+  },
+  "blocks": [
+    {
+      "block_id": "paddleocr_pp_structurev3_p0000_b0000",
+      "page_id": "paddleocr_pp_structurev3_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "paddleocr_pp_structurev3",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 0,
+      "type": "unknown",
+      "subtype": "generated_markdown_page",
+      "semantic_role": "raw_generated_page_evidence",
+      "docling_label_hint": "text",
+      "docling": {
+        "label_hint": "text",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": true,
+        "notes": [
+          "PaddleOCR page Markdown. Prefer structural blocks when parsing_res_list is present."
+        ],
+        "compile_role": "evidence_only",
+        "compile_notes": []
+      },
+      "geometry": null,
+      "content": {
+        "text": "# Detectable All Features \n\n## 1 All \n\nFIG \n\nFigure 1: Boxed figure \n\nTable 1: Sample table \n\nAB \n\n12\n\n\n\n$$E=m c^{2}$$\n\nSee Figure 1, Table 1, Eq. (1), and Section 1.1As shown in [1].",
+        "normalised_text": "# detectable all features ## 1 all fig figure 1: boxed figure table 1: sample table ab 12 $$e=m c^{2}$$ see figure 1, table 1, eq. (1), and section 1.1as shown in [1].",
+        "markdown": "# Detectable All Features \n\n## 1 All \n\nFIG \n\nFigure 1: Boxed figure \n\nTable 1: Sample table \n\nAB \n\n12\n\n\n\n$$E=m c^{2}$$\n\nSee Figure 1, Table 1, Eq. (1), and Section 1.1As shown in [1].",
+        "html": null,
+        "latex": null,
+        "language": null
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": null,
+        "child_block_ids": [
+          "paddleocr_pp_structurev3_p0000_m0000",
+          "paddleocr_pp_structurev3_p0000_m0001",
+          "paddleocr_pp_structurev3_p0000_m0002"
+        ]
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [],
+        "span_refs": [],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [],
+      "spans": [],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.7,
+        "structure": 0.5
+      },
+      "comparison": {
+        "compare_as": "generated_page_markdown",
+        "text_hash": "sha256:d2c36caa9af47e3630f4edf98f4aa0e59352a76d18925d8e6fd38cd9c4e3e5cd",
+        "geometry_hash": null,
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "normalised_text"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "paddleocr_pp_structurev3_p0000_b0000_src0",
+          "backend_id": "paddleocr_pp_structurev3",
+          "backend_name": "paddleocr_pp_structurev3",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.official.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.clean.md",
+          "json_pointer": "/markdown",
+          "raw_id": "page_0",
+          "native_type": "markdown_generation",
+          "native_bbox": null,
+          "native_polygon": null,
+          "native_coordinate_space": null,
+          "confidence": null,
+          "sha256": "sha256:69e177c83b14b6801a10ffa0a8d1e02adc52427bc99d772f85aaff6791ff44ec",
+          "clean_sha256": "sha256:421d5346d08853d3fe07c2584724f990dc74e3f1028a8ed82ccce528d06ceb50"
+        }
+      ],
+      "flags": [
+        {
+          "code": "generated_page_markdown",
+          "severity": "low",
+          "message": "PaddleOCR generated page Markdown preserved as page-level evidence."
+        },
+        {
+          "code": "raw_page_block_excluded_from_docling",
+          "severity": "low",
+          "message": "Semantic Markdown-derived blocks are available; this page-level evidence block should not be compiled directly into Docling."
+        }
+      ],
+      "block_family": "raw_page_evidence"
+    },
+    {
+      "block_id": "paddleocr_pp_structurev3_p0000_m0000",
+      "page_id": "paddleocr_pp_structurev3_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "paddleocr_pp_structurev3",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 1,
+      "type": "section_header",
+      "subtype": "markdown_heading",
+      "semantic_role": "section_header",
+      "docling_label_hint": "section_header",
+      "docling": {
+        "label_hint": "section_header",
+        "level_hint": 1,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Provisional semantic block parsed from PaddleOCR generated Markdown; native PaddleOCR layout blocks may provide geometry."
+        ],
+        "compile_role": "fallback_only",
+        "compile_notes": []
+      },
+      "geometry": null,
+      "content": {
+        "text": "Detectable All Features \n\n## 1 All \n\nFIG \n\nFigure 1: Boxed figure \n\nTable 1: Sample table \n\nAB \n\n12",
+        "normalised_text": "detectable all features ## 1 all fig figure 1: boxed figure table 1: sample table ab 12",
+        "markdown": "Detectable All Features \n\n## 1 All \n\nFIG \n\nFigure 1: Boxed figure \n\nTable 1: Sample table \n\nAB \n\n12",
+        "html": null,
+        "latex": null,
+        "language": null,
+        "char_span": {
+          "start": 0,
+          "end": 101
+        }
+      },
+      "structure": {
+        "heading_level": 1,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": "paddleocr_pp_structurev3_p0000_b0000",
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [],
+        "span_refs": [],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [],
+      "spans": [],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.65,
+        "structure": 0.55
+      },
+      "comparison": {
+        "compare_as": "semantic_markdown_block",
+        "text_hash": "sha256:201a38f46f94643ec5e998392b466b1f26304d4630f294378774119960c7eb62",
+        "geometry_hash": null,
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "normalised_text"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "paddleocr_pp_structurev3_p0000_m0000_src0",
+          "backend_id": "paddleocr_pp_structurev3",
+          "backend_name": "paddleocr_pp_structurev3",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.official.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.clean.md",
+          "json_pointer": null,
+          "raw_id": "page_0_markdown_block_0",
+          "native_type": "markdown_enrichment:section_header",
+          "native_bbox": null,
+          "native_polygon": null,
+          "native_coordinate_space": null,
+          "confidence": null,
+          "sha256": "sha256:69e177c83b14b6801a10ffa0a8d1e02adc52427bc99d772f85aaff6791ff44ec",
+          "clean_sha256": "sha256:421d5346d08853d3fe07c2584724f990dc74e3f1028a8ed82ccce528d06ceb50",
+          "clean_char_start": 0,
+          "clean_char_end": 101
+        }
+      ],
+      "flags": [
+        {
+          "code": "geometry_missing",
+          "severity": "low",
+          "message": "Block was parsed from generated Markdown and has no direct Markdown geometry; PaddleOCR native layout blocks may provide geometry separately."
+        }
+      ],
+      "block_family": "markdown_semantic"
+    },
+    {
+      "block_id": "paddleocr_pp_structurev3_p0000_m0001",
+      "page_id": "paddleocr_pp_structurev3_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "paddleocr_pp_structurev3",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 2,
+      "type": "formula",
+      "subtype": "display",
+      "semantic_role": "formula",
+      "docling_label_hint": "formula",
+      "docling": {
+        "label_hint": "formula",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Provisional semantic block parsed from PaddleOCR generated Markdown; native PaddleOCR layout blocks may provide geometry."
+        ],
+        "compile_role": "fallback_only",
+        "compile_notes": []
+      },
+      "geometry": null,
+      "content": {
+        "text": "E=m c^{2}",
+        "normalised_text": "e=m c^{2}",
+        "markdown": "$$E=m c^{2}$$",
+        "html": null,
+        "latex": "E=m c^{2}",
+        "language": null,
+        "char_span": {
+          "start": 105,
+          "end": 118
+        }
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": "paddleocr_pp_structurev3_p0000_b0000",
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [],
+        "span_refs": [],
+        "table_ref": null,
+        "formula_ref": "paddleocr_pp_structurev3_p0000_m0001_formula",
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null,
+        "native_match_refs": [
+          "paddleocr_pp_structurev3_p0000_r0005"
+        ]
+      },
+      "lines": [],
+      "spans": [],
+      "table": null,
+      "formula": {
+        "formula_id": "paddleocr_pp_structurev3_p0000_m0001_formula",
+        "kind": "display",
+        "latex": "E=m c^{2}",
+        "text": "E=m c^{2}",
+        "mathml": null,
+        "image_ref": null,
+        "confidence": {
+          "overall": null,
+          "recognition": null
+        }
+      },
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.65,
+        "structure": 0.55
+      },
+      "comparison": {
+        "compare_as": "semantic_markdown_block",
+        "text_hash": "sha256:c8f258b7539ce27e3b68c3447c334021aca362100b2c6075e970eef332fedbe0",
+        "geometry_hash": null,
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "normalised_text"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "paddleocr_pp_structurev3_p0000_m0001_src0",
+          "backend_id": "paddleocr_pp_structurev3",
+          "backend_name": "paddleocr_pp_structurev3",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.official.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.clean.md",
+          "json_pointer": null,
+          "raw_id": "page_0_markdown_block_1",
+          "native_type": "markdown_enrichment:formula",
+          "native_bbox": null,
+          "native_polygon": null,
+          "native_coordinate_space": null,
+          "confidence": null,
+          "sha256": "sha256:69e177c83b14b6801a10ffa0a8d1e02adc52427bc99d772f85aaff6791ff44ec",
+          "clean_sha256": "sha256:421d5346d08853d3fe07c2584724f990dc74e3f1028a8ed82ccce528d06ceb50",
+          "clean_char_start": 105,
+          "clean_char_end": 118
+        }
+      ],
+      "flags": [
+        {
+          "code": "geometry_missing",
+          "severity": "low",
+          "message": "Block was parsed from generated Markdown and has no direct Markdown geometry; PaddleOCR native layout blocks may provide geometry separately."
+        }
+      ],
+      "block_family": "markdown_semantic"
+    },
+    {
+      "block_id": "paddleocr_pp_structurev3_p0000_m0002",
+      "page_id": "paddleocr_pp_structurev3_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "paddleocr_pp_structurev3",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 3,
+      "type": "paragraph",
+      "subtype": null,
+      "semantic_role": "body_text",
+      "docling_label_hint": "text",
+      "docling": {
+        "label_hint": "text",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": true,
+        "notes": [
+          "Provisional semantic block parsed from PaddleOCR generated Markdown; native PaddleOCR layout blocks may provide geometry."
+        ],
+        "compile_role": "duplicate_candidate",
+        "compile_notes": []
+      },
+      "geometry": null,
+      "content": {
+        "text": "See Figure 1, Table 1, Eq. (1), and Section 1.1As shown in [1].",
+        "normalised_text": "see figure 1, table 1, eq. (1), and section 1.1as shown in [1].",
+        "markdown": "See Figure 1, Table 1, Eq. (1), and Section 1.1As shown in [1].",
+        "html": null,
+        "latex": null,
+        "language": null,
+        "char_span": {
+          "start": 120,
+          "end": 183
+        }
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": "paddleocr_pp_structurev3_p0000_b0000",
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [],
+        "span_refs": [],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null,
+        "native_match_refs": [
+          "paddleocr_pp_structurev3_p0000_r0006"
+        ]
+      },
+      "lines": [],
+      "spans": [],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.65,
+        "structure": 0.55
+      },
+      "comparison": {
+        "compare_as": "semantic_markdown_block",
+        "text_hash": "sha256:edad60d619a769488b2981a46bbb93b8a6d3778809b0d5a1e8f011306ff933ce",
+        "geometry_hash": null,
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "normalised_text"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "paddleocr_pp_structurev3_p0000_m0002_src0",
+          "backend_id": "paddleocr_pp_structurev3",
+          "backend_name": "paddleocr_pp_structurev3",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.official.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.clean.md",
+          "json_pointer": null,
+          "raw_id": "page_0_markdown_block_2",
+          "native_type": "markdown_enrichment:paragraph",
+          "native_bbox": null,
+          "native_polygon": null,
+          "native_coordinate_space": null,
+          "confidence": null,
+          "sha256": "sha256:69e177c83b14b6801a10ffa0a8d1e02adc52427bc99d772f85aaff6791ff44ec",
+          "clean_sha256": "sha256:421d5346d08853d3fe07c2584724f990dc74e3f1028a8ed82ccce528d06ceb50",
+          "clean_char_start": 120,
+          "clean_char_end": 183
+        }
+      ],
+      "flags": [
+        {
+          "code": "geometry_missing",
+          "severity": "low",
+          "message": "Block was parsed from generated Markdown and has no direct Markdown geometry; PaddleOCR native layout blocks may provide geometry separately."
+        },
+        {
+          "code": "duplicate_docling_candidate",
+          "severity": "low",
+          "message": "Markdown semantic block appears to duplicate a native PaddleOCR layout block."
+        }
+      ],
+      "block_family": "markdown_semantic"
+    },
+    {
+      "block_id": "paddleocr_pp_structurev3_p0000_r0000",
+      "page_id": "paddleocr_pp_structurev3_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "paddleocr_pp_structurev3",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 5,
+      "type": "title",
+      "subtype": "doc_title",
+      "semantic_role": "title",
+      "docling_label_hint": "title",
+      "docling": {
+        "label_hint": "title",
+        "level_hint": 1,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Block created from PaddleOCR parsing_res_list."
+        ],
+        "compile_role": "use",
+        "compile_notes": []
+      },
+      "geometry": {
+        "bbox": [
+          374.475,
+          192.399,
+          647.355,
+          210.214
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "Detectable All Features ",
+        "normalised_text": "detectable all features",
+        "markdown": "Detectable All Features ",
+        "html": null,
+        "latex": null,
+        "language": null
+      },
+      "structure": {
+        "heading_level": 1,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": null,
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [
+          "paddleocr_pp_structurev3_p0000_l0000"
+        ],
+        "span_refs": [],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [
+        {
+          "line_id": "paddleocr_pp_structurev3_p0000_l0000",
+          "order": 0,
+          "text": "Detectable All Features",
+          "normalised_text": "detectable all features",
+          "geometry": {
+            "bbox": [
+              375.315,
+              192.399,
+              650.714,
+              211.995
+            ],
+            "polygon": [
+              [
+                375.315,
+                192.399
+              ],
+              [
+                650.714,
+                192.399
+              ],
+              [
+                650.714,
+                211.995
+              ],
+              [
+                375.315,
+                211.995
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9892376661300659
+          },
+          "native": {
+            "bbox": [
+              447.0,
+              324.0,
+              775.0,
+              357.0
+            ],
+            "polygon": [
+              [
+                447.0,
+                324.0
+              ],
+              [
+                775.0,
+                324.0
+              ],
+              [
+                775.0,
+                357.0
+              ],
+              [
+                447.0,
+                357.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9892376661300659,
+            "detection": null
+          }
+        }
+      ],
+      "spans": [],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.85,
+        "structure": 0.75
+      },
+      "comparison": {
+        "compare_as": "grounded_text_block",
+        "text_hash": "sha256:1934888e78e8736f1405edbf669ee76add389325e8b9fbf9d335452b6db45431",
+        "geometry_hash": "sha256:0c08baa3e9fed94e5849822d4751291a741faed86625ab5ba1fd0176bee359a1",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "bbox_iou",
+          "normalised_text"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "paddleocr_pp_structurev3_p0000_r0000_src0",
+          "backend_id": "paddleocr_pp_structurev3",
+          "backend_name": "paddleocr_pp_structurev3",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.official.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.clean.md",
+          "json_pointer": "/parsing_res_list/0",
+          "raw_id": "page_0_block_0",
+          "native_type": "paddleocr_layout:doc_title",
+          "native_bbox": [
+            446.0,
+            324.0,
+            771.0,
+            354.0
+          ],
+          "native_polygon": null,
+          "native_coordinate_space": "paddleocr_image_pixels",
+          "confidence": null,
+          "sha256": "sha256:69e177c83b14b6801a10ffa0a8d1e02adc52427bc99d772f85aaff6791ff44ec",
+          "clean_sha256": "sha256:421d5346d08853d3fe07c2584724f990dc74e3f1028a8ed82ccce528d06ceb50"
+        }
+      ],
+      "flags": [],
+      "block_family": "paddleocr_layout_native"
+    },
+    {
+      "block_id": "paddleocr_pp_structurev3_p0000_r0001",
+      "page_id": "paddleocr_pp_structurev3_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "paddleocr_pp_structurev3",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 6,
+      "type": "section_header",
+      "subtype": "paragraph_title",
+      "semantic_role": "section_header",
+      "docling_label_hint": "section_header",
+      "docling": {
+        "label_hint": "section_header",
+        "level_hint": 2,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Block created from PaddleOCR parsing_res_list."
+        ],
+        "compile_role": "use",
+        "compile_notes": []
+      },
+      "geometry": {
+        "bbox": [
+          222.502,
+          280.879,
+          300.588,
+          294.537
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "1 All ",
+        "normalised_text": "1 all",
+        "markdown": "1 All ",
+        "html": null,
+        "latex": null,
+        "language": null
+      },
+      "structure": {
+        "heading_level": 2,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": null,
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [
+          "paddleocr_pp_structurev3_p0000_l0001"
+        ],
+        "span_refs": [],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [
+        {
+          "line_id": "paddleocr_pp_structurev3_p0000_l0001",
+          "order": 1,
+          "text": "1 All",
+          "normalised_text": "1 all",
+          "geometry": {
+            "bbox": [
+              218.304,
+              278.504,
+              305.626,
+              298.694
+            ],
+            "polygon": [
+              [
+                218.304,
+                278.504
+              ],
+              [
+                305.626,
+                278.504
+              ],
+              [
+                305.626,
+                298.694
+              ],
+              [
+                218.304,
+                298.694
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9145172834396362
+          },
+          "native": {
+            "bbox": [
+              260.0,
+              469.0,
+              364.0,
+              503.0
+            ],
+            "polygon": [
+              [
+                260.0,
+                469.0
+              ],
+              [
+                364.0,
+                469.0
+              ],
+              [
+                364.0,
+                503.0
+              ],
+              [
+                260.0,
+                503.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9145172834396362,
+            "detection": null
+          }
+        }
+      ],
+      "spans": [],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.85,
+        "structure": 0.75
+      },
+      "comparison": {
+        "compare_as": "grounded_text_block",
+        "text_hash": "sha256:9a5762faf4374b4b2d7754e5352513e8a11590ee65c6cdcabccae6d247014894",
+        "geometry_hash": "sha256:8ef4248856f95c98fe32d091273de27c1ee7e06dce6a9aa7a46f9c59b1038759",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "bbox_iou",
+          "normalised_text"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "paddleocr_pp_structurev3_p0000_r0001_src0",
+          "backend_id": "paddleocr_pp_structurev3",
+          "backend_name": "paddleocr_pp_structurev3",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.official.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.clean.md",
+          "json_pointer": "/parsing_res_list/1",
+          "raw_id": "page_0_block_1",
+          "native_type": "paddleocr_layout:paragraph_title",
+          "native_bbox": [
+            265.0,
+            473.0,
+            358.0,
+            496.0
+          ],
+          "native_polygon": null,
+          "native_coordinate_space": "paddleocr_image_pixels",
+          "confidence": null,
+          "sha256": "sha256:69e177c83b14b6801a10ffa0a8d1e02adc52427bc99d772f85aaff6791ff44ec",
+          "clean_sha256": "sha256:421d5346d08853d3fe07c2584724f990dc74e3f1028a8ed82ccce528d06ceb50"
+        }
+      ],
+      "flags": [],
+      "block_family": "paddleocr_layout_native"
+    },
+    {
+      "block_id": "paddleocr_pp_structurev3_p0000_r0002",
+      "page_id": "paddleocr_pp_structurev3_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "paddleocr_pp_structurev3",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 7,
+      "type": "paragraph",
+      "subtype": null,
+      "semantic_role": "body_text",
+      "docling_label_hint": "text",
+      "docling": {
+        "label_hint": "text",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Block created from PaddleOCR parsing_res_list."
+        ],
+        "compile_role": "use",
+        "compile_notes": []
+      },
+      "geometry": {
+        "bbox": [
+          492.863,
+          321.259,
+          530.647,
+          334.323
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "FIG ",
+        "normalised_text": "fig",
+        "markdown": "FIG ",
+        "html": null,
+        "latex": null,
+        "language": null
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": null,
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [
+          "paddleocr_pp_structurev3_p0000_l0002"
+        ],
+        "span_refs": [],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [
+        {
+          "line_id": "paddleocr_pp_structurev3_p0000_l0002",
+          "order": 2,
+          "text": "FIG",
+          "normalised_text": "fig",
+          "geometry": {
+            "bbox": [
+              491.184,
+              319.477,
+              532.326,
+              337.292
+            ],
+            "polygon": [
+              [
+                492.863,
+                319.477
+              ],
+              [
+                532.326,
+                321.259
+              ],
+              [
+                530.647,
+                337.292
+              ],
+              [
+                491.184,
+                336.105
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.7217265963554382
+          },
+          "native": {
+            "bbox": [
+              585.0,
+              538.0,
+              634.0,
+              568.0
+            ],
+            "polygon": [
+              [
+                587.0,
+                538.0
+              ],
+              [
+                634.0,
+                541.0
+              ],
+              [
+                632.0,
+                568.0
+              ],
+              [
+                585.0,
+                566.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.7217265963554382,
+            "detection": null
+          }
+        }
+      ],
+      "spans": [],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.85,
+        "structure": 0.75
+      },
+      "comparison": {
+        "compare_as": "grounded_text_block",
+        "text_hash": "sha256:8c39c63488260c318aea4cb09df75d79e27f13c6997489d4aee818cbb88a7d23",
+        "geometry_hash": "sha256:604db4332c44b7b0dd2283c222cdc318471a77dedf3b4bdb56d1a4620983e25d",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "bbox_iou",
+          "normalised_text"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "paddleocr_pp_structurev3_p0000_r0002_src0",
+          "backend_id": "paddleocr_pp_structurev3",
+          "backend_name": "paddleocr_pp_structurev3",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.official.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.clean.md",
+          "json_pointer": "/parsing_res_list/2",
+          "raw_id": "page_0_block_2",
+          "native_type": "paddleocr_layout:text",
+          "native_bbox": [
+            587.0,
+            541.0,
+            632.0,
+            563.0
+          ],
+          "native_polygon": null,
+          "native_coordinate_space": "paddleocr_image_pixels",
+          "confidence": null,
+          "sha256": "sha256:69e177c83b14b6801a10ffa0a8d1e02adc52427bc99d772f85aaff6791ff44ec",
+          "clean_sha256": "sha256:421d5346d08853d3fe07c2584724f990dc74e3f1028a8ed82ccce528d06ceb50"
+        }
+      ],
+      "flags": [],
+      "block_family": "paddleocr_layout_native"
+    },
+    {
+      "block_id": "paddleocr_pp_structurev3_p0000_r0003",
+      "page_id": "paddleocr_pp_structurev3_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "paddleocr_pp_structurev3",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 8,
+      "type": "paragraph",
+      "subtype": null,
+      "semantic_role": "body_text",
+      "docling_label_hint": "text",
+      "docling": {
+        "label_hint": "text",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Block created from PaddleOCR parsing_res_list."
+        ],
+        "compile_role": "use",
+        "compile_notes": []
+      },
+      "geometry": {
+        "bbox": [
+          428.212,
+          348.575,
+          595.298,
+          359.857
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "Figure 1: Boxed figure ",
+        "normalised_text": "figure 1: boxed figure",
+        "markdown": "Figure 1: Boxed figure ",
+        "html": null,
+        "latex": null,
+        "language": null
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": null,
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [
+          "paddleocr_pp_structurev3_p0000_l0003"
+        ],
+        "span_refs": [],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [
+        {
+          "line_id": "paddleocr_pp_structurev3_p0000_l0003",
+          "order": 3,
+          "text": "Figure 1: Boxed figure",
+          "normalised_text": "figure 1: boxed figure",
+          "geometry": {
+            "bbox": [
+              429.051,
+              349.169,
+              596.138,
+              361.639
+            ],
+            "polygon": [
+              [
+                429.051,
+                349.169
+              ],
+              [
+                596.138,
+                349.169
+              ],
+              [
+                596.138,
+                361.639
+              ],
+              [
+                429.051,
+                361.639
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9326977133750916
+          },
+          "native": {
+            "bbox": [
+              511.0,
+              588.0,
+              710.0,
+              609.0
+            ],
+            "polygon": [
+              [
+                511.0,
+                588.0
+              ],
+              [
+                710.0,
+                588.0
+              ],
+              [
+                710.0,
+                609.0
+              ],
+              [
+                511.0,
+                609.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9326977133750916,
+            "detection": null
+          }
+        }
+      ],
+      "spans": [],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.85,
+        "structure": 0.75
+      },
+      "comparison": {
+        "compare_as": "grounded_text_block",
+        "text_hash": "sha256:409406b8472a2833f0ec9c07ba77f1eeec6322ca8e2ee7156a433e0324f86083",
+        "geometry_hash": "sha256:840d0bc5c0aa30a7f90501024c57e3cf51cc47cf34ccc1cbd97ede375404e988",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "bbox_iou",
+          "normalised_text"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "paddleocr_pp_structurev3_p0000_r0003_src0",
+          "backend_id": "paddleocr_pp_structurev3",
+          "backend_name": "paddleocr_pp_structurev3",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.official.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.clean.md",
+          "json_pointer": "/parsing_res_list/3",
+          "raw_id": "page_0_block_3",
+          "native_type": "paddleocr_layout:text",
+          "native_bbox": [
+            510.0,
+            587.0,
+            709.0,
+            606.0
+          ],
+          "native_polygon": null,
+          "native_coordinate_space": "paddleocr_image_pixels",
+          "confidence": null,
+          "sha256": "sha256:69e177c83b14b6801a10ffa0a8d1e02adc52427bc99d772f85aaff6791ff44ec",
+          "clean_sha256": "sha256:421d5346d08853d3fe07c2584724f990dc74e3f1028a8ed82ccce528d06ceb50"
+        }
+      ],
+      "flags": [],
+      "block_family": "paddleocr_layout_native"
+    },
+    {
+      "block_id": "paddleocr_pp_structurev3_p0000_r0004",
+      "page_id": "paddleocr_pp_structurev3_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "paddleocr_pp_structurev3",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 9,
+      "type": "paragraph",
+      "subtype": null,
+      "semantic_role": "body_text",
+      "docling_label_hint": "text",
+      "docling": {
+        "label_hint": "text",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Block created from PaddleOCR parsing_res_list."
+        ],
+        "compile_role": "use",
+        "compile_notes": []
+      },
+      "geometry": {
+        "bbox": [
+          430.73,
+          399.05,
+          593.619,
+          437.055
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "Table 1: Sample table \nAB \n12\n",
+        "normalised_text": "table 1: sample table ab 12",
+        "markdown": "Table 1: Sample table \nAB \n12\n",
+        "html": null,
+        "latex": null,
+        "language": null
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": null,
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [
+          "paddleocr_pp_structurev3_p0000_l0004",
+          "paddleocr_pp_structurev3_p0000_l0005",
+          "paddleocr_pp_structurev3_p0000_l0006",
+          "paddleocr_pp_structurev3_p0000_l0007"
+        ],
+        "span_refs": [],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [
+        {
+          "line_id": "paddleocr_pp_structurev3_p0000_l0004",
+          "order": 4,
+          "text": "Table 1: Sample table",
+          "normalised_text": "table 1: sample table",
+          "geometry": {
+            "bbox": [
+              430.73,
+              397.862,
+              595.298,
+              412.114
+            ],
+            "polygon": [
+              [
+                430.73,
+                397.862
+              ],
+              [
+                595.298,
+                397.862
+              ],
+              [
+                595.298,
+                412.114
+              ],
+              [
+                430.73,
+                412.114
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9725744128227234
+          },
+          "native": {
+            "bbox": [
+              513.0,
+              670.0,
+              709.0,
+              694.0
+            ],
+            "polygon": [
+              [
+                513.0,
+                670.0
+              ],
+              [
+                709.0,
+                670.0
+              ],
+              [
+                709.0,
+                694.0
+              ],
+              [
+                513.0,
+                694.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9725744128227234,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0000_l0005",
+          "order": 5,
+          "text": "AB",
+          "normalised_text": "ab",
+          "geometry": {
+            "bbox": [
+              485.306,
+              409.739,
+              539.882,
+              426.96
+            ],
+            "polygon": [
+              [
+                486.146,
+                409.739
+              ],
+              [
+                539.882,
+                410.926
+              ],
+              [
+                539.043,
+                426.96
+              ],
+              [
+                485.306,
+                425.772
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9920520782470703
+          },
+          "native": {
+            "bbox": [
+              578.0,
+              690.0,
+              643.0,
+              719.0
+            ],
+            "polygon": [
+              [
+                579.0,
+                690.0
+              ],
+              [
+                643.0,
+                692.0
+              ],
+              [
+                642.0,
+                719.0
+              ],
+              [
+                578.0,
+                717.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9920520782470703,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0000_l0006",
+          "order": 6,
+          "text": "1",
+          "normalised_text": "1",
+          "geometry": {
+            "bbox": [
+              487.825,
+              426.366,
+              507.137,
+              440.024
+            ],
+            "polygon": [
+              [
+                487.825,
+                426.366
+              ],
+              [
+                507.137,
+                426.366
+              ],
+              [
+                507.137,
+                440.024
+              ],
+              [
+                487.825,
+                440.024
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.999610960483551
+          },
+          "native": {
+            "bbox": [
+              581.0,
+              718.0,
+              604.0,
+              741.0
+            ],
+            "polygon": [
+              [
+                581.0,
+                718.0
+              ],
+              [
+                604.0,
+                718.0
+              ],
+              [
+                604.0,
+                741.0
+              ],
+              [
+                581.0,
+                741.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.999610960483551,
+            "detection": null
+          }
+        },
+        {
+          "line_id": "paddleocr_pp_structurev3_p0000_l0007",
+          "order": 7,
+          "text": "2",
+          "normalised_text": "2",
+          "geometry": {
+            "bbox": [
+              519.731,
+              427.553,
+              537.364,
+              440.024
+            ],
+            "polygon": [
+              [
+                519.731,
+                427.553
+              ],
+              [
+                537.364,
+                427.553
+              ],
+              [
+                537.364,
+                440.024
+              ],
+              [
+                519.731,
+                440.024
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9989148378372192
+          },
+          "native": {
+            "bbox": [
+              619.0,
+              720.0,
+              640.0,
+              741.0
+            ],
+            "polygon": [
+              [
+                619.0,
+                720.0
+              ],
+              [
+                640.0,
+                720.0
+              ],
+              [
+                640.0,
+                741.0
+              ],
+              [
+                619.0,
+                741.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9989148378372192,
+            "detection": null
+          }
+        }
+      ],
+      "spans": [],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.85,
+        "structure": 0.75
+      },
+      "comparison": {
+        "compare_as": "grounded_text_block",
+        "text_hash": "sha256:a8275de3a695820a7f1f3d124e02079b856f16f208f022f644b9a19e98c34168",
+        "geometry_hash": "sha256:0bd9342fb66b4ff31e82146dcd4d3a1ad587552196274949bd4e93417e5c34d3",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "bbox_iou",
+          "normalised_text"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "paddleocr_pp_structurev3_p0000_r0004_src0",
+          "backend_id": "paddleocr_pp_structurev3",
+          "backend_name": "paddleocr_pp_structurev3",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.official.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.clean.md",
+          "json_pointer": "/parsing_res_list/4",
+          "raw_id": "page_0_block_4",
+          "native_type": "paddleocr_layout:text",
+          "native_bbox": [
+            513.0,
+            672.0,
+            707.0,
+            736.0
+          ],
+          "native_polygon": null,
+          "native_coordinate_space": "paddleocr_image_pixels",
+          "confidence": null,
+          "sha256": "sha256:69e177c83b14b6801a10ffa0a8d1e02adc52427bc99d772f85aaff6791ff44ec",
+          "clean_sha256": "sha256:421d5346d08853d3fe07c2584724f990dc74e3f1028a8ed82ccce528d06ceb50"
+        }
+      ],
+      "flags": [],
+      "block_family": "paddleocr_layout_native"
+    },
+    {
+      "block_id": "paddleocr_pp_structurev3_p0000_r0005",
+      "page_id": "paddleocr_pp_structurev3_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "paddleocr_pp_structurev3",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 10,
+      "type": "formula",
+      "subtype": null,
+      "semantic_role": "formula",
+      "docling_label_hint": "formula",
+      "docling": {
+        "label_hint": "formula",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Block created from PaddleOCR parsing_res_list."
+        ],
+        "compile_role": "use",
+        "compile_notes": []
+      },
+      "geometry": {
+        "bbox": [
+          477.75,
+          472.09,
+          545.76,
+          484.561
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "E=m c^{2}",
+        "normalised_text": "e=m c^{2}",
+        "markdown": "E=m c^{2}",
+        "html": null,
+        "latex": "E=m c^{2}",
+        "language": null
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": null,
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [
+          "paddleocr_pp_structurev3_p0000_l0012"
+        ],
+        "span_refs": [],
+        "table_ref": null,
+        "formula_ref": "paddleocr_pp_structurev3_p0000_r0005_formula",
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null,
+        "semantic_match_refs": [
+          "paddleocr_pp_structurev3_p0000_m0001"
+        ]
+      },
+      "lines": [
+        {
+          "line_id": "paddleocr_pp_structurev3_p0000_l0012",
+          "order": 12,
+          "text": "E=m c^{2}",
+          "normalised_text": "e=m c^{2}",
+          "geometry": {
+            "bbox": [
+              478.523,
+              472.292,
+              546.152,
+              484.906
+            ],
+            "polygon": [
+              [
+                477.75,
+                472.09
+              ],
+              [
+                545.76,
+                472.09
+              ],
+              [
+                545.76,
+                484.561
+              ],
+              [
+                477.75,
+                484.561
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 1.0
+          },
+          "native": {
+            "bbox": [
+              569.9213256835938,
+              795.3397216796875,
+              650.4675903320312,
+              816.5816650390625
+            ],
+            "polygon": [
+              [
+                569.0,
+                795.0
+              ],
+              [
+                650.0,
+                795.0
+              ],
+              [
+                650.0,
+                816.0
+              ],
+              [
+                569.0,
+                816.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": null
+          },
+          "confidence": {
+            "text": 1.0,
+            "detection": null
+          }
+        }
+      ],
+      "spans": [],
+      "table": null,
+      "formula": {
+        "formula_id": "paddleocr_pp_structurev3_p0000_r0005_formula",
+        "kind": "display",
+        "latex": "E=m c^{2}",
+        "text": "E=m c^{2}",
+        "mathml": null,
+        "image_ref": null,
+        "confidence": {
+          "overall": null,
+          "recognition": null
+        }
+      },
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.85,
+        "structure": 0.75
+      },
+      "comparison": {
+        "compare_as": "grounded_text_block",
+        "text_hash": "sha256:c8f258b7539ce27e3b68c3447c334021aca362100b2c6075e970eef332fedbe0",
+        "geometry_hash": "sha256:2abba96186a3e212f4ca7e3f06d07b906274f3532cb2183f309c3bd2d16fd4d8",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "bbox_iou",
+          "normalised_text"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "paddleocr_pp_structurev3_p0000_r0005_src0",
+          "backend_id": "paddleocr_pp_structurev3",
+          "backend_name": "paddleocr_pp_structurev3",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.official.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.clean.md",
+          "json_pointer": "/parsing_res_list/5",
+          "raw_id": "page_0_block_5",
+          "native_type": "paddleocr_layout:formula",
+          "native_bbox": [
+            569.0,
+            795.0,
+            650.0,
+            816.0
+          ],
+          "native_polygon": null,
+          "native_coordinate_space": "paddleocr_image_pixels",
+          "confidence": null,
+          "sha256": "sha256:69e177c83b14b6801a10ffa0a8d1e02adc52427bc99d772f85aaff6791ff44ec",
+          "clean_sha256": "sha256:421d5346d08853d3fe07c2584724f990dc74e3f1028a8ed82ccce528d06ceb50"
+        }
+      ],
+      "flags": [],
+      "block_family": "paddleocr_formula_native"
+    },
+    {
+      "block_id": "paddleocr_pp_structurev3_p0000_r0006",
+      "page_id": "paddleocr_pp_structurev3_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "paddleocr_pp_structurev3",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 11,
+      "type": "paragraph",
+      "subtype": null,
+      "semantic_role": "body_text",
+      "docling_label_hint": "text",
+      "docling": {
+        "label_hint": "text",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Block created from PaddleOCR parsing_res_list."
+        ],
+        "compile_role": "use",
+        "compile_notes": []
+      },
+      "geometry": {
+        "bbox": [
+          219.983,
+          494.656,
+          686.818,
+          507.72
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "See Figure 1, Table 1, Eq. (1), and Section 1.1As shown in [1].",
+        "normalised_text": "see figure 1, table 1, eq. (1), and section 1.1as shown in [1].",
+        "markdown": "See Figure 1, Table 1, Eq. (1), and Section 1.1As shown in [1].",
+        "html": null,
+        "latex": null,
+        "language": null
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": null,
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [
+          "paddleocr_pp_structurev3_p0000_l0009"
+        ],
+        "span_refs": [],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null,
+        "semantic_match_refs": [
+          "paddleocr_pp_structurev3_p0000_m0002"
+        ]
+      },
+      "lines": [
+        {
+          "line_id": "paddleocr_pp_structurev3_p0000_l0009",
+          "order": 9,
+          "text": "See Figure 1, Table 1, Eq. (1), and Section 1.1As shown in [1].",
+          "normalised_text": "see figure 1, table 1, eq. (1), and section 1.1as shown in [1].",
+          "geometry": {
+            "bbox": [
+              223.342,
+              494.656,
+              687.657,
+              508.907
+            ],
+            "polygon": [
+              [
+                223.342,
+                494.656
+              ],
+              [
+                687.657,
+                494.656
+              ],
+              [
+                687.657,
+                508.907
+              ],
+              [
+                223.342,
+                508.907
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.945476770401001
+          },
+          "native": {
+            "bbox": [
+              266.0,
+              833.0,
+              819.0,
+              857.0
+            ],
+            "polygon": [
+              [
+                266.0,
+                833.0
+              ],
+              [
+                819.0,
+                833.0
+              ],
+              [
+                819.0,
+                857.0
+              ],
+              [
+                266.0,
+                857.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.945476770401001,
+            "detection": null
+          }
+        }
+      ],
+      "spans": [],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.85,
+        "structure": 0.75
+      },
+      "comparison": {
+        "compare_as": "grounded_text_block",
+        "text_hash": "sha256:edad60d619a769488b2981a46bbb93b8a6d3778809b0d5a1e8f011306ff933ce",
+        "geometry_hash": "sha256:7fefa9154957706f76591f7c55daf6d29e55498974c86812fa774217f3adab12",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "bbox_iou",
+          "normalised_text"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "paddleocr_pp_structurev3_p0000_r0006_src0",
+          "backend_id": "paddleocr_pp_structurev3",
+          "backend_name": "paddleocr_pp_structurev3",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.official.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.clean.md",
+          "json_pointer": "/parsing_res_list/6",
+          "raw_id": "page_0_block_6",
+          "native_type": "paddleocr_layout:text",
+          "native_bbox": [
+            262.0,
+            833.0,
+            818.0,
+            855.0
+          ],
+          "native_polygon": null,
+          "native_coordinate_space": "paddleocr_image_pixels",
+          "confidence": null,
+          "sha256": "sha256:69e177c83b14b6801a10ffa0a8d1e02adc52427bc99d772f85aaff6791ff44ec",
+          "clean_sha256": "sha256:421d5346d08853d3fe07c2584724f990dc74e3f1028a8ed82ccce528d06ceb50"
+        }
+      ],
+      "flags": [],
+      "block_family": "paddleocr_layout_native"
+    },
+    {
+      "block_id": "paddleocr_pp_structurev3_p0000_r0007",
+      "page_id": "paddleocr_pp_structurev3_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "paddleocr_pp_structurev3",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 12,
+      "type": "unknown",
+      "subtype": "paddleocr_formula_number",
+      "semantic_role": "formula_number",
+      "docling_label_hint": "text",
+      "docling": {
+        "label_hint": "text",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Block created from PaddleOCR parsing_res_list."
+        ],
+        "compile_role": "use",
+        "compile_notes": []
+      },
+      "geometry": {
+        "bbox": [
+          780.017,
+          473.872,
+          799.328,
+          486.342
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "(1)",
+        "normalised_text": "(1)",
+        "markdown": "(1)",
+        "html": null,
+        "latex": null,
+        "language": null
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": null,
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [
+          "paddleocr_pp_structurev3_p0000_l0008"
+        ],
+        "span_refs": [],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [
+        {
+          "line_id": "paddleocr_pp_structurev3_p0000_l0008",
+          "order": 8,
+          "text": "(1)",
+          "normalised_text": "(1)",
+          "geometry": {
+            "bbox": [
+              775.819,
+              471.496,
+              806.045,
+              490.499
+            ],
+            "polygon": [
+              [
+                775.819,
+                471.496
+              ],
+              [
+                806.045,
+                471.496
+              ],
+              [
+                806.045,
+                490.499
+              ],
+              [
+                775.819,
+                490.499
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9962348937988281
+          },
+          "native": {
+            "bbox": [
+              924.0,
+              794.0,
+              960.0,
+              826.0
+            ],
+            "polygon": [
+              [
+                924.0,
+                794.0
+              ],
+              [
+                960.0,
+                794.0
+              ],
+              [
+                960.0,
+                826.0
+              ],
+              [
+                924.0,
+                826.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9962348937988281,
+            "detection": null
+          }
+        }
+      ],
+      "spans": [],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.85,
+        "structure": 0.75
+      },
+      "comparison": {
+        "compare_as": "grounded_text_block",
+        "text_hash": "sha256:fd0ad9026eee596b7072a762941f60bef57e760a230edd450b3a634825685c2a",
+        "geometry_hash": "sha256:61881921355a033dc66b0bd7807008ef5a027bd4b006446b33b17460695401e3",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "bbox_iou",
+          "normalised_text"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "paddleocr_pp_structurev3_p0000_r0007_src0",
+          "backend_id": "paddleocr_pp_structurev3",
+          "backend_name": "paddleocr_pp_structurev3",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.official.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.clean.md",
+          "json_pointer": "/parsing_res_list/7",
+          "raw_id": "page_0_block_7",
+          "native_type": "paddleocr_layout:formula_number",
+          "native_bbox": [
+            929.0,
+            798.0,
+            952.0,
+            819.0
+          ],
+          "native_polygon": null,
+          "native_coordinate_space": "paddleocr_image_pixels",
+          "confidence": null,
+          "sha256": "sha256:69e177c83b14b6801a10ffa0a8d1e02adc52427bc99d772f85aaff6791ff44ec",
+          "clean_sha256": "sha256:421d5346d08853d3fe07c2584724f990dc74e3f1028a8ed82ccce528d06ceb50"
+        }
+      ],
+      "flags": [],
+      "block_family": "paddleocr_layout_native"
+    },
+    {
+      "block_id": "paddleocr_pp_structurev3_p0000_r0008",
+      "page_id": "paddleocr_pp_structurev3_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "paddleocr_pp_structurev3",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 13,
+      "type": "footnote",
+      "subtype": null,
+      "semantic_role": "footnote",
+      "docling_label_hint": "footnote",
+      "docling": {
+        "label_hint": "footnote",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Block created from PaddleOCR parsing_res_list."
+        ],
+        "compile_role": "use",
+        "compile_notes": []
+      },
+      "geometry": {
+        "bbox": [
+          240.974,
+          789.786,
+          314.861,
+          799.881
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "1First note.",
+        "normalised_text": "1first note.",
+        "markdown": "1First note.",
+        "html": null,
+        "latex": null,
+        "language": null
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": null,
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [
+          "paddleocr_pp_structurev3_p0000_l0010"
+        ],
+        "span_refs": [],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [
+        {
+          "line_id": "paddleocr_pp_structurev3_p0000_l0010",
+          "order": 10,
+          "text": "1First note.",
+          "normalised_text": "1first note.",
+          "geometry": {
+            "bbox": [
+              239.295,
+              788.005,
+              317.38,
+              802.85
+            ],
+            "polygon": [
+              [
+                240.134,
+                788.005
+              ],
+              [
+                317.38,
+                790.974
+              ],
+              [
+                316.541,
+                802.85
+              ],
+              [
+                239.295,
+                799.881
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9636354446411133
+          },
+          "native": {
+            "bbox": [
+              285.0,
+              1327.0,
+              378.0,
+              1352.0
+            ],
+            "polygon": [
+              [
+                286.0,
+                1327.0
+              ],
+              [
+                378.0,
+                1332.0
+              ],
+              [
+                377.0,
+                1352.0
+              ],
+              [
+                285.0,
+                1347.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9636354446411133,
+            "detection": null
+          }
+        }
+      ],
+      "spans": [],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.85,
+        "structure": 0.75
+      },
+      "comparison": {
+        "compare_as": "grounded_text_block",
+        "text_hash": "sha256:3c40986bfec5fa9f68ad526d18fb2b7939b8c02125b07d6dcaa070cc37f93123",
+        "geometry_hash": "sha256:5b04b57f3cae78c833b626d959ea12381f62983e11b0d19e508b1c21f08f3074",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "bbox_iou",
+          "normalised_text"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "paddleocr_pp_structurev3_p0000_r0008_src0",
+          "backend_id": "paddleocr_pp_structurev3",
+          "backend_name": "paddleocr_pp_structurev3",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.official.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.clean.md",
+          "json_pointer": "/parsing_res_list/8",
+          "raw_id": "page_0_block_8",
+          "native_type": "paddleocr_layout:footnote",
+          "native_bbox": [
+            287.0,
+            1330.0,
+            375.0,
+            1347.0
+          ],
+          "native_polygon": null,
+          "native_coordinate_space": "paddleocr_image_pixels",
+          "confidence": null,
+          "sha256": "sha256:69e177c83b14b6801a10ffa0a8d1e02adc52427bc99d772f85aaff6791ff44ec",
+          "clean_sha256": "sha256:421d5346d08853d3fe07c2584724f990dc74e3f1028a8ed82ccce528d06ceb50"
+        }
+      ],
+      "flags": [],
+      "block_family": "paddleocr_layout_native"
+    },
+    {
+      "block_id": "paddleocr_pp_structurev3_p0000_r0009",
+      "page_id": "paddleocr_pp_structurev3_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "paddleocr_pp_structurev3",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 14,
+      "type": "page_number",
+      "subtype": null,
+      "semantic_role": "page_number",
+      "docling_label_hint": "page_number",
+      "docling": {
+        "label_hint": "page_number",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": true,
+        "notes": [
+          "Block created from PaddleOCR parsing_res_list."
+        ],
+        "compile_role": "evidence_only",
+        "compile_notes": []
+      },
+      "geometry": {
+        "bbox": [
+          508.816,
+          824.822,
+          514.694,
+          833.729
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "1",
+        "normalised_text": "1",
+        "markdown": "1",
+        "html": null,
+        "latex": null,
+        "language": null
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": null,
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [
+          "paddleocr_pp_structurev3_p0000_l0011"
+        ],
+        "span_refs": [],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [
+        {
+          "line_id": "paddleocr_pp_structurev3_p0000_l0011",
+          "order": 11,
+          "text": "1",
+          "normalised_text": "1",
+          "geometry": {
+            "bbox": [
+              507.137,
+              824.822,
+              518.892,
+              834.917
+            ],
+            "polygon": [
+              [
+                507.137,
+                824.822
+              ],
+              [
+                518.892,
+                824.822
+              ],
+              [
+                518.892,
+                834.917
+              ],
+              [
+                507.137,
+                834.917
+              ]
+            ],
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": 0.9997798800468445
+          },
+          "native": {
+            "bbox": [
+              604.0,
+              1389.0,
+              618.0,
+              1406.0
+            ],
+            "polygon": [
+              [
+                604.0,
+                1389.0
+              ],
+              [
+                618.0,
+                1389.0
+              ],
+              [
+                618.0,
+                1406.0
+              ],
+              [
+                604.0,
+                1406.0
+              ]
+            ],
+            "coordinate_space": "paddleocr_image_pixels",
+            "orientation_angle": -1
+          },
+          "confidence": {
+            "text": 0.9997798800468445,
+            "detection": null
+          }
+        }
+      ],
+      "spans": [],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.85,
+        "structure": 0.75
+      },
+      "comparison": {
+        "compare_as": "grounded_text_block",
+        "text_hash": "sha256:6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+        "geometry_hash": "sha256:d31ee46edc8e17376e11a24dcc23cb068767ce438319ccfdb8e3e95811519f99",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "bbox_iou",
+          "normalised_text"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "paddleocr_pp_structurev3_p0000_r0009_src0",
+          "backend_id": "paddleocr_pp_structurev3",
+          "backend_name": "paddleocr_pp_structurev3",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.official.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.clean.md",
+          "json_pointer": "/parsing_res_list/9",
+          "raw_id": "page_0_block_9",
+          "native_type": "paddleocr_layout:number",
+          "native_bbox": [
+            606.0,
+            1389.0,
+            613.0,
+            1404.0
+          ],
+          "native_polygon": null,
+          "native_coordinate_space": "paddleocr_image_pixels",
+          "confidence": null,
+          "sha256": "sha256:69e177c83b14b6801a10ffa0a8d1e02adc52427bc99d772f85aaff6791ff44ec",
+          "clean_sha256": "sha256:421d5346d08853d3fe07c2584724f990dc74e3f1028a8ed82ccce528d06ceb50"
+        }
+      ],
+      "flags": [],
+      "block_family": "paddleocr_layout_native"
+    }
+  ],
+  "relationships": {
+    "reading_order": [
+      "paddleocr_pp_structurev3_p0000_b0000",
+      "paddleocr_pp_structurev3_p0000_m0000",
+      "paddleocr_pp_structurev3_p0000_m0001",
+      "paddleocr_pp_structurev3_p0000_m0002",
+      "paddleocr_pp_structurev3_p0000_r0000",
+      "paddleocr_pp_structurev3_p0000_r0001",
+      "paddleocr_pp_structurev3_p0000_r0002",
+      "paddleocr_pp_structurev3_p0000_r0003",
+      "paddleocr_pp_structurev3_p0000_r0004",
+      "paddleocr_pp_structurev3_p0000_r0005",
+      "paddleocr_pp_structurev3_p0000_r0006",
+      "paddleocr_pp_structurev3_p0000_r0007",
+      "paddleocr_pp_structurev3_p0000_r0008",
+      "paddleocr_pp_structurev3_p0000_r0009"
+    ],
+    "parent_child": [],
+    "caption_links": [],
+    "footnote_links": [],
+    "media_refs": [],
+    "semantic_to_native_matches": [
+      {
+        "semantic_block_id": "paddleocr_pp_structurev3_p0000_m0001",
+        "native_block_id": "paddleocr_pp_structurev3_p0000_r0005",
+        "text_similarity": 1.0,
+        "bbox_iou": 0.0,
+        "confidence": 1.0
+      },
+      {
+        "semantic_block_id": "paddleocr_pp_structurev3_p0000_m0002",
+        "native_block_id": "paddleocr_pp_structurev3_p0000_r0006",
+        "text_similarity": 1.0,
+        "bbox_iou": 0.0,
+        "confidence": 1.0
+      }
+    ],
+    "native_to_semantic_matches": [
+      {
+        "native_block_id": "paddleocr_pp_structurev3_p0000_r0005",
+        "semantic_matches": [
+          {
+            "semantic_block_id": "paddleocr_pp_structurev3_p0000_m0001",
+            "native_block_id": "paddleocr_pp_structurev3_p0000_r0005",
+            "text_similarity": 1.0,
+            "bbox_iou": 0.0,
+            "confidence": 1.0
+          }
+        ]
+      },
+      {
+        "native_block_id": "paddleocr_pp_structurev3_p0000_r0006",
+        "semantic_matches": [
+          {
+            "semantic_block_id": "paddleocr_pp_structurev3_p0000_m0002",
+            "native_block_id": "paddleocr_pp_structurev3_p0000_r0006",
+            "text_similarity": 1.0,
+            "bbox_iou": 0.0,
+            "confidence": 1.0
+          }
+        ]
+      }
+    ],
+    "docling_reading_order": [
+      "paddleocr_pp_structurev3_p0000_m0000",
+      "paddleocr_pp_structurev3_p0000_m0001",
+      "paddleocr_pp_structurev3_p0000_r0000",
+      "paddleocr_pp_structurev3_p0000_r0001",
+      "paddleocr_pp_structurev3_p0000_r0002",
+      "paddleocr_pp_structurev3_p0000_r0003",
+      "paddleocr_pp_structurev3_p0000_r0004",
+      "paddleocr_pp_structurev3_p0000_r0005",
+      "paddleocr_pp_structurev3_p0000_r0006",
+      "paddleocr_pp_structurev3_p0000_r0007",
+      "paddleocr_pp_structurev3_p0000_r0008"
+    ],
+    "table_refs": [],
+    "formula_refs": [
+      {
+        "block_id": "paddleocr_pp_structurev3_p0000_m0001",
+        "formula_id": "paddleocr_pp_structurev3_p0000_m0001_formula",
+        "block_family": "markdown_semantic",
+        "compile_role": "fallback_only"
+      },
+      {
+        "block_id": "paddleocr_pp_structurev3_p0000_r0005",
+        "formula_id": "paddleocr_pp_structurev3_p0000_r0005_formula",
+        "block_family": "paddleocr_formula_native",
+        "compile_role": "use"
+      }
+    ],
+    "media_block_refs": []
+  },
+  "page_text": {
+    "plain_text": "# Detectable All Features \n\n## 1 All \n\nFIG \n\nFigure 1: Boxed figure \n\nTable 1: Sample table \n\nAB \n\n12\n\n\n\n$$E=m c^{2}$$\n\nSee Figure 1, Table 1, Eq. (1), and Section 1.1As shown in [1].",
+    "normalised_text": "# detectable all features ## 1 all fig figure 1: boxed figure table 1: sample table ab 12 $$e=m c^{2}$$ see figure 1, table 1, eq. (1), and section 1.1as shown in [1].",
+    "markdown": "# Detectable All Features \n\n## 1 All \n\nFIG \n\nFigure 1: Boxed figure \n\nTable 1: Sample table \n\nAB \n\n12\n\n\n\n$$E=m c^{2}$$\n\nSee Figure 1, Table 1, Eq. (1), and Section 1.1As shown in [1].",
+    "text_hash": "sha256:d2c36caa9af47e3630f4edf98f4aa0e59352a76d18925d8e6fd38cd9c4e3e5cd"
+  },
+  "provenance": {
+    "source_pdf": {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/input/det_all_features.pdf",
+      "sha256": "sha256:e557fce3dfba84e061d697978f40adf939182da80a29928eea1bc94fedf42c30",
+      "page_index": 0,
+      "page_number": 1
+    },
+    "model": {
+      "model_id": "pp_structurev3",
+      "model_path": null,
+      "prompt": null,
+      "prompt_mode": null,
+      "dpi": 300,
+      "base_size": null,
+      "image_size": null
+    },
+    "raw_backend_refs": [
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_json",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.official.json",
+        "kind": "paddleocr_result_json_attribute",
+        "sha256": "sha256:69e177c83b14b6801a10ffa0a8d1e02adc52427bc99d772f85aaff6791ff44ec"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_markdown_json",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.markdown.json",
+        "kind": "paddleocr_markdown_attribute",
+        "sha256": "sha256:7689415ec028f979398ed978ccc1ba5728e7df36ca94f9a99bc6b50dc9d9b6c2"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_clean_markdown",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.clean.md",
+        "kind": "paddleocr_clean_markdown",
+        "sha256": "sha256:421d5346d08853d3fe07c2584724f990dc74e3f1028a8ed82ccce528d06ceb50"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_capture_metadata",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.capture.json",
+        "kind": "paddleocr_capture_metadata",
+        "sha256": "sha256:92d6f3c4ae3c61e8d9d4d7d3bdee798622bc6ecbd66d7af79556ebe7248c26b6"
+      }
+    ],
+    "official_output_dir": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000",
+    "official_saved_files": [
+      {
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0.md",
+        "size": 183,
+        "sha256": "sha256:421d5346d08853d3fe07c2584724f990dc74e3f1028a8ed82ccce528d06ceb50",
+        "suffix": ".md"
+      },
+      {
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0_layout_det_res.png",
+        "size": 93419,
+        "sha256": "sha256:0eb83fbe563521f050290c53e2d2b1df40b593a8f76a6bec90d6e13aea1b8b60",
+        "suffix": ".png"
+      },
+      {
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0_layout_order_res.png",
+        "size": 63634,
+        "sha256": "sha256:445fc201b0e700395afa16e31386ca5f7f69f017b2acf2a8212350a7eaf2ee73",
+        "suffix": ".png"
+      },
+      {
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0_overall_ocr_res.png",
+        "size": 104223,
+        "sha256": "sha256:3482947da4636f684c561084d1ee1e36bf60bed4c1163e8563fe0d1b722039a3",
+        "suffix": ".png"
+      },
+      {
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0_preprocessed_img.png",
+        "size": 170610,
+        "sha256": "sha256:5ab8f491b42a6c2c1c82ec651b284fd11717bace69fed4e5ceef7064e2e34130",
+        "suffix": ".png"
+      },
+      {
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0_region_det_res.png",
+        "size": 92687,
+        "sha256": "sha256:6b6cce6fafea3cb7f95da93eba392b510571fe43bf64574d04521f5328739b60",
+        "suffix": ".png"
+      },
+      {
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0_res.json",
+        "size": 20890,
+        "sha256": "sha256:bd1385597b7b4d365476f7b395d30dff321faa019ccc3c1b69520da4757601eb",
+        "suffix": ".json"
+      },
+      {
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/imgs/img_in_formula_box_569_795_650_816.jpg",
+        "size": 675,
+        "sha256": "sha256:3a498aa9145e4839086c1437f0c89700296cc544c666d8ee36a26bb83a75eb35",
+        "suffix": ".jpg"
+      }
+    ]
+  },
+  "observed_capabilities": {
+    "ocr_text_found": true,
+    "layout_blocks_found": true,
+    "layout_block_count": 10,
+    "semantic_markdown_block_count": 3,
+    "ocr_line_count": 13,
+    "table_count": 0,
+    "formula_count": 1,
+    "seal_count": 0,
+    "media_count": 0,
+    "markdown_image_count": 0,
+    "has_markdown_payload": true,
+    "scan_profile": "digital_pdf",
+    "predict_from_page_images": false,
+    "page_image_quality_available": true
+  },
+  "flags": [],
+  "extraction_summary": {
+    "block_counts_by_type": {
+      "unknown": 2,
+      "section_header": 2,
+      "formula": 2,
+      "paragraph": 5,
+      "title": 1,
+      "footnote": 1,
+      "page_number": 1
+    },
+    "block_counts_by_family": {
+      "raw_page_evidence": 1,
+      "markdown_semantic": 3,
+      "paddleocr_layout_native": 9,
+      "paddleocr_formula_native": 1
+    },
+    "docling_candidate_counts": {
+      "evidence_only": 2,
+      "fallback_only": 2,
+      "duplicate_candidate": 1,
+      "use": 9
+    },
+    "flags_by_severity": {
+      "low": 6
+    },
+    "has_page_image": true,
+    "has_native_layout": true,
+    "has_ocr_lines": true,
+    "has_tables": false,
+    "has_formulas": true,
+    "has_media": false,
+    "semantic_native_match_count": 2
+  }
+}

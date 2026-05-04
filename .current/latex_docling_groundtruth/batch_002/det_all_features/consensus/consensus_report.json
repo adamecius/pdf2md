@@ -1,0 +1,1012 @@
+{
+  "schema_name": "pdf2md.consensus_report",
+  "schema_version": "0.1.0",
+  "pdf_path": ".current/latex_docling_groundtruth/batch_002/det_all_features/input/det_all_features.pdf",
+  "pdf_stem": "det_all_features",
+  "created_at": "2026-05-04T10:18:30.861187+00:00",
+  "config_path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/consensus/local_consensus.toml",
+  "coordinate_space": "page_normalised_1000",
+  "sources": {
+    "mineru": {
+      "source_name": "mineru",
+      "source_type": "backend_extraction_ir",
+      "enabled": true,
+      "root": ".current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru",
+      "extraction_dir": ".current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features",
+      "manifest_path": ".current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/manifest.json",
+      "status": "loaded",
+      "page_count": 1,
+      "warnings": []
+    },
+    "paddleocr": {
+      "source_name": "paddleocr",
+      "source_type": "backend_extraction_ir",
+      "enabled": true,
+      "root": ".current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr",
+      "extraction_dir": ".current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features",
+      "manifest_path": ".current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/manifest.json",
+      "status": "loaded",
+      "page_count": 1,
+      "warnings": []
+    },
+    "deepseek": {
+      "source_name": "deepseek",
+      "source_type": "backend_extraction_ir",
+      "enabled": true,
+      "root": ".current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/deepseek",
+      "extraction_dir": ".current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/deepseek/.current/extraction_ir/det_all_features",
+      "manifest_path": ".current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/deepseek/.current/extraction_ir/det_all_features/manifest.json",
+      "status": "loaded",
+      "page_count": 1,
+      "warnings": []
+    },
+    "pymupdf": {
+      "source_name": "pymupdf",
+      "source_type": "native_pdf",
+      "enabled": true,
+      "status": "loaded",
+      "page_count": 1,
+      "warnings": []
+    }
+  },
+  "document_summary": {
+    "page_count": 1
+  },
+  "pages": [
+    {
+      "page_index": 0,
+      "page_number": 1,
+      "sources_present": [
+        "mineru",
+        "paddleocr",
+        "deepseek",
+        "pymupdf"
+      ],
+      "sources_missing": [],
+      "pymupdf_page": {
+        "page_index": 0,
+        "page_number": 1,
+        "width": 595.2760009765625,
+        "height": 841.8900146484375,
+        "rotation": 0,
+        "native_text_block_count": 9,
+        "has_native_text": true,
+        "text_similarity_by_source": {
+          "mineru": 0.6116838487972509,
+          "paddleocr": 0.4941860465116279,
+          "deepseek": 0.5858951175406871
+        }
+      },
+      "counts": {
+        "blocks_by_source": {
+          "deepseek": 10,
+          "mineru": 10,
+          "paddleocr": 14,
+          "pymupdf": 9
+        },
+        "text_blocks_by_source": {
+          "deepseek": 10,
+          "mineru": 10,
+          "paddleocr": 14,
+          "pymupdf": 9
+        },
+        "geometry_blocks_by_source": {
+          "deepseek": 0,
+          "mineru": 9,
+          "paddleocr": 10,
+          "pymupdf": 9
+        },
+        "tables_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 0,
+          "pymupdf": 0
+        },
+        "formulas_by_source": {
+          "deepseek": 1,
+          "mineru": 1,
+          "paddleocr": 2,
+          "pymupdf": 0
+        },
+        "pictures_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 0,
+          "pymupdf": 0
+        },
+        "captions_by_source": {
+          "deepseek": 2,
+          "mineru": 0,
+          "paddleocr": 0,
+          "pymupdf": 0
+        },
+        "candidate_blocks_by_source": {
+          "deepseek": 9,
+          "mineru": 9,
+          "paddleocr": 9,
+          "pymupdf": 9
+        },
+        "evidence_only_blocks_by_source": {
+          "deepseek": 1,
+          "mineru": 1,
+          "paddleocr": 2,
+          "pymupdf": 0
+        },
+        "fallback_blocks_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 2,
+          "pymupdf": 0
+        },
+        "duplicate_candidate_blocks_by_source": {
+          "deepseek": 0,
+          "mineru": 0,
+          "paddleocr": 1,
+          "pymupdf": 0
+        }
+      },
+      "candidate_groups": [
+        {
+          "group_id": "p0000_g0001",
+          "page_index": 0,
+          "kind": "title",
+          "members": [
+            "mineru:p0000:b0001",
+            "paddleocr:p0000:b0004",
+            "deepseek:p0000:b0001"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 3,
+          "has_pymupdf_support": false,
+          "representative_text": "Detectable All Features",
+          "representative_bbox": [
+            373.0,
+            192.0,
+            652.0,
+            214.0
+          ],
+          "agreement": {
+            "text": "exact",
+            "geometry": "missing",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 1.0,
+            "max_bbox_iou": 0.7920099706744869
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0002",
+          "page_index": 0,
+          "kind": "title",
+          "members": [
+            "mineru:p0000:b0002",
+            "paddleocr:p0000:b0005",
+            "deepseek:p0000:b0002"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 3,
+          "has_pymupdf_support": false,
+          "representative_text": "1 All",
+          "representative_bbox": [
+            369.748,
+            331.748,
+            510.924,
+            354.34
+          ],
+          "agreement": {
+            "text": "exact",
+            "geometry": "missing",
+            "kind": "conflict"
+          },
+          "scores": {
+            "max_text_similarity": 1.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0003",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0000:b0003",
+            "paddleocr:p0000:b0006",
+            "deepseek:p0000:b0003",
+            "pymupdf:p0000:b0002"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr",
+            "pymupdf"
+          ],
+          "support_count": 4,
+          "has_pymupdf_support": true,
+          "representative_text": "FIG",
+          "representative_bbox": [
+            823.529,
+            378.121,
+            897.479,
+            400.713
+          ],
+          "agreement": {
+            "text": "exact",
+            "geometry": "missing",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 1.0,
+            "max_bbox_iou": 0.5907251006718982
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0004",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0000:b0004",
+            "paddleocr:p0000:b0007",
+            "pymupdf:p0000:b0003"
+          ],
+          "sources": [
+            "mineru",
+            "paddleocr",
+            "pymupdf"
+          ],
+          "support_count": 3,
+          "has_pymupdf_support": true,
+          "representative_text": "Figure 1: Boxed figure",
+          "representative_bbox": [
+            715.966,
+            412.604,
+            1000.0,
+            431.629
+          ],
+          "agreement": {
+            "text": "exact",
+            "geometry": "near",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 1.0,
+            "max_bbox_iou": 0.7469057368338807
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0005",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0000:b0005",
+            "paddleocr:p0000:b0008",
+            "pymupdf:p0000:b0004"
+          ],
+          "sources": [
+            "mineru",
+            "paddleocr",
+            "pymupdf"
+          ],
+          "support_count": 3,
+          "has_pymupdf_support": true,
+          "representative_text": "Table 1: Sample table A B 1 2",
+          "representative_bbox": [
+            719.328,
+            473.246,
+            1000.0,
+            524.376
+          ],
+          "agreement": {
+            "text": "near",
+            "geometry": "near",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 1.0,
+            "max_bbox_iou": 0.8749871047745689
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0006",
+          "page_index": 0,
+          "kind": "formula",
+          "members": [
+            "mineru:p0000:b0006"
+          ],
+          "sources": [
+            "mineru"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "E = m c ^ { 2 }\\tag{1}",
+          "representative_bbox": [
+            801.681,
+            558.859,
+            919.328,
+            579.073
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0007",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "mineru:p0000:b0007",
+            "paddleocr:p0000:b0010",
+            "deepseek:p0000:b0009",
+            "pymupdf:p0000:b0006"
+          ],
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr",
+            "pymupdf"
+          ],
+          "support_count": 4,
+          "has_pymupdf_support": true,
+          "representative_text": "See Figure 1, Table 1, Eq. (1), and Section  1 . { } ^ { 1 } As shown in [1].",
+          "representative_bbox": [
+            220.0,
+            493.0,
+            689.0,
+            511.0
+          ],
+          "agreement": {
+            "text": "near",
+            "geometry": "missing",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.984375,
+            "max_bbox_iou": 0.7999199642434927
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0008",
+          "page_index": 0,
+          "kind": "unknown",
+          "members": [
+            "mineru:p0000:b0008",
+            "paddleocr:p0000:b0012"
+          ],
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "support_count": 2,
+          "has_pymupdf_support": false,
+          "representative_text": "1First note.",
+          "representative_bbox": [
+            400.0,
+            938.169,
+            532.773,
+            953.627
+          ],
+          "agreement": {
+            "text": "exact",
+            "geometry": "conflict",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 1.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0009",
+          "page_index": 0,
+          "kind": "page_number",
+          "members": [
+            "mineru:p0000:b0009"
+          ],
+          "sources": [
+            "mineru"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "1",
+          "representative_bbox": [
+            852.101,
+            980.975,
+            872.269,
+            995.244
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0010",
+          "page_index": 0,
+          "kind": "formula",
+          "members": [
+            "paddleocr:p0000:b0009"
+          ],
+          "sources": [
+            "paddleocr"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "E=m c^{2}",
+          "representative_bbox": [
+            477.75,
+            472.09,
+            545.76,
+            484.561
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0011",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "paddleocr:p0000:b0011"
+          ],
+          "sources": [
+            "paddleocr"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "(1)",
+          "representative_bbox": [
+            780.017,
+            473.872,
+            799.328,
+            486.342
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0012",
+          "page_index": 0,
+          "kind": "caption",
+          "members": [
+            "deepseek:p0000:b0004"
+          ],
+          "sources": [
+            "deepseek"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "Figure 1: Boxed figure",
+          "representative_bbox": null,
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0013",
+          "page_index": 0,
+          "kind": "caption",
+          "members": [
+            "deepseek:p0000:b0005"
+          ],
+          "sources": [
+            "deepseek"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "Table 1: Sample table",
+          "representative_bbox": null,
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0014",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "deepseek:p0000:b0006"
+          ],
+          "sources": [
+            "deepseek"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "A B",
+          "representative_bbox": null,
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0015",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "deepseek:p0000:b0007"
+          ],
+          "sources": [
+            "deepseek"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "1 2",
+          "representative_bbox": null,
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0016",
+          "page_index": 0,
+          "kind": "formula",
+          "members": [
+            "deepseek:p0000:b0008"
+          ],
+          "sources": [
+            "deepseek"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": false,
+          "representative_text": "E=mc^{2} \\quad (1)",
+          "representative_bbox": null,
+          "agreement": {
+            "text": "single_source",
+            "geometry": "unavailable",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0017",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "pymupdf:p0000:b0000"
+          ],
+          "sources": [
+            "pymupdf"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": true,
+          "representative_text": "Detectable   All   Features",
+          "representative_bbox": [
+            377.0654153459622,
+            193.81248130463524,
+            649.7233877323106,
+            214.26098736465207
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0018",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "pymupdf:p0000:b0001"
+          ],
+          "sources": [
+            "pymupdf"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": true,
+          "representative_text": "1 All",
+          "representative_bbox": [
+            224.71591311065046,
+            281.7422825751733,
+            300.9685633202987,
+            298.78274054074353
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0019",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "pymupdf:p0000:b0005"
+          ],
+          "sources": [
+            "pymupdf"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": true,
+          "representative_text": "E   =  mc 2 (1)",
+          "representative_bbox": [
+            480.8761445962997,
+            473.00211708014325,
+            802.1173890869704,
+            486.9478623522369
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0020",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "pymupdf:p0000:b0007"
+          ],
+          "sources": [
+            "pymupdf"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": true,
+          "representative_text": "1 First   note.",
+          "representative_bbox": [
+            243.34930414245787,
+            790.1725055652921,
+            315.78097697508935,
+            801.1310523502112
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        },
+        {
+          "group_id": "p0000_g0021",
+          "page_index": 0,
+          "kind": "paragraph",
+          "members": [
+            "pymupdf:p0000:b0008"
+          ],
+          "sources": [
+            "pymupdf"
+          ],
+          "support_count": 1,
+          "has_pymupdf_support": true,
+          "representative_text": "1",
+          "representative_bbox": [
+            509.23100395139875,
+            825.3440780841679,
+            517.5990428382974,
+            837.1776730619857
+          ],
+          "agreement": {
+            "text": "single_source",
+            "geometry": "single_source",
+            "kind": "agree"
+          },
+          "scores": {
+            "max_text_similarity": 0.0,
+            "max_bbox_iou": 0.0
+          },
+          "provisional_selection": {
+            "source_backend": null,
+            "reason": "not_selected_in_report_only_mode"
+          },
+          "conflicts": []
+        }
+      ],
+      "ungrouped_candidates": [
+        "mineru:p0000:b0006",
+        "mineru:p0000:b0009",
+        "paddleocr:p0000:b0009",
+        "paddleocr:p0000:b0011",
+        "deepseek:p0000:b0004",
+        "deepseek:p0000:b0005",
+        "deepseek:p0000:b0006",
+        "deepseek:p0000:b0007",
+        "deepseek:p0000:b0008",
+        "pymupdf:p0000:b0000",
+        "pymupdf:p0000:b0001",
+        "pymupdf:p0000:b0005",
+        "pymupdf:p0000:b0007",
+        "pymupdf:p0000:b0008"
+      ],
+      "conflicts": [
+        {
+          "conflict_id": "p0000_c0001",
+          "page_index": 0,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0001",
+            "paddleocr:p0000:b0004",
+            "deepseek:p0000:b0001"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0002",
+          "page_index": 0,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0002",
+            "paddleocr:p0000:b0005",
+            "deepseek:p0000:b0002"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0003",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "geometry_disagreement",
+          "message": "Low geometry agreement",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0002",
+            "paddleocr:p0000:b0005",
+            "deepseek:p0000:b0002"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0004",
+          "page_index": 0,
+          "severity": "low",
+          "type": "kind_disagreement",
+          "message": "Different kinds grouped",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0002",
+            "paddleocr:p0000:b0005",
+            "deepseek:p0000:b0002"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0005",
+          "page_index": 0,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr",
+            "pymupdf"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0003",
+            "paddleocr:p0000:b0006",
+            "deepseek:p0000:b0003",
+            "pymupdf:p0000:b0002"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0006",
+          "page_index": 0,
+          "severity": "low",
+          "type": "missing_geometry",
+          "message": "Mixed geometry availability",
+          "sources": [
+            "deepseek",
+            "mineru",
+            "paddleocr",
+            "pymupdf"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0007",
+            "paddleocr:p0000:b0010",
+            "deepseek:p0000:b0009",
+            "pymupdf:p0000:b0006"
+          ]
+        },
+        {
+          "conflict_id": "p0000_c0007",
+          "page_index": 0,
+          "severity": "medium",
+          "type": "geometry_disagreement",
+          "message": "Low geometry agreement",
+          "sources": [
+            "mineru",
+            "paddleocr"
+          ],
+          "evidence_ids": [
+            "mineru:p0000:b0008",
+            "paddleocr:p0000:b0012"
+          ]
+        }
+      ],
+      "warnings": [],
+      "notes": []
+    }
+  ]
+}

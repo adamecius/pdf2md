@@ -1,0 +1,1355 @@
+{
+  "source_kind": "content_list_v2",
+  "items": [
+    {
+      "type": "title",
+      "content": {
+        "title_content": [
+          {
+            "type": "text",
+            "content": "Detectable All Features"
+          }
+        ],
+        "level": 1
+      },
+      "bbox": [
+        373,
+        192,
+        652,
+        214
+      ]
+    },
+    {
+      "type": "title",
+      "content": {
+        "title_content": [
+          {
+            "type": "text",
+            "content": "1 All"
+          }
+        ],
+        "level": 2
+      },
+      "bbox": [
+        220,
+        279,
+        304,
+        298
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "paragraph_content": [
+          {
+            "type": "text",
+            "content": "FIG"
+          }
+        ]
+      },
+      "bbox": [
+        490,
+        318,
+        534,
+        337
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "paragraph_content": [
+          {
+            "type": "text",
+            "content": "Figure 1: Boxed figure"
+          }
+        ]
+      },
+      "bbox": [
+        426,
+        347,
+        598,
+        363
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "paragraph_content": [
+          {
+            "type": "text",
+            "content": "Table 1: Sample table A B 1 2"
+          }
+        ]
+      },
+      "bbox": [
+        428,
+        398,
+        598,
+        441
+      ]
+    },
+    {
+      "type": "equation_interline",
+      "content": {
+        "math_content": "E = m c ^ { 2 }\\tag{1}",
+        "math_type": "latex",
+        "image_source": {
+          "path": "images/8f17f69121f2d6fe4fd10058f14e31d2e20b45db631a3cd76953a53002df4419.jpg"
+        }
+      },
+      "bbox": [
+        477,
+        470,
+        547,
+        487
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "paragraph_content": [
+          {
+            "type": "text",
+            "content": "See Figure 1, Table 1, Eq. (1), and Section "
+          },
+          {
+            "type": "equation_inline",
+            "content": "1 . { } ^ { 1 }"
+          },
+          {
+            "type": "text",
+            "content": "As shown in [1]."
+          }
+        ]
+      },
+      "bbox": [
+        220,
+        493,
+        689,
+        511
+      ]
+    },
+    {
+      "type": "page_footnote",
+      "content": {
+        "page_footnote_content": [
+          {
+            "type": "text",
+            "content": "1First note."
+          }
+        ]
+      },
+      "bbox": [
+        238,
+        789,
+        317,
+        802
+      ]
+    },
+    {
+      "type": "page_number",
+      "content": {
+        "page_number_content": [
+          {
+            "type": "text",
+            "content": "1"
+          }
+        ]
+      },
+      "bbox": [
+        507,
+        825,
+        519,
+        837
+      ]
+    }
+  ],
+  "available_sources": {
+    "content_list_v2": [
+      {
+        "json_pointer": "/0/0",
+        "item": {
+          "type": "title",
+          "content": {
+            "title_content": [
+              {
+                "type": "text",
+                "content": "Detectable All Features"
+              }
+            ],
+            "level": 1
+          },
+          "bbox": [
+            373,
+            192,
+            652,
+            214
+          ]
+        }
+      },
+      {
+        "json_pointer": "/0/1",
+        "item": {
+          "type": "title",
+          "content": {
+            "title_content": [
+              {
+                "type": "text",
+                "content": "1 All"
+              }
+            ],
+            "level": 2
+          },
+          "bbox": [
+            220,
+            279,
+            304,
+            298
+          ]
+        }
+      },
+      {
+        "json_pointer": "/0/2",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": [
+              {
+                "type": "text",
+                "content": "FIG"
+              }
+            ]
+          },
+          "bbox": [
+            490,
+            318,
+            534,
+            337
+          ]
+        }
+      },
+      {
+        "json_pointer": "/0/3",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": [
+              {
+                "type": "text",
+                "content": "Figure 1: Boxed figure"
+              }
+            ]
+          },
+          "bbox": [
+            426,
+            347,
+            598,
+            363
+          ]
+        }
+      },
+      {
+        "json_pointer": "/0/4",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": [
+              {
+                "type": "text",
+                "content": "Table 1: Sample table A B 1 2"
+              }
+            ]
+          },
+          "bbox": [
+            428,
+            398,
+            598,
+            441
+          ]
+        }
+      },
+      {
+        "json_pointer": "/0/5",
+        "item": {
+          "type": "equation_interline",
+          "content": {
+            "math_content": "E = m c ^ { 2 }\\tag{1}",
+            "math_type": "latex",
+            "image_source": {
+              "path": "images/8f17f69121f2d6fe4fd10058f14e31d2e20b45db631a3cd76953a53002df4419.jpg"
+            }
+          },
+          "bbox": [
+            477,
+            470,
+            547,
+            487
+          ]
+        }
+      },
+      {
+        "json_pointer": "/0/6",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": [
+              {
+                "type": "text",
+                "content": "See Figure 1, Table 1, Eq. (1), and Section "
+              },
+              {
+                "type": "equation_inline",
+                "content": "1 . { } ^ { 1 }"
+              },
+              {
+                "type": "text",
+                "content": "As shown in [1]."
+              }
+            ]
+          },
+          "bbox": [
+            220,
+            493,
+            689,
+            511
+          ]
+        }
+      },
+      {
+        "json_pointer": "/0/7",
+        "item": {
+          "type": "page_footnote",
+          "content": {
+            "page_footnote_content": [
+              {
+                "type": "text",
+                "content": "1First note."
+              }
+            ]
+          },
+          "bbox": [
+            238,
+            789,
+            317,
+            802
+          ]
+        }
+      },
+      {
+        "json_pointer": "/0/8",
+        "item": {
+          "type": "page_number",
+          "content": {
+            "page_number_content": [
+              {
+                "type": "text",
+                "content": "1"
+              }
+            ]
+          },
+          "bbox": [
+            507,
+            825,
+            519,
+            837
+          ]
+        }
+      }
+    ],
+    "content_list": [],
+    "middle": {
+      "preproc_blocks": [
+        {
+          "score": 0.8375,
+          "bbox": [
+            222,
+            162,
+            388,
+            180
+          ],
+          "index": 1,
+          "type": "title",
+          "lines": [
+            {
+              "bbox": [
+                222,
+                160,
+                389,
+                181
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    222,
+                    160,
+                    389,
+                    181
+                  ],
+                  "type": "text",
+                  "content": "Detectable All Features",
+                  "score": 1.0
+                }
+              ]
+            }
+          ],
+          "level": 1
+        },
+        {
+          "score": 0.9185,
+          "bbox": [
+            131,
+            235,
+            181,
+            251
+          ],
+          "index": 2,
+          "type": "title",
+          "lines": [
+            {
+              "bbox": [
+                129,
+                234,
+                182,
+                254
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    129,
+                    234,
+                    182,
+                    254
+                  ],
+                  "type": "text",
+                  "content": "1 All",
+                  "score": 1.0
+                }
+              ]
+            }
+          ],
+          "level": 2
+        },
+        {
+          "score": 0.5975,
+          "bbox": [
+            292,
+            268,
+            318,
+            284
+          ],
+          "index": 3,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                293,
+                269,
+                317,
+                285
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    293,
+                    269,
+                    317,
+                    285
+                  ],
+                  "type": "text",
+                  "content": "FIG",
+                  "score": 1.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.6601,
+          "bbox": [
+            254,
+            292,
+            356,
+            306
+          ],
+          "index": 4,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                254,
+                291,
+                356,
+                306
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    254,
+                    291,
+                    356,
+                    306
+                  ],
+                  "type": "text",
+                  "content": "Figure 1: Boxed figure",
+                  "score": 1.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9021,
+          "bbox": [
+            255,
+            335,
+            356,
+            371
+          ],
+          "index": 5,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                256,
+                335,
+                355,
+                348
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    256,
+                    335,
+                    355,
+                    348
+                  ],
+                  "type": "text",
+                  "content": "Table 1: Sample table",
+                  "score": 1.0
+                }
+              ]
+            },
+            {
+              "bbox": [
+                289,
+                345,
+                321,
+                358
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    289,
+                    345,
+                    321,
+                    358
+                  ],
+                  "type": "text",
+                  "content": "A B",
+                  "score": 1.0
+                }
+              ]
+            },
+            {
+              "bbox": [
+                289,
+                356,
+                322,
+                372
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    289,
+                    356,
+                    322,
+                    372
+                  ],
+                  "type": "text",
+                  "content": "1 2",
+                  "score": 1.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9163,
+          "bbox": [
+            284,
+            396,
+            326,
+            410
+          ],
+          "index": 6,
+          "type": "interline_equation",
+          "lines": [
+            {
+              "bbox": [
+                284,
+                396,
+                326,
+                410
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    284,
+                    396,
+                    326,
+                    410
+                  ],
+                  "type": "interline_equation",
+                  "content": "E = m c ^ { 2 }\\tag{1}",
+                  "image_path": "8f17f69121f2d6fe4fd10058f14e31d2e20b45db631a3cd76953a53002df4419.jpg"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9435,
+          "bbox": [
+            131,
+            415,
+            410,
+            430
+          ],
+          "index": 8,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                132,
+                414,
+                411,
+                430
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    132,
+                    416,
+                    321,
+                    429
+                  ],
+                  "type": "text",
+                  "content": "See Figure 1, Table 1, Eq. (1), and Section",
+                  "score": 1.0
+                },
+                {
+                  "bbox": [
+                    322,
+                    416,
+                    336,
+                    428
+                  ],
+                  "type": "inline_equation",
+                  "content": "1 . { } ^ { 1 }",
+                  "score": 0.5096
+                },
+                {
+                  "bbox": [
+                    337,
+                    414,
+                    411,
+                    430
+                  ],
+                  "type": "text",
+                  "content": "As shown in [1].",
+                  "score": 1.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "page_idx": 0,
+      "page_size": [
+        595,
+        841
+      ],
+      "discarded_blocks": [
+        {
+          "score": 0.8515,
+          "bbox": [
+            142,
+            664,
+            189,
+            675
+          ],
+          "index": 9,
+          "type": "page_footnote",
+          "lines": [
+            {
+              "bbox": [
+                142,
+                663,
+                190,
+                676
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    142,
+                    663,
+                    190,
+                    676
+                  ],
+                  "type": "text",
+                  "content": "1First note.",
+                  "score": 1.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.8222,
+          "bbox": [
+            302,
+            694,
+            309,
+            704
+          ],
+          "index": 10,
+          "type": "page_number",
+          "lines": [
+            {
+              "bbox": [
+                301,
+                694,
+                309,
+                707
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    301,
+                    694,
+                    309,
+                    707
+                  ],
+                  "type": "text",
+                  "content": "1",
+                  "score": 1.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "para_blocks": [
+        {
+          "score": 0.8375,
+          "bbox": [
+            222,
+            162,
+            388,
+            180
+          ],
+          "index": 1,
+          "type": "title",
+          "lines": [
+            {
+              "bbox": [
+                222,
+                160,
+                389,
+                181
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    222,
+                    160,
+                    389,
+                    181
+                  ],
+                  "type": "text",
+                  "content": "Detectable All Features",
+                  "score": 1.0
+                }
+              ]
+            }
+          ],
+          "level": 1
+        },
+        {
+          "score": 0.9185,
+          "bbox": [
+            131,
+            235,
+            181,
+            251
+          ],
+          "index": 2,
+          "type": "title",
+          "lines": [
+            {
+              "bbox": [
+                129,
+                234,
+                182,
+                254
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    129,
+                    234,
+                    182,
+                    254
+                  ],
+                  "type": "text",
+                  "content": "1 All",
+                  "score": 1.0
+                }
+              ]
+            }
+          ],
+          "level": 2
+        },
+        {
+          "score": 0.5975,
+          "bbox": [
+            292,
+            268,
+            318,
+            284
+          ],
+          "index": 3,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                293,
+                269,
+                317,
+                285
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    293,
+                    269,
+                    317,
+                    285
+                  ],
+                  "type": "text",
+                  "content": "FIG",
+                  "score": 1.0
+                }
+              ]
+            }
+          ],
+          "bbox_fs": [
+            293,
+            269,
+            317,
+            285
+          ]
+        },
+        {
+          "score": 0.6601,
+          "bbox": [
+            254,
+            292,
+            356,
+            306
+          ],
+          "index": 4,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                254,
+                291,
+                356,
+                306
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    254,
+                    291,
+                    356,
+                    306
+                  ],
+                  "type": "text",
+                  "content": "Figure 1: Boxed figure",
+                  "score": 1.0
+                }
+              ]
+            }
+          ],
+          "bbox_fs": [
+            254,
+            291,
+            356,
+            306
+          ]
+        },
+        {
+          "score": 0.9021,
+          "bbox": [
+            255,
+            335,
+            356,
+            371
+          ],
+          "index": 5,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                256,
+                335,
+                355,
+                348
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    256,
+                    335,
+                    355,
+                    348
+                  ],
+                  "type": "text",
+                  "content": "Table 1: Sample table",
+                  "score": 1.0
+                }
+              ]
+            },
+            {
+              "bbox": [
+                289,
+                345,
+                321,
+                358
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    289,
+                    345,
+                    321,
+                    358
+                  ],
+                  "type": "text",
+                  "content": "A B",
+                  "score": 1.0
+                }
+              ]
+            },
+            {
+              "bbox": [
+                289,
+                356,
+                322,
+                372
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    289,
+                    356,
+                    322,
+                    372
+                  ],
+                  "type": "text",
+                  "content": "1 2",
+                  "score": 1.0
+                }
+              ]
+            }
+          ],
+          "bbox_fs": [
+            256,
+            335,
+            355,
+            372
+          ]
+        },
+        {
+          "score": 0.9163,
+          "bbox": [
+            284,
+            396,
+            326,
+            410
+          ],
+          "index": 6,
+          "type": "interline_equation",
+          "lines": [
+            {
+              "bbox": [
+                284,
+                396,
+                326,
+                410
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    284,
+                    396,
+                    326,
+                    410
+                  ],
+                  "type": "interline_equation",
+                  "content": "E = m c ^ { 2 }\\tag{1}",
+                  "image_path": "8f17f69121f2d6fe4fd10058f14e31d2e20b45db631a3cd76953a53002df4419.jpg"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 0.9435,
+          "bbox": [
+            131,
+            415,
+            410,
+            430
+          ],
+          "index": 8,
+          "type": "text",
+          "lines": [
+            {
+              "bbox": [
+                132,
+                414,
+                411,
+                430
+              ],
+              "spans": [
+                {
+                  "bbox": [
+                    132,
+                    416,
+                    321,
+                    429
+                  ],
+                  "type": "text",
+                  "content": "See Figure 1, Table 1, Eq. (1), and Section",
+                  "score": 1.0
+                },
+                {
+                  "bbox": [
+                    322,
+                    416,
+                    336,
+                    428
+                  ],
+                  "type": "inline_equation",
+                  "content": "1 . { } ^ { 1 }",
+                  "score": 0.5096
+                },
+                {
+                  "bbox": [
+                    337,
+                    414,
+                    411,
+                    430
+                  ],
+                  "type": "text",
+                  "content": "As shown in [1].",
+                  "score": 1.0
+                }
+              ]
+            }
+          ],
+          "bbox_fs": [
+            132,
+            414,
+            411,
+            430
+          ]
+        }
+      ]
+    },
+    "model_json": [
+      {
+        "json_pointer": "/0",
+        "item": {
+          "layout_dets": [
+            {
+              "cls_id": 6,
+              "label": "doc_title",
+              "score": 0.8375,
+              "bbox": [
+                618,
+                450,
+                1080,
+                502
+              ],
+              "index": 1
+            },
+            {
+              "cls_id": 17,
+              "label": "paragraph_title",
+              "score": 0.9185,
+              "bbox": [
+                366,
+                653,
+                505,
+                699
+              ],
+              "index": 2
+            },
+            {
+              "cls_id": 22,
+              "label": "text",
+              "score": 0.5975,
+              "bbox": [
+                812,
+                747,
+                886,
+                789
+              ],
+              "index": 3
+            },
+            {
+              "cls_id": 22,
+              "label": "text",
+              "score": 0.6601,
+              "bbox": [
+                707,
+                813,
+                991,
+                851
+              ],
+              "index": 4
+            },
+            {
+              "cls_id": 22,
+              "label": "text",
+              "score": 0.9021,
+              "bbox": [
+                710,
+                931,
+                989,
+                1031
+              ],
+              "index": 5
+            },
+            {
+              "cls_id": 5,
+              "label": "display_formula",
+              "score": 0.9163,
+              "bbox": [
+                789,
+                1102,
+                908,
+                1140
+              ],
+              "index": 6,
+              "latex": "E = m c ^ { 2 }"
+            },
+            {
+              "cls_id": 11,
+              "label": "formula_number",
+              "score": 0.8639,
+              "bbox": [
+                1289,
+                1105,
+                1327,
+                1144
+              ],
+              "index": 7
+            },
+            {
+              "cls_id": 15,
+              "label": "inline_formula",
+              "score": 0.5096,
+              "bbox": [
+                895,
+                1156,
+                934,
+                1189
+              ],
+              "index": 8,
+              "latex": "1 . { } ^ { 1 }"
+            },
+            {
+              "cls_id": 22,
+              "label": "text",
+              "score": 0.9435,
+              "bbox": [
+                364,
+                1154,
+                1141,
+                1196
+              ],
+              "index": 9
+            },
+            {
+              "cls_id": 10,
+              "label": "footnote",
+              "score": 0.8515,
+              "bbox": [
+                396,
+                1845,
+                527,
+                1877
+              ],
+              "index": 10
+            },
+            {
+              "cls_id": 16,
+              "label": "number",
+              "score": 0.8222,
+              "bbox": [
+                839,
+                1928,
+                859,
+                1958
+              ],
+              "index": 11
+            },
+            {
+              "label": "ocr_text",
+              "bbox": [
+                618,
+                447,
+                1081,
+                504
+              ],
+              "score": 1.0,
+              "text": ""
+            },
+            {
+              "label": "ocr_text",
+              "bbox": [
+                361,
+                650,
+                508,
+                706
+              ],
+              "score": 1.0,
+              "text": ""
+            },
+            {
+              "label": "ocr_text",
+              "bbox": [
+                397,
+                1842,
+                528,
+                1878
+              ],
+              "score": 1.0,
+              "text": ""
+            },
+            {
+              "label": "ocr_text",
+              "bbox": [
+                815,
+                749,
+                883,
+                792
+              ],
+              "score": 1.0,
+              "text": ""
+            },
+            {
+              "label": "ocr_text",
+              "bbox": [
+                1285,
+                1104,
+                1333,
+                1151
+              ],
+              "score": 1.0,
+              "text": ""
+            },
+            {
+              "label": "ocr_text",
+              "bbox": [
+                707,
+                811,
+                990,
+                852
+              ],
+              "score": 1.0,
+              "text": ""
+            },
+            {
+              "label": "ocr_text",
+              "bbox": [
+                712,
+                932,
+                988,
+                967
+              ],
+              "score": 1.0,
+              "text": ""
+            },
+            {
+              "label": "ocr_text",
+              "bbox": [
+                803,
+                961,
+                894,
+                997
+              ],
+              "score": 1.0,
+              "text": ""
+            },
+            {
+              "label": "ocr_text",
+              "bbox": [
+                804,
+                991,
+                895,
+                1035
+              ],
+              "score": 1.0,
+              "text": ""
+            },
+            {
+              "label": "ocr_text",
+              "bbox": [
+                369,
+                1157,
+                894,
+                1192
+              ],
+              "score": 1.0,
+              "text": ""
+            },
+            {
+              "label": "ocr_text",
+              "bbox": [
+                938,
+                1151,
+                1142,
+                1196
+              ],
+              "score": 1.0,
+              "text": ""
+            },
+            {
+              "label": "ocr_text",
+              "bbox": [
+                838,
+                1929,
+                859,
+                1964
+              ],
+              "score": 1.0,
+              "text": ""
+            }
+          ],
+          "page_info": {
+            "page_no": 0,
+            "width": 1654,
+            "height": 2339
+          }
+        }
+      }
+    ],
+    "markdown": "# Detectable All Features\n\n## 1 All\n\nFIG\n\nFigure 1: Boxed figure\n\nTable 1: Sample table A B 1 2\n\n$$\nE = m c ^ { 2 }\\tag{1}\n$$\n\nSee Figure 1, Table 1, Eq. (1), and Section $1 . { } ^ { 1 }$ As shown in [1]."
+  }
+}

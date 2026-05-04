@@ -1,0 +1,166 @@
+[
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Detectable All Features"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                373,
+                192,
+                652,
+                214
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "1 All"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                220,
+                279,
+                304,
+                298
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "FIG"
+                    }
+                ]
+            },
+            "bbox": [
+                490,
+                318,
+                534,
+                337
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Figure 1: Boxed figure"
+                    }
+                ]
+            },
+            "bbox": [
+                426,
+                347,
+                598,
+                363
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Table 1: Sample table A B 1 2"
+                    }
+                ]
+            },
+            "bbox": [
+                428,
+                398,
+                598,
+                441
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "E = m c ^ { 2 }\\tag{1}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/8f17f69121f2d6fe4fd10058f14e31d2e20b45db631a3cd76953a53002df4419.jpg"
+                }
+            },
+            "bbox": [
+                477,
+                470,
+                547,
+                487
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "See Figure 1, Table 1, Eq. (1), and Section "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "1 . { } ^ { 1 }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "As shown in [1]."
+                    }
+                ]
+            },
+            "bbox": [
+                220,
+                493,
+                689,
+                511
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "1First note."
+                    }
+                ]
+            },
+            "bbox": [
+                238,
+                789,
+                317,
+                802
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "1"
+                    }
+                ]
+            },
+            "bbox": [
+                507,
+                825,
+                519,
+                837
+            ]
+        }
+    ]
+]

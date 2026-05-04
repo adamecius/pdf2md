@@ -1,0 +1,2616 @@
+{
+  "schema_name": "pdf2md.extraction_ir_page",
+  "schema_version": "1.0.0",
+  "ir_stage": "backend_extraction_page",
+  "page_id": "mineru_p0000",
+  "document_id": "det_all_features",
+  "backend_id": "mineru",
+  "backend_name": "mineru",
+  "run_id": "run_20260504_101728",
+  "page_index": 0,
+  "page_number": 1,
+  "status": "ok",
+  "dimensions": {
+    "width": 595.0,
+    "height": 841.0,
+    "unit": "pt_or_px",
+    "rotation": 0
+  },
+  "rendering": {
+    "page_image_ref": {
+      "artifact_id": "mineru_p0000_image",
+      "path": null,
+      "mime_type": null,
+      "dpi": 144,
+      "width_px": null,
+      "height_px": null,
+      "sha256": null,
+      "status": "unavailable"
+    }
+  },
+  "blocks": [
+    {
+      "block_id": "mineru_p0000_b0000",
+      "page_id": "mineru_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "mineru",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 0,
+      "type": "unknown",
+      "subtype": "generated_markdown_page",
+      "semantic_role": "raw_generated_page_evidence",
+      "docling_label_hint": "text",
+      "docling": {
+        "label_hint": "text",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": true,
+        "notes": [
+          "MinerU page-level evidence block. Use structured child blocks for Docling compilation."
+        ]
+      },
+      "geometry": null,
+      "content": {
+        "text": "# Detectable All Features\n\n## 1 All\n\nFIG\n\nFigure 1: Boxed figure\n\nTable 1: Sample table A B 1 2\n\n$$\nE = m c ^ { 2 }\\tag{1}\n$$\n\nSee Figure 1, Table 1, Eq. (1), and Section $1 . { } ^ { 1 }$ As shown in [1].",
+        "normalised_text": "# detectable all features ## 1 all fig figure 1: boxed figure table 1: sample table a b 1 2 $$ e = m c ^ { 2 }\\tag{1} $$ see figure 1, table 1, eq. (1), and section $1 . { } ^ { 1 }$ as shown in [1].",
+        "markdown": "# Detectable All Features\n\n## 1 All\n\nFIG\n\nFigure 1: Boxed figure\n\nTable 1: Sample table A B 1 2\n\n$$\nE = m c ^ { 2 }\\tag{1}\n$$\n\nSee Figure 1, Table 1, Eq. (1), and Section $1 . { } ^ { 1 }$ As shown in [1].",
+        "html": null,
+        "latex": null,
+        "language": null,
+        "raw_markdown": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/raw_pages/page_0000.mineru.md",
+        "raw_content_json": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/raw_pages/page_0000.content.json"
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": null,
+        "child_block_ids": [
+          "mineru_p0000_m0000",
+          "mineru_p0000_m0001",
+          "mineru_p0000_m0002",
+          "mineru_p0000_m0003",
+          "mineru_p0000_m0004",
+          "mineru_p0000_m0005",
+          "mineru_p0000_m0006",
+          "mineru_p0000_m0007",
+          "mineru_p0000_m0008"
+        ]
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [],
+        "span_refs": [],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [],
+      "spans": [],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.8,
+        "structure": 0.75
+      },
+      "comparison": {
+        "compare_as": "generated_page_markdown",
+        "text_hash": "sha256:ea7d20fb0aaf20ff40f60987316c264e6a18fa1bf758501595f783bb00169caf",
+        "geometry_hash": null,
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "normalised_text"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "mineru_p0000_b0000_src0",
+          "backend_id": "mineru",
+          "backend_name": "mineru",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/raw_pages/page_0000.mineru.md",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/raw_pages/page_0000.content.json",
+          "json_pointer": null,
+          "raw_id": "page_0",
+          "native_type": "mineru_page_assembled_markdown",
+          "native_bbox": null,
+          "native_coordinate_space": null,
+          "confidence": null,
+          "sha256": "sha256:aa1003256f6dec995bd17c46ddbf2236cf8eaf063e81ee416c5c25f9a0fa5fa7",
+          "clean_sha256": "sha256:ef43ae55c0640314d767b59eac43534d421d17269bee503af11787bf608f555c"
+        }
+      ],
+      "flags": [
+        {
+          "code": "mineru_page_evidence",
+          "severity": "low",
+          "message": "Page-level text assembled from MinerU structured outputs and/or Markdown."
+        }
+      ]
+    },
+    {
+      "block_id": "mineru_p0000_m0000",
+      "page_id": "mineru_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "mineru",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 1,
+      "type": "title",
+      "subtype": "title",
+      "semantic_role": "title",
+      "docling_label_hint": "title",
+      "docling": {
+        "label_hint": "title",
+        "level_hint": 1,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Block created from MinerU content_list_v2 output."
+        ]
+      },
+      "geometry": {
+        "bbox": [
+          373.0,
+          192.0,
+          652.0,
+          214.0
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "Detectable All Features",
+        "normalised_text": "detectable all features",
+        "markdown": "Detectable All Features",
+        "html": null,
+        "latex": null,
+        "language": null,
+        "text_format": null,
+        "anchor": null,
+        "inline_items": [
+          {
+            "type": "text",
+            "text": "Detectable All Features",
+            "latex": null,
+            "normalised_text": "detectable all features",
+            "source": {
+              "kind": "content_list_v2_inline",
+              "json_pointer_suffix": "/content/title_content/0"
+            }
+          }
+        ]
+      },
+      "structure": {
+        "heading_level": 1,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": "mineru_p0000_b0000",
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [
+          "mineru_p0000_m0000_l0000"
+        ],
+        "span_refs": [
+          "mineru_p0000_m0000_s0000",
+          "mineru_p0000_m0000_l0000_s0000"
+        ],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [
+        {
+          "line_id": "mineru_p0000_m0000_l0000",
+          "block_id": "mineru_p0000_m0000",
+          "order": 0,
+          "text": "Detectable All Features",
+          "normalised_text": "detectable all features",
+          "geometry": {
+            "bbox": [
+              373.109,
+              190.25,
+              653.782,
+              215.22
+            ],
+            "polygon": null,
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": null
+          },
+          "span_ids": [
+            "mineru_p0000_m0000_l0000_s0000"
+          ],
+          "spans": [
+            {
+              "span_id": "mineru_p0000_m0000_l0000_s0000",
+              "line_id": "mineru_p0000_m0000_l0000",
+              "order": 0,
+              "type": "text",
+              "content": "Detectable All Features",
+              "text": "Detectable All Features",
+              "latex": null,
+              "image_path": null,
+              "normalised_text": "detectable all features",
+              "geometry": {
+                "bbox": [
+                  373.109,
+                  190.25,
+                  653.782,
+                  215.22
+                ],
+                "polygon": null,
+                "coordinate_space": "page_normalised_1000",
+                "origin": "top_left",
+                "confidence": null
+              },
+              "confidence": {
+                "overall": 1.0,
+                "text": 1.0
+              },
+              "source": {
+                "kind": "middle_json",
+                "json_pointer": "/pdf_info/0/para_blocks/0/lines/0/spans/0"
+              },
+              "native": {
+                "bbox": [
+                  222,
+                  160,
+                  389,
+                  181
+                ],
+                "type": "text",
+                "content": "Detectable All Features",
+                "score": 1.0
+              }
+            }
+          ],
+          "source": {
+            "kind": "middle_json",
+            "json_pointer": "/pdf_info/0/para_blocks/0/lines/0"
+          },
+          "native": {
+            "bbox": [
+              222,
+              160,
+              389,
+              181
+            ]
+          }
+        }
+      ],
+      "spans": [
+        {
+          "span_id": "mineru_p0000_m0000_l0000_s0000",
+          "line_id": "mineru_p0000_m0000_l0000",
+          "order": 0,
+          "type": "text",
+          "content": "Detectable All Features",
+          "text": "Detectable All Features",
+          "latex": null,
+          "image_path": null,
+          "normalised_text": "detectable all features",
+          "geometry": {
+            "bbox": [
+              373.109,
+              190.25,
+              653.782,
+              215.22
+            ],
+            "polygon": null,
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": null
+          },
+          "confidence": {
+            "overall": 1.0,
+            "text": 1.0
+          },
+          "source": {
+            "kind": "middle_json",
+            "json_pointer": "/pdf_info/0/para_blocks/0/lines/0/spans/0"
+          },
+          "native": {
+            "bbox": [
+              222,
+              160,
+              389,
+              181
+            ],
+            "type": "text",
+            "content": "Detectable All Features",
+            "score": 1.0
+          }
+        },
+        {
+          "span_id": "mineru_p0000_m0000_s0000",
+          "line_id": null,
+          "order": 0,
+          "type": "text",
+          "text": "Detectable All Features",
+          "content": "Detectable All Features",
+          "latex": null,
+          "normalised_text": "detectable all features",
+          "geometry": null,
+          "confidence": {
+            "overall": null,
+            "text": null
+          },
+          "source": {
+            "kind": "content_list_v2_inline",
+            "json_pointer_suffix": "/content/title_content/0"
+          },
+          "native": {
+            "type": "text",
+            "content": "Detectable All Features"
+          }
+        }
+      ],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": 1.0,
+        "layout": null,
+        "text": 1.0,
+        "reading_order": 0.9,
+        "structure": 0.85
+      },
+      "comparison": {
+        "compare_as": "semantic_mineru_block",
+        "text_hash": "sha256:1934888e78e8736f1405edbf669ee76add389325e8b9fbf9d335452b6db45431",
+        "geometry_hash": "sha256:9e5933707317fb3b8a693c448fc31582ec953a8fb9df6eedaaf1709bd6886735",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "normalised_text",
+          "bbox_iou"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "mineru_p0000_m0000_src0",
+          "backend_id": "mineru",
+          "backend_name": "mineru",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_content_list_v2.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/raw_pages/page_0000.content.json",
+          "json_pointer": "/0/0",
+          "raw_id": "page_0_content_list_v2_0",
+          "native_type": "mineru_content_list_v2:title",
+          "native_bbox": [
+            373.0,
+            192.0,
+            652.0,
+            214.0
+          ],
+          "native_coordinate_space": "mineru_native",
+          "confidence": null,
+          "sha256": "sha256:80325e27e196527f82c4aa5a43cd80ce239320ddd22f7bccf490b842a9ef0c69",
+          "clean_sha256": "sha256:ef43ae55c0640314d767b59eac43534d421d17269bee503af11787bf608f555c"
+        },
+        {
+          "source_ref_id": "mineru_p0000_m0000_src_middle0",
+          "backend_id": "mineru",
+          "backend_name": "mineru",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_middle.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/raw_pages/page_0000.content.json",
+          "json_pointer": "/pdf_info/0/para_blocks/0",
+          "raw_id": "0_middle_match",
+          "native_type": "mineru_middle_json:title",
+          "native_bbox": [
+            222,
+            162,
+            388,
+            180
+          ],
+          "native_coordinate_space": "mineru_middle_native",
+          "confidence": 1.0,
+          "sha256": "sha256:df0d33f781ccf3fd9bc2254d9dd20bac9171a3188d383278c021dae3a10253c8",
+          "clean_sha256": "sha256:ef43ae55c0640314d767b59eac43534d421d17269bee503af11787bf608f555c"
+        }
+      ],
+      "flags": [
+        {
+          "code": "middle_json_enriched",
+          "severity": "low",
+          "message": "Block enriched with matched MinerU middle.json evidence.",
+          "json_pointer": "/pdf_info/0/para_blocks/0",
+          "bbox_iou": 0.9693682267023014
+        }
+      ],
+      "native": {
+        "source_kind": "content_list_v2",
+        "type": "title",
+        "sub_type": null,
+        "json_pointer": "/0/0",
+        "item": {
+          "type": "title",
+          "content": {
+            "title_content": [
+              {
+                "type": "text",
+                "content": "Detectable All Features"
+              }
+            ],
+            "level": 1
+          },
+          "bbox": [
+            373,
+            192,
+            652,
+            214
+          ]
+        },
+        "middle_matches": [
+          {
+            "json_pointer": "/pdf_info/0/para_blocks/0",
+            "native_type": "title",
+            "iou": 0.9693682267023014,
+            "coverage_primary": 0.9710750166177915,
+            "coverage_candidate": 0.9981901117107468,
+            "type_compatible": true,
+            "item": {
+              "score": 0.8375,
+              "bbox": [
+                222,
+                162,
+                388,
+                180
+              ],
+              "index": 1,
+              "type": "title",
+              "lines": [
+                {
+                  "bbox": [
+                    222,
+                    160,
+                    389,
+                    181
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        222,
+                        160,
+                        389,
+                        181
+                      ],
+                      "type": "text",
+                      "content": "Detectable All Features",
+                      "score": 1.0
+                    }
+                  ]
+                }
+              ],
+              "level": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "block_id": "mineru_p0000_m0001",
+      "page_id": "mineru_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "mineru",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 2,
+      "type": "section_header",
+      "subtype": "title",
+      "semantic_role": "section_header",
+      "docling_label_hint": "section_header",
+      "docling": {
+        "label_hint": "section_header",
+        "level_hint": 2,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Block created from MinerU content_list_v2 output."
+        ]
+      },
+      "geometry": {
+        "bbox": [
+          369.748,
+          331.748,
+          510.924,
+          354.34
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "1 All",
+        "normalised_text": "1 all",
+        "markdown": "1 All",
+        "html": null,
+        "latex": null,
+        "language": null,
+        "text_format": null,
+        "anchor": null,
+        "inline_items": [
+          {
+            "type": "text",
+            "text": "1 All",
+            "latex": null,
+            "normalised_text": "1 all",
+            "source": {
+              "kind": "content_list_v2_inline",
+              "json_pointer_suffix": "/content/title_content/0"
+            }
+          }
+        ]
+      },
+      "structure": {
+        "heading_level": 2,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": "mineru_p0000_b0000",
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [
+          "mineru_p0000_m0001_l0000"
+        ],
+        "span_refs": [
+          "mineru_p0000_m0001_s0000",
+          "mineru_p0000_m0001_l0000_s0000"
+        ],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [
+        {
+          "line_id": "mineru_p0000_m0001_l0000",
+          "block_id": "mineru_p0000_m0001",
+          "order": 0,
+          "text": "Figure 1: Boxed figure",
+          "normalised_text": "figure 1: boxed figure",
+          "geometry": {
+            "bbox": [
+              426.891,
+              346.017,
+              598.319,
+              363.853
+            ],
+            "polygon": null,
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": null
+          },
+          "span_ids": [
+            "mineru_p0000_m0001_l0000_s0000"
+          ],
+          "spans": [
+            {
+              "span_id": "mineru_p0000_m0001_l0000_s0000",
+              "line_id": "mineru_p0000_m0001_l0000",
+              "order": 0,
+              "type": "text",
+              "content": "Figure 1: Boxed figure",
+              "text": "Figure 1: Boxed figure",
+              "latex": null,
+              "image_path": null,
+              "normalised_text": "figure 1: boxed figure",
+              "geometry": {
+                "bbox": [
+                  426.891,
+                  346.017,
+                  598.319,
+                  363.853
+                ],
+                "polygon": null,
+                "coordinate_space": "page_normalised_1000",
+                "origin": "top_left",
+                "confidence": null
+              },
+              "confidence": {
+                "overall": 1.0,
+                "text": 1.0
+              },
+              "source": {
+                "kind": "middle_json",
+                "json_pointer": "/pdf_info/0/para_blocks/3/lines/0/spans/0"
+              },
+              "native": {
+                "bbox": [
+                  254,
+                  291,
+                  356,
+                  306
+                ],
+                "type": "text",
+                "content": "Figure 1: Boxed figure",
+                "score": 1.0
+              }
+            }
+          ],
+          "source": {
+            "kind": "middle_json",
+            "json_pointer": "/pdf_info/0/para_blocks/3/lines/0"
+          },
+          "native": {
+            "bbox": [
+              254,
+              291,
+              356,
+              306
+            ]
+          }
+        }
+      ],
+      "spans": [
+        {
+          "span_id": "mineru_p0000_m0001_l0000_s0000",
+          "line_id": "mineru_p0000_m0001_l0000",
+          "order": 0,
+          "type": "text",
+          "content": "Figure 1: Boxed figure",
+          "text": "Figure 1: Boxed figure",
+          "latex": null,
+          "image_path": null,
+          "normalised_text": "figure 1: boxed figure",
+          "geometry": {
+            "bbox": [
+              426.891,
+              346.017,
+              598.319,
+              363.853
+            ],
+            "polygon": null,
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": null
+          },
+          "confidence": {
+            "overall": 1.0,
+            "text": 1.0
+          },
+          "source": {
+            "kind": "middle_json",
+            "json_pointer": "/pdf_info/0/para_blocks/3/lines/0/spans/0"
+          },
+          "native": {
+            "bbox": [
+              254,
+              291,
+              356,
+              306
+            ],
+            "type": "text",
+            "content": "Figure 1: Boxed figure",
+            "score": 1.0
+          }
+        },
+        {
+          "span_id": "mineru_p0000_m0001_s0000",
+          "line_id": null,
+          "order": 0,
+          "type": "text",
+          "text": "1 All",
+          "content": "1 All",
+          "latex": null,
+          "normalised_text": "1 all",
+          "geometry": null,
+          "confidence": {
+            "overall": null,
+            "text": null
+          },
+          "source": {
+            "kind": "content_list_v2_inline",
+            "json_pointer_suffix": "/content/title_content/0"
+          },
+          "native": {
+            "type": "text",
+            "content": "1 All"
+          }
+        }
+      ],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": 1.0,
+        "layout": null,
+        "text": 1.0,
+        "reading_order": 0.9,
+        "structure": 0.85
+      },
+      "comparison": {
+        "compare_as": "semantic_mineru_block",
+        "text_hash": "sha256:9a5762faf4374b4b2d7754e5352513e8a11590ee65c6cdcabccae6d247014894",
+        "geometry_hash": "sha256:0d6a1b4d79bca7a49fb5b5c2eab258eb95d629ac1af0302ce9ba82bf43070e66",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "normalised_text",
+          "bbox_iou"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "mineru_p0000_m0001_src0",
+          "backend_id": "mineru",
+          "backend_name": "mineru",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_content_list_v2.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/raw_pages/page_0000.content.json",
+          "json_pointer": "/0/1",
+          "raw_id": "page_0_content_list_v2_1",
+          "native_type": "mineru_content_list_v2:title",
+          "native_bbox": [
+            220.0,
+            279.0,
+            304.0,
+            298.0
+          ],
+          "native_coordinate_space": "mineru_native",
+          "confidence": null,
+          "sha256": "sha256:80325e27e196527f82c4aa5a43cd80ce239320ddd22f7bccf490b842a9ef0c69",
+          "clean_sha256": "sha256:ef43ae55c0640314d767b59eac43534d421d17269bee503af11787bf608f555c"
+        },
+        {
+          "source_ref_id": "mineru_p0000_m0001_src_middle0",
+          "backend_id": "mineru",
+          "backend_name": "mineru",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_middle.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/raw_pages/page_0000.content.json",
+          "json_pointer": "/pdf_info/0/para_blocks/3",
+          "raw_id": "0_middle_match",
+          "native_type": "mineru_middle_json:text",
+          "native_bbox": [
+            254,
+            292,
+            356,
+            306
+          ],
+          "native_coordinate_space": "mineru_middle_native",
+          "confidence": 1.0,
+          "sha256": "sha256:df0d33f781ccf3fd9bc2254d9dd20bac9171a3188d383278c021dae3a10253c8",
+          "clean_sha256": "sha256:ef43ae55c0640314d767b59eac43534d421d17269bee503af11787bf608f555c"
+        }
+      ],
+      "flags": [
+        {
+          "code": "middle_json_enriched",
+          "severity": "low",
+          "message": "Block enriched with matched MinerU middle.json evidence.",
+          "json_pointer": "/pdf_info/0/para_blocks/3",
+          "bbox_iou": 0.11012534933918447
+        }
+      ],
+      "native": {
+        "source_kind": "content_list_v2",
+        "type": "title",
+        "sub_type": null,
+        "json_pointer": "/0/1",
+        "item": {
+          "type": "title",
+          "content": {
+            "title_content": [
+              {
+                "type": "text",
+                "content": "1 All"
+              }
+            ],
+            "level": 2
+          },
+          "bbox": [
+            220,
+            279,
+            304,
+            298
+          ]
+        },
+        "middle_matches": [
+          {
+            "json_pointer": "/pdf_info/0/para_blocks/3",
+            "native_type": "text",
+            "iou": 0.11012534933918447,
+            "coverage_primary": 0.18796085902999884,
+            "coverage_candidate": 0.21007058039385396,
+            "type_compatible": true,
+            "item": {
+              "score": 0.6601,
+              "bbox": [
+                254,
+                292,
+                356,
+                306
+              ],
+              "index": 4,
+              "type": "text",
+              "lines": [
+                {
+                  "bbox": [
+                    254,
+                    291,
+                    356,
+                    306
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        254,
+                        291,
+                        356,
+                        306
+                      ],
+                      "type": "text",
+                      "content": "Figure 1: Boxed figure",
+                      "score": 1.0
+                    }
+                  ]
+                }
+              ],
+              "bbox_fs": [
+                254,
+                291,
+                356,
+                306
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "block_id": "mineru_p0000_m0002",
+      "page_id": "mineru_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "mineru",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 3,
+      "type": "paragraph",
+      "subtype": null,
+      "semantic_role": "body_text",
+      "docling_label_hint": "text",
+      "docling": {
+        "label_hint": "text",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Block created from MinerU content_list_v2 output."
+        ]
+      },
+      "geometry": {
+        "bbox": [
+          823.529,
+          378.121,
+          897.479,
+          400.713
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "FIG",
+        "normalised_text": "fig",
+        "markdown": "FIG",
+        "html": null,
+        "latex": null,
+        "language": null,
+        "text_format": null,
+        "anchor": null,
+        "inline_items": [
+          {
+            "type": "text",
+            "text": "FIG",
+            "latex": null,
+            "normalised_text": "fig",
+            "source": {
+              "kind": "content_list_v2_inline",
+              "json_pointer_suffix": "/content/paragraph_content/0"
+            }
+          }
+        ]
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": "mineru_p0000_b0000",
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [],
+        "span_refs": [
+          "mineru_p0000_m0002_s0000"
+        ],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [],
+      "spans": [
+        {
+          "span_id": "mineru_p0000_m0002_s0000",
+          "line_id": null,
+          "order": 0,
+          "type": "text",
+          "text": "FIG",
+          "content": "FIG",
+          "latex": null,
+          "normalised_text": "fig",
+          "geometry": null,
+          "confidence": {
+            "overall": null,
+            "text": null
+          },
+          "source": {
+            "kind": "content_list_v2_inline",
+            "json_pointer_suffix": "/content/paragraph_content/0"
+          },
+          "native": {
+            "type": "text",
+            "content": "FIG"
+          }
+        }
+      ],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.9,
+        "structure": 0.85
+      },
+      "comparison": {
+        "compare_as": "semantic_mineru_block",
+        "text_hash": "sha256:8c39c63488260c318aea4cb09df75d79e27f13c6997489d4aee818cbb88a7d23",
+        "geometry_hash": "sha256:6121bc7f2b54f4ec79bd009a7d47706511955e6e828cad3d19e835a0075a9d95",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "normalised_text",
+          "bbox_iou"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "mineru_p0000_m0002_src0",
+          "backend_id": "mineru",
+          "backend_name": "mineru",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_content_list_v2.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/raw_pages/page_0000.content.json",
+          "json_pointer": "/0/2",
+          "raw_id": "page_0_content_list_v2_2",
+          "native_type": "mineru_content_list_v2:paragraph",
+          "native_bbox": [
+            490.0,
+            318.0,
+            534.0,
+            337.0
+          ],
+          "native_coordinate_space": "mineru_native",
+          "confidence": null,
+          "sha256": "sha256:80325e27e196527f82c4aa5a43cd80ce239320ddd22f7bccf490b842a9ef0c69",
+          "clean_sha256": "sha256:ef43ae55c0640314d767b59eac43534d421d17269bee503af11787bf608f555c"
+        }
+      ],
+      "flags": [],
+      "native": {
+        "source_kind": "content_list_v2",
+        "type": "paragraph",
+        "sub_type": null,
+        "json_pointer": "/0/2",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": [
+              {
+                "type": "text",
+                "content": "FIG"
+              }
+            ]
+          },
+          "bbox": [
+            490,
+            318,
+            534,
+            337
+          ]
+        }
+      }
+    },
+    {
+      "block_id": "mineru_p0000_m0003",
+      "page_id": "mineru_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "mineru",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 4,
+      "type": "paragraph",
+      "subtype": null,
+      "semantic_role": "body_text",
+      "docling_label_hint": "text",
+      "docling": {
+        "label_hint": "text",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Block created from MinerU content_list_v2 output."
+        ]
+      },
+      "geometry": {
+        "bbox": [
+          715.966,
+          412.604,
+          1000.0,
+          431.629
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "Figure 1: Boxed figure",
+        "normalised_text": "figure 1: boxed figure",
+        "markdown": "Figure 1: Boxed figure",
+        "html": null,
+        "latex": null,
+        "language": null,
+        "text_format": null,
+        "anchor": null,
+        "inline_items": [
+          {
+            "type": "text",
+            "text": "Figure 1: Boxed figure",
+            "latex": null,
+            "normalised_text": "figure 1: boxed figure",
+            "source": {
+              "kind": "content_list_v2_inline",
+              "json_pointer_suffix": "/content/paragraph_content/0"
+            }
+          }
+        ]
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": "mineru_p0000_b0000",
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [],
+        "span_refs": [
+          "mineru_p0000_m0003_s0000"
+        ],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [],
+      "spans": [
+        {
+          "span_id": "mineru_p0000_m0003_s0000",
+          "line_id": null,
+          "order": 0,
+          "type": "text",
+          "text": "Figure 1: Boxed figure",
+          "content": "Figure 1: Boxed figure",
+          "latex": null,
+          "normalised_text": "figure 1: boxed figure",
+          "geometry": null,
+          "confidence": {
+            "overall": null,
+            "text": null
+          },
+          "source": {
+            "kind": "content_list_v2_inline",
+            "json_pointer_suffix": "/content/paragraph_content/0"
+          },
+          "native": {
+            "type": "text",
+            "content": "Figure 1: Boxed figure"
+          }
+        }
+      ],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.9,
+        "structure": 0.85
+      },
+      "comparison": {
+        "compare_as": "semantic_mineru_block",
+        "text_hash": "sha256:409406b8472a2833f0ec9c07ba77f1eeec6322ca8e2ee7156a433e0324f86083",
+        "geometry_hash": "sha256:754c41abb54e44836bf383be851de7c981ec11addfef178421213e962827f260",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "normalised_text",
+          "bbox_iou"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "mineru_p0000_m0003_src0",
+          "backend_id": "mineru",
+          "backend_name": "mineru",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_content_list_v2.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/raw_pages/page_0000.content.json",
+          "json_pointer": "/0/3",
+          "raw_id": "page_0_content_list_v2_3",
+          "native_type": "mineru_content_list_v2:paragraph",
+          "native_bbox": [
+            426.0,
+            347.0,
+            598.0,
+            363.0
+          ],
+          "native_coordinate_space": "mineru_native",
+          "confidence": null,
+          "sha256": "sha256:80325e27e196527f82c4aa5a43cd80ce239320ddd22f7bccf490b842a9ef0c69",
+          "clean_sha256": "sha256:ef43ae55c0640314d767b59eac43534d421d17269bee503af11787bf608f555c"
+        }
+      ],
+      "flags": [],
+      "native": {
+        "source_kind": "content_list_v2",
+        "type": "paragraph",
+        "sub_type": null,
+        "json_pointer": "/0/3",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": [
+              {
+                "type": "text",
+                "content": "Figure 1: Boxed figure"
+              }
+            ]
+          },
+          "bbox": [
+            426,
+            347,
+            598,
+            363
+          ]
+        }
+      }
+    },
+    {
+      "block_id": "mineru_p0000_m0004",
+      "page_id": "mineru_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "mineru",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 5,
+      "type": "paragraph",
+      "subtype": null,
+      "semantic_role": "body_text",
+      "docling_label_hint": "text",
+      "docling": {
+        "label_hint": "text",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Block created from MinerU content_list_v2 output."
+        ]
+      },
+      "geometry": {
+        "bbox": [
+          719.328,
+          473.246,
+          1000.0,
+          524.376
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "Table 1: Sample table A B 1 2",
+        "normalised_text": "table 1: sample table a b 1 2",
+        "markdown": "Table 1: Sample table A B 1 2",
+        "html": null,
+        "latex": null,
+        "language": null,
+        "text_format": null,
+        "anchor": null,
+        "inline_items": [
+          {
+            "type": "text",
+            "text": "Table 1: Sample table A B 1 2",
+            "latex": null,
+            "normalised_text": "table 1: sample table a b 1 2",
+            "source": {
+              "kind": "content_list_v2_inline",
+              "json_pointer_suffix": "/content/paragraph_content/0"
+            }
+          }
+        ]
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": "mineru_p0000_b0000",
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [],
+        "span_refs": [
+          "mineru_p0000_m0004_s0000"
+        ],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [],
+      "spans": [
+        {
+          "span_id": "mineru_p0000_m0004_s0000",
+          "line_id": null,
+          "order": 0,
+          "type": "text",
+          "text": "Table 1: Sample table A B 1 2",
+          "content": "Table 1: Sample table A B 1 2",
+          "latex": null,
+          "normalised_text": "table 1: sample table a b 1 2",
+          "geometry": null,
+          "confidence": {
+            "overall": null,
+            "text": null
+          },
+          "source": {
+            "kind": "content_list_v2_inline",
+            "json_pointer_suffix": "/content/paragraph_content/0"
+          },
+          "native": {
+            "type": "text",
+            "content": "Table 1: Sample table A B 1 2"
+          }
+        }
+      ],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.9,
+        "structure": 0.85
+      },
+      "comparison": {
+        "compare_as": "semantic_mineru_block",
+        "text_hash": "sha256:5ebc6c8c03d0df8ebd175dcfadb00294316d210f7c3d816dd3bb78201a35ae7e",
+        "geometry_hash": "sha256:e845e010a4e9fe364ed9b1f40ae5f2a9096a9814b66c497429f9bed33d34e199",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "normalised_text",
+          "bbox_iou"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "mineru_p0000_m0004_src0",
+          "backend_id": "mineru",
+          "backend_name": "mineru",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_content_list_v2.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/raw_pages/page_0000.content.json",
+          "json_pointer": "/0/4",
+          "raw_id": "page_0_content_list_v2_4",
+          "native_type": "mineru_content_list_v2:paragraph",
+          "native_bbox": [
+            428.0,
+            398.0,
+            598.0,
+            441.0
+          ],
+          "native_coordinate_space": "mineru_native",
+          "confidence": null,
+          "sha256": "sha256:80325e27e196527f82c4aa5a43cd80ce239320ddd22f7bccf490b842a9ef0c69",
+          "clean_sha256": "sha256:ef43ae55c0640314d767b59eac43534d421d17269bee503af11787bf608f555c"
+        }
+      ],
+      "flags": [],
+      "native": {
+        "source_kind": "content_list_v2",
+        "type": "paragraph",
+        "sub_type": null,
+        "json_pointer": "/0/4",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": [
+              {
+                "type": "text",
+                "content": "Table 1: Sample table A B 1 2"
+              }
+            ]
+          },
+          "bbox": [
+            428,
+            398,
+            598,
+            441
+          ]
+        }
+      }
+    },
+    {
+      "block_id": "mineru_p0000_m0005",
+      "page_id": "mineru_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "mineru",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 6,
+      "type": "formula",
+      "subtype": "display",
+      "semantic_role": "formula",
+      "docling_label_hint": "formula",
+      "docling": {
+        "label_hint": "formula",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Block created from MinerU content_list_v2 output."
+        ]
+      },
+      "geometry": {
+        "bbox": [
+          801.681,
+          558.859,
+          919.328,
+          579.073
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "E = m c ^ { 2 }\\tag{1}",
+        "normalised_text": "e = m c ^ { 2 }\\tag{1}",
+        "markdown": "$$\nE = m c ^ { 2 }\\tag{1}\n$$",
+        "html": null,
+        "latex": "E = m c ^ { 2 }\\tag{1}",
+        "language": null,
+        "text_format": null,
+        "anchor": null,
+        "inline_items": [
+          {
+            "type": "formula",
+            "text": "E = m c ^ { 2 }\\tag{1}",
+            "latex": "E = m c ^ { 2 }\\tag{1}",
+            "normalised_text": "e = m c ^ { 2 }\\tag{1}",
+            "source": {
+              "kind": "content_list_v2_inline",
+              "json_pointer_suffix": "/content/math_content"
+            }
+          }
+        ]
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": "mineru_p0000_b0000",
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [],
+        "span_refs": [
+          "mineru_p0000_m0005_s0000"
+        ],
+        "table_ref": null,
+        "formula_ref": "mineru_p0000_m0005_formula",
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [],
+      "spans": [
+        {
+          "span_id": "mineru_p0000_m0005_s0000",
+          "line_id": null,
+          "order": 0,
+          "type": "formula",
+          "text": "E = m c ^ { 2 }\\tag{1}",
+          "content": "E = m c ^ { 2 }\\tag{1}",
+          "latex": "E = m c ^ { 2 }\\tag{1}",
+          "normalised_text": "e = m c ^ { 2 }\\tag{1}",
+          "geometry": null,
+          "confidence": {
+            "overall": null,
+            "text": null
+          },
+          "source": {
+            "kind": "content_list_v2_inline",
+            "json_pointer_suffix": "/content/math_content"
+          },
+          "native": {
+            "math_content": "E = m c ^ { 2 }\\tag{1}",
+            "math_type": "latex",
+            "image_source": {
+              "path": "images/8f17f69121f2d6fe4fd10058f14e31d2e20b45db631a3cd76953a53002df4419.jpg"
+            }
+          }
+        }
+      ],
+      "table": null,
+      "formula": {
+        "formula_id": "mineru_p0000_m0005_formula",
+        "kind": "display",
+        "latex": "E = m c ^ { 2 }\\tag{1}",
+        "text": "E = m c ^ { 2 }\\tag{1}",
+        "mathml": null,
+        "image_ref": {
+          "artifact_id": "mineru_p0000_m0005_formula_image",
+          "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/images/8f17f69121f2d6fe4fd10058f14e31d2e20b45db631a3cd76953a53002df4419.jpg",
+          "mime_type": "image/jpeg",
+          "sha256": "sha256:4a608301877a90cfe2865fa995a0c216e48e879cf8a407f075b036800e5d4e0e",
+          "status": "available"
+        },
+        "confidence": {
+          "overall": null,
+          "recognition": null
+        }
+      },
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.9,
+        "structure": 0.85
+      },
+      "comparison": {
+        "compare_as": "semantic_mineru_block",
+        "text_hash": "sha256:1a51caf689ded091e197caf47296821701598e83cc651d31a1bec9a05b9e16b6",
+        "geometry_hash": "sha256:ba97624923d2a7bd3296f87bb70aa7f4b2b60ce4a902b56c873ebf093914b0f7",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "normalised_text",
+          "bbox_iou"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "mineru_p0000_m0005_src0",
+          "backend_id": "mineru",
+          "backend_name": "mineru",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_content_list_v2.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/raw_pages/page_0000.content.json",
+          "json_pointer": "/0/5",
+          "raw_id": "page_0_content_list_v2_5",
+          "native_type": "mineru_content_list_v2:equation_interline",
+          "native_bbox": [
+            477.0,
+            470.0,
+            547.0,
+            487.0
+          ],
+          "native_coordinate_space": "mineru_native",
+          "confidence": null,
+          "sha256": "sha256:80325e27e196527f82c4aa5a43cd80ce239320ddd22f7bccf490b842a9ef0c69",
+          "clean_sha256": "sha256:ef43ae55c0640314d767b59eac43534d421d17269bee503af11787bf608f555c"
+        }
+      ],
+      "flags": [],
+      "native": {
+        "source_kind": "content_list_v2",
+        "type": "equation_interline",
+        "sub_type": null,
+        "json_pointer": "/0/5",
+        "item": {
+          "type": "equation_interline",
+          "content": {
+            "math_content": "E = m c ^ { 2 }\\tag{1}",
+            "math_type": "latex",
+            "image_source": {
+              "path": "images/8f17f69121f2d6fe4fd10058f14e31d2e20b45db631a3cd76953a53002df4419.jpg"
+            }
+          },
+          "bbox": [
+            477,
+            470,
+            547,
+            487
+          ]
+        }
+      }
+    },
+    {
+      "block_id": "mineru_p0000_m0006",
+      "page_id": "mineru_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "mineru",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 7,
+      "type": "paragraph",
+      "subtype": null,
+      "semantic_role": "body_text",
+      "docling_label_hint": "text",
+      "docling": {
+        "label_hint": "text",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Block created from MinerU content_list_v2 output."
+        ]
+      },
+      "geometry": {
+        "bbox": [
+          220.0,
+          493.0,
+          689.0,
+          511.0
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "See Figure 1, Table 1, Eq. (1), and Section  1 . { } ^ { 1 } As shown in [1].",
+        "normalised_text": "see figure 1, table 1, eq. (1), and section 1 . { } ^ { 1 } as shown in [1].",
+        "markdown": "See Figure 1, Table 1, Eq. (1), and Section  1 . { } ^ { 1 } As shown in [1].",
+        "html": null,
+        "latex": null,
+        "language": null,
+        "text_format": null,
+        "anchor": null,
+        "inline_items": [
+          {
+            "type": "text",
+            "text": "See Figure 1, Table 1, Eq. (1), and Section ",
+            "latex": null,
+            "normalised_text": "see figure 1, table 1, eq. (1), and section",
+            "source": {
+              "kind": "content_list_v2_inline",
+              "json_pointer_suffix": "/content/paragraph_content/0"
+            }
+          },
+          {
+            "type": "formula",
+            "text": "1 . { } ^ { 1 }",
+            "latex": "1 . { } ^ { 1 }",
+            "normalised_text": "1 . { } ^ { 1 }",
+            "source": {
+              "kind": "content_list_v2_inline",
+              "json_pointer_suffix": "/content/paragraph_content/1"
+            }
+          },
+          {
+            "type": "text",
+            "text": "As shown in [1].",
+            "latex": null,
+            "normalised_text": "as shown in [1].",
+            "source": {
+              "kind": "content_list_v2_inline",
+              "json_pointer_suffix": "/content/paragraph_content/2"
+            }
+          }
+        ]
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": "mineru_p0000_b0000",
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [
+          "mineru_p0000_m0006_l0000"
+        ],
+        "span_refs": [
+          "mineru_p0000_m0006_s0000",
+          "mineru_p0000_m0006_s0001",
+          "mineru_p0000_m0006_s0002",
+          "mineru_p0000_m0006_l0000_s0000",
+          "mineru_p0000_m0006_l0000_s0001",
+          "mineru_p0000_m0006_l0000_s0002"
+        ],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [
+        {
+          "line_id": "mineru_p0000_m0006_l0000",
+          "block_id": "mineru_p0000_m0006",
+          "order": 0,
+          "text": "See Figure 1, Table 1, Eq. (1), and Section1 . { } ^ { 1 }As shown in [1].",
+          "normalised_text": "see figure 1, table 1, eq. (1), and section1 . { } ^ { 1 }as shown in [1].",
+          "geometry": {
+            "bbox": [
+              221.849,
+              492.271,
+              690.756,
+              511.296
+            ],
+            "polygon": null,
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": null
+          },
+          "span_ids": [
+            "mineru_p0000_m0006_l0000_s0000",
+            "mineru_p0000_m0006_l0000_s0001",
+            "mineru_p0000_m0006_l0000_s0002"
+          ],
+          "spans": [
+            {
+              "span_id": "mineru_p0000_m0006_l0000_s0000",
+              "line_id": "mineru_p0000_m0006_l0000",
+              "order": 0,
+              "type": "text",
+              "content": "See Figure 1, Table 1, Eq. (1), and Section",
+              "text": "See Figure 1, Table 1, Eq. (1), and Section",
+              "latex": null,
+              "image_path": null,
+              "normalised_text": "see figure 1, table 1, eq. (1), and section",
+              "geometry": {
+                "bbox": [
+                  221.849,
+                  494.649,
+                  539.496,
+                  510.107
+                ],
+                "polygon": null,
+                "coordinate_space": "page_normalised_1000",
+                "origin": "top_left",
+                "confidence": null
+              },
+              "confidence": {
+                "overall": 1.0,
+                "text": 1.0
+              },
+              "source": {
+                "kind": "middle_json",
+                "json_pointer": "/pdf_info/0/para_blocks/6/lines/0/spans/0"
+              },
+              "native": {
+                "bbox": [
+                  132,
+                  416,
+                  321,
+                  429
+                ],
+                "type": "text",
+                "content": "See Figure 1, Table 1, Eq. (1), and Section",
+                "score": 1.0
+              }
+            },
+            {
+              "span_id": "mineru_p0000_m0006_l0000_s0001",
+              "line_id": "mineru_p0000_m0006_l0000",
+              "order": 1,
+              "type": "inline_equation",
+              "content": "1 . { } ^ { 1 }",
+              "text": "1 . { } ^ { 1 }",
+              "latex": null,
+              "image_path": null,
+              "normalised_text": "1 . { } ^ { 1 }",
+              "geometry": {
+                "bbox": [
+                  541.176,
+                  494.649,
+                  564.706,
+                  508.918
+                ],
+                "polygon": null,
+                "coordinate_space": "page_normalised_1000",
+                "origin": "top_left",
+                "confidence": null
+              },
+              "confidence": {
+                "overall": 0.5096,
+                "text": 0.5096
+              },
+              "source": {
+                "kind": "middle_json",
+                "json_pointer": "/pdf_info/0/para_blocks/6/lines/0/spans/1"
+              },
+              "native": {
+                "bbox": [
+                  322,
+                  416,
+                  336,
+                  428
+                ],
+                "type": "inline_equation",
+                "content": "1 . { } ^ { 1 }",
+                "score": 0.5096
+              }
+            },
+            {
+              "span_id": "mineru_p0000_m0006_l0000_s0002",
+              "line_id": "mineru_p0000_m0006_l0000",
+              "order": 2,
+              "type": "text",
+              "content": "As shown in [1].",
+              "text": "As shown in [1].",
+              "latex": null,
+              "image_path": null,
+              "normalised_text": "as shown in [1].",
+              "geometry": {
+                "bbox": [
+                  566.387,
+                  492.271,
+                  690.756,
+                  511.296
+                ],
+                "polygon": null,
+                "coordinate_space": "page_normalised_1000",
+                "origin": "top_left",
+                "confidence": null
+              },
+              "confidence": {
+                "overall": 1.0,
+                "text": 1.0
+              },
+              "source": {
+                "kind": "middle_json",
+                "json_pointer": "/pdf_info/0/para_blocks/6/lines/0/spans/2"
+              },
+              "native": {
+                "bbox": [
+                  337,
+                  414,
+                  411,
+                  430
+                ],
+                "type": "text",
+                "content": "As shown in [1].",
+                "score": 1.0
+              }
+            }
+          ],
+          "source": {
+            "kind": "middle_json",
+            "json_pointer": "/pdf_info/0/para_blocks/6/lines/0"
+          },
+          "native": {
+            "bbox": [
+              132,
+              414,
+              411,
+              430
+            ]
+          }
+        }
+      ],
+      "spans": [
+        {
+          "span_id": "mineru_p0000_m0006_l0000_s0000",
+          "line_id": "mineru_p0000_m0006_l0000",
+          "order": 0,
+          "type": "text",
+          "content": "See Figure 1, Table 1, Eq. (1), and Section",
+          "text": "See Figure 1, Table 1, Eq. (1), and Section",
+          "latex": null,
+          "image_path": null,
+          "normalised_text": "see figure 1, table 1, eq. (1), and section",
+          "geometry": {
+            "bbox": [
+              221.849,
+              494.649,
+              539.496,
+              510.107
+            ],
+            "polygon": null,
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": null
+          },
+          "confidence": {
+            "overall": 1.0,
+            "text": 1.0
+          },
+          "source": {
+            "kind": "middle_json",
+            "json_pointer": "/pdf_info/0/para_blocks/6/lines/0/spans/0"
+          },
+          "native": {
+            "bbox": [
+              132,
+              416,
+              321,
+              429
+            ],
+            "type": "text",
+            "content": "See Figure 1, Table 1, Eq. (1), and Section",
+            "score": 1.0
+          }
+        },
+        {
+          "span_id": "mineru_p0000_m0006_l0000_s0001",
+          "line_id": "mineru_p0000_m0006_l0000",
+          "order": 1,
+          "type": "inline_equation",
+          "content": "1 . { } ^ { 1 }",
+          "text": "1 . { } ^ { 1 }",
+          "latex": null,
+          "image_path": null,
+          "normalised_text": "1 . { } ^ { 1 }",
+          "geometry": {
+            "bbox": [
+              541.176,
+              494.649,
+              564.706,
+              508.918
+            ],
+            "polygon": null,
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": null
+          },
+          "confidence": {
+            "overall": 0.5096,
+            "text": 0.5096
+          },
+          "source": {
+            "kind": "middle_json",
+            "json_pointer": "/pdf_info/0/para_blocks/6/lines/0/spans/1"
+          },
+          "native": {
+            "bbox": [
+              322,
+              416,
+              336,
+              428
+            ],
+            "type": "inline_equation",
+            "content": "1 . { } ^ { 1 }",
+            "score": 0.5096
+          }
+        },
+        {
+          "span_id": "mineru_p0000_m0006_l0000_s0002",
+          "line_id": "mineru_p0000_m0006_l0000",
+          "order": 2,
+          "type": "text",
+          "content": "As shown in [1].",
+          "text": "As shown in [1].",
+          "latex": null,
+          "image_path": null,
+          "normalised_text": "as shown in [1].",
+          "geometry": {
+            "bbox": [
+              566.387,
+              492.271,
+              690.756,
+              511.296
+            ],
+            "polygon": null,
+            "coordinate_space": "page_normalised_1000",
+            "origin": "top_left",
+            "confidence": null
+          },
+          "confidence": {
+            "overall": 1.0,
+            "text": 1.0
+          },
+          "source": {
+            "kind": "middle_json",
+            "json_pointer": "/pdf_info/0/para_blocks/6/lines/0/spans/2"
+          },
+          "native": {
+            "bbox": [
+              337,
+              414,
+              411,
+              430
+            ],
+            "type": "text",
+            "content": "As shown in [1].",
+            "score": 1.0
+          }
+        },
+        {
+          "span_id": "mineru_p0000_m0006_s0000",
+          "line_id": null,
+          "order": 0,
+          "type": "text",
+          "text": "See Figure 1, Table 1, Eq. (1), and Section ",
+          "content": "See Figure 1, Table 1, Eq. (1), and Section ",
+          "latex": null,
+          "normalised_text": "see figure 1, table 1, eq. (1), and section",
+          "geometry": null,
+          "confidence": {
+            "overall": null,
+            "text": null
+          },
+          "source": {
+            "kind": "content_list_v2_inline",
+            "json_pointer_suffix": "/content/paragraph_content/0"
+          },
+          "native": {
+            "type": "text",
+            "content": "See Figure 1, Table 1, Eq. (1), and Section "
+          }
+        },
+        {
+          "span_id": "mineru_p0000_m0006_s0001",
+          "line_id": null,
+          "order": 1,
+          "type": "formula",
+          "text": "1 . { } ^ { 1 }",
+          "content": "1 . { } ^ { 1 }",
+          "latex": "1 . { } ^ { 1 }",
+          "normalised_text": "1 . { } ^ { 1 }",
+          "geometry": null,
+          "confidence": {
+            "overall": null,
+            "text": null
+          },
+          "source": {
+            "kind": "content_list_v2_inline",
+            "json_pointer_suffix": "/content/paragraph_content/1"
+          },
+          "native": {
+            "type": "equation_inline",
+            "content": "1 . { } ^ { 1 }"
+          }
+        },
+        {
+          "span_id": "mineru_p0000_m0006_s0002",
+          "line_id": null,
+          "order": 2,
+          "type": "text",
+          "text": "As shown in [1].",
+          "content": "As shown in [1].",
+          "latex": null,
+          "normalised_text": "as shown in [1].",
+          "geometry": null,
+          "confidence": {
+            "overall": null,
+            "text": null
+          },
+          "source": {
+            "kind": "content_list_v2_inline",
+            "json_pointer_suffix": "/content/paragraph_content/2"
+          },
+          "native": {
+            "type": "text",
+            "content": "As shown in [1]."
+          }
+        }
+      ],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": 0.8365333333333332,
+        "layout": null,
+        "text": 0.8365333333333332,
+        "reading_order": 0.9,
+        "structure": 0.85
+      },
+      "comparison": {
+        "compare_as": "semantic_mineru_block",
+        "text_hash": "sha256:385b79c51881c3dbd4025b69b99f9187f293e8840ba802e4225f9b6f69d69c18",
+        "geometry_hash": "sha256:5c5330a4de55f89a5a37ba77a1a1390d473d94f9d73a8a6a35efaaa9fc32497b",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "normalised_text",
+          "bbox_iou"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "mineru_p0000_m0006_src0",
+          "backend_id": "mineru",
+          "backend_name": "mineru",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_content_list_v2.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/raw_pages/page_0000.content.json",
+          "json_pointer": "/0/6",
+          "raw_id": "page_0_content_list_v2_6",
+          "native_type": "mineru_content_list_v2:paragraph",
+          "native_bbox": [
+            220.0,
+            493.0,
+            689.0,
+            511.0
+          ],
+          "native_coordinate_space": "mineru_native",
+          "confidence": null,
+          "sha256": "sha256:80325e27e196527f82c4aa5a43cd80ce239320ddd22f7bccf490b842a9ef0c69",
+          "clean_sha256": "sha256:ef43ae55c0640314d767b59eac43534d421d17269bee503af11787bf608f555c"
+        },
+        {
+          "source_ref_id": "mineru_p0000_m0006_src_middle0",
+          "backend_id": "mineru",
+          "backend_name": "mineru",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_middle.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/raw_pages/page_0000.content.json",
+          "json_pointer": "/pdf_info/0/para_blocks/6",
+          "raw_id": "0_middle_match",
+          "native_type": "mineru_middle_json:text",
+          "native_bbox": [
+            131,
+            415,
+            410,
+            430
+          ],
+          "native_coordinate_space": "mineru_middle_native",
+          "confidence": 0.8365333333333332,
+          "sha256": "sha256:df0d33f781ccf3fd9bc2254d9dd20bac9171a3188d383278c021dae3a10253c8",
+          "clean_sha256": "sha256:ef43ae55c0640314d767b59eac43534d421d17269bee503af11787bf608f555c"
+        }
+      ],
+      "flags": [
+        {
+          "code": "middle_json_enriched",
+          "severity": "low",
+          "message": "Block enriched with matched MinerU middle.json evidence.",
+          "json_pointer": "/pdf_info/0/para_blocks/6",
+          "bbox_iou": 0.9581902702443966
+        }
+      ],
+      "native": {
+        "source_kind": "content_list_v2",
+        "type": "paragraph",
+        "sub_type": null,
+        "json_pointer": "/0/6",
+        "item": {
+          "type": "paragraph",
+          "content": {
+            "paragraph_content": [
+              {
+                "type": "text",
+                "content": "See Figure 1, Table 1, Eq. (1), and Section "
+              },
+              {
+                "type": "equation_inline",
+                "content": "1 . { } ^ { 1 }"
+              },
+              {
+                "type": "text",
+                "content": "As shown in [1]."
+              }
+            ]
+          },
+          "bbox": [
+            220,
+            493,
+            689,
+            511
+          ]
+        },
+        "middle_matches": [
+          {
+            "json_pointer": "/pdf_info/0/para_blocks/6",
+            "native_type": "text",
+            "iou": 0.9581902702443966,
+            "coverage_primary": 0.9740953897180774,
+            "coverage_candidate": 0.9832449618505736,
+            "type_compatible": true,
+            "item": {
+              "score": 0.9435,
+              "bbox": [
+                131,
+                415,
+                410,
+                430
+              ],
+              "index": 8,
+              "type": "text",
+              "lines": [
+                {
+                  "bbox": [
+                    132,
+                    414,
+                    411,
+                    430
+                  ],
+                  "spans": [
+                    {
+                      "bbox": [
+                        132,
+                        416,
+                        321,
+                        429
+                      ],
+                      "type": "text",
+                      "content": "See Figure 1, Table 1, Eq. (1), and Section",
+                      "score": 1.0
+                    },
+                    {
+                      "bbox": [
+                        322,
+                        416,
+                        336,
+                        428
+                      ],
+                      "type": "inline_equation",
+                      "content": "1 . { } ^ { 1 }",
+                      "score": 0.5096
+                    },
+                    {
+                      "bbox": [
+                        337,
+                        414,
+                        411,
+                        430
+                      ],
+                      "type": "text",
+                      "content": "As shown in [1].",
+                      "score": 1.0
+                    }
+                  ]
+                }
+              ],
+              "bbox_fs": [
+                132,
+                414,
+                411,
+                430
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "block_id": "mineru_p0000_m0007",
+      "page_id": "mineru_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "mineru",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 8,
+      "type": "footnote",
+      "subtype": "page_footnote",
+      "semantic_role": "footnote",
+      "docling_label_hint": "footnote",
+      "docling": {
+        "label_hint": "footnote",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Block created from MinerU content_list_v2 output."
+        ]
+      },
+      "geometry": {
+        "bbox": [
+          400.0,
+          938.169,
+          532.773,
+          953.627
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "1First note.",
+        "normalised_text": "1first note.",
+        "markdown": "1First note.",
+        "html": null,
+        "latex": null,
+        "language": null,
+        "text_format": null,
+        "anchor": null,
+        "inline_items": [
+          {
+            "type": "text",
+            "text": "1First note.",
+            "latex": null,
+            "normalised_text": "1first note.",
+            "source": {
+              "kind": "content_list_v2_inline",
+              "json_pointer_suffix": "/content/page_footnote_content/0"
+            }
+          }
+        ]
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": "mineru_p0000_b0000",
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [],
+        "span_refs": [
+          "mineru_p0000_m0007_s0000"
+        ],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [],
+      "spans": [
+        {
+          "span_id": "mineru_p0000_m0007_s0000",
+          "line_id": null,
+          "order": 0,
+          "type": "text",
+          "text": "1First note.",
+          "content": "1First note.",
+          "latex": null,
+          "normalised_text": "1first note.",
+          "geometry": null,
+          "confidence": {
+            "overall": null,
+            "text": null
+          },
+          "source": {
+            "kind": "content_list_v2_inline",
+            "json_pointer_suffix": "/content/page_footnote_content/0"
+          },
+          "native": {
+            "type": "text",
+            "content": "1First note."
+          }
+        }
+      ],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.9,
+        "structure": 0.85
+      },
+      "comparison": {
+        "compare_as": "semantic_mineru_block",
+        "text_hash": "sha256:3c40986bfec5fa9f68ad526d18fb2b7939b8c02125b07d6dcaa070cc37f93123",
+        "geometry_hash": "sha256:22d6673651c50018a3db15136713005f8cbbcee71ea92d392f31c605141b32fa",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "normalised_text",
+          "bbox_iou"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "mineru_p0000_m0007_src0",
+          "backend_id": "mineru",
+          "backend_name": "mineru",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_content_list_v2.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/raw_pages/page_0000.content.json",
+          "json_pointer": "/0/7",
+          "raw_id": "page_0_content_list_v2_7",
+          "native_type": "mineru_content_list_v2:page_footnote",
+          "native_bbox": [
+            238.0,
+            789.0,
+            317.0,
+            802.0
+          ],
+          "native_coordinate_space": "mineru_native",
+          "confidence": null,
+          "sha256": "sha256:80325e27e196527f82c4aa5a43cd80ce239320ddd22f7bccf490b842a9ef0c69",
+          "clean_sha256": "sha256:ef43ae55c0640314d767b59eac43534d421d17269bee503af11787bf608f555c"
+        }
+      ],
+      "flags": [],
+      "native": {
+        "source_kind": "content_list_v2",
+        "type": "page_footnote",
+        "sub_type": null,
+        "json_pointer": "/0/7",
+        "item": {
+          "type": "page_footnote",
+          "content": {
+            "page_footnote_content": [
+              {
+                "type": "text",
+                "content": "1First note."
+              }
+            ]
+          },
+          "bbox": [
+            238,
+            789,
+            317,
+            802
+          ]
+        }
+      }
+    },
+    {
+      "block_id": "mineru_p0000_m0008",
+      "page_id": "mineru_p0000",
+      "document_id": "det_all_features",
+      "backend_id": "mineru",
+      "page_index": 0,
+      "page_number": 1,
+      "order": 9,
+      "type": "page_number",
+      "subtype": null,
+      "semantic_role": "page_number",
+      "docling_label_hint": "page_number",
+      "docling": {
+        "label_hint": "page_number",
+        "level_hint": null,
+        "provenance_ready": true,
+        "excluded_from_docling": false,
+        "notes": [
+          "Block created from MinerU content_list_v2 output."
+        ]
+      },
+      "geometry": {
+        "bbox": [
+          852.101,
+          980.975,
+          872.269,
+          995.244
+        ],
+        "polygon": null,
+        "coordinate_space": "page_normalised_1000",
+        "origin": "top_left",
+        "confidence": null
+      },
+      "content": {
+        "text": "1",
+        "normalised_text": "1",
+        "markdown": "1",
+        "html": null,
+        "latex": null,
+        "language": null,
+        "text_format": null,
+        "anchor": null,
+        "inline_items": [
+          {
+            "type": "text",
+            "text": "1",
+            "latex": null,
+            "normalised_text": "1",
+            "source": {
+              "kind": "content_list_v2_inline",
+              "json_pointer_suffix": "/content/page_number_content/0"
+            }
+          }
+        ]
+      },
+      "structure": {
+        "heading_level": null,
+        "list": null,
+        "caption_for": null,
+        "footnote_marker": null,
+        "parent_block_id": "mineru_p0000_b0000",
+        "child_block_ids": []
+      },
+      "refs": {
+        "parent_ref": null,
+        "child_refs": [],
+        "line_refs": [],
+        "span_refs": [
+          "mineru_p0000_m0008_s0000"
+        ],
+        "table_ref": null,
+        "formula_ref": null,
+        "media_ref": null,
+        "caption_for_refs": [],
+        "footnote_refs": [],
+        "docling_ref": null
+      },
+      "lines": [],
+      "spans": [
+        {
+          "span_id": "mineru_p0000_m0008_s0000",
+          "line_id": null,
+          "order": 0,
+          "type": "text",
+          "text": "1",
+          "content": "1",
+          "latex": null,
+          "normalised_text": "1",
+          "geometry": null,
+          "confidence": {
+            "overall": null,
+            "text": null
+          },
+          "source": {
+            "kind": "content_list_v2_inline",
+            "json_pointer_suffix": "/content/page_number_content/0"
+          },
+          "native": {
+            "type": "text",
+            "content": "1"
+          }
+        }
+      ],
+      "table": null,
+      "formula": null,
+      "media": null,
+      "confidence": {
+        "overall": null,
+        "layout": null,
+        "text": null,
+        "reading_order": 0.9,
+        "structure": 0.85
+      },
+      "comparison": {
+        "compare_as": "semantic_mineru_block",
+        "text_hash": "sha256:6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+        "geometry_hash": "sha256:bb0ae478b05d380e6a85e113c68ad3dae92821ac6bb082fcf6315283fb02f967",
+        "candidate_group_id": null,
+        "match_keys": [
+          "page_index",
+          "type",
+          "normalised_text",
+          "bbox_iou"
+        ]
+      },
+      "source_refs": [
+        {
+          "source_ref_id": "mineru_p0000_m0008_src0",
+          "backend_id": "mineru",
+          "backend_name": "mineru",
+          "raw_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results/det_all_features/auto/det_all_features_content_list_v2.json",
+          "raw_clean_file": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/raw_pages/page_0000.content.json",
+          "json_pointer": "/0/8",
+          "raw_id": "page_0_content_list_v2_8",
+          "native_type": "mineru_content_list_v2:page_number",
+          "native_bbox": [
+            507.0,
+            825.0,
+            519.0,
+            837.0
+          ],
+          "native_coordinate_space": "mineru_native",
+          "confidence": null,
+          "sha256": "sha256:80325e27e196527f82c4aa5a43cd80ce239320ddd22f7bccf490b842a9ef0c69",
+          "clean_sha256": "sha256:ef43ae55c0640314d767b59eac43534d421d17269bee503af11787bf608f555c"
+        }
+      ],
+      "flags": [],
+      "native": {
+        "source_kind": "content_list_v2",
+        "type": "page_number",
+        "sub_type": null,
+        "json_pointer": "/0/8",
+        "item": {
+          "type": "page_number",
+          "content": {
+            "page_number_content": [
+              {
+                "type": "text",
+                "content": "1"
+              }
+            ]
+          },
+          "bbox": [
+            507,
+            825,
+            519,
+            837
+          ]
+        }
+      }
+    }
+  ],
+  "observed_capabilities": {
+    "ocr_text_found": true,
+    "geometry_found": true,
+    "semantic_block_count": 9,
+    "table_block_count": 0,
+    "formula_block_count": 1,
+    "heading_block_count": 2,
+    "picture_reference_count": 0,
+    "caption_block_count": 0,
+    "footnote_block_count": 1,
+    "list_item_block_count": 0,
+    "paragraph_block_count": 4,
+    "code_block_count": 0,
+    "line_count": 3,
+    "span_count": 16,
+    "middle_line_count": 3,
+    "middle_span_count": 5,
+    "blocks_with_middle_enrichment": 3,
+    "blocks_with_missing_text": 0,
+    "blocks_with_recovered_text": 0,
+    "table_image_ref_count": 0,
+    "formula_image_ref_count": 1,
+    "media_image_ref_count": 0
+  },
+  "source": {
+    "source_path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/input/det_all_features.pdf",
+    "source_sha256": "sha256:e557fce3dfba84e061d697978f40adf939182da80a29928eea1bc94fedf42c30",
+    "mineru_source_kind": "content_list_v2",
+    "official_root": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/mineru/.current/extraction_ir/det_all_features/official_results"
+  },
+  "adapter": {
+    "name": "mineru_adapter",
+    "version": "0.3.0"
+  }
+}

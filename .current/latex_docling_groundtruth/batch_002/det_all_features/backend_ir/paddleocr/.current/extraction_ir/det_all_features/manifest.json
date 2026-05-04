@@ -1,0 +1,204 @@
+{
+  "schema_name": "pdf2md.extraction_ir_manifest",
+  "schema_version": "1.0.0",
+  "ir_stage": "backend_extraction",
+  "run": {
+    "run_id": "run_20260504_101758",
+    "created_at": "2026-05-04T10:18:14.228510Z",
+    "pipeline_version": "0.1.0"
+  },
+  "backend": {
+    "backend_id": "paddleocr_pp_structurev3",
+    "backend_name": "paddleocr_pp_structurev3",
+    "backend_type": "local",
+    "backend_version": null,
+    "adapter_name": "paddleocr_adapter",
+    "adapter_version": "0.3.0",
+    "config_ref": "backends.paddleocr_pp_structurev3",
+    "model_id": "pp_structurev3",
+    "model_path": null,
+    "device": "gpu:0"
+  },
+  "source": {
+    "source_id": "det_all_features",
+    "source_path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/input/det_all_features.pdf",
+    "source_sha256": "sha256:e557fce3dfba84e061d697978f40adf939182da80a29928eea1bc94fedf42c30",
+    "mime_type": "application/pdf",
+    "page_count": 1
+  },
+  "normalisation": {
+    "coordinate_space": "page_normalised_1000",
+    "origin": "top_left",
+    "bbox_format": "x0_y0_x1_y1",
+    "text_normalisation": "unicode_nfkc_whitespace_collapsed_lowercase",
+    "reading_order_base": "page_local_zero_based",
+    "native_paddleocr_coordinate_space": "paddleocr_image_pixels"
+  },
+  "page_refs": [
+    {
+      "page_id": "paddleocr_pp_structurev3_p0000",
+      "page_index": 0,
+      "page_number": 1,
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/pages/page_0000.json",
+      "sha256": "sha256:cffb7e3c241ab6a562d6952871ac9e563581ce634fa782b4ef960e12694c9fde",
+      "status": "ok"
+    }
+  ],
+  "artifacts": {
+    "ir_dir": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features",
+    "pages_dir": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/pages",
+    "page_image_dir": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/page_images",
+    "raw_pages_dir": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages",
+    "official_results_dir": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results",
+    "media_dir": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/media",
+    "native_json_files": [
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_json",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.official.json",
+        "kind": "paddleocr_result_json_attribute",
+        "sha256": "sha256:69e177c83b14b6801a10ffa0a8d1e02adc52427bc99d772f85aaff6791ff44ec"
+      }
+    ],
+    "native_output_files": [
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_markdown_json",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.markdown.json",
+        "kind": "paddleocr_markdown_attribute",
+        "sha256": "sha256:7689415ec028f979398ed978ccc1ba5728e7df36ca94f9a99bc6b50dc9d9b6c2"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_clean_markdown",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.clean.md",
+        "kind": "paddleocr_clean_markdown",
+        "sha256": "sha256:421d5346d08853d3fe07c2584724f990dc74e3f1028a8ed82ccce528d06ceb50"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_capture_metadata",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/raw_pages/page_0000.capture.json",
+        "kind": "paddleocr_capture_metadata",
+        "sha256": "sha256:92d6f3c4ae3c61e8d9d4d7d3bdee798622bc6ecbd66d7af79556ebe7248c26b6"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_saved_0003",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0.md",
+        "kind": "paddleocr_official_saved.md",
+        "sha256": "sha256:421d5346d08853d3fe07c2584724f990dc74e3f1028a8ed82ccce528d06ceb50"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_saved_0004",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0_layout_det_res.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:0eb83fbe563521f050290c53e2d2b1df40b593a8f76a6bec90d6e13aea1b8b60"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_saved_0005",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0_layout_order_res.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:445fc201b0e700395afa16e31386ca5f7f69f017b2acf2a8212350a7eaf2ee73"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_saved_0006",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0_overall_ocr_res.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:3482947da4636f684c561084d1ee1e36bf60bed4c1163e8563fe0d1b722039a3"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_saved_0007",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0_preprocessed_img.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:5ab8f491b42a6c2c1c82ec651b284fd11717bace69fed4e5ceef7064e2e34130"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_saved_0008",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0_region_det_res.png",
+        "kind": "paddleocr_official_saved.png",
+        "sha256": "sha256:6b6cce6fafea3cb7f95da93eba392b510571fe43bf64574d04521f5328739b60"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_saved_0009",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0_res.json",
+        "kind": "paddleocr_official_saved.json",
+        "sha256": "sha256:bd1385597b7b4d365476f7b395d30dff321faa019ccc3c1b69520da4757601eb"
+      },
+      {
+        "artifact_id": "paddleocr_pp_structurev3_p0000_official_saved_0010",
+        "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/imgs/img_in_formula_box_569_795_650_816.jpg",
+        "kind": "paddleocr_official_saved.jpg",
+        "sha256": "sha256:3a498aa9145e4839086c1437f0c89700296cc544c666d8ee36a26bb83a75eb35"
+      }
+    ]
+  },
+  "capabilities": {
+    "layout_blocks": true,
+    "reading_order": true,
+    "ocr_lines": true,
+    "ocr_spans": false,
+    "tables": true,
+    "table_cells": true,
+    "formulas": true,
+    "figures": "partial",
+    "captions": "partial",
+    "headers_footers": "partial",
+    "page_numbers": "partial",
+    "geometry": true,
+    "confidence_scores": "partial",
+    "markdown": true,
+    "semantic_markdown_blocks": true,
+    "html": true,
+    "latex": "partial",
+    "official_json": true
+  },
+  "observed_capabilities": {
+    "page_count": 1,
+    "pages_with_ocr_text": 1,
+    "pages_with_layout": 1,
+    "layout_block_count": 10,
+    "semantic_markdown_block_count": 3,
+    "ocr_line_count": 13,
+    "table_count": 0,
+    "formula_count": 1,
+    "media_count": 0,
+    "pages_with_page_images": 1
+  },
+  "quality": {
+    "pages_total": 1,
+    "pages_ok": 1,
+    "pages_empty": 0,
+    "pages_with_ocr_text": 1,
+    "pages_with_layout": 1,
+    "layout_block_count": 10,
+    "ocr_line_count": 13,
+    "table_count": 0,
+    "formula_count": 1,
+    "media_count": 0,
+    "semantic_markdown_block_count": 3,
+    "pages_with_page_images": 1
+  },
+  "inference": {
+    "pipeline": "pp_structurev3",
+    "device": "gpu:0",
+    "lang": null,
+    "engine": null,
+    "dpi": 300,
+    "scan_profile": "digital_pdf",
+    "predict_from_page_images": false,
+    "page_start": null,
+    "page_end": null,
+    "use_doc_orientation_classify": false,
+    "use_doc_unwarping": false,
+    "use_textline_orientation": false,
+    "use_layout_detection": null,
+    "use_chart_recognition": false,
+    "use_seal_recognition": false,
+    "use_ocr_for_image_block": false,
+    "text_recognition_model_name": null,
+    "save_results": true
+  },
+  "flags": [
+    {
+      "code": "page_images_unavailable",
+      "severity": "medium",
+      "message": "PyMuPDF/Pillow were not available, so page_images were not generated."
+    }
+  ]
+}

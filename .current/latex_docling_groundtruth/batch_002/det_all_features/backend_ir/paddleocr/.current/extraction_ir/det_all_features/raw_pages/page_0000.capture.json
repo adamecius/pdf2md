@@ -1,0 +1,72 @@
+{
+  "pipeline": "pp_structurev3",
+  "result_type": "LayoutParsingResultV2",
+  "official_output_dir": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000",
+  "save_status": {
+    "save_to_json": true,
+    "save_to_markdown": true,
+    "save_to_img": true
+  },
+  "official_saved_files": [
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0.md",
+      "size": 183,
+      "sha256": "sha256:421d5346d08853d3fe07c2584724f990dc74e3f1028a8ed82ccce528d06ceb50",
+      "suffix": ".md"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0_layout_det_res.png",
+      "size": 93419,
+      "sha256": "sha256:0eb83fbe563521f050290c53e2d2b1df40b593a8f76a6bec90d6e13aea1b8b60",
+      "suffix": ".png"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0_layout_order_res.png",
+      "size": 63634,
+      "sha256": "sha256:445fc201b0e700395afa16e31386ca5f7f69f017b2acf2a8212350a7eaf2ee73",
+      "suffix": ".png"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0_overall_ocr_res.png",
+      "size": 104223,
+      "sha256": "sha256:3482947da4636f684c561084d1ee1e36bf60bed4c1163e8563fe0d1b722039a3",
+      "suffix": ".png"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0_preprocessed_img.png",
+      "size": 170610,
+      "sha256": "sha256:5ab8f491b42a6c2c1c82ec651b284fd11717bace69fed4e5ceef7064e2e34130",
+      "suffix": ".png"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0_region_det_res.png",
+      "size": 92687,
+      "sha256": "sha256:6b6cce6fafea3cb7f95da93eba392b510571fe43bf64574d04521f5328739b60",
+      "suffix": ".png"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/det_all_features_0_res.json",
+      "size": 20890,
+      "sha256": "sha256:bd1385597b7b4d365476f7b395d30dff321faa019ccc3c1b69520da4757601eb",
+      "suffix": ".json"
+    },
+    {
+      "path": "/home/jgarcia/pdf2md/pdf2md_old/.current/latex_docling_groundtruth/batch_002/det_all_features/backend_ir/paddleocr/.current/extraction_ir/det_all_features/official_results/page_0000/imgs/img_in_formula_box_569_795_650_816.jpg",
+      "size": 675,
+      "sha256": "sha256:3a498aa9145e4839086c1437f0c89700296cc544c666d8ee36a26bb83a75eb35",
+      "suffix": ".jpg"
+    }
+  ],
+  "markdown_length": 183,
+  "markdown_image_count": 0,
+  "result_json_keys": [
+    "res"
+  ],
+  "markdown_keys": [
+    "input_path",
+    "markdown_images",
+    "markdown_texts",
+    "page_continuation_flags",
+    "page_index"
+  ]
+}
