@@ -1,0 +1,5 @@
+document_id = "linked_sections_figures"
+documentclass = "article"
+expected_features = ["equations", "figures", "tables", "footnotes", "references", "bibliography"]
+expected_counts = { sections = 3, figures = 1, tables = 0, equations = 1, footnotes = 1 }
+notes = "Includes cross references between sections, one figure, and one equation."
