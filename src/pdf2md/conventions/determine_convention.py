@@ -4,6 +4,7 @@ from collections import defaultdict
 from pathlib import Path
 from .latex_groundtruth import extract_groundtruth_objects
 from .reporting import write_report
+from .alignment import align_groundtruth_to_backend
 
 
 def _read_tex(root: Path) -> dict[str, dict]:
@@ -94,13 +95,20 @@ def main():
     for be in backends:
         summary=defaultdict(int); examples=[]; prules={}
         for f in (root/'backend_ir'/be).rglob('*.json'):
-            d=json.loads(f.read_text()); s,ex,pro=_infer(d.get('blocks',[]),be,f.parent.name)
+            d=json.loads(f.read_text()); doc_id=f.parent.name; blocks=d.get('blocks',[])
+            s,ex,pro=_infer(blocks,be,doc_id)
+            als=align_groundtruth_to_backend(_read_tex(root).get(doc_id,{}) , blocks, backend=be, doc_id=doc_id)
+            for al in als:
+                if al['object_type']=='equation' and len(al['matched_blocks'])>1: summary['formula_number_split_block'] += 1
+                if al['object_type']=='table' and any(m['match_reason']=='cell_text_overlap' for m in al['matched_blocks']): summary['table_flattened_paragraph'] += 1
+                if al['object_type']=='footnote' and any('1First' in m['text'] for m in al['matched_blocks']): summary['footnote_no_space_after_marker'] += 1
+            examples.extend([{'doc_id':al['doc_id'],'convention':'alignment','object_type':al['object_type'],'groundtruth_object':al['groundtruth'],'backend_blocks':al['matched_blocks'],'match_reasons':sorted({m['match_reason'] for m in al['matched_blocks']})} for al in als])
             for k,v in s.items(): summary[k]+=v
             examples.extend(ex)
             for rid,pinfo in pro.items():
                 e=prules.setdefault(rid,{'support':0,'doc_ids':set(),'block_ids':set(),'reason':pinfo['reason'],'example_before':pinfo['example_before'],'example_after':pinfo['example_after']})
                 e['support']+=pinfo['support']; e['doc_ids'].update(pinfo['doc_ids']); e['block_ids'].update(pinfo['block_ids'])
-        report['backends'][be]={'summary':dict(summary),'examples':examples[:30],'proposed_rules':[{'rule_id':rid,'support':info['support'],'supporting_doc_ids':sorted(info['doc_ids']),'supporting_backend_block_ids':sorted(info['block_ids']),'groundtruth_source':'latex_fixture+backend_ir','example_before':info['example_before'],'example_after':info['example_after'],'reason':info['reason']} for rid,info in prules.items()]}
+        report['backends'][be]={'summary':dict(summary),'examples':examples[:30],'alignments':[e for e in examples if e.get('convention')=='alignment'][:30],'proposed_rules':[{'rule_id':rid,'support':info['support'],'supporting_doc_ids':sorted(info['doc_ids']),'supporting_backend_block_ids':sorted(info['block_ids']),'groundtruth_source':'latex_fixture+backend_ir','example_before':info['example_before'],'example_after':info['example_after'],'reason':info['reason']} for rid,info in prules.items()]}
         merged.update(prules)
     out=Path(a.output); write_report(out,report,emit_markdown=a.emit_markdown_report)
     if a.write_proposed_config: _write_proposed_toml(out/'ocr_conventions.proposed.toml',{k:v for k,v in merged.items() if v['support']>=a.min_support})

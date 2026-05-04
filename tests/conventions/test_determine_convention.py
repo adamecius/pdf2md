@@ -81,3 +81,15 @@ def test_proposed_rules_include_reason_and_examples(tmp_path, monkeypatch):
     root=_mk_fixture(tmp_path); out=root/'diagnostics'/'conventions'; _run(root,out,monkeypatch)
     pr=json.loads((out/'conventions_report.json').read_text())['backends']['mineru']['proposed_rules']
     assert all(r['reason'] and r['example_before'] is not None and r['example_after'] is not None for r in pr)
+
+def test_determine_convention_report_contains_alignments(tmp_path, monkeypatch):
+    root=_mk_fixture(tmp_path); out=root/'diagnostics'/'conventions'; _run(root,out,monkeypatch)
+    rep=json.loads((out/'conventions_report.json').read_text())
+    assert 'alignments' in rep['backends']['mineru']
+
+
+def test_determine_convention_alignment_examples_include_groundtruth_object(tmp_path, monkeypatch):
+    root=_mk_fixture(tmp_path); out=root/'diagnostics'/'conventions'; _run(root,out,monkeypatch)
+    rep=json.loads((out/'conventions_report.json').read_text())
+    aligns=rep['backends']['paddleocr']['alignments']
+    assert aligns and 'groundtruth_object' in aligns[0]
