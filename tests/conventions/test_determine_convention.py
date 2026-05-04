@@ -119,3 +119,41 @@ def test_strict_mode_exits_zero_on_pass(tmp_path, monkeypatch):
 def test_strict_mode_warn_passes_with_allow_partial(tmp_path, monkeypatch):
     root=_mk(tmp_path); out=root/'diag'
     _run(root,out,monkeypatch,['--strict','--allow-partial'])
+
+def test_missing_backend_ir_is_skipped_not_missed(tmp_path, monkeypatch):
+    root = tmp_path / 'latex_docling_groundtruth' / 'batch_test'
+
+    doc_with_ir = root / 'doc_with_ir'
+    (doc_with_ir / 'input').mkdir(parents=True)
+    (doc_with_ir / 'input' / 'doc_with_ir.tex').write_text(r"\\footnote{Doc with backend IR note.}")
+
+    doc_without_ir = root / 'doc_without_ir'
+    (doc_without_ir / 'input').mkdir(parents=True)
+    (doc_without_ir / 'input' / 'doc_without_ir.tex').write_text(r"\\footnote{Doc without backend IR note.}")
+
+    ir_dir = doc_with_ir / 'backend_ir' / 'paddleocr' / '.current' / 'extraction_ir' / 'doc_with_ir' / 'pages'
+    ir_dir.mkdir(parents=True)
+    (ir_dir / 'page_0000.json').write_text(json.dumps({
+        'blocks': [
+            {'block_id': 'b1', 'type': 'paragraph', 'content': {'text': '1 Doc with backend IR note.'}}
+        ]
+    }))
+
+    out = root / 'diag'
+    argv = [
+        'x', '--root', str(root.parent), '--batch', 'batch_test', '--output', str(out), '--backend', 'paddleocr'
+    ]
+    monkeypatch.setattr(sys, 'argv', argv)
+    determine_main()
+
+    rep = json.loads((out / 'conventions_report.json').read_text())
+    be = rep['backends']['paddleocr']
+
+    assert be['documents']['doc_with_ir']['status'] == 'evaluated'
+    assert be['documents']['doc_without_ir']['status'] == 'skipped_no_backend_ir'
+    assert be['evaluation']['skipped_no_backend_ir'] == 1
+    assert be['evaluation']['total_groundtruth_objects'] == be['documents']['doc_with_ir']['groundtruth_objects']
+    assert be['evaluation']['missed'] == 0
+    assert rep['evaluation']['total_groundtruth_objects'] == be['evaluation']['total_groundtruth_objects']
+    assert rep['evaluation']['skipped_no_backend_ir'] == 1
+    assert set(rep['fixture_provenance']) == {'doc_with_ir', 'doc_without_ir'}
