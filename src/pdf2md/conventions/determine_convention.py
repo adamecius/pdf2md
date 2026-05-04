@@ -33,16 +33,18 @@ def doc_id_from_tex_path(tex: Path, batch_root: Path) -> str:
     return tex.parent.name
 
 
-def load_backend_blocks(batch_root: Path, doc_id: str, backend: str) -> list[dict]:
+def load_backend_blocks(batch_root: Path, doc_id: str, backend: str) -> tuple[list[dict], bool]:
     blocks: list[dict] = []
     roots = [
         batch_root / doc_id / 'backend_ir' / backend / '.current' / 'extraction_ir' / doc_id,
         batch_root / 'backend_ir' / backend / doc_id,
     ]
     seen = set()
+    has_ir = False
     for root in roots:
         if not root.exists():
             continue
+        has_ir = True
         for f in root.rglob('*.json'):
             if f in seen:
                 continue
@@ -51,7 +53,7 @@ def load_backend_blocks(batch_root: Path, doc_id: str, backend: str) -> list[dic
             b = d.get('blocks') if isinstance(d, dict) else None
             if isinstance(b, list):
                 blocks.extend(b)
-    return blocks
+    return blocks, has_ir
 
 
 def _detect_backends(batch_root: Path, doc_ids: list[str]) -> list[str]:
@@ -79,13 +81,17 @@ def main():
     a=p.parse_args(); root=Path(a.root)/a.batch; out=Path(a.output)
     gt_by_doc={doc_id_from_tex_path(tex, root): extract_groundtruth_objects(tex.read_text(), doc_id_from_tex_path(tex, root)) for tex in root.rglob('*.tex')}
     backends=a.backend or _detect_backends(root, sorted(gt_by_doc.keys()))
-    report={'batch':a.batch,'fixture_provenance':sorted(gt_by_doc.keys()),'backends':{},'evaluation':{}}
+    report={'batch':a.batch,'fixture_provenance':sorted(gt_by_doc.keys()),'backends':{},'evaluation':{},'skipped_no_backend_ir':0}
     total=defaultdict(int)
     for be in backends:
-        aligns=[]; proposed={}
+        aligns=[]; proposed={}; documents={}
         for doc_id,gt in gt_by_doc.items():
-            blocks=load_backend_blocks(root, doc_id, be)
+            blocks, has_ir = load_backend_blocks(root, doc_id, be)
+            if not has_ir:
+                documents[doc_id] = {'status':'skipped_no_backend_ir','groundtruth_objects':len(gt),'backend_blocks':0}
+                continue
             recs=align_groundtruth_to_backend(gt,blocks,backend=be,doc_id=doc_id)
+            documents[doc_id] = {'status':'evaluated','groundtruth_objects':len(recs),'backend_blocks':len(blocks)}
             for r in recs:
                 if r['object_type']=='equation' and len(r['matched_blocks'])>1: r['convention']='formula_number_split_block'
                 elif r['object_type']=='table' and (any('cell_text_overlap' in (m.get('match_reason') or '') for m in r['matched_blocks']) or any((m.get('text') or '').lstrip().startswith('Table ') for m in r['matched_blocks'])): r['convention']='table_flattened_paragraph'
@@ -98,11 +104,13 @@ def main():
                     for mb in r['matched_blocks']: pr['supporting_backend_block_ids'].add(mb['block_id'])
                     if r['matched_blocks'] and not pr['example_before']: pr['example_before']=r['matched_blocks'][0]['text']; pr['example_after']=r['matched_blocks'][0]['text']
         counts={k: sum(1 for x in aligns if x['status']==k) for k in ['matched','partial','missed','ambiguous','unsupported']}
+        counts['skipped_no_backend_ir'] = sum(1 for d in documents.values() if d['status']=='skipped_no_backend_ir')
         counts['total_groundtruth_objects']=len(aligns); counts['status']=_status_from_counts(counts)
-        report['backends'][be]={'summary':dict(counts),'examples':[{'gt_id':x['gt_id'],'convention':x.get('convention'),'object_type':x['object_type'],'groundtruth_object':x['groundtruth_object'],'backend_blocks':x['matched_blocks'],'match_reasons':[m.get('match_reason') for m in x['matched_blocks']]} for x in aligns[:30]],'alignments':aligns,'proposed_rules':[{**v,'supporting_gt_ids':sorted(v['supporting_gt_ids']),'supporting_doc_ids':sorted(v['supporting_doc_ids']),'supporting_backend_block_ids':sorted(v['supporting_backend_block_ids']),'alignment_statuses':sorted(v['alignment_statuses'])} for v in proposed.values()], 'evaluation':counts}
+        report['backends'][be]={'summary':dict(counts),'documents':documents,'examples':[{'gt_id':x['gt_id'],'convention':x.get('convention'),'object_type':x['object_type'],'groundtruth_object':x['groundtruth_object'],'backend_blocks':x['matched_blocks'],'match_reasons':[m.get('match_reason') for m in x['matched_blocks']]} for x in aligns[:30]],'alignments':aligns,'proposed_rules':[{**v,'supporting_gt_ids':sorted(v['supporting_gt_ids']),'supporting_doc_ids':sorted(v['supporting_doc_ids']),'supporting_backend_block_ids':sorted(v['supporting_backend_block_ids']),'alignment_statuses':sorted(v['alignment_statuses'])} for v in proposed.values()], 'evaluation':counts}
         for k in ['matched','partial','missed','ambiguous','unsupported']: total[k]+=counts[k]
+        total['skipped_no_backend_ir'] += counts['skipped_no_backend_ir']
     total['total_groundtruth_objects']=sum(v['evaluation']['total_groundtruth_objects'] for v in report['backends'].values())
-    total['total_backend_alignments']=total['total_groundtruth_objects']; total['status']=_status_from_counts(total); report['evaluation']=dict(total)
+    total['total_backend_alignments']=total['total_groundtruth_objects']; total['status']=_status_from_counts(total); report['evaluation']=dict(total); report['skipped_no_backend_ir']=total['skipped_no_backend_ir']
     write_report(out,report,emit_markdown=a.emit_markdown_report)
     if a.write_proposed_config:
         lines=['# evidence-derived backend-scoped rules']
