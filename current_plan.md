@@ -2,47 +2,48 @@
 
 ## Goal
 
-Create `scripts/compile_corpus.py` — an idempotent compiler that turns the canonical corpus from Plan 1 into tagged PDFs using `lualatex` + `biber`.
-
-## Scope and non-goals
-
-In scope: new compilation script with hash gating, build.log, and explicit HUMAN TASK flagging if lualatex/biber are missing.
-
-Out of scope: certification, pipeline updates, README changes.
+Migrate every ad-hoc `.tex` file (from `create_latex_examples.sh` and any other generators) into the new canonical layout `groundtruth/corpus/latex/<doc_id>/`. This becomes the single source of truth for all LaTeX-based ground truth.
 
 ## Whitelist
 
-Create or write:
-- `scripts/compile_corpus.py`                             (new, has CLI)
+Files the agent may create or modify under this plan. Anything else is forbidden.
 
-Modify: none
+- `groundtruth/corpus/latex/**`
+- `create_latex_examples.sh`                              (for deletion after migration)
 
 ## Tasks
 
-### T2 — `scripts/compile_corpus.py`
+### T1 — Migrate corpus to canonical layout
 
-Walk the corpus (`groundtruth/corpus/latex/`), compile each fixture with `lualatex` (run twice + `biber` if `.bib` exists and is referenced).
+Extract every `.tex` currently embedded in `create_latex_examples.sh` (and any other generator scripts) into versioned files under `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex`.
 
-**Critical requirement for missing tools:**
-- At startup, check if `lualatex` and `biber` are available (use `shutil.which`).
-- If either is missing, print the following exact block and exit gracefully (exit code 42):
-HUMAN TASK: lualatex and/or biber not found on this system.
-Please install a full TeX Live distribution that includes LuaLaTeX and biber:
-https://www.tug.org/texlive/
-After installation, verify with:
-which lualatex
-which biber
-Then re-run:
-python scripts/compile_corpus.py --corpus-root groundtruth/corpus/latex
-text- Do NOT attempt to install anything or continue. Just flag and exit.
+For each document:
+- ensure `\DocumentMetadata{testphase=phase-III, pdfstandard=ua-2}` is the first non-comment line,
+- ensure `\usepackage{hyperref}` is present (or implied by the metadata mode),
+- write a `meta.toml` with declared counts derived by inspection of the `.tex`,
+- if a `.bib` or `assets/` folder is referenced, place them in the correct location.
 
-Capture `build.log`.  
-Idempotent via SHA-256 hash of `.tex` + `.bib` + `assets/*` stored in the header of `build.log`.
+After migration, verify the tree structure manually before moving to Plan 2.
 
-CLI:
+Files: `groundtruth/corpus/latex/**`, `create_latex_examples.sh`.
 
-python scripts/compile_corpus.py --corpus-root groundtruth/corpus/latex [--doc <id>] [--force]
+## Tests
 
-Exit 0 on full success. Exit 42 on HUMAN TASK (missing TeX tools). Exit non-zero with per-document summary on any other failure (parsed from `! ` lines, undefined references/citations).
+Tests are automated by default. A test re-tagged `human` in `run_log.md` after a verifiable environmental failure is reported but does not block `ready_for_review`.
 
-Files: `scripts/compile_corpus.py`
+### A1 — Corpus layout verification
+- command: `ls -R groundtruth/corpus/latex/ | head -20`
+- pass: every document has `<doc_id>.tex` + `meta.toml`; no old ad-hoc files remain.
+
+### H1 — Manual tree review (human)
+- tag: human.
+- command: visual inspection of `groundtruth/corpus/latex/`.
+- pass: human confirms layout matches the spec before proceeding to Plan 2.
+
+## PR_reviews
+
+(Empty. Filled by review mode, one section per PR.)
+
+## Feedback
+
+(Empty. Filled by feedback mode in response to PR_reviews and human input.)
