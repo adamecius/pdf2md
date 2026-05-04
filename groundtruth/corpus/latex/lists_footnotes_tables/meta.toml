@@ -1,0 +1,5 @@
+document_id = "lists_footnotes_tables"
+documentclass = "article"
+expected_features = ["equations", "figures", "tables", "footnotes", "references", "bibliography"]
+expected_counts = { sections = 2, figures = 0, tables = 1, equations = 1, footnotes = 4 }
+notes = "Covers nested lists, footnotes, one table, and equation cross-references."
