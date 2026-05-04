@@ -88,3 +88,11 @@ def test_original_block_is_not_overwritten():
 def test_rules_applied_are_recorded():
     out = normalise_blocks([_b("1First note.", "footnote")], "mineru", default_rules())
     assert out[0]["normalisation"]["rules_applied"]
+import tomllib
+from pathlib import Path
+
+def test_scientific_latex_example_config_loads():
+    tomllib.loads(Path('configs/ocr_conventions/scientific_latex.example.toml').read_text())
+
+def test_default_config_loads():
+    tomllib.loads(Path('configs/ocr_conventions/default.toml').read_text())
