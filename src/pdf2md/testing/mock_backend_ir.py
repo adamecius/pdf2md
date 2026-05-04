@@ -32,6 +32,20 @@ def _build_block(doc_id:str,pidx:int,order:int,text:str,bbox:list[float],typ:str
     nt=_norm_text(text)
     return {"block_id":f"groundtruth_{doc_id}_p{pidx:04d}_b{order:04d}","page_index":pidx,"page_number":pidx+1,"order":order,"type":typ,"subtype":None,"semantic_role":typ,"docling_label_hint":typ,"docling":{"label_hint":typ,"excluded_from_docling":False},"geometry":{"bbox":bbox,"coordinate_space":"page_normalised_1000","origin":"top_left"},"content":{"text":text,"normalised_text":nt,"markdown":text},"structure":{"heading_level":hl},"confidence":{"overall":0.99,"layout":0.99,"text":0.99},"comparison":{"compare_as":typ,"text_hash":_sha(nt),"geometry_hash":_sha(','.join(map(str,bbox)))} ,"compile_role":"candidate","source_refs":[],"flags":[]}
 
+
+
+def iter_latex_labels(gt: dict) -> list[str]:
+    labels = gt.get('labels', {})
+    if isinstance(labels, dict):
+        return list(labels.keys())
+    if isinstance(labels, list):
+        out=[]
+        for item in labels:
+            if isinstance(item,str): out.append(item)
+            elif isinstance(item,dict): out.append(item.get('label') or item.get('id') or '')
+        return [x for x in out if x]
+    return []
+
 def build_label_map(fixture_dir: Path) -> dict[str, dict]:
     fixture_dir=Path(fixture_dir)
     gt=json.loads((fixture_dir/'groundtruth'/'source_groundtruth_ir.json').read_text())
@@ -43,8 +57,8 @@ def build_label_map(fixture_dir: Path) -> dict[str, dict]:
     out={}
     kmap={'fig:':'figure','tab:':'table','eq:':'equation','sec:':'section','sub:':'subsection'}
     iidx={k:0 for k in nums}
-    for lbl in gt.get('labels',[]):
-        lid=lbl.get('label','')
+    for lbl in iter_latex_labels(gt):
+        lid=lbl
         kind=next((v for k,v in kmap.items() if lid.startswith(k)), 'section')
         arr=nums.get(kind,[])
         n=arr[iidx[kind]] if iidx[kind] < len(arr) else None
