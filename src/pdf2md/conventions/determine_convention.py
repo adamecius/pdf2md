@@ -7,6 +7,23 @@ from .alignment import align_groundtruth_to_backend
 from .reporting import write_report
 
 
+SAFE_PROPOSED_RULES_BY_CONVENTION = {
+    'formula_number_split_block': {
+        'text_regex': r"^\s*\(?\s*\d+(?:\.\d+)*\s*\)?\s*$",
+        'normalised_type': 'paragraph',
+    },
+    'footnote_no_space_after_marker': {
+        'text_regex': r"^\s*\d+\S.*$",
+        'normalised_type': 'paragraph',
+        'normalised_text_rewrite': r"^(\s*\d+)(\S.*)$ -> \1 \2",
+    },
+    'table_flattened_paragraph': {
+        'text_regex': r"^\s*Table\s+\d+(?:\.\d+)?\s*[:.]?.+",
+        'normalised_type': 'paragraph',
+    },
+}
+
+
 def doc_id_from_tex_path(tex: Path, batch_root: Path) -> str:
     rel = tex.relative_to(batch_root)
     if len(rel.parts) >= 3 and rel.parts[1] == 'input':
@@ -71,7 +88,7 @@ def main():
             recs=align_groundtruth_to_backend(gt,blocks,backend=be,doc_id=doc_id)
             for r in recs:
                 if r['object_type']=='equation' and len(r['matched_blocks'])>1: r['convention']='formula_number_split_block'
-                elif r['object_type']=='table' and any('cell_text_overlap' in (m.get('match_reason') or '') for m in r['matched_blocks']): r['convention']='table_flattened_paragraph'
+                elif r['object_type']=='table' and (any('cell_text_overlap' in (m.get('match_reason') or '') for m in r['matched_blocks']) or any((m.get('text') or '').lstrip().startswith('Table ') for m in r['matched_blocks'])): r['convention']='table_flattened_paragraph'
                 elif r['object_type']=='footnote' and any('1First' in m['text'] for m in r['matched_blocks']): r['convention']='footnote_no_space_after_marker'
                 aligns.append(r)
                 if r['status'] in {'matched','partial'} and r.get('convention'):
@@ -91,7 +108,22 @@ def main():
         lines=['# evidence-derived backend-scoped rules']
         for be,sec in report['backends'].items():
             for r in sec['proposed_rules']:
-                lines += [f"# gt_ids={r['supporting_gt_ids']}", "[[rules]]", f"id = \"{r['rule_id']}\"", f"backend = \"{be}\"", "object_type = \"*\"", "text_regex = \".+\"", "normalised_type = \"paragraph\"", ""]
+                conv = (r.get('rule_id') or '').split('.', 1)[-1]
+                safe = SAFE_PROPOSED_RULES_BY_CONVENTION.get(conv)
+                if not safe:
+                    continue
+                lines += [
+                    f"# gt_ids={r['supporting_gt_ids']}",
+                    "[[rules]]",
+                    f"id = \"{r['rule_id']}\"",
+                    f"backend = \"{be}\"",
+                    "object_type = \"*\"",
+                    f"text_regex = '{safe['text_regex']}'",
+                    f"normalised_type = \"{safe['normalised_type']}\"",
+                ]
+                if safe.get('normalised_text_rewrite'):
+                    lines.append(f"normalised_text_rewrite = '{safe['normalised_text_rewrite']}'")
+                lines.append("")
         (out/'ocr_conventions.proposed.toml').write_text('\n'.join(lines))
     if a.strict:
         st=report['evaluation']['status']
