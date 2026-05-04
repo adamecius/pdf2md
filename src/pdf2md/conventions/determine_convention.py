@@ -7,6 +7,48 @@ from .alignment import align_groundtruth_to_backend
 from .reporting import write_report
 
 
+def doc_id_from_tex_path(tex: Path, batch_root: Path) -> str:
+    rel = tex.relative_to(batch_root)
+    if len(rel.parts) >= 3 and rel.parts[1] == 'input':
+        return rel.parts[0]
+    if len(rel.parts) >= 2:
+        return rel.parts[-2]
+    return tex.parent.name
+
+
+def load_backend_blocks(batch_root: Path, doc_id: str, backend: str) -> list[dict]:
+    blocks: list[dict] = []
+    roots = [
+        batch_root / doc_id / 'backend_ir' / backend / '.current' / 'extraction_ir' / doc_id,
+        batch_root / 'backend_ir' / backend / doc_id,
+    ]
+    seen = set()
+    for root in roots:
+        if not root.exists():
+            continue
+        for f in root.rglob('*.json'):
+            if f in seen:
+                continue
+            seen.add(f)
+            d = json.loads(f.read_text())
+            b = d.get('blocks') if isinstance(d, dict) else None
+            if isinstance(b, list):
+                blocks.extend(b)
+    return blocks
+
+
+def _detect_backends(batch_root: Path, doc_ids: list[str]) -> list[str]:
+    found = set()
+    for doc_id in doc_ids:
+        be_root = batch_root / doc_id / 'backend_ir'
+        if not be_root.exists():
+            continue
+        for p in be_root.iterdir():
+            if p.is_dir():
+                found.add(p.name)
+    return sorted(found)
+
+
 def _status_from_counts(c):
     if c['missed'] > 0 or c['ambiguous'] > 0: return 'fail'
     if c['partial'] > 0: return 'warn'
@@ -18,19 +60,16 @@ def main():
     p.add_argument('--backend',action='append'); p.add_argument('--write-proposed-config',action='store_true'); p.add_argument('--emit-markdown-report',action='store_true')
     p.add_argument('--strict',action='store_true'); p.add_argument('--allow-partial',action='store_true')
     a=p.parse_args(); root=Path(a.root)/a.batch; out=Path(a.output)
-    gt_by_doc={tex.parent.name: extract_groundtruth_objects(tex.read_text(), tex.parent.name) for tex in root.rglob('*.tex')}
-    backends=a.backend or ['mineru','paddleocr','deepseek','pymupdf']
+    gt_by_doc={doc_id_from_tex_path(tex, root): extract_groundtruth_objects(tex.read_text(), doc_id_from_tex_path(tex, root)) for tex in root.rglob('*.tex')}
+    backends=a.backend or _detect_backends(root, sorted(gt_by_doc.keys()))
     report={'batch':a.batch,'fixture_provenance':sorted(gt_by_doc.keys()),'backends':{},'evaluation':{}}
     total=defaultdict(int)
     for be in backends:
         aligns=[]; proposed={}
         for doc_id,gt in gt_by_doc.items():
-            blocks=[]
-            for f in (root/'backend_ir'/be/doc_id).rglob('*.json'):
-                d=json.loads(f.read_text()); blocks.extend(d.get('blocks',[]))
+            blocks=load_backend_blocks(root, doc_id, be)
             recs=align_groundtruth_to_backend(gt,blocks,backend=be,doc_id=doc_id)
             for r in recs:
-                # classify a few conventions
                 if r['object_type']=='equation' and len(r['matched_blocks'])>1: r['convention']='formula_number_split_block'
                 elif r['object_type']=='table' and any('cell_text_overlap' in (m.get('match_reason') or '') for m in r['matched_blocks']): r['convention']='table_flattened_paragraph'
                 elif r['object_type']=='footnote' and any('1First' in m['text'] for m in r['matched_blocks']): r['convention']='footnote_no_space_after_marker'
@@ -52,7 +91,7 @@ def main():
         lines=['# evidence-derived backend-scoped rules']
         for be,sec in report['backends'].items():
             for r in sec['proposed_rules']:
-                lines += [f"# gt_ids={r['supporting_gt_ids']}", '[[rules]]', f"id = \"{r['rule_id']}\"", f"backend = \"{be}\"", "object_type = \"*\"", "text_regex = \".+\"", "normalised_type = \"paragraph\"", ""]
+                lines += [f"# gt_ids={r['supporting_gt_ids']}", "[[rules]]", f"id = \"{r['rule_id']}\"", f"backend = \"{be}\"", "object_type = \"*\"", "text_regex = \".+\"", "normalised_type = \"paragraph\"", ""]
         (out/'ocr_conventions.proposed.toml').write_text('\n'.join(lines))
     if a.strict:
         st=report['evaluation']['status']
