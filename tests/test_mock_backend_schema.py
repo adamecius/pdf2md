@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from pdf2md.testing import generate_mock_backend_ir
+from pdf2md.testing import build_label_map, generate_mock_backend_ir, get_detectable_references
 from pdf2md.utils import consensus_report
 
 FIX_ROOT = Path('.current/latex_docling_groundtruth/batch_001')
@@ -123,3 +123,25 @@ def test_no_latex_artifacts_in_blocks(mock_ir):
         for b in json.loads(pf.read_text())['blocks']:
             t=(b.get('content',{}) or {}).get('text','')
             assert all(x not in t for x in bad)
+
+
+def test_build_label_map_supports_dict_labels():
+    fdir = FIX_ROOT / 'figure_caption_reference'
+    lm = build_label_map(fdir)
+    assert 'fig:box' in lm
+    assert lm['fig:box']['kind'] == 'figure'
+
+def test_get_detectable_references_returns_pipeline_domain_refs():
+    fdir = FIX_ROOT / 'figure_caption_reference'
+    refs = get_detectable_references(fdir)
+    assert any(r['kind'] == 'figure' and r['label'] == '1' for r in refs)
+
+def test_title_block_exists(mock_ir):
+    _, _, pages_dir, _, _ = mock_ir
+    page0 = json.loads((pages_dir / 'page_0000.json').read_text())
+    assert any(b.get('type') == 'title' for b in page0.get('blocks', []))
+
+def test_page_number_detected(mock_ir):
+    _, _, pages_dir, _, _ = mock_ir
+    last_page = json.loads(sorted(pages_dir.glob('page_*.json'))[-1].read_text())
+    assert any(b.get('type') == 'page_number' for b in last_page.get('blocks', []))
