@@ -37,3 +37,10 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
     - T5: files_touched=[tests/test_corpus_tooling.py], tests_pass=[A5], tests_fail_env=[A4], tests_fail_real=[]
 - blockers: []
 - status: ready_for_review
+
+## PR #4 — 2026-05-04T16:50:00Z — mode: agent
+- tasks_completed:
+    - T1: files_touched=[], tests_pass=[], tests_fail_env=[], tests_fail_real=[]
+- blockers:
+    - T1 is not fulfilled yet: canonical corpus currently has 2 fixtures, while existing in-repo fixture set references 21 document ids; per instruction, execution must not proceed to T2 until T1 is complete.
+- status: halted
