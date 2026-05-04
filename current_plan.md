@@ -113,3 +113,19 @@ PR_reviews
 Feedback
 
 (Empty. Filled by feedback mode in response to PR_reviews and human input.)
+
+## PR_review #3
+- verdict: fail
+- whitelist_violations: []
+- test_contract_violations:
+  - A4 failed contract: candidate list was not recorded in `run_log.md` before deletion, so the stated pass condition for A4 was not met.
+- dependency_violations: []
+- tasks_promoted: []
+- notes:
+  - Required check #1 passed: modified paths were within whitelist patterns (legacy `.tex`/`.pdf` deletions plus `run_log.md`).
+  - Required check #2 passed: attempted task T2 has explicit evidence in `run_log.md` PR #3 entry.
+  - Required check #3 failed: not all gating automated tests for T2 passed; A4 is explicitly recorded as a real failure.
+  - Required check #4 passed: no tests were re-tagged as human.
+  - Required check #5 passed: no dependencies added and no external tools used.
+  - Required check #6 passed: no silent retries observed in the PR evidence.
+  - Required check #7 outcome: T2 is not eligible for promotion to `done` because A4 failed and verdict is `fail`.
