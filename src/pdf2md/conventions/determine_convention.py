@@ -5,6 +5,7 @@ from pathlib import Path
 from .latex_groundtruth import extract_groundtruth_objects
 from .alignment import align_groundtruth_to_backend
 from .reporting import write_report
+from .milestones import evaluate_framework_stage
 
 
 def _status_from_counts(c):
@@ -47,16 +48,32 @@ def main():
         for k in ['matched','partial','missed','ambiguous','unsupported']: total[k]+=counts[k]
     total['total_groundtruth_objects']=sum(v['evaluation']['total_groundtruth_objects'] for v in report['backends'].values())
     total['total_backend_alignments']=total['total_groundtruth_objects']; total['status']=_status_from_counts(total); report['evaluation']=dict(total)
+    report['milestone_evaluation']=evaluate_framework_stage(report)
     write_report(out,report,emit_markdown=a.emit_markdown_report)
     if a.write_proposed_config:
         lines=['# evidence-derived backend-scoped rules']
         for be,sec in report['backends'].items():
             for r in sec['proposed_rules']:
-                lines += [f"# gt_ids={r['supporting_gt_ids']}", '[[rules]]', f"id = \"{r['rule_id']}\"", f"backend = \"{be}\"", "object_type = \"*\"", "text_regex = \".+\"", "normalised_type = \"paragraph\"", ""]
+                rid = r["rule_id"]
+                if "formula_number_split_block" in rid:
+                    regex = r"^\(?\d+(?:\.\d+)?\)?$"
+                elif "footnote_no_space_after_marker" in rid:
+                    regex = r"^\d+\S.+$"
+                elif "table_flattened_paragraph" in rid:
+                    regex = r"^Table\s+\d+[:.]"
+                else:
+                    regex = r"^Figure\s+\d+[:.]"
+                lines += [f"# gt_ids={r['supporting_gt_ids']}", '[[rules]]', f"id = \"{rid}\"", f"backend = \"{be}\"", "object_type = \"*\"", f"text_regex = '{regex}'", "normalised_type = \"paragraph\"", ""]
         (out/'ocr_conventions.proposed.toml').write_text('\n'.join(lines))
     if a.strict:
         st=report['evaluation']['status']
-        if st=='fail' or (st=='warn' and not a.allow_partial): raise SystemExit(1)
+        if st=='fail' or (st=='warn' and not a.allow_partial):
+            raise SystemExit(1)
+        milestone_statuses={m['status'] for m in report['milestone_evaluation']['milestones']}
+        if 'fail' in milestone_statuses or 'not_implemented' in milestone_statuses:
+            raise SystemExit(1)
+        if not a.allow_partial and 'partial' in milestone_statuses:
+            raise SystemExit(1)
 
 
 if __name__=='__main__': main()
