@@ -54,7 +54,7 @@ Tests are automated by default. A test re-tagged `human` in `run_log.md` after a
 
 ## Status
 
-- T1: pending
+- T1: done
 
 ## PR_reviews
 
@@ -85,3 +85,16 @@ Tests are automated by default. A test re-tagged `human` in `run_log.md` after a
   - Added explicit automated checks for source enumeration (A1), canonical folder structure (A2), and source-to-copy content equality (A3).
 - rationale:
   - Human feedback requested repository-wide `*.tex` copying and a primary verification workflow based on listing files, confirming agreed folder structure, and confirming copied content equality.
+
+
+## PR_review #2
+
+- verdict: pass
+- whitelist_violations: []
+- test_contract_violations: []
+- dependency_violations: []
+- tasks_promoted: [T1]
+- notes:
+  - "Modified files in PR #2 were restricted to `groundtruth/corpus/latex/**` and `run_log.md`, both allowed by the plan whitelist."
+  - "`run_log.md` includes a single PR #2 entry with task evidence and reported A1/A2/A3 automated test passes for attempted task T1."
+  - "No dependency additions or environment-modifying external tools were reported."
