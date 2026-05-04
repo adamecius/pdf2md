@@ -27,3 +27,11 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
 - external_tools_used: []
 - blockers: []
 - status: ready_for_review
+
+## PR #3 — 2026-05-04T22:45:00Z — mode: agent
+- tasks_attempted:
+    - T2: files_touched=[.current/docling_groundtruth/**/*.tex, .current/docling_groundtruth/**/*.pdf, .current/latex_docling_groundtruth/**/*.tex, .current/latex_docling_groundtruth/**/*.pdf, run_log.md], tests_pass=[A5], tests_fail_env=[], tests_fail_real=[A4]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: ["A4 evidence requirement not satisfied: deletion-candidate list was generated but not recorded in run_log.md before deletion."]
+- status: halted
