@@ -59,3 +59,17 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
 - external_tools_used: []
 - blockers: ["A6 unresolved references remain in 2 backend manifest JSON files under .current/.../backend_ir/mineru/.current/extraction_ir/*/manifest.json. These references did not map to canonical groundtruth/corpus/latex/<doc_id>/<doc_id>.tex targets and require plan-level guidance on whether to preserve backend artifact-local source pointers or map them to canonical corpus paths."]
 - status: halted
+
+## Human change — 2026-05-05T08:01:09Z — mode: human
+- commit: d1d82840ae37e4e1751fea5a8144dd8270302f4e
+- summary: "perform pending file cleaning"
+- files_touched_scope:
+    - deleted repository planning/status files (`.agent/PLANS.md`, `current_status.md`, `next_plan.md`, `description.md`)
+    - deleted local visual test artifacts (`test_visual.md`, `test_visual.pdf`)
+    - deleted large generated trees under `.current/docling_groundtruth/**` and `.current/latex_docling_groundtruth/**`
+- traceability_notes:
+    - author: Jose H Garcia <adamecius@gmail.com>
+    - author_date: 2026-05-05T10:01:09+02:00
+    - rationale inferred from commit message: repository hygiene / pending generated-file cleanup
+- blockers: []
+- status: recorded
