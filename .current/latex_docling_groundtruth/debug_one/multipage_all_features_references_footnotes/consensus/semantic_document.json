@@ -1,7 +1,7 @@
 {
   "schema_name": "pdf2md.semantic_document",
   "schema_version": "0.1.0",
-  "source_pdf": ".current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/input/multipage_all_features_references_footnotes.pdf",
+  "source_pdf": "groundtruth/corpus/latex/src__.current__latex_docling_groundtruth__debug_one__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes/src__.current__latex_docling_groundtruth__debug_one__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.tex",
   "source_consensus_report": ".current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/consensus/consensus_report.json",
   "source_semantic_links": ".current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/consensus/semantic_links.json",
   "source_media_manifest": ".current/latex_docling_groundtruth/debug_one/multipage_all_features_references_footnotes/consensus/media_manifest.json",

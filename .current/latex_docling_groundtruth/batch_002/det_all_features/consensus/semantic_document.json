@@ -1,7 +1,7 @@
 {
   "schema_name": "pdf2md.semantic_document",
   "schema_version": "0.1.0",
-  "source_pdf": ".current/latex_docling_groundtruth/batch_002/det_all_features/input/det_all_features.pdf",
+  "source_pdf": "groundtruth/corpus/latex/src__.current__latex_docling_groundtruth__batch_002__det_all_features__input__det_all_features/src__.current__latex_docling_groundtruth__batch_002__det_all_features__input__det_all_features.tex",
   "source_consensus_report": ".current/latex_docling_groundtruth/batch_002/det_all_features/consensus/consensus_report.json",
   "source_semantic_links": ".current/latex_docling_groundtruth/batch_002/det_all_features/consensus/semantic_links.json",
   "source_media_manifest": ".current/latex_docling_groundtruth/batch_002/det_all_features/consensus/media_manifest.json",

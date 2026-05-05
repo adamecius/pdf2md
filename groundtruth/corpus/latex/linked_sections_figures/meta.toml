@@ -1,3 +1,4 @@
+source_path = "groundtruth/corpus/latex/linked_sections_figures/linked_sections_figures.tex"
 document_id = "linked_sections_figures"
 documentclass = "article"
 expected_features = ["equations", "figures", "tables", "footnotes", "references", "bibliography"]
