@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?latexml searchpaths="/home/jgarcia/pdf2md/pdf2md/groundtruth/corpus/latex/src__.current__latex_docling_groundtruth__batch_002__det_footnote__input__det_footnote"?>
+<?latexml class="article" options="letterpaper"?>
+<?latexml RelaxNGSchema="LaTeXML"?>
+<document xmlns="http://dlmf.nist.gov/LaTeXML" class="ltx_authors_1line" xml:id="src__.current__latex_docling_groundtruth__batch_002__det_footnote__input__det_footnote">
+  <resource src="LaTeXML.css" type="text/css"/>
+  <resource src="ltx-article.css" type="text/css"/>
+  <title>Detectable Footnote</title>
+  <creator role="author">
+    <personname/>
+  </creator>
+  <date role="creation"/>
+  <section inlist="toc" xml:id="src__.current__latex_docling_groundtruth__batch_002__det_footnote__input__det_footnote.S1">
+    <tags>
+      <tag>1</tag>
+      <tag role="refnum">1</tag>
+      <tag role="typerefnum">§1</tag>
+    </tags>
+    <title><tag close=" ">1</tag>Notes</title>
+    <para xml:id="src__.current__latex_docling_groundtruth__batch_002__det_footnote__input__det_footnote.S1.p1">
+      <p>Footnote here<note mark="1" role="footnote" xml:id="footnote1"><tags>
+            <tag>1</tag>
+            <tag role="refnum">1</tag>
+            <tag role="typerefnum">footnote 1</tag>
+          </tags>First note.</note></p>
+    </para>
+  </section>
+</document>

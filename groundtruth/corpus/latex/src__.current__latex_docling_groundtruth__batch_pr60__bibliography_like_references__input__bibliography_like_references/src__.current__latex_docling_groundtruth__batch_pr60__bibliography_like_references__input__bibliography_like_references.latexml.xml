@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?latexml searchpaths="/home/jgarcia/pdf2md/pdf2md/groundtruth/corpus/latex/src__.current__latex_docling_groundtruth__batch_pr60__bibliography_like_references__input__bibliography_like_references"?>
+<?latexml class="article"?>
+<?latexml package="amsmath"?>
+<?latexml RelaxNGSchema="LaTeXML"?>
+<document xmlns="http://dlmf.nist.gov/LaTeXML" class="ltx_authors_1line" xml:id="src__.current__latex_docling_groundtruth__batch_pr60__bibliography_like_references__input__bibliography_like_references">
+  <resource src="LaTeXML.css" type="text/css"/>
+  <resource src="ltx-article.css" type="text/css"/>
+  <title>Bibliography Like References</title>
+  <section inlist="toc" xml:id="src__.current__latex_docling_groundtruth__batch_pr60__bibliography_like_references__input__bibliography_like_references.S1">
+    <tags>
+      <tag>1</tag>
+      <tag role="refnum">1</tag>
+      <tag role="typerefnum">§1</tag>
+    </tags>
+    <title><tag close=" ">1</tag>Body</title>
+    <para xml:id="src__.current__latex_docling_groundtruth__batch_pr60__bibliography_like_references__input__bibliography_like_references.S1.p1">
+      <p>cite [1], [2].</p>
+    </para>
+  </section>
+  <section inlist="toc" labels="LABEL:sec:refs" xml:id="src__.current__latex_docling_groundtruth__batch_pr60__bibliography_like_references__input__bibliography_like_references.S2">
+    <tags>
+      <tag>2</tag>
+      <tag role="refnum">2</tag>
+      <tag role="typerefnum">§2</tag>
+    </tags>
+    <title><tag close=" ">2</tag>References</title>
+    <para xml:id="src__.current__latex_docling_groundtruth__batch_pr60__bibliography_like_references__input__bibliography_like_references.S2.p1">
+      <p>[1] Alpha. [2] Beta.</p>
+    </para>
+  </section>
+</document>

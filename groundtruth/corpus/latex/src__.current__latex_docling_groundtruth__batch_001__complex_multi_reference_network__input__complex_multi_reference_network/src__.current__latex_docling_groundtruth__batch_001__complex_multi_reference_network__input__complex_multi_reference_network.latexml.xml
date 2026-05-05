@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?latexml searchpaths="/home/jgarcia/pdf2md/pdf2md/groundtruth/corpus/latex/src__.current__latex_docling_groundtruth__batch_001__complex_multi_reference_network__input__complex_multi_reference_network"?>
+<?latexml class="article"?>
+<?latexml package="amsmath"?>
+<?latexml RelaxNGSchema="LaTeXML"?>
+<document xmlns="http://dlmf.nist.gov/LaTeXML" class="ltx_authors_1line" xml:id="src__.current__latex_docling_groundtruth__batch_001__complex_multi_reference_network__input__complex_multi_reference_network">
+  <resource src="LaTeXML.css" type="text/css"/>
+  <resource src="ltx-article.css" type="text/css"/>
+  <title>Complex Multi Reference Network</title>
+  <section inlist="toc" labels="LABEL:sec:complex" xml:id="src__.current__latex_docling_groundtruth__batch_001__complex_multi_reference_network__input__complex_multi_reference_network.S1">
+    <tags>
+      <tag>1</tag>
+      <tag role="refnum">1</tag>
+      <tag role="typerefnum">§1</tag>
+    </tags>
+    <title><tag close=" ">1</tag>Complex</title>
+    <subsection inlist="toc" labels="LABEL:sub:mesh" xml:id="src__.current__latex_docling_groundtruth__batch_001__complex_multi_reference_network__input__complex_multi_reference_network.S1.SS1">
+      <tags>
+        <tag>1.1</tag>
+        <tag role="refnum">1.1</tag>
+        <tag role="typerefnum">§1.1</tag>
+      </tags>
+      <title><tag close=" ">1.1</tag>Mesh</title>
+      <figure inlist="lof" labels="LABEL:fig:box" placement="h" xml:id="src__.current__latex_docling_groundtruth__batch_001__complex_multi_reference_network__input__complex_multi_reference_network.S1.F1">
+        <tags>
+          <tag>Figure 1</tag>
+          <tag role="refnum">1</tag>
+          <tag role="typerefnum">Figure 1</tag>
+        </tags>
+        <p align="center"><text framecolor="black" framed="rectangle">A</text></p>
+        <toccaption class="ltx_centering"><tag close=" ">1</tag>Boxed figure</toccaption>
+        <caption class="ltx_centering"><tag close=": ">Figure 1</tag>Boxed figure</caption>
+      </figure>
+      <table inlist="lot" labels="LABEL:tab:s" placement="h" xml:id="src__.current__latex_docling_groundtruth__batch_001__complex_multi_reference_network__input__complex_multi_reference_network.S1.T1">
+        <tags>
+          <tag>Table 1</tag>
+          <tag role="refnum">1</tag>
+          <tag role="typerefnum">Table 1</tag>
+        </tags>
+        <toccaption class="ltx_centering"><tag close=" ">1</tag>Sample table</toccaption>
+        <caption class="ltx_centering"><tag close=": ">Table 1</tag>Sample table</caption>
+        <tabular class="ltx_centering" vattach="middle">
+          <tbody>
+            <tr>
+              <td align="left" border="b l r t">A</td>
+              <td align="left" border="b r t">B</td>
+            </tr>
+          </tbody>
+        </tabular>
+      </table>
+      <para xml:id="src__.current__latex_docling_groundtruth__batch_001__complex_multi_reference_network__input__complex_multi_reference_network.S1.SS1.p1">
+        <equation labels="LABEL:eq:one" xml:id="src__.current__latex_docling_groundtruth__batch_001__complex_multi_reference_network__input__complex_multi_reference_network.S1.E1">
+          <tags>
+            <tag>(1)</tag>
+            <tag role="refnum">1</tag>
+          </tags>
+          <Math mode="display" tex="E=mc^{2}" text="E = m * c ^ 2" xml:id="src__.current__latex_docling_groundtruth__batch_001__complex_multi_reference_network__input__complex_multi_reference_network.S1.E1.m1">
+            <XMath>
+              <XMApp>
+                <XMTok meaning="equals" role="RELOP">=</XMTok>
+                <XMTok font="italic" role="UNKNOWN">E</XMTok>
+                <XMApp>
+                  <XMTok meaning="times" role="MULOP">⁢</XMTok>
+                  <XMTok font="italic" role="UNKNOWN">m</XMTok>
+                  <XMApp>
+                    <XMTok role="SUPERSCRIPTOP" scriptpos="post1"/>
+                    <XMTok font="italic" role="UNKNOWN">c</XMTok>
+                    <XMTok fontsize="70%" meaning="2" role="NUMBER">2</XMTok>
+                  </XMApp>
+                </XMApp>
+              </XMApp>
+            </XMath>
+          </Math>
+        </equation>
+        <p>refs <ref labelref="LABEL:sec:complex"/> <ref labelref="LABEL:sub:mesh"/> <ref labelref="LABEL:fig:box"/> <ref labelref="LABEL:tab:s"/> <ref labelref="LABEL:eq:one"/>.</p>
+      </para>
+    </subsection>
+  </section>
+</document>

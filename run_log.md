@@ -73,3 +73,19 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
     - rationale inferred from commit message: repository hygiene / pending generated-file cleanup
 - blockers: []
 - status: recorded
+
+## PR #7 — 2026-05-05T08:27:57Z — mode: agent
+- tasks_attempted:
+    - T1: files_touched=[run_log.md], tests_pass=[], tests_fail_env=[], tests_fail_real=[]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: ["current_plan.md has no '## Status' section, so the next pending task cannot be determined as required by this prompt."]
+- status: halted
+
+## PR #8 — 2026-05-05T08:34:56Z — mode: agent
+- tasks_attempted:
+    - T1: files_touched=[tools/compile_latex_groundth.py, run_log.md], tests_pass=[A1], tests_fail_env=[], tests_fail_real=[]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: []
+- status: in_progress
