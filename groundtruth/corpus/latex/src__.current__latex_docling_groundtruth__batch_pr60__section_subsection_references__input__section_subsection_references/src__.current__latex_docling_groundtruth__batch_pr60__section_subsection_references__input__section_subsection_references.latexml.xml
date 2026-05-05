@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?latexml searchpaths="/home/jgarcia/pdf2md/pdf2md/groundtruth/corpus/latex/src__.current__latex_docling_groundtruth__batch_pr60__section_subsection_references__input__section_subsection_references"?>
+<?latexml class="article"?>
+<?latexml package="amsmath"?>
+<?latexml RelaxNGSchema="LaTeXML"?>
+<document xmlns="http://dlmf.nist.gov/LaTeXML" class="ltx_authors_1line" xml:id="src__.current__latex_docling_groundtruth__batch_pr60__section_subsection_references__input__section_subsection_references">
+  <resource src="LaTeXML.css" type="text/css"/>
+  <resource src="ltx-article.css" type="text/css"/>
+  <title>Section Subsection References</title>
+  <section inlist="toc" labels="LABEL:sec:alpha" xml:id="src__.current__latex_docling_groundtruth__batch_pr60__section_subsection_references__input__section_subsection_references.S1">
+    <tags>
+      <tag>1</tag>
+      <tag role="refnum">1</tag>
+      <tag role="typerefnum">§1</tag>
+    </tags>
+    <title><tag close=" ">1</tag>Alpha</title>
+    <subsection inlist="toc" labels="LABEL:sub:beta" xml:id="src__.current__latex_docling_groundtruth__batch_pr60__section_subsection_references__input__section_subsection_references.S1.SS1">
+      <tags>
+        <tag>1.1</tag>
+        <tag role="refnum">1.1</tag>
+        <tag role="typerefnum">§1.1</tag>
+      </tags>
+      <title><tag close=" ">1.1</tag>Beta</title>
+      <para xml:id="src__.current__latex_docling_groundtruth__batch_pr60__section_subsection_references__input__section_subsection_references.S1.SS1.p1">
+        <p>See Section <ref labelref="LABEL:sec:alpha"/> and Subsection <ref labelref="LABEL:sub:beta"/>.</p>
+      </para>
+    </subsection>
+  </section>
+</document>
