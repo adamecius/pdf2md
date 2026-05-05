@@ -33,3 +33,12 @@ Append-only log of completed milestones. Edited only by feedback mode under the 
 - archived_plan_summary: backend adapter normalization, kind mapping, bbox/text comparison hashes; consensus-stage candidate grouping operational.
 - key_artifacts: backend extraction IR trees under `backend/<name>/.current/extraction_ir/...`, `consensus_report.py`, `semantic_linker.py`, `media_materializer.py`.
 - notes: block-level matching achieved; semantic-linking parity is M4 work.
+
+## M4 — 2026-05-05 — Human repository hygiene cleanup
+
+- goal: remove transient planning and generated artifacts that should not remain tracked in git.
+- archived_plan_summary: human commit `d1d82840` performed a large-scale cleanup that deleted temporary plan files (`next_plan.md`, `current_status.md`, `description.md`), test artifacts (`test_visual.md`, `test_visual.pdf`), and extensive generated `.current/**` groundtruth/backend output trees to reduce repository noise and improve traceability.
+- tests_passed_automated: []
+- tests_passed_human: []
+- key_artifacts: commit `d1d82840ae37e4e1751fea5a8144dd8270302f4e` (message: "perform pending file cleaning").
+- notes: author/committer recorded as Jose H Garcia on 2026-05-05.
