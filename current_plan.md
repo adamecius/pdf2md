@@ -2,226 +2,282 @@
 
 ## Goal
 
-Remove the legacy LaTeX and PDF fixture files from:
-
-- `.current/docling_groundtruth/**`
-- `.current/latex_docling_groundtruth/**`
-
-Then scan the whole repository for any remaining references to those deleted `.tex` or `.pdf` files. Any reference found must be redirected to the canonical corpus location under:
+Create a repository tool at `tools/compile_latex_groundth.py` that compiles every LaTeX ground-truth fixture under:
 
 - `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex`
 
-The canonical `groundtruth/corpus/latex/**` tree remains the only accepted source of truth for LaTeX ground-truth fixtures.
-Legacy references in `.current/**` JSON artifacts that still point to deleted `.tex`/`.pdf` paths must also be rewritten to canonical `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex` targets.
+For each selected fixture, the tool must produce both:
 
-To keep `run_log.md` compact, large intermediate diagnostic listings must be written to `booking.log` during execution and removed before task completion once verification is complete.
-Any accepted pending blockers should be summarized in `issues.md` as durable follow-up items.
+- `groundtruth/corpus/latex/<doc_id>/<doc_id>.pdf`
+- `groundtruth/corpus/latex/<doc_id>/<doc_id>.latexml.xml`
+
+The PDF must be produced with LuaLaTeX because this is the LaTeX engine selected for the tagged, semantically richer PDF path. The XML sidecar must be produced with LaTeXML because it preserves a source-derived semantic representation that can later be used for validation, inspection, and comparison.
+
+The script must not edit `.tex` sources. It must be deterministic, idempotent, hash-gated, and explicit about missing external tools. If required TeX tooling is unavailable, it must print a clear `HUMAN TASK` block and exit with code `42` rather than installing anything.
+
+This plan intentionally treats the PDF and XML as two separate witnesses:
+
+- the LuaLaTeX PDF is the rendered ground-truth target;
+- the LaTeXML XML is a semantic sidecar;
+- the `.tex` source remains the authoring source of truth.
+
 
 ## Whitelist
 
-Files the agent may create, modify, or delete under this plan. Anything else is forbidden unless first recorded as a matched legacy-reference file in `run_log.md`.
+Files the agent may create, modify, or delete under this plan. Anything else is forbidden.
 
-- `.current/docling_groundtruth/**/*.tex`                  deletion only
-- `.current/docling_groundtruth/**/*.pdf`                  deletion only
-- `.current/latex_docling_groundtruth/**/*.tex`            deletion only
-- `.current/latex_docling_groundtruth/**/*.pdf`            deletion only
-- `.current/**/*.json`                                    reference-redirection only: replace legacy `.current/.../*.tex|.pdf` strings with canonical `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex`
-- `groundtruth/corpus/latex/**`
+- `tools/compile_latex_groundth.py`
+- `tests/test_compile_latex_groundth.py`
+- `groundtruth/corpus/latex/**/*.pdf` generated or updated output only
+- `groundtruth/corpus/latex/**/*.latexml.xml` generated or updated output only
+- `groundtruth/corpus/latex/**/*.latexml.log` generated or updated output only
+- `groundtruth/corpus/latex/**/build.log` generated or updated output only
+- `groundtruth/corpus/latex/**/*.synctex.gz` generated or updated output only
 - `run_log.md`
-- `issues.md`
-- `booking.log`                                           create/update/delete during diagnostic-only evidence capture
-- Files discovered by the reference scan as containing legacy `.current/.../*.tex` or `.current/.../*.pdf` references, only for replacing those references with their canonical `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex` path. Each such file must be listed in `run_log.md` before modification.
+
+Explicitly forbidden under this plan:
+
+- editing any `groundtruth/corpus/latex/**/*.tex` source file;
+- editing any `groundtruth/corpus/latex/**/*.bib` source file;
+- editing `project.md`, `history.md`, `agent.md`, or this plan in agent mode;
+- committing temporary TeX auxiliary files such as `.aux`, `.out`, `.toc`, `.bcf`, `.bbl`, `.blg`, `.fls`, `.fdb_latexmk`, `.run.xml`, or `.log` except for the explicitly whitelisted `build.log` and `.latexml.log`.
+
+
+## Dependencies
+
+Python packages:
+
+- none.
+
+External system tools allowed:
+
+- `lualatex`
+- `latexml`
+- `biber`, only when a bibliography run is required
+
+The agent must not install TeX Live, MacTeX, LaTeXML, Perl packages, operating-system packages, or any other external dependency. Missing required tools must be handled by the script as a user-facing environment problem with exit code `42`.
+
+Read-only validation tools such as `python`, `pytest`, `compileall`, and `git status` are allowed as normal repository validation commands.
+
 
 ## Tasks
 
-### T2 — Delete legacy `.tex` and `.pdf` files from `.current`
+### T1 — Implement the dual LuaLaTeX and LaTeXML compiler tool
 
-Find and delete every `.tex` and `.pdf` file under:
+Create `tools/compile_latex_groundth.py`.
 
-- `.current/docling_groundtruth/**`
-- `.current/latex_docling_groundtruth/**`
+The script must provide this CLI:
 
-Only files matching these patterns may be deleted:
+    python tools/compile_latex_groundth.py \
+      --corpus-root groundtruth/corpus/latex \
+      [--doc <doc_id>] \
+      [--force]
 
-- `.current/docling_groundtruth/**/*.tex`
-- `.current/docling_groundtruth/**/*.pdf`
-- `.current/latex_docling_groundtruth/**/*.tex`
-- `.current/latex_docling_groundtruth/**/*.pdf`
+Behaviour:
 
-Directories may be left in place unless they become clearly obsolete and are explicitly allowed by a later plan.
+- Default `--corpus-root` to `groundtruth/corpus/latex`.
+- Discover fixture directories matching `groundtruth/corpus/latex/<doc_id>/`.
+- For each selected fixture, require `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex`.
+- If `--doc <doc_id>` is provided, process only that document and fail clearly if it does not exist.
+- Process documents in sorted order for deterministic output.
+- Never modify `.tex` or `.bib` inputs.
+- Use a temporary output directory outside the committed corpus tree for TeX auxiliary files, then copy only whitelisted final artefacts back into the document directory.
+- Write one `build.log` per document in the document directory.
+- Print a concise per-document summary to stdout.
 
-Files: `.current/docling_groundtruth/**/*.tex`, `.current/docling_groundtruth/**/*.pdf`, `.current/latex_docling_groundtruth/**/*.tex`, `.current/latex_docling_groundtruth/**/*.pdf`, `run_log.md`, `booking.log` (temporary evidence file, must be deleted before task end).
+Tool detection:
 
-### T3 — Repository-wide legacy reference scan and redirection
+- Require `lualatex` before any PDF compilation.
+- Require `latexml` before any XML conversion.
+- Require `biber` only when bibliography processing is actually needed.
+- If any required tool is missing, print a `HUMAN TASK` block that names the missing executable, explains that the script does not install dependencies, and exits `42`.
 
-Build the full list of deleted legacy `.tex` and `.pdf` source paths from within:
+PDF stage:
 
-- `.current/docling_groundtruth/**`
-- `.current/latex_docling_groundtruth/**`
+- Run LuaLaTeX from the document directory so relative asset paths continue to resolve.
+- Use a temporary output directory for auxiliary files.
+- Invoke LuaLaTeX with:
 
-For each deleted file, search every repository file for references to:
+    lualatex -interaction=nonstopmode -halt-on-error -file-line-error -recorder -synctex=1 -output-directory <tmpdir> <doc_id>.tex
 
-- the full legacy path,
-- the relative legacy path without leading `./`,
-- the filename,
-- any obvious path fragments rooted at `.current/`.
+- Run LuaLaTeX at least twice.
+- After the first LuaLaTeX pass, if a `.bcf` file exists in the temporary output directory, run:
 
-If any reference is found, update the referencing file so that it points to the corresponding canonical LaTeX document under:
+    biber --input-directory <tmpdir> --output-directory <tmpdir> <doc_id>
 
-- `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex`
+  Then run LuaLaTeX two more times.
+- Copy the final `<doc_id>.pdf` back to the document directory.
+- Copy `<doc_id>.synctex.gz` back if LuaLaTeX produced it.
+- Fail the document if the final PDF is missing.
+- Treat these as blocking PDF-stage failures:
+  - process return code is non-zero;
+  - log lines beginning with `! `;
+  - missing input files;
+  - undefined control sequences;
+  - unresolved citations after the final pass;
+  - unresolved references after the final pass.
 
-Where `<doc_id>` must match the canonical document directory already created during T1.
+XML stage:
 
-For deleted `.pdf` references, redirect to the corresponding canonical `.tex` file when the reference is part of the ground-truth fixture workflow. If a `.pdf` reference semantically requires an actual PDF file and cannot be safely redirected to LaTeX, record it as a blocker in `run_log.md`, add/append an issue entry in `issues.md`, and do not mark T3 done.
+- Run LaTeXML from the document directory.
+- Invoke:
 
-For any matched `.current/**` JSON artifact references, update only the string values that point to deleted `.current/.../*.tex` or `.current/.../*.pdf` paths; do not alter unrelated JSON fields.
+    latexml --destination=<doc_id>.latexml.xml --log=<doc_id>.latexml.log --documentid=<doc_id> <doc_id>.tex
 
-Files: reference-bearing files discovered by the scan, `groundtruth/corpus/latex/**`, `.current/**/*.json` (reference-redirection only), `run_log.md`, `issues.md`, `booking.log` (temporary evidence file, must be deleted before task end).
+- If an `assets/` directory exists beside the source `.tex`, include:
+
+    --path=assets
+
+- Fail the document if `<doc_id>.latexml.xml` is missing or empty.
+- Treat LaTeXML fatal errors and non-zero exit codes as blocking failures.
+- Treat LaTeXML warnings as non-blocking, but record them in `build.log`.
+
+Hash gating:
+
+- Compute one SHA-256 build hash per document.
+- The hash must include:
+  - `<doc_id>.tex`;
+  - every `.bib` file in the document directory, sorted by relative path;
+  - every file under `assets/`, sorted by relative path;
+  - `lualatex --version` output;
+  - `latexml --VERSION` output, falling back to `latexml --version` if needed;
+  - `biber --version` output when biber is required;
+  - a script schema string such as `compile_latex_groundth_v1_lualatex_latexml`.
+- Store the hash near the top of `build.log`.
+- Skip a document only when all of the following are true:
+  - `--force` was not passed;
+  - `build.log` contains the same build hash;
+  - `<doc_id>.pdf` exists;
+  - `<doc_id>.latexml.xml` exists and is non-empty.
+- A skipped document must still be reported in stdout.
+
+Source metadata check:
+
+- If the source does not appear to contain `\DocumentMetadata` before `\documentclass`, record a warning in `build.log`.
+- Do not edit the source to add metadata.
+- This warning is not a blocking failure because the script is a compiler, not a source normaliser.
+
+Exit behaviour:
+
+- Exit `0` only when all selected documents were either successfully built or correctly skipped by hash gating.
+- Exit `42` only for missing required external tools.
+- Exit non-zero for compilation, conversion, validation, or argument errors.
+- If more than one document is selected, continue processing remaining documents after a per-document compile failure, then exit non-zero at the end with a summary of failed documents.
+
+Files: `tools/compile_latex_groundth.py`, `run_log.md`, and generated whitelisted artefacts under `groundtruth/corpus/latex/**`.
+
+
+### T2 — Add automated tests for the compiler tool contract
+
+Create `tests/test_compile_latex_groundth.py`.
+
+The tests must avoid requiring a real TeX installation by using temporary directories and mocking subprocess execution where needed.
+
+Required coverage:
+
+- CLI help exits successfully without checking for TeX tools.
+- Document discovery finds `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex` and ignores unrelated directories.
+- `--doc <doc_id>` restricts execution to one fixture.
+- Missing `lualatex` or `latexml` produces exit code `42` and a `HUMAN TASK` message.
+- The LuaLaTeX command includes `-interaction=nonstopmode`, `-halt-on-error`, `-file-line-error`, `-recorder`, `-synctex=1`, and `-output-directory`.
+- The XML command invokes `latexml` with `--destination`, `--log`, and `--documentid`.
+- `--path=assets` is passed when an `assets/` directory exists.
+- A `.bcf` file after the first LuaLaTeX pass triggers `biber`.
+- Matching build hash plus existing PDF and XML causes the document to be skipped unless `--force` is passed.
+- Blocking LaTeX errors, unresolved citations, unresolved references, and LaTeXML fatal errors cause non-zero failure.
+- The script never writes to or rewrites the `.tex` source in the test fixture.
+
+Files: `tools/compile_latex_groundth.py`, `tests/test_compile_latex_groundth.py`, `run_log.md`.
+
+
+### T3 — Validate the tool against repository fixtures where tooling is available
+
+Run the tool against the repository corpus only if the required external tools are present in the execution environment.
+
+If the tools are present, run:
+
+    python tools/compile_latex_groundth.py --corpus-root groundtruth/corpus/latex
+
+Then verify that each selected fixture has:
+
+- `<doc_id>.pdf`
+- `<doc_id>.latexml.xml`
+- `build.log`
+
+If the tools are missing, do not install them. Record the missing-tool result in `run_log.md` as an environmental blocker or human-required validation, with the script's `HUMAN TASK` output and exit code `42`.
+
+Files: `run_log.md` and generated whitelisted artefacts under `groundtruth/corpus/latex/**`.
+
 
 ## Tests
 
-Tests are automated by default. A test re-tagged `human` in `run_log.md` after a verifiable environmental failure is reported but does not block `ready_for_review`.
+Tests are automated by default unless explicitly tagged `human`.
 
-### A4 — Enumerate legacy `.tex` and `.pdf` deletion candidates
-
-- command:
-  ```sh
-  find .current/docling_groundtruth .current/latex_docling_groundtruth \
-    -type f \( -name '*.tex' -o -name '*.pdf' \) | sort
-pass: command lists every legacy .tex and .pdf file targeted for deletion; the full list is recorded in `booking.log` before deletion; `run_log.md` includes a concise pointer and summary count only.
-A5 — Confirm legacy .tex and .pdf files were deleted
+### A1 — CLI help smoke test
 
 command:
 
-find .current/docling_groundtruth .current/latex_docling_groundtruth \
-  -type f \( -name '*.tex' -o -name '*.pdf' \) | sort
-pass: command returns no files.
-A6 — Repository-wide reference scan for deleted legacy paths and names
-command: implementation-defined automated check that searches every repository file for every deleted .tex and .pdf legacy reference pattern.
-required search scope: whole repository.
-required target patterns: all deleted .tex and .pdf files formerly located under .current/docling_groundtruth/** and .current/latex_docling_groundtruth/**.
-pass: no repository file contains unresolved references to deleted .current/.../*.tex or .current/.../*.pdf files.
-A7 — Canonical redirection verification
-command: implementation-defined automated check.
-pass:
-every updated reference points to an existing canonical file under groundtruth/corpus/latex/<doc_id>/<doc_id>.tex;
-every referenced canonical .tex file exists;
-no updated reference points back into .current/docling_groundtruth/** or .current/latex_docling_groundtruth/**.
-H2 — Manual reference review (human)
-tag: human.
-command: visual inspection of the `run_log.md` summary plus `booking.log` evidence (if present during run) for deleted files, matched references, replacements, and any blockers.
-pass: human confirms that all legacy .tex and .pdf references were either correctly redirected or explicitly blocked, and that `booking.log` was deleted after verification.
-Status
-T1: done
-T2: done
+    python tools/compile_latex_groundth.py --help
+
+pass: command exits `0`, prints CLI usage, and does not require `lualatex`, `latexml`, or `biber` to be installed.
+
+
+### A2 — Unit test suite for compiler contract
+
+command:
+
+    PYTHONPATH=src python -m pytest tests/test_compile_latex_groundth.py
+
+pass: all tests pass without requiring a real TeX installation.
+
+
+### A3 — Python syntax compilation
+
+command:
+
+    python -m compileall tools/compile_latex_groundth.py tests/test_compile_latex_groundth.py
+
+pass: both Python files compile without syntax errors.
+
+
+### A4 — Actual corpus compile in TeX-capable environment
+
+tag: human
+
+command:
+
+    python tools/compile_latex_groundth.py --corpus-root groundtruth/corpus/latex --force
+
+pass: every selected corpus fixture either produces both PDF and XML successfully, or any failure is a real source/tooling issue recorded with the failing document ID and log path. Missing TeX or LaTeXML tools are acceptable only as a human-environment blocker with exit code `42`.
+
+
+### A5 — Generated artefact inspection
+
+tag: human
+
+command:
+
+    find groundtruth/corpus/latex -maxdepth 2 -type f \( \
+      -name '*.pdf' -o \
+      -name '*.latexml.xml' -o \
+      -name 'build.log' \
+    \) | sort
+
+pass: for each compiled `<doc_id>`, the expected PDF, XML sidecar, and build log are present; no unexpected TeX auxiliary files are left in the corpus tree.
+
+
+## Status
+
+T1: pending
+T2: pending
 T3: pending
-PR_reviews
+
+
+## PR_reviews
 
 (Empty. Filled by review mode, one section per PR.)
 
-Feedback
+
+## Feedback
 
 (Empty. Filled by feedback mode in response to PR_reviews and human input.)
-
-## PR_review #3
-- verdict: fail
-- whitelist_violations: []
-- test_contract_violations:
-  - A4 failed contract: candidate list was not recorded in `run_log.md` before deletion, so the stated pass condition for A4 was not met.
-- dependency_violations: []
-- tasks_promoted: []
-- notes:
-  - Required check #1 passed: modified paths were within whitelist patterns (legacy `.tex`/`.pdf` deletions plus `run_log.md`).
-  - Required check #2 passed: attempted task T2 has explicit evidence in `run_log.md` PR #3 entry.
-  - Required check #3 failed: not all gating automated tests for T2 passed; A4 is explicitly recorded as a real failure.
-  - Required check #4 passed: no tests were re-tagged as human.
-  - Required check #5 passed: no dependencies added and no external tools used.
-  - Required check #6 passed: no silent retries observed in the PR evidence.
-  - Required check #7 outcome: T2 is not eligible for promotion to `done` because A4 failed and verdict is `fail`.
-
-
-## Feedback #3
-- Responding to `PR_review #3`.
-- Accepted change: diagnostic outputs that may be very large should be written to `booking.log` first, not expanded into `run_log.md`.
-- Process update: agent should run diagnostics, keep full path lists in `booking.log`, write only compact counts/pointers in `run_log.md`, and remove `booking.log` at the end after dangling-reference verification.
-- Status impact: no task demotion applied; `T2` and `T3` remain pending until re-attempt under updated evidence flow.
-
-
-## PR_review #4
-- verdict: pass
-- whitelist_violations: []
-- test_contract_violations: []
-- dependency_violations: []
-- tasks_promoted: [T2]
-- notes:
-  - Required check #1 passed: PR #4 modified only `run_log.md`; temporary `booking.log` usage is explicitly allowed by whitelist and was removed.
-  - Required check #2 passed: attempted task T2 has explicit evidence in `run_log.md` PR #4 entry.
-  - Required check #3 passed: gating automated tests for T2 (A4, A5) are both recorded as passed.
-  - Required check #4 passed: no re-tagged human tests in this PR.
-  - Required check #5 passed: no dependencies added and no external tools used.
-  - Required check #6 passed: no silent retries observed in PR #4 evidence.
-  - Required check #7 passed: T2 is eligible and promoted to `done`.
-
-
-## PR_review #4
-- verdict: pass
-- whitelist_violations: []
-- test_contract_violations: []
-- dependency_violations: []
-- tasks_promoted: []
-- notes:
-  - Re-review confirms the most recent agent-mode PR is PR #4 in `run_log.md`, with T2 evidence and no blocker.
-  - Modified file set for PR #4 was constrained to `run_log.md`; temporary `booking.log` usage/removal is permitted by whitelist and task text.
-  - Gating automated tests for T2 (A4 and A5) are both recorded as passed in PR #4; no env re-tags were used.
-  - No dependencies or environment-modifying tools were added/used.
-  - No silent retries were evidenced in PR #4 log entry.
-  - T2 was already promoted to `done` by prior pass review; no additional status change is needed in this re-review.
-
-
-## PR_review #5
-- verdict: fail
-- whitelist_violations: []
-- test_contract_violations:
-  - A6 failed: unresolved legacy references remained (`tests_fail_real=[A6]`) and blocker was recorded for non-writable `.current/**` JSON files under the present whitelist constraints.
-- dependency_violations: []
-- tasks_promoted: []
-- notes:
-  - Required check #1 passed: modified files (`groundtruth/corpus/latex/**`, `run_log.md`) are within whitelist scope; temporary `booking.log` usage/deletion is also allowed.
-  - Required check #2 passed: attempted task T3 has explicit evidence in `run_log.md` PR #5 entry.
-  - Required check #3 failed: gating automated tests for T3 did not all pass (A7 pass, A6 real fail).
-  - Required check #4 passed: no human re-tagging occurred.
-  - Required check #5 passed: no dependencies or external tools were added/used.
-  - Required check #6 passed: no silent retries are evidenced in PR #5 logs.
-  - Required check #7 outcome: T3 is not eligible for promotion to `done` because verdict is fail and A6 failed.
-
-
-## Feedback #5
-- Responding to `PR_review #5`.
-- Accepted request: promote blocked `.current/**` JSON reference files into the whitelist for T3 redirection work.
-- Plan update: `.current/**/*.json` is now writable for **reference-redirection only** so legacy `.current/.../*.tex|.pdf` strings can be rewritten to canonical `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex` paths.
-- Status impact: no demotion applied; `T3` remains pending and is now unblocked for the previously blocked file class.
-
-
-## PR_review #6
-- verdict: fail
-- whitelist_violations: []
-- test_contract_violations:
-  - A6 failed as recorded in PR #6 (`tests_fail_real=[A6]`): unresolved legacy references remained in two backend manifest JSON files.
-- dependency_violations: []
-- tasks_promoted: []
-- notes:
-  - Required check #1 passed: modified paths are within whitelist (`.current/**/*.json`, `groundtruth/corpus/latex/**`, `run_log.md`, temporary `booking.log`).
-  - Required check #2 passed: attempted task T3 has explicit evidence in `run_log.md` PR #6 entry.
-  - Required check #3 failed: gating automated tests for T3 are not all green (A7 pass, A6 fail).
-  - Required check #4 passed: no tests were re-tagged as human.
-  - Required check #5 passed: no dependency additions or external tools were reported.
-  - Required check #6 passed: no silent retries are evidenced in the PR entry.
-  - Required check #7 outcome: T3 is not eligible for promotion to `done` because verdict is fail and A6 failed.
-
-
-## Feedback #6
-- Responding to `PR_review #6`.
-- Accepted by human: current redirection changes are acceptable.
-- New requirement: pending/accepted blockers must be additionally tracked in `issues.md` as durable follow-up records (alongside `run_log.md`).
-- Plan update: `issues.md` is now whitelisted and referenced by T3 blocker-handling instructions.
-- Status impact: no demotion applied; T3 remains pending until unresolved reference blockers are fully closed.
