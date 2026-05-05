@@ -1,3 +1,4 @@
+source_path = "groundtruth/corpus/latex/lists_footnotes_tables/lists_footnotes_tables.tex"
 document_id = "lists_footnotes_tables"
 documentclass = "article"
 expected_features = ["equations", "figures", "tables", "footnotes", "references", "bibliography"]

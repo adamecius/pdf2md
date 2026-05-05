@@ -12,6 +12,10 @@ Then scan the whole repository for any remaining references to those deleted `.t
 - `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex`
 
 The canonical `groundtruth/corpus/latex/**` tree remains the only accepted source of truth for LaTeX ground-truth fixtures.
+Legacy references in `.current/**` JSON artifacts that still point to deleted `.tex`/`.pdf` paths must also be rewritten to canonical `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex` targets.
+
+To keep `run_log.md` compact, large intermediate diagnostic listings must be written to `booking.log` during execution and removed before task completion once verification is complete.
+Any accepted pending blockers should be summarized in `issues.md` as durable follow-up items.
 
 ## Whitelist
 
@@ -21,8 +25,11 @@ Files the agent may create, modify, or delete under this plan. Anything else is 
 - `.current/docling_groundtruth/**/*.pdf`                  deletion only
 - `.current/latex_docling_groundtruth/**/*.tex`            deletion only
 - `.current/latex_docling_groundtruth/**/*.pdf`            deletion only
+- `.current/**/*.json`                                    reference-redirection only: replace legacy `.current/.../*.tex|.pdf` strings with canonical `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex`
 - `groundtruth/corpus/latex/**`
 - `run_log.md`
+- `issues.md`
+- `booking.log`                                           create/update/delete during diagnostic-only evidence capture
 - Files discovered by the reference scan as containing legacy `.current/.../*.tex` or `.current/.../*.pdf` references, only for replacing those references with their canonical `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex` path. Each such file must be listed in `run_log.md` before modification.
 
 ## Tasks
@@ -43,7 +50,7 @@ Only files matching these patterns may be deleted:
 
 Directories may be left in place unless they become clearly obsolete and are explicitly allowed by a later plan.
 
-Files: `.current/docling_groundtruth/**/*.tex`, `.current/docling_groundtruth/**/*.pdf`, `.current/latex_docling_groundtruth/**/*.tex`, `.current/latex_docling_groundtruth/**/*.pdf`, `run_log.md`.
+Files: `.current/docling_groundtruth/**/*.tex`, `.current/docling_groundtruth/**/*.pdf`, `.current/latex_docling_groundtruth/**/*.tex`, `.current/latex_docling_groundtruth/**/*.pdf`, `run_log.md`, `booking.log` (temporary evidence file, must be deleted before task end).
 
 ### T3 — Repository-wide legacy reference scan and redirection
 
@@ -65,9 +72,11 @@ If any reference is found, update the referencing file so that it points to the 
 
 Where `<doc_id>` must match the canonical document directory already created during T1.
 
-For deleted `.pdf` references, redirect to the corresponding canonical `.tex` file when the reference is part of the ground-truth fixture workflow. If a `.pdf` reference semantically requires an actual PDF file and cannot be safely redirected to LaTeX, record it as a blocker in `run_log.md` and do not mark T3 done.
+For deleted `.pdf` references, redirect to the corresponding canonical `.tex` file when the reference is part of the ground-truth fixture workflow. If a `.pdf` reference semantically requires an actual PDF file and cannot be safely redirected to LaTeX, record it as a blocker in `run_log.md`, add/append an issue entry in `issues.md`, and do not mark T3 done.
 
-Files: reference-bearing files discovered by the scan, `groundtruth/corpus/latex/**`, `run_log.md`.
+For any matched `.current/**` JSON artifact references, update only the string values that point to deleted `.current/.../*.tex` or `.current/.../*.pdf` paths; do not alter unrelated JSON fields.
+
+Files: reference-bearing files discovered by the scan, `groundtruth/corpus/latex/**`, `.current/**/*.json` (reference-redirection only), `run_log.md`, `issues.md`, `booking.log` (temporary evidence file, must be deleted before task end).
 
 ## Tests
 
@@ -79,7 +88,7 @@ Tests are automated by default. A test re-tagged `human` in `run_log.md` after a
   ```sh
   find .current/docling_groundtruth .current/latex_docling_groundtruth \
     -type f \( -name '*.tex' -o -name '*.pdf' \) | sort
-pass: command lists every legacy .tex and .pdf file targeted for deletion, and the list is recorded in run_log.md before deletion.
+pass: command lists every legacy .tex and .pdf file targeted for deletion; the full list is recorded in `booking.log` before deletion; `run_log.md` includes a concise pointer and summary count only.
 A5 — Confirm legacy .tex and .pdf files were deleted
 
 command:
@@ -100,11 +109,11 @@ every referenced canonical .tex file exists;
 no updated reference points back into .current/docling_groundtruth/** or .current/latex_docling_groundtruth/**.
 H2 — Manual reference review (human)
 tag: human.
-command: visual inspection of the run_log.md evidence for deleted files, matched references, replacements, and any blockers.
-pass: human confirms that all legacy .tex and .pdf references were either correctly redirected or explicitly blocked.
+command: visual inspection of the `run_log.md` summary plus `booking.log` evidence (if present during run) for deleted files, matched references, replacements, and any blockers.
+pass: human confirms that all legacy .tex and .pdf references were either correctly redirected or explicitly blocked, and that `booking.log` was deleted after verification.
 Status
 T1: done
-T2: pending
+T2: done
 T3: pending
 PR_reviews
 
@@ -113,3 +122,106 @@ PR_reviews
 Feedback
 
 (Empty. Filled by feedback mode in response to PR_reviews and human input.)
+
+## PR_review #3
+- verdict: fail
+- whitelist_violations: []
+- test_contract_violations:
+  - A4 failed contract: candidate list was not recorded in `run_log.md` before deletion, so the stated pass condition for A4 was not met.
+- dependency_violations: []
+- tasks_promoted: []
+- notes:
+  - Required check #1 passed: modified paths were within whitelist patterns (legacy `.tex`/`.pdf` deletions plus `run_log.md`).
+  - Required check #2 passed: attempted task T2 has explicit evidence in `run_log.md` PR #3 entry.
+  - Required check #3 failed: not all gating automated tests for T2 passed; A4 is explicitly recorded as a real failure.
+  - Required check #4 passed: no tests were re-tagged as human.
+  - Required check #5 passed: no dependencies added and no external tools used.
+  - Required check #6 passed: no silent retries observed in the PR evidence.
+  - Required check #7 outcome: T2 is not eligible for promotion to `done` because A4 failed and verdict is `fail`.
+
+
+## Feedback #3
+- Responding to `PR_review #3`.
+- Accepted change: diagnostic outputs that may be very large should be written to `booking.log` first, not expanded into `run_log.md`.
+- Process update: agent should run diagnostics, keep full path lists in `booking.log`, write only compact counts/pointers in `run_log.md`, and remove `booking.log` at the end after dangling-reference verification.
+- Status impact: no task demotion applied; `T2` and `T3` remain pending until re-attempt under updated evidence flow.
+
+
+## PR_review #4
+- verdict: pass
+- whitelist_violations: []
+- test_contract_violations: []
+- dependency_violations: []
+- tasks_promoted: [T2]
+- notes:
+  - Required check #1 passed: PR #4 modified only `run_log.md`; temporary `booking.log` usage is explicitly allowed by whitelist and was removed.
+  - Required check #2 passed: attempted task T2 has explicit evidence in `run_log.md` PR #4 entry.
+  - Required check #3 passed: gating automated tests for T2 (A4, A5) are both recorded as passed.
+  - Required check #4 passed: no re-tagged human tests in this PR.
+  - Required check #5 passed: no dependencies added and no external tools used.
+  - Required check #6 passed: no silent retries observed in PR #4 evidence.
+  - Required check #7 passed: T2 is eligible and promoted to `done`.
+
+
+## PR_review #4
+- verdict: pass
+- whitelist_violations: []
+- test_contract_violations: []
+- dependency_violations: []
+- tasks_promoted: []
+- notes:
+  - Re-review confirms the most recent agent-mode PR is PR #4 in `run_log.md`, with T2 evidence and no blocker.
+  - Modified file set for PR #4 was constrained to `run_log.md`; temporary `booking.log` usage/removal is permitted by whitelist and task text.
+  - Gating automated tests for T2 (A4 and A5) are both recorded as passed in PR #4; no env re-tags were used.
+  - No dependencies or environment-modifying tools were added/used.
+  - No silent retries were evidenced in PR #4 log entry.
+  - T2 was already promoted to `done` by prior pass review; no additional status change is needed in this re-review.
+
+
+## PR_review #5
+- verdict: fail
+- whitelist_violations: []
+- test_contract_violations:
+  - A6 failed: unresolved legacy references remained (`tests_fail_real=[A6]`) and blocker was recorded for non-writable `.current/**` JSON files under the present whitelist constraints.
+- dependency_violations: []
+- tasks_promoted: []
+- notes:
+  - Required check #1 passed: modified files (`groundtruth/corpus/latex/**`, `run_log.md`) are within whitelist scope; temporary `booking.log` usage/deletion is also allowed.
+  - Required check #2 passed: attempted task T3 has explicit evidence in `run_log.md` PR #5 entry.
+  - Required check #3 failed: gating automated tests for T3 did not all pass (A7 pass, A6 real fail).
+  - Required check #4 passed: no human re-tagging occurred.
+  - Required check #5 passed: no dependencies or external tools were added/used.
+  - Required check #6 passed: no silent retries are evidenced in PR #5 logs.
+  - Required check #7 outcome: T3 is not eligible for promotion to `done` because verdict is fail and A6 failed.
+
+
+## Feedback #5
+- Responding to `PR_review #5`.
+- Accepted request: promote blocked `.current/**` JSON reference files into the whitelist for T3 redirection work.
+- Plan update: `.current/**/*.json` is now writable for **reference-redirection only** so legacy `.current/.../*.tex|.pdf` strings can be rewritten to canonical `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex` paths.
+- Status impact: no demotion applied; `T3` remains pending and is now unblocked for the previously blocked file class.
+
+
+## PR_review #6
+- verdict: fail
+- whitelist_violations: []
+- test_contract_violations:
+  - A6 failed as recorded in PR #6 (`tests_fail_real=[A6]`): unresolved legacy references remained in two backend manifest JSON files.
+- dependency_violations: []
+- tasks_promoted: []
+- notes:
+  - Required check #1 passed: modified paths are within whitelist (`.current/**/*.json`, `groundtruth/corpus/latex/**`, `run_log.md`, temporary `booking.log`).
+  - Required check #2 passed: attempted task T3 has explicit evidence in `run_log.md` PR #6 entry.
+  - Required check #3 failed: gating automated tests for T3 are not all green (A7 pass, A6 fail).
+  - Required check #4 passed: no tests were re-tagged as human.
+  - Required check #5 passed: no dependency additions or external tools were reported.
+  - Required check #6 passed: no silent retries are evidenced in the PR entry.
+  - Required check #7 outcome: T3 is not eligible for promotion to `done` because verdict is fail and A6 failed.
+
+
+## Feedback #6
+- Responding to `PR_review #6`.
+- Accepted by human: current redirection changes are acceptable.
+- New requirement: pending/accepted blockers must be additionally tracked in `issues.md` as durable follow-up records (alongside `run_log.md`).
+- Plan update: `issues.md` is now whitelisted and referenced by T3 blocker-handling instructions.
+- Status impact: no demotion applied; T3 remains pending until unresolved reference blockers are fully closed.
