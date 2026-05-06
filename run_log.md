@@ -119,3 +119,14 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
 - external_tools_used: []
 - blockers: []
 - status: ready_for_review
+
+## PR #12 — 2026-05-06T14:21:38Z — mode: agent
+- tasks_attempted:
+    - T1: files_touched=[tools/latex_to_docling.py, run_log.md], tests_pass=[A1,A2,A3], tests_fail_env=[], tests_fail_real=[]
+    - T2: files_touched=[tools/latex_to_docling.py, run_log.md], tests_pass=[A2,A3], tests_fail_env=[], tests_fail_real=[]
+    - T3: files_touched=[tests/test_latex_to_docling.py, run_log.md], tests_pass=[A1,A2,A3], tests_fail_env=[], tests_fail_real=[]
+    - T4: files_touched=[groundtruth/corpus/latex/**/*.docling.json, groundtruth/corpus/latex/**/*.docling_groundtruth_meta.json, run_log.md], tests_pass=[A4,A5], tests_fail_env=[], tests_fail_real=[]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: []
+- status: ready_for_review

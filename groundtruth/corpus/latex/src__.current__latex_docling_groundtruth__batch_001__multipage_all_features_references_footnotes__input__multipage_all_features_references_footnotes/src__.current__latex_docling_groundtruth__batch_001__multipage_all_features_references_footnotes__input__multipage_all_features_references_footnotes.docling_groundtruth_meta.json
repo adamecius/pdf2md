@@ -1,0 +1,71 @@
+{
+  "schema_name": "pdf2md.docling_groundtruth_meta",
+  "schema_version": "1.0.0",
+  "document_id": "src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes",
+  "source_tex": "groundtruth/corpus/latex/src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes/src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.tex",
+  "source_sha256": "a1aa43069bb074bd6eaf69989f538f7a6bdcbf6f24a8e41abee0432e761576b4",
+  "labels": {
+    "sec:deep": "#/texts/3",
+    "sub:deep": "#/texts/5",
+    "fig:deep": "#/pictures/0",
+    "tab:deep": "#/tables/0",
+    "eq:deep": "#/texts/15"
+  },
+  "references": [
+    {
+      "source_ref": "#/texts/12",
+      "target_label": "sec:deep",
+      "resolved_ref": "#/texts/3"
+    },
+    {
+      "source_ref": "#/texts/12",
+      "target_label": "sub:deep",
+      "resolved_ref": "#/texts/5"
+    },
+    {
+      "source_ref": "#/texts/12",
+      "target_label": "fig:deep",
+      "resolved_ref": "#/pictures/0"
+    },
+    {
+      "source_ref": "#/texts/16",
+      "target_label": "eq:deep",
+      "resolved_ref": "#/texts/15"
+    },
+    {
+      "source_ref": "#/texts/16",
+      "target_label": "eq:deep",
+      "resolved_ref": "#/texts/15"
+    },
+    {
+      "source_ref": "#/texts/20",
+      "target_label": "tab:deep",
+      "resolved_ref": "#/tables/0"
+    },
+    {
+      "source_ref": "#/texts/20",
+      "target_label": "sec:deep",
+      "resolved_ref": "#/texts/3"
+    }
+  ],
+  "footnote_anchors": [
+    {
+      "footnote_ref": "#/texts/1",
+      "anchor_ref": "#/texts/0"
+    }
+  ],
+  "caption_relations": [
+    {
+      "caption_ref": "#/texts/11",
+      "target_ref": "#/pictures/0"
+    },
+    {
+      "caption_ref": "#/texts/13",
+      "target_ref": "#/tables/0"
+    }
+  ],
+  "bibliography_entries": [],
+  "warnings": [
+    "missing_latexml_xml:src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes"
+  ]
+}

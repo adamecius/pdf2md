@@ -1,0 +1,23 @@
+{
+  "schema_name": "pdf2md.docling_groundtruth_meta",
+  "schema_version": "1.0.0",
+  "document_id": "src__.current__latex_docling_groundtruth__batch_pr60__equation_label_reference__input__equation_label_reference",
+  "source_tex": "groundtruth/corpus/latex/src__.current__latex_docling_groundtruth__batch_pr60__equation_label_reference__input__equation_label_reference/src__.current__latex_docling_groundtruth__batch_pr60__equation_label_reference__input__equation_label_reference.tex",
+  "source_sha256": "9fb9949b7528bca16e9c5f9019d36114a980e1b1bc865e064682d344b84ada70",
+  "labels": {
+    "eq:one": "#/texts/2"
+  },
+  "references": [
+    {
+      "source_ref": "#/texts/3",
+      "target_label": "eq:one",
+      "resolved_ref": "#/texts/2"
+    }
+  ],
+  "footnote_anchors": [],
+  "caption_relations": [],
+  "bibliography_entries": [],
+  "warnings": [
+    "missing_latexml_xml:src__.current__latex_docling_groundtruth__batch_pr60__equation_label_reference__input__equation_label_reference"
+  ]
+}

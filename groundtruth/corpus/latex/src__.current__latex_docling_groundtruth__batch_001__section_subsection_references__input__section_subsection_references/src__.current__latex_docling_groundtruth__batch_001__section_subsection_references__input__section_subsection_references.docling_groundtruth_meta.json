@@ -1,0 +1,29 @@
+{
+  "schema_name": "pdf2md.docling_groundtruth_meta",
+  "schema_version": "1.0.0",
+  "document_id": "src__.current__latex_docling_groundtruth__batch_001__section_subsection_references__input__section_subsection_references",
+  "source_tex": "groundtruth/corpus/latex/src__.current__latex_docling_groundtruth__batch_001__section_subsection_references__input__section_subsection_references/src__.current__latex_docling_groundtruth__batch_001__section_subsection_references__input__section_subsection_references.tex",
+  "source_sha256": "60df0d0d422857f71943706fc619617cc5c1534e6b0ce691e017242bed818a45",
+  "labels": {
+    "sec:alpha": "#/texts/1",
+    "sub:beta": "#/texts/2"
+  },
+  "references": [
+    {
+      "source_ref": "#/texts/3",
+      "target_label": "sec:alpha",
+      "resolved_ref": "#/texts/1"
+    },
+    {
+      "source_ref": "#/texts/3",
+      "target_label": "sub:beta",
+      "resolved_ref": "#/texts/2"
+    }
+  ],
+  "footnote_anchors": [],
+  "caption_relations": [],
+  "bibliography_entries": [],
+  "warnings": [
+    "missing_latexml_xml:src__.current__latex_docling_groundtruth__batch_001__section_subsection_references__input__section_subsection_references"
+  ]
+}

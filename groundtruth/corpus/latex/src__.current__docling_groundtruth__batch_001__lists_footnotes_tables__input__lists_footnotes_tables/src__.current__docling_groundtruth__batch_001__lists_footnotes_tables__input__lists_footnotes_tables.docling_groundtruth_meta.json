@@ -1,0 +1,49 @@
+{
+  "schema_name": "pdf2md.docling_groundtruth_meta",
+  "schema_version": "1.0.0",
+  "document_id": "src__.current__docling_groundtruth__batch_001__lists_footnotes_tables__input__lists_footnotes_tables",
+  "source_tex": "groundtruth/corpus/latex/src__.current__docling_groundtruth__batch_001__lists_footnotes_tables__input__lists_footnotes_tables/src__.current__docling_groundtruth__batch_001__lists_footnotes_tables__input__lists_footnotes_tables.tex",
+  "source_sha256": "f706562a65396d541d44bc91beb9627439c8dad04133a9ba6b567fdb9f8466d1",
+  "labels": {
+    "sec:structured": "#/texts/1",
+    "subsec:itemize": "#/texts/8",
+    "tab:fixture-table": "#/tables/0",
+    "eq:integral": "#/texts/18"
+  },
+  "references": [
+    {
+      "source_ref": "#/texts/17",
+      "target_label": "tab:fixture-table",
+      "resolved_ref": "#/tables/0"
+    },
+    {
+      "source_ref": "#/texts/19",
+      "target_label": "eq:integral",
+      "resolved_ref": "#/texts/18"
+    }
+  ],
+  "footnote_anchors": [
+    {
+      "footnote_ref": "#/texts/2",
+      "anchor_ref": "#/texts/1"
+    },
+    {
+      "footnote_ref": "#/texts/3",
+      "anchor_ref": "#/texts/2"
+    },
+    {
+      "footnote_ref": "#/texts/4",
+      "anchor_ref": "#/texts/3"
+    }
+  ],
+  "caption_relations": [
+    {
+      "caption_ref": "#/texts/16",
+      "target_ref": "#/tables/0"
+    }
+  ],
+  "bibliography_entries": [],
+  "warnings": [
+    "missing_latexml_xml:src__.current__docling_groundtruth__batch_001__lists_footnotes_tables__input__lists_footnotes_tables"
+  ]
+}

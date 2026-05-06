@@ -1,0 +1,17 @@
+{
+  "schema_name": "pdf2md.docling_groundtruth_meta",
+  "schema_version": "1.0.0",
+  "document_id": "src__.current__latex_docling_groundtruth__batch_pr60__simple_title_paragraph__input__simple_title_paragraph",
+  "source_tex": "groundtruth/corpus/latex/src__.current__latex_docling_groundtruth__batch_pr60__simple_title_paragraph__input__simple_title_paragraph/src__.current__latex_docling_groundtruth__batch_pr60__simple_title_paragraph__input__simple_title_paragraph.tex",
+  "source_sha256": "0658efb9f2f55ffa0176674a881c9d92ede3f45876295876010c3075e98d9de1",
+  "labels": {
+    "sec:intro": "#/texts/1"
+  },
+  "references": [],
+  "footnote_anchors": [],
+  "caption_relations": [],
+  "bibliography_entries": [],
+  "warnings": [
+    "missing_latexml_xml:src__.current__latex_docling_groundtruth__batch_pr60__simple_title_paragraph__input__simple_title_paragraph"
+  ]
+}

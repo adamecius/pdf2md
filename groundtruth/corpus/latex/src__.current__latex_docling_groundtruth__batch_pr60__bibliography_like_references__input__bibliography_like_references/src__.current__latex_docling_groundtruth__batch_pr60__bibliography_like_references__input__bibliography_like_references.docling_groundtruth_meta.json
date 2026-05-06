@@ -1,0 +1,17 @@
+{
+  "schema_name": "pdf2md.docling_groundtruth_meta",
+  "schema_version": "1.0.0",
+  "document_id": "src__.current__latex_docling_groundtruth__batch_pr60__bibliography_like_references__input__bibliography_like_references",
+  "source_tex": "groundtruth/corpus/latex/src__.current__latex_docling_groundtruth__batch_pr60__bibliography_like_references__input__bibliography_like_references/src__.current__latex_docling_groundtruth__batch_pr60__bibliography_like_references__input__bibliography_like_references.tex",
+  "source_sha256": "996bdcd125e3595de9e0273337ac13b85f2fb6a8d1253f79bdcb7704bb42ba1f",
+  "labels": {
+    "sec:refs": "#/texts/3"
+  },
+  "references": [],
+  "footnote_anchors": [],
+  "caption_relations": [],
+  "bibliography_entries": [],
+  "warnings": [
+    "missing_latexml_xml:src__.current__latex_docling_groundtruth__batch_pr60__bibliography_like_references__input__bibliography_like_references"
+  ]
+}

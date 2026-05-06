@@ -1,0 +1,34 @@
+{
+  "schema_name": "pdf2md.docling_groundtruth_meta",
+  "schema_version": "1.0.0",
+  "document_id": "src__.current__latex_docling_groundtruth__batch_001__multiple_equations_references__input__multiple_equations_references",
+  "source_tex": "groundtruth/corpus/latex/src__.current__latex_docling_groundtruth__batch_001__multiple_equations_references__input__multiple_equations_references/src__.current__latex_docling_groundtruth__batch_001__multiple_equations_references__input__multiple_equations_references.tex",
+  "source_sha256": "7e4b30ea98eddb58dcb89390db18f679e357381b428ffdc338b294f819f74b47",
+  "labels": {
+    "eq:a": "#/texts/2",
+    "eq:c": "#/texts/3"
+  },
+  "references": [
+    {
+      "source_ref": "#/texts/4",
+      "target_label": "eq:a",
+      "resolved_ref": "#/texts/2"
+    },
+    {
+      "source_ref": "#/texts/4",
+      "target_label": "eq:c",
+      "resolved_ref": "#/texts/3"
+    },
+    {
+      "source_ref": "#/texts/4",
+      "target_label": "eq:a",
+      "resolved_ref": "#/texts/2"
+    }
+  ],
+  "footnote_anchors": [],
+  "caption_relations": [],
+  "bibliography_entries": [],
+  "warnings": [
+    "missing_latexml_xml:src__.current__latex_docling_groundtruth__batch_001__multiple_equations_references__input__multiple_equations_references"
+  ]
+}
