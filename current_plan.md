@@ -1,317 +1,283 @@
-# Current plan
+# Current plan — LaTeX corpus → DoclingDocument ground truth
 
 ## Goal
 
-Create a repository tool at `tools/compile_latex_groundth.py` that compiles every LaTeX ground-truth fixture under:
+Create a parser at `tools/latex_to_docling.py` that reads every LaTeX ground-truth fixture under `groundtruth/corpus/latex/<doc_id>/` and emits a **fully populated `DoclingDocument` JSON** (the Pydantic schema from `docling-core`) into the same directory.
 
-- `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex`
+The existing `tools/compile_latex_groundth.py` already produces two compiled witnesses per fixture: a LuaLaTeX PDF and a LaTeXML XML. This new tool treats the `.tex` source as the **authoring source of truth** and builds the richest possible DoclingDocument from it, optionally enriched with the LaTeXML XML when present.
 
-For each selected fixture, the tool must produce both:
+This completes the ground-truth triad:
 
-- `groundtruth/corpus/latex/<doc_id>/<doc_id>.pdf`
-- `groundtruth/corpus/latex/<doc_id>/<doc_id>.latexml.xml`
+```
+.tex (source)  ─┬─►  .pdf        (rendered witness)
+                ├─►  .latexml.xml (semantic witness)
+                └─►  .docling.json (fully populated DoclingDocument)
+```
 
-The PDF must be produced with LuaLaTeX because this is the LaTeX engine selected for the tagged, semantically richer PDF path. The XML sidecar must be produced with LaTeXML because it preserves a source-derived semantic representation that can later be used for validation, inspection, and comparison.
+The `.docling.json` becomes the **reference DoclingDocument** that the OCR pipeline's reconstructed Docling outputs are validated against.
 
-The script must not edit `.tex` sources. It must be deterministic, idempotent, hash-gated, and explicit about missing external tools. If required TeX tooling is unavailable, it must print a clear `HUMAN TASK` block and exit with code `42` rather than installing anything.
+Design rules:
 
-This plan intentionally treats the PDF and XML as two separate witnesses:
+- Minimal validation: warn on missing or unsupported features, never fail.
+- If a field can't be populated (no geometry, no page info, no media), it is left at default/empty — not invented.
+- Output uses `docling-core`'s own `export_to_dict()` for canonical JSON.
+- No runtime dependency on TeX tooling — the parser reads `.tex` text.
 
-- the LuaLaTeX PDF is the rendered ground-truth target;
-- the LaTeXML XML is a semantic sidecar;
-- the `.tex` source remains the authoring source of truth.
+
+## Architecture overview
+
+```
+.tex source
+  │
+  ├─► LaTeX regex parser (titles, sections, paragraphs, lists,
+  │   equations, tables, figures, captions, footnotes, labels, refs)
+  │
+  ├─► Optional LaTeXML XML enrichment (better text normalization,
+  │   resolved cross-refs, bibliography entries)
+  │
+  └─► DoclingDocument builder (docling-core API)
+        │
+        ├── body tree: title → section → subsection → paragraphs/items
+        ├── texts[]: title, section_header, text, formula, footnote,
+        │            caption, list_item, reference
+        ├── tables[]: TableData with cell grid from \tabular
+        ├── pictures[]: PictureItem for \begin{figure} (no image data)
+        ├── groups[]: list / ordered_list for itemize/enumerate
+        └── .docling.json
+```
+
+
+## Mapping: LaTeX → DocItemLabel
+
+| LaTeX construct              | DocItemLabel       | DoclingDocument API call       |
+|------------------------------|--------------------|--------------------------------|
+| `\title{...}`               | `title`            | `add_text(label=TITLE)`        |
+| `\section{...}`             | `section_header`   | `add_text(label=SECTION_HEADER, level=1)` |
+| `\subsection{...}`          | `section_header`   | `add_text(label=SECTION_HEADER, level=2)` |
+| paragraph text               | `text`             | `add_text(label=TEXT)`         |
+| `\begin{equation}...\end`   | `formula`          | `add_text(label=FORMULA)`      |
+| `$...$` / `$$...$$`         | `formula`          | `add_text(label=FORMULA)`      |
+| `\footnote{...}`            | `footnote`         | `add_text(label=FOOTNOTE)`     |
+| `\caption{...}`             | `caption`          | `add_text(label=CAPTION)`      |
+| `\item ...`                 | `list_item`        | `add_text(label=LIST_ITEM, enumerated=..., parent=group)` |
+| `\begin{itemize}`           | (group)            | `add_group(label=GroupLabel.LIST)` |
+| `\begin{enumerate}`         | (group)            | `add_group(label=GroupLabel.ORDERED_LIST)` |
+| `\begin{figure}`            | `picture`          | `add_picture()`                |
+| `\begin{table}`+`\tabular`  | `table`            | `add_table(data=TableData(...))` |
+| `\ref{...}`                 | (inline in text)   | stored in sidecar metadata     |
+| `\label{...}`               | (label registry)   | stored in sidecar metadata     |
+
+
+## Sidecar file: `.docling_groundtruth_meta.json`
+
+DoclingDocument does not natively carry LaTeX-specific provenance (labels, cross-references, anchor IDs). A sidecar JSON is emitted alongside the Docling JSON:
+
+```json
+{
+  "schema_name": "pdf2md.docling_groundtruth_meta",
+  "schema_version": "1.0.0",
+  "document_id": "linked_sections_figures",
+  "source_tex": "groundtruth/corpus/latex/linked_sections_figures/linked_sections_figures.tex",
+  "labels": {"sec:overview": "#/texts/1", "eq:energy": "#/texts/5", ...},
+  "references": [
+    {"source_ref": "#/texts/3", "target_label": "fig:box-diagram", "resolved_ref": "#/pictures/0"}
+  ],
+  "footnote_anchors": [
+    {"footnote_ref": "#/texts/4", "anchor_ref": "#/texts/2"}
+  ],
+  "caption_relations": [
+    {"caption_ref": "#/texts/6", "target_ref": "#/pictures/0"}
+  ],
+  "warnings": []
+}
+```
 
 
 ## Whitelist
 
-Files the agent may create, modify, or delete under this plan. Anything else is forbidden.
+Files the agent may create, modify, or delete:
 
-- `tools/compile_latex_groundth.py`
-- `tests/test_compile_latex_groundth.py`
-- `groundtruth/corpus/latex/**/*.pdf` generated or updated output only
-- `groundtruth/corpus/latex/**/*.latexml.xml` generated or updated output only
-- `groundtruth/corpus/latex/**/*.latexml.log` generated or updated output only
-- `groundtruth/corpus/latex/**/build.log` generated or updated output only
-- `groundtruth/corpus/latex/**/*.synctex.gz` generated or updated output only
-- `run_log.md`
+- `tools/latex_to_docling.py`
+- `tests/test_latex_to_docling.py`
+- `groundtruth/corpus/latex/**/*.docling.json` (generated output only)
+- `groundtruth/corpus/latex/**/*.docling_groundtruth_meta.json` (generated output only)
+- `current_plan.latex_to_docling.md`
 
-Explicitly forbidden under this plan:
+Explicitly forbidden:
 
-- editing any `groundtruth/corpus/latex/**/*.tex` source file;
-- editing any `groundtruth/corpus/latex/**/*.bib` source file;
-- editing `project.md`, `history.md`, `agent.md`, or this plan in agent mode;
-- committing temporary TeX auxiliary files such as `.aux`, `.out`, `.toc`, `.bcf`, `.bbl`, `.blg`, `.fls`, `.fdb_latexmk`, `.run.xml`, or `.log` except for the explicitly whitelisted `build.log` and `.latexml.log`.
+- editing any `groundtruth/corpus/latex/**/*.tex` source file
+- editing any `groundtruth/corpus/latex/**/*.bib` source file
+- editing `tools/compile_latex_groundth.py`
+- editing existing tests or production code under `src/`
 
 
 ## Dependencies
 
-Python packages:
+Python packages (already installed or in pyproject.toml):
 
-- none.
+- `docling-core>=2.50` (for `DoclingDocument`, `DocItemLabel`, `GroupLabel`, `TableData`, `TableCell`)
+- standard library only otherwise (re, json, argparse, pathlib, xml.etree.ElementTree)
 
-External system tools allowed:
-
-- `lualatex`
-- `latexml`
-- `biber`, only when a bibliography run is required
-
-The agent must not install TeX Live, MacTeX, LaTeXML, Perl packages, operating-system packages, or any other external dependency. Missing required tools must be handled by the script as a user-facing environment problem with exit code `42`.
-
-Read-only validation tools such as `python`, `pytest`, `compileall`, and `git status` are allowed as normal repository validation commands.
+No external system tools required.
 
 
 ## Tasks
 
-### T1 — Implement the dual LuaLaTeX and LaTeXML compiler tool
+### T1 — Implement the LaTeX-to-DoclingDocument parser tool
 
-Create `tools/compile_latex_groundth.py`.
+Create `tools/latex_to_docling.py`.
 
-The script must provide this CLI:
+CLI:
 
-    python tools/compile_latex_groundth.py \
-      --corpus-root groundtruth/corpus/latex \
-      [--doc <doc_id>] \
-      [--force]
+```
+python tools/latex_to_docling.py \
+  --corpus-root groundtruth/corpus/latex \
+  [--doc <doc_id>] \
+  [--force] \
+  [--verbose]
+```
 
 Behaviour:
 
-- Default `--corpus-root` to `groundtruth/corpus/latex`.
-- Discover fixture directories matching `groundtruth/corpus/latex/<doc_id>/`.
-- For each selected fixture, require `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex`.
-- If `--doc <doc_id>` is provided, process only that document and fail clearly if it does not exist.
-- Process documents in sorted order for deterministic output.
-- Never modify `.tex` or `.bib` inputs.
-- Use a temporary output directory outside the committed corpus tree for TeX auxiliary files, then copy only whitelisted final artefacts back into the document directory.
-- Write one `build.log` per document in the document directory.
-- Print a concise per-document summary to stdout.
+- Discover fixture directories matching `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex`.
+- For each fixture, parse the `.tex` source and build a `DoclingDocument`.
+- Save `<doc_id>.docling.json` and `<doc_id>.docling_groundtruth_meta.json` in the fixture directory.
+- Process documents in sorted order.
+- Never modify `.tex` sources.
+- If `--force` is not passed, skip documents where `.docling.json` exists and `.tex` has not changed (hash check via `meta.toml` sha256 or file mtime).
 
-Tool detection:
+LaTeX parser requirements:
 
-- Require `lualatex` before any PDF compilation.
-- Require `latexml` before any XML conversion.
-- Require `biber` only when bibliography processing is actually needed.
-- If any required tool is missing, print a `HUMAN TASK` block that names the missing executable, explains that the script does not install dependencies, and exits `42`.
+- Parse `\title`, `\section`, `\subsection` (including starred variants).
+- Parse paragraph text between structural commands.
+- Parse `\begin{equation}...\end{equation}`, `$...$`, `$$...$$`.
+- Parse `\begin{figure}...\end{figure}` with nested `\caption` and `\label`.
+- Parse `\begin{table}...\end{table}` with nested `\begin{tabular}{spec}...\end{tabular}`, extracting cell grid.
+- Parse `\begin{itemize}` and `\begin{enumerate}` with proper nesting into DoclingDocument groups.
+- Parse `\footnote{...}`.
+- Parse `\label{...}` and `\ref{...}` to build the sidecar label/reference map.
+- Handle `\maketitle`, `\newpage` (as structural hints, not content).
+- Inline math `$...$` may be left inline within paragraph text OR extracted as separate formula items — choose the strategy that best matches Docling's conventions (separate items).
+- Gracefully skip unknown commands — warn, don't fail.
 
-PDF stage:
+DoclingDocument construction:
 
-- Run LuaLaTeX from the document directory so relative asset paths continue to resolve.
-- Use a temporary output directory for auxiliary files.
-- Invoke LuaLaTeX with:
+- Use `DoclingDocument(name=doc_id)`.
+- Build the body tree: title is a root child, sections are root children, subsections are children of sections, paragraphs/items are children of their enclosing section/subsection.
+- Lists: create a `GroupItem` with `GroupLabel.LIST` or `GroupLabel.ORDERED_LIST`, and attach `list_item` children.
+- Tables: build `TableData` with `TableCell` grid from parsed `\tabular` content.
+- Figures: call `add_picture()` (no image data since these are LaTeX primitives like `\fbox`).
+- Captions: call `add_text(label=CAPTION)` and use DoclingDocument's caption association.
+- Export via `doc.export_to_dict()` and save as JSON with indent=2.
 
-    lualatex -interaction=nonstopmode -halt-on-error -file-line-error -recorder -synctex=1 -output-directory <tmpdir> <doc_id>.tex
+Warnings (non-fatal):
 
-- Run LuaLaTeX at least twice.
-- After the first LuaLaTeX pass, if a `.bcf` file exists in the temporary output directory, run:
-
-    biber --input-directory <tmpdir> --output-directory <tmpdir> <doc_id>
-
-  Then run LuaLaTeX two more times.
-- Copy the final `<doc_id>.pdf` back to the document directory.
-- Copy `<doc_id>.synctex.gz` back if LuaLaTeX produced it.
-- Fail the document if the final PDF is missing.
-- Treat these as blocking PDF-stage failures:
-  - process return code is non-zero;
-  - log lines beginning with `! `;
-  - missing input files;
-  - undefined control sequences;
-  - unresolved citations after the final pass;
-  - unresolved references after the final pass.
-
-XML stage:
-
-- Run LaTeXML from the document directory.
-- Invoke:
-
-    latexml --destination=<doc_id>.latexml.xml --log=<doc_id>.latexml.log --documentid=<doc_id> <doc_id>.tex
-
-- If an `assets/` directory exists beside the source `.tex`, include:
-
-    --path=assets
-
-- Fail the document if `<doc_id>.latexml.xml` is missing or empty.
-- Treat LaTeXML fatal errors and non-zero exit codes as blocking failures.
-- Treat LaTeXML warnings as non-blocking, but record them in `build.log`.
-
-Hash gating:
-
-- Compute one SHA-256 build hash per document.
-- The hash must include:
-  - `<doc_id>.tex`;
-  - every `.bib` file in the document directory, sorted by relative path;
-  - every file under `assets/`, sorted by relative path;
-  - `lualatex --version` output;
-  - `latexml --VERSION` output, falling back to `latexml --version` if needed;
-  - `biber --version` output when biber is required;
-  - a script schema string such as `compile_latex_groundth_v1_lualatex_latexml`.
-- Store the hash near the top of `build.log`.
-- Skip a document only when all of the following are true:
-  - `--force` was not passed;
-  - `build.log` contains the same build hash;
-  - `<doc_id>.pdf` exists;
-  - `<doc_id>.latexml.xml` exists and is non-empty.
-- A skipped document must still be reported in stdout.
-
-Source metadata check:
-
-- If the source does not appear to contain `\DocumentMetadata` before `\documentclass`, record a warning in `build.log`.
-- Do not edit the source to add metadata.
-- This warning is not a blocking failure because the script is a compiler, not a source normaliser.
-
-Exit behaviour:
-
-- Exit `0` only when all selected documents were either successfully built or correctly skipped by hash gating.
-- Exit `42` only for missing required external tools.
-- Exit non-zero for compilation, conversion, validation, or argument errors.
-- If more than one document is selected, continue processing remaining documents after a per-document compile failure, then exit non-zero at the end with a summary of failed documents.
-
-Files: `tools/compile_latex_groundth.py`, `run_log.md`, and generated whitelisted artefacts under `groundtruth/corpus/latex/**`.
+- `unknown_environment:<env_name>` — encountered `\begin{X}` that the parser doesn't handle.
+- `missing_latexml_xml:<doc_id>` — no `.latexml.xml` found for enrichment.
+- `empty_equation:<doc_id>` — equation environment with no extractable body.
+- `table_parse_incomplete:<doc_id>` — tabular parsing couldn't extract full cell grid.
 
 
-### T2 — Add automated tests for the compiler tool contract
+### T2 — Optional LaTeXML XML enrichment layer
 
-Create `tests/test_compile_latex_groundth.py`.
+Within the same tool, if `<doc_id>.latexml.xml` exists in the fixture directory, parse it with `xml.etree.ElementTree` to:
 
-The tests must avoid requiring a real TeX installation by using temporary directories and mocking subprocess execution where needed.
+- Cross-check section titles and paragraph text against LaTeX parse.
+- Extract resolved bibliography entries if present.
+- Use LaTeXML's resolved cross-reference targets to validate the label→ref map.
+
+This is additive enrichment only — the `.tex` parse is always the primary source. If the XML is missing or unparseable, warn and continue.
+
+
+### T3 — Automated tests
+
+Create `tests/test_latex_to_docling.py`.
 
 Required coverage:
 
-- CLI help exits successfully without checking for TeX tools.
-- Document discovery finds `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex` and ignores unrelated directories.
-- `--doc <doc_id>` restricts execution to one fixture.
-- Missing `lualatex` or `latexml` produces exit code `42` and a `HUMAN TASK` message.
-- The LuaLaTeX command includes `-interaction=nonstopmode`, `-halt-on-error`, `-file-line-error`, `-recorder`, `-synctex=1`, and `-output-directory`.
-- The XML command invokes `latexml` with `--destination`, `--log`, and `--documentid`.
-- `--path=assets` is passed when an `assets/` directory exists.
-- A `.bcf` file after the first LuaLaTeX pass triggers `biber`.
-- Matching build hash plus existing PDF and XML causes the document to be skipped unless `--force` is passed.
-- Blocking LaTeX errors, unresolved citations, unresolved references, and LaTeXML fatal errors cause non-zero failure.
-- The script never writes to or rewrites the `.tex` source in the test fixture.
+- **Parser unit tests**: simple title+paragraph, section hierarchy, equation extraction, table cell grid, list nesting, figure+caption, footnote, cross-references.
+- **DoclingDocument validity**: parsed output can be loaded by `DoclingDocument.model_validate(json_data)`.
+- **Sidecar correctness**: label→ref map resolves to valid `#/texts/N` or `#/pictures/N` JSON pointers.
+- **Graceful degradation**: unknown environments produce warnings, not exceptions.
+- **Hash gating**: existing output is skipped when `.tex` hasn't changed, re-generated with `--force`.
+- **CLI smoke**: `--help` exits 0.
 
-Files: `tools/compile_latex_groundth.py`, `tests/test_compile_latex_groundth.py`, `run_log.md`.
+Tests must not require TeX tooling — they use inline `.tex` strings in temporary directories.
 
 
-### T3 — Human-delegated validation of repository fixture artefacts
+### T4 — Run against full corpus and commit outputs
 
-tag: human
+tag: human (requires the agent to have run T1 on the actual corpus)
 
-Validate the tool against the repository corpus only in a TeX-capable environment where the required external tools and generated artefacts are available. This task is delegated to human review when the agent environment lacks TeX tooling or lacks the human-generated files.
+```
+python tools/latex_to_docling.py --corpus-root groundtruth/corpus/latex --force --verbose
+```
 
-If the tools are present and generation is intended for that environment, run:
+Verify that every fixture directory now contains:
+- `<doc_id>.docling.json` — valid DoclingDocument JSON
+- `<doc_id>.docling_groundtruth_meta.json` — sidecar with labels/references
 
-    python tools/compile_latex_groundth.py --corpus-root groundtruth/corpus/latex
-
-Then verify that each selected fixture has:
-
-- `<doc_id>.pdf`
-- `<doc_id>.latexml.xml`
-- `build.log`
-- optional `<doc_id>.synctex.gz` if produced
-
-Also verify that no unexpected TeX auxiliary files are left in the corpus tree.
-
-If the tools are missing, or if generated PDF/XML/build-log artefacts are not present in the agent checkout, do not install tools and do not treat the missing artefacts as a script-writing failure. Record the result as a human-required validation/environment blocker in `run_log.md`, with the script's `HUMAN TASK` output and exit code `42` when applicable.
-
-Files: `run_log.md` and generated whitelisted artefacts under `groundtruth/corpus/latex/**`.
+Spot-check a few documents to confirm the body tree hierarchy and text content match the `.tex` source.
 
 
 ## Tests
 
-Tests are automated by default unless explicitly tagged `human`.
-
 ### A1 — CLI help smoke test
 
-command:
+```
+python tools/latex_to_docling.py --help
+```
 
-    python tools/compile_latex_groundth.py --help
-
-pass: command exits `0`, prints CLI usage, and does not require `lualatex`, `latexml`, or `biber` to be installed.
+pass: exits 0, prints usage.
 
 
-### A2 — Unit test suite for compiler contract
+### A2 — Unit test suite
 
-command:
+```
+PYTHONPATH=src python -m pytest tests/test_latex_to_docling.py -v
+```
 
-    PYTHONPATH=src python -m pytest tests/test_compile_latex_groundth.py
-
-pass: all tests pass without requiring a real TeX installation.
+pass: all tests pass without requiring TeX installation or docling GPU models.
 
 
 ### A3 — Python syntax compilation
 
-command:
+```
+python -m compileall tools/latex_to_docling.py tests/test_latex_to_docling.py
+```
 
-    python -m compileall tools/compile_latex_groundth.py tests/test_compile_latex_groundth.py
-
-pass: both Python files compile without syntax errors.
-
-
-### A4 — Actual corpus compile in TeX-capable environment
-
-tag: human
-
-command:
-
-    python tools/compile_latex_groundth.py --corpus-root groundtruth/corpus/latex --force
-
-pass: every selected corpus fixture either produces both PDF and XML successfully, or any failure is a real source/tooling issue recorded with the failing document ID and log path. Missing TeX or LaTeXML tools are acceptable only as a human-environment blocker with exit code `42`.
+pass: both files compile without syntax errors.
 
 
-### A5 — Generated artefact inspection
+### A4 — Full corpus generation
 
 tag: human
 
-command:
+```
+python tools/latex_to_docling.py --corpus-root groundtruth/corpus/latex --force --verbose
+```
 
-    find groundtruth/corpus/latex -maxdepth 2 -type f \( \
-      -name '*.pdf' -o \
-      -name '*.latexml.xml' -o \
-      -name 'build.log' -o \
-      -name '*.synctex.gz' \
-    \) | sort
+pass: all 57 corpus fixtures produce `.docling.json` and sidecar. No crashes. Warnings are acceptable for edge cases.
 
-pass: for each compiled `<doc_id>`, the expected PDF, XML sidecar, and build log are present; optional Synctex sidecars are acceptable when produced; no unexpected TeX auxiliary files are left in the corpus tree. If no generated artefacts are present in the agent checkout, this test is delegated to human review rather than treated as a script-writing failure.
+
+### A5 — DoclingDocument schema validation
+
+tag: human (or automated if docling-core is available)
+
+```python
+from docling_core.types.doc import DoclingDocument
+import json
+for path in Path("groundtruth/corpus/latex").rglob("*.docling.json"):
+    data = json.loads(path.read_text())
+    DoclingDocument.model_validate(data)  # must not raise
+```
+
+pass: every generated `.docling.json` validates against the current `docling-core` schema.
 
 
 ## Status
 
-T1: done
-T2: done
+T1: pending
+T2: pending
 T3: pending
-
-
-## PR_reviews
-
-(Empty. Filled by review mode, one section per PR.)
-
-## PR_review #11
-
-verdict: pass for non-human validation; human validation pending.
-
-Checks:
-
-1. File scope: PR #11 modified only `run_log.md`, which is whitelisted for the plan.
-2. Evidence: `run_log.md` contains PR #11 evidence for T1, T2, and human-delegated T3.
-3. Automated tests: A1, A2, and A3 were rerun in review mode and passed.
-4. Human tests: A4 and A5 are tagged human and remain delegated to human validation per Feedback #10; they do not block certification of the non-human/script-writing work.
-5. Task promotion: T1 and T2 are promoted to `done` because their non-human automated gates are green. T3 remains `pending` until human validation of corpus generation and artefact inspection is supplied.
-
-
-## Feedback
-
-## Feedback #10
-
-Human direction after PR #10:
-
-- Treat repository fixture generation and generated-artefact inspection as human-delegated validation when the agent environment lacks TeX tooling or lacks the human-generated PDF/XML/build-log files.
-- Script-writing tasks should be evaluated by the automated validation unit tests (`A1`, `A2`, and `A3`) unless the agent changes the script or tests in a way that introduces a real failure.
-- Do not block T1/T2 on missing generated corpus artefacts in the agent checkout; record that situation under T3 as human-required validation/environment evidence.
-- Human review remains responsible for confirming generated PDFs/XML/build logs and absence of unexpected TeX auxiliary files before plan archival.
-
-## Feedback #11
-
-Human validation update after PR_review #11:
-
-- Human reports that the delegated corpus validation tasks have passed.
-- A4 (`python tools/compile_latex_groundth.py --corpus-root groundtruth/corpus/latex --force`) is accepted as passed in the human TeX-capable environment.
-- A5 generated-artefact inspection is accepted as passed: expected PDF, LaTeXML XML, and `build.log` artefacts were present for the selected corpus fixtures, optional Synctex sidecars were acceptable when produced, and no unexpected TeX auxiliary files were reported in the corpus tree.
-- This closes the environment-only blocker for T3. A follow-up review-mode pass may promote T3 from `pending` to `done` and then the plan can be archived if desired.
+T4: pending
