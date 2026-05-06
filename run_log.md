@@ -73,3 +73,49 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
     - rationale inferred from commit message: repository hygiene / pending generated-file cleanup
 - blockers: []
 - status: recorded
+
+## PR #7 — 2026-05-05T08:27:57Z — mode: agent
+- tasks_attempted:
+    - T1: files_touched=[run_log.md], tests_pass=[], tests_fail_env=[], tests_fail_real=[]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: ["current_plan.md has no '## Status' section, so the next pending task cannot be determined as required by this prompt."]
+- status: halted
+
+## PR #8 — 2026-05-05T08:34:56Z — mode: agent
+- tasks_attempted:
+    - T1: files_touched=[tools/compile_latex_groundth.py, run_log.md], tests_pass=[A1], tests_fail_env=[], tests_fail_real=[]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: []
+- status: in_progress
+
+## PR #9 — 2026-05-05T14:15:59Z — mode: agent
+- tasks_attempted:
+    - T1: files_touched=[tools/compile_latex_groundth.py], tests_pass=[A1], tests_fail_env=[], tests_fail_real=[]
+    - T2: files_touched=[tests/test_compile_latex_groundth.py], tests_pass=[A2,A3], tests_fail_env=[], tests_fail_real=[]
+    - T3: files_touched=[run_log.md], tests_pass=[], tests_fail_env=[A5], tests_fail_real=[]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: ["A5 artifact inspection command found no generated PDF/XML/build.log files in this checkout; human reported local generation run cannot be verified in-repo from current environment."]
+- status: halted
+
+## PR #10 — 2026-05-06T08:24:49Z — mode: agent
+- tasks_attempted:
+    - T1: files_touched=[], tests_pass=[A1], tests_fail_env=[], tests_fail_real=[]
+    - T2: files_touched=[tests/test_compile_latex_groundth.py], tests_pass=[A2,A3], tests_fail_env=[], tests_fail_real=[]
+    - T3: files_touched=[run_log.md], tests_pass=[], tests_fail_env=[A5], tests_fail_real=[]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: ["A5 generated artefact inspection remains environment-blocked in this checkout: no PDF/XML/build.log artefacts were present under groundtruth/corpus/latex, so the human-local generation result cannot be verified here. Non-blocked T2 coverage gaps identified by review were addressed with mocked tests for discovery, --doc filtering, commands, assets, biber, hash skip/force, failures, and source immutability."]
+- status: halted
+
+## PR #11 — 2026-05-06T12:27:55Z — mode: agent
+- tasks_attempted:
+    - T1: files_touched=[run_log.md], tests_pass=[A1], tests_fail_env=[], tests_fail_real=[]
+    - T2: files_touched=[run_log.md], tests_pass=[A2,A3], tests_fail_env=[], tests_fail_real=[]
+    - T3: files_touched=[run_log.md], tests_pass=[], tests_fail_env=[A4,A5], tests_fail_real=[]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: []
+- status: ready_for_review
