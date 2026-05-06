@@ -190,11 +190,13 @@ Required coverage:
 Files: `tools/compile_latex_groundth.py`, `tests/test_compile_latex_groundth.py`, `run_log.md`.
 
 
-### T3 — Validate the tool against repository fixtures where tooling is available
+### T3 — Human-delegated validation of repository fixture artefacts
 
-Run the tool against the repository corpus only if the required external tools are present in the execution environment.
+tag: human
 
-If the tools are present, run:
+Validate the tool against the repository corpus only in a TeX-capable environment where the required external tools and generated artefacts are available. This task is delegated to human review when the agent environment lacks TeX tooling or lacks the human-generated files.
+
+If the tools are present and generation is intended for that environment, run:
 
     python tools/compile_latex_groundth.py --corpus-root groundtruth/corpus/latex
 
@@ -203,8 +205,11 @@ Then verify that each selected fixture has:
 - `<doc_id>.pdf`
 - `<doc_id>.latexml.xml`
 - `build.log`
+- optional `<doc_id>.synctex.gz` if produced
 
-If the tools are missing, do not install them. Record the missing-tool result in `run_log.md` as an environmental blocker or human-required validation, with the script's `HUMAN TASK` output and exit code `42`.
+Also verify that no unexpected TeX auxiliary files are left in the corpus tree.
+
+If the tools are missing, or if generated PDF/XML/build-log artefacts are not present in the agent checkout, do not install tools and do not treat the missing artefacts as a script-writing failure. Record the result as a human-required validation/environment blocker in `run_log.md`, with the script's `HUMAN TASK` output and exit code `42` when applicable.
 
 Files: `run_log.md` and generated whitelisted artefacts under `groundtruth/corpus/latex/**`.
 
@@ -260,16 +265,17 @@ command:
     find groundtruth/corpus/latex -maxdepth 2 -type f \( \
       -name '*.pdf' -o \
       -name '*.latexml.xml' -o \
-      -name 'build.log' \
+      -name 'build.log' -o \
+      -name '*.synctex.gz' \
     \) | sort
 
-pass: for each compiled `<doc_id>`, the expected PDF, XML sidecar, and build log are present; no unexpected TeX auxiliary files are left in the corpus tree.
+pass: for each compiled `<doc_id>`, the expected PDF, XML sidecar, and build log are present; optional Synctex sidecars are acceptable when produced; no unexpected TeX auxiliary files are left in the corpus tree. If no generated artefacts are present in the agent checkout, this test is delegated to human review rather than treated as a script-writing failure.
 
 
 ## Status
 
-T1: pending
-T2: pending
+T1: done
+T2: done
 T3: pending
 
 
@@ -277,7 +283,26 @@ T3: pending
 
 (Empty. Filled by review mode, one section per PR.)
 
+## PR_review #11
+
+verdict: pass for non-human validation; human validation pending.
+
+Checks:
+
+1. File scope: PR #11 modified only `run_log.md`, which is whitelisted for the plan.
+2. Evidence: `run_log.md` contains PR #11 evidence for T1, T2, and human-delegated T3.
+3. Automated tests: A1, A2, and A3 were rerun in review mode and passed.
+4. Human tests: A4 and A5 are tagged human and remain delegated to human validation per Feedback #10; they do not block certification of the non-human/script-writing work.
+5. Task promotion: T1 and T2 are promoted to `done` because their non-human automated gates are green. T3 remains `pending` until human validation of corpus generation and artefact inspection is supplied.
+
 
 ## Feedback
 
-(Empty. Filled by feedback mode in response to PR_reviews and human input.)
+## Feedback #10
+
+Human direction after PR #10:
+
+- Treat repository fixture generation and generated-artefact inspection as human-delegated validation when the agent environment lacks TeX tooling or lacks the human-generated PDF/XML/build-log files.
+- Script-writing tasks should be evaluated by the automated validation unit tests (`A1`, `A2`, and `A3`) unless the agent changes the script or tests in a way that introduces a real failure.
+- Do not block T1/T2 on missing generated corpus artefacts in the agent checkout; record that situation under T3 as human-required validation/environment evidence.
+- Human review remains responsible for confirming generated PDFs/XML/build logs and absence of unexpected TeX auxiliary files before plan archival.
