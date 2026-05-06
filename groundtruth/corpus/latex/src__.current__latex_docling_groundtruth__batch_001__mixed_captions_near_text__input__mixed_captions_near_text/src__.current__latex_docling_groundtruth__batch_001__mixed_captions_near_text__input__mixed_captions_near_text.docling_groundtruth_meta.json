@@ -1,0 +1,29 @@
+{
+  "schema_name": "pdf2md.docling_groundtruth_meta",
+  "schema_version": "1.0.0",
+  "document_id": "src__.current__latex_docling_groundtruth__batch_001__mixed_captions_near_text__input__mixed_captions_near_text",
+  "source_tex": "groundtruth/corpus/latex/src__.current__latex_docling_groundtruth__batch_001__mixed_captions_near_text__input__mixed_captions_near_text/src__.current__latex_docling_groundtruth__batch_001__mixed_captions_near_text__input__mixed_captions_near_text.tex",
+  "source_sha256": "838183db38b47e6171985e8dc90d6ad75b527732a2572f839bfce925a2b08828",
+  "labels": {
+    "fig:mixed": "#/pictures/0",
+    "tab:mixed": "#/tables/0"
+  },
+  "references": [],
+  "footnote_anchors": [],
+  "caption_relations": [
+    {
+      "caption_ref": "#/texts/2",
+      "target_ref": "#/pictures/0"
+    },
+    {
+      "caption_ref": "#/texts/4",
+      "target_ref": "#/tables/0"
+    }
+  ],
+  "bibliography_entries": [],
+  "ordered_list_groups": [],
+  "latexml_checks": {},
+  "warnings": [
+    "missing_latexml_xml:src__.current__latex_docling_groundtruth__batch_001__mixed_captions_near_text__input__mixed_captions_near_text"
+  ]
+}

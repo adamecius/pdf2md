@@ -1,0 +1,24 @@
+{
+  "schema_name": "pdf2md.docling_groundtruth_meta",
+  "schema_version": "1.0.0",
+  "document_id": "src__.current__latex_docling_groundtruth__batch_pr60__table_with_multiline_cells__input__table_with_multiline_cells",
+  "source_tex": "groundtruth/corpus/latex/src__.current__latex_docling_groundtruth__batch_pr60__table_with_multiline_cells__input__table_with_multiline_cells/src__.current__latex_docling_groundtruth__batch_pr60__table_with_multiline_cells__input__table_with_multiline_cells.tex",
+  "source_sha256": "89f347f6c57f6d79864815664ba6aa4c5a42988653107b41dbc9c91ec2832636",
+  "labels": {
+    "tab:ml": "#/tables/0"
+  },
+  "references": [],
+  "footnote_anchors": [],
+  "caption_relations": [
+    {
+      "caption_ref": "#/texts/2",
+      "target_ref": "#/tables/0"
+    }
+  ],
+  "bibliography_entries": [],
+  "ordered_list_groups": [],
+  "latexml_checks": {},
+  "warnings": [
+    "missing_latexml_xml:src__.current__latex_docling_groundtruth__batch_pr60__table_with_multiline_cells__input__table_with_multiline_cells"
+  ]
+}

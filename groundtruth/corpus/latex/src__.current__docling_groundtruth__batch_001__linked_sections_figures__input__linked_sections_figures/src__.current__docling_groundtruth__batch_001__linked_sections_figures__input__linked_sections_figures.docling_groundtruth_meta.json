@@ -1,0 +1,49 @@
+{
+  "schema_name": "pdf2md.docling_groundtruth_meta",
+  "schema_version": "1.0.0",
+  "document_id": "src__.current__docling_groundtruth__batch_001__linked_sections_figures__input__linked_sections_figures",
+  "source_tex": "groundtruth/corpus/latex/src__.current__docling_groundtruth__batch_001__linked_sections_figures__input__linked_sections_figures/src__.current__docling_groundtruth__batch_001__linked_sections_figures__input__linked_sections_figures.tex",
+  "source_sha256": "cfe33e788a3b937108965c78c7cfa44e9b51bd7504862b4703a6194d725f532e",
+  "labels": {
+    "sec:overview": "#/texts/1",
+    "sec:links": "#/texts/4",
+    "fig:box-diagram": "#/pictures/0",
+    "eq:energy": "#/texts/7",
+    "sec:cross": "#/texts/8"
+  },
+  "references": [
+    {
+      "source_ref": "#/texts/5",
+      "target_label": "fig:box-diagram",
+      "resolved_ref": "#/pictures/0"
+    },
+    {
+      "source_ref": "#/texts/5",
+      "target_label": "eq:energy",
+      "resolved_ref": "#/texts/7"
+    },
+    {
+      "source_ref": "#/texts/9",
+      "target_label": "sec:overview",
+      "resolved_ref": "#/texts/1"
+    }
+  ],
+  "footnote_anchors": [
+    {
+      "footnote_ref": "#/texts/2",
+      "anchor_ref": "#/texts/1"
+    }
+  ],
+  "caption_relations": [
+    {
+      "caption_ref": "#/texts/6",
+      "target_ref": "#/pictures/0"
+    }
+  ],
+  "bibliography_entries": [],
+  "ordered_list_groups": [],
+  "latexml_checks": {},
+  "warnings": [
+    "missing_latexml_xml:src__.current__docling_groundtruth__batch_001__linked_sections_figures__input__linked_sections_figures"
+  ]
+}

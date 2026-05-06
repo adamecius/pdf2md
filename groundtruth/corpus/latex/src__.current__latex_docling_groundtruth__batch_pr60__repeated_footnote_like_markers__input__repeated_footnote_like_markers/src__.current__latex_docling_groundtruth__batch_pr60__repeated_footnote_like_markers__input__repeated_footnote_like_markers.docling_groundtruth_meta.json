@@ -1,0 +1,22 @@
+{
+  "schema_name": "pdf2md.docling_groundtruth_meta",
+  "schema_version": "1.0.0",
+  "document_id": "src__.current__latex_docling_groundtruth__batch_pr60__repeated_footnote_like_markers__input__repeated_footnote_like_markers",
+  "source_tex": "groundtruth/corpus/latex/src__.current__latex_docling_groundtruth__batch_pr60__repeated_footnote_like_markers__input__repeated_footnote_like_markers/src__.current__latex_docling_groundtruth__batch_pr60__repeated_footnote_like_markers__input__repeated_footnote_like_markers.tex",
+  "source_sha256": "62a83cb8c77019d702cbff5c69e2218ca4259d362c22c020e11cbaed0ac6d2c3",
+  "labels": {},
+  "references": [],
+  "footnote_anchors": [
+    {
+      "footnote_ref": "#/texts/2",
+      "anchor_ref": "#/texts/1"
+    }
+  ],
+  "caption_relations": [],
+  "bibliography_entries": [],
+  "ordered_list_groups": [],
+  "latexml_checks": {},
+  "warnings": [
+    "missing_latexml_xml:src__.current__latex_docling_groundtruth__batch_pr60__repeated_footnote_like_markers__input__repeated_footnote_like_markers"
+  ]
+}

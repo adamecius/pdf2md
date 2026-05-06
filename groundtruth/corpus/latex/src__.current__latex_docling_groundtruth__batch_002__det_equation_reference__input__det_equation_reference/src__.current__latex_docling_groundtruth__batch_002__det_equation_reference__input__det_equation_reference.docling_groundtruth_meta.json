@@ -1,0 +1,27 @@
+{
+  "schema_name": "pdf2md.docling_groundtruth_meta",
+  "schema_version": "1.0.0",
+  "document_id": "src__.current__latex_docling_groundtruth__batch_002__det_equation_reference__input__det_equation_reference",
+  "source_tex": "groundtruth/corpus/latex/src__.current__latex_docling_groundtruth__batch_002__det_equation_reference__input__det_equation_reference/src__.current__latex_docling_groundtruth__batch_002__det_equation_reference__input__det_equation_reference.tex",
+  "source_sha256": "7d70b228a12b86a5e46dd52f4ae8a53dd44be5844651388c96c1645955002b2a",
+  "labels": {
+    "eq:one": "#/texts/2"
+  },
+  "references": [
+    {
+      "source_ref": "#/texts/3",
+      "target_label": "eq:one",
+      "resolved_ref": "#/texts/2"
+    }
+  ],
+  "footnote_anchors": [],
+  "caption_relations": [],
+  "bibliography_entries": [],
+  "ordered_list_groups": [],
+  "latexml_checks": {},
+  "warnings": [
+    "missing_latexml_xml:src__.current__latex_docling_groundtruth__batch_002__det_equation_reference__input__det_equation_reference",
+    "unknown_command:author",
+    "unknown_command:date"
+  ]
+}

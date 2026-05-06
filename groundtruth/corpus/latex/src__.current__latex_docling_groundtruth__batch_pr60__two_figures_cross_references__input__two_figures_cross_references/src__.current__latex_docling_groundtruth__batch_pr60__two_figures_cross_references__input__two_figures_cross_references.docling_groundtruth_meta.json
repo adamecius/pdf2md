@@ -1,0 +1,40 @@
+{
+  "schema_name": "pdf2md.docling_groundtruth_meta",
+  "schema_version": "1.0.0",
+  "document_id": "src__.current__latex_docling_groundtruth__batch_pr60__two_figures_cross_references__input__two_figures_cross_references",
+  "source_tex": "groundtruth/corpus/latex/src__.current__latex_docling_groundtruth__batch_pr60__two_figures_cross_references__input__two_figures_cross_references/src__.current__latex_docling_groundtruth__batch_pr60__two_figures_cross_references__input__two_figures_cross_references.tex",
+  "source_sha256": "2033d11ff08269f325f14482cb17c0ea96e7cb3372b7b92be273ff8f4048f96f",
+  "labels": {
+    "fig:one": "#/pictures/0",
+    "fig:two": "#/pictures/1"
+  },
+  "references": [
+    {
+      "source_ref": "#/texts/4",
+      "target_label": "fig:one",
+      "resolved_ref": "#/pictures/0"
+    },
+    {
+      "source_ref": "#/texts/4",
+      "target_label": "fig:two",
+      "resolved_ref": "#/pictures/1"
+    }
+  ],
+  "footnote_anchors": [],
+  "caption_relations": [
+    {
+      "caption_ref": "#/texts/2",
+      "target_ref": "#/pictures/0"
+    },
+    {
+      "caption_ref": "#/texts/3",
+      "target_ref": "#/pictures/1"
+    }
+  ],
+  "bibliography_entries": [],
+  "ordered_list_groups": [],
+  "latexml_checks": {},
+  "warnings": [
+    "missing_latexml_xml:src__.current__latex_docling_groundtruth__batch_pr60__two_figures_cross_references__input__two_figures_cross_references"
+  ]
+}
