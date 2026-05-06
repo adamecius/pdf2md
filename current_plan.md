@@ -1,296 +1,389 @@
-Feedback mode: Close the previous current plan and make it status exectured. Write the new current plan:
+# Plan 1 — IR contracts: `PageExtractionIR` and `ConsensusIR`
 
-# Current plan - after-consensus Page IR to DoclingDocument
+Status: draft, ready to implement
+Repo: `pdf2md`
+Owner: data contracts
+Sequence: this is plan 1 of 6. It blocks plans 2–6.
 
-## Goal
+---
 
-The previous milestone demonstrated that a DoclingDocument can be built from the LaTeX ground-truth source. The next milestone is to demonstrate that the **Page IR after consensus** contains enough information to:
+## 0. Scope and constraints
 
-1. recover semantic links;
-2. preserve document reading order;
-3. populate a DoclingDocument in the same architectural direction as the ground-truth Docling output;
-4. warn clearly when a Docling field cannot be filled from the post-consensus object;
-5. prove the after-consensus pipeline contract with at least 10 mock after-consensus IR fixtures and unit tests.
+This plan defines and freezes two Pydantic v2 contracts that every later plan depends on:
 
-This task is about architecture and contract validation. The final DoclingDocument does not need to be fully populated, but every missing or degraded fill must be visible in a report or warning. No value should be invented to satisfy a schema.
+- `PageExtractionIR` — what each backend connector (plan 2) emits per page.
+- `ConsensusIR` — what the consensus factory (plan 4) emits per document.
 
-## Current repository review
+This plan **only** delivers schemas, validators, JSON-Schema export, and the test suite that certifies them. **No** consensus logic, **no** connector code, **no** linker, **no** changes to existing backends.
 
-The current repository already has pieces that should be used as the starting point rather than bypassed with new isolated scripts:
+The plan completes when `pytest` passes the test module listed in §7 against an implementation that touches only the files in §3.
 
-- `src/pdf2md/utils/semantic_linker.py` builds semantic anchors, references and attachments from a consensus report.
-- `src/pdf2md/utils/semantic_document_builder.py` turns a consensus report plus semantic links and optional media manifest into `pdf2md.semantic_document`.
-- `src/pdf2md/utils/docling_adapter.py` adapts a semantic document into Docling JSON plus Docling relation/report JSON.
-- `src/pdf2md/pipeline/convert.py` is still a placeholder for orchestration and can host the after-consensus pipeline entry point.
-- `tests/` already contains tests for semantic linking, mock backend schema, ground-truth regressions and pipeline contracts.
+Hard constraints:
+- Pure Pydantic v2. No new runtime dependencies. `pydantic>=2` is already in `pyproject.toml`.
+- No I/O in the model layer beyond `model_dump`/`model_validate` and `model_json_schema`.
+- The contracts are versioned (`SCHEMA_VERSION = "1.0.0"`); bumping is out of scope here.
+- Files outside the whitelist must remain byte-identical.
 
-The next implementation must bring the after-consensus to Docling path into the main package. It must not create another one-off root-level converter unless it is only a thin manual debugging wrapper around production code.
+Out of scope:
+- Loading real backend outputs.
+- Consensus heuristics or scoring.
+- Calibrated confidence priors (those land in plan 3 and are referenced from plan 4).
+- Schema migration / backward-compat layer (only one version exists today).
 
-## Architectural decision
+---
 
-Add a small production layer for **after-consensus IR to Docling** and keep responsibilities separated:
+## 1. Why two IRs and not one
 
-```text
-after-consensus Page IR
-  |
-  |  1. normalise input contract
-  v
-canonical post-consensus semantic document
-  |
-  |  2. derive anchors, references, relations and reading order
-  v
-semantic link graph
-  |
-  |  3. emit DoclingDocument and sidecar reports
-  v
-Docling JSON + relation report + fill-warning report
+`PageExtractionIR` is *evidence* — what one backend saw on one page. It is per-backend, per-page, never canonical, may overlap or contradict another backend.
+
+`ConsensusIR` is *resolution* — a per-document, page-keyed structure where every block has a unique canonical identity, an explicit `selection_mode`, and a back-reference to the contributing `ExtractionBlock` candidates. Conflicts that the consensus factory could not resolve are first-class objects (`Conflict`), not warnings.
+
+Conflating the two is the current sin of `consensus_report.py` + `semantic_document_builder.py`: candidates and resolutions live in the same object, and there is no place to record an unresolved conflict that the linker (plan 5) might still resolve.
+
+---
+
+## 2. File whitelist (minimal)
+
+The reviewer will diff against `main` and reject the plan if any file outside this list is modified.
+
+```
+src/pdf2md/models/__init__.py
+src/pdf2md/models/ir.py
+tests/test_ir_contracts.py
+tests/data/ir_fixtures/page_extraction_ir.min.json
+tests/data/ir_fixtures/page_extraction_ir.full.json
+tests/data/ir_fixtures/consensus_ir.min.json
+tests/data/ir_fixtures/consensus_ir.full.json
+tests/data/ir_fixtures/consensus_ir.with_conflicts.json
 ```
 
-The converter must consume the consensus object as the source of truth. It may derive missing semantic information by post-processing the consensus object, but it must not demand duplicated fields upstream if those fields can be computed from existing consensus fields.
+Notes:
+- `src/pdf2md/models/__init__.py` is touched **only** to add re-exports (`from .ir import …`). If the existing `__init__.py` already re-exports `Document/Page/Block`, the new exports are appended; existing names are not removed.
+- `src/pdf2md/models/ir.py` currently contains placeholder text (per `next_plan.md` §13); it gets replaced.
+- Existing `tests/test_ir_scaffolding.py` is **not** edited. It stays as a placeholder. The new test file `tests/test_ir_contracts.py` is the certifying module.
+- The five JSON fixtures are tiny (each ≤ 2 KB), hand-crafted, and committed.
+- `pyproject.toml` is **not** touched.
 
-## Responsibility boundaries
+---
 
-### 1. Consensus IR contract normalisation
+## 3. Module layout (single file)
 
-Location: `src/pdf2md/docling/consensus.py` or, if this is judged too much package growth, one module named `src/pdf2md/utils/consensus_docling.py`.
+`src/pdf2md/models/ir.py` exposes, in this order:
 
-Responsibilities:
-
-- Accept an after-consensus IR shaped like `pdf2md.semantic_document` or the current consensus report plus derived links.
-- Validate the minimum fields needed for Docling construction.
-- Produce a canonical internal list of blocks sorted by deterministic reading order.
-- Detect repeated blocks, repeated source information and repeated semantic content.
-- Preserve provenance, agreement and conflict metadata.
-- Produce warnings, not failures, for missing optional fields.
-
-It must not:
-
-- call OCR backends;
-- read PDFs;
-- infer content that is not present in the consensus object;
-- modify ground-truth fixture sources.
-
-### 2. Semantic linking
-
-Responsibilities:
-
-- Link captions to figures and tables.
-- Link equation numbers to formulas.
-- Link paragraph references to anchors where enough information exists.
-- Link footnote markers to footnote bodies.
-- Keep unresolved references in a sidecar report.
-- Use the existing `semantic_linker.py` behaviour where possible instead of duplicating it.
-
-This layer must be able to work from text, kind/type, page index, block order, bbox and existing relations. Explicit anchor fields may be used when present, but the upstream consensus phase should not be forced to duplicate labels that can be parsed from text.
-
-### 3. Docling emission
-
-Responsibilities:
-
-- Build a DoclingDocument when docling-core is available.
-- Fall back to a deterministic Docling-shaped dictionary only where tests must not depend on optional Docling runtime APIs.
-- Preserve body order in texts, tables, pictures and relation sidecars.
-- Attach warnings for empty fills, missing media, table degradation and unresolved links.
-- Reuse the existing `docling_adapter.py` where it is sufficient; extend or wrap it where the existing adapter degrades too much information.
-
-The implementation must not silently drop semantic information. Anything that cannot be represented in Docling must be retained in the relation or warning report.
-
-### 4. Pipeline integration
-
-Location: `src/pdf2md/pipeline/convert.py` or a nearby module under `src/pdf2md/pipeline/`.
-
-Add an explicit entry point such as:
-
-```python
-build_docling_from_after_consensus_ir(after_consensus_ir, *, strict=False)
+```
+SCHEMA_VERSION                # "1.0.0"
+CoordOrigin                   # Enum: BOTTOMLEFT, TOPLEFT
+BlockKind                     # Enum: paragraph, heading, formula, figure, table,
+                              #       caption, list, list_item, footnote, page_number,
+                              #       header, footer, reference, bibitem, code, unknown
+SelectionMode                 # Enum: agreed, single_source, fallback, unresolved
+ConflictKind                  # Enum: text_conflict, kind_conflict, bbox_conflict,
+                              #       presence_conflict, order_conflict
+BBox                          # frozen model
+Span                          # frozen model
+PageSize                      # frozen model
+ExtractionBlock
+PageExtractionIR
+Conflict
+ConsensusBlock
+ConsensusPage
+BackendManifest
+ConsensusIR
 ```
 
-or:
+Everything is `BaseModel` with `model_config = ConfigDict(extra="forbid", frozen=False, populate_by_name=True)`.
 
-```python
-convert_after_consensus_ir_to_docling(after_consensus_ir, *, strict=False)
+ID conventions enforced by `field_validator`:
+
+- `ExtractionBlock.id` matches `^[a-z0-9_-]+:[A-Za-z0-9_.-]+:p\d+:b\d+$` — `<backend>:<doc>:p<page>:b<index>`.
+- `ConsensusBlock.id` matches `^con:[A-Za-z0-9_.-]+:p\d+:b\d+$`.
+- `Conflict.id` matches `^conf:[A-Za-z0-9_.-]+:\d+$`.
+
+These regexes live next to the models as module-level constants so plans 2 and 4 can reuse them.
+
+---
+
+## 4. `PageExtractionIR` — fields
+
+```
+schema_name: Literal["pdf2md.PageExtractionIR"]
+schema_version: Literal["1.0.0"]
+document_id: str            # non-empty
+backend: str                # canonical backend name; non-empty
+backend_version: str | None
+page_no: int                # >= 1
+page_size: PageSize         # {width: float > 0, height: float > 0}
+blocks: list[ExtractionBlock]
+raw_artifact_ref: str | None  # path or json-pointer to backend's raw output
+metadata: dict[str, Any]    # free-form, opaque
 ```
 
-The return value must be a structured result containing:
+`ExtractionBlock`:
 
-- `docling_document`: Docling export dictionary;
-- `relations`: relation/anchor/reference sidecar;
-- `report`: validation and fill-warning report.
-
-This proves that the pipeline after consensus is valid without requiring OCR or TeX tooling in the unit tests.
-
-## Required output artefacts
-
-The implementation must create or update the following files only unless tests require a small import adjustment elsewhere under `src/`:
-
-- `src/pdf2md/docling/__init__.py` if a new package is used;
-- `src/pdf2md/docling/consensus.py` or a single equivalent module under `src/pdf2md/utils/`;
-- `src/pdf2md/pipeline/convert.py` or one narrow pipeline integration module;
-- `tests/test_consensus_docling.py`;
-- `consensus.docling.checklist.md`;
-- `current_plan.md`.
-
-Avoid file proliferation. The preferred design is one production converter module plus one existing pipeline integration point.
-
-## Minimum after-consensus fields
-
-The implementation must prove that these fields are enough to generate a useful Docling output:
-
-- document identity: `run_id`, `source_pdf` or equivalent document name;
-- pages: `page_index`, `page_number` if available;
-- blocks or candidate groups: stable id, kind/type, representative text, optional bbox, optional order;
-- provenance: sources, source members and agreement/conflict metadata when available;
-- geometry: bbox when available; missing bbox must degrade with a warning;
-- media: media id or path when available; missing media for figures must degrade with a warning;
-- relations, anchors and references if already derived, but not required as duplicated upstream fields if derivable from the consensus object.
-
-Anything else belongs in post-processing unless a test proves it cannot be reconstructed from the consensus object.
-
-## Reading order requirements
-
-The output order must be deterministic and stable:
-
-- sort by `page_index`;
-- prefer explicit `order` or `reading_order` if present;
-- otherwise sort by bbox top coordinate, then left coordinate;
-- keep source order as the final stable tiebreaker;
-- warn with `order_fallback_geometry:<page_index>` when geometry was needed;
-- warn with `order_ambiguous:<page_index>` when neither explicit order nor useful geometry is available.
-
-This is the minimum needed for the after-consensus structure to be comparable in quality to the order recoverable from tagged PDF plus XML witnesses.
-
-## Warning contract
-
-Warnings must be machine-readable strings. Required warning families:
-
-- `empty_fill:<docling_ref>:<field>`
-- `missing_text:<block_id>`
-- `missing_bbox:<block_id>`
-- `missing_page:<block_id>`
-- `order_fallback_geometry:<page_index>`
-- `order_ambiguous:<page_index>`
-- `duplicate_content_suppressed:<block_id>`
-- `duplicate_block_id:<block_id>`
-- `unresolved_reference:<reference_id>`
-- `figure_without_media:<block_id>`
-- `table_structure_degraded:<block_id>`
-- `formula_text_geometry_not_fused:<block_id>`
-- `caption_without_target:<block_id>`
-
-Tests may add narrower warnings, but these families must stay stable.
-
-## Ten required mock after-consensus IR fixtures
-
-Create at least 10 mock after-consensus IR objects inside `tests/test_consensus_docling.py` or a small test helper in the same file. Do not create large JSON fixture files unless readability becomes impossible.
-
-Required cases:
-
-1. `simple_title_paragraph`: title, section header and paragraph with clean order.
-2. `geometry_order_fallback`: blocks with no explicit order, sorted by bbox.
-3. `multipage_order`: body blocks across at least two pages with headers and footers excluded or marked as artefacts.
-4. `equation_reference`: formula, equation number and paragraph reference resolved to the same anchor.
-5. `figure_caption_missing_media`: caption links to figure, but missing media produces a warning while preserving semantic relation.
-6. `table_degraded_text_only`: table block has text but no cell grid, so Docling output degrades and warns.
-7. `footnote_marker_body`: paragraph marker links to footnote body.
-8. `list_items_nested_or_grouped`: list items preserve grouping and order.
-9. `duplicates_and_conflicts`: duplicated candidate or repeated content is suppressed once and reported; conflict metadata is preserved.
-10. `empty_and_missing_fields`: missing text, missing bbox, missing page or empty media fields produce warnings without raising.
-
-Additional cases are welcome only if they clarify behaviour. Avoid expanding the fixture surface without a reason.
-
-## Unit test requirements
-
-Create `tests/test_consensus_docling.py`.
-
-The tests must verify:
-
-- all 10 mock after-consensus IR cases pass through the after-consensus to Docling pipeline without uncaught exceptions;
-- the output has deterministic text order;
-- captions, figures, tables, equations and footnotes are linked through sidecar relations or anchors;
-- duplicate content is not repeated in the Docling output;
-- missing optional Docling fills are reported with warnings;
-- unresolved references stay visible in the report;
-- the converter can run without TeX tooling, OCR engines or real PDF files;
-- the pipeline entry point under `src/pdf2md/pipeline/` is exercised, not only the lower-level adapter;
-- if docling-core is installed, the emitted Docling dictionary validates with the DoclingDocument schema;
-- if docling-core is not installed, the fallback dictionary remains deterministic and tests still validate the project contract.
-
-## Checklist file to create
-
-Create `consensus.docling.checklist.md`.
-
-Purpose:
-
-- define the fields the consensus phase must retain so that Docling generation is possible;
-- keep the checklist almost empty of new demands;
-- make reviewers explicitly decide whether any proposed field is truly needed upstream or can be post-processed from the consensus object;
-- prevent duplicated fields and duplicated semantic information.
-
-The checklist must include a reviewer rule:
-
-> A field may be added to the consensus contract only if it cannot be derived by querying the consensus object, semantic linker output, media manifest or deterministic post-processing.
-
-The checklist should classify fields as:
-
-- required in consensus object;
-- optional but useful;
-- must be post-processed, not demanded upstream;
-- forbidden duplicate.
-
-Expected direction: most semantic labels, references, section hierarchy and captions should be post-processed, not demanded as duplicate consensus fields.
-
-## Tests to run
-
-### A1 - targeted unit tests
-
-```bash
-PYTHONPATH=src python -m pytest tests/test_consensus_docling.py -v
+```
+id: str
+backend: str                # must equal parent.backend
+page_no: int                # must equal parent.page_no
+kind: BlockKind
+bbox: BBox | None           # None allowed (e.g., logical-only output)
+order: int                  # >= 0, monotonic recommended (not enforced cross-block)
+text: str
+confidence: float | None    # 0.0 <= c <= 1.0
+spans: list[Span] | None    # optional sub-block spans
+raw_ref: str | None
+metadata: dict[str, Any]
 ```
 
-Pass condition: all 10 mock after-consensus IR cases pass.
+`Span`:
 
-### A2 - existing semantic tests
-
-```bash
-PYTHONPATH=src python -m pytest tests/test_semantic_linker.py tests/test_mock_backend_schema.py -v
+```
+text: str
+bbox: BBox | None
+char_start: int             # >= 0
+char_end: int               # > char_start
 ```
 
-Pass condition: existing semantic linking and mock schema tests still pass.
+`BBox`:
 
-### A3 - full unit suite
-
-```bash
-PYTHONPATH=src python -m pytest -q
+```
+l: float
+t: float
+r: float
+b: float
+coord_origin: CoordOrigin
 ```
 
-Pass condition: all tests pass, or any unrelated pre-existing failures are documented precisely.
+Validators on `BBox`:
+- `r > l`
+- For `BOTTOMLEFT`: `t > b`
+- For `TOPLEFT`:    `b > t`
 
-### A4 - syntax compilation
+The mismatch of conventions is the bug source we want to kill at construction time.
 
-```bash
-python -m compileall src tests/test_consensus_docling.py
+`PageSize`:
+
+```
+width: float > 0
+height: float > 0
 ```
 
-Pass condition: no syntax errors.
+Cross-field validators on `PageExtractionIR` (model-level, after fields):
+- All `blocks[i].page_no == self.page_no`.
+- All `blocks[i].backend == self.backend`.
+- `len({b.id for b in blocks}) == len(blocks)` (unique ids within a page).
 
-## Acceptance criteria
+---
 
-The task is complete only when:
+## 5. `ConsensusIR` — fields
 
-- production code lives under `src/`, not as an isolated script;
-- an after-consensus IR can be converted to Docling JSON through a pipeline-level function;
-- at least 10 mock after-consensus IR edge cases are tested;
-- semantic links are preserved or reported as unresolved;
-- reading order is deterministic and tested;
-- empty or unavailable Docling fills produce warnings;
-- duplicated information is not required from the consensus phase;
-- `consensus.docling.checklist.md` exists and is strict about avoiding duplicated fields;
-- all targeted tests pass.
+```
+schema_name: Literal["pdf2md.ConsensusIR"]
+schema_version: Literal["1.0.0"]
+document_id: str
+page_count: int             # >= 0
+pages: list[ConsensusPage]
+conflicts: list[Conflict]
+backends: list[BackendManifest]
+agreement_summary: dict[str, Any]
+metadata: dict[str, Any]
+```
 
-## Status
+`ConsensusPage`:
 
-T1 - design production converter module: pending
-T2 - add pipeline entry point: pending
-T3 - add 10 mock after-consensus IR tests: pending
-T4 - add consensus.docling.checklist.md: pending
-T5 - run targeted and full tests: pending
+```
+page_no: int                # >= 1
+page_size: PageSize
+blocks: list[ConsensusBlock]
+```
+
+`ConsensusBlock`:
+
+```
+id: str                                 # con:<doc>:p<n>:b<k>
+kind: BlockKind
+bbox: BBox | None
+order: int
+text: str
+selection_mode: SelectionMode
+selected_source: str | None             # backend name; None iff selection_mode==unresolved
+agreement_score: float                  # 0.0 <= s <= 1.0
+candidate_ids: list[str]                # ExtractionBlock.id values, cross-backend
+conflict_ids: list[str]                 # Conflict.id values; may be empty
+metadata: dict[str, Any]
+```
+
+`Conflict`:
+
+```
+id: str
+kind: ConflictKind
+page_no: int
+candidate_ids: list[str]                # at least 2
+description: str
+resolution: Literal["unresolved", "resolved_by_consensus", "resolved_by_linker"]
+selected_candidate_id: str | None       # in candidate_ids when resolution != unresolved
+metadata: dict[str, Any]
+```
+
+`BackendManifest`:
+
+```
+backend: str
+backend_version: str | None
+manifest_ref: str | None                # path to local_run_manifest.json, etc.
+prior_ref: str | None                   # forward-compat for plan 3 priors; not validated here
+```
+
+Cross-field validators on `ConsensusIR` (model-level):
+- `page_count == len(pages)`.
+- All `pages[i].page_no` are unique and contiguous starting at 1 when `page_count > 0`. (Use a dedicated method, not the validator, if you'd rather not enforce contiguity strictly; **the test will assert contiguity**.)
+- Every `block.candidate_ids` element matches the `ExtractionBlock.id` regex (referential consistency is not checked here — that's a plan-4 concern).
+- Every `block.conflict_ids` element exists in `self.conflicts`.
+- For every `Conflict`: `selected_candidate_id` ∈ `candidate_ids` when `resolution != "unresolved"`.
+- For every `ConsensusBlock`:
+  - `selection_mode == "unresolved"` ⇒ `selected_source is None` and `len(conflict_ids) >= 1`.
+  - `selection_mode != "unresolved"` ⇒ `selected_source is not None`.
+
+Helper functions (also exported from `ir.py`, **pure**, no I/O):
+
+```
+extraction_id(backend, document_id, page_no, block_index) -> str
+consensus_id(document_id, page_no, block_index) -> str
+conflict_id(document_id, index) -> str
+```
+
+These are the canonical id factories used by plans 2 and 4.
+
+---
+
+## 6. JSON Schema export
+
+The two top-level models must produce valid JSON Schemas via `model_json_schema()`. The test suite asserts:
+
+- `schema["title"]` is `"PageExtractionIR"` / `"ConsensusIR"`.
+- `schema["properties"]["schema_name"]["const"]` matches the literal.
+- `schema["properties"]["schema_version"]["const"] == "1.0.0"`.
+- `schema["additionalProperties"] is False` (because `extra="forbid"`).
+- The schemas are round-trippable through `json.dumps(...)` (i.e., no non-serialisable artefacts leak).
+
+No external `jsonschema` package needed; structural assertions on the dict are enough.
+
+---
+
+## 7. Tests (the milestone)
+
+All tests live in `tests/test_ir_contracts.py`. They are organised in `pytest` classes per concern. Every test has a docstring stating the contract it certifies; the reviewer reads those.
+
+```
+class TestEnums:
+    test_block_kind_values_match_specification
+    test_selection_mode_values_match_specification
+    test_conflict_kind_values_match_specification
+    test_coord_origin_values_match_specification
+
+class TestBBox:
+    test_valid_bbox_bottomleft_constructs
+    test_valid_bbox_topleft_constructs
+    test_bbox_rejects_l_ge_r
+    test_bbox_rejects_inverted_t_b_for_bottomleft
+    test_bbox_rejects_inverted_b_t_for_topleft
+    test_bbox_extra_field_forbidden
+
+class TestPageSize:
+    test_valid_page_size
+    test_page_size_rejects_zero_or_negative
+
+class TestExtractionBlock:
+    test_minimal_construction
+    test_id_pattern_accepted
+    test_id_pattern_rejected_when_malformed
+    test_confidence_in_unit_interval
+    test_extra_field_forbidden
+
+class TestPageExtractionIR:
+    test_minimal_round_trip
+    test_full_round_trip                  # uses page_extraction_ir.full.json
+    test_blocks_must_share_page_no
+    test_blocks_must_share_backend_name
+    test_block_ids_must_be_unique
+    test_schema_name_and_version_pinned
+    test_json_schema_export_basic_shape
+
+class TestConsensusBlock:
+    test_unresolved_requires_no_selected_source_and_has_conflicts
+    test_resolved_requires_selected_source
+    test_agreement_score_in_unit_interval
+    test_candidate_ids_must_match_extraction_id_pattern
+
+class TestConflict:
+    test_unresolved_allows_no_selected_candidate
+    test_resolved_requires_selected_candidate_in_candidate_ids
+    test_minimum_two_candidates
+
+class TestConsensusIR:
+    test_minimal_round_trip
+    test_full_round_trip                  # uses consensus_ir.full.json
+    test_with_conflicts_round_trip        # uses consensus_ir.with_conflicts.json
+    test_page_count_must_match_pages_length
+    test_pages_must_be_contiguous_from_one
+    test_block_conflict_ids_must_exist_in_top_level_conflicts
+    test_schema_name_and_version_pinned
+    test_json_schema_export_basic_shape
+
+class TestIdFactories:
+    test_extraction_id_format
+    test_consensus_id_format
+    test_conflict_id_format
+    test_factories_round_trip_through_validators
+```
+
+Implementation rules for the tests:
+- Every "round-trip" test does: `model = T.model_validate_json(fixture_path.read_text())` → `payload = model.model_dump(mode="json")` → `T.model_validate(payload)` → assert deep-equality of both dumps.
+- Every "rejects" test uses `pytest.raises(ValidationError)`.
+- No test imports anything other than `json`, `pathlib`, `pytest`, `pydantic`, and `pdf2md.models.ir`.
+- No test reads outside `tests/data/ir_fixtures/`.
+- No fixtures rely on disk state mutated by previous tests.
+
+The five fixtures cover:
+- `page_extraction_ir.min.json` — one block, no bbox, no spans.
+- `page_extraction_ir.full.json` — three blocks with bbox, spans, confidence, raw_ref, metadata.
+- `consensus_ir.min.json` — one page, one resolved block, no conflicts.
+- `consensus_ir.full.json` — three pages, mixed selection modes, agreement summary populated.
+- `consensus_ir.with_conflicts.json` — one unresolved block referencing a `Conflict` with two candidates.
+
+---
+
+## 8. Acceptance criteria
+
+The reviewer accepts the plan as complete when **all** of the following hold:
+
+1. `pytest tests/test_ir_contracts.py -q` exits with code 0 and reports the full count of tests listed in §7. No `xfail`, no `skip`.
+2. `git diff --name-only main..HEAD` returns a subset of the whitelist in §2. Any extraneous file fails the review.
+3. `python -c "from pdf2md.models.ir import PageExtractionIR, ConsensusIR; print(PageExtractionIR.model_json_schema()['title'], ConsensusIR.model_json_schema()['title'])"` prints `PageExtractionIR ConsensusIR` without error.
+4. The five fixture files load via `model_validate_json` without warnings.
+5. No file outside the whitelist has been changed (`git diff --stat` confirms).
+6. `pytest tests/ -q` (whole suite) shows no regression: existing tests must still pass at their previous count or above.
+
+Criterion 6 is what guarantees we did not break the existing `Document/Page/Block` schema or the placeholder `tests/test_ir_scaffolding.py`.
+
+---
+
+## 9. Implementation order (internal)
+
+A. Add the enums, `BBox`, `Span`, `PageSize`, `PageExtractionIR.ExtractionBlock`, `PageExtractionIR`. Run only the `TestEnums`, `TestBBox`, `TestPageSize`, `TestExtractionBlock`, `TestPageExtractionIR` classes.
+
+B. Add `Conflict`, `ConsensusBlock`, `ConsensusPage`, `BackendManifest`, `ConsensusIR`. Run the rest.
+
+C. Add the three id factories and run `TestIdFactories`.
+
+D. Add re-exports to `src/pdf2md/models/__init__.py`. Re-run the entire `tests/` suite to confirm criterion 6.
+
+Each step is independently runnable; the test file is committed last so the reviewer sees the green CI on the final commit.
+
+---
+
+## 10. Open questions (track separately, do not block this plan)
+
+- Do we want `bbox` to default to `None` for logical-only blocks (e.g., `bibitem` from a connector that does not localise references)? Current draft: yes.
+- Should `agreement_score` be `None` for `selection_mode == "single_source"`? Current draft: no — single-source is an agreement of one, score = `1.0 / num_backends_seen`. The exact formula is plan 4's job; this plan only enforces `0 ≤ s ≤ 1`.
+- Whether `metadata` should be typed (`dict[str, str | int | float | bool | None | list | dict]`) instead of `dict[str, Any]` — left as `Any` for now to avoid coupling tests to Pydantic's serialization quirks.
