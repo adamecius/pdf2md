@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?latexml searchpaths="/home/jgarcia/pdf2md/pdf2md/groundtruth/corpus/latex/src__.current__latex_docling_groundtruth__batch_001__table_with_multiline_cells__input__table_with_multiline_cells"?>
+<?latexml class="article"?>
+<?latexml package="amsmath"?>
+<?latexml RelaxNGSchema="LaTeXML"?>
+<document xmlns="http://dlmf.nist.gov/LaTeXML" class="ltx_authors_1line" xml:id="src__.current__latex_docling_groundtruth__batch_001__table_with_multiline_cells__input__table_with_multiline_cells">
+  <resource src="LaTeXML.css" type="text/css"/>
+  <resource src="ltx-article.css" type="text/css"/>
+  <title>Table With Multiline Cells</title>
+  <section inlist="toc" xml:id="src__.current__latex_docling_groundtruth__batch_001__table_with_multiline_cells__input__table_with_multiline_cells.S1">
+    <tags>
+      <tag>1</tag>
+      <tag role="refnum">1</tag>
+      <tag role="typerefnum">§1</tag>
+    </tags>
+    <title><tag close=" ">1</tag>Data</title>
+    <table inlist="lot" labels="LABEL:tab:ml" placement="h" xml:id="src__.current__latex_docling_groundtruth__batch_001__table_with_multiline_cells__input__table_with_multiline_cells.S1.T1">
+      <tags>
+        <tag>Table 1</tag>
+        <tag role="refnum">1</tag>
+        <tag role="typerefnum">Table 1</tag>
+      </tags>
+      <toccaption class="ltx_centering"><tag close=" ">1</tag>Long cells</toccaption>
+      <caption class="ltx_centering"><tag close=": ">Table 1</tag>Long cells</caption>
+      <tabular class="ltx_centering" vattach="middle">
+        <tbody>
+          <tr>
+            <td align="justify" border="b l r t" width="142.3pt"><p vattach="top">long text line one and two</p></td>
+            <td align="justify" border="b r t" width="142.3pt"><p vattach="top">another deterministic long cell</p></td>
+          </tr>
+        </tbody>
+      </tabular>
+    </table>
+  </section>
+</document>

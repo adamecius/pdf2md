@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?latexml searchpaths="/home/jgarcia/pdf2md/pdf2md/groundtruth/corpus/latex/src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables"?>
+<?latexml class="article"?>
+<?latexml package="amsmath"?>
+<?latexml RelaxNGSchema="LaTeXML"?>
+<document xmlns="http://dlmf.nist.gov/LaTeXML" class="ltx_authors_1line" xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables">
+  <resource src="LaTeXML.css" type="text/css"/>
+  <resource src="ltx-article.css" type="text/css"/>
+  <title>Lists Footnotes and Tables Fixture</title>
+  <creator role="author">
+    <personname>pdf2md Phase 1A</personname>
+  </creator>
+  <date role="creation"/>
+  <section inlist="toc" labels="LABEL:sec:structured" xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1">
+    <tags>
+      <tag>1</tag>
+      <tag role="refnum">1</tag>
+      <tag role="typerefnum">§1</tag>
+    </tags>
+    <title><tag close=" ">1</tag>Structured Content</title>
+    <para xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.p1">
+      <p>This section contains inline math <Math mode="inline" tex="a^{2}+b^{2}=c^{2}" text="a ^ 2 + b ^ 2 = c ^ 2" xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.p1.m1">
+          <XMath>
+            <XMApp>
+              <XMTok meaning="equals" role="RELOP">=</XMTok>
+              <XMApp>
+                <XMTok meaning="plus" role="ADDOP">+</XMTok>
+                <XMApp>
+                  <XMTok role="SUPERSCRIPTOP" scriptpos="post1"/>
+                  <XMTok font="italic" role="UNKNOWN">a</XMTok>
+                  <XMTok fontsize="70%" meaning="2" role="NUMBER">2</XMTok>
+                </XMApp>
+                <XMApp>
+                  <XMTok role="SUPERSCRIPTOP" scriptpos="post1"/>
+                  <XMTok font="italic" role="UNKNOWN">b</XMTok>
+                  <XMTok fontsize="70%" meaning="2" role="NUMBER">2</XMTok>
+                </XMApp>
+              </XMApp>
+              <XMApp>
+                <XMTok role="SUPERSCRIPTOP" scriptpos="post1"/>
+                <XMTok font="italic" role="UNKNOWN">c</XMTok>
+                <XMTok fontsize="70%" meaning="2" role="NUMBER">2</XMTok>
+              </XMApp>
+            </XMApp>
+          </XMath>
+        </Math> and multiple footnotes<note mark="1" role="footnote" xml:id="footnote1"><tags>
+            <tag>1</tag>
+            <tag role="refnum">1</tag>
+            <tag role="typerefnum">footnote 1</tag>
+          </tags>First footnote for list fixture.</note><note mark="2" role="footnote" xml:id="footnote2"><tags>
+            <tag>2</tag>
+            <tag role="refnum">2</tag>
+            <tag role="typerefnum">footnote 2</tag>
+          </tags>Second footnote for list fixture.</note><note mark="3" role="footnote" xml:id="footnote3"><tags>
+            <tag>3</tag>
+            <tag role="refnum">3</tag>
+            <tag role="typerefnum">footnote 3</tag>
+          </tags>Third footnote for list fixture.</note>.</p>
+    </para>
+    <subsection inlist="toc" labels="LABEL:subsec:itemize" xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.SS1">
+      <tags>
+        <tag>1.1</tag>
+        <tag role="refnum">1.1</tag>
+        <tag role="typerefnum">§1.1</tag>
+      </tags>
+      <title><tag close=" ">1.1</tag>Itemize List Block</title>
+      <para xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.SS1.p1">
+        <itemize xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.I1">
+          <item xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.I1.i1">
+            <tags>
+              <tag>•</tag>
+              <tag role="typerefnum">1st item</tag>
+            </tags>
+            <para xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.I1.i1.p1">
+              <p>Top-level bullet<note mark="4" role="footnote" xml:id="footnote4"><tags>
+                    <tag>4</tag>
+                    <tag role="refnum">4</tag>
+                    <tag role="typerefnum">footnote 4</tag>
+                  </tags>Footnote attached to a list item.</note></p>
+            </para>
+          </item>
+          <item xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.I1.i2">
+            <tags>
+              <tag>•</tag>
+              <tag role="typerefnum">2nd item</tag>
+            </tags>
+            <para xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.I1.i2.p1">
+              <p>Bullet with nested list:</p>
+              <enumerate xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.I1.i2.I1">
+                <item xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.I1.i2.I1.i1">
+                  <tags>
+                    <tag>1.</tag>
+                    <tag role="refnum">1</tag>
+                    <tag role="typerefnum">item 1</tag>
+                  </tags>
+                  <para xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.I1.i2.I1.i1.p1">
+                    <p>Nested ordered item A</p>
+                  </para>
+                </item>
+                <item xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.I1.i2.I1.i2">
+                  <tags>
+                    <tag>2.</tag>
+                    <tag role="refnum">2</tag>
+                    <tag role="typerefnum">item 2</tag>
+                  </tags>
+                  <para xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.I1.i2.I1.i2.p1">
+                    <p>Nested ordered item B</p>
+                  </para>
+                </item>
+              </enumerate>
+            </para>
+          </item>
+        </itemize>
+      </para>
+    </subsection>
+    <subsection xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.SSx1">
+      <title>Enumerate List</title>
+<!--  %**** src˙˙tests˙˙docling˙groundtruth˙˙latex˙sources˙˙batch˙001˙˙lists˙footnotes˙tables.tex Line 25 **** -->      <para xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.SSx1.p1">
+        <enumerate xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.I2">
+          <item xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.I2.i1">
+            <tags>
+              <tag>1.</tag>
+              <tag role="refnum">1</tag>
+              <tag role="typerefnum">item 1</tag>
+            </tags>
+            <para xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.I2.i1.p1">
+              <p>Ordered item one</p>
+            </para>
+          </item>
+          <item xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.I2.i2">
+            <tags>
+              <tag>2.</tag>
+              <tag role="refnum">2</tag>
+              <tag role="typerefnum">item 2</tag>
+            </tags>
+            <para xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.I2.i2.p1">
+              <p>Ordered item two</p>
+            </para>
+          </item>
+        </enumerate>
+      </para>
+      <table inlist="lot" labels="LABEL:tab:fixture-table" placement="h" xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.T1">
+        <tags>
+          <tag>Table 1</tag>
+          <tag role="refnum">1</tag>
+          <tag role="typerefnum">Table 1</tag>
+        </tags>
+        <tabular class="ltx_centering ltx_guessed_headers" vattach="middle">
+          <thead>
+            <tr>
+              <td align="left" border="t" thead="column row">Column A</td>
+              <td align="left" border="t" thead="column">Column B</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="left" border="t" thead="row">Alpha</td>
+              <td align="left" border="t">1</td>
+            </tr>
+            <tr>
+              <td align="left" border="b" thead="row">Beta</td>
+              <td align="left" border="b">2</td>
+            </tr>
+          </tbody>
+        </tabular>
+        <toccaption class="ltx_centering"><tag close=" ">1</tag>A labelled fixture table for cross-reference checks.</toccaption>
+        <caption class="ltx_centering"><tag close=": ">Table 1</tag>A labelled fixture table for cross-reference checks.</caption>
+      </table>
+      <para xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.SSx1.p2">
+        <p>Table <ref labelref="LABEL:tab:fixture-table"/> is referenced here.</p>
+      </para>
+      <para xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.SSx1.p3">
+        <equation labels="LABEL:eq:integral" xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.E1">
+          <tags>
+            <tag>(1)</tag>
+            <tag role="refnum">1</tag>
+          </tags>
+          <Math mode="display" tex="\int_{0}^{1}x^{2}\,dx=\frac{1}{3}" text="((integral _ 0) ^ 1)@(x ^ 2 * differential-d@(x)) = 1 / 3" xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.E1.m1">
+            <XMath>
+              <XMApp>
+                <XMTok meaning="equals" role="RELOP">=</XMTok>
+                <XMApp>
+                  <XMApp>
+                    <XMTok role="SUPERSCRIPTOP" scriptpos="post1"/>
+                    <XMApp>
+                      <XMTok role="SUBSCRIPTOP" scriptpos="post1"/>
+                      <XMTok mathstyle="display" meaning="integral" name="int" role="INTOP">∫</XMTok>
+                      <XMTok fontsize="70%" meaning="0" role="NUMBER">0</XMTok>
+                    </XMApp>
+                    <XMTok fontsize="70%" meaning="1" role="NUMBER">1</XMTok>
+                  </XMApp>
+                  <XMApp>
+                    <XMTok meaning="times" role="MULOP">⁢</XMTok>
+                    <XMApp rpadding="1.7pt">
+                      <XMTok role="SUPERSCRIPTOP" scriptpos="post1"/>
+                      <XMTok font="italic" role="UNKNOWN">x</XMTok>
+                      <XMTok fontsize="70%" meaning="2" role="NUMBER">2</XMTok>
+                    </XMApp>
+                    <XMApp>
+                      <XMTok font="italic" meaning="differential-d" role="DIFFOP">d</XMTok>
+                      <XMTok font="italic" role="UNKNOWN">x</XMTok>
+                    </XMApp>
+                  </XMApp>
+                </XMApp>
+                <XMApp>
+                  <XMTok mathstyle="display" meaning="divide" role="FRACOP"/>
+                  <XMTok meaning="1" role="NUMBER">1</XMTok>
+                  <XMTok meaning="3" role="NUMBER">3</XMTok>
+                </XMApp>
+              </XMApp>
+            </XMath>
+          </Math>
+        </equation>
+<!--  %**** src˙˙tests˙˙docling˙groundtruth˙˙latex˙sources˙˙batch˙001˙˙lists˙footnotes˙tables.tex Line 50 **** -->      </para>
+      <para xml:id="src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables.S1.SSx1.p4">
+        <p>Equation <ref labelref="LABEL:eq:integral"/> is referenced here.</p>
+      </para>
+    </subsection>
+  </section>
+</document>

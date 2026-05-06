@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?latexml searchpaths="/home/jgarcia/pdf2md/pdf2md/groundtruth/corpus/latex/src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes"?>
+<?latexml class="article"?>
+<?latexml package="amsmath"?>
+<?latexml RelaxNGSchema="LaTeXML"?>
+<document xmlns="http://dlmf.nist.gov/LaTeXML" class="ltx_authors_1line" xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes">
+  <resource src="LaTeXML.css" type="text/css"/>
+  <resource src="ltx-article.css" type="text/css"/>
+  <title>Multipage All Features References Footnotes</title>
+  <para xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.p1">
+    <p>Opening paragraph before refs with marker [*].<note mark="1" role="footnote" xml:id="footnote1"><tags>
+          <tag>1</tag>
+          <tag role="refnum">1</tag>
+          <tag role="typerefnum">footnote 1</tag>
+        </tags>Paragraph note one.</note></p>
+  </para>
+  <section inlist="toc" labels="LABEL:sec:deep" xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1">
+    <tags>
+      <tag>1</tag>
+      <tag role="refnum">1</tag>
+      <tag role="typerefnum">§1</tag>
+    </tags>
+    <title><tag close=" ">1</tag>Deep Section</title>
+    <para xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.p1">
+      <p>normal paragraph before cross references.</p>
+    </para>
+    <subsection inlist="toc" labels="LABEL:sub:deep" xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.SS1">
+      <tags>
+        <tag>1.1</tag>
+        <tag role="refnum">1.1</tag>
+        <tag role="typerefnum">§1.1</tag>
+      </tags>
+      <title><tag close=" ">1.1</tag>Deep Subsection</title>
+      <para xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.SS1.p1">
+        <p>Inline math <Math mode="inline" tex="a+b" text="a + b" xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.SS1.p1.m1">
+            <XMath>
+              <XMApp>
+                <XMTok meaning="plus" role="ADDOP">+</XMTok>
+                <XMTok font="italic" role="UNKNOWN">a</XMTok>
+                <XMTok font="italic" role="UNKNOWN">b</XMTok>
+              </XMApp>
+            </XMath>
+          </Math> and display</p>
+        <equation xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.Ex1">
+          <Math mode="display" tex="a^{2}+b^{2}=c^{2}" text="a ^ 2 + b ^ 2 = c ^ 2" xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.Ex1.m1">
+            <XMath>
+              <XMApp>
+                <XMTok meaning="equals" role="RELOP">=</XMTok>
+                <XMApp>
+                  <XMTok meaning="plus" role="ADDOP">+</XMTok>
+                  <XMApp>
+                    <XMTok role="SUPERSCRIPTOP" scriptpos="post1"/>
+                    <XMTok font="italic" role="UNKNOWN">a</XMTok>
+                    <XMTok fontsize="70%" meaning="2" role="NUMBER">2</XMTok>
+                  </XMApp>
+                  <XMApp>
+                    <XMTok role="SUPERSCRIPTOP" scriptpos="post1"/>
+                    <XMTok font="italic" role="UNKNOWN">b</XMTok>
+                    <XMTok fontsize="70%" meaning="2" role="NUMBER">2</XMTok>
+                  </XMApp>
+                </XMApp>
+                <XMApp>
+                  <XMTok role="SUPERSCRIPTOP" scriptpos="post1"/>
+                  <XMTok font="italic" role="UNKNOWN">c</XMTok>
+                  <XMTok fontsize="70%" meaning="2" role="NUMBER">2</XMTok>
+                </XMApp>
+              </XMApp>
+            </XMath>
+          </Math>
+        </equation>
+        <p>. caption-like text: Figure caption: not a real caption.</p>
+      </para>
+      <figure inlist="lof" labels="LABEL:fig:deep" placement="h" xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.F1">
+        <tags>
+          <tag>Figure 1</tag>
+          <tag role="refnum">1</tag>
+          <tag role="typerefnum">Figure 1</tag>
+        </tags>
+        <p align="center"><text framecolor="black" framed="rectangle">A</text></p>
+        <toccaption class="ltx_centering"><tag close=" ">1</tag>Deep figure caption</toccaption>
+        <caption class="ltx_centering"><tag close=": ">Figure 1</tag>Deep figure caption</caption>
+      </figure>
+      <para xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.SS1.p2">
+        <p>Reference section <ref labelref="LABEL:sec:deep"/>, subsection <ref labelref="LABEL:sub:deep"/>, figure <ref labelref="LABEL:fig:deep"/>. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout. Deterministic filler sentence for page flow and stable layout.</p>
+      </para>
+      <pagination role="newpage"/>
+      <para xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.SS1.p3">
+        <p>Continue paragraph after page break.</p>
+      </para>
+      <table inlist="lot" labels="LABEL:tab:deep" placement="h" xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.T1">
+        <tags>
+          <tag>Table 1</tag>
+          <tag role="refnum">1</tag>
+          <tag role="typerefnum">Table 1</tag>
+        </tags>
+        <toccaption class="ltx_centering"><tag close=" ">1</tag>Deep table caption</toccaption>
+        <caption class="ltx_centering"><tag close=": ">Table 1</tag>Deep table caption</caption>
+        <tabular class="ltx_centering" vattach="middle">
+          <tbody>
+            <tr>
+              <td align="left" border="b l r t">X</td>
+              <td align="left" border="b r t">Y</td>
+            </tr>
+          </tbody>
+        </tabular>
+      </table>
+      <para xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.SS1.p4">
+        <p>Equation text</p>
+        <equation labels="LABEL:eq:deep" xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.E1">
+          <tags>
+            <tag>(1)</tag>
+            <tag role="refnum">1</tag>
+          </tags>
+          <Math mode="display" tex="x=y" text="x = y" xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.E1.m1">
+            <XMath>
+              <XMApp>
+                <XMTok meaning="equals" role="RELOP">=</XMTok>
+                <XMTok font="italic" role="UNKNOWN">x</XMTok>
+                <XMTok font="italic" role="UNKNOWN">y</XMTok>
+              </XMApp>
+            </XMath>
+          </Math>
+        </equation>
+        <p>repeated refs <ref labelref="LABEL:eq:deep"/> and again <ref labelref="LABEL:eq:deep"/>.</p>
+        <itemize xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.I1">
+          <item xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.I1.i1">
+            <tags>
+              <tag>•</tag>
+              <tag role="typerefnum">1st item</tag>
+            </tags>
+            <para xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.I1.i1.p1">
+              <p>outer one<note mark="2" role="footnote" xml:id="footnote2"><tags>
+                    <tag>2</tag>
+                    <tag role="refnum">2</tag>
+                    <tag role="typerefnum">footnote 2</tag>
+                  </tags>List note two.</note></p>
+            </para>
+          </item>
+          <item xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.I1.i2">
+            <tags>
+              <tag>•</tag>
+              <tag role="typerefnum">2nd item</tag>
+            </tags>
+            <para xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.I1.i2.p1">
+              <p>outer two</p>
+              <enumerate xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.I1.i2.I1">
+                <item xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.I1.i2.I1.i1">
+                  <tags>
+                    <tag>1.</tag>
+                    <tag role="refnum">1</tag>
+                    <tag role="typerefnum">item 1</tag>
+                  </tags>
+                  <para xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S1.I1.i2.I1.i1.p1">
+                    <p>inner enum</p>
+                  </para>
+                </item>
+              </enumerate>
+            </para>
+          </item>
+        </itemize>
+        <p>repeated markers [*] [*] near real notes. refs to table <ref labelref="LABEL:tab:deep"/> and section <ref labelref="LABEL:sec:deep"/>. Closing paragraph after cross-references.</p>
+      </para>
+    </subsection>
+  </section>
+  <section inlist="toc" xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S2">
+    <tags>
+      <tag>2</tag>
+      <tag role="refnum">2</tag>
+      <tag role="typerefnum">§2</tag>
+    </tags>
+    <title><tag close=" ">2</tag>References</title>
+    <para xml:id="src__.current__latex_docling_groundtruth__batch_001__multipage_all_features_references_footnotes__input__multipage_all_features_references_footnotes.S2.p1">
+      <p>[1] Alpha source. [2] Beta source.</p>
+    </para>
+  </section>
+</document>
