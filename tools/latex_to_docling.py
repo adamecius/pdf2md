@@ -577,12 +577,7 @@ def build_docling_from_tex(tex_path: Path) -> tuple[dict[str, Any], dict[str, An
     parse_blocks(state, strip_preamble(tex))
     resolve_references(meta)
     enrich_from_latexml(state)
-    doc_dict = state.doc.export_to_dict()
-    ordered_refs = set(meta.ordered_list_groups)
-    for group in doc_dict.get("groups", []):
-        if group.get("self_ref") in ordered_refs:
-            group["label"] = "ordered_list"
-    return doc_dict, meta.to_dict()
+    return state.doc.export_to_dict(), meta.to_dict()
 
 
 def discover_fixtures(corpus_root: Path, doc_id: str | None = None) -> list[Path]:

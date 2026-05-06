@@ -161,8 +161,9 @@ def test_nested_lists_and_footnotes(tmp_path):
 
     doc, meta = build_docling_from_tex(tex_path)
 
-    assert [group["label"] for group in doc["groups"]] == ["ordered_list", "list"]
+    assert [group["label"] for group in doc["groups"]] == ["list", "list"]
     assert meta["ordered_list_groups"] == ["#/groups/0"]
+    assert DoclingDocument.model_validate(doc).export_to_dict() == doc
     list_items = [item for item in doc["texts"] if item["label"] == "list_item"]
     assert [item["text"] for item in list_items] == ["First", "Second", "Nested"]
     assert any(item["label"] == "footnote" and item["text"] == "A note body" for item in doc["texts"])
