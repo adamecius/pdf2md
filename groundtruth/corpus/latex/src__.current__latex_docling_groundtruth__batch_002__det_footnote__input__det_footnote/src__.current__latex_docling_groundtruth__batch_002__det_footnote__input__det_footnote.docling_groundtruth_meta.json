@@ -14,7 +14,11 @@
   ],
   "caption_relations": [],
   "bibliography_entries": [],
+  "ordered_list_groups": [],
+  "latexml_checks": {},
   "warnings": [
-    "missing_latexml_xml:src__.current__latex_docling_groundtruth__batch_002__det_footnote__input__det_footnote"
+    "missing_latexml_xml:src__.current__latex_docling_groundtruth__batch_002__det_footnote__input__det_footnote",
+    "unknown_command:author",
+    "unknown_command:date"
   ]
 }

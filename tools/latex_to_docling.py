@@ -34,6 +34,35 @@ _ENV_NAMES = {
     "enumerate",
     "thebibliography",
 }
+_KNOWN_COMMANDS = {
+    "begin",
+    "centering",
+    "caption",
+    "cite",
+    "clearpage",
+    "documentclass",
+    "emph",
+    "end",
+    "fbox",
+    "footnote",
+    "frac",
+    "hline",
+    "int",
+    "item",
+    "label",
+    "maketitle",
+    "mathbf",
+    "mathrm",
+    "newpage",
+    "ref",
+    "rule",
+    "section",
+    "subsection",
+    "textbf",
+    "textit",
+    "title",
+    "url",
+}
 
 
 @dataclass
@@ -46,6 +75,8 @@ class GroundtruthMeta:
     footnote_anchors: list[dict[str, str]] = field(default_factory=list)
     caption_relations: list[dict[str, str]] = field(default_factory=list)
     bibliography_entries: list[str] = field(default_factory=list)
+    ordered_list_groups: list[str] = field(default_factory=list)
+    latexml_checks: dict[str, int] = field(default_factory=dict)
     warnings: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
@@ -60,6 +91,8 @@ class GroundtruthMeta:
             "footnote_anchors": self.footnote_anchors,
             "caption_relations": self.caption_relations,
             "bibliography_entries": self.bibliography_entries,
+            "ordered_list_groups": self.ordered_list_groups,
+            "latexml_checks": self.latexml_checks,
             "warnings": sorted(set(self.warnings)),
         }
 
@@ -74,6 +107,8 @@ class ParseState:
     current_subsection: Any = None
     last_item: Any = None
     pending_labels: list[str] = field(default_factory=list)
+    section_titles: list[str] = field(default_factory=list)
+    paragraph_texts: list[str] = field(default_factory=list)
 
     def parent(self) -> Any:
         return self.current_subsection or self.current_section
@@ -94,6 +129,8 @@ class ParseState:
         if not cleaned:
             return None
         item = self.doc.add_text(label=label, text=cleaned, parent=parent if parent is not None else self.parent(), **kwargs)
+        if label == DocItemLabel.TEXT:
+            self.paragraph_texts.append(cleaned)
         self.last_item = item
         self.bind_pending_labels(item)
         record_refs(self.meta, item.self_ref, text)
@@ -284,6 +321,8 @@ def parse_list(state: ParseState, env: str, body: str, parent: Any = None) -> An
         parent=parent if parent is not None else state.parent(),
     )
     state.last_item = group
+    if env == "enumerate":
+        state.meta.ordered_list_groups.append(group.self_ref)
     state.bind_pending_labels(group)
     for chunk in split_top_level_items(body):
         nested_match = re.search(r"\\begin\{(itemize|enumerate)\}", chunk)
@@ -381,6 +420,7 @@ def parse_blocks(state: ParseState, text: str, parent: Any = None) -> None:
             item = state.add_text(DocItemLabel.TITLE, found[2] and found[0] or "", parent=parent)
         elif kind == "section":
             item = state.doc.add_text(label=DocItemLabel.SECTION_HEADER, text=normalize_text(found[0]), parent=parent, level=1)
+            state.section_titles.append(item.text)
             state.current_section = item
             state.current_subsection = None
             state.last_item = item
@@ -388,6 +428,7 @@ def parse_blocks(state: ParseState, text: str, parent: Any = None) -> None:
             record_refs(state.meta, item.self_ref, item.text)
         elif kind == "subsection":
             item = state.doc.add_text(label=DocItemLabel.SECTION_HEADER, text=normalize_text(found[0]), parent=state.current_section or parent, level=2)
+            state.section_titles.append(item.text)
             state.current_subsection = item
             state.last_item = item
             state.bind_pending_labels(item)
@@ -415,6 +456,10 @@ def parse_blocks(state: ParseState, text: str, parent: Any = None) -> None:
         env = match.group(1)
         if env not in _ENV_NAMES:
             state.meta.warnings.append(f"unknown_environment:{env}")
+    for match in re.finditer(r"\\([a-zA-Z]+)\*?", text):
+        command = match.group(1)
+        if command not in _KNOWN_COMMANDS:
+            state.meta.warnings.append(f"unknown_command:{command}")
 
 
 def strip_preamble(tex: str) -> str:
@@ -427,6 +472,33 @@ def strip_preamble(tex: str) -> str:
     return tex
 
 
+def xml_local_name(tag: str) -> str:
+    return tag.rsplit("}", 1)[-1].lower()
+
+
+def xml_node_text(node: ET.Element) -> str:
+    return normalize_text(" ".join(node.itertext()))
+
+
+def xml_child_text(node: ET.Element, names: set[str]) -> str:
+    for child in node:
+        if xml_local_name(child.tag) in names:
+            return xml_node_text(child)
+    return ""
+
+
+def ref_label_from_xml(node: ET.Element) -> str:
+    for key in ("labelref", "label", "target", "href", "refid", "idref"):
+        value = node.attrib.get(key)
+        if not value:
+            continue
+        value = value.lstrip("#")
+        if value.startswith("LABEL:"):
+            value = value.removeprefix("LABEL:")
+        return value
+    return ""
+
+
 def enrich_from_latexml(state: ParseState) -> None:
     xml_path = state.tex_path.with_suffix(".latexml.xml")
     if not xml_path.exists():
@@ -437,10 +509,60 @@ def enrich_from_latexml(state: ParseState) -> None:
     except ET.ParseError as exc:
         state.meta.warnings.append(f"latexml_parse_error:{state.doc_id}:{exc.__class__.__name__}")
         return
-    for bib in root.findall(".//{*}bibitem") + root.findall(".//{*}bibliography//{*}item"):
-        text = normalize_text(" ".join(bib.itertext()))
-        if text:
-            state.meta.bibliography_entries.append(text)
+
+    xml_sections: list[str] = []
+    xml_paragraphs: list[str] = []
+    xml_refs: list[str] = []
+
+    for node in root.iter():
+        name = xml_local_name(node.tag)
+        if name in {"section", "subsection"}:
+            section_text = xml_child_text(node, {"title"}) or xml_node_text(node)
+            if section_text:
+                xml_sections.append(section_text)
+        elif name in {"p", "para", "paragraph"}:
+            paragraph_text = xml_node_text(node)
+            if paragraph_text:
+                xml_paragraphs.append(paragraph_text)
+        elif name == "bibitem":
+            text = xml_node_text(node)
+            if text:
+                state.meta.bibliography_entries.append(text)
+        elif name in {"ref", "xref"}:
+            label = ref_label_from_xml(node)
+            if label:
+                xml_refs.append(label)
+
+    for bibliography in root.iter():
+        if xml_local_name(bibliography.tag) == "bibliography":
+            for item in bibliography:
+                if xml_local_name(item.tag) in {"item", "bibitem"}:
+                    text = xml_node_text(item)
+                    if text and text not in state.meta.bibliography_entries:
+                        state.meta.bibliography_entries.append(text)
+
+    state.meta.latexml_checks = {
+        "sections_checked": len(xml_sections),
+        "paragraphs_checked": len(xml_paragraphs),
+        "references_checked": len(xml_refs),
+        "bibliography_entries": len(state.meta.bibliography_entries),
+    }
+
+    parsed_sections = set(state.section_titles)
+    parsed_paragraphs = set(state.paragraph_texts)
+    parsed_ref_labels = {ref["target_label"] for ref in state.meta.references}
+
+    for section in xml_sections:
+        if section not in parsed_sections:
+            state.meta.warnings.append(f"latexml_section_mismatch:{section}")
+    for paragraph in xml_paragraphs:
+        if not any(paragraph == parsed or paragraph in parsed or parsed in paragraph for parsed in parsed_paragraphs):
+            state.meta.warnings.append(f"latexml_paragraph_mismatch:{paragraph}")
+    for label in xml_refs:
+        if label not in state.meta.labels:
+            state.meta.warnings.append(f"latexml_unresolved_ref:{label}")
+        elif label not in parsed_ref_labels:
+            state.meta.warnings.append(f"latexml_ref_not_in_tex:{label}")
 
 
 def build_docling_from_tex(tex_path: Path) -> tuple[dict[str, Any], dict[str, Any]]:
@@ -453,9 +575,14 @@ def build_docling_from_tex(tex_path: Path) -> tuple[dict[str, Any], dict[str, An
     )
     state = ParseState(doc_id=doc_id, tex_path=tex_path, doc=DoclingDocument(name=doc_id), meta=meta)
     parse_blocks(state, strip_preamble(tex))
-    enrich_from_latexml(state)
     resolve_references(meta)
-    return state.doc.export_to_dict(), meta.to_dict()
+    enrich_from_latexml(state)
+    doc_dict = state.doc.export_to_dict()
+    ordered_refs = set(meta.ordered_list_groups)
+    for group in doc_dict.get("groups", []):
+        if group.get("self_ref") in ordered_refs:
+            group["label"] = "ordered_list"
+    return doc_dict, meta.to_dict()
 
 
 def discover_fixtures(corpus_root: Path, doc_id: str | None = None) -> list[Path]:

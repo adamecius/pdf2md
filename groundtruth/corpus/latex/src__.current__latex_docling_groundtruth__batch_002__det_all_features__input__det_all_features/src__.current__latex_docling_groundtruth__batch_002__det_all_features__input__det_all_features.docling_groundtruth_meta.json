@@ -49,7 +49,11 @@
     }
   ],
   "bibliography_entries": [],
+  "ordered_list_groups": [],
+  "latexml_checks": {},
   "warnings": [
-    "missing_latexml_xml:src__.current__latex_docling_groundtruth__batch_002__det_all_features__input__det_all_features"
+    "missing_latexml_xml:src__.current__latex_docling_groundtruth__batch_002__det_all_features__input__det_all_features",
+    "unknown_command:author",
+    "unknown_command:date"
   ]
 }
