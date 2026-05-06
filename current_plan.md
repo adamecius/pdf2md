@@ -1,283 +1,296 @@
-# Current plan — LaTeX corpus → DoclingDocument ground truth
+Feedback mode: Close the previous current plan and make it status exectured. Write the new current plan:
+
+# Current plan - after-consensus Page IR to DoclingDocument
 
 ## Goal
 
-Create a parser at `tools/latex_to_docling.py` that reads every LaTeX ground-truth fixture under `groundtruth/corpus/latex/<doc_id>/` and emits a **fully populated `DoclingDocument` JSON** (the Pydantic schema from `docling-core`) into the same directory.
+The previous milestone demonstrated that a DoclingDocument can be built from the LaTeX ground-truth source. The next milestone is to demonstrate that the **Page IR after consensus** contains enough information to:
 
-The existing `tools/compile_latex_groundth.py` already produces two compiled witnesses per fixture: a LuaLaTeX PDF and a LaTeXML XML. This new tool treats the `.tex` source as the **authoring source of truth** and builds the richest possible DoclingDocument from it, optionally enriched with the LaTeXML XML when present.
+1. recover semantic links;
+2. preserve document reading order;
+3. populate a DoclingDocument in the same architectural direction as the ground-truth Docling output;
+4. warn clearly when a Docling field cannot be filled from the post-consensus object;
+5. prove the after-consensus pipeline contract with at least 10 mock after-consensus IR fixtures and unit tests.
 
-This completes the ground-truth triad:
+This task is about architecture and contract validation. The final DoclingDocument does not need to be fully populated, but every missing or degraded fill must be visible in a report or warning. No value should be invented to satisfy a schema.
 
-```
-.tex (source)  ─┬─►  .pdf        (rendered witness)
-                ├─►  .latexml.xml (semantic witness)
-                └─►  .docling.json (fully populated DoclingDocument)
-```
+## Current repository review
 
-The `.docling.json` becomes the **reference DoclingDocument** that the OCR pipeline's reconstructed Docling outputs are validated against.
+The current repository already has pieces that should be used as the starting point rather than bypassed with new isolated scripts:
 
-Design rules:
+- `src/pdf2md/utils/semantic_linker.py` builds semantic anchors, references and attachments from a consensus report.
+- `src/pdf2md/utils/semantic_document_builder.py` turns a consensus report plus semantic links and optional media manifest into `pdf2md.semantic_document`.
+- `src/pdf2md/utils/docling_adapter.py` adapts a semantic document into Docling JSON plus Docling relation/report JSON.
+- `src/pdf2md/pipeline/convert.py` is still a placeholder for orchestration and can host the after-consensus pipeline entry point.
+- `tests/` already contains tests for semantic linking, mock backend schema, ground-truth regressions and pipeline contracts.
 
-- Minimal validation: warn on missing or unsupported features, never fail.
-- If a field can't be populated (no geometry, no page info, no media), it is left at default/empty — not invented.
-- Output uses `docling-core`'s own `export_to_dict()` for canonical JSON.
-- No runtime dependency on TeX tooling — the parser reads `.tex` text.
+The next implementation must bring the after-consensus to Docling path into the main package. It must not create another one-off root-level converter unless it is only a thin manual debugging wrapper around production code.
 
+## Architectural decision
 
-## Architecture overview
+Add a small production layer for **after-consensus IR to Docling** and keep responsibilities separated:
 
-```
-.tex source
-  │
-  ├─► LaTeX regex parser (titles, sections, paragraphs, lists,
-  │   equations, tables, figures, captions, footnotes, labels, refs)
-  │
-  ├─► Optional LaTeXML XML enrichment (better text normalization,
-  │   resolved cross-refs, bibliography entries)
-  │
-  └─► DoclingDocument builder (docling-core API)
-        │
-        ├── body tree: title → section → subsection → paragraphs/items
-        ├── texts[]: title, section_header, text, formula, footnote,
-        │            caption, list_item, reference
-        ├── tables[]: TableData with cell grid from \tabular
-        ├── pictures[]: PictureItem for \begin{figure} (no image data)
-        ├── groups[]: list / ordered_list for itemize/enumerate
-        └── .docling.json
+```text
+after-consensus Page IR
+  |
+  |  1. normalise input contract
+  v
+canonical post-consensus semantic document
+  |
+  |  2. derive anchors, references, relations and reading order
+  v
+semantic link graph
+  |
+  |  3. emit DoclingDocument and sidecar reports
+  v
+Docling JSON + relation report + fill-warning report
 ```
 
+The converter must consume the consensus object as the source of truth. It may derive missing semantic information by post-processing the consensus object, but it must not demand duplicated fields upstream if those fields can be computed from existing consensus fields.
 
-## Mapping: LaTeX → DocItemLabel
+## Responsibility boundaries
 
-| LaTeX construct              | DocItemLabel       | DoclingDocument API call       |
-|------------------------------|--------------------|--------------------------------|
-| `\title{...}`               | `title`            | `add_text(label=TITLE)`        |
-| `\section{...}`             | `section_header`   | `add_text(label=SECTION_HEADER, level=1)` |
-| `\subsection{...}`          | `section_header`   | `add_text(label=SECTION_HEADER, level=2)` |
-| paragraph text               | `text`             | `add_text(label=TEXT)`         |
-| `\begin{equation}...\end`   | `formula`          | `add_text(label=FORMULA)`      |
-| `$...$` / `$$...$$`         | `formula`          | `add_text(label=FORMULA)`      |
-| `\footnote{...}`            | `footnote`         | `add_text(label=FOOTNOTE)`     |
-| `\caption{...}`             | `caption`          | `add_text(label=CAPTION)`      |
-| `\item ...`                 | `list_item`        | `add_text(label=LIST_ITEM, enumerated=..., parent=group)` |
-| `\begin{itemize}`           | (group)            | `add_group(label=GroupLabel.LIST)` |
-| `\begin{enumerate}`         | (group)            | `add_group(label=GroupLabel.ORDERED_LIST)` |
-| `\begin{figure}`            | `picture`          | `add_picture()`                |
-| `\begin{table}`+`\tabular`  | `table`            | `add_table(data=TableData(...))` |
-| `\ref{...}`                 | (inline in text)   | stored in sidecar metadata     |
-| `\label{...}`               | (label registry)   | stored in sidecar metadata     |
-
-
-## Sidecar file: `.docling_groundtruth_meta.json`
-
-DoclingDocument does not natively carry LaTeX-specific provenance (labels, cross-references, anchor IDs). A sidecar JSON is emitted alongside the Docling JSON:
-
-```json
-{
-  "schema_name": "pdf2md.docling_groundtruth_meta",
-  "schema_version": "1.0.0",
-  "document_id": "linked_sections_figures",
-  "source_tex": "groundtruth/corpus/latex/linked_sections_figures/linked_sections_figures.tex",
-  "labels": {"sec:overview": "#/texts/1", "eq:energy": "#/texts/5", ...},
-  "references": [
-    {"source_ref": "#/texts/3", "target_label": "fig:box-diagram", "resolved_ref": "#/pictures/0"}
-  ],
-  "footnote_anchors": [
-    {"footnote_ref": "#/texts/4", "anchor_ref": "#/texts/2"}
-  ],
-  "caption_relations": [
-    {"caption_ref": "#/texts/6", "target_ref": "#/pictures/0"}
-  ],
-  "warnings": []
-}
-```
+### 1. Consensus IR contract normalisation
 
+Location: `src/pdf2md/docling/consensus.py` or, if this is judged too much package growth, one module named `src/pdf2md/utils/consensus_docling.py`.
 
-## Whitelist
+Responsibilities:
 
-Files the agent may create, modify, or delete:
+- Accept an after-consensus IR shaped like `pdf2md.semantic_document` or the current consensus report plus derived links.
+- Validate the minimum fields needed for Docling construction.
+- Produce a canonical internal list of blocks sorted by deterministic reading order.
+- Detect repeated blocks, repeated source information and repeated semantic content.
+- Preserve provenance, agreement and conflict metadata.
+- Produce warnings, not failures, for missing optional fields.
 
-- `tools/latex_to_docling.py`
-- `tests/test_latex_to_docling.py`
-- `groundtruth/corpus/latex/**/*.docling.json` (generated output only)
-- `groundtruth/corpus/latex/**/*.docling_groundtruth_meta.json` (generated output only)
-- `current_plan.latex_to_docling.md`
+It must not:
 
-Explicitly forbidden:
+- call OCR backends;
+- read PDFs;
+- infer content that is not present in the consensus object;
+- modify ground-truth fixture sources.
 
-- editing any `groundtruth/corpus/latex/**/*.tex` source file
-- editing any `groundtruth/corpus/latex/**/*.bib` source file
-- editing `tools/compile_latex_groundth.py`
-- editing existing tests or production code under `src/`
+### 2. Semantic linking
 
+Responsibilities:
 
-## Dependencies
+- Link captions to figures and tables.
+- Link equation numbers to formulas.
+- Link paragraph references to anchors where enough information exists.
+- Link footnote markers to footnote bodies.
+- Keep unresolved references in a sidecar report.
+- Use the existing `semantic_linker.py` behaviour where possible instead of duplicating it.
 
-Python packages (already installed or in pyproject.toml):
+This layer must be able to work from text, kind/type, page index, block order, bbox and existing relations. Explicit anchor fields may be used when present, but the upstream consensus phase should not be forced to duplicate labels that can be parsed from text.
 
-- `docling-core>=2.50` (for `DoclingDocument`, `DocItemLabel`, `GroupLabel`, `TableData`, `TableCell`)
-- standard library only otherwise (re, json, argparse, pathlib, xml.etree.ElementTree)
+### 3. Docling emission
 
-No external system tools required.
+Responsibilities:
 
+- Build a DoclingDocument when docling-core is available.
+- Fall back to a deterministic Docling-shaped dictionary only where tests must not depend on optional Docling runtime APIs.
+- Preserve body order in texts, tables, pictures and relation sidecars.
+- Attach warnings for empty fills, missing media, table degradation and unresolved links.
+- Reuse the existing `docling_adapter.py` where it is sufficient; extend or wrap it where the existing adapter degrades too much information.
 
-## Tasks
+The implementation must not silently drop semantic information. Anything that cannot be represented in Docling must be retained in the relation or warning report.
 
-### T1 — Implement the LaTeX-to-DoclingDocument parser tool
+### 4. Pipeline integration
 
-Create `tools/latex_to_docling.py`.
+Location: `src/pdf2md/pipeline/convert.py` or a nearby module under `src/pdf2md/pipeline/`.
 
-CLI:
-
-```
-python tools/latex_to_docling.py \
-  --corpus-root groundtruth/corpus/latex \
-  [--doc <doc_id>] \
-  [--force] \
-  [--verbose]
-```
-
-Behaviour:
-
-- Discover fixture directories matching `groundtruth/corpus/latex/<doc_id>/<doc_id>.tex`.
-- For each fixture, parse the `.tex` source and build a `DoclingDocument`.
-- Save `<doc_id>.docling.json` and `<doc_id>.docling_groundtruth_meta.json` in the fixture directory.
-- Process documents in sorted order.
-- Never modify `.tex` sources.
-- If `--force` is not passed, skip documents where `.docling.json` exists and `.tex` has not changed (hash check via `meta.toml` sha256 or file mtime).
-
-LaTeX parser requirements:
-
-- Parse `\title`, `\section`, `\subsection` (including starred variants).
-- Parse paragraph text between structural commands.
-- Parse `\begin{equation}...\end{equation}`, `$...$`, `$$...$$`.
-- Parse `\begin{figure}...\end{figure}` with nested `\caption` and `\label`.
-- Parse `\begin{table}...\end{table}` with nested `\begin{tabular}{spec}...\end{tabular}`, extracting cell grid.
-- Parse `\begin{itemize}` and `\begin{enumerate}` with proper nesting into DoclingDocument groups.
-- Parse `\footnote{...}`.
-- Parse `\label{...}` and `\ref{...}` to build the sidecar label/reference map.
-- Handle `\maketitle`, `\newpage` (as structural hints, not content).
-- Inline math `$...$` may be left inline within paragraph text OR extracted as separate formula items — choose the strategy that best matches Docling's conventions (separate items).
-- Gracefully skip unknown commands — warn, don't fail.
-
-DoclingDocument construction:
-
-- Use `DoclingDocument(name=doc_id)`.
-- Build the body tree: title is a root child, sections are root children, subsections are children of sections, paragraphs/items are children of their enclosing section/subsection.
-- Lists: create a `GroupItem` with `GroupLabel.LIST` or `GroupLabel.ORDERED_LIST`, and attach `list_item` children.
-- Tables: build `TableData` with `TableCell` grid from parsed `\tabular` content.
-- Figures: call `add_picture()` (no image data since these are LaTeX primitives like `\fbox`).
-- Captions: call `add_text(label=CAPTION)` and use DoclingDocument's caption association.
-- Export via `doc.export_to_dict()` and save as JSON with indent=2.
-
-Warnings (non-fatal):
-
-- `unknown_environment:<env_name>` — encountered `\begin{X}` that the parser doesn't handle.
-- `missing_latexml_xml:<doc_id>` — no `.latexml.xml` found for enrichment.
-- `empty_equation:<doc_id>` — equation environment with no extractable body.
-- `table_parse_incomplete:<doc_id>` — tabular parsing couldn't extract full cell grid.
-
-
-### T2 — Optional LaTeXML XML enrichment layer
-
-Within the same tool, if `<doc_id>.latexml.xml` exists in the fixture directory, parse it with `xml.etree.ElementTree` to:
-
-- Cross-check section titles and paragraph text against LaTeX parse.
-- Extract resolved bibliography entries if present.
-- Use LaTeXML's resolved cross-reference targets to validate the label→ref map.
-
-This is additive enrichment only — the `.tex` parse is always the primary source. If the XML is missing or unparseable, warn and continue.
-
-
-### T3 — Automated tests
-
-Create `tests/test_latex_to_docling.py`.
-
-Required coverage:
-
-- **Parser unit tests**: simple title+paragraph, section hierarchy, equation extraction, table cell grid, list nesting, figure+caption, footnote, cross-references.
-- **DoclingDocument validity**: parsed output can be loaded by `DoclingDocument.model_validate(json_data)`.
-- **Sidecar correctness**: label→ref map resolves to valid `#/texts/N` or `#/pictures/N` JSON pointers.
-- **Graceful degradation**: unknown environments produce warnings, not exceptions.
-- **Hash gating**: existing output is skipped when `.tex` hasn't changed, re-generated with `--force`.
-- **CLI smoke**: `--help` exits 0.
-
-Tests must not require TeX tooling — they use inline `.tex` strings in temporary directories.
-
-
-### T4 — Run against full corpus and commit outputs
-
-tag: human (requires the agent to have run T1 on the actual corpus)
-
-```
-python tools/latex_to_docling.py --corpus-root groundtruth/corpus/latex --force --verbose
-```
-
-Verify that every fixture directory now contains:
-- `<doc_id>.docling.json` — valid DoclingDocument JSON
-- `<doc_id>.docling_groundtruth_meta.json` — sidecar with labels/references
-
-Spot-check a few documents to confirm the body tree hierarchy and text content match the `.tex` source.
-
-
-## Tests
-
-### A1 — CLI help smoke test
-
-```
-python tools/latex_to_docling.py --help
-```
-
-pass: exits 0, prints usage.
-
-
-### A2 — Unit test suite
-
-```
-PYTHONPATH=src python -m pytest tests/test_latex_to_docling.py -v
-```
-
-pass: all tests pass without requiring TeX installation or docling GPU models.
-
-
-### A3 — Python syntax compilation
-
-```
-python -m compileall tools/latex_to_docling.py tests/test_latex_to_docling.py
-```
-
-pass: both files compile without syntax errors.
-
-
-### A4 — Full corpus generation
-
-tag: human
-
-```
-python tools/latex_to_docling.py --corpus-root groundtruth/corpus/latex --force --verbose
-```
-
-pass: all 57 corpus fixtures produce `.docling.json` and sidecar. No crashes. Warnings are acceptable for edge cases.
-
-
-### A5 — DoclingDocument schema validation
-
-tag: human (or automated if docling-core is available)
+Add an explicit entry point such as:
 
 ```python
-from docling_core.types.doc import DoclingDocument
-import json
-for path in Path("groundtruth/corpus/latex").rglob("*.docling.json"):
-    data = json.loads(path.read_text())
-    DoclingDocument.model_validate(data)  # must not raise
+build_docling_from_after_consensus_ir(after_consensus_ir, *, strict=False)
 ```
 
-pass: every generated `.docling.json` validates against the current `docling-core` schema.
+or:
 
+```python
+convert_after_consensus_ir_to_docling(after_consensus_ir, *, strict=False)
+```
+
+The return value must be a structured result containing:
+
+- `docling_document`: Docling export dictionary;
+- `relations`: relation/anchor/reference sidecar;
+- `report`: validation and fill-warning report.
+
+This proves that the pipeline after consensus is valid without requiring OCR or TeX tooling in the unit tests.
+
+## Required output artefacts
+
+The implementation must create or update the following files only unless tests require a small import adjustment elsewhere under `src/`:
+
+- `src/pdf2md/docling/__init__.py` if a new package is used;
+- `src/pdf2md/docling/consensus.py` or a single equivalent module under `src/pdf2md/utils/`;
+- `src/pdf2md/pipeline/convert.py` or one narrow pipeline integration module;
+- `tests/test_consensus_docling.py`;
+- `consensus.docling.checklist.md`;
+- `current_plan.md`.
+
+Avoid file proliferation. The preferred design is one production converter module plus one existing pipeline integration point.
+
+## Minimum after-consensus fields
+
+The implementation must prove that these fields are enough to generate a useful Docling output:
+
+- document identity: `run_id`, `source_pdf` or equivalent document name;
+- pages: `page_index`, `page_number` if available;
+- blocks or candidate groups: stable id, kind/type, representative text, optional bbox, optional order;
+- provenance: sources, source members and agreement/conflict metadata when available;
+- geometry: bbox when available; missing bbox must degrade with a warning;
+- media: media id or path when available; missing media for figures must degrade with a warning;
+- relations, anchors and references if already derived, but not required as duplicated upstream fields if derivable from the consensus object.
+
+Anything else belongs in post-processing unless a test proves it cannot be reconstructed from the consensus object.
+
+## Reading order requirements
+
+The output order must be deterministic and stable:
+
+- sort by `page_index`;
+- prefer explicit `order` or `reading_order` if present;
+- otherwise sort by bbox top coordinate, then left coordinate;
+- keep source order as the final stable tiebreaker;
+- warn with `order_fallback_geometry:<page_index>` when geometry was needed;
+- warn with `order_ambiguous:<page_index>` when neither explicit order nor useful geometry is available.
+
+This is the minimum needed for the after-consensus structure to be comparable in quality to the order recoverable from tagged PDF plus XML witnesses.
+
+## Warning contract
+
+Warnings must be machine-readable strings. Required warning families:
+
+- `empty_fill:<docling_ref>:<field>`
+- `missing_text:<block_id>`
+- `missing_bbox:<block_id>`
+- `missing_page:<block_id>`
+- `order_fallback_geometry:<page_index>`
+- `order_ambiguous:<page_index>`
+- `duplicate_content_suppressed:<block_id>`
+- `duplicate_block_id:<block_id>`
+- `unresolved_reference:<reference_id>`
+- `figure_without_media:<block_id>`
+- `table_structure_degraded:<block_id>`
+- `formula_text_geometry_not_fused:<block_id>`
+- `caption_without_target:<block_id>`
+
+Tests may add narrower warnings, but these families must stay stable.
+
+## Ten required mock after-consensus IR fixtures
+
+Create at least 10 mock after-consensus IR objects inside `tests/test_consensus_docling.py` or a small test helper in the same file. Do not create large JSON fixture files unless readability becomes impossible.
+
+Required cases:
+
+1. `simple_title_paragraph`: title, section header and paragraph with clean order.
+2. `geometry_order_fallback`: blocks with no explicit order, sorted by bbox.
+3. `multipage_order`: body blocks across at least two pages with headers and footers excluded or marked as artefacts.
+4. `equation_reference`: formula, equation number and paragraph reference resolved to the same anchor.
+5. `figure_caption_missing_media`: caption links to figure, but missing media produces a warning while preserving semantic relation.
+6. `table_degraded_text_only`: table block has text but no cell grid, so Docling output degrades and warns.
+7. `footnote_marker_body`: paragraph marker links to footnote body.
+8. `list_items_nested_or_grouped`: list items preserve grouping and order.
+9. `duplicates_and_conflicts`: duplicated candidate or repeated content is suppressed once and reported; conflict metadata is preserved.
+10. `empty_and_missing_fields`: missing text, missing bbox, missing page or empty media fields produce warnings without raising.
+
+Additional cases are welcome only if they clarify behaviour. Avoid expanding the fixture surface without a reason.
+
+## Unit test requirements
+
+Create `tests/test_consensus_docling.py`.
+
+The tests must verify:
+
+- all 10 mock after-consensus IR cases pass through the after-consensus to Docling pipeline without uncaught exceptions;
+- the output has deterministic text order;
+- captions, figures, tables, equations and footnotes are linked through sidecar relations or anchors;
+- duplicate content is not repeated in the Docling output;
+- missing optional Docling fills are reported with warnings;
+- unresolved references stay visible in the report;
+- the converter can run without TeX tooling, OCR engines or real PDF files;
+- the pipeline entry point under `src/pdf2md/pipeline/` is exercised, not only the lower-level adapter;
+- if docling-core is installed, the emitted Docling dictionary validates with the DoclingDocument schema;
+- if docling-core is not installed, the fallback dictionary remains deterministic and tests still validate the project contract.
+
+## Checklist file to create
+
+Create `consensus.docling.checklist.md`.
+
+Purpose:
+
+- define the fields the consensus phase must retain so that Docling generation is possible;
+- keep the checklist almost empty of new demands;
+- make reviewers explicitly decide whether any proposed field is truly needed upstream or can be post-processed from the consensus object;
+- prevent duplicated fields and duplicated semantic information.
+
+The checklist must include a reviewer rule:
+
+> A field may be added to the consensus contract only if it cannot be derived by querying the consensus object, semantic linker output, media manifest or deterministic post-processing.
+
+The checklist should classify fields as:
+
+- required in consensus object;
+- optional but useful;
+- must be post-processed, not demanded upstream;
+- forbidden duplicate.
+
+Expected direction: most semantic labels, references, section hierarchy and captions should be post-processed, not demanded as duplicate consensus fields.
+
+## Tests to run
+
+### A1 - targeted unit tests
+
+```bash
+PYTHONPATH=src python -m pytest tests/test_consensus_docling.py -v
+```
+
+Pass condition: all 10 mock after-consensus IR cases pass.
+
+### A2 - existing semantic tests
+
+```bash
+PYTHONPATH=src python -m pytest tests/test_semantic_linker.py tests/test_mock_backend_schema.py -v
+```
+
+Pass condition: existing semantic linking and mock schema tests still pass.
+
+### A3 - full unit suite
+
+```bash
+PYTHONPATH=src python -m pytest -q
+```
+
+Pass condition: all tests pass, or any unrelated pre-existing failures are documented precisely.
+
+### A4 - syntax compilation
+
+```bash
+python -m compileall src tests/test_consensus_docling.py
+```
+
+Pass condition: no syntax errors.
+
+## Acceptance criteria
+
+The task is complete only when:
+
+- production code lives under `src/`, not as an isolated script;
+- an after-consensus IR can be converted to Docling JSON through a pipeline-level function;
+- at least 10 mock after-consensus IR edge cases are tested;
+- semantic links are preserved or reported as unresolved;
+- reading order is deterministic and tested;
+- empty or unavailable Docling fills produce warnings;
+- duplicated information is not required from the consensus phase;
+- `consensus.docling.checklist.md` exists and is strict about avoiding duplicated fields;
+- all targeted tests pass.
 
 ## Status
 
-T1: pending
-T2: pending
-T3: pending
-T4: pending
+T1 - design production converter module: pending
+T2 - add pipeline entry point: pending
+T3 - add 10 mock after-consensus IR tests: pending
+T4 - add consensus.docling.checklist.md: pending
+T5 - run targeted and full tests: pending
