@@ -1,0 +1,17 @@
+{
+  "schema_name": "pdf2md.CalibrationPriorDocument",
+  "schema_version": "1.0.0",
+  "backend": "paddleocr",
+  "backend_version": null,
+  "generated_from": [],
+  "min_samples": 1,
+  "smoothing_alpha": 1.0,
+  "smoothing_beta": 1.0,
+  "default_confidence": 0.75,
+  "block_kind_priors": [],
+  "entity_type_priors": [],
+  "relation_type_priors": [],
+  "calibration_key_priors": [],
+  "warnings": [],
+  "metadata": {}
+}

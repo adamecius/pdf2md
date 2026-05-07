@@ -1,0 +1,60 @@
+{
+  "schema_name": "pdf2md.ConsensusIR",
+  "schema_version": "1.0.0",
+  "document_id": "linkamb",
+  "page_count": 1,
+  "pages": [
+    {
+      "page_no": 1,
+      "page_size": {
+        "width": 600.0,
+        "height": 800.0
+      },
+      "blocks": [
+        {
+          "id": "con:linkamb:p1:b0",
+          "kind": "unknown",
+          "bbox": null,
+          "order": 0,
+          "text": "1",
+          "selection_mode": "unresolved",
+          "selected_source": null,
+          "agreement_score": 0.4,
+          "candidate_ids": [
+            "mineru:linkamb:p1:b0",
+            "paddleocr:linkamb:p1:b0"
+          ],
+          "conflict_ids": [
+            "conf:linkamb:0"
+          ],
+          "metadata": {}
+        }
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "conf:linkamb:0",
+      "kind": "kind_conflict",
+      "page_no": 1,
+      "candidate_ids": [
+        "mineru:linkamb:p1:b0",
+        "paddleocr:linkamb:p1:b0"
+      ],
+      "description": "ambiguous page number versus footnote",
+      "resolution": "unresolved",
+      "selected_candidate_id": null,
+      "metadata": {}
+    }
+  ],
+  "backends": [
+    {
+      "backend": "mineru",
+      "backend_version": null,
+      "manifest_ref": null,
+      "prior_ref": null
+    }
+  ],
+  "agreement_summary": {},
+  "metadata": {}
+}

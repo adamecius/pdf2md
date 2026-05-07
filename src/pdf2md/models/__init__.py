@@ -51,6 +51,22 @@ from .priors import (
     prior_key,
 )
 
+from .linked import (
+    LINKED_SCHEMA_VERSION,
+    LinkEvidence,
+    LinkEvidenceKind,
+    LinkedConflict,
+    LinkedNode,
+    LinkedNodeType,
+    LinkedRelation,
+    LinkedRelationType,
+    LinkedStructure,
+    LinkStatus,
+    linked_conflict_id,
+    linked_node_id,
+    linked_relation_id,
+)
+
 __all__ = [
     "BBox",
     "Block",
@@ -101,4 +117,17 @@ __all__ = [
     "lookup_confidence",
     "lookup_prior",
     "prior_key",
+    "LINKED_SCHEMA_VERSION",
+    "LinkEvidence",
+    "LinkEvidenceKind",
+    "LinkedConflict",
+    "LinkedNode",
+    "LinkedNodeType",
+    "LinkedRelation",
+    "LinkedRelationType",
+    "LinkedStructure",
+    "LinkStatus",
+    "linked_conflict_id",
+    "linked_node_id",
+    "linked_relation_id",
 ]

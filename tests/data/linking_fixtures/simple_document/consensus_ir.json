@@ -1,0 +1,94 @@
+{
+  "schema_name": "pdf2md.ConsensusIR",
+  "schema_version": "1.0.0",
+  "document_id": "linkdoc",
+  "page_count": 1,
+  "pages": [
+    {
+      "page_no": 1,
+      "page_size": {
+        "width": 600.0,
+        "height": 800.0
+      },
+      "blocks": [
+        {
+          "id": "con:linkdoc:p1:b0",
+          "kind": "heading",
+          "bbox": null,
+          "order": 0,
+          "text": "Introduction",
+          "selection_mode": "agreed",
+          "selected_source": "mineru",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "mineru:linkdoc:p1:b0"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        },
+        {
+          "id": "con:linkdoc:p1:b1",
+          "kind": "paragraph",
+          "bbox": null,
+          "order": 1,
+          "text": "This is the introduction.",
+          "selection_mode": "agreed",
+          "selected_source": "mineru",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "mineru:linkdoc:p1:b1"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        },
+        {
+          "id": "con:linkdoc:p1:b2",
+          "kind": "figure",
+          "bbox": null,
+          "order": 2,
+          "text": "",
+          "selection_mode": "agreed",
+          "selected_source": "mineru",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "mineru:linkdoc:p1:b2"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        },
+        {
+          "id": "con:linkdoc:p1:b3",
+          "kind": "caption",
+          "bbox": null,
+          "order": 3,
+          "text": "Figure 1. Example figure.",
+          "selection_mode": "agreed",
+          "selected_source": "mineru",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "mineru:linkdoc:p1:b3"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        }
+      ]
+    }
+  ],
+  "conflicts": [],
+  "backends": [
+    {
+      "backend": "mineru",
+      "backend_version": null,
+      "manifest_ref": null,
+      "prior_ref": null
+    },
+    {
+      "backend": "paddleocr",
+      "backend_version": null,
+      "manifest_ref": null,
+      "prior_ref": null
+    }
+  ],
+  "agreement_summary": {},
+  "metadata": {}
+}
