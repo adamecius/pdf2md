@@ -1366,3 +1366,68 @@ backend raw output
 ```
 
 This completes the route needed for validating the OCR pipeline against the LaTeX/Docling ground-truth corpus and for producing rich semantic files suitable for RAG.
+
+---
+
+## Status
+
+- Plan 6 / PR #4: done; ready to archive after human acceptance.
+- A. Export contracts first: done.
+- B. Docling exporter: done.
+- C. RAG exporter: done.
+- D. Markdown preview exporter: done.
+- E. I/O, reporting, and CLI: done.
+- F. Regression pass: done.
+
+## PR_review #3
+
+- verdict: fail
+- reviewed_commit: `50b1906c`
+- plan_compliance:
+    - whitelist: pass. The PR touched only Plan 6 whitelist files plus `run_log.md`, which is whitelisted by the repository agent protocol.
+    - run_log_evidence: pass. `run_log.md` contains PR #3 evidence for export contracts, Docling, RAG, markdown, I/O/CLI, regression, smoke import, smoke CLI, and the environmental `main` ref limitation.
+    - dependencies: pass. No new dependencies were added.
+    - automated_tests: pass. All Plan 6 targeted tests, Plan 5 prerequisite tests, Plans 1-5 regression tests, legacy tests, full suite, smoke import, and CLI smoke checks passed during review. The whitelist command `git diff --name-only main..HEAD` remains environmental because this checkout has no `main` ref.
+- findings:
+    - F1: Docling relation projection is incomplete for `FOOTNOTE_ANCHOR_FOR`. Plan 6 requires `FOOTNOTE_ANCHOR_FOR` to be preserved in metadata on both the footnote item and the anchor target item. The implementation handles all non-caption relations by attaching metadata only to the source item, so the paragraph/anchor target does not receive the footnote link.
+    - F2: RAG footnote chunks do not preserve footnote-anchor metadata. Plan 6 requires footnotes to become separate chunks and preserve `FOOTNOTE_ANCHOR_FOR` metadata. The implementation includes relation ids, but does not include the anchor target id or relation metadata in the chunk metadata.
+- tests_run:
+    - `pytest tests/test_export_contracts.py -q && pytest tests/test_docling_export.py -q && pytest tests/test_rag_export.py -q && pytest tests/test_markdown_export.py -q && pytest tests/test_export_io_cli.py -q` — pass
+    - `pytest tests/test_linked_structure_contracts.py -q && pytest tests/test_linking_extract.py -q && pytest tests/test_linking_resolvers.py -q && pytest tests/test_linked_structure_builder.py -q && pytest tests/test_build_linked_structure_cli.py -q` — pass
+    - `pytest tests/test_ir_contracts.py -q && pytest tests/test_entity_contracts.py -q && pytest tests/test_connector_common.py -q && pytest tests/test_backend_connectors.py -q && pytest tests/test_prior_contracts.py -q && pytest tests/test_calibration_matching.py -q && pytest tests/test_calibration_metrics.py -q && pytest tests/test_calibrate_priors_cli.py -q && pytest tests/test_consensus_grouping.py -q && pytest tests/test_consensus_scoring.py -q && pytest tests/test_consensus_factory.py -q && pytest tests/test_build_consensus_cli.py -q && pytest tests/test_linked_structure_contracts.py -q && pytest tests/test_linking_extract.py -q && pytest tests/test_linking_resolvers.py -q && pytest tests/test_linked_structure_builder.py -q && pytest tests/test_build_linked_structure_cli.py -q` — pass
+    - `pytest tests/test_run_backends_config.py -q && pytest tests/test_semantic_document_builder.py -q && pytest tests/ -q` — pass
+    - `python -c "from pdf2md.export.docling import build_docling_document; from pdf2md.models.export import RagChunkDocument; print(build_docling_document.__name__, RagChunkDocument.model_json_schema()['title'])"` — pass
+    - `python tools/export_linked_docling.py --linked-structure tests/data/export_fixtures/simple_document/linked_structure.json --consensus-ir tests/data/export_fixtures/simple_document/consensus_ir.json --out-dir /tmp/pdf2md_export_smoke` — pass
+    - `python -c "from pathlib import Path; import json; from pdf2md.models.export import ExportManifestDocument, RagChunkDocument; root=Path('/tmp/pdf2md_export_smoke'); ExportManifestDocument.model_validate_json((root/'export_manifest.json').read_text()); RagChunkDocument.model_validate_json(next((root/'rag').glob('*.rag_chunks.json')).read_text()); doc=json.loads(next((root/'docling').glob('*.docling.json')).read_text()); assert 'body' in doc and 'texts' in doc; print('ok')"` — pass
+    - `git diff --name-only main..HEAD` — env_fail: this checkout has no `main` ref.
+- required_follow_up:
+    - Add Docling projection for `FOOTNOTE_ANCHOR_FOR` metadata to both the footnote source item and the anchor target item, with regression coverage asserting both sides.
+    - Add RAG metadata for footnote anchor relations, including the anchor target node id and relation metadata, with regression coverage.
+
+
+## PR_review #4
+
+- verdict: pass
+- reviewed_commit: `7856746c`
+- plan_compliance:
+    - whitelist: pass. The cumulative Plan 6 diff from `9c326ced..HEAD` is confined to the Plan 6 whitelist, plus `run_log.md` and `current_plan.md` review-mode updates permitted by the agent protocol. The required plan command `git diff --name-only main..HEAD` remains environmental because this checkout has no `main` ref.
+    - run_log_evidence: pass. `run_log.md` contains PR #4 evidence for the Docling follow-up, RAG follow-up, regression tests, smoke checks, `git diff --check`, and the environmental `main` ref limitation.
+    - dependencies: pass. No new dependencies were added, and `docling-core` remains optional/best-effort only.
+    - plan_scope: pass. The implementation consumes `LinkedStructure`, does not modify Plan 1-5 contracts, does not run OCR/consensus/linking, and does not call backend or conda tooling.
+    - automated_tests: pass. All Plan 6 targeted tests ran at the expected counts, Plan 5 prerequisites ran, Plans 1-5 and legacy regression tests ran, the full suite ran, smoke import and CLI smoke checks passed, and `git diff --check` passed.
+- reviewer_verification:
+    - Export contracts are implemented and re-exported.
+    - Docling JSON emits required top-level keys, stable self refs, pages, provenance, conflicts, captions, relation metadata, and `FOOTNOTE_ANCHOR_FOR` metadata on both footnote source and anchor target items.
+    - RAG chunks preserve node ids, relation ids, page ranges, section paths, breadcrumbs, confidence, unresolved metadata, captions with figure/table targets, and footnote anchor target/relation metadata.
+    - Markdown preview remains a non-canonical human-readable artefact.
+    - I/O, reporting, manifest SHA256 writing, and CLI smoke behaviour satisfy Plan 6.
+- tests_run:
+    - `pytest tests/test_export_contracts.py -q && pytest tests/test_docling_export.py -q && pytest tests/test_rag_export.py -q && pytest tests/test_markdown_export.py -q && pytest tests/test_export_io_cli.py -q` — pass
+    - `pytest tests/test_linked_structure_contracts.py -q && pytest tests/test_linking_extract.py -q && pytest tests/test_linking_resolvers.py -q && pytest tests/test_linked_structure_builder.py -q && pytest tests/test_build_linked_structure_cli.py -q && pytest tests/test_ir_contracts.py -q && pytest tests/test_entity_contracts.py -q && pytest tests/test_connector_common.py -q && pytest tests/test_backend_connectors.py -q && pytest tests/test_prior_contracts.py -q && pytest tests/test_calibration_matching.py -q && pytest tests/test_calibration_metrics.py -q && pytest tests/test_calibrate_priors_cli.py -q && pytest tests/test_consensus_grouping.py -q && pytest tests/test_consensus_scoring.py -q && pytest tests/test_consensus_factory.py -q && pytest tests/test_build_consensus_cli.py -q && pytest tests/test_run_backends_config.py -q && pytest tests/test_semantic_document_builder.py -q` — pass
+    - `pytest tests/ -q` — pass
+    - `python -c "from pdf2md.export.docling import build_docling_document; from pdf2md.models.export import RagChunkDocument; print(build_docling_document.__name__, RagChunkDocument.model_json_schema()['title'])"` — pass
+    - `python tools/export_linked_docling.py --linked-structure tests/data/export_fixtures/simple_document/linked_structure.json --consensus-ir tests/data/export_fixtures/simple_document/consensus_ir.json --out-dir /tmp/pdf2md_export_smoke` — pass
+    - `python -c "from pathlib import Path; import json; from pdf2md.models.export import ExportManifestDocument, RagChunkDocument; root=Path('/tmp/pdf2md_export_smoke'); ExportManifestDocument.model_validate_json((root/'export_manifest.json').read_text()); RagChunkDocument.model_validate_json(next((root/'rag').glob('*.rag_chunks.json')).read_text()); doc=json.loads(next((root/'docling').glob('*.docling.json')).read_text()); assert 'body' in doc and 'texts' in doc; print('ok')"` — pass
+    - `git diff --check` — pass
+    - `git diff --name-only main..HEAD` — env_fail: this checkout has no `main` ref.
+- certification: Plan 6 is fully implemented.

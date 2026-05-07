@@ -67,6 +67,18 @@ from .linked import (
     linked_relation_id,
 )
 
+from .export import (
+    EXPORT_SCHEMA_VERSION,
+    ExportArtefact,
+    ExportArtefactType,
+    ExportManifestDocument,
+    ExportStatus,
+    RagChunk,
+    RagChunkDocument,
+    RagChunkType,
+    rag_chunk_id,
+)
+
 __all__ = [
     "BBox",
     "Block",
@@ -130,4 +142,13 @@ __all__ = [
     "linked_conflict_id",
     "linked_node_id",
     "linked_relation_id",
+    "rag_chunk_id",
+    "RagChunkType",
+    "RagChunkDocument",
+    "RagChunk",
+    "ExportStatus",
+    "ExportManifestDocument",
+    "ExportArtefactType",
+    "ExportArtefact",
+    "EXPORT_SCHEMA_VERSION",
 ]

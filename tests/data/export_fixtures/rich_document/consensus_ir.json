@@ -1,0 +1,352 @@
+{
+  "schema_name": "pdf2md.ConsensusIR",
+  "schema_version": "1.0.0",
+  "document_id": "doc-rich",
+  "page_count": 2,
+  "pages": [
+    {
+      "page_no": 1,
+      "page_size": {
+        "width": 612,
+        "height": 792
+      },
+      "blocks": [
+        {
+          "id": "con:doc-rich:p1:b1",
+          "kind": "heading",
+          "bbox": {
+            "l": 10,
+            "t": 690,
+            "r": 300,
+            "b": 670,
+            "coord_origin": "bottomleft"
+          },
+          "order": 1,
+          "text": "Rich Export Fixture",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "fixture:doc-rich:p1:b1"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        },
+        {
+          "id": "con:doc-rich:p1:b2",
+          "kind": "unknown",
+          "bbox": {
+            "l": 10,
+            "t": 680,
+            "r": 300,
+            "b": 660,
+            "coord_origin": "bottomleft"
+          },
+          "order": 2,
+          "text": "1 Methods ........ 1",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "fixture:doc-rich:p1:b2"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        },
+        {
+          "id": "con:doc-rich:p1:b3",
+          "kind": "heading",
+          "bbox": {
+            "l": 10,
+            "t": 670,
+            "r": 300,
+            "b": 650,
+            "coord_origin": "bottomleft"
+          },
+          "order": 3,
+          "text": "Methods",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "fixture:doc-rich:p1:b3"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        },
+        {
+          "id": "con:doc-rich:p1:b4",
+          "kind": "paragraph",
+          "bbox": {
+            "l": 10,
+            "t": 660,
+            "r": 300,
+            "b": 640,
+            "coord_origin": "bottomleft"
+          },
+          "order": 4,
+          "text": "We describe a method with structure-aware export.",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "fixture:doc-rich:p1:b4"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        },
+        {
+          "id": "con:doc-rich:p1:b5",
+          "kind": "table",
+          "bbox": {
+            "l": 10,
+            "t": 650,
+            "r": 300,
+            "b": 630,
+            "coord_origin": "bottomleft"
+          },
+          "order": 5,
+          "text": "Table data: alpha beta",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "fixture:doc-rich:p1:b5"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        },
+        {
+          "id": "con:doc-rich:p1:b6",
+          "kind": "caption",
+          "bbox": {
+            "l": 10,
+            "t": 640,
+            "r": 300,
+            "b": 620,
+            "coord_origin": "bottomleft"
+          },
+          "order": 6,
+          "text": "Table 1. Example measurements.",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "fixture:doc-rich:p1:b6"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        },
+        {
+          "id": "con:doc-rich:p1:b13",
+          "kind": "list_item",
+          "bbox": {
+            "l": 10,
+            "t": 570,
+            "r": 300,
+            "b": 550,
+            "coord_origin": "bottomleft"
+          },
+          "order": 13,
+          "text": "First observation",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "fixture:doc-rich:p1:b13"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        },
+        {
+          "id": "con:doc-rich:p1:b14",
+          "kind": "header",
+          "bbox": {
+            "l": 10,
+            "t": 560,
+            "r": 300,
+            "b": 540,
+            "coord_origin": "bottomleft"
+          },
+          "order": 14,
+          "text": "Running header",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "fixture:doc-rich:p1:b14"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        },
+        {
+          "id": "con:doc-rich:p1:b15",
+          "kind": "page_number",
+          "bbox": {
+            "l": 10,
+            "t": 550,
+            "r": 300,
+            "b": 530,
+            "coord_origin": "bottomleft"
+          },
+          "order": 15,
+          "text": "1",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "fixture:doc-rich:p1:b15"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "page_no": 2,
+      "page_size": {
+        "width": 612,
+        "height": 792
+      },
+      "blocks": [
+        {
+          "id": "con:doc-rich:p2:b7",
+          "kind": "figure",
+          "bbox": {
+            "l": 10,
+            "t": 630,
+            "r": 300,
+            "b": 610,
+            "coord_origin": "bottomleft"
+          },
+          "order": 7,
+          "text": "Workflow diagram",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "fixture:doc-rich:p2:b7"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        },
+        {
+          "id": "con:doc-rich:p2:b8",
+          "kind": "caption",
+          "bbox": {
+            "l": 10,
+            "t": 620,
+            "r": 300,
+            "b": 600,
+            "coord_origin": "bottomleft"
+          },
+          "order": 8,
+          "text": "Figure 1. Workflow overview.",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "fixture:doc-rich:p2:b8"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        },
+        {
+          "id": "con:doc-rich:p2:b9",
+          "kind": "formula",
+          "bbox": {
+            "l": 10,
+            "t": 610,
+            "r": 300,
+            "b": 590,
+            "coord_origin": "bottomleft"
+          },
+          "order": 9,
+          "text": "E = mc^2",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "fixture:doc-rich:p2:b9"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        },
+        {
+          "id": "con:doc-rich:p2:b10",
+          "kind": "footnote",
+          "bbox": {
+            "l": 10,
+            "t": 600,
+            "r": 300,
+            "b": 580,
+            "coord_origin": "bottomleft"
+          },
+          "order": 10,
+          "text": "A clarifying footnote.",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "fixture:doc-rich:p2:b10"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        },
+        {
+          "id": "con:doc-rich:p2:b11",
+          "kind": "unknown",
+          "bbox": {
+            "l": 10,
+            "t": 590,
+            "r": 300,
+            "b": 570,
+            "coord_origin": "bottomleft"
+          },
+          "order": 11,
+          "text": "References",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "fixture:doc-rich:p2:b11"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        },
+        {
+          "id": "con:doc-rich:p2:b12",
+          "kind": "reference",
+          "bbox": {
+            "l": 10,
+            "t": 580,
+            "r": 300,
+            "b": 560,
+            "coord_origin": "bottomleft"
+          },
+          "order": 12,
+          "text": "[1] Example Author. Example Work.",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "fixture:doc-rich:p2:b12"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        }
+      ]
+    }
+  ],
+  "conflicts": [],
+  "backends": [
+    {
+      "backend": "fixture",
+      "backend_version": null,
+      "manifest_ref": null,
+      "prior_ref": null
+    }
+  ],
+  "agreement_summary": {},
+  "metadata": {}
+}

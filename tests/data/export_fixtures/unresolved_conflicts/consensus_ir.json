@@ -1,0 +1,70 @@
+{
+  "schema_name": "pdf2md.ConsensusIR",
+  "schema_version": "1.0.0",
+  "document_id": "doc-conflict",
+  "page_count": 1,
+  "pages": [
+    {
+      "page_no": 1,
+      "page_size": {
+        "width": 612,
+        "height": 792
+      },
+      "blocks": [
+        {
+          "id": "con:doc-conflict:p1:b1",
+          "kind": "heading",
+          "bbox": {
+            "l": 10,
+            "t": 690,
+            "r": 300,
+            "b": 670,
+            "coord_origin": "bottomleft"
+          },
+          "order": 1,
+          "text": "Ambiguous Section",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "fixture:doc-conflict:p1:b1"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        },
+        {
+          "id": "con:doc-conflict:p1:b2",
+          "kind": "unknown",
+          "bbox": {
+            "l": 10,
+            "t": 680,
+            "r": 300,
+            "b": 660,
+            "coord_origin": "bottomleft"
+          },
+          "order": 2,
+          "text": "Ambiguous OCR output",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.4,
+          "candidate_ids": [
+            "fixture:doc-conflict:p1:b2"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        }
+      ]
+    }
+  ],
+  "conflicts": [],
+  "backends": [
+    {
+      "backend": "fixture",
+      "backend_version": null,
+      "manifest_ref": null,
+      "prior_ref": null
+    }
+  ],
+  "agreement_summary": {},
+  "metadata": {}
+}
