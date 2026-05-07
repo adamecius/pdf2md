@@ -1,0 +1,28 @@
+{
+  "schema_name": "pdf2md.LocalPreflightExpectedEnvironment",
+  "schema_version": "1.0.0",
+  "main_conda_env": "pdf2md",
+  "required_tools": ["python", "pytest", "latex", "lualatex", "latexml"],
+  "optional_tools": ["latexmk", "kpsewhich"],
+  "required_python_imports": ["pdf2md", "pydantic", "typer", "pytest"],
+  "optional_python_imports": ["docling_core"],
+  "required_project_clis": [
+    "tools/calibrate_priors.py",
+    "tools/build_consensus.py",
+    "tools/build_linked_structure.py",
+    "tools/export_linked_docling.py"
+  ],
+  "required_backends": ["mineru", "paddleocr", "deepseek"],
+  "optional_backends": [],
+  "backend_env_prefix": "pdf2md-",
+  "required_backend_connector_clis": [
+    "backend/mineru/connector.py",
+    "backend/paddleocr/connector.py",
+    "backend/deepseek/connector.py"
+  ],
+  "optional_backend_connector_clis": [],
+  "output_roots": [
+    "groundtruth/runs/local_preflight",
+    "groundtruth/runs/local_e2e"
+  ]
+}
