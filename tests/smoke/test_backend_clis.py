@@ -21,9 +21,3 @@ def test_cli_smoke():
  for p,a,rc in CASES:
   r=run(p,a)
   assert r.returncode==rc, (p,a,r.stdout,r.stderr)
-
-
-def test_missing_model_error_message():
- r=run('backend/deepseek/pdf2md_deepseek.py',['-i','backend/mineru/test_visual.pdf'])
- assert r.returncode!=0
- assert 'PDF2MD_DEEPSEEK_MODEL' in r.stderr

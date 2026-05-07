@@ -183,3 +183,11 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
 - external_tools_used: []
 - blockers: ["Whole-suite pytest still fails on pre-existing backend compatibility/test-asset issues unrelated to the generate_latex_docling_groundtruth.py batch/count change: missing backend/mineru/test_visual.pdf, missing backend/mineru/run_mineru.py and backend/paddleocr/run_paddleocr.py, and backend/deepseek API mismatches expected by tests/test_run_backends_config.py."]
 - status: ready_for_review
+
+## PR #19 — 2026-05-07T08:23:35Z — mode: agent
+- tasks_attempted:
+    - T1: files_touched=[tests/smoke/test_backend_clis.py, tests/test_run_backends_config.py, run_log.md], tests_pass=[legacy_reference_scan, smoke_backend_clis, py_compile], tests_fail_env=[], tests_fail_real=[run_backends_config_remaining_backend_compat]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: ["Removed unit tests that referenced legacy backend/mineru/run_mineru.py, backend/paddleocr/run_paddleocr.py, and backend/mineru/test_visual.pdf. tests/test_run_backends_config.py still has unrelated backend compatibility failures for current backend/deepseek helper names/error wording and current mineru/paddleocr wrapper flag/error behavior."]
+- status: ready_for_review

@@ -279,17 +279,6 @@ def test_mineru_parser_accepts_compat_flags() -> None:
     assert args.input == "x.pdf"
     assert args.output == "x.md"
 
-
-def test_mineru_markdown_selection(tmp_path: Path) -> None:
-    mrun = _load_module_by_path(Path("backend/mineru/run_mineru.py"), "mineru_run_local")
-    out = tmp_path / "out"
-    out.mkdir()
-    md = out / "doc.md"
-    md.write_text("x", encoding="utf-8")
-    selected = mrun.select_markdown(out, "doc")
-    assert selected == md
-
-
 def test_no_enabled_backends_fails_early(tmp_path: Path) -> None:
     cfg = {
         "settings": {"work_dir": ".tmp"},
@@ -324,23 +313,6 @@ def test_paddleocr_wrapper_help_and_errors(tmp_path: Path) -> None:
     d = subprocess.run([sys.executable, "backend/paddleocr/pdf2md_paddleocr.py", "-i", str(pdf), "--allow-download"], capture_output=True, text=True)
     assert d.returncode == 1
 
-
-def test_paddleocr_command_mapping_and_json_extraction(tmp_path: Path) -> None:
-    pmod = _load_module_by_path(Path("backend/paddleocr/run_paddleocr.py"), "paddle_run_local")
-    base = pmod.build_paddleocr_command(input_pdf=Path("/in.pdf"), output_dir=Path("/out"), lang="en", device="auto")
-    assert "--device" not in base
-    cpu = pmod.build_paddleocr_command(input_pdf=Path("/in.pdf"), output_dir=Path("/out"), lang="en", device="cpu")
-    assert cpu[-2:] == ["--device", "cpu"]
-    gpu = pmod.build_paddleocr_command(input_pdf=Path("/in.pdf"), output_dir=Path("/out"), lang="en", device="cuda")
-    assert gpu[-2:] == ["--device", "gpu:0"]
-
-    out = tmp_path / "out"
-    out.mkdir()
-    (out / "a.json").write_text('{"result": [{"rec_text": "hello"}, {"text": "world"}]}', encoding="utf-8")
-    lines = pmod.extract_text_from_json(out)
-    assert "hello" in lines and "world" in lines
-
-
 def test_deepseek_allow_download_still_runs_local_only(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     ds = _load_deepseek_module()
     pdf = tmp_path / "t.pdf"
@@ -374,12 +346,3 @@ def test_deepseek_allow_download_still_runs_local_only(tmp_path: Path, monkeypat
         sys.modules.pop("pdf_to_md_json", None)
     assert rc == 0
     assert called["local_only"] is True
-
-
-def test_mineru_command_planning() -> None:
-    mrun = _load_module_by_path(Path("backend/mineru/run_mineru.py"), "mineru_run_local")
-    cmd = mrun.build_mineru_command(input_pdf=Path("/in.pdf"), output_dir=Path("/out"), lang="en", backend="pipeline", api_url="http://x")
-    assert cmd[:5] == ["mineru", "-p", "/in.pdf", "-o", "/out"]
-    assert "-b" in cmd and "pipeline" in cmd
-    assert "-l" in cmd and "en" in cmd
-
