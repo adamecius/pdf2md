@@ -151,3 +151,27 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
 - external_tools_used: []
 - blockers: []
 - status: ready_for_review
+
+## PR #15 — 2026-05-07T06:05:30Z — mode: agent
+- tasks_attempted:
+    - T1: files_touched=[src/pdf2md/models/ir.py, src/pdf2md/models/__init__.py, tests/test_ir_contracts.py, tests/data/ir_fixtures/page_extraction_ir.min.json, tests/data/ir_fixtures/page_extraction_ir.full.json, tests/data/ir_fixtures/consensus_ir.min.json, tests/data/ir_fixtures/consensus_ir.full.json, tests/data/ir_fixtures/consensus_ir.with_conflicts.json, run_log.md], tests_pass=[A1,A2,A3,A4,A5], tests_fail_env=[A6], tests_fail_real=[]
+- dependencies_added: []
+- external_tools_used: ["python -m pip install -e . (editable install of this checkout only, no new dependency)"]
+- blockers: ["A6 whole-suite command pytest tests/ -q is environment-blocked in this checkout: collection fails before running tests because tests/test_compile_latex_groundth.py cannot import top-level tools, tests/test_latex_groundtruth_sources.py cannot import top-level tests, and tests/test_groundtruth_e2e.py requires missing .current/latex_docling_groundtruth/batch_001 fixtures. A diagnostic rerun with PYTHONPATH=.:src resolves the top-level import issues but still fails on the missing .current/latex_docling_groundtruth/batch_001 fixture directory. The targeted IR contract suite and schema/fixture checks passed."]
+- status: ready_for_review
+
+## PR #16 — 2026-05-07T06:53:32Z — mode: agent
+- tasks_attempted:
+    - T1: files_touched=[pyproject.toml, pdf2md/__init__.py, tests/__init__.py, run_log.md], tests_pass=[A1,A2,A3,A4,A5], tests_fail_env=[A6], tests_fail_real=[]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: ["The exact PR #15 review issue could not be solved while preserving the original plan whitelist: making `python -c ... from pdf2md...` work without an editable install requires a repository-level import shim outside the IR whitelist, and making `pytest tests/ -q` resolve repository-local `tests` imports requires a test package marker/PYTHONPATH configuration outside that whitelist. The targeted import/schema/fixture checks now pass without `pip install -e .`; whole-suite collection now proceeds past import-path failures and remains environment-blocked only by the absent `.current/latex_docling_groundtruth/batch_001` fixture directory."]
+- status: ready_for_review
+
+## PR #17 — 2026-05-07T07:14:43Z — mode: agent
+- tasks_attempted:
+    - T1: files_touched=[README_latex_docling_groundtruth.md, generate_latex_docling_groundtruth.py, latex_to_pre_docling_groundtruth.py, run_latex_docling_backends.sh, scripts/local_build_docling_fixtures.sh, tests/groundtruth_paths.py, tests/conventions/test_backend_patterns.py, tests/docling_groundtruth/contracts/batch_001/linked_sections_figures/expected_docling_contract.json, tests/docling_groundtruth/contracts/batch_001/linked_sections_figures/expected_semantic_contract.json, tests/docling_groundtruth/contracts/batch_001/lists_footnotes_tables/expected_docling_contract.json, tests/docling_groundtruth/contracts/batch_001/lists_footnotes_tables/expected_semantic_contract.json, tests/test_groundtruth_e2e.py, tests/test_groundtruth_regressions.py, tests/test_latex_groundtruth_sources.py, tests/test_mock_backend_schema.py, validate_latex_docling_groundtruth.py, run_log.md], tests_pass=[groundtruth_reference_scan, groundtruth_targeted_tests, validate_latex_docling_groundtruth, ir_contracts], tests_fail_env=[], tests_fail_real=[whole_suite_backend_compat]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: ["Historical references in run_log.md/current_plan.md were not rewritten; active code, tests, scripts, and docs no longer reference .current/latex_docling_groundtruth or tests/docling_groundtruth/latex_sources outside the canonical groundtruth/corpus/latex corpus. Whole-suite pytest now reaches pre-existing backend compatibility failures unrelated to groundtruth path migration: missing backend/mineru/test_visual.pdf, missing backend/mineru/run_mineru.py and backend/paddleocr/run_paddleocr.py, and backend/deepseek API mismatches expected by tests/test_run_backends_config.py."]
+- status: ready_for_review

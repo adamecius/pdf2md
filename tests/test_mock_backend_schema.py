@@ -6,11 +6,26 @@ from pathlib import Path
 import pytest
 
 from pdf2md.testing import build_label_map, generate_mock_backend_ir, get_detectable_references
+from tests.groundtruth_paths import corpus_doc_dir, corpus_doc_ids
 from pdf2md.utils import consensus_report
 
-FIX_ROOT = Path('.current/latex_docling_groundtruth/batch_001')
+FIX_ROOT = Path('groundtruth/corpus/latex')
 FIXTURES = ['simple_title_paragraph', 'figure_caption_reference', 'equation_label_reference']
 REAL_DOC = 'Ashcroft_Mermin_sub'
+
+
+
+def _require_generated_layout(fixture_dir: Path, doc_id: str) -> None:
+    required = [
+        fixture_dir / 'input' / f'{doc_id}.pdf',
+        fixture_dir / 'groundtruth' / 'source_groundtruth_ir.json',
+    ]
+    missing = [path for path in required if not path.exists()]
+    if missing:
+        pytest.skip(
+            'canonical corpus fixture is present, but generated PDF/IR layout is not available: '
+            + ', '.join(str(path) for path in missing)
+        )
 
 @pytest.fixture
 def _patch_groundtruth_backend(monkeypatch):
@@ -31,7 +46,8 @@ def _real_key_sets() -> tuple[set[str], set[str]]:
 @pytest.fixture(params=FIXTURES)
 def mock_ir(request, tmp_path):
     doc_id = request.param
-    fdir = FIX_ROOT / doc_id
+    fdir = corpus_doc_dir(doc_id, 'batch_001')
+    _require_generated_layout(fdir, doc_id)
     out = tmp_path / 'backend' / 'groundtruth' / '.current' / 'extraction_ir' / doc_id
     pages_dir, manifest = generate_mock_backend_ir(fdir, out, backend_name='groundtruth')
     return doc_id, fdir, pages_dir, manifest, tmp_path
@@ -126,13 +142,15 @@ def test_no_latex_artifacts_in_blocks(mock_ir):
 
 
 def test_build_label_map_supports_dict_labels():
-    fdir = FIX_ROOT / 'figure_caption_reference'
+    fdir = corpus_doc_dir('figure_caption_reference', 'batch_001')
+    _require_generated_layout(fdir, 'figure_caption_reference')
     lm = build_label_map(fdir)
     assert 'fig:box' in lm
     assert lm['fig:box']['kind'] == 'figure'
 
 def test_get_detectable_references_returns_pipeline_domain_refs():
-    fdir = FIX_ROOT / 'figure_caption_reference'
+    fdir = corpus_doc_dir('figure_caption_reference', 'batch_001')
+    _require_generated_layout(fdir, 'figure_caption_reference')
     refs = get_detectable_references(fdir)
     assert any(r['kind'] == 'figure' and r['label'] == '1' for r in refs)
 

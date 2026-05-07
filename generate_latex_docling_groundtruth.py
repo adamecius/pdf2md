@@ -103,8 +103,10 @@ def parse_nodes(doc_id:str,title:str,tex:str):
     return nodes,labels,refs
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument("--batch",default="batch_001"); ap.add_argument("--output-root",default=".current/latex_docling_groundtruth"); ap.add_argument("--count",type=int,default=20); ap.add_argument("--compile",action="store_true"); ap.add_argument("--skip-pre-docling",action="store_true"); ap.add_argument("--verbose",action="store_true"); a=ap.parse_args()
-    root=Path(a.output_root)/a.batch; root.mkdir(parents=True,exist_ok=True); eng=detect_engine()
+    ap=argparse.ArgumentParser(); ap.add_argument("--batch",default="batch_001"); ap.add_argument("--output-root",default="groundtruth/corpus/latex"); ap.add_argument("--count",type=int,default=20); ap.add_argument("--compile",action="store_true"); ap.add_argument("--skip-pre-docling",action="store_true"); ap.add_argument("--verbose",action="store_true"); a=ap.parse_args()
+    output_root = Path(a.output_root)
+    root = output_root if output_root.as_posix().rstrip("/") == "groundtruth/corpus/latex" else output_root / a.batch
+    root.mkdir(parents=True,exist_ok=True); eng=detect_engine()
     for did in DOC_IDS[:max(21,a.count)]:
         title=did.replace('_',' ').title(); tex_src=build_tex(did,title)
         doc=root/did; inp=doc/"input"; gt=doc/"groundtruth"; inp.mkdir(parents=True,exist_ok=True); gt.mkdir(parents=True,exist_ok=True)
