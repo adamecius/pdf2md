@@ -1,26 +1,48 @@
-# Plan 2 - Backend connectors and document-level entity proposals
+# Plan 3 - Confidence prior calibration
 
-Status: draft, ready to implement after Plan 1  
+Status: draft, ready to implement after Plan 2  
 Repo: `pdf2md`  
-Owner: connector layer  
-Sequence: this is plan 2 of 6. It depends on Plan 1 and blocks Plans 3 to 6.
+Owner: calibration layer  
+Sequence: this is plan 3 of 6. It depends on Plans 1 and 2 and blocks Plan 4.
 
 ---
 
 ## 0. Scope and constraints
 
-This plan introduces the connector layer.
+This plan introduces calibrated backend priors.
 
-A connector is a thin, backend-local adapter that reads one backend's raw output and emits:
+Plan 1 froze the page-level evidence contracts: `PageExtractionIR` and `ConsensusIR`.
 
-1. `PageExtractionIR` files, one per page, using the Plan 1 schema.
-2. A document-level `EntityProposalDocument`, containing entities and relation proposals detected from that backend's own output.
+Plan 2 added backend connectors that emit:
 
-This plan does not run OCR. It does not modify backend wrappers. It does not perform consensus. It does not calibrate backend priors. It does not build the final linked document structure. It only normalises backend evidence into the contracts needed by the later pipeline.
+```text
+<out-dir>/<backend>/
+  manifest.json
+  pages/page_0001.json
+  entities.json
+```
 
-The key design correction is this:
+where `pages/*.json` are `PageExtractionIR` files and `entities.json` is an `EntityProposalDocument`.
 
-`PageExtractionIR` remains page-local evidence. Document-level entity proposals must not be hidden inside `PageExtractionIR.metadata`, because that would make them opaque to consensus and calibration. They get their own explicit schema.
+Plan 3 consumes those Plan 2 outputs, compares them against ground truth, and produces calibrated priors that Plan 4 can use during consensus.
+
+This plan does not run OCR. It does not modify backend wrappers. It does not change connector logic. It does not perform consensus. It does not resolve semantic links. It does not export Docling.
+
+The output of this plan is a versioned prior file per backend, plus calibration reports:
+
+```text
+priors/<backend>.json
+reports/calibration_report.json
+```
+
+The core question answered by this plan is:
+
+```text
+Given backend B, entity class C, relation class R, block kind K, and detector/calibration key D,
+how reliable has this backend been against ground truth?
+```
+
+Plan 4 will use these priors as scoring inputs. Plan 3 only produces them.
 
 Hard constraints:
 
@@ -28,51 +50,54 @@ Hard constraints:
 - No new runtime dependencies.
 - No OCR execution in tests.
 - No conda calls in tests.
+- No modification to Plan 1 IR contracts.
+- No modification to Plan 2 connector contracts.
 - No modification to backend OCR wrappers.
 - No modification to src/pdf2md/backends/runner.py.
 - No modification to src/pdf2md/cli/main.py.
-- No modification to Plan 1 IR contracts unless a reviewer explicitly opens Plan 1 again.
-- Connector behaviour must be lenient: missing manifest, missing bbox, missing page size, or missing native structure produces warnings, not hard failure.
-- Only truly invalid caller state fails hard: non-existent raw_dir, invalid output path, or schema-invalid object construction.
+- Calibration must be lenient: missing backend output, missing truth files, or empty samples produce warnings, not hard failure.
+- Invalid input JSON or schema-invalid objects may fail in strict mode.
+- Tests must use synthetic fixtures, not real LaTeX compilation or real OCR.
 ```
 
 Out of scope:
 
 ```text
-- Ground-truth calibration.
+- Running local backend models.
+- Generating LaTeX ground truth.
+- Generating Docling ground truth.
+- Changing connector confidence values in-place.
 - Consensus scoring.
-- Bayesian priors.
-- Page-to-page semantic disambiguation.
-- Final linked structure.
-- Docling export.
-- Changes to existing backend CLI behaviour.
+- Semantic linker.
+- Linked structure.
+- Docling exporter.
 ```
 
 ---
 
 ## 1. Why this plan exists
 
-Plan 1 gives the system a stable page-level evidence contract. Plan 2 makes every backend capable of producing that evidence in a comparable way.
-
-The connector also adds document-level proposals, but only as proposals:
+Plan 2 gives every backend a common evidence format. However, every backend has different strengths and weaknesses:
 
 ```text
-section candidate
-TOC entry candidate
-page number candidate
-footnote candidate
-equation candidate
-caption candidate
-figure/table candidate
-reference section candidate
-reference item candidate
-possible caption_of relation
-possible toc_points_to relation
+MinerU may be better at tables.
+PaddleOCR may be better at raw text but weaker at semantic sections.
+DeepSeek may produce rich markdown but weak geometry.
+GLM may have different semantic hallucination patterns.
 ```
 
-These are not final semantic decisions. They are backend-specific hypotheses with evidence and confidence. Plan 3 calibrates their confidence against ground truth. Plan 4 consumes them during consensus. Plan 5 decides document-level links.
+The consensus factory should not treat all proposals equally. It needs calibrated priors per backend and per detector or class.
 
-This separation prevents the page-local consensus layer from being forced to decide things it cannot know yet. For example, a short numeric block can be a footnote marker, a page number, an equation number, or part of a reference. The connector records proposals and evidence. It does not force a final interpretation.
+Plan 3 therefore computes empirical reliability from ground truth:
+
+```text
+backend + block_kind       -> block prior
+backend + entity_type      -> entity prior
+backend + relation_type    -> relation prior
+backend + calibration_key  -> detector prior
+```
+
+The connector already emits `calibration_key` in `EntityProposal`. That key is the bridge between Plan 2 and Plan 3.
 
 ---
 
@@ -82,103 +107,149 @@ The reviewer rejects the plan if any implementation modifies files outside this 
 
 ```text
 src/pdf2md/models/__init__.py
-src/pdf2md/models/entities.py
+src/pdf2md/models/priors.py
 
-src/pdf2md/connectors/__init__.py
-src/pdf2md/connectors/common.py
+src/pdf2md/calibration/__init__.py
+src/pdf2md/calibration/matching.py
+src/pdf2md/calibration/metrics.py
+src/pdf2md/calibration/io.py
 
-backend/deepseek/connector.py
-backend/glm/connector.py
-backend/mineru/connector.py
-backend/paddleocr/connector.py
+tools/calibrate_priors.py
 
-tests/test_entity_contracts.py
-tests/test_connector_common.py
-tests/test_backend_connectors.py
+tests/test_prior_contracts.py
+tests/test_calibration_matching.py
+tests/test_calibration_metrics.py
+tests/test_calibrate_priors_cli.py
 
-tests/data/connector_fixtures/simple_markdown/output.md
-tests/data/connector_fixtures/simple_markdown/manifest.json
-tests/data/connector_fixtures/semantic_markdown/output.md
-tests/data/connector_fixtures/semantic_markdown/manifest.json
-tests/data/connector_fixtures/empty_markdown/output.md
-tests/data/connector_fixtures/empty_markdown/manifest.json
+tests/data/calibration_fixtures/minimal_truth/truth.json
+tests/data/calibration_fixtures/minimal_predictions/mineru/entities.json
+tests/data/calibration_fixtures/minimal_predictions/mineru/pages/page_0001.json
+tests/data/calibration_fixtures/minimal_predictions/mineru/manifest.json
+
+tests/data/calibration_fixtures/mixed_predictions/truth.json
+tests/data/calibration_fixtures/mixed_predictions/mineru/entities.json
+tests/data/calibration_fixtures/mixed_predictions/mineru/pages/page_0001.json
+tests/data/calibration_fixtures/mixed_predictions/mineru/manifest.json
+tests/data/calibration_fixtures/mixed_predictions/paddleocr/entities.json
+tests/data/calibration_fixtures/mixed_predictions/paddleocr/pages/page_0001.json
+tests/data/calibration_fixtures/mixed_predictions/paddleocr/manifest.json
+
+tests/data/calibration_fixtures/empty_predictions/truth.json
+tests/data/calibration_fixtures/empty_predictions/deepseek/entities.json
+tests/data/calibration_fixtures/empty_predictions/deepseek/manifest.json
 ```
 
 Explicit non-whitelist files:
 
 ```text
 src/pdf2md/models/ir.py
+src/pdf2md/models/entities.py
+src/pdf2md/connectors/common.py
 src/pdf2md/backends/runner.py
 src/pdf2md/cli/main.py
 src/pdf2md/pipeline/convert.py
-pdf2md.backends.example.toml
+backend/*/connector.py
 backend/*/pdf2md_*.py
 backend/*/pdf2ir_*.py
-current_plan.md
 pyproject.toml
+current_plan.md
 ```
 
-Why this whitelist is strict:
+Rationale:
 
-Plan 2 is a post-processing layer over raw backend artifacts. The existing backend runner already handles backend execution, command planning, raw output directories, and run manifests. Changing it here would couple connector work with runner work and make review harder.
+Plan 3 is a consumer of Plan 2 outputs. If Plan 3 needs to change `EntityProposalDocument`, then Plan 2 was not really frozen. Do not do that in this plan.
 
 ---
 
-## 3. Output layout
+## 3. Inputs and outputs
 
-Each backend connector writes into an explicit output directory supplied by the caller. No global runner integration happens in this plan.
+### 3.1 Input: backend predictions
+
+Plan 3 reads Plan 2 connector outputs.
+
+Required prediction files per backend:
+
+```text
+<prediction-root>/<backend>/
+  entities.json
+  pages/
+    page_0001.json
+    ...
+```
+
+`entities.json` must validate as:
+
+```text
+pdf2md.models.entities.EntityProposalDocument
+```
+
+`pages/*.json` must validate as:
+
+```text
+pdf2md.models.ir.PageExtractionIR
+```
+
+Page files are used for block-kind calibration. Entity files are used for entity and relation calibration.
+
+Missing page files do not block entity calibration.
+
+### 3.2 Input: ground truth
+
+Plan 3 introduces a simple canonical calibration truth format for tests and future generated ground truth.
+
+File name:
+
+```text
+truth.json
+```
+
+Schema name:
+
+```text
+pdf2md.CalibrationTruthDocument
+```
+
+This is not the final linked structure and not Docling. It is only a compact benchmark target for calibration.
+
+The real LaTeX and Docling ground truth harness can later produce this truth format from existing files such as:
+
+```text
+groundtruth/corpus/latex/<doc_id>/<doc_id>.docling.json
+groundtruth/corpus/latex/<doc_id>/<doc_id>.docling_groundtruth_meta.json
+groundtruth/corpus/latex/<doc_id>/groundtruth/source_groundtruth_ir.json
+groundtruth/corpus/latex/<doc_id>/groundtruth/semantic_document_groundtruth.json
+```
+
+Plan 3 does not require real corpus files in CI. Tests use synthetic `truth.json` fixtures.
+
+### 3.3 Output: prior files
 
 Canonical output layout:
 
 ```text
-<out-dir>/<backend>/
-  manifest.json
-  pages/
-    page_0001.json
-    page_0002.json
-    ...
-  entities.json
+<out-dir>/
+  priors/
+    mineru.json
+    paddleocr.json
+    deepseek.json
+    glm.json
+  reports/
+    calibration_report.json
 ```
 
-Where:
-
-```text
-pages/page_0001.json  = PageExtractionIR
-entities.json         = EntityProposalDocument
-manifest.json         = connector execution manifest, not a Pydantic domain object
-```
-
-The connector manifest is intentionally simple:
-
-```json
-{
-  "schema_name": "pdf2md.ConnectorManifest",
-  "schema_version": "1.0.0",
-  "document_id": "doc_001",
-  "backend": "mineru",
-  "backend_version": null,
-  "raw_dir": "...",
-  "page_count": 3,
-  "page_ir_files": ["pages/page_0001.json"],
-  "entity_file": "entities.json",
-  "warnings": [],
-  "created_at": "2026-05-07T00:00:00Z"
-}
-```
-
-No test should depend on exact wall-clock equality. Tests only assert that `created_at` exists and is non-empty.
+Only backends seen in the input need a prior file.
 
 ---
 
-## 4. New schema: EntityProposalDocument
+## 4. New schema: `CalibrationPriorDocument`
 
 File:
 
 ```text
-src/pdf2md/models/entities.py
+src/pdf2md/models/priors.py
 ```
 
-This module contains only Pydantic v2 models and pure id factories. No I/O.
+This module contains Pydantic v2 models and pure id/key helpers. No I/O.
 
 All models use:
 
@@ -186,208 +257,196 @@ All models use:
 ConfigDict(extra="forbid", frozen=False, populate_by_name=True)
 ```
 
-The schema version for this file is:
+The schema version is:
 
 ```python
-ENTITY_SCHEMA_VERSION = "1.0.0"
+PRIOR_SCHEMA_VERSION = "1.0.0"
 ```
 
 ### 4.1 Enums
 
 ```python
-class EntityType(str, Enum):
-    DOCUMENT_TITLE = "document_title"
-    SECTION = "section"
-    TOC_ENTRY = "toc_entry"
-    PAGE_NUMBER = "page_number"
-    HEADER = "header"
-    FOOTER = "footer"
-    FOOTNOTE = "footnote"
-    EQUATION = "equation"
-    FIGURE = "figure"
-    TABLE = "table"
-    CAPTION = "caption"
-    REFERENCE_SECTION = "reference_section"
-    REFERENCE_ITEM = "reference_item"
-    BIBLIOGRAPHY_MARKER = "bibliography_marker"
-    UNKNOWN = "unknown"
+class CalibrationTarget(str, Enum):
+    BLOCK_KIND = "block_kind"
+    ENTITY_TYPE = "entity_type"
+    RELATION_TYPE = "relation_type"
+    CALIBRATION_KEY = "calibration_key"
 ```
 
 ```python
-class RelationType(str, Enum):
-    CAPTION_OF = "caption_of"
-    FOOTNOTE_ANCHOR_FOR = "footnote_anchor_for"
-    TOC_POINTS_TO = "toc_points_to"
-    REFERENCE_MENTION_OF = "reference_mention_of"
-    SAME_ENTITY_AS = "same_entity_as"
-    NEAR = "near"
-    SEQUENCE_NEXT = "sequence_next"
-    CANDIDATE_FOR = "candidate_for"
-```
-
-```python
-class EvidenceKind(str, Enum):
-    BLOCK_TEXT = "block_text"
-    BBOX = "bbox"
-    REGEX = "regex"
-    POSITION = "position"
-    READING_ORDER = "reading_order"
-    MARKDOWN_SYNTAX = "markdown_syntax"
-    BACKEND_NATIVE_TYPE = "backend_native_type"
-    RAW_ARTIFACT = "raw_artifact"
-    DOCUMENT_CONTEXT = "document_context"
-```
-
-```python
-class ConfidenceSource(str, Enum):
-    HEURISTIC = "heuristic"
+class CalibrationStatus(str, Enum):
     CALIBRATED = "calibrated"
-    MANUAL = "manual"
-    UNKNOWN = "unknown"
+    UNDERPOWERED = "underpowered"
+    NO_SAMPLES = "no_samples"
 ```
 
-Plan 2 uses `heuristic`. Plan 3 may emit `calibrated`.
+```python
+class MatchOutcome(str, Enum):
+    TRUE_POSITIVE = "true_positive"
+    FALSE_POSITIVE = "false_positive"
+    FALSE_NEGATIVE = "false_negative"
+```
 
----
-
-### 4.2 EntityEvidence
+### 4.2 `CalibrationCounts`
 
 ```python
-class EntityEvidence(BaseModel):
-    kind: EvidenceKind
-    page_no: int | None
-    source_block_id: str | None
-    raw_ref: str | None
-    text: str | None
-    bbox: BBox | None
-    weight: float
-    reason: str
+class CalibrationCounts(BaseModel):
+    true_positive: int
+    false_positive: int
+    false_negative: int
+```
+
+Validation:
+
+```text
+- all values >= 0
+```
+
+### 4.3 `CalibrationMetric`
+
+```python
+class CalibrationMetric(BaseModel):
+    target: CalibrationTarget
+    key: str
+    counts: CalibrationCounts
+    precision: float
+    recall: float
+    f1: float
+    support: int
+    calibrated_confidence: float
+    status: CalibrationStatus
     metadata: dict[str, Any]
 ```
 
 Validation:
 
 ```text
-- weight is in [0.0, 1.0].
-- page_no is >= 1 when present.
-- source_block_id, when present, matches Plan 1 ExtractionBlock.id regex.
-- reason is non-empty.
-- extra fields are forbidden.
+- key is non-empty.
+- precision, recall, f1, calibrated_confidence are in [0.0, 1.0].
+- support >= 0.
 ```
 
-`bbox` imports the Plan 1 `BBox` from:
+Status is set by the metrics layer:
+
+```text
+support == 0              -> no_samples
+0 < support < min_samples -> underpowered
+support >= min_samples    -> calibrated
+```
+
+`calibrated_confidence` uses smoothed precision:
+
+```text
+(tp + alpha) / (tp + fp + alpha + beta)
+```
+
+Default smoothing:
+
+```text
+alpha = 1.0
+beta = 1.0
+```
+
+This prevents tiny samples from producing hard 0.0 or 1.0 priors.
+
+### 4.4 `CalibrationPriorDocument`
 
 ```python
-from pdf2md.models.ir import BBox
-```
-
----
-
-### 4.3 EntityProposal
-
-```python
-class EntityProposal(BaseModel):
-    id: str
-    entity_type: EntityType
-    subtype: str | None
-    canonical_text: str | None
-    page_no: int | None
-    block_ids: list[str]
-    confidence: float
-    confidence_source: ConfidenceSource
-    evidence: list[EntityEvidence]
-    calibration_key: str | None
-    metadata: dict[str, Any]
-```
-
-ID pattern:
-
-```text
-^ent:[a-z0-9_-]+:[A-Za-z0-9_.-]+:[a-z_]+:\d+$
-```
-
-Format:
-
-```text
-ent:<backend>:<document_id>:<entity_type>:<index>
-```
-
-Validation:
-
-```text
-- confidence is in [0.0, 1.0].
-- evidence has at least one item.
-- block_ids, when non-empty, all match Plan 1 ExtractionBlock.id regex.
-- page_no is >= 1 when present.
-- extra fields are forbidden.
-```
-
-`calibration_key` is forward compatibility for Plan 3:
-
-```text
-<backend>:<entity_type>:<detector_name>
-```
-
-Example:
-
-```text
-paddleocr:page_number:number_only_margin_detector
-```
-
-Plan 2 does not read priors. It only preserves the key needed for later calibration.
-
----
-
-### 4.4 RelationProposal
-
-```python
-class RelationProposal(BaseModel):
-    id: str
-    relation_type: RelationType
-    source_entity_id: str
-    target_entity_id: str
-    confidence: float
-    confidence_source: ConfidenceSource
-    evidence: list[EntityEvidence]
-    metadata: dict[str, Any]
-```
-
-ID pattern:
-
-```text
-^rel:[a-z0-9_-]+:[A-Za-z0-9_.-]+:\d+$
-```
-
-Format:
-
-```text
-rel:<backend>:<document_id>:<index>
-```
-
-Validation:
-
-```text
-- confidence is in [0.0, 1.0].
-- source_entity_id and target_entity_id match EntityProposal.id pattern.
-- source_entity_id != target_entity_id.
-- evidence has at least one item.
-```
-
----
-
-### 4.5 EntityProposalDocument
-
-```python
-class EntityProposalDocument(BaseModel):
-    schema_name: Literal["pdf2md.EntityProposalDocument"]
+class CalibrationPriorDocument(BaseModel):
+    schema_name: Literal["pdf2md.CalibrationPriorDocument"]
     schema_version: Literal["1.0.0"]
-    document_id: str
     backend: str
     backend_version: str | None
-    page_count: int
-    entities: list[EntityProposal]
-    relations: list[RelationProposal]
+    generated_from: list[str]
+    min_samples: int
+    smoothing_alpha: float
+    smoothing_beta: float
+    default_confidence: float
+    block_kind_priors: list[CalibrationMetric]
+    entity_type_priors: list[CalibrationMetric]
+    relation_type_priors: list[CalibrationMetric]
+    calibration_key_priors: list[CalibrationMetric]
     warnings: list[str]
+    metadata: dict[str, Any]
+```
+
+Validation:
+
+```text
+- backend is non-empty.
+- min_samples >= 1.
+- smoothing_alpha > 0.
+- smoothing_beta > 0.
+- default_confidence in [0.0, 1.0].
+- each metric list has unique keys.
+- extra fields are forbidden.
+```
+
+Required helper functions:
+
+```python
+prior_key(target: CalibrationTarget | str, key: str) -> str
+lookup_prior(prior: CalibrationPriorDocument, target: CalibrationTarget | str, key: str) -> CalibrationMetric | None
+lookup_confidence(prior: CalibrationPriorDocument, target: CalibrationTarget | str, key: str) -> float
+```
+
+`lookup_confidence` returns `prior.default_confidence` when no calibrated metric exists.
+
+Re-export from:
+
+```text
+src/pdf2md/models/__init__.py
+```
+
+Append only. Do not remove Plan 1 or Plan 2 exports.
+
+---
+
+## 5. New schema: `CalibrationTruthDocument`
+
+Also in:
+
+```text
+src/pdf2md/models/priors.py
+```
+
+This is the canonical truth format used by calibration tests and by local corpus tooling.
+
+```python
+class TruthEntity(BaseModel):
+    id: str
+    entity_type: EntityType
+    canonical_text: str | None
+    page_no: int | None
+    metadata: dict[str, Any]
+```
+
+```python
+class TruthRelation(BaseModel):
+    id: str
+    relation_type: RelationType
+    source_truth_id: str
+    target_truth_id: str
+    metadata: dict[str, Any]
+```
+
+```python
+class TruthBlock(BaseModel):
+    id: str
+    block_kind: BlockKind
+    text: str | None
+    page_no: int
+    metadata: dict[str, Any]
+```
+
+```python
+class CalibrationTruthDocument(BaseModel):
+    schema_name: Literal["pdf2md.CalibrationTruthDocument"]
+    schema_version: Literal["1.0.0"]
+    document_id: str
+    blocks: list[TruthBlock]
+    entities: list[TruthEntity]
+    relations: list[TruthRelation]
     metadata: dict[str, Any]
 ```
 
@@ -395,597 +454,449 @@ Validation:
 
 ```text
 - document_id is non-empty.
-- backend is non-empty.
-- page_count >= 0.
-- entity ids are unique.
-- relation ids are unique.
-- every relation source_entity_id exists in entities.
-- every relation target_entity_id exists in entities.
+- truth entity ids are unique.
+- truth relation ids are unique.
+- relation endpoints exist in truth entities.
+- truth block ids are unique.
+- page_no >= 1 for truth blocks and when present for truth entities.
 - extra fields are forbidden.
 ```
 
-Helper id factories:
+Important:
 
-```python
-entity_id(backend, document_id, entity_type, index) -> str
-relation_id(backend, document_id, index) -> str
-```
-
-Re-export these from:
-
-```text
-src/pdf2md/models/__init__.py
-```
-
-Append only. Do not remove Plan 1 exports.
+This truth document is deliberately smaller than Docling. It is an evaluation target, not the export model.
 
 ---
 
-## 5. Connector common module
+## 6. Calibration matching
 
 File:
 
 ```text
-src/pdf2md/connectors/common.py
+src/pdf2md/calibration/matching.py
 ```
 
-This is where shared connector logic lives so that `backend/*/connector.py` stays thin.
+This module is pure Python and deterministic.
 
-### 5.1 Public API
+### 6.1 Public API
 
 ```python
 @dataclass(frozen=True)
-class ConnectorResult:
-    pages: list[PageExtractionIR]
-    entities: EntityProposalDocument
+class MatchRecord:
+    target: CalibrationTarget
+    key: str
+    backend: str
+    prediction_id: str | None
+    truth_id: str | None
+    outcome: MatchOutcome
+    confidence: float | None
+    metadata: dict[str, Any]
+```
+
+```python
+def match_blocks(
+    *,
+    backend: str,
+    pages: list[PageExtractionIR],
+    truth: CalibrationTruthDocument,
+) -> list[MatchRecord]:
+    ...
+```
+
+```python
+def match_entities(
+    *,
+    backend: str,
+    predictions: EntityProposalDocument,
+    truth: CalibrationTruthDocument,
+) -> list[MatchRecord]:
+    ...
+```
+
+```python
+def match_relations(
+    *,
+    backend: str,
+    predictions: EntityProposalDocument,
+    truth: CalibrationTruthDocument,
+) -> list[MatchRecord]:
+    ...
+```
+
+```python
+def normalise_text(text: str | None) -> str:
+    ...
+```
+
+```python
+def token_overlap(a: str | None, b: str | None) -> float:
+    ...
+```
+
+### 6.2 Matching rules for blocks
+
+A predicted `ExtractionBlock` matches a `TruthBlock` when:
+
+```text
+- page_no matches
+- block kind matches
+- normalised text matches exactly, or token overlap >= 0.80
+```
+
+If several predictions match the same truth block, choose the highest token overlap, then lowest page order. Remaining predictions are false positives.
+
+Outputs:
+
+```text
+true_positive for matched predictions
+false_positive for unmatched predictions
+false_negative for unmatched truth blocks
+```
+
+Keys:
+
+```text
+target = block_kind
+key = BlockKind value, such as "heading", "paragraph", "table"
+```
+
+### 6.3 Matching rules for entities
+
+A predicted `EntityProposal` matches a `TruthEntity` when:
+
+```text
+- entity_type matches
+- page_no matches when both are present
+- canonical_text normalised exact match, or token overlap >= 0.75
+```
+
+Special cases:
+
+```text
+- page_number: exact canonical_text match preferred; page_no must match.
+- equation: metadata.equation_number may match truth metadata.equation_number.
+- caption: metadata.caption_number and caption_kind may match.
+- reference_item: metadata.marker may match.
+```
+
+Outputs:
+
+```text
+true_positive for matched predictions
+false_positive for unmatched predictions
+false_negative for unmatched truth entities
+```
+
+Keys:
+
+```text
+target = entity_type
+key = EntityType value, such as "section", "page_number", "caption"
+```
+
+Additional records:
+
+Every prediction with a non-empty `calibration_key` also emits a second record:
+
+```text
+target = calibration_key
+key = prediction.calibration_key
+```
+
+This lets Plan 4 score not only a class, but a specific detector.
+
+### 6.4 Matching rules for relations
+
+A predicted `RelationProposal` matches a `TruthRelation` when:
+
+```text
+- relation_type matches
+- source and target predicted entities have matched truth entities
+- matched truth source and target equal the truth relation endpoints
+```
+
+If entity matching is unavailable, relation matching returns false positives for predicted relations and false negatives for truth relations, with warning metadata `relation_matching_without_entity_matches`.
+
+Keys:
+
+```text
+target = relation_type
+key = RelationType value, such as "caption_of", "toc_points_to"
+```
+
+---
+
+## 7. Calibration metrics
+
+File:
+
+```text
+src/pdf2md/calibration/metrics.py
+```
+
+### 7.1 Public API
+
+```python
+@dataclass(frozen=True)
+class CalibrationSettings:
+    min_samples: int = 5
+    smoothing_alpha: float = 1.0
+    smoothing_beta: float = 1.0
+    default_confidence: float = 0.5
+```
+
+```python
+def compute_precision(tp: int, fp: int) -> float:
+    ...
+```
+
+```python
+def compute_recall(tp: int, fn: int) -> float:
+    ...
+```
+
+```python
+def compute_f1(precision: float, recall: float) -> float:
+    ...
+```
+
+```python
+def smoothed_precision(tp: int, fp: int, alpha: float, beta: float) -> float:
+    ...
+```
+
+```python
+def metric_from_counts(
+    *,
+    target: CalibrationTarget,
+    key: str,
+    counts: CalibrationCounts,
+    settings: CalibrationSettings,
+    metadata: dict[str, Any] | None = None,
+) -> CalibrationMetric:
+    ...
+```
+
+```python
+def build_prior_document(
+    *,
+    backend: str,
+    backend_version: str | None,
+    generated_from: list[str],
+    records: list[MatchRecord],
+    settings: CalibrationSettings,
+    warnings: list[str],
+    metadata: dict[str, Any] | None = None,
+) -> CalibrationPriorDocument:
+    ...
+```
+
+### 7.2 Metric definitions
+
+```text
+precision = tp / (tp + fp), or 0.0 when denominator is 0
+recall    = tp / (tp + fn), or 0.0 when denominator is 0
+f1        = 2 * precision * recall / (precision + recall), or 0.0 when denominator is 0
+support   = tp + fp + fn
+```
+
+`calibrated_confidence`:
+
+```text
+(tp + alpha) / (tp + fp + alpha + beta)
+```
+
+Status:
+
+```text
+support == 0              -> no_samples
+0 < support < min_samples -> underpowered
+support >= min_samples    -> calibrated
+```
+
+---
+
+## 8. Calibration I/O
+
+File:
+
+```text
+src/pdf2md/calibration/io.py
+```
+
+This module handles filesystem scanning and JSON loading. It must be lenient unless `strict=True`.
+
+### 8.1 Public API
+
+```python
+@dataclass(frozen=True)
+class CalibrationDocumentInput:
+    document_id: str
+    truth_path: Path
+    prediction_roots: dict[str, Path]
+```
+
+```python
+@dataclass(frozen=True)
+class CalibrationLoadResult:
+    truth: CalibrationTruthDocument | None
+    pages_by_backend: dict[str, list[PageExtractionIR]]
+    entities_by_backend: dict[str, EntityProposalDocument]
     warnings: list[str]
 ```
 
 ```python
-@dataclass(frozen=True)
-class BackendConnectorConfig:
-    backend: str
-    default_backend_version: str | None
-    markdown_file_candidates: tuple[str, ...]
-    manifest_file_candidates: tuple[str, ...]
-```
-
-```python
-def connect_raw_dir(
+def discover_calibration_inputs(
     *,
-    raw_dir: Path,
-    document_id: str,
-    config: BackendConnectorConfig,
-    out_dir: Path | None = None,
-) -> ConnectorResult:
+    root: Path,
+    backends: list[str] | None = None,
+) -> list[CalibrationDocumentInput]:
     ...
 ```
 
 ```python
-def write_connector_result(
+def load_calibration_document(
     *,
-    result: ConnectorResult,
-    backend: str,
-    document_id: str,
-    raw_dir: Path,
+    item: CalibrationDocumentInput,
+    strict: bool = False,
+) -> CalibrationLoadResult:
+    ...
+```
+
+```python
+def write_prior_outputs(
+    *,
+    priors: list[CalibrationPriorDocument],
+    report: dict[str, Any],
     out_dir: Path,
-) -> Path:
+) -> None:
     ...
 ```
 
-Return value of `write_connector_result`:
+### 8.2 Supported fixture layout
+
+Tests use:
 
 ```text
-Path to <out-dir>/<backend>/manifest.json
+tests/data/calibration_fixtures/<case>/
+  truth.json
+  <backend>/
+    manifest.json
+    entities.json
+    pages/
+      page_0001.json
+```
+
+`discover_calibration_inputs(root=tests/data/calibration_fixtures/mixed_predictions)` returns one document input where `prediction_roots` contains `mineru` and `paddleocr`.
+
+### 8.3 Supported real corpus layout
+
+The CLI also supports the local corpus shape:
+
+```text
+groundtruth/corpus/latex/<document_id>/
+  truth.json
+  <document_id>.docling.json
+  <document_id>.docling_groundtruth_meta.json
+  backend_ir/
+    mineru/
+      entities.json
+      pages/
+        page_0001.json
+```
+
+and Plan 2-style connector outputs:
+
+```text
+<document_id>/<backend>/
+  entities.json
+  pages/
+    page_0001.json
+```
+
+For Plan 3 implementation, only `truth.json` is required in tests. Real Docling-to-truth conversion is allowed only as a best-effort helper and must not be necessary for CI.
+
+Lenient warnings:
+
+```text
+truth_missing
+prediction_missing:<backend>
+entities_missing:<backend>
+pages_missing:<backend>
+invalid_truth:<path>
+invalid_entities:<backend>
+invalid_page:<backend>:<file>
 ```
 
 ---
 
-### 5.2 Lenient input discovery
+## 9. CLI tool
 
-The common connector searches for markdown or text evidence in this order:
-
-```text
-1. output.md
-2. output.mmd
-3. result.md
-4. result.mmd
-5. any single *.md or *.mmd file in raw_dir
-```
-
-Manifest discovery:
+File:
 
 ```text
-1. manifest.json
-2. status.json
-3. command.json
-```
-
-Manifest absence is not fatal.
-
-Rules:
-
-```text
-- raw_dir missing: raise ValueError.
-- raw_dir exists but no markdown-like file: produce zero pages, empty entities, warning "raw_text_missing".
-- manifest missing: warning "manifest_missing".
-- page size missing: use PageSize(width=1.0, height=1.0), warning "page_size_missing".
-- bbox missing: bbox=None.
-```
-
-No connector test should require real PDFs.
-
----
-
-## 6. Markdown-to-PageExtractionIR mapping
-
-Plan 2 needs a minimal, deterministic parser. It is not a Markdown renderer. It only creates enough blocks to feed consensus and entity proposal tests.
-
-Input:
-
-```text
-raw markdown text from one backend output
-```
-
-Page splitting:
-
-```text
-- Split on explicit markers first:
-  - "<--- Page Split --->"
-  - "\f"
-  - "<!-- pagebreak -->"
-- If none are present, produce one page.
-```
-
-Block splitting:
-
-```text
-- Split by blank lines.
-- Preserve order.
-- Trim whitespace.
-- Drop empty chunks.
-```
-
-Block classification:
-
-```text
-# Heading                -> BlockKind.HEADING
-## Heading               -> BlockKind.HEADING
-display math block       -> BlockKind.FORMULA
-HTML <table>...</table>  -> BlockKind.TABLE
-markdown image ![](...)  -> BlockKind.FIGURE
-"Figure 1..."            -> BlockKind.CAPTION
-"Fig. 2..."              -> BlockKind.CAPTION
-"Table 1..."             -> BlockKind.CAPTION
-list item                -> BlockKind.LIST_ITEM
-otherwise                -> BlockKind.PARAGRAPH
-```
-
-The connector should not invent structure it cannot justify. If a chunk is ambiguous, emit `BlockKind.PARAGRAPH`. Use `BlockKind.UNKNOWN` only when classification truly fails.
-
-Block IDs use the Plan 1 factory:
-
-```python
-extraction_id(backend, document_id, page_no, block_index)
-```
-
-`PageExtractionIR` defaults:
-
-```text
-schema_name       = "pdf2md.PageExtractionIR"
-schema_version    = "1.0.0"
-backend           = config.backend
-backend_version   = manifest-derived or config default
-page_no           = 1-indexed
-page_size         = PageSize(width=1.0, height=1.0) if unknown
-bbox              = None unless native evidence provides it
-confidence        = None in Plan 2 unless backend already supplies confidence
-raw_artifact_ref  = relative path to raw markdown file where possible
-metadata          = {"connector": "markdown_fallback"}
-```
-
----
-
-## 7. Document-level entity recogniser
-
-The recogniser consumes the complete list of `PageExtractionIR` pages emitted by one backend and returns `EntityProposalDocument`.
-
-It works at document level, not page by page, but it does not make final semantic decisions.
-
-### 7.1 Entity detectors
-
-Required detectors:
-
-```text
-heading_section_detector
-toc_entry_detector
-page_number_detector
-footnote_detector
-equation_detector
-caption_detector
-figure_table_detector
-reference_section_detector
-reference_item_detector
-header_footer_detector
-```
-
-Each detector returns `EntityProposal` objects with:
-
-```text
-entity_type
-canonical_text
-page_no
-block_ids
-confidence
-confidence_source = "heuristic"
-calibration_key
-evidence
-metadata.detector
-```
-
----
-
-### 7.2 Required detection rules
-
-#### Section proposals
-
-Input signal:
-
-```text
-BlockKind.HEADING
-markdown heading level in block metadata
-numbered heading pattern such as "1 Introduction", "2.3 Methods"
-```
-
-Entity:
-
-```text
-entity_type = section
-```
-
-Metadata:
-
-```json
-{
-  "heading_level": 1,
-  "numbering": "2.3",
-  "detector": "heading_section_detector"
-}
-```
-
-#### TOC entry proposals
-
-Input signal:
-
-```text
-A line with dotted leaders and terminal page number:
-"2.3 Methods ........ 15"
-```
-
-Entity:
-
-```text
-entity_type = toc_entry
-```
-
-Metadata:
-
-```json
-{
-  "target_page_candidate": 15,
-  "target_title_candidate": "2.3 Methods",
-  "detector": "toc_entry_detector"
-}
-```
-
-#### Page number proposals
-
-Input signal:
-
-```text
-A block whose normalised text is only an integer or roman numeral.
-Prefer first or last block on a page when no bbox exists.
-Prefer top or bottom margin when bbox exists.
-```
-
-Entity:
-
-```text
-entity_type = page_number
-```
-
-Important:
-
-Page number proposals must not delete or overwrite the original block. The block remains in `PageExtractionIR`; the proposal only marks it as likely page furniture.
-
-#### Footnote proposals
-
-Input signal:
-
-```text
-"[1] text"
-"1. text"
-"¹ text"
-short marker plus explanatory text near page end
-```
-
-Entity:
-
-```text
-entity_type = footnote
-```
-
-Metadata:
-
-```json
-{
-  "marker": "1",
-  "detector": "footnote_detector"
-}
-```
-
-#### Equation proposals
-
-Input signal:
-
-```text
-display math block
-LaTeX delimiters
-equation number at line end, such as "(3.1)"
-```
-
-Entity:
-
-```text
-entity_type = equation
-```
-
-Metadata:
-
-```json
-{
-  "equation_number": "3.1",
-  "sequence_key": "equation:3.1",
-  "detector": "equation_detector"
-}
-```
-
-#### Caption proposals
-
-Input signal:
-
-```text
-"Figure 1..."
-"Fig. 2..."
-"Table 3..."
-```
-
-Entity:
-
-```text
-entity_type = caption
-```
-
-Metadata:
-
-```json
-{
-  "caption_kind": "figure",
-  "caption_number": "1",
-  "detector": "caption_detector"
-}
-```
-
-#### Figure and table proposals
-
-Input signal:
-
-```text
-BlockKind.FIGURE
-BlockKind.TABLE
-markdown image
-HTML table
-```
-
-Entity:
-
-```text
-entity_type = figure | table
-```
-
-#### Reference section proposal
-
-Input signal:
-
-```text
-Heading equal or close to:
-"References"
-"Bibliography"
-"Works cited"
-```
-
-Entity:
-
-```text
-entity_type = reference_section
-```
-
-#### Reference item proposals
-
-Input signal:
-
-```text
-After reference_section:
-"[1] ..."
-"[Author, 2020] ..."
-"Author. Title. Journal..."
-```
-
-Entity:
-
-```text
-entity_type = reference_item
-```
-
-Important:
-
-The connector may use the fact that references tend to appear at the end of the document, but it must only record this as evidence. Final partitioning into body versus references belongs to Plan 5.
-
-#### Header and footer proposals
-
-Input signal:
-
-```text
-Repeated short text in first or last block position across several pages.
-```
-
-Entity:
-
-```text
-entity_type = header | footer
-```
-
-Plan 2 only requires a minimal detector over synthetic fixtures. It should not attempt advanced fuzzy matching.
-
----
-
-## 8. Relation proposals
-
-Required relation proposals:
-
-```text
-caption_of
-toc_points_to
-sequence_next
-near
-```
-
-These are weak proposals, not final links.
-
-### 8.1 caption_of
-
-Create when:
-
-```text
-caption entity is adjacent to a figure or table entity on the same page
-```
-
-Do not require perfect direction. If the connector is unsure, use lower confidence.
-
-### 8.2 toc_points_to
-
-Create when:
-
-```text
-toc_entry title text approximately matches a section title
-```
-
-Use a simple normalised containment or token-overlap rule. No fuzzy library.
-
-### 8.3 sequence_next
-
-Create when:
-
-```text
-equation numbers are consecutive by reading order
-figure numbers are consecutive by reading order
-table numbers are consecutive by reading order
-reference item numbers are consecutive by reading order
-```
-
-Only emit when the sequence is obvious.
-
-### 8.4 near
-
-Create when:
-
-```text
-two entities are adjacent on the same page and this adjacency may matter later
-```
-
-This relation is low confidence and mostly helps debugging.
-
----
-
-## 9. Per-backend connector files
-
-Each backend gets one file:
-
-```text
-backend/deepseek/connector.py
-backend/glm/connector.py
-backend/mineru/connector.py
-backend/paddleocr/connector.py
-```
-
-Each file is thin.
-
-Required module-level constants:
-
-```python
-BACKEND = "deepseek"      # or glm, mineru, paddleocr
-BACKEND_VERSION = None
-```
-
-Required public function:
-
-```python
-def connect(
-    raw_dir: Path,
-    document_id: str,
-    out_dir: Path | None = None,
-) -> ConnectorResult:
-    ...
+tools/calibrate_priors.py
 ```
 
 Required CLI:
 
 ```bash
-python backend/<backend>/connector.py \
-  --raw-dir <raw-dir> \
-  --document-id <document-id> \
-  --out-dir <out-dir>
+python tools/calibrate_priors.py \
+  --root tests/data/calibration_fixtures/mixed_predictions \
+  --out-dir /tmp/pdf2md_priors \
+  --backends mineru,paddleocr \
+  --min-samples 2
 ```
 
-Required CLI behaviour:
+Required options:
 
 ```text
---help exits 0
-valid fixture raw_dir exits 0
-missing raw_dir exits 1
-schema-invalid output exits 1
-lenient missing manifest exits 0 with warning
+--root PATH                 input root
+--out-dir PATH              output directory
+--backends LIST             comma-separated backend names, optional
+--min-samples INT           default 5
+--smoothing-alpha FLOAT     default 1.0
+--smoothing-beta FLOAT      default 1.0
+--default-confidence FLOAT  default 0.5
+--strict                    fail on invalid inputs instead of warning
+--verbose                   print report JSON
 ```
 
-Import rule:
+Exit codes:
 
 ```text
-Importing backend/<backend>/connector.py must not import heavy backend OCR packages.
+0 = priors written successfully, even if warnings exist
+1 = invalid CLI arguments or strict-mode input failure
 ```
 
-The connector file may import:
+Output:
 
 ```text
-argparse
-pathlib
-sys
-pdf2md.connectors.common
+<out-dir>/priors/<backend>.json
+<out-dir>/reports/calibration_report.json
 ```
 
-It must not import:
+The report contains:
 
-```text
-torch
-paddle
-paddleocr
-mineru
-transformers
-cv2
-fitz
-numpy
+```json
+{
+  "schema_name": "pdf2md.CalibrationReport",
+  "schema_version": "1.0.0",
+  "document_count": 1,
+  "backends": ["mineru", "paddleocr"],
+  "prior_files": {
+    "mineru": "priors/mineru.json",
+    "paddleocr": "priors/paddleocr.json"
+  },
+  "warnings": [],
+  "settings": {
+    "min_samples": 2,
+    "smoothing_alpha": 1.0,
+    "smoothing_beta": 1.0,
+    "default_confidence": 0.5
+  }
+}
 ```
-
-This is tested by importability in a clean test environment.
 
 ---
 
@@ -993,253 +904,258 @@ This is tested by importability in a clean test environment.
 
 Completion is certified by pytest, not by prose.
 
-### 10.1 tests/test_entity_contracts.py
+### 10.1 `tests/test_prior_contracts.py`
 
 ```text
-class TestEntityEnums:
-    test_entity_type_values_match_specification
-    test_relation_type_values_match_specification
-    test_evidence_kind_values_match_specification
-    test_confidence_source_values_match_specification
+class TestPriorEnums:
+    test_calibration_target_values_match_specification
+    test_calibration_status_values_match_specification
+    test_match_outcome_values_match_specification
 
-class TestEntityEvidence:
-    test_minimal_evidence_constructs
-    test_evidence_accepts_ir_bbox
-    test_evidence_rejects_weight_outside_unit_interval
-    test_evidence_rejects_malformed_source_block_id
-    test_evidence_forbids_extra_fields
+class TestCalibrationCounts:
+    test_counts_accept_zero_and_positive_values
+    test_counts_reject_negative_values
 
-class TestEntityProposal:
-    test_entity_id_pattern_accepted
-    test_entity_id_pattern_rejected
-    test_entity_requires_at_least_one_evidence
-    test_entity_block_ids_must_match_extraction_id_pattern
-    test_entity_confidence_in_unit_interval
-    test_entity_forbids_extra_fields
+class TestCalibrationMetric:
+    test_metric_accepts_valid_payload
+    test_metric_rejects_empty_key
+    test_metric_rejects_scores_outside_unit_interval
+    test_metric_status_no_samples_requires_zero_support
+    test_metric_status_underpowered_requires_positive_support_below_min_samples
+    test_metric_status_calibrated_requires_support_at_least_min_samples
 
-class TestRelationProposal:
-    test_relation_id_pattern_accepted
-    test_relation_id_pattern_rejected
-    test_relation_requires_distinct_source_and_target
-    test_relation_confidence_in_unit_interval
-    test_relation_requires_evidence
-
-class TestEntityProposalDocument:
-    test_minimal_document_round_trip
-    test_document_rejects_duplicate_entity_ids
-    test_document_rejects_duplicate_relation_ids
-    test_document_rejects_relation_with_unknown_source
-    test_document_rejects_relation_with_unknown_target
+class TestCalibrationPriorDocument:
+    test_minimal_prior_document_round_trip
+    test_prior_document_rejects_duplicate_metric_keys_within_same_list
+    test_prior_document_rejects_invalid_default_confidence
     test_json_schema_export_basic_shape
 
-class TestEntityIdFactories:
-    test_entity_id_format
-    test_relation_id_format
-    test_factories_round_trip_through_validators
+class TestCalibrationTruthDocument:
+    test_truth_document_round_trip
+    test_truth_document_rejects_duplicate_truth_entity_ids
+    test_truth_document_rejects_duplicate_truth_relation_ids
+    test_truth_document_rejects_relation_with_unknown_source
+    test_truth_document_rejects_relation_with_unknown_target
+    test_truth_document_rejects_duplicate_truth_block_ids
+
+class TestPriorLookup:
+    test_prior_key_format
+    test_lookup_prior_finds_existing_metric
+    test_lookup_confidence_returns_metric_confidence
+    test_lookup_confidence_returns_default_for_missing_metric
 ```
 
-Expected count: 30 tests.
+Expected count: 25 tests.
 
----
-
-### 10.2 tests/test_connector_common.py
+### 10.2 `tests/test_calibration_matching.py`
 
 ```text
-class TestMarkdownPageParsing:
-    test_single_page_markdown_builds_one_page_ir
-    test_page_split_marker_builds_multiple_page_irs
-    test_form_feed_builds_multiple_page_irs
-    test_empty_markdown_builds_no_pages_and_warning
-    test_block_order_is_monotonic_per_page
-    test_page_numbers_are_one_indexed
+class TestTextNormalisation:
+    test_normalise_text_lowercases_and_collapses_whitespace
+    test_token_overlap_exact_match_is_one
+    test_token_overlap_disjoint_is_zero
+    test_token_overlap_partial_match_is_fractional
 
-class TestBlockClassification:
-    test_markdown_heading_maps_to_heading_block
-    test_display_math_maps_to_formula_block
-    test_html_table_maps_to_table_block
-    test_markdown_image_maps_to_figure_block
-    test_figure_caption_maps_to_caption_block
-    test_table_caption_maps_to_caption_block
-    test_list_item_maps_to_list_item_block
-    test_plain_text_maps_to_paragraph_block
+class TestBlockMatching:
+    test_matching_block_kind_true_positive
+    test_unmatched_prediction_block_is_false_positive
+    test_unmatched_truth_block_is_false_negative
+    test_same_truth_block_not_matched_twice
 
-class TestEntityRecognition:
-    test_detects_section_entities_from_headings
-    test_detects_toc_entry_entities
-    test_detects_page_number_entities_without_promoting_them_to_headings
-    test_detects_footnote_entities
-    test_detects_equation_entities_with_sequence_key
-    test_detects_caption_entities
-    test_detects_figure_and_table_entities
-    test_detects_reference_section_entity
-    test_detects_reference_items_after_reference_section
-    test_confidence_values_are_in_unit_interval
-    test_every_entity_has_evidence
+class TestEntityMatching:
+    test_matching_section_entity_true_positive
+    test_matching_page_number_requires_same_page
+    test_matching_caption_can_use_caption_number_metadata
+    test_matching_equation_can_use_equation_number_metadata
+    test_unmatched_entity_prediction_is_false_positive
+    test_unmatched_truth_entity_is_false_negative
+    test_entity_with_calibration_key_emits_detector_record
 
-class TestRelationRecognition:
-    test_caption_of_relation_created_for_adjacent_figure
-    test_caption_of_relation_created_for_adjacent_table
-    test_toc_points_to_relation_created_as_proposal
-    test_sequence_next_relation_created_for_numbered_equations
-    test_relation_endpoints_exist_in_entity_document
-
-class TestConnectorWriting:
-    test_write_connector_result_creates_manifest_pages_and_entities
-    test_written_page_files_validate_as_page_extraction_ir
-    test_written_entities_file_validates_as_entity_proposal_document
-    test_missing_manifest_is_warning_not_failure
-    test_missing_markdown_is_warning_not_failure
+class TestRelationMatching:
+    test_matching_caption_of_relation_true_positive_when_endpoints_match
+    test_unmatched_relation_prediction_is_false_positive
+    test_unmatched_truth_relation_is_false_negative
+    test_relation_matching_without_entity_matches_warns_or_marks_unmatched
 ```
 
-Expected count: 36 tests.
+Expected count: 20 tests.
 
----
-
-### 10.3 tests/test_backend_connectors.py
+### 10.3 `tests/test_calibration_metrics.py`
 
 ```text
-class TestBackendConnectorImports:
-    test_deepseek_connector_imports_without_heavy_dependencies
-    test_glm_connector_imports_without_heavy_dependencies
-    test_mineru_connector_imports_without_heavy_dependencies
-    test_paddleocr_connector_imports_without_heavy_dependencies
+class TestScalarMetrics:
+    test_precision_regular_case
+    test_precision_zero_denominator_returns_zero
+    test_recall_regular_case
+    test_recall_zero_denominator_returns_zero
+    test_f1_regular_case
+    test_f1_zero_denominator_returns_zero
+    test_smoothed_precision_uses_alpha_beta
 
-class TestBackendConnectorPublicApi:
-    test_each_connector_exposes_backend_constant
-    test_each_connector_exposes_connect_function
-    test_each_connector_connect_returns_connector_result
-    test_each_connector_uses_expected_backend_name
+class TestMetricFromCounts:
+    test_metric_from_counts_computes_precision_recall_f1
+    test_metric_from_counts_marks_no_samples
+    test_metric_from_counts_marks_underpowered
+    test_metric_from_counts_marks_calibrated
 
-class TestBackendConnectorCli:
-    test_each_connector_help_exits_zero
-    test_each_connector_cli_writes_expected_files_from_simple_fixture
-    test_each_connector_cli_writes_expected_files_from_semantic_fixture
-    test_each_connector_cli_missing_raw_dir_exits_nonzero
+class TestBuildPriorDocument:
+    test_build_prior_document_groups_records_by_target_and_key
+    test_build_prior_document_separates_block_entity_relation_and_calibration_key_priors
+    test_build_prior_document_preserves_backend_and_generated_from
+    test_build_prior_document_uses_default_confidence
 ```
 
-Expected count: 12 tests if parametrised by test function, or more if parametrised per backend. The committed test file must state the exact expected count in a comment so the reviewer can verify it.
+Expected count: 15 tests.
+
+### 10.4 `tests/test_calibrate_priors_cli.py`
+
+```text
+class TestCalibrationIO:
+    test_discover_calibration_inputs_finds_fixture_document
+    test_load_calibration_document_reads_truth_entities_and_pages
+    test_load_calibration_document_lenient_missing_backend_adds_warning
+    test_load_calibration_document_strict_invalid_truth_raises
+
+class TestCalibratePriorsCLI:
+    test_cli_help_exits_zero
+    test_cli_writes_prior_and_report_for_minimal_fixture
+    test_cli_writes_one_prior_per_backend_for_mixed_fixture
+    test_cli_empty_predictions_writes_no_samples_prior
+    test_cli_strict_mode_fails_on_invalid_input
+    test_written_prior_validates_as_calibration_prior_document
+    test_written_report_contains_prior_file_paths
+```
+
+Expected count: 11 tests.
 
 ---
 
 ## 11. Fixtures
 
-### 11.1 simple_markdown/output.md
+### 11.1 `minimal_truth/truth.json`
 
-Must include:
+A single document with:
 
-```markdown
-# Introduction
-
-This is a simple paragraph.
-
-<--- Page Split --->
-
-# Methods
-
-Another paragraph.
+```text
+one heading block
+one section entity
+no relations
 ```
 
 Purpose:
 
 ```text
-- page splitting
-- heading detection
-- paragraph mapping
-- section entity proposals
+- validates truth schema
+- validates one true positive
+- validates one backend prior
 ```
 
-### 11.2 semantic_markdown/output.md
+### 11.2 `minimal_predictions/mineru`
 
-Must include one compact document with:
+Contains:
 
-```markdown
-# Contents
+```text
+manifest.json
+entities.json
+pages/page_0001.json
+```
 
-1 Introduction ........ 2
+The prediction exactly matches `minimal_truth`.
 
-<--- Page Split --->
+Expected calibration:
 
-# 1 Introduction
+```text
+section entity -> true_positive
+heading block  -> true_positive
+precision, recall, f1 = 1.0 before smoothing
+calibrated_confidence = smoothed precision
+```
 
-1
+### 11.3 `mixed_predictions/truth.json`
 
-Figure 1. Crystal structure overview.
+A document with:
 
-![crystal](fig1.png)
-
-\[
-E = mc^2
-\]
-
-[1] This is a footnote.
-
-<--- Page Split --->
-
-# References
-
-[1] A. Author. Example paper. Journal, 2020.
+```text
+section
+page_number
+caption
+figure
+caption_of relation
+equation
+reference_section
+reference_item
 ```
 
 Purpose:
 
 ```text
-- TOC proposal
-- section proposal
-- page number proposal
-- caption proposal
-- figure proposal
-- equation proposal
-- footnote proposal
-- reference section proposal
-- reference item proposal
-- relation proposals
+- mixed true positives
+- false positives
+- false negatives
+- relation matching
+- calibration_key priors
+- multiple backend prior files
 ```
 
-### 11.3 empty_markdown/output.md
+`mineru` fixture should be mostly correct.
 
-Must be empty or whitespace-only.
-
-Purpose:
+`paddleocr` fixture should include at least:
 
 ```text
-- lenient empty output behaviour
-- no hard failure
-- warning propagation
+one correct page_number
+one false positive footnote
+one missed caption
 ```
 
-Each fixture has a small `manifest.json`:
+This makes priors visibly different by backend.
 
-```json
-{
-  "backend": "fixture",
-  "backend_version": "0.0.0",
-  "source": "tests"
-}
+### 11.4 `empty_predictions/deepseek`
+
+Contains:
+
+```text
+manifest.json
+entities.json
+```
+
+with zero entities and no pages.
+
+Expected calibration:
+
+```text
+truth entities become false negatives
+predicted support may be zero for some classes
+prior document still writes
+warnings may include pages_missing:deepseek
 ```
 
 ---
 
 ## 12. Acceptance criteria
 
-The reviewer accepts Plan 2 only when all criteria pass.
+The reviewer accepts Plan 3 only when all criteria pass.
 
 ### 12.1 Targeted tests
 
 ```bash
+pytest tests/test_prior_contracts.py -q
+pytest tests/test_calibration_matching.py -q
+pytest tests/test_calibration_metrics.py -q
+pytest tests/test_calibrate_priors_cli.py -q
+```
+
+All pass. No `skip`. No `xfail`.
+
+### 12.2 Plans 1 and 2 still pass
+
+```bash
+pytest tests/test_ir_contracts.py -q
 pytest tests/test_entity_contracts.py -q
 pytest tests/test_connector_common.py -q
 pytest tests/test_backend_connectors.py -q
 ```
 
-All pass. No `skip`. No `xfail`.
-
-### 12.2 Plan 1 still passes
-
-```bash
-pytest tests/test_ir_contracts.py -q
-```
-
-Must still pass with the existing Plan 1 count.
+All pass.
 
 ### 12.3 Existing backend runner tests still pass
 
@@ -1247,7 +1163,7 @@ Must still pass with the existing Plan 1 count.
 pytest tests/test_run_backends_config.py -q
 ```
 
-This protects the existing runner and backend wrapper behaviour.
+This confirms calibration did not alter backend execution.
 
 ### 12.4 Whole suite has no regression
 
@@ -1268,39 +1184,29 @@ Must be a subset of the whitelist in section 2.
 ### 12.6 Smoke import
 
 ```bash
-python -c "from pdf2md.models.entities import EntityProposalDocument; print(EntityProposalDocument.model_json_schema()['title'])"
+python -c "from pdf2md.models.priors import CalibrationPriorDocument, CalibrationTruthDocument; print(CalibrationPriorDocument.model_json_schema()['title'], CalibrationTruthDocument.model_json_schema()['title'])"
 ```
 
 Expected output:
 
 ```text
-EntityProposalDocument
+CalibrationPriorDocument CalibrationTruthDocument
 ```
 
-### 12.7 Backend connector smoke test
+### 12.7 CLI smoke test
 
 ```bash
-python backend/mineru/connector.py --help
-python backend/deepseek/connector.py --help
-python backend/paddleocr/connector.py --help
-python backend/glm/connector.py --help
-```
-
-Each exits `0`.
-
-### 12.8 Fixture end-to-end smoke
-
-```bash
-python backend/mineru/connector.py \
-  --raw-dir tests/data/connector_fixtures/semantic_markdown \
-  --document-id semantic_fixture \
-  --out-dir /tmp/pdf2md_connector_smoke
+python tools/calibrate_priors.py \
+  --root tests/data/calibration_fixtures/mixed_predictions \
+  --out-dir /tmp/pdf2md_calibration_smoke \
+  --backends mineru,paddleocr \
+  --min-samples 2
 ```
 
 Then:
 
 ```bash
-python -c "from pathlib import Path; from pdf2md.models.ir import PageExtractionIR; from pdf2md.models.entities import EntityProposalDocument; p=Path('/tmp/pdf2md_connector_smoke/mineru'); PageExtractionIR.model_validate_json((p/'pages/page_0001.json').read_text()); EntityProposalDocument.model_validate_json((p/'entities.json').read_text()); print('ok')"
+python -c "from pathlib import Path; from pdf2md.models.priors import CalibrationPriorDocument; p=Path('/tmp/pdf2md_calibration_smoke/priors/mineru.json'); CalibrationPriorDocument.model_validate_json(p.read_text()); print('ok')"
 ```
 
 Expected output:
@@ -1313,158 +1219,174 @@ ok
 
 ## 13. Implementation order
 
-### A. Entity contracts first
+### A. Prior and truth contracts first
 
 Implement only:
 
 ```text
-src/pdf2md/models/entities.py
+src/pdf2md/models/priors.py
 src/pdf2md/models/__init__.py
-tests/test_entity_contracts.py
+tests/test_prior_contracts.py
 ```
 
 Run:
 
 ```bash
-pytest tests/test_entity_contracts.py -q
+pytest tests/test_prior_contracts.py -q
 pytest tests/test_ir_contracts.py -q
+pytest tests/test_entity_contracts.py -q
 ```
 
 Reason:
 
-The connector output schema must be frozen before writing parsing logic. This mirrors Plan 1 discipline.
+The prior file format must be frozen before writing metric and CLI logic.
 
----
-
-### B. Common connector logic
-
-Implement only:
-
-```text
-src/pdf2md/connectors/__init__.py
-src/pdf2md/connectors/common.py
-tests/test_connector_common.py
-tests/data/connector_fixtures/*
-```
-
-Run:
-
-```bash
-pytest tests/test_entity_contracts.py tests/test_connector_common.py -q
-```
-
-Reason:
-
-All semantic detection and markdown fallback logic should be centralised once. Backend files must remain thin.
-
----
-
-### C. Backend-local connector files
+### B. Matching layer
 
 Implement:
 
 ```text
-backend/deepseek/connector.py
-backend/glm/connector.py
-backend/mineru/connector.py
-backend/paddleocr/connector.py
-tests/test_backend_connectors.py
+src/pdf2md/calibration/__init__.py
+src/pdf2md/calibration/matching.py
+tests/test_calibration_matching.py
 ```
 
 Run:
 
 ```bash
-pytest tests/test_backend_connectors.py -q
+pytest tests/test_prior_contracts.py tests/test_calibration_matching.py -q
 ```
 
 Reason:
 
-This gives the requested `connector.py` in each backend while avoiding duplicate detector logic.
+Calibration quality depends more on deterministic matching than on the arithmetic. The matching layer must be isolated and testable.
 
----
+### C. Metrics layer
 
-### D. Regression pass
+Implement:
+
+```text
+src/pdf2md/calibration/metrics.py
+tests/test_calibration_metrics.py
+```
 
 Run:
 
 ```bash
+pytest tests/test_calibration_metrics.py -q
+```
+
+Reason:
+
+Metrics are pure functions and should not depend on filesystem layout.
+
+### D. I/O and CLI
+
+Implement:
+
+```text
+src/pdf2md/calibration/io.py
+tools/calibrate_priors.py
+tests/test_calibrate_priors_cli.py
+tests/data/calibration_fixtures/*
+```
+
+Run:
+
+```bash
+pytest tests/test_calibrate_priors_cli.py -q
+```
+
+Reason:
+
+Only after contracts, matching, and metrics are stable should the CLI tie them together.
+
+### E. Regression pass
+
+Run:
+
+```bash
+pytest tests/test_prior_contracts.py -q
+pytest tests/test_calibration_matching.py -q
+pytest tests/test_calibration_metrics.py -q
+pytest tests/test_calibrate_priors_cli.py -q
+
 pytest tests/test_ir_contracts.py -q
+pytest tests/test_entity_contracts.py -q
+pytest tests/test_connector_common.py -q
+pytest tests/test_backend_connectors.py -q
 pytest tests/test_run_backends_config.py -q
+
 pytest tests/ -q
 git diff --name-only main..HEAD
 ```
 
 Reason:
 
-The reviewer must be able to certify that Plan 2 did not disturb Plan 1 or the backend runner.
+Plan 3 must not perturb Plans 1 or 2.
 
 ---
 
-## 14. What Plan 2 must not accidentally become
+## 14. What Plan 3 must not accidentally become
 
 Do not implement consensus here.
 
 Bad:
 
 ```text
-"Choose the best backend block."
-"Resolve conflict between MinerU and PaddleOCR."
-"Use calibrated backend probability."
-"Decide that this page number is definitely furniture."
-"Attach every caption to final figure node."
+"Select MinerU's block over PaddleOCR's block."
+"Resolve page-number versus footnote ambiguity."
+"Change EntityProposalDocument confidence in connector output."
+"Merge backend entities into one document-level linked graph."
 "Build DoclingDocument."
 ```
 
 Good:
 
 ```text
-"Backend A proposes this block is a page number with confidence 0.68."
-"Backend B proposes this caption may belong to this figure."
-"This heading may correspond to this TOC entry."
-"This equation appears to be number 3.1."
-"This reference item appears after a References heading."
+"MinerU section detector has calibrated confidence 0.78."
+"PaddleOCR page_number prior is underpowered with support 3."
+"DeepSeek has no samples for table relations, so use default confidence."
+"caption_of relation prior for mineru is calibrated from tp/fp/fn counts."
 ```
 
-This is the correct level for Plan 2.
+This is the correct level for Plan 3.
 
 ---
 
 ## 15. Practical reviewer checklist
 
-The reviewer should ask these questions:
+The reviewer should ask:
 
 ```text
-1. Are PageExtractionIR objects produced by connector code, not by tests faking them?
-2. Are entity proposals explicit Pydantic objects, not metadata blobs?
-3. Are relation proposals weak and auditable?
-4. Does every proposal have evidence?
-5. Does every confidence stay in [0, 1]?
-6. Do connector imports avoid OCR dependencies?
-7. Are backend connector files thin?
-8. Are backend OCR wrappers untouched?
-9. Is runner untouched?
-10. Does Plan 1 still pass?
-11. Does the whole test suite still pass?
+1. Are priors computed from Plan 2 outputs, not from raw backend text?
+2. Are prediction files validated as PageExtractionIR and EntityProposalDocument?
+3. Is ground truth normalised into CalibrationTruthDocument?
+4. Are block, entity, relation, and calibration_key priors all represented?
+5. Are precision, recall, f1, support, and smoothed confidence correct?
+6. Are underpowered and no-sample cases explicit?
+7. Does the CLI write one prior file per backend?
+8. Does the CLI write a calibration report?
+9. Does strict mode fail on invalid input?
+10. Does lenient mode warn and continue?
+11. Are Plans 1 and 2 untouched?
 12. Is git diff contained inside the whitelist?
 ```
 
 ---
 
-## 16. Main improvement over the earlier Plan 2 draft
+## 16. Main design boundary for Plan 4
 
-This version pins:
+Plan 4, the consensus factory, may consume:
 
 ```text
-- exact file whitelist
-- exact new schema
-- exact output layout
-- exact connector API
-- exact backend-local connector requirement
-- exact lenient behaviour
-- exact pytest modules
-- exact fixture purpose
-- exact acceptance commands
-- exact boundary between connector, calibration, consensus, linker, and exporter
+CalibrationPriorDocument
+lookup_confidence(prior, block_kind, "heading")
+lookup_confidence(prior, entity_type, "page_number")
+lookup_confidence(prior, relation_type, "caption_of")
+lookup_confidence(prior, calibration_key, "mineru:section:heading_section_detector")
 ```
 
-This should make implementation substantially less ambiguous and easier to review.
+Plan 4 must not need to know how these priors were computed.
+
+That is the main deliverable of Plan 3.
