@@ -6,6 +6,21 @@ Owner: data contracts
 Sequence: this is plan 1 of 6. It blocks plans 2–6.
 
 ---
+## Status
+
+- implementation_status: fully_implemented
+- reviewer_verdict: pass
+- reviewed_commit: 061e0c2b
+- promoted_tasks:
+  - Plan 1 IR contracts (`PageExtractionIR` and `ConsensusIR`)
+  - Canonical LaTeX corpus/test importability/backend compatibility continuation work preserved in the current branch state
+- final_acceptance_checks:
+  - `pytest tests/test_ir_contracts.py -q` passed with 43 tests.
+  - `python -c "from pdf2md.models.ir import PageExtractionIR, ConsensusIR; print(PageExtractionIR.model_json_schema()['title'], ConsensusIR.model_json_schema()['title'])"` printed `PageExtractionIR ConsensusIR`.
+  - All five committed IR JSON fixtures load with `model_validate_json`.
+  - `pytest tests/ -q` passed with 242 passed, 214 skipped, and 4 warnings.
+
+---
 
 ## 0. Scope and constraints
 
