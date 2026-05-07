@@ -175,3 +175,11 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
 - external_tools_used: []
 - blockers: ["Historical references in run_log.md/current_plan.md were not rewritten; active code, tests, scripts, and docs no longer reference .current/latex_docling_groundtruth or tests/docling_groundtruth/latex_sources outside the canonical groundtruth/corpus/latex corpus. Whole-suite pytest now reaches pre-existing backend compatibility failures unrelated to groundtruth path migration: missing backend/mineru/test_visual.pdf, missing backend/mineru/run_mineru.py and backend/paddleocr/run_paddleocr.py, and backend/deepseek API mismatches expected by tests/test_run_backends_config.py."]
 - status: ready_for_review
+
+## PR #18 — 2026-05-07T08:01:54Z — mode: agent
+- tasks_attempted:
+    - T1: files_touched=[README_latex_docling_groundtruth.md, generate_latex_docling_groundtruth.py, latex_to_pre_docling_groundtruth.py, tests/test_latex_groundtruth_generator.py, tests/test_latex_pre_docling_groundtruth.py, run_log.md], tests_pass=[generate_help_no_batch_count, generate_existing_corpus_dirs, groundtruth_reference_scan, validate_latex_docling_groundtruth, targeted_groundtruth_tests, ir_contracts, py_compile], tests_fail_env=[], tests_fail_real=[whole_suite_backend_compat]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: ["Whole-suite pytest still fails on pre-existing backend compatibility/test-asset issues unrelated to the generate_latex_docling_groundtruth.py batch/count change: missing backend/mineru/test_visual.pdf, missing backend/mineru/run_mineru.py and backend/paddleocr/run_paddleocr.py, and backend/deepseek API mismatches expected by tests/test_run_backends_config.py."]
+- status: ready_for_review

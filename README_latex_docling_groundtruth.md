@@ -14,7 +14,7 @@ This temporary root-level harness generates **source-known LaTeX fixtures** and 
 
 ## Generate fixtures
 ```bash
-python generate_latex_docling_groundtruth.py --batch batch_001 --output-root groundtruth/corpus/latex --count 20 --compile --verbose
+python generate_latex_docling_groundtruth.py --output-root groundtruth/corpus/latex --compile --verbose
 ```
 If no LaTeX engine is found, `.tex` + contracts are still generated and PDF compilation is marked skipped in provenance.
 

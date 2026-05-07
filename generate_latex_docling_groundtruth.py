@@ -102,40 +102,88 @@ def parse_nodes(doc_id:str,title:str,tex:str):
         refs.append({"id":f"gt:ref:{doc_id}:{i}","source_node_id":rid,"target_label":lbl,"target_node_id":labels.get(lbl),"reference_text":f"\\ref{{{lbl}}}","expected_resolved":labels.get(lbl) is not None})
     return nodes,labels,refs
 
-def main():
-    ap=argparse.ArgumentParser(); ap.add_argument("--batch",default="batch_001"); ap.add_argument("--output-root",default="groundtruth/corpus/latex"); ap.add_argument("--count",type=int,default=20); ap.add_argument("--compile",action="store_true"); ap.add_argument("--skip-pre-docling",action="store_true"); ap.add_argument("--verbose",action="store_true"); a=ap.parse_args()
-    output_root = Path(a.output_root)
-    root = output_root if output_root.as_posix().rstrip("/") == "groundtruth/corpus/latex" else output_root / a.batch
-    root.mkdir(parents=True,exist_ok=True); eng=detect_engine()
-    for did in DOC_IDS[:max(21,a.count)]:
-        title=did.replace('_',' ').title(); tex_src=build_tex(did,title)
-        doc=root/did; inp=doc/"input"; gt=doc/"groundtruth"; inp.mkdir(parents=True,exist_ok=True); gt.mkdir(parents=True,exist_ok=True)
-        tex=inp/f"{did}.tex"; pdf=inp/f"{did}.pdf"; tex.write_text(tex_src,encoding="utf-8")
-        rc=None; cmd=None
-        if a.compile and eng:
-            if eng=="latexmk": runs=[[eng,"-pdf","-interaction=nonstopmode",f"-outdir={inp}",str(tex.resolve())]]
-            elif eng=="pdflatex": runs=[[eng,"-interaction=nonstopmode",f"-output-directory={inp}",str(tex.resolve())]]*2
-            else: runs=[[eng,"-o",str(pdf),str(tex.resolve())]]
-            for r in runs:
-                p=subprocess.run(r,capture_output=True,text=True); rc=p.returncode; cmd=" ".join(r)
-                if p.returncode!=0: break
-        nodes,labels,refs=parse_nodes(did,title,tex_src)
-        feature_counts={k:sum(1 for n in nodes if n['type']==k) for k in ["section","subsection","figure","table","equation","footnote","caption","list","list_item","reference","bibliography_like","paragraph"]}
-        multipage='multipage' in did; pages_min=2 if multipage else 1
-        sgt={"schema_name":"pdf2md.source_groundtruth_ir","schema_version":"0.1.0","document_id":did,"source_type":"latex","source_tex":str(tex),"expected_pdf":str(pdf),"title":title,"pages_expected_min":pages_min,"nodes":nodes,"labels":labels,"references":refs,"features":feature_counts}
-        sem={"document_id":did,"source_tex":str(tex),"expected_title":title,"expected_sections":[n['text'] for n in nodes if n['type']=='section'],"expected_subsections":[n['text'] for n in nodes if n['type']=='subsection'],"expected_labels":sorted(labels),"expected_markdown_snippets":[title],"required_node_types":sorted(set(n['type'] for n in nodes if n['type']!='reference'))}
-        docling={"document_id":did,"required_docling_kinds":sorted(set(n['expected_docling_kind'] for n in nodes)),"required_reference_sidecar_entries":[r['target_label'] for r in refs]}
-        page_count=None
-        if pdf.exists() and fitz is not None:
-            try: page_count=fitz.open(pdf).page_count
-            except Exception: page_count=None
-        prov={"schema_name":"pdf2md.latex_docling_groundtruth_manifest","schema_version":"0.1.0","document_id":did,"batch":a.batch,"generated_at":datetime.now(timezone.utc).isoformat(),"source_tex":{"path":str(tex),"sha256":sha(tex)},"pdf":({"path":str(pdf),"sha256":sha(pdf)} if pdf.exists() else None),"latex_engine":eng,"latex_command":cmd,"compilation_return_code":rc,"page_count":page_count,"pages_expected_min":pages_min,"generated_files":[str(tex),str(gt/'source_groundtruth_ir.json'),str(gt/'expected_semantic_contract.json'),str(gt/'expected_docling_contract.json'),str(gt/'provenance_manifest.json')],"feature_counts":feature_counts}
-        (gt/'source_groundtruth_ir.json').write_text(json.dumps(sgt,indent=2),encoding='utf-8')
-        (gt/'expected_semantic_contract.json').write_text(json.dumps(sem,indent=2),encoding='utf-8')
-        (gt/'expected_docling_contract.json').write_text(json.dumps(docling,indent=2),encoding='utf-8')
-        (gt/'provenance_manifest.json').write_text(json.dumps(prov,indent=2),encoding='utf-8')
-        if a.verbose: print(f"generated {did}")
-    if not a.skip_pre_docling:
-        subprocess.run(["python","latex_to_pre_docling_groundtruth.py","--root",a.output_root,"--batch",a.batch] + (["--verbose"] if a.verbose else []), check=True)
+def _find_source_tex(doc_dir: Path) -> Path | None:
+    exact = doc_dir / f"{doc_dir.name}.tex"
+    if exact.exists():
+        return exact
+    matches = sorted(doc_dir.glob("*.tex"))
+    return matches[0] if matches else None
 
-if __name__=='__main__': main()
+
+def _iter_existing_corpus_docs(root: Path) -> list[tuple[str, Path, str]]:
+    docs: list[tuple[str, Path, str]] = []
+    for doc_dir in sorted(path for path in root.iterdir() if path.is_dir()):
+        tex = _find_source_tex(doc_dir)
+        if tex is None:
+            continue
+        docs.append((tex.stem, doc_dir, tex.read_text(encoding="utf-8")))
+    return docs
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--output-root", default="groundtruth/corpus/latex")
+    ap.add_argument("--compile", action="store_true")
+    ap.add_argument("--skip-pre-docling", action="store_true")
+    ap.add_argument("--verbose", action="store_true")
+    a = ap.parse_args()
+
+    root = Path(a.output_root)
+    root.mkdir(parents=True, exist_ok=True)
+    eng = detect_engine()
+    existing_docs = _iter_existing_corpus_docs(root)
+    docs = existing_docs or [
+        (did, root / did, build_tex(did, did.replace("_", " ").title()))
+        for did in DOC_IDS
+    ]
+
+    for did, doc, tex_src in docs:
+        title = did.replace("_", " ").title()
+        inp = doc / "input"
+        gt = doc / "groundtruth"
+        inp.mkdir(parents=True, exist_ok=True)
+        gt.mkdir(parents=True, exist_ok=True)
+        tex = inp / f"{did}.tex"
+        pdf = inp / f"{did}.pdf"
+        tex.write_text(tex_src, encoding="utf-8")
+        rc = None
+        cmd = None
+        if a.compile and eng:
+            if eng == "latexmk":
+                runs = [[eng, "-pdf", "-interaction=nonstopmode", f"-outdir={inp}", str(tex.resolve())]]
+            elif eng == "pdflatex":
+                runs = [[eng, "-interaction=nonstopmode", f"-output-directory={inp}", str(tex.resolve())]] * 2
+            else:
+                runs = [[eng, "-o", str(pdf), str(tex.resolve())]]
+            for r in runs:
+                p = subprocess.run(r, capture_output=True, text=True)
+                rc = p.returncode
+                cmd = " ".join(r)
+                if p.returncode != 0:
+                    break
+        nodes, labels, refs = parse_nodes(did, title, tex_src)
+        feature_counts = {k: sum(1 for n in nodes if n["type"] == k) for k in ["section", "subsection", "figure", "table", "equation", "footnote", "caption", "list", "list_item", "reference", "bibliography_like", "paragraph"]}
+        multipage = "multipage" in did
+        pages_min = 2 if multipage else 1
+        sgt = {"schema_name": "pdf2md.source_groundtruth_ir", "schema_version": "0.1.0", "document_id": did, "source_type": "latex", "source_tex": str(tex), "expected_pdf": str(pdf), "title": title, "pages_expected_min": pages_min, "nodes": nodes, "labels": labels, "references": refs, "features": feature_counts}
+        sem = {"document_id": did, "source_tex": str(tex), "expected_title": title, "expected_sections": [n["text"] for n in nodes if n["type"] == "section"], "expected_subsections": [n["text"] for n in nodes if n["type"] == "subsection"], "expected_labels": sorted(labels), "expected_markdown_snippets": [title], "required_node_types": sorted(set(n["type"] for n in nodes if n["type"] != "reference"))}
+        docling = {"document_id": did, "required_docling_kinds": sorted(set(n["expected_docling_kind"] for n in nodes)), "required_reference_sidecar_entries": [r["target_label"] for r in refs]}
+        page_count = None
+        if pdf.exists() and fitz is not None:
+            try:
+                page_count = fitz.open(pdf).page_count
+            except Exception:
+                page_count = None
+        prov = {"schema_name": "pdf2md.latex_docling_groundtruth_manifest", "schema_version": "0.1.0", "document_id": did, "generated_at": datetime.now(timezone.utc).isoformat(), "source_tex": {"path": str(tex), "sha256": sha(tex)}, "pdf": ({"path": str(pdf), "sha256": sha(pdf)} if pdf.exists() else None), "latex_engine": eng, "latex_command": cmd, "compilation_return_code": rc, "page_count": page_count, "pages_expected_min": pages_min, "generated_files": [str(tex), str(gt / "source_groundtruth_ir.json"), str(gt / "expected_semantic_contract.json"), str(gt / "expected_docling_contract.json"), str(gt / "provenance_manifest.json")], "feature_counts": feature_counts}
+        (gt / "source_groundtruth_ir.json").write_text(json.dumps(sgt, indent=2), encoding="utf-8")
+        (gt / "expected_semantic_contract.json").write_text(json.dumps(sem, indent=2), encoding="utf-8")
+        (gt / "expected_docling_contract.json").write_text(json.dumps(docling, indent=2), encoding="utf-8")
+        (gt / "provenance_manifest.json").write_text(json.dumps(prov, indent=2), encoding="utf-8")
+        if a.verbose:
+            print(f"generated {did}")
+    if not a.skip_pre_docling:
+        subprocess.run(["python", "latex_to_pre_docling_groundtruth.py", "--root", str(root)] + (["--verbose"] if a.verbose else []), check=True)
+
+
+if __name__ == '__main__':
+    main()

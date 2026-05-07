@@ -169,13 +169,11 @@ def process(doc_dir):
     (gt/'expected_semantic_contract.json').write_text(json.dumps(econ,indent=2))
     (gt/'expected_docling_contract.json').write_text(json.dumps(dcon,indent=2))
     (gt/'latex_groundtruth_report.json').write_text(json.dumps({'document_id':did,'counts':dict(counts)},indent=2))
-    (gt/'provenance_manifest.json').write_text(json.dumps({'schema_name':'pdf2md.latex_docling_groundtruth_manifest','schema_version':'1.0.0','document_id':did,'batch':doc_dir.parent.name,'generated_at':datetime.now(timezone.utc).isoformat(),'source_tex':{'path':str(tex),'sha256':sha(tex)},'source_pdf':({'path':str(pdf),'sha256':sha(pdf)} if pdf.exists() else None),'generated_files':[str(gt/'source_groundtruth_ir.json'),str(gt/'semantic_document_groundtruth.json'),str(gt/'expected_semantic_contract.json'),str(gt/'expected_docling_contract.json'),str(gt/'latex_groundtruth_report.json'),str(gt/'provenance_manifest.json')],'feature_counts':dict(counts)},indent=2))
+    (gt/'provenance_manifest.json').write_text(json.dumps({'schema_name':'pdf2md.latex_docling_groundtruth_manifest','schema_version':'1.0.0','document_id':did,'generated_at':datetime.now(timezone.utc).isoformat(),'source_tex':{'path':str(tex),'sha256':sha(tex)},'source_pdf':({'path':str(pdf),'sha256':sha(pdf)} if pdf.exists() else None),'generated_files':[str(gt/'source_groundtruth_ir.json'),str(gt/'semantic_document_groundtruth.json'),str(gt/'expected_semantic_contract.json'),str(gt/'expected_docling_contract.json'),str(gt/'latex_groundtruth_report.json'),str(gt/'provenance_manifest.json')],'feature_counts':dict(counts)},indent=2))
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument('--root',default='groundtruth/corpus/latex'); ap.add_argument('--batch',default='batch_001'); ap.add_argument('--verbose',action='store_true'); a=ap.parse_args()
-    root = Path(a.root) / a.batch
-    if not root.exists():
-        root = Path(a.root)
+    ap=argparse.ArgumentParser(); ap.add_argument('--root',default='groundtruth/corpus/latex'); ap.add_argument('--verbose',action='store_true'); a=ap.parse_args()
+    root = Path(a.root)
     for d in sorted(root.iterdir()):
         if d.is_dir():
             process(d)

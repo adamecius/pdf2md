@@ -3,14 +3,14 @@ from pathlib import Path
 
 
 def _gen(out:Path):
-    subprocess.run(["python","generate_latex_docling_groundtruth.py","--output-root",str(out),"--batch","b1"],check=True)
+    subprocess.run(["python","generate_latex_docling_groundtruth.py","--output-root",str(out)],check=True)
 
 
 def test_labels_and_validator_pass():
     with tempfile.TemporaryDirectory() as td:
         out=Path(td); _gen(out)
-        subprocess.run(["python","validate_latex_docling_groundtruth.py","--root",str(out),"--batch","b1"],check=True)
-        for gt in (out/'b1').glob('*/groundtruth/semantic_document_groundtruth.json'):
+        subprocess.run(["python","validate_latex_docling_groundtruth.py","--root",str(out)],check=True)
+        for gt in out.glob('*/groundtruth/semantic_document_groundtruth.json'):
             sem=json.loads(gt.read_text()); body={b['id']:b for b in sem['body']}
             for lbl,bid in sem['labels'].items():
                 t=body[bid]['type']
@@ -24,7 +24,7 @@ def test_labels_and_validator_pass():
 def test_comparator_self_and_corruptions():
     with tempfile.TemporaryDirectory() as td:
         out=Path(td); _gen(out)
-        doc=out/'b1'/'multipage_all_features_references_footnotes'
+        doc=out/'multipage_all_features_references_footnotes'
         gt=doc/'groundtruth'/'semantic_document_groundtruth.json'
         ct=doc/'groundtruth'/'expected_semantic_contract.json'
         rep=doc/'reports'/'cmp.json'
@@ -54,7 +54,7 @@ def test_comparator_self_and_corruptions():
 def test_comparator_backend_style_candidate_passes():
     with tempfile.TemporaryDirectory() as td:
         out=Path(td); _gen(out)
-        doc=out/'b1'/'multipage_all_features_references_footnotes'
+        doc=out/'multipage_all_features_references_footnotes'
         gt=json.loads((doc/'groundtruth'/'semantic_document_groundtruth.json').read_text())
         ct=doc/'groundtruth'/'expected_semantic_contract.json'
 
