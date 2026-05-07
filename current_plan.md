@@ -1,48 +1,84 @@
-# Plan 3 - Confidence prior calibration
+# Plan 4 - Consensus factory v2
 
-Status: draft, ready to implement after Plan 2  
-Repo: `pdf2md`  
-Owner: calibration layer  
-Sequence: this is plan 3 of 6. It depends on Plans 1 and 2 and blocks Plan 4.
+Status: draft, ready to implement after Plan 3
+Repo: `pdf2md`
+Owner: consensus layer
+Sequence: this is plan 4 of 6. It depends on Plans 1, 2, and 3. It blocks Plan 5.
 
 ---
 
-## 0. Scope and constraints
+## 0. Current repository status and adequacy
 
-This plan introduces calibrated backend priors.
+The repository is now in the right state for Plan 4.
 
-Plan 1 froze the page-level evidence contracts: `PageExtractionIR` and `ConsensusIR`.
+Plan 1 provides the canonical `ConsensusIR` output contract, including `ConsensusBlock`, `Conflict`, `BackendManifest`, id factories, conflict ids, candidate ids, and unresolved selection semantics.
 
-Plan 2 added backend connectors that emit:
+Plan 2 provides backend-local connectors. Each backend connector emits:
 
 ```text
-<out-dir>/<backend>/
+<connector-output>/<backend>/
   manifest.json
   pages/page_0001.json
   entities.json
 ```
 
-where `pages/*.json` are `PageExtractionIR` files and `entities.json` is an `EntityProposalDocument`.
+where `pages/*.json` validate as `PageExtractionIR` and `entities.json` validates as `EntityProposalDocument`.
 
-Plan 3 consumes those Plan 2 outputs, compares them against ground truth, and produces calibrated priors that Plan 4 can use during consensus.
-
-This plan does not run OCR. It does not modify backend wrappers. It does not change connector logic. It does not perform consensus. It does not resolve semantic links. It does not export Docling.
-
-The output of this plan is a versioned prior file per backend, plus calibration reports:
+Plan 3 provides calibrated priors. It defines:
 
 ```text
-priors/<backend>.json
-reports/calibration_report.json
+CalibrationPriorDocument
+CalibrationTruthDocument
+lookup_confidence(...)
+tools/calibrate_priors.py
 ```
 
-The core question answered by this plan is:
+The Plan 3 prior document exposes calibrated confidence for:
 
 ```text
-Given backend B, entity class C, relation class R, block kind K, and detector/calibration key D,
-how reliable has this backend been against ground truth?
+block_kind
+entity_type
+relation_type
+calibration_key
 ```
 
-Plan 4 will use these priors as scoring inputs. Plan 3 only produces them.
+Therefore Plan 4 should not invent a new scoring contract. It must consume:
+
+```text
+PageExtractionIR
+EntityProposalDocument
+CalibrationPriorDocument
+```
+
+and emit only:
+
+```text
+ConsensusIR
+consensus_report.json
+```
+
+The important architectural caution is that old semantic-document code still exists in the repository. Plan 4 must not reuse it as a hidden linker. It may remain untouched for compatibility, but the new consensus factory must stop at page-level consensus. Plan 5 will do document-level semantic linking.
+
+---
+
+## 1. Scope and constraints
+
+Plan 4 implements the consensus factory.
+
+The consensus factory is a page-level resolver. It groups candidate blocks from multiple backend connector outputs, scores them using calibrated priors, selects a canonical block when evidence is sufficient, and records explicit conflicts when evidence is ambiguous.
+
+This plan does not perform whole-document semantic linking. It does not resolve TOC to sections. It does not attach footnotes to anchors. It does not attach captions globally. It does not decide the reference section globally. It does not export Docling.
+
+The output of Plan 4 is:
+
+```text
+<out-dir>/
+  consensus_ir.json
+  reports/
+    consensus_report.json
+```
+
+`consensus_ir.json` must validate as `pdf2md.models.ir.ConsensusIR`.
 
 Hard constraints:
 
@@ -51,11 +87,12 @@ Hard constraints:
 - No OCR execution in tests.
 - No conda calls in tests.
 - No modification to Plan 1 IR contracts.
-- No modification to Plan 2 connector contracts.
+- No modification to Plan 2 entity or connector contracts.
+- No modification to Plan 3 prior contracts.
 - No modification to backend OCR wrappers.
 - No modification to src/pdf2md/backends/runner.py.
 - No modification to src/pdf2md/cli/main.py.
-- Calibration must be lenient: missing backend output, missing truth files, or empty samples produce warnings, not hard failure.
+- Consensus must be lenient: missing entity files, missing prior files, missing backend pages, or empty pages produce warnings, not hard failure.
 - Invalid input JSON or schema-invalid objects may fail in strict mode.
 - Tests must use synthetic fixtures, not real LaTeX compilation or real OCR.
 ```
@@ -64,40 +101,14 @@ Out of scope:
 
 ```text
 - Running local backend models.
-- Generating LaTeX ground truth.
-- Generating Docling ground truth.
-- Changing connector confidence values in-place.
-- Consensus scoring.
-- Semantic linker.
+- Generating ground truth.
+- Calibrating priors.
+- Updating connector confidence values in-place.
+- Whole-document semantic linker.
 - Linked structure.
 - Docling exporter.
+- RAG export.
 ```
-
----
-
-## 1. Why this plan exists
-
-Plan 2 gives every backend a common evidence format. However, every backend has different strengths and weaknesses:
-
-```text
-MinerU may be better at tables.
-PaddleOCR may be better at raw text but weaker at semantic sections.
-DeepSeek may produce rich markdown but weak geometry.
-GLM may have different semantic hallucination patterns.
-```
-
-The consensus factory should not treat all proposals equally. It needs calibrated priors per backend and per detector or class.
-
-Plan 3 therefore computes empirical reliability from ground truth:
-
-```text
-backend + block_kind       -> block prior
-backend + entity_type      -> entity prior
-backend + relation_type    -> relation prior
-backend + calibration_key  -> detector prior
-```
-
-The connector already emits `calibration_key` in `EntityProposal`. That key is the bridge between Plan 2 and Plan 3.
 
 ---
 
@@ -106,37 +117,42 @@ The connector already emits `calibration_key` in `EntityProposal`. That key is t
 The reviewer rejects the plan if any implementation modifies files outside this whitelist.
 
 ```text
-src/pdf2md/models/__init__.py
-src/pdf2md/models/priors.py
+src/pdf2md/consensus/__init__.py
+src/pdf2md/consensus/grouping.py
+src/pdf2md/consensus/scoring.py
+src/pdf2md/consensus/factory.py
+src/pdf2md/consensus/io.py
+src/pdf2md/consensus/reporting.py
 
-src/pdf2md/calibration/__init__.py
-src/pdf2md/calibration/matching.py
-src/pdf2md/calibration/metrics.py
-src/pdf2md/calibration/io.py
+tools/build_consensus.py
 
-tools/calibrate_priors.py
+tests/test_consensus_grouping.py
+tests/test_consensus_scoring.py
+tests/test_consensus_factory.py
+tests/test_build_consensus_cli.py
 
-tests/test_prior_contracts.py
-tests/test_calibration_matching.py
-tests/test_calibration_metrics.py
-tests/test_calibrate_priors_cli.py
+tests/data/consensus_fixtures/simple_agreement/mineru/entities.json
+tests/data/consensus_fixtures/simple_agreement/mineru/pages/page_0001.json
+tests/data/consensus_fixtures/simple_agreement/mineru/manifest.json
+tests/data/consensus_fixtures/simple_agreement/paddleocr/entities.json
+tests/data/consensus_fixtures/simple_agreement/paddleocr/pages/page_0001.json
+tests/data/consensus_fixtures/simple_agreement/paddleocr/manifest.json
+tests/data/consensus_fixtures/simple_agreement/priors/mineru.json
+tests/data/consensus_fixtures/simple_agreement/priors/paddleocr.json
 
-tests/data/calibration_fixtures/minimal_truth/truth.json
-tests/data/calibration_fixtures/minimal_predictions/mineru/entities.json
-tests/data/calibration_fixtures/minimal_predictions/mineru/pages/page_0001.json
-tests/data/calibration_fixtures/minimal_predictions/mineru/manifest.json
+tests/data/consensus_fixtures/ambiguous_page_number/mineru/entities.json
+tests/data/consensus_fixtures/ambiguous_page_number/mineru/pages/page_0001.json
+tests/data/consensus_fixtures/ambiguous_page_number/mineru/manifest.json
+tests/data/consensus_fixtures/ambiguous_page_number/paddleocr/entities.json
+tests/data/consensus_fixtures/ambiguous_page_number/paddleocr/pages/page_0001.json
+tests/data/consensus_fixtures/ambiguous_page_number/paddleocr/manifest.json
+tests/data/consensus_fixtures/ambiguous_page_number/priors/mineru.json
+tests/data/consensus_fixtures/ambiguous_page_number/priors/paddleocr.json
 
-tests/data/calibration_fixtures/mixed_predictions/truth.json
-tests/data/calibration_fixtures/mixed_predictions/mineru/entities.json
-tests/data/calibration_fixtures/mixed_predictions/mineru/pages/page_0001.json
-tests/data/calibration_fixtures/mixed_predictions/mineru/manifest.json
-tests/data/calibration_fixtures/mixed_predictions/paddleocr/entities.json
-tests/data/calibration_fixtures/mixed_predictions/paddleocr/pages/page_0001.json
-tests/data/calibration_fixtures/mixed_predictions/paddleocr/manifest.json
-
-tests/data/calibration_fixtures/empty_predictions/truth.json
-tests/data/calibration_fixtures/empty_predictions/deepseek/entities.json
-tests/data/calibration_fixtures/empty_predictions/deepseek/manifest.json
+tests/data/consensus_fixtures/single_source/deepseek/entities.json
+tests/data/consensus_fixtures/single_source/deepseek/pages/page_0001.json
+tests/data/consensus_fixtures/single_source/deepseek/manifest.json
+tests/data/consensus_fixtures/single_source/priors/deepseek.json
 ```
 
 Explicit non-whitelist files:
@@ -144,1028 +160,956 @@ Explicit non-whitelist files:
 ```text
 src/pdf2md/models/ir.py
 src/pdf2md/models/entities.py
+src/pdf2md/models/priors.py
 src/pdf2md/connectors/common.py
+src/pdf2md/calibration/*
 src/pdf2md/backends/runner.py
 src/pdf2md/cli/main.py
 src/pdf2md/pipeline/convert.py
+src/pdf2md/utils/semantic_document_builder.py
+src/pdf2md/models/semantic_document.py
 backend/*/connector.py
 backend/*/pdf2md_*.py
 backend/*/pdf2ir_*.py
+tools/calibrate_priors.py
 pyproject.toml
 current_plan.md
 ```
 
-Rationale:
-
-Plan 3 is a consumer of Plan 2 outputs. If Plan 3 needs to change `EntityProposalDocument`, then Plan 2 was not really frozen. Do not do that in this plan.
+Rationale: Plan 4 is a consumer of Plans 1 to 3. If Plan 4 needs to change those contracts, then the earlier plans are not frozen.
 
 ---
 
 ## 3. Inputs and outputs
 
-### 3.1 Input: backend predictions
+### 3.1 Input: connector outputs
 
-Plan 3 reads Plan 2 connector outputs.
-
-Required prediction files per backend:
+Expected layout:
 
 ```text
-<prediction-root>/<backend>/
-  entities.json
-  pages/
-    page_0001.json
-    ...
+<input-root>/
+  mineru/
+    manifest.json
+    pages/page_0001.json
+    entities.json
+  paddleocr/
+    manifest.json
+    pages/page_0001.json
+    entities.json
+  deepseek/
+    manifest.json
+    pages/page_0001.json
+    entities.json
 ```
 
-`entities.json` must validate as:
+Required per backend:
 
 ```text
-pdf2md.models.entities.EntityProposalDocument
+pages/*.json
 ```
 
-`pages/*.json` must validate as:
+Optional per backend:
 
 ```text
-pdf2md.models.ir.PageExtractionIR
+entities.json
+manifest.json
 ```
 
-Page files are used for block-kind calibration. Entity files are used for entity and relation calibration.
-
-Missing page files do not block entity calibration.
-
-### 3.2 Input: ground truth
-
-Plan 3 introduces a simple canonical calibration truth format for tests and future generated ground truth.
-
-File name:
+Rules:
 
 ```text
-truth.json
+- Missing backend directory: warning, not failure.
+- Missing pages directory: warning, backend ignored.
+- Missing entities.json: warning, block consensus still runs.
+- Empty pages: warning, backend ignored.
+- Invalid JSON: warning in lenient mode, exception in strict mode.
 ```
 
-Schema name:
+### 3.2 Input: calibrated priors
+
+Expected layout:
 
 ```text
-pdf2md.CalibrationTruthDocument
+<priors-root>/
+  mineru.json
+  paddleocr.json
+  deepseek.json
+  glm.json
 ```
 
-This is not the final linked structure and not Docling. It is only a compact benchmark target for calibration.
-
-The real LaTeX and Docling ground truth harness can later produce this truth format from existing files such as:
+Rules:
 
 ```text
-groundtruth/corpus/latex/<doc_id>/<doc_id>.docling.json
-groundtruth/corpus/latex/<doc_id>/<doc_id>.docling_groundtruth_meta.json
-groundtruth/corpus/latex/<doc_id>/groundtruth/source_groundtruth_ir.json
-groundtruth/corpus/latex/<doc_id>/groundtruth/semantic_document_groundtruth.json
+- Missing prior file for a backend: warning; use default confidence 0.5.
+- Invalid prior file: warning in lenient mode, exception in strict mode.
+- Missing specific metric key: use prior.default_confidence.
 ```
 
-Plan 3 does not require real corpus files in CI. Tests use synthetic `truth.json` fixtures.
-
-### 3.3 Output: prior files
+### 3.3 Output
 
 Canonical output layout:
 
 ```text
 <out-dir>/
-  priors/
-    mineru.json
-    paddleocr.json
-    deepseek.json
-    glm.json
+  consensus_ir.json
   reports/
-    calibration_report.json
+    consensus_report.json
 ```
 
-Only backends seen in the input need a prior file.
+`consensus_ir.json` must validate as `pdf2md.models.ir.ConsensusIR`.
 
 ---
 
-## 4. New schema: `CalibrationPriorDocument`
+## 4. Consensus architecture
+
+Plan 4 introduces five modules.
+
+```text
+src/pdf2md/consensus/grouping.py   # candidate groups
+src/pdf2md/consensus/scoring.py    # scoring and priors
+src/pdf2md/consensus/factory.py    # ConsensusIR construction
+src/pdf2md/consensus/io.py         # filesystem loading and writing
+src/pdf2md/consensus/reporting.py  # audit report dicts
+```
+
+No module imports OCR backends.
+
+---
+
+## 5. Candidate grouping
 
 File:
 
 ```text
-src/pdf2md/models/priors.py
+src/pdf2md/consensus/grouping.py
 ```
 
-This module contains Pydantic v2 models and pure id/key helpers. No I/O.
-
-All models use:
+### 5.1 Public API
 
 ```python
-ConfigDict(extra="forbid", frozen=False, populate_by_name=True)
-```
-
-The schema version is:
-
-```python
-PRIOR_SCHEMA_VERSION = "1.0.0"
-```
-
-### 4.1 Enums
-
-```python
-class CalibrationTarget(str, Enum):
-    BLOCK_KIND = "block_kind"
-    ENTITY_TYPE = "entity_type"
-    RELATION_TYPE = "relation_type"
-    CALIBRATION_KEY = "calibration_key"
-```
-
-```python
-class CalibrationStatus(str, Enum):
-    CALIBRATED = "calibrated"
-    UNDERPOWERED = "underpowered"
-    NO_SAMPLES = "no_samples"
-```
-
-```python
-class MatchOutcome(str, Enum):
-    TRUE_POSITIVE = "true_positive"
-    FALSE_POSITIVE = "false_positive"
-    FALSE_NEGATIVE = "false_negative"
-```
-
-### 4.2 `CalibrationCounts`
-
-```python
-class CalibrationCounts(BaseModel):
-    true_positive: int
-    false_positive: int
-    false_negative: int
-```
-
-Validation:
-
-```text
-- all values >= 0
-```
-
-### 4.3 `CalibrationMetric`
-
-```python
-class CalibrationMetric(BaseModel):
-    target: CalibrationTarget
-    key: str
-    counts: CalibrationCounts
-    precision: float
-    recall: float
-    f1: float
-    support: int
-    calibrated_confidence: float
-    status: CalibrationStatus
-    metadata: dict[str, Any]
-```
-
-Validation:
-
-```text
-- key is non-empty.
-- precision, recall, f1, calibrated_confidence are in [0.0, 1.0].
-- support >= 0.
-```
-
-Status is set by the metrics layer:
-
-```text
-support == 0              -> no_samples
-0 < support < min_samples -> underpowered
-support >= min_samples    -> calibrated
-```
-
-`calibrated_confidence` uses smoothed precision:
-
-```text
-(tp + alpha) / (tp + fp + alpha + beta)
-```
-
-Default smoothing:
-
-```text
-alpha = 1.0
-beta = 1.0
-```
-
-This prevents tiny samples from producing hard 0.0 or 1.0 priors.
-
-### 4.4 `CalibrationPriorDocument`
-
-```python
-class CalibrationPriorDocument(BaseModel):
-    schema_name: Literal["pdf2md.CalibrationPriorDocument"]
-    schema_version: Literal["1.0.0"]
+@dataclass(frozen=True)
+class BlockCandidate:
     backend: str
-    backend_version: str | None
-    generated_from: list[str]
-    min_samples: int
-    smoothing_alpha: float
-    smoothing_beta: float
-    default_confidence: float
-    block_kind_priors: list[CalibrationMetric]
-    entity_type_priors: list[CalibrationMetric]
-    relation_type_priors: list[CalibrationMetric]
-    calibration_key_priors: list[CalibrationMetric]
-    warnings: list[str]
-    metadata: dict[str, Any]
-```
-
-Validation:
-
-```text
-- backend is non-empty.
-- min_samples >= 1.
-- smoothing_alpha > 0.
-- smoothing_beta > 0.
-- default_confidence in [0.0, 1.0].
-- each metric list has unique keys.
-- extra fields are forbidden.
-```
-
-Required helper functions:
-
-```python
-prior_key(target: CalibrationTarget | str, key: str) -> str
-lookup_prior(prior: CalibrationPriorDocument, target: CalibrationTarget | str, key: str) -> CalibrationMetric | None
-lookup_confidence(prior: CalibrationPriorDocument, target: CalibrationTarget | str, key: str) -> float
-```
-
-`lookup_confidence` returns `prior.default_confidence` when no calibrated metric exists.
-
-Re-export from:
-
-```text
-src/pdf2md/models/__init__.py
-```
-
-Append only. Do not remove Plan 1 or Plan 2 exports.
-
----
-
-## 5. New schema: `CalibrationTruthDocument`
-
-Also in:
-
-```text
-src/pdf2md/models/priors.py
-```
-
-This is the canonical truth format used by calibration tests and by local corpus tooling.
-
-```python
-class TruthEntity(BaseModel):
-    id: str
-    entity_type: EntityType
-    canonical_text: str | None
-    page_no: int | None
-    metadata: dict[str, Any]
-```
-
-```python
-class TruthRelation(BaseModel):
-    id: str
-    relation_type: RelationType
-    source_truth_id: str
-    target_truth_id: str
-    metadata: dict[str, Any]
-```
-
-```python
-class TruthBlock(BaseModel):
-    id: str
-    block_kind: BlockKind
-    text: str | None
     page_no: int
+    block: ExtractionBlock
+    page_size: PageSize
+    entity_ids: tuple[str, ...]
+```
+
+```python
+@dataclass(frozen=True)
+class CandidateGroup:
+    id: str
+    page_no: int
+    candidates: tuple[BlockCandidate, ...]
+    reason: str
     metadata: dict[str, Any]
 ```
 
 ```python
-class CalibrationTruthDocument(BaseModel):
-    schema_name: Literal["pdf2md.CalibrationTruthDocument"]
-    schema_version: Literal["1.0.0"]
-    document_id: str
-    blocks: list[TruthBlock]
-    entities: list[TruthEntity]
-    relations: list[TruthRelation]
-    metadata: dict[str, Any]
+def normalise_text(text: str | None) -> str: ...
+def token_overlap(a: str | None, b: str | None) -> float: ...
+def bbox_iou(a: BBox | None, b: BBox | None) -> float | None: ...
 ```
 
-Validation:
+```python
+def group_page_candidates(
+    *,
+    page_no: int,
+    candidates: list[BlockCandidate],
+    text_threshold: float = 0.75,
+    bbox_threshold: float = 0.50,
+) -> list[CandidateGroup]: ...
+```
+
+```python
+def group_document_candidates(
+    *,
+    pages_by_backend: dict[str, list[PageExtractionIR]],
+    entities_by_backend: dict[str, EntityProposalDocument],
+) -> list[CandidateGroup]: ...
+```
+
+### 5.2 Grouping rules
+
+Only candidates on the same page may be grouped.
+
+Two candidates are grouped when at least one of these is true:
 
 ```text
-- document_id is non-empty.
-- truth entity ids are unique.
-- truth relation ids are unique.
-- relation endpoints exist in truth entities.
-- truth block ids are unique.
-- page_no >= 1 for truth blocks and when present for truth entities.
-- extra fields are forbidden.
+- same block kind and normalised text exact match
+- same block kind and token overlap >= text_threshold
+- compatible block kind and token overlap >= text_threshold
+- bbox IoU >= bbox_threshold and text overlap >= 0.25
 ```
 
-Important:
+Compatible block kinds:
 
-This truth document is deliberately smaller than Docling. It is an evaluation target, not the export model.
+```text
+heading <-> paragraph
+formula <-> paragraph
+caption <-> paragraph
+page_number <-> paragraph
+footnote <-> paragraph
+reference <-> paragraph
+bibitem <-> paragraph
+figure <-> paragraph
+table <-> paragraph
+```
+
+Do not group candidates from different pages.
+
+Do not put two candidates from the same backend in the same group unless they have the same block id. If one backend emits duplicates, keep them as separate groups and warn later.
+
+### 5.3 Entity support map
+
+`group_document_candidates` uses `EntityProposalDocument` only to attach entity ids to block candidates.
+
+Mapping rule:
+
+```text
+entity.block_ids contains ExtractionBlock.id -> candidate.entity_ids includes entity.id
+```
+
+It must not resolve final semantic relations.
 
 ---
 
-## 6. Calibration matching
+## 6. Consensus scoring
 
 File:
 
 ```text
-src/pdf2md/calibration/matching.py
+src/pdf2md/consensus/scoring.py
 ```
-
-This module is pure Python and deterministic.
 
 ### 6.1 Public API
 
 ```python
 @dataclass(frozen=True)
-class MatchRecord:
-    target: CalibrationTarget
-    key: str
-    backend: str
-    prediction_id: str | None
-    truth_id: str | None
-    outcome: MatchOutcome
-    confidence: float | None
+class ConsensusScoringSettings:
+    text_weight: float = 0.35
+    bbox_weight: float = 0.15
+    order_weight: float = 0.10
+    kind_weight: float = 0.10
+    backend_prior_weight: float = 0.20
+    entity_prior_weight: float = 0.10
+    unresolved_margin: float = 0.05
+    min_agreement_score: float = 0.50
+    default_prior_confidence: float = 0.50
+```
+
+```python
+@dataclass(frozen=True)
+class CandidateScore:
+    candidate: BlockCandidate
+    score: float
+    text_score: float
+    bbox_score: float
+    order_score: float
+    kind_score: float
+    backend_prior: float
+    entity_prior: float
     metadata: dict[str, Any]
 ```
 
 ```python
-def match_blocks(
-    *,
-    backend: str,
-    pages: list[PageExtractionIR],
-    truth: CalibrationTruthDocument,
-) -> list[MatchRecord]:
-    ...
-```
-
-```python
-def match_entities(
-    *,
-    backend: str,
-    predictions: EntityProposalDocument,
-    truth: CalibrationTruthDocument,
-) -> list[MatchRecord]:
-    ...
-```
-
-```python
-def match_relations(
-    *,
-    backend: str,
-    predictions: EntityProposalDocument,
-    truth: CalibrationTruthDocument,
-) -> list[MatchRecord]:
-    ...
-```
-
-```python
-def normalise_text(text: str | None) -> str:
-    ...
-```
-
-```python
-def token_overlap(a: str | None, b: str | None) -> float:
-    ...
-```
-
-### 6.2 Matching rules for blocks
-
-A predicted `ExtractionBlock` matches a `TruthBlock` when:
-
-```text
-- page_no matches
-- block kind matches
-- normalised text matches exactly, or token overlap >= 0.80
-```
-
-If several predictions match the same truth block, choose the highest token overlap, then lowest page order. Remaining predictions are false positives.
-
-Outputs:
-
-```text
-true_positive for matched predictions
-false_positive for unmatched predictions
-false_negative for unmatched truth blocks
-```
-
-Keys:
-
-```text
-target = block_kind
-key = BlockKind value, such as "heading", "paragraph", "table"
-```
-
-### 6.3 Matching rules for entities
-
-A predicted `EntityProposal` matches a `TruthEntity` when:
-
-```text
-- entity_type matches
-- page_no matches when both are present
-- canonical_text normalised exact match, or token overlap >= 0.75
-```
-
-Special cases:
-
-```text
-- page_number: exact canonical_text match preferred; page_no must match.
-- equation: metadata.equation_number may match truth metadata.equation_number.
-- caption: metadata.caption_number and caption_kind may match.
-- reference_item: metadata.marker may match.
-```
-
-Outputs:
-
-```text
-true_positive for matched predictions
-false_positive for unmatched predictions
-false_negative for unmatched truth entities
-```
-
-Keys:
-
-```text
-target = entity_type
-key = EntityType value, such as "section", "page_number", "caption"
-```
-
-Additional records:
-
-Every prediction with a non-empty `calibration_key` also emits a second record:
-
-```text
-target = calibration_key
-key = prediction.calibration_key
-```
-
-This lets Plan 4 score not only a class, but a specific detector.
-
-### 6.4 Matching rules for relations
-
-A predicted `RelationProposal` matches a `TruthRelation` when:
-
-```text
-- relation_type matches
-- source and target predicted entities have matched truth entities
-- matched truth source and target equal the truth relation endpoints
-```
-
-If entity matching is unavailable, relation matching returns false positives for predicted relations and false negatives for truth relations, with warning metadata `relation_matching_without_entity_matches`.
-
-Keys:
-
-```text
-target = relation_type
-key = RelationType value, such as "caption_of", "toc_points_to"
-```
-
----
-
-## 7. Calibration metrics
-
-File:
-
-```text
-src/pdf2md/calibration/metrics.py
-```
-
-### 7.1 Public API
-
-```python
 @dataclass(frozen=True)
-class CalibrationSettings:
-    min_samples: int = 5
-    smoothing_alpha: float = 1.0
-    smoothing_beta: float = 1.0
-    default_confidence: float = 0.5
+class GroupScore:
+    group: CandidateGroup
+    candidate_scores: tuple[CandidateScore, ...]
+    selected: CandidateScore | None
+    agreement_score: float
+    selection_mode: SelectionMode
+    conflict_kind: ConflictKind | None
+    metadata: dict[str, Any]
 ```
 
 ```python
-def compute_precision(tp: int, fp: int) -> float:
-    ...
-```
-
-```python
-def compute_recall(tp: int, fn: int) -> float:
-    ...
-```
-
-```python
-def compute_f1(precision: float, recall: float) -> float:
-    ...
-```
-
-```python
-def smoothed_precision(tp: int, fp: int, alpha: float, beta: float) -> float:
-    ...
-```
-
-```python
-def metric_from_counts(
+def score_candidate_group(
     *,
-    target: CalibrationTarget,
-    key: str,
-    counts: CalibrationCounts,
-    settings: CalibrationSettings,
-    metadata: dict[str, Any] | None = None,
-) -> CalibrationMetric:
-    ...
+    group: CandidateGroup,
+    priors_by_backend: dict[str, CalibrationPriorDocument],
+    entities_by_backend: dict[str, EntityProposalDocument],
+    settings: ConsensusScoringSettings = ConsensusScoringSettings(),
+) -> GroupScore: ...
 ```
 
 ```python
-def build_prior_document(
+def infer_block_kind_from_entities(
     *,
-    backend: str,
-    backend_version: str | None,
-    generated_from: list[str],
-    records: list[MatchRecord],
-    settings: CalibrationSettings,
-    warnings: list[str],
-    metadata: dict[str, Any] | None = None,
-) -> CalibrationPriorDocument:
-    ...
+    candidate: BlockCandidate,
+    entity_document: EntityProposalDocument | None,
+    prior: CalibrationPriorDocument | None,
+    default_confidence: float,
+) -> tuple[BlockKind, float, dict[str, Any]]: ...
 ```
 
-### 7.2 Metric definitions
+### 6.2 Prior lookup rules
 
-```text
-precision = tp / (tp + fp), or 0.0 when denominator is 0
-recall    = tp / (tp + fn), or 0.0 when denominator is 0
-f1        = 2 * precision * recall / (precision + recall), or 0.0 when denominator is 0
-support   = tp + fp + fn
+For backend block prior:
+
+```python
+lookup_confidence(prior, CalibrationTarget.BLOCK_KIND, block.kind.value)
 ```
 
-`calibrated_confidence`:
+For entity proposal prior:
 
-```text
-(tp + alpha) / (tp + fp + alpha + beta)
+```python
+lookup_confidence(prior, CalibrationTarget.ENTITY_TYPE, entity.entity_type.value)
+lookup_confidence(prior, CalibrationTarget.CALIBRATION_KEY, entity.calibration_key)
 ```
 
-Status:
+Use the maximum available entity prior for entity support on that block.
+
+If no prior exists:
 
 ```text
-support == 0              -> no_samples
-0 < support < min_samples -> underpowered
-support >= min_samples    -> calibrated
+default_prior_confidence = 0.50
+```
+
+### 6.3 Candidate score
+
+Each candidate score is:
+
+```text
+score =
+  text_weight          * text_score
++ bbox_weight          * bbox_score
++ order_weight         * order_score
++ kind_weight          * kind_score
++ backend_prior_weight * backend_prior
++ entity_prior_weight  * entity_prior
+```
+
+All component scores are in `[0.0, 1.0]`.
+
+Component definitions:
+
+```text
+text_score:
+  maximum token overlap between candidate text and other candidates in the group;
+  1.0 for a single-source group.
+
+bbox_score:
+  mean bbox IoU against other candidates with bbox;
+  0.5 when bbox is unavailable for the group.
+
+order_score:
+  1.0 when candidate order is close to median order in group;
+  degrade linearly with distance.
+
+kind_score:
+  1.0 when candidate kind is the group majority kind;
+  0.75 when compatible with majority kind;
+  0.25 otherwise.
+
+backend_prior:
+  Plan 3 block_kind prior for the candidate backend and candidate kind.
+
+entity_prior:
+  maximum Plan 3 entity or calibration_key prior attached to the candidate block;
+  0.5 if no entity proposal supports the candidate.
+```
+
+### 6.4 Entity-to-block-kind enrichment
+
+This is allowed in Plan 4 because it is page-local, not document-level linking.
+
+Mapping:
+
+```text
+EntityType.PAGE_NUMBER       -> BlockKind.PAGE_NUMBER
+EntityType.FOOTNOTE          -> BlockKind.FOOTNOTE
+EntityType.EQUATION          -> BlockKind.FORMULA
+EntityType.CAPTION           -> BlockKind.CAPTION
+EntityType.FIGURE            -> BlockKind.FIGURE
+EntityType.TABLE             -> BlockKind.TABLE
+EntityType.REFERENCE_ITEM    -> BlockKind.BIBITEM
+EntityType.REFERENCE_SECTION -> BlockKind.HEADING
+```
+
+Rule:
+
+```text
+If an entity-supported block kind has higher calibrated confidence than the raw block kind prior by at least 0.10, the selected consensus block may use the entity-supported kind.
+```
+
+The selected block metadata must record:
+
+```json
+{
+  "kind_source": "entity_prior",
+  "raw_block_kind": "paragraph",
+  "entity_type": "page_number"
+}
+```
+
+If confidence margin is smaller than 0.10, do not rewrite the kind. Record a conflict when the ambiguity matters.
+
+### 6.5 Selection modes
+
+Selection mode is decided per candidate group.
+
+```text
+agreed:
+  group has at least two candidates and top score >= min_agreement_score,
+  and top score is not within unresolved_margin of the second score.
+
+single_source:
+  group has one candidate and top score >= min_agreement_score.
+
+fallback:
+  group has at least one candidate, top score < min_agreement_score,
+  but there is no competing candidate within unresolved_margin.
+
+unresolved:
+  no clear winner, or top two candidates are within unresolved_margin,
+  or candidates disagree on text/kind in a way that cannot be resolved.
+```
+
+For `unresolved`:
+
+```text
+selected = None
+ConsensusBlock.selected_source = None
+ConsensusBlock.selection_mode = "unresolved"
+ConsensusBlock.conflict_ids contains one conflict id
+```
+
+For resolved selections:
+
+```text
+ConsensusBlock.selected_source = selected.candidate.backend
 ```
 
 ---
 
-## 8. Calibration I/O
+## 7. Conflict creation
 
 File:
 
 ```text
-src/pdf2md/calibration/io.py
+src/pdf2md/consensus/factory.py
 ```
 
-This module handles filesystem scanning and JSON loading. It must be lenient unless `strict=True`.
+When a group is unresolved, create a `Conflict`.
+
+Conflict kind:
+
+```text
+text_conflict:
+  candidates have high layout/order agreement but incompatible text.
+
+kind_conflict:
+  candidates have similar text but different non-compatible kinds,
+  or entity-supported kind conflicts with raw block kind.
+
+bbox_conflict:
+  candidates have similar text and kind but incompatible bbox.
+
+presence_conflict:
+  one backend emits a meaningful block while others emit no nearby candidate,
+  and the selected score is below min_agreement_score.
+
+order_conflict:
+  candidates have similar text and kind but strongly different reading order.
+```
+
+Conflict fields:
+
+```text
+id: conflict_id(document_id, index)
+kind: ConflictKind
+page_no: group.page_no
+candidate_ids: all extraction block ids in the group
+description: compact human-readable explanation
+resolution: "unresolved"
+selected_candidate_id: None
+metadata:
+  group_id
+  candidate_scores
+  conflict_reason
+```
+
+The consensus factory must never silently discard a conflict.
+
+---
+
+## 8. Consensus factory
+
+File:
+
+```text
+src/pdf2md/consensus/factory.py
+```
 
 ### 8.1 Public API
 
 ```python
 @dataclass(frozen=True)
-class CalibrationDocumentInput:
-    document_id: str
-    truth_path: Path
-    prediction_roots: dict[str, Path]
-```
-
-```python
-@dataclass(frozen=True)
-class CalibrationLoadResult:
-    truth: CalibrationTruthDocument | None
-    pages_by_backend: dict[str, list[PageExtractionIR]]
-    entities_by_backend: dict[str, EntityProposalDocument]
+class ConsensusRunResult:
+    consensus: ConsensusIR
+    report: dict[str, Any]
     warnings: list[str]
 ```
 
 ```python
-def discover_calibration_inputs(
-    *,
-    root: Path,
-    backends: list[str] | None = None,
-) -> list[CalibrationDocumentInput]:
-    ...
+@dataclass(frozen=True)
+class ConsensusFactorySettings:
+    scoring: ConsensusScoringSettings
+    strict: bool = False
 ```
 
 ```python
-def load_calibration_document(
+def build_consensus_ir(
     *,
-    item: CalibrationDocumentInput,
-    strict: bool = False,
-) -> CalibrationLoadResult:
-    ...
+    document_id: str,
+    pages_by_backend: dict[str, list[PageExtractionIR]],
+    entities_by_backend: dict[str, EntityProposalDocument],
+    priors_by_backend: dict[str, CalibrationPriorDocument],
+    settings: ConsensusFactorySettings,
+) -> ConsensusRunResult: ...
 ```
+
+### 8.2 Output construction
+
+`ConsensusIR` fields:
+
+```text
+schema_name = "pdf2md.ConsensusIR"
+schema_version = "1.0.0"
+document_id = input document_id
+page_count = max page_no seen across all backends
+pages = contiguous pages from 1 to page_count
+conflicts = all unresolved group conflicts
+backends = one BackendManifest per backend
+agreement_summary = compact summary metrics
+metadata = {"factory": "consensus_v2"}
+```
+
+`ConsensusPage.blocks`:
+
+```text
+one ConsensusBlock per CandidateGroup
+ordered by page_no, then selected block order or group order
+```
+
+Validation rule:
+
+The produced object must pass:
 
 ```python
-def write_prior_outputs(
-    *,
-    priors: list[CalibrationPriorDocument],
-    report: dict[str, Any],
-    out_dir: Path,
-) -> None:
-    ...
+ConsensusIR.model_validate(consensus.model_dump(mode="json"))
 ```
 
-### 8.2 Supported fixture layout
-
-Tests use:
-
-```text
-tests/data/calibration_fixtures/<case>/
-  truth.json
-  <backend>/
-    manifest.json
-    entities.json
-    pages/
-      page_0001.json
-```
-
-`discover_calibration_inputs(root=tests/data/calibration_fixtures/mixed_predictions)` returns one document input where `prediction_roots` contains `mineru` and `paddleocr`.
-
-### 8.3 Supported real corpus layout
-
-The CLI also supports the local corpus shape:
-
-```text
-groundtruth/corpus/latex/<document_id>/
-  truth.json
-  <document_id>.docling.json
-  <document_id>.docling_groundtruth_meta.json
-  backend_ir/
-    mineru/
-      entities.json
-      pages/
-        page_0001.json
-```
-
-and Plan 2-style connector outputs:
-
-```text
-<document_id>/<backend>/
-  entities.json
-  pages/
-    page_0001.json
-```
-
-For Plan 3 implementation, only `truth.json` is required in tests. Real Docling-to-truth conversion is allowed only as a best-effort helper and must not be necessary for CI.
-
-Lenient warnings:
-
-```text
-truth_missing
-prediction_missing:<backend>
-entities_missing:<backend>
-pages_missing:<backend>
-invalid_truth:<path>
-invalid_entities:<backend>
-invalid_page:<backend>:<file>
-```
+No dict-only construction is accepted.
 
 ---
 
-## 9. CLI tool
+## 9. Consensus I/O
 
 File:
 
 ```text
-tools/calibrate_priors.py
+src/pdf2md/consensus/io.py
+```
+
+### 9.1 Public API
+
+```python
+@dataclass(frozen=True)
+class ConsensusInput:
+    document_id: str
+    connector_root: Path
+    priors_root: Path | None
+    backends: tuple[str, ...]
+```
+
+```python
+@dataclass(frozen=True)
+class ConsensusLoadResult:
+    pages_by_backend: dict[str, list[PageExtractionIR]]
+    entities_by_backend: dict[str, EntityProposalDocument]
+    priors_by_backend: dict[str, CalibrationPriorDocument]
+    warnings: list[str]
+```
+
+```python
+def load_consensus_inputs(
+    *,
+    connector_root: Path,
+    document_id: str,
+    backends: list[str] | None = None,
+    priors_root: Path | None = None,
+    strict: bool = False,
+) -> ConsensusLoadResult: ...
+```
+
+```python
+def write_consensus_outputs(
+    *,
+    result: ConsensusRunResult,
+    out_dir: Path,
+) -> None: ...
+```
+
+### 9.2 Lenient warnings
+
+```text
+backend_missing:<backend>
+pages_missing:<backend>
+entities_missing:<backend>
+prior_missing:<backend>
+invalid_page:<backend>:<file>
+invalid_entities:<backend>
+invalid_prior:<backend>
+empty_pages:<backend>
+```
+
+In lenient mode, invalid backend input is skipped and warning is recorded.
+
+In strict mode, invalid JSON or schema-invalid input raises.
+
+---
+
+## 10. Reporting
+
+File:
+
+```text
+src/pdf2md/consensus/reporting.py
+```
+
+Required report shape:
+
+```json
+{
+  "schema_name": "pdf2md.ConsensusReport",
+  "schema_version": "1.0.0",
+  "document_id": "doc-1",
+  "page_count": 1,
+  "backend_count": 2,
+  "block_count": 3,
+  "conflict_count": 1,
+  "selection_counts": {
+    "agreed": 1,
+    "single_source": 1,
+    "fallback": 0,
+    "unresolved": 1
+  },
+  "warnings": [],
+  "backend_summary": {
+    "mineru": {
+      "page_count": 1,
+      "block_count": 3,
+      "prior_loaded": true
+    }
+  },
+  "conflicts": [
+    {
+      "id": "conf:doc-1:0",
+      "kind": "kind_conflict",
+      "page_no": 1,
+      "candidate_ids": ["mineru:doc-1:p1:b1", "paddleocr:doc-1:p1:b1"]
+    }
+  ]
+}
+```
+
+The report is an audit artefact. It is not used by Plan 5 as a contract.
+
+---
+
+## 11. CLI tool
+
+File:
+
+```text
+tools/build_consensus.py
 ```
 
 Required CLI:
 
 ```bash
-python tools/calibrate_priors.py \
-  --root tests/data/calibration_fixtures/mixed_predictions \
-  --out-dir /tmp/pdf2md_priors \
+python tools/build_consensus.py \
+  --connector-root tests/data/consensus_fixtures/simple_agreement \
+  --document-id doc-1 \
+  --priors-root tests/data/consensus_fixtures/simple_agreement/priors \
   --backends mineru,paddleocr \
-  --min-samples 2
+  --out-dir /tmp/pdf2md_consensus
 ```
 
 Required options:
 
 ```text
---root PATH                 input root
---out-dir PATH              output directory
---backends LIST             comma-separated backend names, optional
---min-samples INT           default 5
---smoothing-alpha FLOAT     default 1.0
---smoothing-beta FLOAT      default 1.0
---default-confidence FLOAT  default 0.5
---strict                    fail on invalid inputs instead of warning
---verbose                   print report JSON
+--connector-root PATH
+--document-id TEXT
+--priors-root PATH             optional
+--backends LIST                comma-separated backend names, optional
+--out-dir PATH
+--strict
+--verbose
+--min-agreement-score FLOAT    default 0.50
+--unresolved-margin FLOAT      default 0.05
 ```
 
 Exit codes:
 
 ```text
-0 = priors written successfully, even if warnings exist
+0 = consensus written successfully, even if warnings exist
 1 = invalid CLI arguments or strict-mode input failure
 ```
 
-Output:
-
-```text
-<out-dir>/priors/<backend>.json
-<out-dir>/reports/calibration_report.json
-```
-
-The report contains:
-
-```json
-{
-  "schema_name": "pdf2md.CalibrationReport",
-  "schema_version": "1.0.0",
-  "document_count": 1,
-  "backends": ["mineru", "paddleocr"],
-  "prior_files": {
-    "mineru": "priors/mineru.json",
-    "paddleocr": "priors/paddleocr.json"
-  },
-  "warnings": [],
-  "settings": {
-    "min_samples": 2,
-    "smoothing_alpha": 1.0,
-    "smoothing_beta": 1.0,
-    "default_confidence": 0.5
-  }
-}
-```
-
 ---
 
-## 10. Tests as milestones
+## 12. Tests as milestones
 
 Completion is certified by pytest, not by prose.
 
-### 10.1 `tests/test_prior_contracts.py`
+### 12.1 `tests/test_consensus_grouping.py`
 
 ```text
-class TestPriorEnums:
-    test_calibration_target_values_match_specification
-    test_calibration_status_values_match_specification
-    test_match_outcome_values_match_specification
-
-class TestCalibrationCounts:
-    test_counts_accept_zero_and_positive_values
-    test_counts_reject_negative_values
-
-class TestCalibrationMetric:
-    test_metric_accepts_valid_payload
-    test_metric_rejects_empty_key
-    test_metric_rejects_scores_outside_unit_interval
-    test_metric_status_no_samples_requires_zero_support
-    test_metric_status_underpowered_requires_positive_support_below_min_samples
-    test_metric_status_calibrated_requires_support_at_least_min_samples
-
-class TestCalibrationPriorDocument:
-    test_minimal_prior_document_round_trip
-    test_prior_document_rejects_duplicate_metric_keys_within_same_list
-    test_prior_document_rejects_invalid_default_confidence
-    test_json_schema_export_basic_shape
-
-class TestCalibrationTruthDocument:
-    test_truth_document_round_trip
-    test_truth_document_rejects_duplicate_truth_entity_ids
-    test_truth_document_rejects_duplicate_truth_relation_ids
-    test_truth_document_rejects_relation_with_unknown_source
-    test_truth_document_rejects_relation_with_unknown_target
-    test_truth_document_rejects_duplicate_truth_block_ids
-
-class TestPriorLookup:
-    test_prior_key_format
-    test_lookup_prior_finds_existing_metric
-    test_lookup_confidence_returns_metric_confidence
-    test_lookup_confidence_returns_default_for_missing_metric
-```
-
-Expected count: 25 tests.
-
-### 10.2 `tests/test_calibration_matching.py`
-
-```text
-class TestTextNormalisation:
+class TestConsensusTextUtilities:
     test_normalise_text_lowercases_and_collapses_whitespace
     test_token_overlap_exact_match_is_one
     test_token_overlap_disjoint_is_zero
-    test_token_overlap_partial_match_is_fractional
+    test_bbox_iou_returns_none_when_missing_bbox
+    test_bbox_iou_computes_overlap_for_same_origin
+    test_bbox_iou_rejects_or_returns_none_for_mixed_origin
 
-class TestBlockMatching:
-    test_matching_block_kind_true_positive
-    test_unmatched_prediction_block_is_false_positive
-    test_unmatched_truth_block_is_false_negative
-    test_same_truth_block_not_matched_twice
-
-class TestEntityMatching:
-    test_matching_section_entity_true_positive
-    test_matching_page_number_requires_same_page
-    test_matching_caption_can_use_caption_number_metadata
-    test_matching_equation_can_use_equation_number_metadata
-    test_unmatched_entity_prediction_is_false_positive
-    test_unmatched_truth_entity_is_false_negative
-    test_entity_with_calibration_key_emits_detector_record
-
-class TestRelationMatching:
-    test_matching_caption_of_relation_true_positive_when_endpoints_match
-    test_unmatched_relation_prediction_is_false_positive
-    test_unmatched_truth_relation_is_false_negative
-    test_relation_matching_without_entity_matches_warns_or_marks_unmatched
+class TestCandidateGrouping:
+    test_groups_same_page_same_kind_same_text_across_backends
+    test_groups_same_page_high_text_overlap_across_backends
+    test_groups_compatible_paragraph_and_heading
+    test_groups_by_bbox_when_text_is_partial
+    test_does_not_group_candidates_from_different_pages
+    test_does_not_group_unrelated_low_overlap_blocks
+    test_does_not_group_two_different_blocks_from_same_backend
+    test_entity_ids_are_attached_to_block_candidates
 ```
 
-Expected count: 20 tests.
+Expected count: 14 tests.
 
-### 10.3 `tests/test_calibration_metrics.py`
+### 12.2 `tests/test_consensus_scoring.py`
 
 ```text
-class TestScalarMetrics:
-    test_precision_regular_case
-    test_precision_zero_denominator_returns_zero
-    test_recall_regular_case
-    test_recall_zero_denominator_returns_zero
-    test_f1_regular_case
-    test_f1_zero_denominator_returns_zero
-    test_smoothed_precision_uses_alpha_beta
+class TestPriorLookupScoring:
+    test_missing_prior_uses_default_confidence
+    test_block_kind_prior_contributes_to_score
+    test_entity_type_prior_contributes_to_score
+    test_calibration_key_prior_can_raise_entity_prior
 
-class TestMetricFromCounts:
-    test_metric_from_counts_computes_precision_recall_f1
-    test_metric_from_counts_marks_no_samples
-    test_metric_from_counts_marks_underpowered
-    test_metric_from_counts_marks_calibrated
+class TestEntityKindInference:
+    test_page_number_entity_can_infer_page_number_block_kind
+    test_footnote_entity_can_infer_footnote_block_kind
+    test_small_prior_margin_does_not_rewrite_kind
+    test_kind_rewrite_metadata_records_raw_kind_and_entity_type
 
-class TestBuildPriorDocument:
-    test_build_prior_document_groups_records_by_target_and_key
-    test_build_prior_document_separates_block_entity_relation_and_calibration_key_priors
-    test_build_prior_document_preserves_backend_and_generated_from
-    test_build_prior_document_uses_default_confidence
+class TestCandidateGroupScoring:
+    test_single_source_group_scores_as_single_source
+    test_two_strong_candidates_score_as_agreed
+    test_close_top_scores_become_unresolved
+    test_low_score_without_close_competitor_becomes_fallback
+    test_scoring_is_deterministic_for_same_inputs
 ```
 
-Expected count: 15 tests.
+Expected count: 13 tests.
 
-### 10.4 `tests/test_calibrate_priors_cli.py`
+### 12.3 `tests/test_consensus_factory.py`
 
 ```text
-class TestCalibrationIO:
-    test_discover_calibration_inputs_finds_fixture_document
-    test_load_calibration_document_reads_truth_entities_and_pages
-    test_load_calibration_document_lenient_missing_backend_adds_warning
-    test_load_calibration_document_strict_invalid_truth_raises
+class TestConsensusFactory:
+    test_simple_agreement_builds_valid_consensus_ir
+    test_consensus_pages_are_contiguous_from_one
+    test_agreed_group_creates_agreed_consensus_block
+    test_single_source_group_creates_single_source_consensus_block
+    test_ambiguous_group_creates_unresolved_block_and_conflict
+    test_conflict_ids_exist_in_top_level_conflicts
+    test_candidate_ids_are_preserved_on_consensus_blocks
+    test_backend_manifest_entries_are_created
+    test_agreement_summary_counts_selection_modes
+    test_missing_entities_file_warns_but_still_builds_consensus
+    test_missing_prior_warns_and_uses_default
+    test_consensus_ir_round_trips_through_pydantic
 
-class TestCalibratePriorsCLI:
+class TestConsensusReport:
+    test_report_contains_document_backend_and_conflict_summary
+    test_report_conflicts_match_consensus_conflicts
+```
+
+Expected count: 14 tests.
+
+### 12.4 `tests/test_build_consensus_cli.py`
+
+```text
+class TestConsensusIO:
+    test_load_consensus_inputs_reads_pages_entities_and_priors
+    test_load_consensus_inputs_lenient_missing_prior_adds_warning
+    test_load_consensus_inputs_lenient_missing_entities_adds_warning
+    test_load_consensus_inputs_strict_invalid_page_raises
+    test_write_consensus_outputs_writes_consensus_and_report
+
+class TestBuildConsensusCLI:
     test_cli_help_exits_zero
-    test_cli_writes_prior_and_report_for_minimal_fixture
-    test_cli_writes_one_prior_per_backend_for_mixed_fixture
-    test_cli_empty_predictions_writes_no_samples_prior
+    test_cli_writes_consensus_and_report_for_simple_agreement
+    test_cli_writes_conflict_for_ambiguous_fixture
+    test_cli_single_source_fixture_writes_single_source_block
+    test_cli_missing_prior_root_still_succeeds_leniently
     test_cli_strict_mode_fails_on_invalid_input
-    test_written_prior_validates_as_calibration_prior_document
-    test_written_report_contains_prior_file_paths
+    test_written_consensus_validates_as_consensus_ir
 ```
 
-Expected count: 11 tests.
+Expected count: 12 tests.
 
 ---
 
-## 11. Fixtures
+## 13. Fixtures
 
-### 11.1 `minimal_truth/truth.json`
+### 13.1 `simple_agreement`
 
-A single document with:
+Backends:
 
 ```text
-one heading block
-one section entity
-no relations
+mineru
+paddleocr
 ```
 
-Purpose:
+Pages:
 
 ```text
-- validates truth schema
-- validates one true positive
-- validates one backend prior
+page 1:
+  heading: "Introduction"
+  paragraph: "This is the first paragraph."
 ```
 
-### 11.2 `minimal_predictions/mineru`
-
-Contains:
+Entities:
 
 ```text
-manifest.json
-entities.json
-pages/page_0001.json
+section proposal for heading
 ```
 
-The prediction exactly matches `minimal_truth`.
-
-Expected calibration:
+Priors:
 
 ```text
-section entity -> true_positive
-heading block  -> true_positive
-precision, recall, f1 = 1.0 before smoothing
-calibrated_confidence = smoothed precision
+both backends have reasonable heading and paragraph priors
+mineru slightly higher section detector prior
 ```
 
-### 11.3 `mixed_predictions/truth.json`
-
-A document with:
+Expected:
 
 ```text
-section
-page_number
-caption
-figure
-caption_of relation
-equation
-reference_section
-reference_item
+ConsensusIR has one page.
+Heading group selection_mode = agreed.
+Paragraph group selection_mode = agreed.
+No conflicts.
 ```
 
-Purpose:
+### 13.2 `ambiguous_page_number`
+
+Backends:
 
 ```text
-- mixed true positives
-- false positives
-- false negatives
-- relation matching
-- calibration_key priors
-- multiple backend prior files
+mineru
+paddleocr
 ```
 
-`mineru` fixture should be mostly correct.
-
-`paddleocr` fixture should include at least:
+Pages:
 
 ```text
-one correct page_number
-one false positive footnote
-one missed caption
+page 1:
+  block text "1"
 ```
 
-This makes priors visibly different by backend.
-
-### 11.4 `empty_predictions/deepseek`
-
-Contains:
+Entities:
 
 ```text
-manifest.json
-entities.json
+mineru proposes page_number
+paddleocr proposes footnote
 ```
 
-with zero entities and no pages.
-
-Expected calibration:
+Priors:
 
 ```text
-truth entities become false negatives
-predicted support may be zero for some classes
-prior document still writes
-warnings may include pages_missing:deepseek
+similar calibrated confidence for page_number and footnote
+```
+
+Expected:
+
+```text
+ConsensusIR contains an unresolved block.
+One Conflict with kind_conflict.
+candidate_ids include both backend extraction ids.
+```
+
+A second test may alter priors in memory so page_number wins by a clear margin, proving calibrated priors can resolve a page-local ambiguity.
+
+### 13.3 `single_source`
+
+Backend:
+
+```text
+deepseek
+```
+
+Pages:
+
+```text
+page 1:
+  heading: "Abstract"
+  paragraph: "Only one backend produced this page."
+```
+
+Expected:
+
+```text
+ConsensusIR has single_source blocks.
+No conflicts.
+Warnings are empty if prior is present.
 ```
 
 ---
 
-## 12. Acceptance criteria
+## 14. Acceptance criteria
 
-The reviewer accepts Plan 3 only when all criteria pass.
+The reviewer accepts Plan 4 only when all criteria pass.
 
-### 12.1 Targeted tests
+### 14.1 Targeted tests
 
 ```bash
-pytest tests/test_prior_contracts.py -q
-pytest tests/test_calibration_matching.py -q
-pytest tests/test_calibration_metrics.py -q
-pytest tests/test_calibrate_priors_cli.py -q
+pytest tests/test_consensus_grouping.py -q
+pytest tests/test_consensus_scoring.py -q
+pytest tests/test_consensus_factory.py -q
+pytest tests/test_build_consensus_cli.py -q
 ```
 
 All pass. No `skip`. No `xfail`.
 
-### 12.2 Plans 1 and 2 still pass
+### 14.2 Plans 1 to 3 still pass
 
 ```bash
 pytest tests/test_ir_contracts.py -q
 pytest tests/test_entity_contracts.py -q
 pytest tests/test_connector_common.py -q
 pytest tests/test_backend_connectors.py -q
+pytest tests/test_prior_contracts.py -q
+pytest tests/test_calibration_matching.py -q
+pytest tests/test_calibration_metrics.py -q
+pytest tests/test_calibrate_priors_cli.py -q
 ```
 
 All pass.
 
-### 12.3 Existing backend runner tests still pass
+### 14.3 Existing runner and semantic-document tests still pass
 
 ```bash
 pytest tests/test_run_backends_config.py -q
+pytest tests/test_semantic_document_builder.py -q
 ```
 
-This confirms calibration did not alter backend execution.
+The semantic-document builder is not part of Plan 4, but this check confirms legacy downstream code was not broken.
 
-### 12.4 Whole suite has no regression
+### 14.4 Whole suite has no regression
 
 ```bash
 pytest tests/ -q
@@ -1173,7 +1117,7 @@ pytest tests/ -q
 
 Must pass with no regression against the previous count.
 
-### 12.5 Whitelist check
+### 14.5 Whitelist check
 
 ```bash
 git diff --name-only main..HEAD
@@ -1181,32 +1125,33 @@ git diff --name-only main..HEAD
 
 Must be a subset of the whitelist in section 2.
 
-### 12.6 Smoke import
+### 14.6 Smoke import
 
 ```bash
-python -c "from pdf2md.models.priors import CalibrationPriorDocument, CalibrationTruthDocument; print(CalibrationPriorDocument.model_json_schema()['title'], CalibrationTruthDocument.model_json_schema()['title'])"
+python -c "from pdf2md.consensus.factory import build_consensus_ir; print(build_consensus_ir.__name__)"
 ```
 
 Expected output:
 
 ```text
-CalibrationPriorDocument CalibrationTruthDocument
+build_consensus_ir
 ```
 
-### 12.7 CLI smoke test
+### 14.7 CLI smoke test
 
 ```bash
-python tools/calibrate_priors.py \
-  --root tests/data/calibration_fixtures/mixed_predictions \
-  --out-dir /tmp/pdf2md_calibration_smoke \
+python tools/build_consensus.py \
+  --connector-root tests/data/consensus_fixtures/simple_agreement \
+  --document-id doc-1 \
+  --priors-root tests/data/consensus_fixtures/simple_agreement/priors \
   --backends mineru,paddleocr \
-  --min-samples 2
+  --out-dir /tmp/pdf2md_consensus_smoke
 ```
 
 Then:
 
 ```bash
-python -c "from pathlib import Path; from pdf2md.models.priors import CalibrationPriorDocument; p=Path('/tmp/pdf2md_calibration_smoke/priors/mineru.json'); CalibrationPriorDocument.model_validate_json(p.read_text()); print('ok')"
+python -c "from pathlib import Path; from pdf2md.models.ir import ConsensusIR; p=Path('/tmp/pdf2md_consensus_smoke/consensus_ir.json'); ConsensusIR.model_validate_json(p.read_text()); print('ok')"
 ```
 
 Expected output:
@@ -1217,203 +1162,185 @@ ok
 
 ---
 
-## 13. Implementation order
+## 15. Implementation order
 
-### A. Prior and truth contracts first
+### A. Grouping layer first
 
 Implement only:
 
 ```text
-src/pdf2md/models/priors.py
-src/pdf2md/models/__init__.py
-tests/test_prior_contracts.py
+src/pdf2md/consensus/__init__.py
+src/pdf2md/consensus/grouping.py
+tests/test_consensus_grouping.py
 ```
 
 Run:
 
 ```bash
-pytest tests/test_prior_contracts.py -q
+pytest tests/test_consensus_grouping.py -q
 pytest tests/test_ir_contracts.py -q
 pytest tests/test_entity_contracts.py -q
 ```
 
-Reason:
+Reason: candidate grouping is the foundation. If grouping is unstable, scoring and conflicts become meaningless.
 
-The prior file format must be frozen before writing metric and CLI logic.
-
-### B. Matching layer
+### B. Scoring layer
 
 Implement:
 
 ```text
-src/pdf2md/calibration/__init__.py
-src/pdf2md/calibration/matching.py
-tests/test_calibration_matching.py
+src/pdf2md/consensus/scoring.py
+tests/test_consensus_scoring.py
 ```
 
 Run:
 
 ```bash
-pytest tests/test_prior_contracts.py tests/test_calibration_matching.py -q
+pytest tests/test_consensus_grouping.py tests/test_consensus_scoring.py -q
 ```
 
-Reason:
+Reason: scoring must consume Plan 3 priors and Plan 2 entity proposals before the factory creates `ConsensusIR`.
 
-Calibration quality depends more on deterministic matching than on the arithmetic. The matching layer must be isolated and testable.
-
-### C. Metrics layer
+### C. Factory and reporting
 
 Implement:
 
 ```text
-src/pdf2md/calibration/metrics.py
-tests/test_calibration_metrics.py
+src/pdf2md/consensus/factory.py
+src/pdf2md/consensus/reporting.py
+tests/test_consensus_factory.py
+tests/data/consensus_fixtures/simple_agreement/*
+tests/data/consensus_fixtures/ambiguous_page_number/*
+tests/data/consensus_fixtures/single_source/*
 ```
 
 Run:
 
 ```bash
-pytest tests/test_calibration_metrics.py -q
+pytest tests/test_consensus_factory.py -q
 ```
 
-Reason:
-
-Metrics are pure functions and should not depend on filesystem layout.
+Reason: only after grouping and scoring are stable should the system emit canonical `ConsensusIR`.
 
 ### D. I/O and CLI
 
 Implement:
 
 ```text
-src/pdf2md/calibration/io.py
-tools/calibrate_priors.py
-tests/test_calibrate_priors_cli.py
-tests/data/calibration_fixtures/*
+src/pdf2md/consensus/io.py
+tools/build_consensus.py
+tests/test_build_consensus_cli.py
 ```
 
 Run:
 
 ```bash
-pytest tests/test_calibrate_priors_cli.py -q
+pytest tests/test_build_consensus_cli.py -q
 ```
 
-Reason:
-
-Only after contracts, matching, and metrics are stable should the CLI tie them together.
+Reason: the CLI should only bind together tested pure components.
 
 ### E. Regression pass
 
 Run:
 
 ```bash
-pytest tests/test_prior_contracts.py -q
-pytest tests/test_calibration_matching.py -q
-pytest tests/test_calibration_metrics.py -q
-pytest tests/test_calibrate_priors_cli.py -q
+pytest tests/test_consensus_grouping.py -q
+pytest tests/test_consensus_scoring.py -q
+pytest tests/test_consensus_factory.py -q
+pytest tests/test_build_consensus_cli.py -q
 
 pytest tests/test_ir_contracts.py -q
 pytest tests/test_entity_contracts.py -q
 pytest tests/test_connector_common.py -q
 pytest tests/test_backend_connectors.py -q
-pytest tests/test_run_backends_config.py -q
+pytest tests/test_prior_contracts.py -q
+pytest tests/test_calibration_matching.py -q
+pytest tests/test_calibration_metrics.py -q
+pytest tests/test_calibrate_priors_cli.py -q
 
+pytest tests/test_run_backends_config.py -q
+pytest tests/test_semantic_document_builder.py -q
 pytest tests/ -q
+
 git diff --name-only main..HEAD
 ```
 
-Reason:
-
-Plan 3 must not perturb Plans 1 or 2.
-
 ---
 
-## 14. What Plan 3 must not accidentally become
+## 16. What Plan 4 must not accidentally become
 
-Do not implement consensus here.
+Do not implement semantic linking here.
 
 Bad:
 
 ```text
-"Select MinerU's block over PaddleOCR's block."
-"Resolve page-number versus footnote ambiguity."
-"Change EntityProposalDocument confidence in connector output."
-"Merge backend entities into one document-level linked graph."
+"Attach this footnote to its anchor."
+"Resolve TOC entry to section globally."
+"Partition the document into body and bibliography."
+"Build equation sequence across the whole document."
+"Build LinkedStructure."
 "Build DoclingDocument."
+"Export markdown or RAG JSON."
 ```
 
 Good:
 
 ```text
-"MinerU section detector has calibrated confidence 0.78."
-"PaddleOCR page_number prior is underpowered with support 3."
-"DeepSeek has no samples for table relations, so use default confidence."
-"caption_of relation prior for mineru is calibrated from tp/fp/fn counts."
+"Group candidate blocks on page 1."
+"Use calibrated prior to prefer page_number over generic paragraph."
+"Mark mineru and paddleocr disagreement as kind_conflict."
+"Emit unresolved ConsensusBlock with conflict id."
+"Write ConsensusIR and consensus_report.json."
 ```
 
-This is the correct level for Plan 3.
+This is the correct level for Plan 4.
 
 ---
 
-## 15. Practical reviewer checklist
+## 17. Practical reviewer checklist
 
 The reviewer should ask:
 
 ```text
-1. Are priors computed from Plan 2 outputs, not from raw backend text?
-2. Are prediction files validated as PageExtractionIR and EntityProposalDocument?
-3. Is ground truth normalised into CalibrationTruthDocument?
-4. Are block, entity, relation, and calibration_key priors all represented?
-5. Are precision, recall, f1, support, and smoothed confidence correct?
-6. Are underpowered and no-sample cases explicit?
-7. Does the CLI write one prior file per backend?
-8. Does the CLI write a calibration report?
-9. Does strict mode fail on invalid input?
-10. Does lenient mode warn and continue?
-11. Are Plans 1 and 2 untouched?
-12. Is git diff contained inside the whitelist?
+1. Does Plan 4 consume PageExtractionIR from Plan 1?
+2. Does it consume EntityProposalDocument from Plan 2?
+3. Does it consume CalibrationPriorDocument from Plan 3?
+4. Does it emit valid ConsensusIR?
+5. Are ambiguous groups represented as Conflict objects?
+6. Are candidate_ids preserved?
+7. Are conflict_ids valid and present in top-level conflicts?
+8. Are missing priors handled leniently?
+9. Are missing entities handled leniently?
+10. Does the scoring layer use lookup_confidence instead of custom prior parsing?
+11. Does the consensus factory avoid document-level semantic linking?
+12. Are legacy semantic-document files untouched?
+13. Is git diff contained inside the whitelist?
 ```
 
 ---
 
-## 16. Main design boundary for Plan 4
+## 18. Main design boundary for Plan 5
 
-Plan 4, the consensus factory, may consume:
+Plan 5, the semantic linker, may consume:
 
 ```text
+ConsensusIR
+EntityProposalDocument from each backend
 CalibrationPriorDocument
-lookup_confidence(prior, block_kind, "heading")
-lookup_confidence(prior, entity_type, "page_number")
-lookup_confidence(prior, relation_type, "caption_of")
-lookup_confidence(prior, calibration_key, "mineru:section:heading_section_detector")
+consensus_report.json
 ```
 
-Plan 4 must not need to know how these priors were computed.
+Plan 5 may then use document-level evidence:
 
-That is the main deliverable of Plan 3.
+```text
+page-number monotonicity
+TOC to section matching
+reference-section partitioning
+equation sequence
+figure/table sequence
+footnote anchors
+caption attachment
+```
 
----
-
-## PR_review #23
-
-- verdict: fail
-- whitelist_violations: []
-- test_contract_violations:
-    - The PR did not implement the test contract counts from section 10: `tests/test_prior_contracts.py` has 12 tests instead of the expected 25, `tests/test_calibration_matching.py` has 5 instead of 20, `tests/test_calibration_metrics.py` has 3 instead of 15, and `tests/test_calibrate_priors_cli.py` has 4 instead of 11.
-    - Fixture contracts from section 11 are not met: `minimal_truth/truth.json` contains paragraph, page_number, caption, figure, and caption_of data instead of a single heading block, one section entity, and no relations; `mixed_predictions/truth.json` omits equation, reference_section, and reference_item truth entities; the paddleocr fixture has no false positive footnote and no correct page_number.
-    - The run log records `tests_fail_real=[initial_token_overlap_assertion_fixed]` for task B while still marking the PR `ready_for_review`; real failures during an agent task chain must halt or be resolved without being left as a failed-test entry.
-    - The required acceptance command `git diff --name-only main..HEAD` did not execute successfully because the checkout lacks a `main` ref. The fallback `git diff --name-only HEAD^..HEAD` was reviewed, but it is not the exact required command.
-- dependency_violations: []
-- tasks_promoted: []
-- notes:
-    - The changed files in `HEAD^..HEAD` are within the Plan 3 whitelist, treating `run_log.md` as whitelisted by the agent protocol.
-    - The implemented automated tests pass, and the broader repository suite passes in this checkout, but passing a smaller-than-specified test set is not enough to satisfy section 10.
-    - Because the verdict is fail, no task is promoted to `done`.
-
-## Feedback #23
-
-- response_to: PR_review #23
-- decision: current plan closed by human feedback.
-- notes:
-    - The follow-up agent work after this review addressed the test-count and fixture-contract findings in later commits, but no additional review-mode promotion is being requested in this feedback entry.
-    - This is not an archive-plan action because the human did not use the explicit `archive plan` instruction required by `agent.md`; `history.md` and `run_log.md` are therefore left unchanged.
-    - Future work should start from a new explicit plan or an explicit `archive plan` instruction if the canonical plan files should be reset.
+Plan 4 must not do those things. It only produces the reliable, auditable page-level consensus substrate.
