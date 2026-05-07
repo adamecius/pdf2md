@@ -139,18 +139,7 @@ def extract_tables(tex):
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest() if p.exists() else None
 
 def process(doc_dir):
-    did=doc_dir.name
-    tex=doc_dir/'input'/f'{did}.tex'
-    pdf=doc_dir/'input'/f'{did}.pdf'
-    gt=doc_dir/'groundtruth'
-    if not tex.exists():
-        tex_files=sorted(doc_dir.glob('*.tex'))
-        if not tex_files:
-            return
-        tex=tex_files[0]
-        pdf=tex.with_suffix('.pdf')
-        gt=doc_dir
-    gt.mkdir(exist_ok=True)
+    did=doc_dir.name; tex=doc_dir/'input'/f'{did}.tex'; pdf=doc_dir/'input'/f'{did}.pdf'; gt=doc_dir/'groundtruth'; gt.mkdir(exist_ok=True)
     src=tex.read_text(); p=Parser(did,src); p.parse(); counts=Counter(b['type'] for b in p.blocks)
     tables=extract_tables(src)
     tblocks=[b for b in p.blocks if b['type']=='table']
@@ -169,12 +158,11 @@ def process(doc_dir):
     (gt/'expected_semantic_contract.json').write_text(json.dumps(econ,indent=2))
     (gt/'expected_docling_contract.json').write_text(json.dumps(dcon,indent=2))
     (gt/'latex_groundtruth_report.json').write_text(json.dumps({'document_id':did,'counts':dict(counts)},indent=2))
-    (gt/'provenance_manifest.json').write_text(json.dumps({'schema_name':'pdf2md.latex_docling_groundtruth_manifest','schema_version':'1.0.0','document_id':did,'generated_at':datetime.now(timezone.utc).isoformat(),'source_tex':{'path':str(tex),'sha256':sha(tex)},'source_pdf':({'path':str(pdf),'sha256':sha(pdf)} if pdf.exists() else None),'generated_files':[str(gt/'source_groundtruth_ir.json'),str(gt/'semantic_document_groundtruth.json'),str(gt/'expected_semantic_contract.json'),str(gt/'expected_docling_contract.json'),str(gt/'latex_groundtruth_report.json'),str(gt/'provenance_manifest.json')],'feature_counts':dict(counts)},indent=2))
+    (gt/'provenance_manifest.json').write_text(json.dumps({'schema_name':'pdf2md.latex_docling_groundtruth_manifest','schema_version':'1.0.0','document_id':did,'batch':doc_dir.parent.name,'generated_at':datetime.now(timezone.utc).isoformat(),'source_tex':{'path':str(tex),'sha256':sha(tex)},'source_pdf':({'path':str(pdf),'sha256':sha(pdf)} if pdf.exists() else None),'generated_files':[str(gt/'source_groundtruth_ir.json'),str(gt/'semantic_document_groundtruth.json'),str(gt/'expected_semantic_contract.json'),str(gt/'expected_docling_contract.json'),str(gt/'latex_groundtruth_report.json'),str(gt/'provenance_manifest.json')],'feature_counts':dict(counts)},indent=2))
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument('--root',default='groundtruth/corpus/latex'); ap.add_argument('--verbose',action='store_true'); a=ap.parse_args()
-    root = Path(a.root)
-    for d in sorted(root.iterdir()):
+    ap=argparse.ArgumentParser(); ap.add_argument('--root',default='.current/latex_docling_groundtruth'); ap.add_argument('--batch',default='batch_001'); ap.add_argument('--verbose',action='store_true'); a=ap.parse_args()
+    for d in sorted((Path(a.root)/a.batch).iterdir()):
         if d.is_dir():
             process(d)
             if a.verbose: print('processed',d.name)

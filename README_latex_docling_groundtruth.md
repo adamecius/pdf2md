@@ -14,13 +14,13 @@ This temporary root-level harness generates **source-known LaTeX fixtures** and 
 
 ## Generate fixtures
 ```bash
-python generate_latex_docling_groundtruth.py --output-root groundtruth/corpus/latex --compile --verbose
+python generate_latex_docling_groundtruth.py --batch batch_001 --output-root .current/latex_docling_groundtruth --count 20 --compile --verbose
 ```
 If no LaTeX engine is found, `.tex` + contracts are still generated and PDF compilation is marked skipped in provenance.
 
 ## Run backends (local only)
 ```bash
-bash run_latex_docling_backends.sh --batch batch_001 --root groundtruth/corpus/latex --config pdf2md.consensus.example.toml --verbose
+bash run_latex_docling_backends.sh --batch batch_001 --root .current/latex_docling_groundtruth --config pdf2md.consensus.example.toml --verbose
 ```
 
 Canonical backend names:
@@ -51,7 +51,7 @@ Canonical DeepSeek adapter filename is:
 
 ## Validate outputs
 ```bash
-python validate_latex_docling_groundtruth.py --root groundtruth/corpus/latex --batch batch_001 --verbose
+python validate_latex_docling_groundtruth.py --root .current/latex_docling_groundtruth --batch batch_001 --verbose
 ```
 
 Before backends are run, missing backend manifests are expected and reported as warnings:
@@ -62,16 +62,18 @@ Before backends are run, missing backend manifests are expected and reported as 
 These warnings do **not** fail ground-truth validation by themselves.
 
 ## Expected layout
-Under `groundtruth/corpus/latex/<document_id>/`:
-- `<document_id>.tex`
-- `<document_id>.docling.json`
-- `<document_id>.docling_groundtruth_meta.json`
-- `meta.toml`
-- optional generated harness subdirectories such as `input/`, `groundtruth/`, `backend_ir/`, `consensus/`, `docling/`, and `reports/` when local runtime stages have been materialized.
+Under `.current/latex_docling_groundtruth/<batch>/<document_id>/`:
+- `input/` (`.tex`, optional `.pdf`)
+- `groundtruth/` (`source_groundtruth_ir.json`, semantic/docling contracts, provenance)
+- `backend_ir/<backend>/.current/extraction_ir/<document_id>/...`
+- `consensus/` (`consensus_report.json`, links, media manifest, semantic document)
+- `docling/` outputs
+- `reports/` stage logs
+- `local_run_manifest.json`, `validation_report.json`
 
 ## Notes
 - Local-only operational tooling; not CI.
-- Generated runtime files are artifacts, not source-of-truth; canonical LaTeX ground truth lives under `groundtruth/corpus/latex/<document_id>/`.
+- Generated `.current` files are runtime artifacts, not source-of-truth.
 - These root-level scripts are temporary and may be deleted later.
 
 ## Canonical pre-Docling ground truth

@@ -199,3 +199,11 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
 - external_tools_used: []
 - blockers: []
 - status: ready_for_review
+
+## PR #21 — 2026-05-07T09:05:00Z — mode: agent
+- tasks_attempted:
+    - T1: files_touched=[README_latex_docling_groundtruth.md, current_plan.md, generate_latex_docling_groundtruth.py, latex_to_pre_docling_groundtruth.py, run_latex_docling_backends.sh, scripts/local_build_docling_fixtures.sh, tests/conventions/test_backend_patterns.py, tests/docling_groundtruth/contracts/batch_001/linked_sections_figures/expected_docling_contract.json, tests/docling_groundtruth/contracts/batch_001/linked_sections_figures/expected_semantic_contract.json, tests/docling_groundtruth/contracts/batch_001/lists_footnotes_tables/expected_docling_contract.json, tests/docling_groundtruth/contracts/batch_001/lists_footnotes_tables/expected_semantic_contract.json, tests/groundtruth_paths.py, tests/smoke/test_backend_clis.py, tests/test_groundtruth_e2e.py, tests/test_groundtruth_regressions.py, tests/test_latex_groundtruth_generator.py, tests/test_latex_groundtruth_sources.py, tests/test_latex_pre_docling_groundtruth.py, tests/test_mock_backend_schema.py, tests/test_run_backends_config.py, validate_latex_docling_groundtruth.py, run_log.md], tests_pass=[ir_contracts, import_schema_titles, fixture_load], tests_fail_env=[whole_suite_missing_latex_current_fixture], tests_fail_real=[]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: ["Whole-suite pytest collection is environment-blocked by missing .current/latex_docling_groundtruth/batch_001 fixtures after restoring non-IR groundtruth/backend files to the pre-plan baseline; import-path failures from PR #15 remain fixed without editable install."]
+- status: ready_for_review

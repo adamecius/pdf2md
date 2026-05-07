@@ -2,30 +2,14 @@ from __future__ import annotations
 from pathlib import Path
 import pytest
 from pdf2md.testing import generate_mock_backend_ir
-from tests.groundtruth_paths import corpus_doc_dir, corpus_doc_ids
 from pdf2md.utils import consensus_report, semantic_document_builder, semantic_linker
 
-FIX_ROOT = Path('groundtruth/corpus/latex')
-
-
-def _require_generated_layout(fixture_dir: Path, doc_id: str) -> None:
-    required = [
-        fixture_dir / 'input' / f'{doc_id}.pdf',
-        fixture_dir / 'groundtruth' / 'source_groundtruth_ir.json',
-    ]
-    missing = [path for path in required if not path.exists()]
-    if missing:
-        pytest.skip(
-            'canonical corpus fixture is present, but generated PDF/IR layout is not available: '
-            + ', '.join(str(path) for path in missing)
-        )
-
+FIX_ROOT=Path('.current/latex_docling_groundtruth/batch_001')
 @pytest.fixture
 def _patch(monkeypatch): monkeypatch.setattr(consensus_report,'CANONICAL_BACKENDS',('mineru','paddleocr','deepseek'))
 
 def run_pipeline(doc_id,tmp_path):
-    f = corpus_doc_dir(doc_id, 'batch_001')
-    _require_generated_layout(f, doc_id)
+    f=FIX_ROOT/doc_id
     generate_mock_backend_ir(f,tmp_path/'backend'/'groundtruth'/'.current'/'extraction_ir'/doc_id,backend_name='mineru')
     cfg={'consensus':{'coordinate_space':'page_normalised_1000','text_similarity_threshold':0.9,'weak_text_similarity_threshold':0.75,'bbox_iou_threshold':0.5,'weak_bbox_iou_threshold':0.25,'include_evidence_only_blocks':False},'backends':{'mineru':{'enabled':True,'root':str(tmp_path/'backend'/'groundtruth')},'paddleocr':{'enabled':False,'root':'backend/paddleocr'},'deepseek':{'enabled':False,'root':'backend/deepseek'}},'pymupdf':{'enabled':True,'extract_text':True}}
     cons,code=consensus_report.build_consensus_report(f/'input'/f'{doc_id}.pdf',cfg,Path('inline')); assert code==0

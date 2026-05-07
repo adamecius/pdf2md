@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 def test_proposed_rules_are_backend_scoped(tmp_path):
-    p = Path('groundtruth/corpus/latex/diagnostics/conventions/conventions_report.json')
+    p = Path('.current/latex_docling_groundtruth/batch_002/diagnostics/conventions/conventions_report.json')
     if not p.exists():
         return
     r=json.loads(p.read_text())

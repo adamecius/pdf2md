@@ -1,6 +1,6 @@
 {
   "document_id": "linked_sections_figures",
-  "source_tex": "groundtruth/corpus/latex/linked_sections_figures/linked_sections_figures.tex",
+  "source_tex": "tests/docling_groundtruth/latex_sources/batch_001/linked_sections_figures.tex",
   "expected_title": "Linked Sections and Figures Fixture",
   "expected_sections": ["Overview", "Figure and Equation Links", "Cross References"],
   "expected_labels": ["sec:overview", "sec:links", "fig:box-diagram", "eq:energy", "sec:cross"],
