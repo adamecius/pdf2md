@@ -20,6 +20,20 @@ from .ir import (
 )
 from .ir import BBox as IRBBox
 
+from .entities import (
+    ENTITY_SCHEMA_VERSION,
+    ConfidenceSource,
+    EntityEvidence,
+    EntityProposal,
+    EntityProposalDocument,
+    EntityType,
+    EvidenceKind,
+    RelationProposal,
+    RelationType,
+    entity_id,
+    relation_id,
+)
+
 __all__ = [
     "BBox",
     "Block",
@@ -45,4 +59,15 @@ __all__ = [
     "extraction_id",
     "consensus_id",
     "conflict_id",
+    "ENTITY_SCHEMA_VERSION",
+    "ConfidenceSource",
+    "EntityEvidence",
+    "EntityProposal",
+    "EntityProposalDocument",
+    "EntityType",
+    "EvidenceKind",
+    "RelationProposal",
+    "RelationType",
+    "entity_id",
+    "relation_id",
 ]
