@@ -207,3 +207,37 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
 - external_tools_used: []
 - blockers: []
 - status: ready_for_review
+
+## PR #23 — 2026-05-07T09:20:00Z — mode: agent
+- tasks_attempted:
+    - A: files_touched=[src/pdf2md/models/priors.py, src/pdf2md/models/__init__.py, tests/test_prior_contracts.py, run_log.md], tests_pass=[prior_contracts, ir_contracts, entity_contracts], tests_fail_env=[], tests_fail_real=[]
+    - B: files_touched=[src/pdf2md/calibration/__init__.py, src/pdf2md/calibration/matching.py, tests/test_calibration_matching.py, run_log.md], tests_pass=[prior_and_matching_contracts], tests_fail_env=[], tests_fail_real=[initial_token_overlap_assertion_fixed]
+    - C: files_touched=[src/pdf2md/calibration/metrics.py, tests/test_calibration_metrics.py, run_log.md], tests_pass=[calibration_metrics], tests_fail_env=[], tests_fail_real=[]
+    - D: files_touched=[src/pdf2md/calibration/io.py, tools/calibrate_priors.py, tests/test_calibrate_priors_cli.py, tests/data/calibration_fixtures/*, run_log.md], tests_pass=[calibrate_priors_cli], tests_fail_env=[], tests_fail_real=[]
+    - E: files_touched=[run_log.md], tests_pass=[targeted_plan3_tests, plan1_plan2_regressions, run_backends_config, smoke_import, cli_smoke, whole_suite, whitelist_check_staged], tests_fail_env=[whitelist_check_main_ref_missing], tests_fail_real=[]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: []
+- status: ready_for_review
+
+## PR #24 — 2026-05-07T10:05:00Z — mode: agent
+- tasks_attempted:
+    - A: files_touched=[src/pdf2md/models/priors.py, tests/test_prior_contracts.py, tests/data/calibration_fixtures/minimal_truth/truth.json, tests/data/calibration_fixtures/minimal_predictions/mineru/entities.json, tests/data/calibration_fixtures/minimal_predictions/mineru/pages/page_0001.json, run_log.md], tests_pass=[prior_contracts_25, ir_contracts, entity_contracts], tests_fail_env=[], tests_fail_real=[]
+    - B: files_touched=[src/pdf2md/calibration/matching.py, tests/test_calibration_matching.py, tests/data/calibration_fixtures/mixed_predictions/truth.json, tests/data/calibration_fixtures/mixed_predictions/mineru/entities.json, tests/data/calibration_fixtures/mixed_predictions/mineru/pages/page_0001.json, tests/data/calibration_fixtures/mixed_predictions/paddleocr/entities.json, tests/data/calibration_fixtures/mixed_predictions/paddleocr/pages/page_0001.json, run_log.md], tests_pass=[prior_and_matching_contracts_45, matching_contracts_20], tests_fail_env=[], tests_fail_real=[]
+    - C: files_touched=[tests/test_calibration_metrics.py, run_log.md], tests_pass=[calibration_metrics_15], tests_fail_env=[], tests_fail_real=[]
+    - D: files_touched=[src/pdf2md/calibration/io.py, tests/test_calibrate_priors_cli.py, tests/data/calibration_fixtures/empty_predictions/truth.json, run_log.md], tests_pass=[calibrate_priors_cli_11], tests_fail_env=[], tests_fail_real=[]
+    - E: files_touched=[run_log.md], tests_pass=[targeted_plan3_tests, plan1_plan2_regressions, run_backends_config, smoke_import, cli_smoke, whole_suite, whitelist_check_worktree], tests_fail_env=[whitelist_check_main_ref_missing], tests_fail_real=[]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: []
+- status: ready_for_review
+
+## PR #25 — 2026-05-07T10:35:00Z — mode: agent
+- tasks_attempted:
+    - B: files_touched=[src/pdf2md/calibration/matching.py, tests/test_calibration_matching.py, run_log.md], tests_pass=[matching_contracts_20, targeted_plan3_tests, whole_suite], tests_fail_env=[], tests_fail_real=[]
+    - C: files_touched=[src/pdf2md/models/priors.py, run_log.md], tests_pass=[prior_contracts_25, targeted_plan3_tests, whole_suite], tests_fail_env=[], tests_fail_real=[]
+    - E: files_touched=[run_log.md], tests_pass=[plan1_plan2_regressions, run_backends_config, smoke_import, cli_smoke, whitelist_check_worktree], tests_fail_env=[whitelist_check_main_ref_missing], tests_fail_real=[]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: []
+- status: ready_for_review

@@ -1,0 +1,98 @@
+{
+  "blocks": [
+    {
+      "block_kind": "heading",
+      "id": "tb1",
+      "metadata": {},
+      "page_no": 1,
+      "text": "Introduction"
+    },
+    {
+      "block_kind": "paragraph",
+      "id": "tb2",
+      "metadata": {},
+      "page_no": 1,
+      "text": "This is a sample paragraph."
+    },
+    {
+      "block_kind": "formula",
+      "id": "tb3",
+      "metadata": {
+        "equation_number": "1"
+      },
+      "page_no": 1,
+      "text": "E = mc^2"
+    }
+  ],
+  "document_id": "doc1",
+  "entities": [
+    {
+      "canonical_text": "Introduction",
+      "entity_type": "section",
+      "id": "te1",
+      "metadata": {},
+      "page_no": 1
+    },
+    {
+      "canonical_text": "1",
+      "entity_type": "page_number",
+      "id": "te2",
+      "metadata": {},
+      "page_no": 1
+    },
+    {
+      "canonical_text": "Figure 1: Sample",
+      "entity_type": "caption",
+      "id": "te3",
+      "metadata": {
+        "caption_kind": "figure",
+        "caption_number": "1"
+      },
+      "page_no": 1
+    },
+    {
+      "canonical_text": "Figure 1",
+      "entity_type": "figure",
+      "id": "te4",
+      "metadata": {},
+      "page_no": 1
+    },
+    {
+      "canonical_text": "E = mc^2",
+      "entity_type": "equation",
+      "id": "te5",
+      "metadata": {
+        "equation_number": "1"
+      },
+      "page_no": 1
+    },
+    {
+      "canonical_text": "References",
+      "entity_type": "reference_section",
+      "id": "te6",
+      "metadata": {},
+      "page_no": 1
+    },
+    {
+      "canonical_text": "[1] Example Reference",
+      "entity_type": "reference_item",
+      "id": "te7",
+      "metadata": {
+        "marker": "[1]"
+      },
+      "page_no": 1
+    }
+  ],
+  "metadata": {},
+  "relations": [
+    {
+      "id": "tr1",
+      "metadata": {},
+      "relation_type": "caption_of",
+      "source_truth_id": "te3",
+      "target_truth_id": "te4"
+    }
+  ],
+  "schema_name": "pdf2md.CalibrationTruthDocument",
+  "schema_version": "1.0.0"
+}

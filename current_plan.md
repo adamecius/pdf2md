@@ -1390,3 +1390,30 @@ lookup_confidence(prior, calibration_key, "mineru:section:heading_section_detect
 Plan 4 must not need to know how these priors were computed.
 
 That is the main deliverable of Plan 3.
+
+---
+
+## PR_review #23
+
+- verdict: fail
+- whitelist_violations: []
+- test_contract_violations:
+    - The PR did not implement the test contract counts from section 10: `tests/test_prior_contracts.py` has 12 tests instead of the expected 25, `tests/test_calibration_matching.py` has 5 instead of 20, `tests/test_calibration_metrics.py` has 3 instead of 15, and `tests/test_calibrate_priors_cli.py` has 4 instead of 11.
+    - Fixture contracts from section 11 are not met: `minimal_truth/truth.json` contains paragraph, page_number, caption, figure, and caption_of data instead of a single heading block, one section entity, and no relations; `mixed_predictions/truth.json` omits equation, reference_section, and reference_item truth entities; the paddleocr fixture has no false positive footnote and no correct page_number.
+    - The run log records `tests_fail_real=[initial_token_overlap_assertion_fixed]` for task B while still marking the PR `ready_for_review`; real failures during an agent task chain must halt or be resolved without being left as a failed-test entry.
+    - The required acceptance command `git diff --name-only main..HEAD` did not execute successfully because the checkout lacks a `main` ref. The fallback `git diff --name-only HEAD^..HEAD` was reviewed, but it is not the exact required command.
+- dependency_violations: []
+- tasks_promoted: []
+- notes:
+    - The changed files in `HEAD^..HEAD` are within the Plan 3 whitelist, treating `run_log.md` as whitelisted by the agent protocol.
+    - The implemented automated tests pass, and the broader repository suite passes in this checkout, but passing a smaller-than-specified test set is not enough to satisfy section 10.
+    - Because the verdict is fail, no task is promoted to `done`.
+
+## Feedback #23
+
+- response_to: PR_review #23
+- decision: current plan closed by human feedback.
+- notes:
+    - The follow-up agent work after this review addressed the test-count and fixture-contract findings in later commits, but no additional review-mode promotion is being requested in this feedback entry.
+    - This is not an archive-plan action because the human did not use the explicit `archive plan` instruction required by `agent.md`; `history.md` and `run_log.md` are therefore left unchanged.
+    - Future work should start from a new explicit plan or an explicit `archive plan` instruction if the canonical plan files should be reset.

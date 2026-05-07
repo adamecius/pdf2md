@@ -34,6 +34,23 @@ from .entities import (
     relation_id,
 )
 
+from .priors import (
+    PRIOR_SCHEMA_VERSION,
+    CalibrationCounts,
+    CalibrationMetric,
+    CalibrationPriorDocument,
+    CalibrationStatus,
+    CalibrationTarget,
+    CalibrationTruthDocument,
+    MatchOutcome,
+    TruthBlock,
+    TruthEntity,
+    TruthRelation,
+    lookup_confidence,
+    lookup_prior,
+    prior_key,
+)
+
 __all__ = [
     "BBox",
     "Block",
@@ -70,4 +87,18 @@ __all__ = [
     "RelationType",
     "entity_id",
     "relation_id",
+    "PRIOR_SCHEMA_VERSION",
+    "CalibrationCounts",
+    "CalibrationMetric",
+    "CalibrationPriorDocument",
+    "CalibrationStatus",
+    "CalibrationTarget",
+    "CalibrationTruthDocument",
+    "MatchOutcome",
+    "TruthBlock",
+    "TruthEntity",
+    "TruthRelation",
+    "lookup_confidence",
+    "lookup_prior",
+    "prior_key",
 ]

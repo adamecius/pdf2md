@@ -1,0 +1,25 @@
+{
+  "blocks": [
+    {
+      "block_kind": "heading",
+      "id": "tb1",
+      "metadata": {},
+      "page_no": 1,
+      "text": "Introduction"
+    }
+  ],
+  "document_id": "doc1",
+  "entities": [
+    {
+      "canonical_text": "Introduction",
+      "entity_type": "section",
+      "id": "te1",
+      "metadata": {},
+      "page_no": 1
+    }
+  ],
+  "metadata": {},
+  "relations": [],
+  "schema_name": "pdf2md.CalibrationTruthDocument",
+  "schema_version": "1.0.0"
+}
