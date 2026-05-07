@@ -1,111 +1,117 @@
-# Plan 5 - Semantic linker and linked structure
+# Plan 6 - Docling export and rich semantic RAG artefacts
 
-Status: draft, ready to implement after Plan 4  
+Status: ready to implement after Plan 5 reviewer acceptance  
 Repo: `pdf2md`  
-Owner: semantic linker layer  
-Sequence: plan 5 of 6. It depends on Plans 1 to 4 and blocks Plan 6.
+Owner: export layer  
+Sequence: plan 6 of 6. It depends on Plans 1 to 5.
 
 ---
 
 ## 0. Current repository status and adequacy
 
-The repository is ready for Plan 5.
+The repository is now technically ready for Plan 6.
 
 Current achieved chain:
 
 ```text
-Plan 1: PageExtractionIR and ConsensusIR contracts
-Plan 2: backend connectors and EntityProposalDocument
-Plan 3: calibrated priors and CalibrationPriorDocument
-Plan 4: page-level ConsensusIR and consensus_report.json
+Plan 1: implemented - PageExtractionIR and ConsensusIR
+Plan 2: implemented - connectors and EntityProposalDocument
+Plan 3: implemented - calibration priors
+Plan 4: implemented - page-level consensus factory and ConsensusIR output
+Plan 5: implemented - semantic linker and LinkedStructure output
 ```
 
-Plan 4 is implemented as an isolated page-level consensus package:
+Plan 5 provides the required Plan 6 input:
 
 ```text
-src/pdf2md/consensus/grouping.py
-src/pdf2md/consensus/scoring.py
-src/pdf2md/consensus/factory.py
-src/pdf2md/consensus/io.py
-src/pdf2md/consensus/reporting.py
-tools/build_consensus.py
+linked_structure.json
 ```
 
-This is adequate because Plan 5 can consume `ConsensusIR` without redoing backend grouping, candidate scoring, page-local entity enrichment, or conflict creation.
+validated as:
 
-Important caution:
+```text
+pdf2md.models.linked.LinkedStructure
+```
 
-The repository still has legacy semantic-document utilities:
+Plan 6 must consume this final linked graph and project it to downstream artefacts. It must not re-resolve footnotes, captions, TOC entries, references, section hierarchy, page numbers, or unresolved conflicts. Those decisions belong to Plan 5 and must be preserved as export provenance.
+
+Administrative note: if `current_plan.md` still names Plan 5, update it separately only after the reviewer accepts Plan 5. The technical dependency for Plan 6 is the existence of the Plan 5 implementation, tests, CLI, and `LinkedStructure` contract.
+
+The repository still has legacy semantic-document helpers:
 
 ```text
 src/pdf2md/models/semantic_document.py
 src/pdf2md/utils/semantic_document_builder.py
 ```
 
-These are loose dictionary-based helpers. They can remain for compatibility, but Plan 5 must not build the new pipeline on them. Plan 5 introduces a new Pydantic `LinkedStructure` contract. Plan 6 will project `LinkedStructure` to Docling.
+These are not the new export substrate. Plan 6 must consume `LinkedStructure`, not the legacy dict-based semantic document.
+
+The current mandatory project dependencies are deliberately minimal:
+
+```text
+pydantic>=2
+typer>=0.12
+```
+
+Therefore Plan 6 must not require `docling-core` as a mandatory dependency. It should emit Docling-compatible JSON directly. If `docling-core` is installed locally, the exporter may optionally validate emitted JSON, but CI and unit tests must not depend on it.
 
 ---
 
 ## 1. Scope and constraints
 
-Plan 5 implements the semantic linker.
+Plan 6 implements the final export layer.
 
-The semantic linker is a whole-document layer. It consumes page-level consensus and backend entity proposals, then resolves document-level structure that page-local consensus cannot resolve safely.
-
-It builds:
+It consumes Plan 5 `LinkedStructure` and produces:
 
 ```text
-linked_structure.json
-reports/linking_report.json
+<out-dir>/
+  docling/
+    <document_id>.docling.json
+  rag/
+    <document_id>.rag_chunks.json
+  markdown/
+    <document_id>.preview.md
+  reports/
+    export_report.json
+  export_manifest.json
 ```
 
-The linked structure captures:
+The Docling JSON is the canonical final structured output. RAG chunks and markdown preview are derived views for downstream usability and smoke testing.
 
-```text
-document nodes
-reading order
-section hierarchy
-TOC entries and section targets
-page number sequence
-headers and footers
-footnote anchors
-captions and their target figures/tables
-equation sequence
-figure/table sequence
-reference section and reference items
-bibliographic mentions
-unresolved semantic conflicts
-```
+Plan 6 does not run OCR. It does not run consensus. It does not run the semantic linker. It does not modify `LinkedStructure`. It is a pure projection layer.
 
 Hard constraints:
 
 ```text
-- No new runtime dependencies.
+- No new mandatory runtime dependencies.
 - No OCR execution in tests.
 - No conda calls in tests.
 - No modification to Plan 1 IR contracts.
 - No modification to Plan 2 entity or connector contracts.
 - No modification to Plan 3 prior contracts.
 - No modification to Plan 4 consensus contracts.
+- No modification to Plan 5 linked-structure contracts.
 - No modification to backend OCR wrappers.
 - No modification to src/pdf2md/backends/runner.py.
 - No modification to src/pdf2md/cli/main.py.
-- Semantic linking must be lenient: unresolved links become warnings and unresolved relation candidates, not hard failures.
-- Invalid input JSON or schema-invalid objects may fail in strict mode.
+- Export must be lenient: unsupported node types and unresolved links produce warnings, not hard failures.
+- Invalid linked_structure.json is fatal.
+- Optional docling-core validation must be best-effort and skipped when docling-core is unavailable.
 - Tests must use synthetic fixtures, not real LaTeX compilation or real OCR.
 ```
 
 Out of scope:
 
 ```text
-- Running local backend models.
-- Ground-truth generation.
+- Running backend models.
+- Building PageExtractionIR.
+- Building EntityProposalDocument.
 - Calibrating priors.
 - Page-level consensus.
-- Changing ConsensusIR in-place.
-- Docling export.
-- Pandoc export.
-- RAG export.
+- Semantic linking.
+- Changing LinkedStructure in-place.
+- Creating embeddings.
+- Running a vector database.
 ```
 
 ---
@@ -116,41 +122,31 @@ The reviewer rejects the plan if any implementation modifies files outside this 
 
 ```text
 src/pdf2md/models/__init__.py
-src/pdf2md/models/linked.py
+src/pdf2md/models/export.py
 
-src/pdf2md/linking/__init__.py
-src/pdf2md/linking/extract.py
-src/pdf2md/linking/resolvers.py
-src/pdf2md/linking/builder.py
-src/pdf2md/linking/io.py
-src/pdf2md/linking/reporting.py
+src/pdf2md/export/__init__.py
+src/pdf2md/export/docling.py
+src/pdf2md/export/rag.py
+src/pdf2md/export/markdown.py
+src/pdf2md/export/io.py
+src/pdf2md/export/reporting.py
 
-tools/build_linked_structure.py
+tools/export_linked_docling.py
 
-tests/test_linked_structure_contracts.py
-tests/test_linking_extract.py
-tests/test_linking_resolvers.py
-tests/test_linked_structure_builder.py
-tests/test_build_linked_structure_cli.py
+tests/test_export_contracts.py
+tests/test_docling_export.py
+tests/test_rag_export.py
+tests/test_markdown_export.py
+tests/test_export_io_cli.py
 
-tests/data/linking_fixtures/simple_document/consensus_ir.json
-tests/data/linking_fixtures/simple_document/consensus_report.json
-tests/data/linking_fixtures/simple_document/entities/mineru.json
-tests/data/linking_fixtures/simple_document/entities/paddleocr.json
-tests/data/linking_fixtures/simple_document/priors/mineru.json
-tests/data/linking_fixtures/simple_document/priors/paddleocr.json
+tests/data/export_fixtures/simple_document/linked_structure.json
+tests/data/export_fixtures/simple_document/consensus_ir.json
 
-tests/data/linking_fixtures/toc_footnotes_references/consensus_ir.json
-tests/data/linking_fixtures/toc_footnotes_references/consensus_report.json
-tests/data/linking_fixtures/toc_footnotes_references/entities/mineru.json
-tests/data/linking_fixtures/toc_footnotes_references/entities/paddleocr.json
-tests/data/linking_fixtures/toc_footnotes_references/priors/mineru.json
-tests/data/linking_fixtures/toc_footnotes_references/priors/paddleocr.json
+tests/data/export_fixtures/rich_document/linked_structure.json
+tests/data/export_fixtures/rich_document/consensus_ir.json
 
-tests/data/linking_fixtures/unresolved_ambiguity/consensus_ir.json
-tests/data/linking_fixtures/unresolved_ambiguity/consensus_report.json
-tests/data/linking_fixtures/unresolved_ambiguity/entities/mineru.json
-tests/data/linking_fixtures/unresolved_ambiguity/priors/mineru.json
+tests/data/export_fixtures/unresolved_conflicts/linked_structure.json
+tests/data/export_fixtures/unresolved_conflicts/consensus_ir.json
 ```
 
 Explicit non-whitelist files:
@@ -159,9 +155,11 @@ Explicit non-whitelist files:
 src/pdf2md/models/ir.py
 src/pdf2md/models/entities.py
 src/pdf2md/models/priors.py
+src/pdf2md/models/linked.py
 src/pdf2md/connectors/common.py
 src/pdf2md/calibration/*
 src/pdf2md/consensus/*
+src/pdf2md/linking/*
 src/pdf2md/backends/runner.py
 src/pdf2md/cli/main.py
 src/pdf2md/pipeline/convert.py
@@ -172,19 +170,38 @@ backend/*/pdf2md_*.py
 backend/*/pdf2ir_*.py
 tools/calibrate_priors.py
 tools/build_consensus.py
+tools/build_linked_structure.py
 pyproject.toml
 current_plan.md
 ```
 
 Rationale:
 
-Plan 5 consumes Plans 1 to 4. If it requires changing those contracts, the earlier plan is not frozen. Do not do that here.
+Plan 6 is a pure consumer of Plans 1 to 5. If it requires changing `LinkedStructure`, the Plan 5 contract was not ready. Do not fix that in Plan 6.
 
 ---
 
 ## 3. Inputs and outputs
 
-### Required input
+### 3.1 Required input: LinkedStructure
+
+Required file:
+
+```text
+linked_structure.json
+```
+
+Must validate as:
+
+```text
+pdf2md.models.linked.LinkedStructure
+```
+
+This file is the semantic source of truth for export.
+
+### 3.2 Optional input: ConsensusIR
+
+Optional file:
 
 ```text
 consensus_ir.json
@@ -196,57 +213,69 @@ Must validate as:
 pdf2md.models.ir.ConsensusIR
 ```
 
-### Optional inputs
+Purpose:
 
 ```text
-reports/consensus_report.json
-entities/<backend>.json
-entities/<backend>/entities.json
-priors/<backend>.json
+- page sizes
+- bbox provenance
+- extra block provenance
+- sanity checks against consensus block ids
 ```
 
-Entity files must validate as `EntityProposalDocument`. Prior files must validate as `CalibrationPriorDocument`.
+If missing, export continues with warnings and uses page information from `LinkedStructure`.
 
-Rules:
+### 3.3 Optional input: source PDF path
+
+Optional CLI argument:
 
 ```text
-- missing consensus_ir.json: fatal.
-- missing consensus report: warning, continue.
-- missing entities root: warning, continue with ConsensusIR only.
-- missing priors root: warning, use default confidence.
-- invalid optional file: warning in lenient mode, exception in strict mode.
+--source-pdf PATH
 ```
 
-### Output
+Purpose:
 
 ```text
-<out-dir>/linked_structure.json
-<out-dir>/reports/linking_report.json
+- provenance only
+- no PDF parsing in Plan 6
 ```
 
-`linked_structure.json` must validate as:
+### 3.4 Outputs
+
+Canonical output layout:
 
 ```text
-pdf2md.models.linked.LinkedStructure
+<out-dir>/
+  docling/
+    <document_id>.docling.json
+  rag/
+    <document_id>.rag_chunks.json
+  markdown/
+    <document_id>.preview.md
+  reports/
+    export_report.json
+  export_manifest.json
+```
+
+Required validation:
+
+```text
+- export_manifest.json validates as ExportManifestDocument.
+- rag_chunks.json validates as RagChunkDocument.
+- docling JSON passes internal structural validation.
+- markdown preview is non-empty for non-empty documents.
 ```
 
 ---
 
-## 4. New schema: LinkedStructure
+## 4. New schema: export manifest and RAG chunks
 
 File:
 
 ```text
-src/pdf2md/models/linked.py
+src/pdf2md/models/export.py
 ```
 
-This module contains Pydantic v2 models and pure id helpers only. No I/O.
-
-Schema version:
-
-```python
-LINKED_SCHEMA_VERSION = "1.0.0"
-```
+This module contains Pydantic v2 models and pure helpers. It does not define DoclingDocument itself. The Docling output is emitted as a JSON dictionary because `docling-core` is not a mandatory dependency.
 
 All models use:
 
@@ -254,221 +283,77 @@ All models use:
 ConfigDict(extra="forbid", frozen=False, populate_by_name=True, use_enum_values=True)
 ```
 
+Schema version:
+
+```python
+EXPORT_SCHEMA_VERSION = "1.0.0"
+```
+
 ### 4.1 Enums
 
 ```python
-class LinkedNodeType(str, Enum):
-    DOCUMENT = "document"
+class ExportArtefactType(str, Enum):
+    DOCLING_JSON = "docling_json"
+    RAG_CHUNKS = "rag_chunks"
+    MARKDOWN_PREVIEW = "markdown_preview"
+    EXPORT_REPORT = "export_report"
+```
+
+```python
+class ExportStatus(str, Enum):
+    WRITTEN = "written"
+    WRITTEN_WITH_WARNINGS = "written_with_warnings"
+    SKIPPED = "skipped"
+    FAILED = "failed"
+```
+
+```python
+class RagChunkType(str, Enum):
     TITLE = "title"
     SECTION = "section"
     PARAGRAPH = "paragraph"
     LIST = "list"
-    LIST_ITEM = "list_item"
     TABLE = "table"
     FIGURE = "figure"
     CAPTION = "caption"
     EQUATION = "equation"
     FOOTNOTE = "footnote"
-    PAGE_NUMBER = "page_number"
-    HEADER = "header"
-    FOOTER = "footer"
-    TOC_ENTRY = "toc_entry"
-    REFERENCE_SECTION = "reference_section"
-    REFERENCE_ITEM = "reference_item"
-    BIBLIOGRAPHY_MARKER = "bibliography_marker"
-    CODE = "code"
+    REFERENCE = "reference"
+    MIXED = "mixed"
     UNKNOWN = "unknown"
 ```
 
-```python
-class LinkedRelationType(str, Enum):
-    CONTAINS = "contains"
-    FOLLOWS = "follows"
-    PARENT_OF = "parent_of"
-    CAPTION_OF = "caption_of"
-    FOOTNOTE_ANCHOR_FOR = "footnote_anchor_for"
-    TOC_POINTS_TO = "toc_points_to"
-    REFERENCES = "references"
-    EQUATION_SEQUENCE_NEXT = "equation_sequence_next"
-    FIGURE_SEQUENCE_NEXT = "figure_sequence_next"
-    TABLE_SEQUENCE_NEXT = "table_sequence_next"
-    REFERENCE_SEQUENCE_NEXT = "reference_sequence_next"
-    PAGE_NUMBER_SEQUENCE_NEXT = "page_number_sequence_next"
-    HEADER_REPEATS_AS = "header_repeats_as"
-    FOOTER_REPEATS_AS = "footer_repeats_as"
-    DERIVED_FROM_CONSENSUS = "derived_from_consensus"
-    UNRESOLVED_CANDIDATE = "unresolved_candidate"
-```
+### 4.2 ExportArtefact
 
 ```python
-class LinkStatus(str, Enum):
-    RESOLVED = "resolved"
-    RESOLVED_LOW_CONFIDENCE = "resolved_low_confidence"
-    UNRESOLVED = "unresolved"
-```
-
-```python
-class LinkEvidenceKind(str, Enum):
-    CONSENSUS_BLOCK = "consensus_block"
-    ENTITY_PROPOSAL = "entity_proposal"
-    RELATION_PROPOSAL = "relation_proposal"
-    PRIOR = "prior"
-    TEXT_PATTERN = "text_pattern"
-    READING_ORDER = "reading_order"
-    PAGE_SEQUENCE = "page_sequence"
-    TOC_PATTERN = "toc_pattern"
-    SECTION_HIERARCHY = "section_hierarchy"
-    REFERENCE_PATTERN = "reference_pattern"
-    CAPTION_PATTERN = "caption_pattern"
-    FOOTNOTE_PATTERN = "footnote_pattern"
-```
-
-### 4.2 LinkEvidence
-
-```python
-class LinkEvidence(BaseModel):
-    kind: LinkEvidenceKind
-    source_id: str | None
-    page_no: int | None
-    confidence: float
-    reason: str
+class ExportArtefact(BaseModel):
+    artefact_type: ExportArtefactType
+    path: str
+    status: ExportStatus
+    sha256: str | None
+    warnings: list[str]
     metadata: dict[str, Any]
 ```
 
 Validation:
 
 ```text
-- page_no >= 1 when present.
-- confidence in [0.0, 1.0].
-- reason is non-empty.
+- path is non-empty.
+- sha256, when present, is 64 lowercase hex characters.
 - extra fields are forbidden.
 ```
 
-### 4.3 LinkedNode
+### 4.3 ExportManifestDocument
 
 ```python
-class LinkedNode(BaseModel):
-    id: str
-    node_type: LinkedNodeType
-    text: str | None
-    page_no: int | None
-    order: int
-    consensus_block_id: str | None
-    source_backend: str | None
-    source_entity_ids: list[str]
-    confidence: float
-    status: LinkStatus
-    evidence: list[LinkEvidence]
-    metadata: dict[str, Any]
-```
-
-ID pattern:
-
-```text
-^node:[A-Za-z0-9_.-]+:\d+$
-```
-
-Validation:
-
-```text
-- page_no >= 1 when present.
-- order >= 0.
-- confidence in [0.0, 1.0].
-- evidence has at least one item.
-- consensus_block_id, when present, matches ConsensusBlock id pattern.
-- source_entity_ids, when present, match EntityProposal id pattern.
-- extra fields are forbidden.
-```
-
-Node id factory:
-
-```python
-linked_node_id(document_id: str, index: int) -> str
-```
-
-### 4.4 LinkedRelation
-
-```python
-class LinkedRelation(BaseModel):
-    id: str
-    relation_type: LinkedRelationType
-    source_node_id: str
-    target_node_id: str
-    confidence: float
-    status: LinkStatus
-    evidence: list[LinkEvidence]
-    metadata: dict[str, Any]
-```
-
-ID pattern:
-
-```text
-^lrel:[A-Za-z0-9_.-]+:\d+$
-```
-
-Validation:
-
-```text
-- source_node_id and target_node_id match LinkedNode id pattern.
-- source_node_id != target_node_id.
-- confidence in [0.0, 1.0].
-- evidence has at least one item.
-- extra fields are forbidden.
-```
-
-Relation id factory:
-
-```python
-linked_relation_id(document_id: str, index: int) -> str
-```
-
-### 4.5 LinkedConflict
-
-```python
-class LinkedConflict(BaseModel):
-    id: str
-    conflict_type: str
-    source_conflict_id: str | None
-    node_ids: list[str]
-    relation_ids: list[str]
-    description: str
-    status: LinkStatus
-    evidence: list[LinkEvidence]
-    metadata: dict[str, Any]
-```
-
-Validation:
-
-```text
-- id is non-empty.
-- source_conflict_id, when present, matches Conflict id pattern.
-- node_ids match LinkedNode id pattern.
-- relation_ids match LinkedRelation id pattern.
-- description is non-empty.
-- evidence has at least one item.
-- extra fields are forbidden.
-```
-
-Conflict id factory:
-
-```python
-linked_conflict_id(document_id: str, index: int) -> str
-```
-
-### 4.6 LinkedStructure
-
-```python
-class LinkedStructure(BaseModel):
-    schema_name: Literal["pdf2md.LinkedStructure"]
+class ExportManifestDocument(BaseModel):
+    schema_name: Literal["pdf2md.ExportManifestDocument"]
     schema_version: Literal["1.0.0"]
     document_id: str
+    source_linked_structure: str
     source_consensus_ir: str | None
-    source_consensus_report: str | None
-    source_entity_documents: list[str]
-    source_prior_documents: list[str]
-    nodes: list[LinkedNode]
-    relations: list[LinkedRelation]
-    conflicts: list[LinkedConflict]
+    source_pdf: str | None
+    artefacts: list[ExportArtefact]
     warnings: list[str]
     metadata: dict[str, Any]
 ```
@@ -477,13 +362,70 @@ Validation:
 
 ```text
 - document_id is non-empty.
-- node ids are unique.
-- relation ids are unique.
-- conflict ids are unique.
-- every relation endpoint exists in nodes.
-- every conflict node id exists in nodes.
-- every conflict relation id exists in relations.
+- source_linked_structure is non-empty.
+- artefact paths are unique.
 - extra fields are forbidden.
+```
+
+### 4.4 RagChunk
+
+```python
+class RagChunk(BaseModel):
+    id: str
+    chunk_type: RagChunkType
+    title: str | None
+    text: str
+    node_ids: list[str]
+    relation_ids: list[str]
+    page_start: int | None
+    page_end: int | None
+    section_path: list[str]
+    breadcrumbs: list[str]
+    confidence: float
+    metadata: dict[str, Any]
+```
+
+ID pattern:
+
+```text
+^chunk:[A-Za-z0-9_.-]+:\d+$
+```
+
+Validation:
+
+```text
+- text is non-empty.
+- node_ids are non-empty.
+- page_start and page_end are >= 1 when present.
+- page_end >= page_start when both are present.
+- confidence in [0.0, 1.0].
+- extra fields are forbidden.
+```
+
+### 4.5 RagChunkDocument
+
+```python
+class RagChunkDocument(BaseModel):
+    schema_name: Literal["pdf2md.RagChunkDocument"]
+    schema_version: Literal["1.0.0"]
+    document_id: str
+    chunks: list[RagChunk]
+    warnings: list[str]
+    metadata: dict[str, Any]
+```
+
+Validation:
+
+```text
+- document_id is non-empty.
+- chunk ids are unique.
+- extra fields are forbidden.
+```
+
+Helper:
+
+```python
+rag_chunk_id(document_id: str, index: int) -> str
 ```
 
 Re-export from:
@@ -492,695 +434,657 @@ Re-export from:
 src/pdf2md/models/__init__.py
 ```
 
-Append only. Do not remove Plan 1 to Plan 4 exports.
+Append only. Do not remove Plan 1 to Plan 5 exports.
 
 ---
 
-## 5. Linker modules
+## 5. Export architecture
 
-Plan 5 introduces:
+Plan 6 introduces six modules.
 
 ```text
-src/pdf2md/linking/extract.py
-src/pdf2md/linking/resolvers.py
-src/pdf2md/linking/builder.py
-src/pdf2md/linking/io.py
-src/pdf2md/linking/reporting.py
-src/pdf2md/linking/__init__.py
+src/pdf2md/export/docling.py    # LinkedStructure -> Docling-compatible JSON
+src/pdf2md/export/rag.py        # LinkedStructure -> RagChunkDocument
+src/pdf2md/export/markdown.py   # LinkedStructure -> markdown preview
+src/pdf2md/export/io.py         # filesystem loading/writing
+src/pdf2md/export/reporting.py  # export report and manifest helpers
+src/pdf2md/export/__init__.py
 ```
 
 No module imports OCR backends.
 
 No module imports legacy `semantic_document_builder`.
 
+No module requires `docling-core`.
+
 ---
 
-## 6. Extraction layer
+## 6. Docling exporter
 
 File:
 
 ```text
-src/pdf2md/linking/extract.py
+src/pdf2md/export/docling.py
 ```
 
-Public API:
+### 6.1 Public API
 
 ```python
 @dataclass(frozen=True)
-class LinkCandidate:
-    consensus_block_id: str
-    node_type: LinkedNodeType
-    text: str
-    page_no: int
-    order: int
-    source_backend: str | None
-    source_entity_ids: tuple[str, ...]
-    confidence: float
-    metadata: dict[str, Any]
+class DoclingExportSettings:
+    schema_name: str = "DoclingDocument"
+    schema_version: str = "1.7.0"
+    include_unresolved: bool = True
+    coord_origin: str = "BOTTOMLEFT"
 ```
 
 ```python
-def consensus_block_to_node_type(block: ConsensusBlock) -> LinkedNodeType: ...
-def entity_support_for_block(*, consensus_block: ConsensusBlock, entities_by_backend: dict[str, EntityProposalDocument]) -> list[EntityProposal]: ...
-def extract_link_candidates(*, consensus: ConsensusIR, entities_by_backend: dict[str, EntityProposalDocument], priors_by_backend: dict[str, CalibrationPriorDocument]) -> list[LinkCandidate]: ...
-def normalise_text(text: str | None) -> str: ...
+@dataclass(frozen=True)
+class DoclingExportResult:
+    document: dict[str, Any]
+    warnings: list[str]
 ```
 
-Mapping from `ConsensusBlock.kind`:
+```python
+def build_docling_document(
+    *,
+    linked: LinkedStructure,
+    consensus: ConsensusIR | None = None,
+    settings: DoclingExportSettings = DoclingExportSettings(),
+) -> DoclingExportResult:
+    ...
+```
+
+```python
+def validate_docling_like_document(document: dict[str, Any]) -> list[str]:
+    ...
+```
+
+```python
+def try_validate_with_docling_core(document: dict[str, Any]) -> tuple[bool, str | None]:
+    ...
+```
+
+### 6.2 Docling JSON shape
+
+The emitter produces a Docling-compatible JSON dictionary with these top-level keys:
 
 ```text
-heading      -> section
-paragraph    -> paragraph
-formula      -> equation
-figure       -> figure
-table        -> table
-caption      -> caption
-list         -> list
-list_item    -> list_item
-footnote     -> footnote
-page_number  -> page_number
-header       -> header
-footer       -> footer
-reference    -> reference_item
-bibitem      -> reference_item
-code         -> code
-unknown      -> unknown
+schema_name
+version
+name
+origin
+body
+groups
+texts
+tables
+pictures
+pages
+key_value_items
+form_items
+metadata
 ```
 
-Entity proposals may refine the type when they support the consensus block through `ConsensusBlock.candidate_ids`.
-
-Example:
+Required conventions:
 
 ```text
-ConsensusBlock.kind = paragraph
-EntityProposal.entity_type = toc_entry
-entity.block_ids intersects ConsensusBlock.candidate_ids
-=> LinkCandidate.node_type = toc_entry
+- body.self_ref = "#/body".
+- every emitted item has self_ref.
+- text items live under texts.
+- table items live under tables.
+- figure/picture items live under pictures.
+- logical hierarchy is represented through groups and body.children.
+- pages are keyed by page number as strings.
+- provenance is preserved in prov when linked node metadata provides page and bbox.
 ```
+
+### 6.3 Node-to-Docling mapping
+
+```text
+document             -> body root
+title                -> text item with label "title"
+section              -> group item, plus optional heading text item
+paragraph            -> text item with label "paragraph"
+list                 -> group item with label "list"
+list_item            -> text item with label "list_item"
+table                -> table item
+figure               -> picture item
+caption              -> text item with label "caption"; attached through metadata or parent group when relation exists
+equation             -> text item with label "formula"
+footnote             -> text item with label "footnote"
+page_number          -> text item with label "page_footer" or metadata.is_page_artifact = true
+header               -> text item with label "page_header"
+footer               -> text item with label "page_footer"
+toc_entry            -> text item with label "toc_entry"
+reference_section    -> group item with label "references"
+reference_item       -> text item with label "reference"
+bibliography_marker  -> text item with label "reference_marker"
+code                 -> text item with label "code"
+unknown              -> text item with label "unknown"
+```
+
+### 6.4 Relation-to-Docling projection
+
+Use `LinkedRelation` to improve hierarchy:
+
+```text
+CONTAINS / PARENT_OF:
+  determine group children.
+
+CAPTION_OF:
+  attach caption self_ref into target picture/table metadata or children.
+
+TOC_POINTS_TO:
+  preserve in metadata.links on toc_entry item.
+
+FOOTNOTE_ANCHOR_FOR:
+  preserve in metadata.links on footnote item and anchor target item.
+
+REFERENCES:
+  preserve in metadata.links on citation/source item.
+
+FOLLOWS and sequence relations:
+  preserve in metadata.relations but do not force hierarchy.
+```
+
+Unresolved conflicts:
+
+```text
+- If include_unresolved is true, unresolved nodes are emitted with metadata.status = "unresolved".
+- LinkedConflict objects are preserved in document.metadata.pdf2md_conflicts.
+```
+
+### 6.5 Minimal structural validation
+
+`validate_docling_like_document` checks:
+
+```text
+- required top-level keys exist.
+- body.self_ref exists.
+- all self_ref values are unique.
+- all body/group children references exist.
+- all page references in provenance exist in pages.
+- every text/table/picture item has a label or metadata.type.
+- metadata contains pdf2md provenance.
+```
+
+It returns a list of warnings, not exceptions, unless the caller is in strict CLI mode.
 
 ---
 
-## 7. Resolver layer
+## 7. RAG exporter
 
 File:
 
 ```text
-src/pdf2md/linking/resolvers.py
+src/pdf2md/export/rag.py
 ```
 
-Public API:
+### 7.1 Public API
 
 ```python
 @dataclass(frozen=True)
-class ResolvedLink:
-    relation_type: LinkedRelationType
-    source_candidate_id: str
-    target_candidate_id: str
-    confidence: float
-    status: LinkStatus
-    evidence: tuple[LinkEvidence, ...]
-    metadata: dict[str, Any]
+class RagExportSettings:
+    max_chars: int = 1800
+    overlap_chars: int = 150
+    include_captions_with_targets: bool = True
+    include_references: bool = True
 ```
 
 ```python
-@dataclass(frozen=True)
-class ResolverResult:
-    links: tuple[ResolvedLink, ...]
-    warnings: tuple[str, ...]
+def build_rag_chunks(
+    *,
+    linked: LinkedStructure,
+    settings: RagExportSettings = RagExportSettings(),
+) -> RagChunkDocument:
+    ...
 ```
 
-Required resolvers:
+### 7.2 Chunking rules
 
-```python
-def resolve_reading_order(candidates: list[LinkCandidate]) -> ResolverResult: ...
-def resolve_section_hierarchy(candidates: list[LinkCandidate]) -> ResolverResult: ...
-def resolve_toc_links(candidates: list[LinkCandidate]) -> ResolverResult: ...
-def resolve_page_number_sequence(candidates: list[LinkCandidate]) -> ResolverResult: ...
-def resolve_repeating_headers_footers(candidates: list[LinkCandidate]) -> ResolverResult: ...
-def resolve_captions(candidates: list[LinkCandidate]) -> ResolverResult: ...
-def resolve_footnotes(candidates: list[LinkCandidate]) -> ResolverResult: ...
-def resolve_equation_sequence(candidates: list[LinkCandidate]) -> ResolverResult: ...
-def resolve_figure_table_sequence(candidates: list[LinkCandidate]) -> ResolverResult: ...
-def resolve_references(candidates: list[LinkCandidate]) -> ResolverResult: ...
-def run_all_resolvers(candidates: list[LinkCandidate]) -> ResolverResult: ...
+Chunking is structure-first, not arbitrary text splitting.
+
+Rules:
+
+```text
+- Title is its own chunk when present.
+- Each section starts a chunk group.
+- Paragraphs under the same section are merged until max_chars is reached.
+- Captions are included with their figure/table target when CAPTION_OF exists.
+- Tables become separate chunks.
+- Figures become separate chunks with caption text when available.
+- Equations become separate chunks unless short enough to remain near surrounding text.
+- Footnotes become separate chunks and preserve FOOTNOTE_ANCHOR_FOR metadata.
+- References become separate chunks only when include_references is true.
+- Unresolved nodes are included only when they contain text and marked metadata.status = "unresolved".
+```
+
+Each chunk must preserve:
+
+```text
+node_ids
+relation_ids
+page_start
+page_end
+section_path
+breadcrumbs
+confidence
+```
+
+Confidence:
+
+```text
+mean confidence of included nodes and relations, clipped to [0.0, 1.0]
 ```
 
 ---
 
-## 8. Required resolver behaviour
-
-### Reading order
-
-Create `FOLLOWS` links between adjacent body candidates.
-
-Rules:
-
-```text
-- Sort by page_no, then order.
-- Exclude page_number, header, footer.
-- Include sections, paragraphs, lists, figures, tables, captions, equations, footnotes, reference items.
-```
-
-### Section hierarchy
-
-Create `PARENT_OF` and `CONTAINS` relations.
-
-Rules:
-
-```text
-- Section level comes from metadata when available.
-- Else infer from numbered headings such as "1", "1.2", "1.2.3".
-- Else default to level 1 and warn.
-- A section is parent of later deeper sections until an equal or higher-level section appears.
-- Body blocks after a section are contained by the nearest preceding section.
-```
-
-Warnings:
-
-```text
-section_level_missing:<node_id>
-```
-
-### TOC links
-
-Create `TOC_POINTS_TO` links.
-
-Rules:
-
-```text
-- Parse dotted leader lines such as "2.3 Methods ........ 15".
-- Match by exact title, then target page plus token overlap, then strong token overlap.
-```
-
-Warnings:
-
-```text
-toc_target_missing:<node_id>
-toc_target_ambiguous:<node_id>
-```
-
-### Page number sequence
-
-Create `PAGE_NUMBER_SEQUENCE_NEXT` links.
-
-Rules:
-
-```text
-- Arabic numerals and roman numerals are supported.
-- PDF page_no is the monotonic anchor.
-- Roman front matter may switch to Arabic body numbering.
-- A footnote-like number must not be forced into page number sequence.
-```
-
-Warnings:
-
-```text
-page_number_sequence_gap:<node_id>
-page_number_sequence_conflict:<node_id>
-```
-
-### Repeating headers and footers
-
-Create `HEADER_REPEATS_AS` and `FOOTER_REPEATS_AS` links when the same normalised text appears in header/footer position on two or more pages.
-
-Pure page numbers must not be marked as repeating footers.
-
-### Captions
-
-Create `CAPTION_OF` links.
-
-Rules:
-
-```text
-- Figure captions target nearest figure on same page.
-- Table captions target nearest table on same page.
-- Prefer explicit caption kind and number.
-- Adjacent-page targets are allowed only as low confidence.
-- Do not cross more than one page.
-```
-
-Warnings:
-
-```text
-caption_target_missing:<node_id>
-caption_target_ambiguous:<node_id>
-```
-
-### Footnotes
-
-Create `FOOTNOTE_ANCHOR_FOR` links.
-
-Rules:
-
-```text
-- Parse footnote markers such as [1], 1., and superscript-like digits.
-- Prefer same page anchors.
-- Never link a footnote to a page_number node.
-```
-
-Warnings:
-
-```text
-footnote_anchor_missing:<node_id>
-footnote_anchor_ambiguous:<node_id>
-```
-
-### Equations
-
-Create `EQUATION_SEQUENCE_NEXT` links.
-
-Rules:
-
-```text
-- Extract equation numbers from text or metadata.
-- Link consecutive equations in reading order.
-- Number gaps are warnings, not failures.
-```
-
-### Figures and tables
-
-Create:
-
-```text
-FIGURE_SEQUENCE_NEXT
-TABLE_SEQUENCE_NEXT
-```
-
-Rules:
-
-```text
-- Extract numbers from captions or metadata.
-- Link consecutive numbers.
-- Prefer target object node over caption node when CAPTION_OF exists.
-```
-
-### References
-
-Create:
-
-```text
-REFERENCE_SEQUENCE_NEXT
-REFERENCES
-```
-
-Rules:
-
-```text
-- Detect reference section by section title: References, Bibliography, Works cited.
-- Reference items after this section are bibliography material.
-- Reference items with markers [1], [2], etc. get sequence links.
-- Body mentions like [1] or (Author, 2020) may link to reference items.
-```
-
-Warnings:
-
-```text
-reference_section_missing
-reference_target_missing:<node_id>
-reference_target_ambiguous:<node_id>
-```
-
----
-
-## 9. Builder layer
+## 8. Markdown preview exporter
 
 File:
 
 ```text
-src/pdf2md/linking/builder.py
+src/pdf2md/export/markdown.py
 ```
 
-Public API:
+### 8.1 Public API
 
 ```python
 @dataclass(frozen=True)
-class LinkerSettings:
-    strict: bool = False
-    default_confidence: float = 0.50
-    low_confidence_threshold: float = 0.60
+class MarkdownExportSettings:
+    include_page_numbers: bool = False
+    include_headers_footers: bool = False
+    include_unresolved_warnings: bool = True
 ```
 
 ```python
+def build_markdown_preview(
+    *,
+    linked: LinkedStructure,
+    settings: MarkdownExportSettings = MarkdownExportSettings(),
+) -> tuple[str, list[str]]:
+    ...
+```
+
+### 8.2 Markdown rules
+
+```text
+title        -> "# Title"
+section      -> heading level from metadata, default "##"
+paragraph    -> plain paragraph
+list_item    -> "- item"
+equation     -> fenced math block when possible
+table        -> simple markdown table placeholder if cells are unavailable
+figure       -> image placeholder or "[Figure]"
+caption      -> italic caption unless already attached to figure/table
+footnote     -> footnote block
+reference_item -> numbered/bullet reference line
+toc_entry    -> plain TOC line
+page_number, header, footer -> excluded by default
+unknown      -> HTML comment warning plus text
+```
+
+This preview is not the canonical output. It is a human-readable smoke artefact.
+
+---
+
+## 9. I/O layer
+
+File:
+
+```text
+src/pdf2md/export/io.py
+```
+
+### 9.1 Public API
+
+```python
 @dataclass(frozen=True)
-class LinkerRunResult:
+class ExportLoadResult:
     linked: LinkedStructure
+    consensus: ConsensusIR | None
+    warnings: list[str]
+```
+
+```python
+@dataclass(frozen=True)
+class ExportRunResult:
+    docling: dict[str, Any]
+    rag_chunks: RagChunkDocument
+    markdown: str
+    manifest: ExportManifestDocument
     report: dict[str, Any]
     warnings: list[str]
 ```
 
 ```python
-def build_linked_structure(
+def load_export_inputs(
     *,
-    consensus: ConsensusIR,
-    entities_by_backend: dict[str, EntityProposalDocument],
-    priors_by_backend: dict[str, CalibrationPriorDocument],
-    consensus_report: dict[str, Any] | None = None,
-    source_consensus_ir: str | None = None,
-    source_consensus_report: str | None = None,
-    source_entity_documents: list[str] | None = None,
-    source_prior_documents: list[str] | None = None,
-    settings: LinkerSettings = LinkerSettings(),
-) -> LinkerRunResult: ...
-```
-
-Build steps:
-
-```text
-1. Extract LinkCandidate objects from ConsensusIR.
-2. Create one LinkedNode per candidate.
-3. Always create a document node.
-4. Add DERIVED_FROM_CONSENSUS relation from document node to every non-document node.
-5. Run all resolvers.
-6. Convert ResolvedLink objects to LinkedRelation objects.
-7. Preserve source ConsensusIR conflicts as LinkedConflict objects.
-8. Convert unresolved resolver warnings into LinkedConflict objects when node-specific.
-9. Validate LinkedStructure through Pydantic.
-10. Build linking_report.json.
-```
-
-Document node:
-
-```text
-id = node:<document_id>:0
-node_type = document
-page_no = None
-order = 0
-text = None
-confidence = 1.0
-status = resolved
-```
-
----
-
-## 10. I/O layer
-
-File:
-
-```text
-src/pdf2md/linking/io.py
-```
-
-Public API:
-
-```python
-@dataclass(frozen=True)
-class LinkerLoadResult:
-    consensus: ConsensusIR
-    consensus_report: dict[str, Any] | None
-    entities_by_backend: dict[str, EntityProposalDocument]
-    priors_by_backend: dict[str, CalibrationPriorDocument]
-    source_entity_documents: list[str]
-    source_prior_documents: list[str]
-    warnings: list[str]
-```
-
-```python
-def load_linker_inputs(
-    *,
-    consensus_ir_path: Path,
-    consensus_report_path: Path | None = None,
-    entities_root: Path | None = None,
-    priors_root: Path | None = None,
+    linked_structure_path: Path,
+    consensus_ir_path: Path | None = None,
     strict: bool = False,
-) -> LinkerLoadResult: ...
+) -> ExportLoadResult:
+    ...
 ```
 
 ```python
-def write_linker_outputs(*, result: LinkerRunResult, out_dir: Path) -> None: ...
+def write_export_outputs(
+    *,
+    result: ExportRunResult,
+    out_dir: Path,
+) -> None:
+    ...
 ```
 
-Lenient warnings:
+```python
+def build_export_run(
+    *,
+    linked: LinkedStructure,
+    consensus: ConsensusIR | None,
+    source_linked_structure: str,
+    source_consensus_ir: str | None,
+    source_pdf: str | None,
+    docling_settings: DoclingExportSettings,
+    rag_settings: RagExportSettings,
+    markdown_settings: MarkdownExportSettings,
+    strict: bool = False,
+) -> ExportRunResult:
+    ...
+```
+
+### 9.2 Lenient warnings
 
 ```text
-consensus_report_missing
-entities_root_missing
-priors_root_missing
-entities_missing:<backend>
-prior_missing:<backend>
+consensus_ir_missing
 invalid_consensus_ir
-invalid_consensus_report
-invalid_entities:<backend>
-invalid_prior:<backend>
+docling_core_unavailable
+docling_core_validation_failed:<reason>
+unsupported_node_type:<node_id>
+unresolved_node_emitted:<node_id>
+missing_page_for_node:<node_id>
+rag_chunk_split:<chunk_id>
+markdown_empty_node:<node_id>
 ```
 
-Only invalid or missing `consensus_ir.json` is fatal in lenient mode.
+Invalid `linked_structure.json` is fatal in both lenient and strict mode.
+
+Invalid optional `consensus_ir.json` warns in lenient mode and raises in strict mode.
 
 ---
 
-## 11. Reporting
+## 10. Reporting
 
 File:
 
 ```text
-src/pdf2md/linking/reporting.py
+src/pdf2md/export/reporting.py
 ```
 
-Report shape:
+Required report shape:
 
 ```json
 {
-  "schema_name": "pdf2md.LinkingReport",
+  "schema_name": "pdf2md.ExportReport",
   "schema_version": "1.0.0",
   "document_id": "doc-1",
-  "node_count": 12,
-  "relation_count": 20,
-  "conflict_count": 1,
-  "warnings": [],
-  "node_type_counts": {"section": 2},
-  "relation_type_counts": {"follows": 8},
-  "unresolved": [{"id": "lconf:doc-1:0", "conflict_type": "footnote_anchor_missing"}]
+  "docling": {
+    "text_count": 10,
+    "table_count": 1,
+    "picture_count": 1,
+    "group_count": 3,
+    "page_count": 2,
+    "warning_count": 0
+  },
+  "rag": {
+    "chunk_count": 5,
+    "average_confidence": 0.91
+  },
+  "markdown": {
+    "char_count": 1800,
+    "warning_count": 0
+  },
+  "warnings": []
 }
 ```
 
-The report is an audit artefact. Plan 6 consumes `linked_structure.json`, not the report.
+The report is an audit artefact.
 
 ---
 
-## 12. CLI tool
+## 11. CLI tool
 
 File:
 
 ```text
-tools/build_linked_structure.py
+tools/export_linked_docling.py
 ```
 
 Required CLI:
 
 ```bash
-python tools/build_linked_structure.py \
-  --consensus-ir tests/data/linking_fixtures/simple_document/consensus_ir.json \
-  --consensus-report tests/data/linking_fixtures/simple_document/consensus_report.json \
-  --entities-root tests/data/linking_fixtures/simple_document/entities \
-  --priors-root tests/data/linking_fixtures/simple_document/priors \
-  --out-dir /tmp/pdf2md_linked
+python tools/export_linked_docling.py   --linked-structure tests/data/export_fixtures/simple_document/linked_structure.json   --consensus-ir tests/data/export_fixtures/simple_document/consensus_ir.json   --source-pdf sample.pdf   --out-dir /tmp/pdf2md_export
 ```
 
 Required options:
 
 ```text
---consensus-ir PATH
---consensus-report PATH       optional
---entities-root PATH          optional
---priors-root PATH            optional
+--linked-structure PATH
+--consensus-ir PATH          optional
+--source-pdf PATH            optional provenance only
 --out-dir PATH
 --strict
 --verbose
---low-confidence-threshold FLOAT default 0.60
+--no-rag
+--no-markdown
+--include-unresolved
+--max-chars INT              default 1800 for RAG chunks
 ```
 
 Exit codes:
 
 ```text
-0 = linked structure written successfully, even if warnings exist
-1 = invalid CLI arguments or strict-mode input failure
+0 = export written successfully, even if warnings exist
+1 = invalid CLI arguments or strict-mode failure
 ```
 
 ---
 
-## 13. Tests as milestones
+## 12. Tests as milestones
 
 Completion is certified by pytest, not by prose.
 
-### 13.1 `tests/test_linked_structure_contracts.py`
+### 12.1 tests/test_export_contracts.py
 
-Expected count: 34 tests.
+Expected count: 24 tests.
 
 Must cover:
 
 ```text
-- enum values
-- LinkEvidence validation
-- LinkedNode validation
-- LinkedRelation validation
-- LinkedConflict validation
-- LinkedStructure round trip
-- duplicate ids rejected
-- relation endpoints must exist
-- conflict node and relation ids must exist
-- id factories round trip through validators
+- ExportArtefactType enum values
+- ExportStatus enum values
+- RagChunkType enum values
+- ExportArtefact validation
+- ExportManifestDocument round trip
+- duplicate artefact paths rejected
+- RagChunk id validation
+- RagChunk page range validation
+- RagChunkDocument duplicate ids rejected
+- rag_chunk_id factory
 - JSON Schema export
 ```
 
-### 13.2 `tests/test_linking_extract.py`
+### 12.2 tests/test_docling_export.py
+
+Expected count: 20 tests.
+
+Must cover:
+
+```text
+- simple LinkedStructure emits required Docling top-level keys
+- body self_ref exists
+- self_ref values are unique
+- section nodes become groups
+- paragraphs become text items
+- tables become table items
+- figures become picture items
+- captions attach to figure/table metadata when CAPTION_OF exists
+- footnote/reference relations are preserved in metadata
+- unresolved conflicts are preserved in document metadata
+- pages are emitted from linked nodes and/or ConsensusIR
+- validate_docling_like_document catches broken child refs
+- optional docling-core validation skips cleanly when unavailable
+```
+
+### 12.3 tests/test_rag_export.py
 
 Expected count: 16 tests.
 
 Must cover:
 
 ```text
-- ConsensusBlock kind to node type mapping
-- entity support through ConsensusBlock.candidate_ids
-- TOC entity refines paragraph to toc_entry
-- reference section entity refines heading to reference_section
-- one LinkCandidate per ConsensusBlock
-- page/order/source backend preservation
-- prior confidence usage when available
+- title chunk
+- section-based chunk grouping
+- max_chars split
+- overlap metadata when split
+- captions included with figure/table target
+- tables become separate chunks
+- equations become chunks
+- footnotes preserve anchor metadata
+- references can be included
+- references can be excluded
+- unresolved nodes are marked in metadata
+- chunk confidence is mean of node/relation confidence
+- RagChunkDocument validates
 ```
 
-### 13.3 `tests/test_linking_resolvers.py`
+### 12.4 tests/test_markdown_export.py
 
-Expected count: 32 tests.
+Expected count: 14 tests.
 
 Must cover:
 
 ```text
-- reading order FOLLOWS links
-- section hierarchy
-- TOC links
-- page number sequence
-- repeated headers and footers
-- caption links
-- footnote anchor links
-- equation sequence
-- figure/table sequence
-- reference section, reference sequence, and body references
-- warnings for missing or ambiguous targets
+- title renders as H1
+- section renders as heading
+- paragraph renders as text
+- list item renders as bullet
+- equation renders as math block
+- table renders as markdown placeholder or table
+- figure and caption render in readable order
+- footnote renders
+- references render
+- headers/footers/page numbers excluded by default
+- unresolved warning emitted when enabled
+- preview is non-empty for simple document
 ```
 
-### 13.4 `tests/test_linked_structure_builder.py`
+### 12.5 tests/test_export_io_cli.py
 
 Expected count: 16 tests.
 
 Must cover:
 
 ```text
-- simple document builds valid LinkedStructure
-- document node is created
-- every ConsensusBlock becomes a node
-- all nodes derive from document or consensus
-- expected FOLLOWS, CONTAINS, CAPTION_OF, TOC_POINTS_TO, FOOTNOTE_ANCHOR_FOR, REFERENCES relations
-- unresolved ambiguity creates LinkedConflict
-- source ConsensusIR conflicts are preserved
-- missing entities and priors warn but build
-- Pydantic round trip
-- report counts match structure
-```
-
-### 13.5 `tests/test_build_linked_structure_cli.py`
-
-Expected count: 12 tests.
-
-Must cover:
-
-```text
-- load_linker_inputs reads consensus, entities, and priors
-- lenient missing entities/prior roots warn
-- strict invalid optional input raises
-- write_linker_outputs writes both files
+- load_export_inputs reads LinkedStructure and ConsensusIR
+- missing optional ConsensusIR warns but succeeds
+- strict invalid ConsensusIR raises
+- write_export_outputs writes all expected files
+- export_manifest validates
+- export_report contains counts
 - CLI help exits zero
-- CLI writes valid linked_structure.json
-- CLI unresolved fixture writes conflict
-- CLI missing optional inputs succeeds leniently
+- CLI writes Docling JSON, RAG chunks, markdown preview, report, manifest
+- CLI --no-rag skips RAG artefact
+- CLI --no-markdown skips markdown artefact
+- CLI strict mode fails on invalid optional input
+- written Docling JSON passes internal validation
 ```
 
 ---
 
-## 14. Fixtures
+## 13. Fixtures
 
-### 14.1 `simple_document`
+### 13.1 simple_document
+
+Input:
+
+```text
+linked_structure.json
+consensus_ir.json
+```
 
 Shape:
 
 ```text
-page 1:
-  section "Introduction"
-  paragraph "This is the introduction."
-  figure
-  caption "Figure 1. Example figure."
-```
-
-Expected:
-
-```text
-document node
-section node
-paragraph node
-figure node
-caption node
-FOLLOWS relations
-CONTAINS or PARENT_OF relations
+document
+section "Introduction"
+paragraph "This is the introduction."
+figure
+caption "Figure 1. Example figure."
 CAPTION_OF relation
-no conflicts
-```
-
-### 14.2 `toc_footnotes_references`
-
-Shape:
-
-```text
-page 1:
-  section "Contents"
-  toc_entry "1 Introduction ........ 2"
-
-page 2:
-  section "1 Introduction"
-  paragraph with footnote marker [1]
-  footnote "[1] Footnote text."
-  equation "(1)"
-  equation "(2)"
-
-page 3:
-  section "References"
-  reference item "[1] A. Author. Example paper. Journal, 2020."
-  reference item "[2] B. Author. Second paper. Journal, 2021."
-  paragraph with body reference marker [1]
 ```
 
 Expected:
 
 ```text
-TOC_POINTS_TO
-FOOTNOTE_ANCHOR_FOR
-EQUATION_SEQUENCE_NEXT
-REFERENCE_SEQUENCE_NEXT
-REFERENCES
-page number sequence when page numbers are present
+Docling JSON with body, section group, paragraph text, picture, caption.
+RAG chunks include section content and figure caption.
+Markdown preview is readable.
+No export conflicts.
 ```
 
-### 14.3 `unresolved_ambiguity`
+### 13.2 rich_document
 
 Shape:
 
 ```text
-ConsensusIR contains an unresolved conflict from Plan 4.
-Entity proposals are insufficient to resolve it.
+title
+TOC entry
+section hierarchy
+paragraphs
+table
+figure
+caption
+equations
+footnotes
+references
+relations from Plan 5
 ```
 
 Expected:
 
 ```text
-LinkedStructure preserves source conflict as LinkedConflict.
-No fake relation is created.
-Warnings include unresolved semantic ambiguity.
+Docling groups preserve hierarchy.
+RAG chunks preserve section_path and relation metadata.
+Markdown preview includes all major content.
+Export report has non-zero counts for text, table, picture, groups, chunks.
+```
+
+### 13.3 unresolved_conflicts
+
+Shape:
+
+```text
+LinkedStructure includes unresolved node and LinkedConflict.
+```
+
+Expected:
+
+```text
+Docling metadata preserves conflict.
+RAG chunk marks unresolved status.
+Markdown preview includes unresolved warning when enabled.
+Exporter does not fail in lenient mode.
 ```
 
 ---
 
-## 15. Acceptance criteria
+## 14. Acceptance criteria
 
-The reviewer accepts Plan 5 only when all criteria pass.
+The reviewer accepts Plan 6 only when all criteria pass.
 
-### 15.1 Targeted tests
+### 14.1 Plan 5 must already pass
+
+Before implementing Plan 6, run:
 
 ```bash
 pytest tests/test_linked_structure_contracts.py -q
@@ -1190,9 +1094,21 @@ pytest tests/test_linked_structure_builder.py -q
 pytest tests/test_build_linked_structure_cli.py -q
 ```
 
-All pass. No `skip`. No `xfail`.
+All must pass.
 
-### 15.2 Plans 1 to 4 still pass
+### 14.2 Targeted Plan 6 tests
+
+```bash
+pytest tests/test_export_contracts.py -q
+pytest tests/test_docling_export.py -q
+pytest tests/test_rag_export.py -q
+pytest tests/test_markdown_export.py -q
+pytest tests/test_export_io_cli.py -q
+```
+
+All pass. No skip. No xfail.
+
+### 14.3 Plans 1 to 5 still pass
 
 ```bash
 pytest tests/test_ir_contracts.py -q
@@ -1207,28 +1123,33 @@ pytest tests/test_consensus_grouping.py -q
 pytest tests/test_consensus_scoring.py -q
 pytest tests/test_consensus_factory.py -q
 pytest tests/test_build_consensus_cli.py -q
+pytest tests/test_linked_structure_contracts.py -q
+pytest tests/test_linking_extract.py -q
+pytest tests/test_linking_resolvers.py -q
+pytest tests/test_linked_structure_builder.py -q
+pytest tests/test_build_linked_structure_cli.py -q
 ```
 
 All pass.
 
-### 15.3 Existing legacy tests still pass
+### 14.4 Existing legacy tests still pass
 
 ```bash
 pytest tests/test_run_backends_config.py -q
 pytest tests/test_semantic_document_builder.py -q
 ```
 
-Plan 5 does not use the legacy builder, but it must not break it.
+Plan 6 must not break legacy compatibility tests.
 
-### 15.4 Whole suite has no regression
+### 14.5 Whole suite has no regression
 
 ```bash
 pytest tests/ -q
 ```
 
-Must pass with no regression against the previous count.
+Must pass with no regression.
 
-### 15.5 Whitelist check
+### 14.6 Whitelist check
 
 ```bash
 git diff --name-only main..HEAD
@@ -1236,33 +1157,28 @@ git diff --name-only main..HEAD
 
 Must be a subset of the whitelist in section 2.
 
-### 15.6 Smoke import
+### 14.7 Smoke import
 
 ```bash
-python -c "from pdf2md.models.linked import LinkedStructure; print(LinkedStructure.model_json_schema()['title'])"
+python -c "from pdf2md.export.docling import build_docling_document; from pdf2md.models.export import RagChunkDocument; print(build_docling_document.__name__, RagChunkDocument.model_json_schema()['title'])"
 ```
 
 Expected output:
 
 ```text
-LinkedStructure
+build_docling_document RagChunkDocument
 ```
 
-### 15.7 CLI smoke test
+### 14.8 CLI smoke test
 
 ```bash
-python tools/build_linked_structure.py \
-  --consensus-ir tests/data/linking_fixtures/simple_document/consensus_ir.json \
-  --consensus-report tests/data/linking_fixtures/simple_document/consensus_report.json \
-  --entities-root tests/data/linking_fixtures/simple_document/entities \
-  --priors-root tests/data/linking_fixtures/simple_document/priors \
-  --out-dir /tmp/pdf2md_linking_smoke
+python tools/export_linked_docling.py   --linked-structure tests/data/export_fixtures/simple_document/linked_structure.json   --consensus-ir tests/data/export_fixtures/simple_document/consensus_ir.json   --out-dir /tmp/pdf2md_export_smoke
 ```
 
 Then:
 
 ```bash
-python -c "from pathlib import Path; from pdf2md.models.linked import LinkedStructure; p=Path('/tmp/pdf2md_linking_smoke/linked_structure.json'); LinkedStructure.model_validate_json(p.read_text()); print('ok')"
+python -c "from pathlib import Path; import json; from pdf2md.models.export import ExportManifestDocument, RagChunkDocument; root=Path('/tmp/pdf2md_export_smoke'); ExportManifestDocument.model_validate_json((root/'export_manifest.json').read_text()); RagChunkDocument.model_validate_json(next((root/'rag').glob('*.rag_chunks.json')).read_text()); doc=json.loads(next((root/'docling').glob('*.docling.json')).read_text()); assert 'body' in doc and 'texts' in doc; print('ok')"
 ```
 
 Expected output:
@@ -1273,198 +1189,180 @@ ok
 
 ---
 
-## 16. Implementation order
+## 15. Implementation order
 
-### A. LinkedStructure contracts first
+### A. Export contracts first
 
 Implement only:
 
 ```text
-src/pdf2md/models/linked.py
+src/pdf2md/models/export.py
 src/pdf2md/models/__init__.py
-tests/test_linked_structure_contracts.py
+tests/test_export_contracts.py
 ```
 
 Run:
 
 ```bash
+pytest tests/test_export_contracts.py -q
 pytest tests/test_linked_structure_contracts.py -q
-pytest tests/test_ir_contracts.py -q
-pytest tests/test_entity_contracts.py -q
-pytest tests/test_prior_contracts.py -q
 ```
 
-### B. Extraction layer
+Reason:
+
+The output manifest and RAG chunk contracts must be frozen before building exporters.
+
+### B. Docling exporter
 
 Implement:
 
 ```text
-src/pdf2md/linking/__init__.py
-src/pdf2md/linking/extract.py
-tests/test_linking_extract.py
+src/pdf2md/export/__init__.py
+src/pdf2md/export/docling.py
+tests/test_docling_export.py
+tests/data/export_fixtures/simple_document/*
+tests/data/export_fixtures/rich_document/*
+tests/data/export_fixtures/unresolved_conflicts/*
 ```
 
 Run:
 
 ```bash
-pytest tests/test_linking_extract.py -q
+pytest tests/test_docling_export.py -q
 ```
 
-### C. Resolver layer
+Reason:
+
+Docling JSON is the canonical final output. It should be implemented before derived RAG and markdown artefacts.
+
+### C. RAG exporter
 
 Implement:
 
 ```text
-src/pdf2md/linking/resolvers.py
-tests/test_linking_resolvers.py
+src/pdf2md/export/rag.py
+tests/test_rag_export.py
 ```
 
 Run:
 
 ```bash
-pytest tests/test_linking_resolvers.py -q
+pytest tests/test_rag_export.py -q
 ```
 
-### D. Builder and report
+Reason:
+
+RAG chunking must consume `LinkedStructure` and should not be coupled to Docling JSON internals.
+
+### D. Markdown preview exporter
 
 Implement:
 
 ```text
-src/pdf2md/linking/builder.py
-src/pdf2md/linking/reporting.py
-tests/test_linked_structure_builder.py
-tests/data/linking_fixtures/*
+src/pdf2md/export/markdown.py
+tests/test_markdown_export.py
 ```
 
 Run:
 
 ```bash
-pytest tests/test_linked_structure_builder.py -q
+pytest tests/test_markdown_export.py -q
 ```
 
-### E. I/O and CLI
+Reason:
+
+Markdown is a human-readable smoke artefact, not the canonical output.
+
+### E. I/O, reporting, and CLI
 
 Implement:
 
 ```text
-src/pdf2md/linking/io.py
-tools/build_linked_structure.py
-tests/test_build_linked_structure_cli.py
+src/pdf2md/export/io.py
+src/pdf2md/export/reporting.py
+tools/export_linked_docling.py
+tests/test_export_io_cli.py
 ```
 
 Run:
 
 ```bash
-pytest tests/test_build_linked_structure_cli.py -q
+pytest tests/test_export_io_cli.py -q
 ```
+
+Reason:
+
+The CLI should only bind together tested pure exporters.
 
 ### F. Regression pass
 
-Run all Plan 5 targeted tests, all Plan 1 to 4 targeted tests, legacy tests, full suite, and whitelist check.
+Run all Plan 6 targeted tests, all Plan 1 to Plan 5 tests, legacy compatibility tests, full test suite, and the whitelist check.
 
 ---
 
-## 17. What Plan 5 must not accidentally become
+## 16. What Plan 6 must not accidentally become
 
-Do not implement Docling export here.
+Do not implement previous pipeline stages here.
 
 Bad:
 
 ```text
-"Build DoclingDocument."
-"Emit docling.json."
-"Emit markdown."
-"Emit RAG chunks."
-"Map LinkedStructure to Docling groups and texts."
-"Call docling-core."
+"Rebuild LinkedStructure from ConsensusIR."
+"Resolve footnotes or TOC targets during export."
+"Change LinkedStructure nodes before emitting Docling."
+"Run backend OCR."
+"Run consensus."
+"Call build_linked_structure internally unless explicitly requested by a later orchestration plan."
+"Add docling-core as mandatory dependency."
 ```
 
 Good:
 
 ```text
-"Attach caption to figure in LinkedStructure."
-"Resolve TOC entry to section node."
-"Mark unresolved footnote anchor as LinkedConflict."
-"Create reference sequence relations."
-"Write linked_structure.json and linking_report.json."
+"Project LinkedStructure nodes to Docling JSON items."
+"Preserve LinkedRelation metadata in Docling metadata."
+"Emit RAG chunks with node_ids and section_path."
+"Emit a markdown preview for inspection."
+"Write export_manifest.json with SHA256s."
 ```
+
+This is the correct level for Plan 6.
 
 ---
 
-## 18. Practical reviewer checklist
+## 17. Practical reviewer checklist
+
+The reviewer should ask:
 
 ```text
-1. Does Plan 5 consume ConsensusIR from Plan 4?
-2. Does it consume EntityProposalDocument from Plan 2 when available?
-3. Does it consume CalibrationPriorDocument from Plan 3 when available?
-4. Does it emit valid LinkedStructure?
-5. Does every node have evidence?
-6. Does every relation have evidence?
-7. Are unresolved links represented explicitly?
-8. Are source ConsensusIR conflicts preserved?
-9. Are page numbers handled with document sequence logic?
-10. Are footnotes prevented from linking to page numbers?
-11. Are TOC, captions, references, and equations resolved by document-level rules?
-12. Is Docling export absent?
-13. Are legacy semantic-document files untouched?
-14. Is git diff contained inside the whitelist?
+1. Does Plan 6 consume LinkedStructure from Plan 5?
+2. Does it avoid modifying LinkedStructure?
+3. Does it emit Docling-compatible JSON?
+4. Does the Docling JSON preserve node and relation provenance?
+5. Does every Docling item have a stable self_ref?
+6. Are unresolved conflicts preserved in metadata?
+7. Are RAG chunks structure-aware rather than arbitrary text slices?
+8. Does markdown preview remain a non-canonical smoke artefact?
+9. Does the exporter avoid mandatory docling-core dependency?
+10. Does the CLI write all expected artefacts?
+11. Are Plans 1 to 5 untouched?
+12. Is git diff contained inside the whitelist?
 ```
 
 ---
 
-## 19. Main design boundary for Plan 6
+## 18. Final pipeline after Plan 6
 
-Plan 6 may consume:
+After Plan 6 is accepted, the full intended pipeline is:
 
 ```text
-LinkedStructure
-ConsensusIR
-EntityProposalDocument
-CalibrationPriorDocument
+backend raw output
+  -> connector
+  -> PageExtractionIR + EntityProposalDocument
+  -> calibration priors
+  -> ConsensusIR
+  -> LinkedStructure
+  -> Docling JSON + RAG chunks + markdown preview
 ```
 
-Plan 6 may then project to:
-
-```text
-DoclingDocument
-rich semantic JSON
-markdown preview
-RAG-friendly chunks
-```
-
-Plan 5 must not do these projections. It produces the stable graph that makes those projections safe.
-
----
-
-## PR_review #2
-
-- verdict: pass
-- whitelist_violations: []
-- test_contract_violations: []
-- dependency_violations: []
-- tasks_promoted: []
-- notes:
-  - Latest agent-mode PR #2 only changed Plan 5 implementation files, Plan 5 tests, and `run_log.md`; these are within the Plan 5 whitelist or the always-whitelisted run log.
-  - Targeted Plan 5 tests now collect the expected 110 tests and all targeted suites pass with no skips or xfails.
-  - Plans 1 to 4 regression tests, legacy tests, full `pytest tests/ -q`, import smoke, and CLI smoke pass.
-  - `git diff --name-only main..HEAD` remains an environment-limited check because this checkout has no `main` ref; this is correctly recorded in `run_log.md`.
-  - No dependency additions or external tool installs were recorded.
-  - No `## Status` task table exists in this plan document, so no task-state promotion was written during this review.
-
----
-
-## Feedback #2
-
-- decision: accepted
-- accepted_pr_review: PR_review #2
-- status: complete
-- notes:
-  - Human feedback accepts the Plan 5 semantic linker implementation after the passing PR_review #2 verdict.
-  - Plan 5 is considered complete and ready to be archived or used as the basis for Plan 6 when explicitly requested.
-  - No further implementation changes are requested for Plan 5 in this feedback entry.
-
----
-
-## Status
-
-Plan 5 complete — accepted in Feedback #2 after PR_review #2 passed.
+This completes the route needed for validating the OCR pipeline against the LaTeX/Docling ground-truth corpus and for producing rich semantic files suitable for RAG.
