@@ -1,0 +1,82 @@
+{
+  "schema_name": "pdf2md.CalibrationPriorDocument",
+  "schema_version": "1.0.0",
+  "backend": "paddleocr",
+  "min_samples": 1,
+  "smoothing_alpha": 1.0,
+  "smoothing_beta": 1.0,
+  "default_confidence": 0.5,
+  "block_kind_priors": [
+    {
+      "target": "block_kind",
+      "key": "heading",
+      "counts": {
+        "true_positive": 8,
+        "false_positive": 1,
+        "false_negative": 1
+      },
+      "precision": 0.89,
+      "recall": 0.89,
+      "f1": 0.89,
+      "support": 10,
+      "calibrated_confidence": 0.8,
+      "status": "calibrated",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "paragraph",
+      "counts": {
+        "true_positive": 8,
+        "false_positive": 1,
+        "false_negative": 1
+      },
+      "precision": 0.89,
+      "recall": 0.89,
+      "f1": 0.89,
+      "support": 10,
+      "calibrated_confidence": 0.75,
+      "status": "calibrated",
+      "metadata": {}
+    }
+  ],
+  "entity_type_priors": [
+    {
+      "target": "entity_type",
+      "key": "reference_section",
+      "counts": {
+        "true_positive": 8,
+        "false_positive": 1,
+        "false_negative": 1
+      },
+      "precision": 0.89,
+      "recall": 0.89,
+      "f1": 0.89,
+      "support": 10,
+      "calibrated_confidence": 0.8,
+      "status": "calibrated",
+      "metadata": {}
+    }
+  ],
+  "relation_type_priors": [],
+  "calibration_key_priors": [
+    {
+      "target": "calibration_key",
+      "key": "section_heading",
+      "counts": {
+        "true_positive": 8,
+        "false_positive": 1,
+        "false_negative": 1
+      },
+      "precision": 0.89,
+      "recall": 0.89,
+      "f1": 0.89,
+      "support": 10,
+      "calibrated_confidence": 0.85,
+      "status": "calibrated",
+      "metadata": {}
+    }
+  ],
+  "warnings": [],
+  "metadata": {}
+}
