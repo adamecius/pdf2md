@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -u
-BATCH=batch_001; ROOT=.current/latex_docling_groundtruth; CONFIG=pdf2md.consensus.example.toml; VERBOSE=0; ALLOW_MISSING_BACKENDS=0; ALLOW_MISSING_ENVS=0; ALLOW_STAGE_FAILURES=0
+BATCH=batch_001; ROOT=groundtruth/corpus/latex; CONFIG=pdf2md.consensus.example.toml; VERBOSE=0; ALLOW_MISSING_BACKENDS=0; ALLOW_MISSING_ENVS=0; ALLOW_STAGE_FAILURES=0
 while [[ $# -gt 0 ]]; do case "$1" in
   --batch) BATCH="$2"; shift 2;; --root) ROOT="$2"; shift 2;; --config) CONFIG="$2"; shift 2;; --verbose) VERBOSE=1; shift;;
   --allow-missing-backends) ALLOW_MISSING_BACKENDS=1; shift;; --allow-missing-envs) ALLOW_MISSING_ENVS=1; shift;; --allow-stage-failures) ALLOW_STAGE_FAILURES=1; shift;; *) echo "unknown arg $1"; exit 2;; esac; done
@@ -30,7 +30,8 @@ adapter_for_backend() {
   fi
 }
 
-batch_root="$ROOT/$BATCH"; [[ -d "$batch_root" ]] || { echo "missing $batch_root"; exit 1; }
+if [[ -d "$ROOT/$BATCH" ]]; then batch_root="$ROOT/$BATCH"; else batch_root="$ROOT"; fi
+[[ -d "$batch_root" ]] || { echo "missing $batch_root"; exit 1; }
 readarray -t raw_backends < <(python - <<PY
 import tomllib
 c=tomllib.load(open('$CONFIG','rb'))

@@ -387,3 +387,20 @@ Each step is independently runnable; the test file is committed last so the revi
 - Do we want `bbox` to default to `None` for logical-only blocks (e.g., `bibitem` from a connector that does not localise references)? Current draft: yes.
 - Should `agreement_score` be `None` for `selection_mode == "single_source"`? Current draft: no — single-source is an agreement of one, score = `1.0 / num_backends_seen`. The exact formula is plan 4's job; this plan only enforces `0 ≤ s ≤ 1`.
 - Whether `metadata` should be typed (`dict[str, str | int | float | bool | None | list | dict]`) instead of `dict[str, Any]` — left as `Any` for now to avoid coupling tests to Pydantic's serialization quirks.
+---
+
+## PR_review #15
+
+- verdict: fail
+- whitelist_violations: []
+- test_contract_violations:
+  - `pytest tests/test_ir_contracts.py -q` is not reproducible in the review environment from the committed tree: collection fails with `ModuleNotFoundError: No module named 'pdf2md'`. The previous PR relied on an editable install to make the package importable, but that install is not part of the committed patch or declared plan dependencies.
+  - `pytest tests/ -q` fails during collection. The missing `.current/latex_docling_groundtruth/batch_001` fixture directory is a plausible environmental limitation, but the import-path failures (`pdf2md`, `tools`, and `tests`) show the committed tree does not satisfy the exact test commands as written without environment mutation.
+  - The run log marks A6 as environmental but also records an undeclared environment-modifying command (`python -m pip install -e .`) used earlier in the PR. That makes the test evidence insufficient for promotion.
+- dependency_violations:
+  - `python -m pip install -e .` was used and recorded as an external environment-modifying command, but no plan dependency or current prompt authorized `pip`/editable installs for this plan.
+- tasks_promoted: []
+- notes:
+  - The diff is limited to the plan's source/test fixture whitelist plus `run_log.md`, which is whitelisted by the agent protocol by default.
+  - The core IR implementation and contract-test coverage are directionally aligned with the plan, but review cannot accept a PR whose required tests only pass after an undeclared editable install.
+  - `current_plan.md` has no `## Status` section, so review could not update task state even if promotion were otherwise eligible.

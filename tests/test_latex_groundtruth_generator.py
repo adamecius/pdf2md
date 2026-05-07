@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 def _run_gen(out: Path, verbose: bool = False):
-    cmd=["python","generate_latex_docling_groundtruth.py","--output-root",str(out),"--batch","b1"]
+    cmd=["python","generate_latex_docling_groundtruth.py","--output-root",str(out)]
     if verbose: cmd.append("--verbose")
     subprocess.run(cmd,check=True)
 
@@ -14,8 +14,7 @@ def test_generator_outputs_and_contracts():
     with tempfile.TemporaryDirectory() as td:
         out=Path(td)
         _run_gen(out, verbose=True)
-        batch=out/"b1"
-        docs=[d for d in batch.iterdir() if d.is_dir()]
+        docs=[d for d in out.iterdir() if d.is_dir()]
         assert len(docs) >= 20
         assert "multipage_all_features_references_footnotes" in [d.name for d in docs]
         for d in docs:
@@ -27,7 +26,7 @@ def test_generator_outputs_and_contracts():
             p=json.loads(prov.read_text())
             for k in ["schema_name","schema_version","document_id","source_type","source_tex","expected_pdf","nodes","labels","references","features"]:
                 assert k in g
-            for k in ["schema_name","schema_version","document_id","batch","generated_at","source_tex","generated_files","feature_counts"]:
+            for k in ["schema_name","schema_version","document_id","generated_at","source_tex","generated_files","feature_counts"]:
                 assert k in p
             assert g["nodes"]
             for lbl,node_id in g["labels"].items():
@@ -60,3 +59,29 @@ def test_generator_outputs_and_contracts():
                 assert req.issubset(node_types)
                 assert sum(1 for n in g["nodes"] if n["type"]=="footnote") >= 2
                 assert sum(1 for r in g["references"] if r["expected_resolved"]) >= 5
+
+def test_generator_processes_existing_corpus_dirs_without_batch_or_count():
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td)
+        for doc_id in ["doc_a", "doc_b"]:
+            doc = out / doc_id
+            doc.mkdir()
+            (doc / f"{doc_id}.tex").write_text(
+                "\\documentclass{article}\\begin{document}"
+                f"\\section{{{doc_id}}}\\label{{sec:{doc_id}}} Text."
+                "\\end{document}",
+                encoding="utf-8",
+            )
+        subprocess.run([
+            "python",
+            "generate_latex_docling_groundtruth.py",
+            "--output-root",
+            str(out),
+            "--skip-pre-docling",
+        ], check=True)
+        docs = sorted(d.name for d in out.iterdir() if d.is_dir())
+        assert docs == ["doc_a", "doc_b"]
+        for doc_id in docs:
+            gt = out / doc_id / "groundtruth" / "source_groundtruth_ir.json"
+            assert gt.exists()
+            assert json.loads(gt.read_text())["document_id"] == doc_id
