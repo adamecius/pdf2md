@@ -1,0 +1,162 @@
+{
+  "schema_name": "pdf2md.LinkedStructure",
+  "schema_version": "1.0.0",
+  "document_id": "doc-conflict",
+  "source_consensus_ir": "consensus_ir.json",
+  "source_consensus_report": null,
+  "source_entity_documents": [],
+  "source_prior_documents": [],
+  "nodes": [
+    {
+      "id": "node:doc-conflict:0",
+      "node_type": "document",
+      "text": null,
+      "page_no": null,
+      "order": 0,
+      "consensus_block_id": null,
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "node:doc-conflict:1",
+      "node_type": "section",
+      "text": "Ambiguous Section",
+      "page_no": 1,
+      "order": 1,
+      "consensus_block_id": "con:doc-conflict:p1:b1",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "level": 2,
+        "section_path": [
+          "Ambiguous Section"
+        ]
+      }
+    },
+    {
+      "id": "node:doc-conflict:2",
+      "node_type": "unknown",
+      "text": "Ambiguous OCR output",
+      "page_no": 1,
+      "order": 2,
+      "consensus_block_id": "con:doc-conflict:p1:b2",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.4,
+      "status": "unresolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "section_path": [
+          "Ambiguous Section"
+        ]
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "lrel:doc-conflict:0",
+      "relation_type": "contains",
+      "source_node_id": "node:doc-conflict:0",
+      "target_node_id": "node:doc-conflict:1",
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "relation_proposal",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "lrel:doc-conflict:1",
+      "relation_type": "unresolved_candidate",
+      "source_node_id": "node:doc-conflict:1",
+      "target_node_id": "node:doc-conflict:2",
+      "confidence": 0.4,
+      "status": "unresolved",
+      "evidence": [
+        {
+          "kind": "relation_proposal",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "lconf:doc-conflict:0",
+      "conflict_type": "node_type_conflict",
+      "source_conflict_id": null,
+      "node_ids": [
+        "node:doc-conflict:2"
+      ],
+      "relation_ids": [
+        "lrel:doc-conflict:1"
+      ],
+      "description": "Unknown node could not be resolved.",
+      "status": "unresolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.4,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "candidates": [
+          "paragraph",
+          "caption"
+        ]
+      }
+    }
+  ],
+  "warnings": [],
+  "metadata": {}
+}

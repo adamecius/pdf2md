@@ -1,0 +1,224 @@
+{
+  "schema_name": "pdf2md.LinkedStructure",
+  "schema_version": "1.0.0",
+  "document_id": "doc-simple",
+  "source_consensus_ir": "consensus_ir.json",
+  "source_consensus_report": null,
+  "source_entity_documents": [],
+  "source_prior_documents": [],
+  "nodes": [
+    {
+      "id": "node:doc-simple:0",
+      "node_type": "document",
+      "text": null,
+      "page_no": null,
+      "order": 0,
+      "consensus_block_id": null,
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "node:doc-simple:1",
+      "node_type": "section",
+      "text": "Introduction",
+      "page_no": 1,
+      "order": 1,
+      "consensus_block_id": "con:doc-simple:p1:b1",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "level": 2,
+        "section_path": [
+          "Introduction"
+        ]
+      }
+    },
+    {
+      "id": "node:doc-simple:2",
+      "node_type": "paragraph",
+      "text": "This is the introduction.",
+      "page_no": 1,
+      "order": 2,
+      "consensus_block_id": "con:doc-simple:p1:b2",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "section_path": [
+          "Introduction"
+        ]
+      }
+    },
+    {
+      "id": "node:doc-simple:3",
+      "node_type": "figure",
+      "text": "Example figure",
+      "page_no": 1,
+      "order": 3,
+      "consensus_block_id": "con:doc-simple:p1:b3",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "section_path": [
+          "Introduction"
+        ]
+      }
+    },
+    {
+      "id": "node:doc-simple:4",
+      "node_type": "caption",
+      "text": "Figure 1. Example figure.",
+      "page_no": 1,
+      "order": 4,
+      "consensus_block_id": "con:doc-simple:p1:b4",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "section_path": [
+          "Introduction"
+        ]
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "lrel:doc-simple:0",
+      "relation_type": "contains",
+      "source_node_id": "node:doc-simple:0",
+      "target_node_id": "node:doc-simple:1",
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "relation_proposal",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "lrel:doc-simple:1",
+      "relation_type": "contains",
+      "source_node_id": "node:doc-simple:1",
+      "target_node_id": "node:doc-simple:2",
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "relation_proposal",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "lrel:doc-simple:2",
+      "relation_type": "contains",
+      "source_node_id": "node:doc-simple:1",
+      "target_node_id": "node:doc-simple:3",
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "relation_proposal",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "lrel:doc-simple:3",
+      "relation_type": "caption_of",
+      "source_node_id": "node:doc-simple:4",
+      "target_node_id": "node:doc-simple:3",
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "relation_proposal",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    }
+  ],
+  "conflicts": [],
+  "warnings": [],
+  "metadata": {}
+}

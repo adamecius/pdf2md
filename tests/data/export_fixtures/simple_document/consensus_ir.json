@@ -1,0 +1,112 @@
+{
+  "schema_name": "pdf2md.ConsensusIR",
+  "schema_version": "1.0.0",
+  "document_id": "doc-simple",
+  "page_count": 1,
+  "pages": [
+    {
+      "page_no": 1,
+      "page_size": {
+        "width": 612,
+        "height": 792
+      },
+      "blocks": [
+        {
+          "id": "con:doc-simple:p1:b1",
+          "kind": "heading",
+          "bbox": {
+            "l": 10,
+            "t": 690,
+            "r": 300,
+            "b": 670,
+            "coord_origin": "bottomleft"
+          },
+          "order": 1,
+          "text": "Introduction",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "fixture:doc-simple:p1:b1"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        },
+        {
+          "id": "con:doc-simple:p1:b2",
+          "kind": "paragraph",
+          "bbox": {
+            "l": 10,
+            "t": 680,
+            "r": 300,
+            "b": 660,
+            "coord_origin": "bottomleft"
+          },
+          "order": 2,
+          "text": "This is the introduction.",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "fixture:doc-simple:p1:b2"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        },
+        {
+          "id": "con:doc-simple:p1:b3",
+          "kind": "figure",
+          "bbox": {
+            "l": 10,
+            "t": 670,
+            "r": 300,
+            "b": 650,
+            "coord_origin": "bottomleft"
+          },
+          "order": 3,
+          "text": "Example figure",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "fixture:doc-simple:p1:b3"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        },
+        {
+          "id": "con:doc-simple:p1:b4",
+          "kind": "caption",
+          "bbox": {
+            "l": 10,
+            "t": 660,
+            "r": 300,
+            "b": 640,
+            "coord_origin": "bottomleft"
+          },
+          "order": 4,
+          "text": "Figure 1. Example figure.",
+          "selection_mode": "agreed",
+          "selected_source": "fixture",
+          "agreement_score": 0.9,
+          "candidate_ids": [
+            "fixture:doc-simple:p1:b4"
+          ],
+          "conflict_ids": [],
+          "metadata": {}
+        }
+      ]
+    }
+  ],
+  "conflicts": [],
+  "backends": [
+    {
+      "backend": "fixture",
+      "backend_version": null,
+      "manifest_ref": null,
+      "prior_ref": null
+    }
+  ],
+  "agreement_summary": {},
+  "metadata": {}
+}

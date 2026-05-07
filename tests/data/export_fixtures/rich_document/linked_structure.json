@@ -1,0 +1,619 @@
+{
+  "schema_name": "pdf2md.LinkedStructure",
+  "schema_version": "1.0.0",
+  "document_id": "doc-rich",
+  "source_consensus_ir": "consensus_ir.json",
+  "source_consensus_report": null,
+  "source_entity_documents": [],
+  "source_prior_documents": [],
+  "nodes": [
+    {
+      "id": "node:doc-rich:0",
+      "node_type": "document",
+      "text": null,
+      "page_no": null,
+      "order": 0,
+      "consensus_block_id": null,
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "node:doc-rich:1",
+      "node_type": "title",
+      "text": "Rich Export Fixture",
+      "page_no": 1,
+      "order": 1,
+      "consensus_block_id": "con:doc-rich:p1:b1",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "node:doc-rich:2",
+      "node_type": "toc_entry",
+      "text": "1 Methods ........ 1",
+      "page_no": 1,
+      "order": 2,
+      "consensus_block_id": "con:doc-rich:p1:b2",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "node:doc-rich:3",
+      "node_type": "section",
+      "text": "Methods",
+      "page_no": 1,
+      "order": 3,
+      "consensus_block_id": "con:doc-rich:p1:b3",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "level": 2,
+        "section_path": [
+          "Methods"
+        ]
+      }
+    },
+    {
+      "id": "node:doc-rich:4",
+      "node_type": "paragraph",
+      "text": "We describe a method with structure-aware export.",
+      "page_no": 1,
+      "order": 4,
+      "consensus_block_id": "con:doc-rich:p1:b4",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "section_path": [
+          "Methods"
+        ]
+      }
+    },
+    {
+      "id": "node:doc-rich:5",
+      "node_type": "table",
+      "text": "Table data: alpha beta",
+      "page_no": 1,
+      "order": 5,
+      "consensus_block_id": "con:doc-rich:p1:b5",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "section_path": [
+          "Methods"
+        ]
+      }
+    },
+    {
+      "id": "node:doc-rich:6",
+      "node_type": "caption",
+      "text": "Table 1. Example measurements.",
+      "page_no": 1,
+      "order": 6,
+      "consensus_block_id": "con:doc-rich:p1:b6",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "section_path": [
+          "Methods"
+        ]
+      }
+    },
+    {
+      "id": "node:doc-rich:7",
+      "node_type": "figure",
+      "text": "Workflow diagram",
+      "page_no": 2,
+      "order": 7,
+      "consensus_block_id": "con:doc-rich:p2:b7",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 2,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "section_path": [
+          "Methods"
+        ]
+      }
+    },
+    {
+      "id": "node:doc-rich:8",
+      "node_type": "caption",
+      "text": "Figure 1. Workflow overview.",
+      "page_no": 2,
+      "order": 8,
+      "consensus_block_id": "con:doc-rich:p2:b8",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 2,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "section_path": [
+          "Methods"
+        ]
+      }
+    },
+    {
+      "id": "node:doc-rich:9",
+      "node_type": "equation",
+      "text": "E = mc^2",
+      "page_no": 2,
+      "order": 9,
+      "consensus_block_id": "con:doc-rich:p2:b9",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 2,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "section_path": [
+          "Methods"
+        ]
+      }
+    },
+    {
+      "id": "node:doc-rich:10",
+      "node_type": "footnote",
+      "text": "A clarifying footnote.",
+      "page_no": 2,
+      "order": 10,
+      "consensus_block_id": "con:doc-rich:p2:b10",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 2,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "section_path": [
+          "Methods"
+        ]
+      }
+    },
+    {
+      "id": "node:doc-rich:11",
+      "node_type": "reference_section",
+      "text": "References",
+      "page_no": 2,
+      "order": 11,
+      "consensus_block_id": "con:doc-rich:p2:b11",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 2,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "section_path": [
+          "References"
+        ]
+      }
+    },
+    {
+      "id": "node:doc-rich:12",
+      "node_type": "reference_item",
+      "text": "[1] Example Author. Example Work.",
+      "page_no": 2,
+      "order": 12,
+      "consensus_block_id": "con:doc-rich:p2:b12",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 2,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "section_path": [
+          "References"
+        ]
+      }
+    },
+    {
+      "id": "node:doc-rich:13",
+      "node_type": "list_item",
+      "text": "First observation",
+      "page_no": 1,
+      "order": 13,
+      "consensus_block_id": "con:doc-rich:p1:b13",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "section_path": [
+          "Methods"
+        ]
+      }
+    },
+    {
+      "id": "node:doc-rich:14",
+      "node_type": "header",
+      "text": "Running header",
+      "page_no": 1,
+      "order": 14,
+      "consensus_block_id": "con:doc-rich:p1:b14",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "node:doc-rich:15",
+      "node_type": "page_number",
+      "text": "1",
+      "page_no": 1,
+      "order": 15,
+      "consensus_block_id": "con:doc-rich:p1:b15",
+      "source_backend": null,
+      "source_entity_ids": [],
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "consensus_block",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    }
+  ],
+  "relations": [
+    {
+      "id": "lrel:doc-rich:0",
+      "relation_type": "contains",
+      "source_node_id": "node:doc-rich:0",
+      "target_node_id": "node:doc-rich:1",
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "relation_proposal",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "lrel:doc-rich:1",
+      "relation_type": "contains",
+      "source_node_id": "node:doc-rich:0",
+      "target_node_id": "node:doc-rich:3",
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "relation_proposal",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "lrel:doc-rich:2",
+      "relation_type": "contains",
+      "source_node_id": "node:doc-rich:3",
+      "target_node_id": "node:doc-rich:4",
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "relation_proposal",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "lrel:doc-rich:3",
+      "relation_type": "contains",
+      "source_node_id": "node:doc-rich:3",
+      "target_node_id": "node:doc-rich:5",
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "relation_proposal",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "lrel:doc-rich:4",
+      "relation_type": "caption_of",
+      "source_node_id": "node:doc-rich:6",
+      "target_node_id": "node:doc-rich:5",
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "relation_proposal",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "lrel:doc-rich:5",
+      "relation_type": "caption_of",
+      "source_node_id": "node:doc-rich:8",
+      "target_node_id": "node:doc-rich:7",
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "relation_proposal",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "lrel:doc-rich:6",
+      "relation_type": "footnote_anchor_for",
+      "source_node_id": "node:doc-rich:10",
+      "target_node_id": "node:doc-rich:4",
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "relation_proposal",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "lrel:doc-rich:7",
+      "relation_type": "references",
+      "source_node_id": "node:doc-rich:4",
+      "target_node_id": "node:doc-rich:12",
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "relation_proposal",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "lrel:doc-rich:8",
+      "relation_type": "toc_points_to",
+      "source_node_id": "node:doc-rich:2",
+      "target_node_id": "node:doc-rich:3",
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "relation_proposal",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "lrel:doc-rich:9",
+      "relation_type": "contains",
+      "source_node_id": "node:doc-rich:11",
+      "target_node_id": "node:doc-rich:12",
+      "confidence": 0.9,
+      "status": "resolved",
+      "evidence": [
+        {
+          "kind": "relation_proposal",
+          "source_id": null,
+          "page_no": 1,
+          "confidence": 0.95,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    }
+  ],
+  "conflicts": [],
+  "warnings": [],
+  "metadata": {}
+}
