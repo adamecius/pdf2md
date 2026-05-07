@@ -1408,3 +1408,12 @@ That is the main deliverable of Plan 3.
     - The changed files in `HEAD^..HEAD` are within the Plan 3 whitelist, treating `run_log.md` as whitelisted by the agent protocol.
     - The implemented automated tests pass, and the broader repository suite passes in this checkout, but passing a smaller-than-specified test set is not enough to satisfy section 10.
     - Because the verdict is fail, no task is promoted to `done`.
+
+## Feedback #23
+
+- response_to: PR_review #23
+- decision: current plan closed by human feedback.
+- notes:
+    - The follow-up agent work after this review addressed the test-count and fixture-contract findings in later commits, but no additional review-mode promotion is being requested in this feedback entry.
+    - This is not an archive-plan action because the human did not use the explicit `archive plan` instruction required by `agent.md`; `history.md` and `run_log.md` are therefore left unchanged.
+    - Future work should start from a new explicit plan or an explicit `archive plan` instruction if the canonical plan files should be reset.
