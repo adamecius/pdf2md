@@ -1,0 +1,94 @@
+{
+  "schema_name": "pdf2md.EntityProposalDocument",
+  "schema_version": "1.0.0",
+  "document_id": "linkdoc",
+  "backend": "paddleocr",
+  "backend_version": null,
+  "page_count": 1,
+  "entities": [
+    {
+      "id": "ent:paddleocr:linkdoc:section:0",
+      "entity_type": "section",
+      "subtype": null,
+      "canonical_text": null,
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:linkdoc:p1:b0"
+      ],
+      "confidence": 0.9,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:linkdoc:p1:b0",
+          "raw_ref": null,
+          "text": "",
+          "bbox": null,
+          "weight": 0.9,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": null,
+      "metadata": {}
+    },
+    {
+      "id": "ent:paddleocr:linkdoc:figure:1",
+      "entity_type": "figure",
+      "subtype": null,
+      "canonical_text": null,
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:linkdoc:p1:b2"
+      ],
+      "confidence": 0.9,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:linkdoc:p1:b2",
+          "raw_ref": null,
+          "text": "",
+          "bbox": null,
+          "weight": 0.9,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": null,
+      "metadata": {}
+    },
+    {
+      "id": "ent:paddleocr:linkdoc:caption:2",
+      "entity_type": "caption",
+      "subtype": null,
+      "canonical_text": null,
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:linkdoc:p1:b3"
+      ],
+      "confidence": 0.9,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:linkdoc:p1:b3",
+          "raw_ref": null,
+          "text": "",
+          "bbox": null,
+          "weight": 0.9,
+          "reason": "fixture",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": null,
+      "metadata": {}
+    }
+  ],
+  "relations": [],
+  "warnings": [],
+  "metadata": {}
+}
