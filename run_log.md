@@ -191,3 +191,11 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
 - external_tools_used: []
 - blockers: ["Removed unit tests that referenced legacy backend/mineru/run_mineru.py, backend/paddleocr/run_paddleocr.py, and backend/mineru/test_visual.pdf. tests/test_run_backends_config.py still has unrelated backend compatibility failures for current backend/deepseek helper names/error wording and current mineru/paddleocr wrapper flag/error behavior."]
 - status: ready_for_review
+
+## PR #20 — 2026-05-07T08:33:44Z — mode: agent
+- tasks_attempted:
+    - T1: files_touched=[tests/test_run_backends_config.py, run_log.md], tests_pass=[run_backends_config, smoke_backend_clis, whole_suite, py_compile], tests_fail_env=[], tests_fail_real=[]
+- dependencies_added: []
+- external_tools_used: []
+- blockers: []
+- status: ready_for_review
