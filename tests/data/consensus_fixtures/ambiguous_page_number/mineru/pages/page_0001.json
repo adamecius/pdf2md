@@ -1,0 +1,30 @@
+{
+  "schema_name": "pdf2md.PageExtractionIR",
+  "schema_version": "1.0.0",
+  "document_id": "doc-1",
+  "backend": "mineru",
+  "page_no": 1,
+  "page_size": {
+    "width": 600,
+    "height": 800
+  },
+  "blocks": [
+    {
+      "id": "mineru:doc-1:p1:b0",
+      "backend": "mineru",
+      "page_no": 1,
+      "kind": "paragraph",
+      "bbox": {
+        "l": 295,
+        "t": 760,
+        "r": 305,
+        "b": 775,
+        "coord_origin": "topleft"
+      },
+      "order": 0,
+      "text": "1",
+      "confidence": 0.9,
+      "metadata": {}
+    }
+  ]
+}

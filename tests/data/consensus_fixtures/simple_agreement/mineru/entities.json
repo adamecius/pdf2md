@@ -1,0 +1,34 @@
+{
+  "schema_name": "pdf2md.EntityProposalDocument",
+  "schema_version": "1.0.0",
+  "document_id": "doc-1",
+  "backend": "mineru",
+  "page_count": 1,
+  "entities": [
+    {
+      "id": "ent:mineru:doc-1:reference_section:0",
+      "entity_type": "reference_section",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:doc-1:p1:b0"
+      ],
+      "confidence": 0.8,
+      "confidence_source": "calibrated",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:doc-1:p1:b0",
+          "text": "",
+          "weight": 1.0,
+          "reason": "fixture"
+        }
+      ],
+      "calibration_key": "section_heading",
+      "metadata": {}
+    }
+  ],
+  "relations": [],
+  "warnings": [],
+  "metadata": {}
+}

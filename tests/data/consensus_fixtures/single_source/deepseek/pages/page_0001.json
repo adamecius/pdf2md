@@ -1,0 +1,47 @@
+{
+  "schema_name": "pdf2md.PageExtractionIR",
+  "schema_version": "1.0.0",
+  "document_id": "doc-1",
+  "backend": "deepseek",
+  "page_no": 1,
+  "page_size": {
+    "width": 600,
+    "height": 800
+  },
+  "blocks": [
+    {
+      "id": "deepseek:doc-1:p1:b0",
+      "backend": "deepseek",
+      "page_no": 1,
+      "kind": "heading",
+      "bbox": {
+        "l": 50,
+        "t": 50,
+        "r": 180,
+        "b": 80,
+        "coord_origin": "topleft"
+      },
+      "order": 0,
+      "text": "Abstract",
+      "confidence": 0.9,
+      "metadata": {}
+    },
+    {
+      "id": "deepseek:doc-1:p1:b1",
+      "backend": "deepseek",
+      "page_no": 1,
+      "kind": "paragraph",
+      "bbox": {
+        "l": 50,
+        "t": 100,
+        "r": 420,
+        "b": 130,
+        "coord_origin": "topleft"
+      },
+      "order": 1,
+      "text": "Only one backend produced this page.",
+      "confidence": 0.9,
+      "metadata": {}
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schema_name": "pdf2md.PageExtractionIR",
+  "schema_version": "1.0.0",
+  "document_id": "doc-1",
+  "backend": "paddleocr",
+  "page_no": 1,
+  "page_size": {
+    "width": 600,
+    "height": 800
+  },
+  "blocks": [
+    {
+      "id": "paddleocr:doc-1:p1:b0",
+      "backend": "paddleocr",
+      "page_no": 1,
+      "kind": "heading",
+      "bbox": {
+        "l": 52,
+        "t": 50,
+        "r": 252,
+        "b": 80,
+        "coord_origin": "topleft"
+      },
+      "order": 0,
+      "text": "Introduction",
+      "confidence": 0.9,
+      "metadata": {}
+    },
+    {
+      "id": "paddleocr:doc-1:p1:b1",
+      "backend": "paddleocr",
+      "page_no": 1,
+      "kind": "paragraph",
+      "bbox": {
+        "l": 52,
+        "t": 100,
+        "r": 402,
+        "b": 130,
+        "coord_origin": "topleft"
+      },
+      "order": 1,
+      "text": "This is the first paragraph.",
+      "confidence": 0.9,
+      "metadata": {}
+    }
+  ]
+}
