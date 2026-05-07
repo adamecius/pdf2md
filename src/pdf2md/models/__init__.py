@@ -1,4 +1,48 @@
 from .document import BBox, Block, Document, Flag, Page, SourceRef
-from .ir import IRModelScaffold
+from .ir import (
+    BackendManifest,
+    BlockKind,
+    Conflict,
+    ConflictKind,
+    ConsensusBlock,
+    ConsensusIR,
+    ConsensusPage,
+    CoordOrigin,
+    ExtractionBlock,
+    PageExtractionIR,
+    PageSize,
+    SCHEMA_VERSION,
+    SelectionMode,
+    Span,
+    conflict_id,
+    consensus_id,
+    extraction_id,
+)
+from .ir import BBox as IRBBox
 
-__all__ = ["BBox", "Block", "Document", "Flag", "Page", "SourceRef", "IRModelScaffold"]
+__all__ = [
+    "BBox",
+    "Block",
+    "Document",
+    "Flag",
+    "Page",
+    "SourceRef",
+    "SCHEMA_VERSION",
+    "CoordOrigin",
+    "BlockKind",
+    "SelectionMode",
+    "ConflictKind",
+    "IRBBox",
+    "Span",
+    "PageSize",
+    "ExtractionBlock",
+    "PageExtractionIR",
+    "Conflict",
+    "ConsensusBlock",
+    "ConsensusPage",
+    "BackendManifest",
+    "ConsensusIR",
+    "extraction_id",
+    "consensus_id",
+    "conflict_id",
+]

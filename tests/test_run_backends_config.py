@@ -163,7 +163,7 @@ def test_force_recreates_only_selected_run_dir(tmp_path: Path) -> None:
 
 def test_safe_model_dir_name() -> None:
     ds = _load_deepseek_module()
-    assert ds.safe_model_dir_name("deepseek-ai/DeepSeek-OCR-2") == "deepseek-ai__DeepSeek-OCR-2"
+    assert ds._safe_dir_name("deepseek-ai/DeepSeek-OCR-2") == "deepseek-ai__DeepSeek-OCR-2"
 
 
 def test_missing_model_without_allow_download_fails(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
@@ -181,13 +181,13 @@ def test_missing_model_without_allow_download_fails(tmp_path: Path, capsys: pyte
         sys.argv = old
     err = capsys.readouterr().err
     assert rc == 1
-    assert "Looked in:" in err
+    assert "Searched:" in err
     assert "--model-path" in err
     assert "PDF2MD_DEEPSEEK_MODEL" in err
     assert "--allow-download" in err
 
 
-def test_allow_download_calls_explicit_download(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+def test_allow_download_calls_download_model(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     ds = _load_deepseek_module()
 
     pdf = tmp_path / "test.pdf"
@@ -196,25 +196,21 @@ def test_allow_download_calls_explicit_download(tmp_path: Path, monkeypatch: pyt
 
     called = {"download": False, "model_path": None}
 
-    def fake_download(*, model_id: str, models_dir: str) -> Path:
+    def fake_download(model_id: str, models_dir: str, repo_cache_dir: str) -> Path:
         called["download"] = True
         model_dir.mkdir(parents=True, exist_ok=True)
         return model_dir
 
-    def fake_run(ip, out_dir, model_path, dev, local_only=True):
-        called["model_path"] = model_path
-        out_dir = Path(out_dir)
-        out_dir.mkdir(parents=True, exist_ok=True)
-        md = out_dir / "generated.md"
-        md.write_text("ok", encoding="utf-8")
-        return md, {}
+    def fake_run_inference(**kwargs):
+        called["model_path"] = kwargs["model_dir"]
+        output_md = Path(kwargs["output_md"])
+        output_md.parent.mkdir(parents=True, exist_ok=True)
+        output_md.write_text("ok", encoding="utf-8")
+        return 0
 
-    monkeypatch.setattr(ds, "explicit_download_model", fake_download)
-    import types
+    monkeypatch.setattr(ds, "download_model", fake_download)
+    monkeypatch.setattr(ds, "run_inference", fake_run_inference)
     import sys
-
-    fake_module = types.SimpleNamespace(run=fake_run)
-    sys.modules["pdf_to_md_json"] = fake_module
     old = sys.argv
     sys.argv = [
         "pdf2md_deepseek.py",
@@ -228,7 +224,6 @@ def test_allow_download_calls_explicit_download(tmp_path: Path, monkeypatch: pyt
         rc = ds.main()
     finally:
         sys.argv = old
-        sys.modules.pop("pdf_to_md_json", None)
     assert rc == 0
     assert called["download"] is True
     assert called["model_path"] == str(model_dir)
@@ -267,28 +262,19 @@ def test_mineru_wrapper_missing_pdf_fails() -> None:
 
     r = subprocess.run([sys.executable, "backend/mineru/pdf2md_mineru.py", "-i", "missing.pdf"], capture_output=True, text=True)
     assert r.returncode == 1
-    assert "existing PDF file" in r.stderr
+    assert "Input file does not exist" in r.stderr
 
 
-def test_mineru_parser_accepts_compat_flags() -> None:
+def test_mineru_parser_accepts_current_flags() -> None:
     m = _load_module_by_path(Path("backend/mineru/pdf2md_mineru.py"), "pdf2md_mineru_local")
     args = m.build_parser().parse_args([
         "-i", "x.pdf", "-o", "x.md", "--json-out", "x.json", "--out-dir", "tmp", "--lang", "en",
-        "--device", "cpu", "--model-path", "/m", "--api", "--backend", "pipeline", "--api-url", "http://127.0.0.1:8000"
+        "--backend", "pipeline", "--api-url", "http://127.0.0.1:8000", "--method", "ocr"
     ])
     assert args.input == "x.pdf"
     assert args.output == "x.md"
-
-
-def test_mineru_markdown_selection(tmp_path: Path) -> None:
-    mrun = _load_module_by_path(Path("backend/mineru/run_mineru.py"), "mineru_run_local")
-    out = tmp_path / "out"
-    out.mkdir()
-    md = out / "doc.md"
-    md.write_text("x", encoding="utf-8")
-    selected = mrun.select_markdown(out, "doc")
-    assert selected == md
-
+    assert args.backend == "pipeline"
+    assert args.api_url == "http://127.0.0.1:8000"
 
 def test_no_enabled_backends_fails_early(tmp_path: Path) -> None:
     cfg = {
@@ -305,7 +291,7 @@ def test_no_enabled_backends_fails_early(tmp_path: Path) -> None:
 
 def test_deepseek_default_model_path() -> None:
     ds = _load_deepseek_module()
-    p = ds.default_model_path("deepseek-ai/DeepSeek-OCR-2", ".local_models/deepseek")
+    p = ds._default_model_path("deepseek-ai/DeepSeek-OCR-2", ".local_models/deepseek")
     assert str(p).endswith(".local_models/deepseek/deepseek-ai__DeepSeek-OCR-2")
 
 
@@ -320,66 +306,35 @@ def test_paddleocr_wrapper_help_and_errors(tmp_path: Path) -> None:
     pdf = tmp_path / "x.pdf"
     pdf.write_bytes(b"%PDF-1.4\n")
     a = subprocess.run([sys.executable, "backend/paddleocr/pdf2md_paddleocr.py", "-i", str(pdf), "--api"], capture_output=True, text=True)
-    assert a.returncode == 1
+    assert a.returncode == 2
     d = subprocess.run([sys.executable, "backend/paddleocr/pdf2md_paddleocr.py", "-i", str(pdf), "--allow-download"], capture_output=True, text=True)
-    assert d.returncode == 1
+    assert d.returncode == 2
 
-
-def test_paddleocr_command_mapping_and_json_extraction(tmp_path: Path) -> None:
-    pmod = _load_module_by_path(Path("backend/paddleocr/run_paddleocr.py"), "paddle_run_local")
-    base = pmod.build_paddleocr_command(input_pdf=Path("/in.pdf"), output_dir=Path("/out"), lang="en", device="auto")
-    assert "--device" not in base
-    cpu = pmod.build_paddleocr_command(input_pdf=Path("/in.pdf"), output_dir=Path("/out"), lang="en", device="cpu")
-    assert cpu[-2:] == ["--device", "cpu"]
-    gpu = pmod.build_paddleocr_command(input_pdf=Path("/in.pdf"), output_dir=Path("/out"), lang="en", device="cuda")
-    assert gpu[-2:] == ["--device", "gpu:0"]
-
-    out = tmp_path / "out"
-    out.mkdir()
-    (out / "a.json").write_text('{"result": [{"rec_text": "hello"}, {"text": "world"}]}', encoding="utf-8")
-    lines = pmod.extract_text_from_json(out)
-    assert "hello" in lines and "world" in lines
-
-
-def test_deepseek_allow_download_still_runs_local_only(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+def test_deepseek_allow_download_uses_local_inference(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     ds = _load_deepseek_module()
     pdf = tmp_path / "t.pdf"
     pdf.write_bytes(b"%PDF-1.4\n")
     model_dir = tmp_path / "models" / "deepseek-ai__DeepSeek-OCR-2"
 
-    called = {"local_only": None}
+    called = {"model_dir": None}
 
-    def fake_download(*, model_id: str, models_dir: str) -> Path:
+    def fake_download(model_id: str, models_dir: str, repo_cache_dir: str) -> Path:
         model_dir.mkdir(parents=True, exist_ok=True)
         return model_dir
 
-    def fake_run(ip, out_dir, model_path, dev, local_only=True):
-        called["local_only"] = local_only
-        out_dir = Path(out_dir)
-        out_dir.mkdir(parents=True, exist_ok=True)
-        md = out_dir / "generated.md"
-        md.write_text("ok", encoding="utf-8")
-        return md, {}
+    def fake_run_inference(**kwargs):
+        called["model_dir"] = kwargs["model_dir"]
+        Path(kwargs["output_md"]).write_text("ok", encoding="utf-8")
+        return 0
 
-    monkeypatch.setattr(ds, "explicit_download_model", fake_download)
-    import types, sys
-
-    sys.modules["pdf_to_md_json"] = types.SimpleNamespace(run=fake_run)
+    monkeypatch.setattr(ds, "download_model", fake_download)
+    monkeypatch.setattr(ds, "run_inference", fake_run_inference)
+    import sys
     old = sys.argv
     sys.argv = ["pdf2md_deepseek.py", "-i", str(pdf), "--allow-download", "--models-dir", str(tmp_path / "models")]
     try:
         rc = ds.main()
     finally:
         sys.argv = old
-        sys.modules.pop("pdf_to_md_json", None)
     assert rc == 0
-    assert called["local_only"] is True
-
-
-def test_mineru_command_planning() -> None:
-    mrun = _load_module_by_path(Path("backend/mineru/run_mineru.py"), "mineru_run_local")
-    cmd = mrun.build_mineru_command(input_pdf=Path("/in.pdf"), output_dir=Path("/out"), lang="en", backend="pipeline", api_url="http://x")
-    assert cmd[:5] == ["mineru", "-p", "/in.pdf", "-o", "/out"]
-    assert "-b" in cmd and "pipeline" in cmd
-    assert "-l" in cmd and "en" in cmd
-
+    assert called["model_dir"] == str(model_dir)

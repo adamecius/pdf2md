@@ -21,9 +21,18 @@ def canonicalise_backend(name:str)->str:
 def check_doc(doc:Path, enabled:list[str])->dict:
     did=doc.name; errs=[]; warns=[]
     gt=doc/'groundtruth'; tex=doc/'input'/f'{did}.tex'
-    for f in ['source_groundtruth_ir.json','expected_semantic_contract.json','expected_docling_contract.json','provenance_manifest.json']:
-        if not (gt/f).exists(): errs.append(f'missing_{f}')
-    if not tex.exists(): errs.append('missing_tex')
+    if not tex.exists():
+        tex_files=sorted(doc.glob('*.tex'))
+        tex=tex_files[0] if tex_files else tex
+        gt=doc
+    if gt == doc:
+        if not tex.exists(): errs.append('missing_tex')
+        if not list(doc.glob('*.docling.json')): errs.append('missing_docling_json')
+        if not list(doc.glob('*.docling_groundtruth_meta.json')): errs.append('missing_docling_groundtruth_meta_json')
+    else:
+        for f in ['source_groundtruth_ir.json','expected_semantic_contract.json','expected_docling_contract.json','provenance_manifest.json']:
+            if not (gt/f).exists(): errs.append(f'missing_{f}')
+        if not tex.exists(): errs.append('missing_tex')
     g=s=d=sd=None
     if (gt/'source_groundtruth_ir.json').exists():
         g=json.loads((gt/'source_groundtruth_ir.json').read_text())
@@ -86,9 +95,11 @@ def check_doc(doc:Path, enabled:list[str])->dict:
     return {'document_id':did,'errors':errs,'warnings':warns,'ok':not errs}
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument('--root',default='.current/latex_docling_groundtruth'); ap.add_argument('--batch',default='batch_001'); ap.add_argument('--config',default='pdf2md.consensus.example.toml'); ap.add_argument('--verbose',action='store_true'); a=ap.parse_args()
+    ap=argparse.ArgumentParser(); ap.add_argument('--root',default='groundtruth/corpus/latex'); ap.add_argument('--batch',default='batch_001'); ap.add_argument('--config',default='pdf2md.consensus.example.toml'); ap.add_argument('--verbose',action='store_true'); a=ap.parse_args()
     enabled=[canonicalise_backend(k) for k,v in tomllib.load(open(a.config,'rb')).get('backends',{}).items() if v.get('enabled',False)]
     root=Path(a.root)/a.batch
+    if not root.exists():
+        root=Path(a.root)
     reps=[check_doc(d,enabled) for d in root.iterdir() if d.is_dir()]
     out={'batch':a.batch,'documents':reps,'ok':all(r['ok'] for r in reps)}
     (root/'validation_report.json').write_text(json.dumps(out,indent=2))

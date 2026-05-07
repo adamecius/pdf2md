@@ -1,0 +1,19 @@
+{
+  "schema_name": "pdf2md.ConsensusIR",
+  "schema_version": "1.0.0",
+  "document_id": "doc-1",
+  "page_count": 3,
+  "pages": [
+    {"page_no": 1, "page_size": {"width": 612.0, "height": 792.0}, "blocks": [{"id": "con:doc-1:p1:b0", "kind": "heading", "bbox": {"l": 72.0, "t": 760.0, "r": 300.0, "b": 735.0, "coord_origin": "bottomleft"}, "order": 0, "text": "Title", "selection_mode": "agreed", "selected_source": "mineru", "agreement_score": 0.99, "candidate_ids": ["mineru:doc-1:p1:b0", "deepseek:doc-1:p1:b0"], "conflict_ids": [], "metadata": {"level": 1}}]},
+    {"page_no": 2, "page_size": {"width": 612.0, "height": 792.0}, "blocks": [{"id": "con:doc-1:p2:b0", "kind": "paragraph", "bbox": null, "order": 0, "text": "Body", "selection_mode": "fallback", "selected_source": "deepseek", "agreement_score": 0.6, "candidate_ids": ["deepseek:doc-1:p2:b0"], "conflict_ids": [], "metadata": {}}]},
+    {"page_no": 3, "page_size": {"width": 612.0, "height": 792.0}, "blocks": [{"id": "con:doc-1:p3:b0", "kind": "footer", "bbox": {"l": 40.0, "t": 740.0, "r": 200.0, "b": 770.0, "coord_origin": "topleft"}, "order": 0, "text": "3", "selection_mode": "single_source", "selected_source": "paddleocr", "agreement_score": 0.8, "candidate_ids": ["paddleocr:doc-1:p3:b0"], "conflict_ids": [], "metadata": {}}]}
+  ],
+  "conflicts": [],
+  "backends": [
+    {"backend": "mineru", "backend_version": "1", "manifest_ref": "runs/mineru/manifest.json", "prior_ref": null},
+    {"backend": "deepseek", "backend_version": "2", "manifest_ref": "runs/deepseek/manifest.json", "prior_ref": "priors/deepseek.json"},
+    {"backend": "paddleocr", "backend_version": null, "manifest_ref": null, "prior_ref": null}
+  ],
+  "agreement_summary": {"mean_agreement": 0.8, "blocks": 3},
+  "metadata": {"created_by": "fixture"}
+}

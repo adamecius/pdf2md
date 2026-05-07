@@ -1,0 +1,52 @@
+{
+  "schema_name": "pdf2md.PageExtractionIR",
+  "schema_version": "1.0.0",
+  "document_id": "doc-1",
+  "backend": "deepseek",
+  "backend_version": "2026.05",
+  "page_no": 2,
+  "page_size": {"width": 600.0, "height": 800.0},
+  "blocks": [
+    {
+      "id": "deepseek:doc-1:p2:b0",
+      "backend": "deepseek",
+      "page_no": 2,
+      "kind": "heading",
+      "bbox": {"l": 72.0, "t": 760.0, "r": 400.0, "b": 735.0, "coord_origin": "bottomleft"},
+      "order": 0,
+      "text": "Introduction",
+      "confidence": 0.98,
+      "spans": [{"text": "Introduction", "bbox": {"l": 72.0, "t": 760.0, "r": 220.0, "b": 735.0, "coord_origin": "bottomleft"}, "char_start": 0, "char_end": 12}],
+      "raw_ref": "raw/pages/2/blocks/0",
+      "metadata": {"level": 1}
+    },
+    {
+      "id": "deepseek:doc-1:p2:b1",
+      "backend": "deepseek",
+      "page_no": 2,
+      "kind": "paragraph",
+      "bbox": {"l": 72.0, "t": 720.0, "r": 500.0, "b": 680.0, "coord_origin": "bottomleft"},
+      "order": 1,
+      "text": "A short paragraph.",
+      "confidence": 0.92,
+      "spans": [{"text": "short", "bbox": null, "char_start": 2, "char_end": 7}],
+      "raw_ref": "raw/pages/2/blocks/1",
+      "metadata": {"language": "en"}
+    },
+    {
+      "id": "deepseek:doc-1:p2:b2",
+      "backend": "deepseek",
+      "page_no": 2,
+      "kind": "figure",
+      "bbox": {"l": 100.0, "t": 100.0, "r": 300.0, "b": 250.0, "coord_origin": "topleft"},
+      "order": 2,
+      "text": "Figure 1",
+      "confidence": 0.87,
+      "spans": [],
+      "raw_ref": "raw/pages/2/blocks/2",
+      "metadata": {"asset": "fig1.png"}
+    }
+  ],
+  "raw_artifact_ref": "raw/deepseek/doc-1.json",
+  "metadata": {"source": "fixture"}
+}

@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-BATCH="batch_001"; DOCS="all"; OUTPUT_ROOT=".current/docling_groundtruth"; CONSENSUS_CONFIG="pdf2md.consensus.example.toml"
+BATCH="batch_001"; DOCS="all"; OUTPUT_ROOT=".current/docling_groundtruth"; SOURCE_ROOT="groundtruth/corpus/latex"; CONSENSUS_CONFIG="pdf2md.consensus.example.toml"
 BACKENDS="mineru,paddleocr,deepseek"; SKIP_LATEX=0; SKIP_BACKENDS=0; SKIP_DOCLING=0; VERBOSE=0; ALLOW_MISSING_BACKENDS=0; ALLOW_STAGE_FAILURES=0
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    --batch) BATCH="$2"; shift 2;; --documents) DOCS="$2"; shift 2;; --output-root) OUTPUT_ROOT="$2"; shift 2;; --consensus-config) CONSENSUS_CONFIG="$2"; shift 2;; --backends) BACKENDS="$2"; shift 2;;
+    --batch) BATCH="$2"; shift 2;; --source-root) SOURCE_ROOT="$2"; shift 2;; --documents) DOCS="$2"; shift 2;; --output-root) OUTPUT_ROOT="$2"; shift 2;; --consensus-config) CONSENSUS_CONFIG="$2"; shift 2;; --backends) BACKENDS="$2"; shift 2;;
     --skip-latex) SKIP_LATEX=1; shift;; --skip-backends) SKIP_BACKENDS=1; shift;; --skip-docling) SKIP_DOCLING=1; shift;; --verbose) VERBOSE=1; shift;; --allow-stage-failures) ALLOW_STAGE_FAILURES=1; shift;; --allow-missing-backends) ALLOW_MISSING_BACKENDS=1; shift;;
     *) echo "Unknown arg: $1"; exit 2;;
   esac
@@ -37,7 +37,7 @@ normalize_backend_output(){
 any_failure=0
 for doc_id in "${DOC_IDS[@]}"; do
   DOC_ROOT="$OUTPUT_ROOT/$BATCH/$doc_id"; INPUT_DIR="$DOC_ROOT/input"; IR_DIR="$DOC_ROOT/backend_ir"; CONS_DIR="$DOC_ROOT/consensus"; DOCL_DIR="$DOC_ROOT/docling"; REP_DIR="$DOC_ROOT/reports"; mkdir -p "$INPUT_DIR" "$IR_DIR" "$CONS_DIR" "$DOCL_DIR" "$REP_DIR"
-  TEX="tests/docling_groundtruth/latex_sources/$BATCH/$doc_id.tex"; cp "$TEX" "$INPUT_DIR/$doc_id.tex"; PDF_STEM="$doc_id"
+  TEX="$SOURCE_ROOT/$doc_id/$doc_id.tex"; cp "$TEX" "$INPUT_DIR/$doc_id.tex"; PDF_STEM="$doc_id"
   declare -A STAGE_RC; declare -A STAGE_LOG; declare -A BACKEND_CMD
 
   if [[ "$SKIP_LATEX" -eq 0 ]]; then

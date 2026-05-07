@@ -6,6 +6,21 @@ Owner: data contracts
 Sequence: this is plan 1 of 6. It blocks plans 2–6.
 
 ---
+## Status
+
+- implementation_status: fully_implemented
+- reviewer_verdict: pass
+- reviewed_commit: 061e0c2b
+- promoted_tasks:
+  - Plan 1 IR contracts (`PageExtractionIR` and `ConsensusIR`)
+  - Canonical LaTeX corpus/test importability/backend compatibility continuation work preserved in the current branch state
+- final_acceptance_checks:
+  - `pytest tests/test_ir_contracts.py -q` passed with 43 tests.
+  - `python -c "from pdf2md.models.ir import PageExtractionIR, ConsensusIR; print(PageExtractionIR.model_json_schema()['title'], ConsensusIR.model_json_schema()['title'])"` printed `PageExtractionIR ConsensusIR`.
+  - All five committed IR JSON fixtures load with `model_validate_json`.
+  - `pytest tests/ -q` passed with 242 passed, 214 skipped, and 4 warnings.
+
+---
 
 ## 0. Scope and constraints
 
@@ -387,3 +402,44 @@ Each step is independently runnable; the test file is committed last so the revi
 - Do we want `bbox` to default to `None` for logical-only blocks (e.g., `bibitem` from a connector that does not localise references)? Current draft: yes.
 - Should `agreement_score` be `None` for `selection_mode == "single_source"`? Current draft: no — single-source is an agreement of one, score = `1.0 / num_backends_seen`. The exact formula is plan 4's job; this plan only enforces `0 ≤ s ≤ 1`.
 - Whether `metadata` should be typed (`dict[str, str | int | float | bool | None | list | dict]`) instead of `dict[str, Any]` — left as `Any` for now to avoid coupling tests to Pydantic's serialization quirks.
+---
+
+## PR_review #15
+
+- verdict: fail
+- whitelist_violations: []
+- test_contract_violations:
+  - `pytest tests/test_ir_contracts.py -q` is not reproducible in the review environment from the committed tree: collection fails with `ModuleNotFoundError: No module named 'pdf2md'`. The previous PR relied on an editable install to make the package importable, but that install is not part of the committed patch or declared plan dependencies.
+  - `pytest tests/ -q` fails during collection. The missing `.current/latex_docling_groundtruth/batch_001` fixture directory is a plausible environmental limitation, but the import-path failures (`pdf2md`, `tools`, and `tests`) show the committed tree does not satisfy the exact test commands as written without environment mutation.
+  - The run log marks A6 as environmental but also records an undeclared environment-modifying command (`python -m pip install -e .`) used earlier in the PR. That makes the test evidence insufficient for promotion.
+- dependency_violations:
+  - `python -m pip install -e .` was used and recorded as an external environment-modifying command, but no plan dependency or current prompt authorized `pip`/editable installs for this plan.
+- tasks_promoted: []
+- notes:
+  - The diff is limited to the plan's source/test fixture whitelist plus `run_log.md`, which is whitelisted by the agent protocol by default.
+  - The core IR implementation and contract-test coverage are directionally aligned with the plan, but review cannot accept a PR whose required tests only pass after an undeclared editable install.
+  - `current_plan.md` has no `## Status` section, so review could not update task state even if promotion were otherwise eligible.
+
+---
+
+## PR_review #22
+
+- verdict: pass
+- reviewed_commit: c20b6065
+- whitelist_violations: []
+- test_contract_violations: []
+- dependency_violations: []
+- acceptance_checks:
+  - `pytest tests/test_ir_contracts.py -q` passed with 43 tests and no skips/xfails in the IR contract module.
+  - `python -c "from pdf2md.models.ir import PageExtractionIR, ConsensusIR; print(PageExtractionIR.model_json_schema()['title'], ConsensusIR.model_json_schema()['title'])"` printed `PageExtractionIR ConsensusIR` without requiring an editable install.
+  - All five IR fixture files under `tests/data/ir_fixtures/` loaded through `model_validate_json` without warnings.
+  - `pytest tests/ -q` passed with 242 passed, 214 skipped, and 4 deprecation warnings.
+- scope_notes:
+  - The earlier PR_review #15 import-path failure is resolved by committed import bootstrap changes; no `python -m pip install -e .` or other environment mutation was used for review.
+  - The current branch intentionally includes the previously accepted current-plan continuation work for canonical LaTeX corpus paths and backend config compatibility. Those changes are treated as in scope per the latest instruction to evaluate within the previous status rather than restoring to the narrow Plan 1 whitelist.
+- tasks_promoted:
+  - Plan 1 IR contracts accepted.
+  - Current-plan canonical corpus/test importability/backend compatibility continuation accepted.
+- notes:
+  - No inline diff comments were available in the prompt beyond the explicit instruction to evaluate the implementation.
+  - Historical failed reviews remain in this file as audit trail and are superseded by this review for commit c20b6065.
