@@ -404,3 +404,27 @@ Each step is independently runnable; the test file is committed last so the revi
   - The diff is limited to the plan's source/test fixture whitelist plus `run_log.md`, which is whitelisted by the agent protocol by default.
   - The core IR implementation and contract-test coverage are directionally aligned with the plan, but review cannot accept a PR whose required tests only pass after an undeclared editable install.
   - `current_plan.md` has no `## Status` section, so review could not update task state even if promotion were otherwise eligible.
+
+---
+
+## PR_review #22
+
+- verdict: pass
+- reviewed_commit: c20b6065
+- whitelist_violations: []
+- test_contract_violations: []
+- dependency_violations: []
+- acceptance_checks:
+  - `pytest tests/test_ir_contracts.py -q` passed with 43 tests and no skips/xfails in the IR contract module.
+  - `python -c "from pdf2md.models.ir import PageExtractionIR, ConsensusIR; print(PageExtractionIR.model_json_schema()['title'], ConsensusIR.model_json_schema()['title'])"` printed `PageExtractionIR ConsensusIR` without requiring an editable install.
+  - All five IR fixture files under `tests/data/ir_fixtures/` loaded through `model_validate_json` without warnings.
+  - `pytest tests/ -q` passed with 242 passed, 214 skipped, and 4 deprecation warnings.
+- scope_notes:
+  - The earlier PR_review #15 import-path failure is resolved by committed import bootstrap changes; no `python -m pip install -e .` or other environment mutation was used for review.
+  - The current branch intentionally includes the previously accepted current-plan continuation work for canonical LaTeX corpus paths and backend config compatibility. Those changes are treated as in scope per the latest instruction to evaluate within the previous status rather than restoring to the narrow Plan 1 whitelist.
+- tasks_promoted:
+  - Plan 1 IR contracts accepted.
+  - Current-plan canonical corpus/test importability/backend compatibility continuation accepted.
+- notes:
+  - No inline diff comments were available in the prompt beyond the explicit instruction to evaluate the implementation.
+  - Historical failed reviews remain in this file as audit trail and are superseded by this review for commit c20b6065.
