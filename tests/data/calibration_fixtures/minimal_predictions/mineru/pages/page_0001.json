@@ -1,0 +1,29 @@
+{
+  "backend": "mineru",
+  "backend_version": "test-1",
+  "blocks": [
+    {
+      "backend": "mineru",
+      "bbox": null,
+      "confidence": 0.8,
+      "id": "mineru:doc1:p1:b1",
+      "kind": "heading",
+      "metadata": {},
+      "order": 1,
+      "page_no": 1,
+      "raw_ref": null,
+      "spans": null,
+      "text": "Introduction"
+    }
+  ],
+  "document_id": "doc1",
+  "metadata": {},
+  "page_no": 1,
+  "page_size": {
+    "height": 800,
+    "width": 600
+  },
+  "raw_artifact_ref": null,
+  "schema_name": "pdf2md.PageExtractionIR",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,188 @@
+{
+  "backend": "paddleocr",
+  "backend_version": "test-1",
+  "document_id": "doc1",
+  "entities": [
+    {
+      "block_ids": [],
+      "calibration_key": "paddleocr:section:heading_section_detector",
+      "canonical_text": "Introductory matter",
+      "confidence": 0.8,
+      "confidence_source": "heuristic",
+      "entity_type": "section",
+      "evidence": [
+        {
+          "bbox": null,
+          "kind": "block_text",
+          "metadata": {},
+          "page_no": 1,
+          "raw_ref": null,
+          "reason": "synthetic fixture",
+          "source_block_id": null,
+          "text": "Introductory matter",
+          "weight": 1.0
+        }
+      ],
+      "id": "ent:paddleocr:doc1:section:1",
+      "metadata": {},
+      "page_no": 1,
+      "subtype": null
+    },
+    {
+      "block_ids": [],
+      "calibration_key": "paddleocr:page:page_number_detector",
+      "canonical_text": "1",
+      "confidence": 0.8,
+      "confidence_source": "heuristic",
+      "entity_type": "page_number",
+      "evidence": [
+        {
+          "bbox": null,
+          "kind": "block_text",
+          "metadata": {},
+          "page_no": 1,
+          "raw_ref": null,
+          "reason": "synthetic fixture",
+          "source_block_id": null,
+          "text": "1",
+          "weight": 1.0
+        }
+      ],
+      "id": "ent:paddleocr:doc1:page_number:2",
+      "metadata": {},
+      "page_no": 1,
+      "subtype": null
+    },
+    {
+      "block_ids": [],
+      "calibration_key": "paddleocr:figure:figure_detector",
+      "canonical_text": "Figure 1",
+      "confidence": 0.8,
+      "confidence_source": "heuristic",
+      "entity_type": "figure",
+      "evidence": [
+        {
+          "bbox": null,
+          "kind": "block_text",
+          "metadata": {},
+          "page_no": 1,
+          "raw_ref": null,
+          "reason": "synthetic fixture",
+          "source_block_id": null,
+          "text": "Figure 1",
+          "weight": 1.0
+        }
+      ],
+      "id": "ent:paddleocr:doc1:figure:4",
+      "metadata": {},
+      "page_no": 1,
+      "subtype": null
+    },
+    {
+      "block_ids": [],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "canonical_text": "Not actually a footnote",
+      "confidence": 0.8,
+      "confidence_source": "heuristic",
+      "entity_type": "footnote",
+      "evidence": [
+        {
+          "bbox": null,
+          "kind": "block_text",
+          "metadata": {},
+          "page_no": 1,
+          "raw_ref": null,
+          "reason": "synthetic fixture",
+          "source_block_id": null,
+          "text": "Not actually a footnote",
+          "weight": 1.0
+        }
+      ],
+      "id": "ent:paddleocr:doc1:footnote:5",
+      "metadata": {},
+      "page_no": 1,
+      "subtype": null
+    },
+    {
+      "block_ids": [],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "canonical_text": "E = mc^2",
+      "confidence": 0.8,
+      "confidence_source": "heuristic",
+      "entity_type": "equation",
+      "evidence": [
+        {
+          "bbox": null,
+          "kind": "block_text",
+          "metadata": {},
+          "page_no": 1,
+          "raw_ref": null,
+          "reason": "synthetic fixture",
+          "source_block_id": null,
+          "text": "E = mc^2",
+          "weight": 1.0
+        }
+      ],
+      "id": "ent:paddleocr:doc1:equation:6",
+      "metadata": {
+        "equation_number": "1"
+      },
+      "page_no": 1,
+      "subtype": null
+    },
+    {
+      "block_ids": [],
+      "calibration_key": "paddleocr:reference:section_detector",
+      "canonical_text": "References",
+      "confidence": 0.8,
+      "confidence_source": "heuristic",
+      "entity_type": "reference_section",
+      "evidence": [
+        {
+          "bbox": null,
+          "kind": "block_text",
+          "metadata": {},
+          "page_no": 1,
+          "raw_ref": null,
+          "reason": "synthetic fixture",
+          "source_block_id": null,
+          "text": "References",
+          "weight": 1.0
+        }
+      ],
+      "id": "ent:paddleocr:doc1:reference_section:7",
+      "metadata": {},
+      "page_no": 1,
+      "subtype": null
+    }
+  ],
+  "metadata": {},
+  "page_count": 1,
+  "relations": [
+    {
+      "confidence": 0.8,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "bbox": null,
+          "kind": "block_text",
+          "metadata": {},
+          "page_no": 1,
+          "raw_ref": null,
+          "reason": "synthetic fixture",
+          "source_block_id": null,
+          "text": "relation",
+          "weight": 1.0
+        }
+      ],
+      "id": "rel:paddleocr:doc1:1",
+      "metadata": {},
+      "relation_type": "caption_of",
+      "source_entity_id": "ent:paddleocr:doc1:footnote:5",
+      "target_entity_id": "ent:paddleocr:doc1:figure:4"
+    }
+  ],
+  "schema_name": "pdf2md.EntityProposalDocument",
+  "schema_version": "1.0.0",
+  "warnings": []
+}
