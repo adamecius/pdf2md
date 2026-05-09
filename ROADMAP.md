@@ -504,85 +504,318 @@ one tagged-PDF document
 
 ---
 
-## Next Three PRs
+## Implementation Plans to MVP
 
-### PR 1: Documentation and Source-of-Truth Cleanup
+The strategic roadmap is implemented through focused, human-verifiable plans using `PLAN_TEMPLATE.md`.
+
+Each plan should be small enough to review and verify, but large enough to move the roadmap forward. `current_plan.md` remains the active execution contract. A plan is not finished until human verification passes and the hand-off procedure is completed.
+
+The final MVP path is:
+
+```text
+Plan 8  -> Plan 9  -> Plan 10 -> Plan 11 -> Plan 12
+        -> Plan 13 -> Plan 14 -> Plan 15 -> Plan 16
+```
+
+### Plan 8: Local Ground-Truth Corpus Validation plus Documentation Consistency
+
+Roadmap phase:
+Phase 1, with a small Phase 0 documentation consistency exit criterion.
+
+Type:
+Sequential core.
 
 Purpose:
+Validate the local LaTeX-derived ground-truth corpus before any real backend execution. The plan also checks that the remaining narrow documentation surfaces do not contradict this roadmap.
 
-Make the repository internally consistent before deeper implementation.
-
-Files likely involved:
-
-```text
-ROADMAP.md
-README_latex_docling_groundtruth.md
-docs/docling_layer.md
-history.md
-agent.md
-```
-
-Tasks:
+Scope:
 
 ```text
-commit this roadmap
-align ground-truth documentation
-mark old Docling inspection docs as legacy or rewrite them
-update history.md with completed milestones
-clarify that project.md is architecture, current_plan.md is task execution
+validate corpus discovery
+check .tex source presence
+check compiled PDF presence
+check tagged PDF where available
+check LaTeXML XML presence
+check Docling ground-truth JSON presence
+check metadata presence
+write machine-readable and human-readable validation reports
+support strict and non-strict validation modes
+verify README_latex_docling_groundtruth.md, docs/docling_layer.md, history.md and agent.md do not contradict ROADMAP.md
 ```
 
----
+Exit criteria:
 
-### PR 2: Local Ground-Truth Validation
+```text
+ground-truth validation report exists
+ground-truth validation summary exists
+missing artefacts are classified clearly
+strict and non-strict modes behave as specified
+documentation consistency check passes or narrow corrections are made inside the Plan 8 whitelist
+```
+
+### Plan 9: Real Backend Smoke Readiness
+
+Roadmap phase:
+Phase 2.
+
+Type:
+Sequential core.
 
 Purpose:
+Prove that real backend execution can be attempted and that backend failures are classified correctly before connector normalisation is trusted.
 
-Validate the corpus before running real backends.
-
-Expected deliverables:
-
-```text
-tools/local_groundtruth_validate.py
-src/pdf2md/local/groundtruth.py
-groundtruth_validation_report.json
-groundtruth_validation_summary.txt
-tests for local ground-truth validation
-```
-
-Acceptance:
+Backend gate:
 
 ```text
-non-strict mode writes a report even if corpus is incomplete
-strict mode fails when required artefacts are missing
-LaTeX, PDF, XML, Docling JSON, and metadata readiness are reported per document
+At least two configured backends must produce successful smoke output.
+All other configured backends must be classified explicitly.
 ```
 
----
+Allowed backend classifications:
 
-### PR 3: Real Backend Smoke and Connector Normalisation
+```text
+success
+env_not_ready
+model_missing
+dependency_missing
+backend_crash
+output_missing
+not_configured
+```
+
+Exit criteria:
+
+```text
+at least two backends produce smoke outputs suitable for connector validation
+all other configured backends have a recorded readiness classification
+backend manifests or smoke reports are written
+backend failures are not confused with repository failures
+```
+
+### Plan 10: Connector Implementation and PageExtractionIR Validation
+
+Roadmap phase:
+Phase 2.
+
+Type:
+Sequential core with incremental backend acceptance.
 
 Purpose:
+Harden the connector path so real backend outputs can be converted into validated `PageExtractionIR` evidence.
 
-Move from architecture to real backend evidence.
+Important boundary:
+The connector may emit both `PageExtractionIR` and `EntityProposalDocument`, but Plan 10 acceptance validates only the `PageExtractionIR` part.
 
-Expected deliverables:
+Incremental backend rule:
+A backend whose connector output validates may move forward to later plans while other backends are still being debugged, provided missing or failing backends remain documented.
+
+Exit criteria:
 
 ```text
-backend smoke run reports
-real backend manifests
-normalised PageExtractionIR from real outputs
-normalised EntityProposalDocument where available
-connector validation tests
+at least two backend outputs are converted to valid PageExtractionIR
+page numbers, block kinds, text, bounding boxes, confidence where available and provenance are present
+coordinate systems are normalised or explicitly documented
+raw artefact references are preserved
+invalid backend output produces clear validation errors
 ```
 
-Acceptance:
+### Plan 11: EntityProposalDocument Validation
+
+Roadmap phase:
+Phase 2.
+
+Type:
+Sequential core.
+
+Purpose:
+Validate and harden `EntityProposalDocument` outputs from the connector path established in Plan 10.
+
+Important boundary:
+Plan 11 should use the connector output from Plan 10. It should not reopen connector implementation except for defects found during entity validation.
+
+Exit criteria:
 
 ```text
-at least one corpus PDF is processed by each required backend
-backend failures are classified
-connector outputs validate
-raw artefacts remain traceable
+EntityProposalDocument outputs validate where the backend provides entity evidence
+entity proposals preserve provenance
+caption, equation, table, figure, footnote, reference or bibliography candidates are represented where available
+absence of entity proposals is reported clearly when a backend does not provide them
+```
+
+### Plan 12: Real Calibration Prior Generation
+
+Roadmap phase:
+Phase 5.
+
+Type:
+Sequential after Plans 10 and 11.
+
+Purpose:
+Run real calibration against normalised backend outputs and source-known ground truth. This plan converts observed backend success and failure into feature-specific priors.
+
+Required checkpoint:
+Before trusting calibration metrics, verify that connector `BlockKind` vocabulary matches ground-truth `TruthBlock` vocabulary, or that an explicit mapping exists.
+
+Expected outputs:
+
+```text
+CalibrationPriorDocument
+calibration_report.json
+backend_feature_metrics.json or backend_feature_metrics.csv
+calibration_summary.txt
+```
+
+Exit criteria:
+
+```text
+calibrate_priors.py runs on real normalised backend outputs against ground truth
+BlockKind vocabulary alignment is verified or mapped
+precision, recall and F1 are reported by feature and backend
+CalibrationPriorDocument validates
+insufficient evidence is reported without fabricating confidence
+```
+
+### Plan 13: Weighted ConsensusIR on Real Outputs
+
+Roadmap phase:
+Phase 3.
+
+Type:
+Sequential core.
+
+Purpose:
+Use real `PageExtractionIR` evidence and real calibration priors to produce explainable weighted consensus.
+
+Exit criteria:
+
+```text
+ConsensusIR is produced from real normalised backend outputs
+calibration priors influence scoring
+conflicts are explicit
+consensus report explains backend agreement, disagreement and selected candidates
+confidence is traceable to evidence and priors
+```
+
+### Plan 14: LinkedStructure and Cross-Page Semantic Linking
+
+Roadmap phase:
+Phase 4.
+
+Type:
+Sequential core.
+
+Purpose:
+Turn page-level consensus into whole-document semantic structure.
+
+Exit criteria:
+
+```text
+LinkedStructure validates on real consensus outputs
+sections, captions, footnotes, equations, figures, tables, references, page numbers and headers or footers are linked when evidence supports it
+unresolved relations are explicit
+linking report explains warnings and conflicts
+```
+
+### Plan 15: Docling Export Validation
+
+Roadmap phase:
+Phase 4.
+
+Type:
+Sequential core.
+
+Purpose:
+Export `LinkedStructure` to Docling JSON and validate the export against the repository contracts and ground truth where available.
+
+Exit criteria:
+
+```text
+Docling JSON is produced from LinkedStructure
+export preserves provenance, conflicts, warnings and relation metadata
+docling_core validation is used when available
+Docling output is compared with LaTeX-derived Docling ground truth where available
+Markdown preview and RAG outputs are produced if in scope for the plan
+```
+
+### Plan 16: End-to-End Runner and MVP Corpus Evaluation
+
+Roadmap phase:
+Phase 6.
+
+Type:
+Sequential core.
+
+Purpose:
+Provide the first functional local pipeline runner and validate it on the minimum MVP corpus.
+
+Internal checkpoint 16A:
+One-document end-to-end runner.
+
+Scope:
+
+```text
+input classification, profiling or routing
+backend strategy selection
+normalisation
+consensus
+semantic linking
+Docling export
+confidence report
+conflict report
+```
+
+Input classification assignment:
+Input classification belongs in Plan 16A. Earlier plans may run all available backends on controlled documents without needing a routing decision. In Plan 16A the runner must explicitly classify or profile the input as scanned, born-digital, mixed, LaTeX-compiled, tagged or unknown, and write the decision to a report.
+
+Internal checkpoint 16B:
+MVP corpus evaluation.
+
+Minimum corpus:
+
+```text
+one scanned document
+one born-digital embedded-text document
+one mixed document
+one LaTeX-compiled document
+one tagged-PDF document
+```
+
+Split rule:
+If 16A exposes major integration failures, 16B should be split into a new Plan 17 instead of forcing MVP corpus evaluation into the same plan.
+
+Exit criteria:
+
+```text
+one command or local runner executes the full pipeline on at least one document
+runner writes Docling output, confidence report and conflict report
+runner classifies or profiles the input and records the routing decision
+MVP corpus evaluation succeeds or is split into the next plan with documented blockers
+```
+
+### Plan 17 and Later: Production Readiness
+
+Roadmap phase:
+Phase 7.
+
+Type:
+Post-MVP, parallel where possible.
+
+Purpose:
+Prepare the program for broader use after the MVP path is validated.
+
+Scope:
+
+```text
+packaging
+installation documentation
+example datasets
+performance optimisation
+large-document robustness
+CI matrix
+stable versioned reports
+contribution documentation
+user-facing troubleshooting
+backend environment recipes
 ```
 
 ---
