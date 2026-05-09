@@ -106,6 +106,8 @@ The target architecture is described across a small set of repository files.
 |---|---|
 | `project.md` | Durable product and architecture description. This is the best high-level description of the system goal. |
 | `README.md` | Public entry point. It explains what the project does, how the pipeline works, and where to start. |
+| `ROADMAP.md` | Durable product roadmap from current prototype state to MVP and production readiness. |
+| `PLAN_TEMPLATE.md` | Standard template for future executable plans, including agent tasks and human verification checkpoints. |
 | `current_plan.md` | Current implementation plan, including task whitelist, tests, and acceptance criteria. This is operational, not the product vision. |
 | `next_plan.md` | Next planned milestone. Useful for development sequencing, but not the canonical architecture. |
 | `history.md` | Completed milestones and archived implementation history. |
@@ -113,7 +115,7 @@ The target architecture is described across a small set of repository files.
 | `README_latex_docling_groundtruth.md` | Ground-truth corpus and LaTeX/Docling validation harness. |
 | `docs/docling_layer.md` | Older Docling inspection-layer documentation. This should be reviewed because it may no longer describe the canonical export path. |
 
-The durable product architecture should live in `project.md` and be summarised in this README. The active implementation plan should live in `current_plan.md`. Historical plans and logs should not be used as the product vision unless they have been consolidated into `project.md`.
+The durable product architecture should live in `project.md` and be summarised in this README. The active implementation plan should live in `current_plan.md`. Historical plans and logs should not be used as the product vision unless they have been consolidated into `project.md` or `ROADMAP.md`.
 
 ---
 
@@ -328,18 +330,24 @@ The project is currently in a late-prototype / early-alpha stage. The core contr
 
 ## 11. Local acceptance programme
 
-The local acceptance programme validates the system progressively:
+The local acceptance programme validates the system progressively. The durable sequence is defined in `ROADMAP.md`; individual executable plans must follow `PLAN_TEMPLATE.md` and be promoted through `current_plan.md` only after human verification.
+
+Current MVP path:
 
 ```text
-Plan 7  - local environment and toolchain preflight
-Plan 8  - LaTeX / LuaLaTeX / LaTeXML ground-truth validation
-Plan 9  - real backend execution smoke checks
-Plan 10 - backend output normalisation through connectors
-Plan 11 - staged pipeline chain validation
-Plan 12 - full local end-to-end corpus validation
+Plan 8  - local ground-truth corpus validation plus documentation consistency
+Plan 9  - real backend smoke readiness
+Plan 10 - connector implementation and PageExtractionIR validation
+Plan 11 - EntityProposalDocument validation
+Plan 12 - real calibration prior generation
+Plan 13 - weighted ConsensusIR on real outputs
+Plan 14 - LinkedStructure and cross-page semantic linking
+Plan 15 - Docling export validation
+Plan 16 - end-to-end runner and MVP corpus evaluation
+Plan 17+ - production readiness after MVP
 ```
 
-This sequence exists to avoid confusing environment problems with repository defects.
+This sequence exists to avoid confusing environment problems with repository defects and to keep every implementation milestone human-verifiable.
 
 Missing tools such as `lualatex`, `latexml`, backend conda environments, CUDA, or model weights are reported as environment-not-ready conditions, not as unit-test failures.
 
@@ -420,6 +428,10 @@ Coding agents should follow the repository plan protocol.
 
 The durable project architecture is described in `project.md`.
 
+The durable implementation roadmap is described in `ROADMAP.md`.
+
+Future executable plans should follow `PLAN_TEMPLATE.md`.
+
 The current implementation task, whitelist, and required tests are described in `current_plan.md`.
 
 The completed milestone record is maintained in `history.md`.
@@ -449,8 +461,9 @@ The next major milestones are:
 ```text
 validate the ground-truth corpus locally
 run real backend smoke checks
-normalise real backend outputs
-validate the full staged pipeline
+normalise real backend outputs into PageExtractionIR and EntityProposalDocument
+run real calibration prior generation
+validate weighted consensus, semantic linking and Docling export
 run full local end-to-end corpus evaluation
 calibrate backend confidence from observed success and failure
 ```
