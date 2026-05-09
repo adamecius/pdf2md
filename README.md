@@ -1,98 +1,422 @@
 # pdf2md
 
-## 1) Project description
-pdf2md is a multi-backend PDF-to-Markdown conversion system. It runs configured extraction backends, preserves their raw outputs, normalises their page-level building blocks into a shared extraction IR, compares those blocks page by page to detect agreement and conflicts, and then compiles the agreed result into a rich semantic document structure for Markdown and other exports.
+`pdf2md` is a multi-backend document reconstruction system for converting complete sequential PDF documents into a structured Docling representation.
 
-The project intentionally separates early extraction comparison from later semantic document construction. Low-level page comparison is performed before compiling into richer formats such as DoclingDocument, Pandoc AST, JSON, or final Markdown.
+The project is designed for scientific and technical documents where the document structure matters: sections, table of contents, equations, tables, figures, captions, footnotes, glossary-like sections, references, bibliography entries, page sequence, headers, footers, and reading order.
 
-## 2) Architecture direction
-The intended processing flow is:
+The goal is not simply to extract text. The goal is to reconstruct the document as a semantic object with provenance, confidence, conflicts, and explicit relations.
+
+---
+
+## 1. Project goal
+
+`pdf2md` processes different classes of PDF documents:
+
+- scanned or image-based PDFs;
+- born-digital PDFs with embedded text;
+- mixed PDFs with both text layer and scanned regions;
+- PDFs compiled from LaTeX;
+- tagged PDFs when structural tags are available.
+
+The output target is a Docling-compatible document representation, with optional downstream exports such as Markdown previews, RAG chunks, JSON reports, and inspection artefacts.
+
+The system assumes that the input is a complete sequential document, not a collection of loose pages. It uses the internal structure of the document itself, including page order, table of contents, section hierarchy, captions, references, glossary or index-like sections, and bibliography material, as evidence for reconstruction.
+
+---
+
+## 2. Core idea
+
+Different extraction backends see different parts of the same document well.
+
+One backend may be strong on OCR text. Another may be better on tables. Another may detect formulae more reliably. Embedded PDF text may be more accurate than OCR in born-digital documents, while OCR may be necessary for scanned regions. Tagged PDF, LaTeX-derived XML, and geometric extraction may provide additional evidence.
+
+`pdf2md` treats every backend as evidence, not as truth.
+
+The pipeline compares backend outputs, records agreement and conflict, and builds a post-consensus semantic structure. The final Docling output is generated from this semantic structure, not from a single backend.
+
+---
+
+## 3. Target architecture
+
+The target system is:
 
 ```text
-PDF
-  -> backend raw outputs
-  -> low-level page extraction IR
-  -> page-by-page block comparison
-  -> page consensus IR
-  -> whole-document semantic compilation
-  -> rich document format
-  -> Markdown / JSON / DoclingDocument / Pandoc export
+Complete sequential PDF
+  ├── scanned PDF
+  ├── born-digital PDF with embedded text
+  ├── mixed PDF
+  ├── LaTeX-compiled PDF
+  └── tagged PDF
+
+  -> input classification
+  -> backend extraction
+  -> PageExtractionIR
+  -> EntityProposalDocument
+  -> CalibrationPriorDocument
+  -> ConsensusIR
+  -> LinkedStructure
+  -> Docling JSON
+  -> validation and confidence reporting
 ```
 
-Important design rule: comparison happens at the earliest practical extraction stage, page by page, before semantic compilation.
+Ground truth is produced from:
 
-## 3) Current stage
-This repository currently provides backend wrappers and config-driven backend orchestration.
+```text
+.tex source
+  -> LuaLaTeX / tagged PDF
+  -> LaTeXML XML
+  -> semantic ground-truth contracts
+  -> Docling ground-truth JSON
+```
 
-## 4) What exists now
-- Core `pdf2md` package in `src/pdf2md`
-- Backend wrappers under `backend/`
-- Config-driven `run-backends` CLI command
-- Minimal canonical schema (`Document -> Page -> Block`) with `BBox`, `SourceRef`, and `Flag`
-- Placeholder `convert_pdf` path that currently runs one backend and one adapter into `Document`
+The ground-truth corpus is used to measure backend success and failure, and to calibrate confidence in the backend ensemble.
 
-## 5) What is not implemented yet
-- Full adapter coverage
-- PageExtractionIR normalisation pipeline
-- Page-level comparison and candidate grouping
-- PageConsensusIR and agreement/conflict resolution
-- Whole-document semantic compilation stage
-- Final full convert pipeline and rich export targets
+---
 
-## 6) Setup
-Install the central package:
+## 4. Processing pipeline
+
+The intended high-level pipeline is:
+
+```text
+PDF document
+  -> input classification
+  -> backend extraction
+  -> per-backend PageExtractionIR
+  -> entity proposals
+  -> backend calibration priors
+  -> page-level ConsensusIR
+  -> whole-document LinkedStructure
+  -> Docling JSON
+  -> validation, reports, RAG chunks, Markdown preview
+```
+
+The pipeline is deliberately staged.
+
+Low-level comparison happens early, at page and block level. Whole-document reasoning happens later, when the system has enough evidence to resolve relations such as captions, references, footnotes, section hierarchy, table of contents, and bibliography structure.
+
+Docling is the canonical structured export target. Markdown is a human-readable preview, not the source of truth.
+
+---
+
+## 5. Main architecture files
+
+The target architecture is described across a small set of repository files.
+
+| File | Role |
+|---|---|
+| `project.md` | Durable product and architecture description. This is the best high-level description of the system goal. |
+| `README.md` | Public entry point. It explains what the project does, how the pipeline works, and where to start. |
+| `current_plan.md` | Current implementation plan, including task whitelist, tests, and acceptance criteria. This is operational, not the product vision. |
+| `next_plan.md` | Next planned milestone. Useful for development sequencing, but not the canonical architecture. |
+| `history.md` | Completed milestones and archived implementation history. |
+| `agent.md` | Rules for Codex or other coding agents working on the repository. |
+| `README_latex_docling_groundtruth.md` | Ground-truth corpus and LaTeX/Docling validation harness. |
+| `docs/docling_layer.md` | Older Docling inspection-layer documentation. This should be reviewed because it may no longer describe the canonical export path. |
+
+The durable product architecture should live in `project.md` and be summarised in this README. The active implementation plan should live in `current_plan.md`. Historical plans and logs should not be used as the product vision unless they have been consolidated into `project.md`.
+
+---
+
+## 6. Ground truth strategy
+
+The project uses a growing LaTeX-derived ground-truth corpus.
+
+For controlled documents, the source of truth is built from:
+
+```text
+.tex source
+  -> LuaLaTeX / LaTeX compiled PDF
+  -> tagged PDF where available
+  -> LaTeXML XML
+  -> semantic ground-truth contracts
+  -> Docling ground-truth JSON
+```
+
+The ground-truth corpus is used to test and improve the full pipeline.
+
+For each document, the system can compare:
+
+```text
+backend output
+  -> consensus output
+  -> linked semantic structure
+  -> Docling export
+```
+
+against the LaTeX-derived ground truth.
+
+This allows the system to learn which backends are reliable for which document features. For example, one backend may be trusted more for equations, another for tables, another for captions, and another for reading order.
+
+Successes and failures against the ground-truth corpus are used to calibrate backend confidence and improve the ensemble.
+
+---
+
+## 7. Document model
+
+The project distinguishes several layers.
+
+### PageExtractionIR
+
+The page extraction layer stores primitive evidence from each backend:
+
+```text
+page number
+block type
+text
+bounding box
+confidence
+backend provenance
+raw artefact reference
+```
+
+This layer is page-local. It is designed for backend comparison and conflict detection.
+
+### EntityProposalDocument
+
+Backends and connector layers can emit entity proposals for higher-level interpretation, such as possible captions, references, equations, footnote markers, table-of-contents entries, and bibliography material.
+
+Entity proposals are evidence. They are not final structure.
+
+### CalibrationPriorDocument
+
+Calibration priors describe how much the ensemble should trust a backend for specific evidence types, document features, or extraction behaviours.
+
+These priors are expected to improve as the ground-truth corpus grows.
+
+### ConsensusIR
+
+The consensus layer groups backend candidates and selects or records candidate blocks.
+
+It does not pretend that every conflict is resolved. When backends disagree, the conflict is kept as part of the document evidence.
+
+### LinkedStructure
+
+The linked structure is the whole-document semantic layer.
+
+It resolves or records relations such as:
+
+```text
+section contains paragraph
+caption belongs to figure or table
+footnote marker links to footnote body
+reference mention links to bibliography item
+equation sequence
+figure sequence
+table sequence
+page number sequence
+table of contents entry points to section
+headers and footers repeat across pages
+```
+
+This layer is where the document becomes more than a list of extracted blocks.
+
+### Docling export
+
+The Docling export layer projects the linked semantic structure into a Docling-compatible JSON document.
+
+It preserves:
+
+```text
+text items
+groups
+tables
+pictures
+pages
+provenance
+conflicts
+relation metadata
+warnings
+pdf2md-specific audit metadata
+```
+
+---
+
+## 8. Backends
+
+Backends are isolated and interchangeable.
+
+Each backend is expected to produce normalised extraction artefacts through a connector. Backend execution is separated from the central pipeline so that different tools, models, environments, and hardware requirements can coexist.
+
+Typical backend categories include:
+
+```text
+OCR/layout backends
+embedded-text PDF extraction
+geometry/media extraction
+tagged-PDF extraction
+LaTeX/XML-derived ground-truth extraction
+```
+
+The central pipeline should not depend on one backend being correct. It should use backend agreement, calibrated priors, document structure, and ground-truth evaluation to decide confidence.
+
+---
+
+## 9. Current repository direction
+
+The repository is organised around staged contracts and validation tools.
+
+Important surfaces include:
+
+```text
+src/pdf2md/models/
+  IR, entity, prior, linked, and export contracts
+
+src/pdf2md/connectors/
+  backend output normalisation
+
+src/pdf2md/calibration/
+  backend prior calibration
+
+src/pdf2md/consensus/
+  page-level candidate grouping and scoring
+
+src/pdf2md/linking/
+  whole-document semantic linking
+
+src/pdf2md/export/
+  Docling, RAG, and Markdown export layers
+
+tools/
+  command-line tools for calibration, consensus, linking, export,
+  local preflight, and ground-truth validation
+
+groundtruth/corpus/latex/
+  LaTeX-derived ground-truth documents and artefacts
+```
+
+The project is currently in a late-prototype / early-alpha stage. The core contracts and staged architecture are in place. The main remaining work is local end-to-end validation across real documents and real backend outputs.
+
+---
+
+## 10. Local acceptance programme
+
+The local acceptance programme validates the system progressively:
+
+```text
+Plan 7  - local environment and toolchain preflight
+Plan 8  - LaTeX / LuaLaTeX / LaTeXML ground-truth validation
+Plan 9  - real backend execution smoke checks
+Plan 10 - backend output normalisation through connectors
+Plan 11 - staged pipeline chain validation
+Plan 12 - full local end-to-end corpus validation
+```
+
+This sequence exists to avoid confusing environment problems with repository defects.
+
+Missing tools such as `lualatex`, `latexml`, backend conda environments, CUDA, or model weights are reported as environment-not-ready conditions, not as unit-test failures.
+
+---
+
+## 11. Typical development flow
+
+Install the central package in the main repository environment:
 
 ```bash
 python -m pip install -e .
 ```
 
-## 7) Config
-Copy the example config and edit backend settings:
+Run the local environment preflight:
 
 ```bash
-cp pdf2md.backends.example.toml pdf2md.backends.toml
+python tools/local_groundtruth_preflight.py \
+  --repo-root . \
+  --out-dir groundtruth/runs/local_preflight \
+  --required-backends mineru,paddleocr,deepseek \
+  --verbose
 ```
 
-Then update enabled backends, model paths, and environment variables.
-
-## 8) Running
-Run configured and enabled backends only:
+Validate the local ground-truth corpus:
 
 ```bash
-pdf2md run-backends test.pdf --config pdf2md.backends.toml
+python tools/local_groundtruth_validate.py \
+  --corpus-root groundtruth/corpus/latex \
+  --out-dir groundtruth/runs/local_groundtruth_validation \
+  --run-validator \
+  --verbose
 ```
 
-No backend runs unless it appears in config and is enabled.
+Run staged pipeline tools as appropriate:
 
-## 9) Output folder
-Runs are stored under:
+```bash
+python tools/calibrate_priors.py --help
+python tools/build_consensus.py --help
+python tools/build_linked_structure.py --help
+python tools/export_linked_docling.py --help
+```
+
+Backend model execution should happen inside each backend-specific environment, not inside the main `pdf2md` environment.
+
+---
+
+## 12. Design principles
+
+### Complete document, not loose pages
+
+The system assumes the input is a complete sequential document. Page order, section progression, references, captions, and structural repetition are all useful evidence.
+
+### Evidence, not single-backend truth
+
+No backend is assumed to be authoritative. The system records agreement, disagreement, confidence, and provenance.
+
+### Ground truth grows over time
+
+The LaTeX-derived ground-truth corpus is expected to expand. Each new fixture increases the ability to test and calibrate the system.
+
+### Conflicts are first-class
+
+A conflict should not disappear silently. If a relation, block, table, equation, or reference cannot be resolved safely, the unresolved state is recorded.
+
+### Docling is the canonical export target
+
+Markdown and RAG outputs are useful, but Docling is the main structured representation.
+
+---
+
+## 13. Repository governance for agents
+
+Coding agents should follow the repository plan protocol.
+
+The durable project architecture is described in `project.md`.
+
+The current implementation task, whitelist, and required tests are described in `current_plan.md`.
+
+The completed milestone record is maintained in `history.md`.
+
+Agent work should not modify files outside the active plan whitelist.
+
+---
+
+## 14. Status
+
+The project has implemented substantial parts of the multi-pipeline architecture:
 
 ```text
-.tmp/<run-name>/
+backend connector contracts
+PageExtractionIR and ConsensusIR contracts
+entity proposal contracts
+calibration prior contracts
+page-level consensus
+whole-document linked structure
+Docling / RAG / Markdown export layer
+LaTeX-derived ground-truth generation and validation tooling
+local environment preflight tooling
 ```
 
-## 10) Safety
-- Only configured and enabled backends run.
-- API backends do not run unless explicitly configured.
-- Local `pdf2md.backends.toml` is gitignored.
+The next major milestones are:
 
-## 11) Tests
-```bash
-python -m pytest -q tests/test_models_and_rendering.py tests/smoke/test_backend_clis.py tests/test_run_backends_config.py
+```text
+validate the ground-truth corpus locally
+run real backend smoke checks
+normalise real backend outputs
+validate the full staged pipeline
+run full local end-to-end corpus evaluation
+calibrate backend confidence from observed success and failure
 ```
 
-## 12) Near-term plan focus
-The next planning milestone is to define the page-level extraction IR and consensus-ready architecture while keeping current backend runner behavior intact and avoiding heavy new dependencies.
+---
 
-## 13) Planning-level scaffolding now present
-This repository now includes folder/file scaffolding for staged architecture work, without changing the active backend runner pipeline:
-- `src/pdf2md/models/ir.py` as the planned home for extraction IR and consensus IR model definitions
-- `src/pdf2md/pipeline/artifacts.py` as the planned home for raw-vs-derived artifact path conventions
-- `tests/test_ir_scaffolding.py` as the planned home for serialization and parser transformation tests
+## 15. Licence and contribution policy
 
-At this step, these files intentionally contain brief descriptions and placeholders only. Existing `Document -> Page -> Block` remains the active schema.
+This repository is distributed under the licence declared in `LICENSE`.
 
-## 14) License and contribution policy
-- Public open-source license: **AGPL-3.0-or-later** (see `LICENSE`).
-- Closed-source/proprietary use requires separate written authorisation from **[COPYRIGHT HOLDER]** (see `NOTICE`).
-- Contributions require agreement with `CLA.md` (see `CONTRIBUTING.md`).
+Contribution rules are described in `CONTRIBUTING.md` and `CLA.md`.
