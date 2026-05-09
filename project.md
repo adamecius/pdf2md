@@ -2,80 +2,205 @@
 
 ## 1. What it does
 
-pdf2md converts scanned, image-based scientific PDFs into a robust semantic representation suitable for export to Docling. The output must be rich enough to reconstruct the original document — book or scientific article — with high fidelity, preserving text, equations, tables, figures, captions, footnotes, references, and reading order.
+`pdf2md` reconstructs complete sequential PDF documents into a robust semantic representation suitable for export to Docling.
+
+The project is aimed at scientific and technical documents, including scanned PDFs, born-digital PDFs with embedded text, mixed PDFs, LaTeX-compiled PDFs, and tagged PDFs when structural tags are available.
+
+The output must be rich enough to reconstruct the original document, whether book, article, report, thesis, or technical note, with high fidelity. It should preserve text, equations, tables, figures, captions, footnotes, references, bibliography material, glossary or index-like sections, page sequence, headers, footers, and reading order.
+
+The system assumes that the input is a complete document, not loose pages. The document's own structure is part of the evidence.
+
+---
 
 ## 2. Why it is hard
 
-A single OCR backend produces an idiosyncratic interpretation of the same page. Different backends disagree on text segmentation, equation boundaries, table cells, figure crops, and reading order. None is correct on every document.
+A single OCR or PDF extraction backend produces an idiosyncratic interpretation of the same page. Different backends disagree on text segmentation, equation boundaries, table cells, figure crops, embedded media, structural tags, footnotes, references, and reading order.
 
-pdf2md treats each backend as evidence, not as truth. Truth is reconstructed by:
+No single backend is correct on every document or every feature.
 
-1. Linear, page-by-page consensus across multiple backends.
-2. Geometric and media data extracted independently with PyMuPDF or equivalent tools.
-3. Comparison against a deterministic ground truth derived from LaTeX sources.
+A born-digital PDF may contain a reliable text layer but poor structural information. A scanned PDF may require OCR and layout analysis. A tagged PDF may expose useful hierarchy but still omit visual details. A LaTeX-compiled document may have source-known structure, but ordinary PDFs will not.
+
+`pdf2md` treats each backend as evidence, not as truth. Truth is reconstructed by:
+
+1. comparing multiple backend outputs page by page;
+2. extracting geometric and media evidence independently with PyMuPDF or equivalent tools;
+3. exploiting embedded text and tagged structure where available;
+4. using whole-document semantic constraints such as section hierarchy, captions, references, and footnotes;
+5. validating against a deterministic ground-truth corpus derived from LaTeX, LuaLaTeX/tagged PDF artefacts, and LaTeXML XML.
+
+---
 
 ## 3. Architecture
 
-Pipeline:
+Target pipeline:
 
-    PDF (image)
-      -> backends (each in its own conda env, exposed via a connector)
-      -> per-backend extraction IR (page-local, primitive blocks)
-      -> page-by-page consensus IR
-      -> semantic layer (equations <-> labels, captions <-> figures,
-                         refs <-> targets, footnotes <-> markers,
-                         media <-> anchors)
-      -> DoclingDocument
-      -> validation against LaTeX-derived ground truth
+```text
+Complete sequential PDF
+  - scanned PDF
+  - born-digital PDF with embedded text
+  - mixed PDF
+  - LaTeX-compiled PDF
+  - tagged PDF
 
-The semantic stage is fed by three orthogonal sources:
+  -> input classification
+  -> backend extraction
+  -> per-backend PageExtractionIR
+  -> EntityProposalDocument
+  -> CalibrationPriorDocument
+  -> page-level ConsensusIR
+  -> whole-document LinkedStructure
+  -> Docling JSON
+  -> validation, reports, RAG chunks, Markdown preview
+```
 
-- text and layout from OCR consensus,
-- geometry and embedded media from PyMuPDF,
-- ground-truth comparison signal from LaTeX-derived contracts.
+The semantic stage is fed by several orthogonal sources:
 
-Comparison happens at the earliest practical stage (page-level extraction IR) and again at the semantic and Docling stages. Docling is a post-consensus export target, not the first comparison layer.
+- text and layout from OCR/layout backends;
+- embedded text from born-digital PDFs;
+- geometry and embedded media from PyMuPDF or equivalent tools;
+- tagged-PDF structure when available;
+- LaTeX and LaTeXML-derived ground-truth signal for controlled corpus documents;
+- calibration priors derived from previous backend successes and failures.
+
+Comparison happens at the earliest practical stage, at page-level extraction IR, and again at the semantic and Docling stages.
+
+Docling is the canonical post-consensus export target. Markdown is a preview and downstream convenience format, not the source of truth.
+
+---
 
 ## 4. Ground truth
 
-A controlled corpus of LaTeX sources plus their compiled PDFs. The LaTeX is the source of truth. From each `.tex` we derive `semantic_document_groundtruth.json`: a linked block graph with blocks, labels, references, and relations (`caption_of`, `footnote_of`, `reference_to`, `equation_of`).
+The project uses a growing source-known ground-truth corpus.
 
-The corpus is intentionally diverse: numbered and unnumbered equations, multi-column layouts, tables of varying complexity, footnotes, bibliographies, multi-page constructs, captions in different positions. Diversity is the point — it forces the consensus and semantic stages to generalize rather than overfit one document.
+The strongest ground-truth documents are built from:
 
-## 5. Backends
+```text
+.tex source
+  -> LuaLaTeX / LaTeX compiled PDF
+  -> tagged PDF where available
+  -> LaTeXML XML
+  -> semantic ground-truth contracts
+  -> Docling ground-truth JSON
+  -> metadata and validation reports
+```
 
-Each OCR backend lives in its own conda environment (`pdf2md-<name>`) with its own connector adapter (`backend/<name>/pdf2ir_<name>.py`). The runner contract is:
+The LaTeX source is the primary semantic source of truth. The compiled PDF supplies the rendered document. Tagged PDF and LaTeXML XML provide additional structural evidence. The generated semantic and Docling contracts provide machine-checkable targets.
 
-- input: PDF path + output dir,
-- output: per-page IR JSON + raw artifacts + run manifest with PDF hash, backend version, env lockfile hash, timestamp.
+From this corpus, the project derives expected blocks, labels, references, relations, captions, footnotes, equations, tables, and document structure.
 
-Adding a backend requires creating its env, its adapter, and a backend descriptor in the config. No core code changes.
+The corpus is intentionally diverse: numbered and unnumbered equations, inline and display mathematics, multi-column layouts, tables of varying complexity, footnotes, bibliographies, multi-page constructs, repeated references, captions in different positions, and mixed text/image regions.
 
-## 6. Configuration
+Diversity is the point. It forces the consensus and semantic stages to generalise rather than overfit one document or one backend.
 
-Two config files drive the system:
+---
 
-- `pdf2md.backends.toml`: enabled backends, env names, override commands, model paths.
-- `pdf2md.consensus.toml`: thresholds (text similarity, IoU, geometry policy), regex patterns for equation labels, figure/table labels, footnote markers, bibliography spans, agreement weights, evaluation metrics for backend comparison.
+## 5. Robust ensemble OCR and extraction
 
-All regex-like and threshold-like parameters live in config. Pipeline code does not hardcode them. Adding a backend or tuning the semantic linker should not require touching the core modules.
+The ground-truth corpus is not only a test suite. It is the basis for robust ensemble OCR and document extraction.
 
-## 7. Validation strategy
+Each backend is evaluated feature by feature against source-known documents. The system should learn, for example:
 
-Two comparison points against LaTeX ground truth:
+```text
+Backend A is reliable for body text but weak on table structure.
+Backend B is reliable for equations but weak on footnotes.
+Backend C is reliable for captions but weak on reading order.
+The embedded PDF text layer is reliable for born-digital body text but incomplete for figures.
+Tagged PDF structure is useful for hierarchy but may not reflect visual layout.
+LaTeXML is reliable for source-known structure but is available only for LaTeX-derived documents.
+```
 
-1. Pre-Docling: `consensus/semantic_document.json` vs `groundtruth/semantic_document_groundtruth.json`.
-2. Post-Docling: `docling/document.json` vs the LaTeX-derived Docling contract.
+These observations become calibration priors. During consensus, evidence is weighted according to observed reliability, not by treating all backends equally in every situation.
 
-A backend run, a consensus output, and a Docling export are all judged by the same contract. The contract is the standard, not any single backend.
+The intended feedback loop is:
 
-## 8. End goal
+```text
+ground-truth corpus
+  -> backend success/failure measurements
+  -> feature-specific backend confidence
+  -> weighted page-level consensus
+  -> whole-document semantic linking
+  -> Docling output with provenance and confidence
+```
 
-A semantic Docling output of a scientific document such that:
+When backends agree, confidence increases. When they disagree, the system uses calibrated priors, geometry, embedded text, tagged structure, and document-level semantic constraints to select a candidate, defer the decision, or record an explicit conflict.
 
-- every block has provenance back to backend evidence,
-- every relation (`caption_of`, `refers_to`, `footnote_of`, `equation_of`) is explicit and resolvable,
-- every conflict is recorded, not silently resolved,
+The aim is to produce an OCR and extraction result that is more robust than any individual backend.
+
+---
+
+## 6. Backends
+
+Backends are isolated and interchangeable.
+
+Each backend lives in its own execution environment when needed, typically `pdf2md-<name>`, and exposes a connector that normalises its output into repository contracts.
+
+Backend categories include:
+
+```text
+OCR/layout backends
+embedded-text PDF extraction
+geometry/media extraction
+tagged-PDF extraction
+LaTeX/XML-derived ground-truth extraction
+```
+
+The runner contract is:
+
+- input: PDF path plus output directory;
+- output: per-page IR JSON, raw artefacts, entity proposals when available, and a run manifest with PDF hash, backend version, environment information, and timestamp.
+
+Adding a backend should require creating its environment, connector, and backend descriptor. It should not require changing the core consensus or linking code.
+
+---
+
+## 7. Configuration
+
+Configuration drives backend execution, consensus thresholds, semantic patterns, and calibration behaviour.
+
+Typical configuration surfaces include:
+
+- `pdf2md.backends.toml`: enabled backends, environment names, override commands, model paths;
+- `pdf2md.consensus.toml`: thresholds, text similarity, IoU policy, geometry policy, relation patterns, agreement weights, and evaluation metrics.
+
+Regex-like and threshold-like parameters should live in config. Pipeline code should not hardcode tunable scientific-document assumptions when they can be made explicit.
+
+---
+
+## 8. Validation strategy
+
+Validation occurs at multiple stages.
+
+```text
+backend raw output
+  -> connector output
+  -> PageExtractionIR
+  -> ConsensusIR
+  -> LinkedStructure
+  -> Docling JSON
+```
+
+For ground-truth documents, each stage can be compared with LaTeX-derived expectations.
+
+The two most important comparison points are:
+
+1. pre-Docling semantic validation: linked or semantic structure vs ground-truth semantic contracts;
+2. post-Docling validation: Docling JSON vs LaTeX-derived Docling ground truth.
+
+A backend run, a consensus output, a linked structure, and a Docling export are judged by the same growing corpus. The contract is the standard, not any single backend.
+
+Failures are useful. They identify where a backend, connector, consensus rule, linker, or export projection should lose confidence or be improved.
+
+---
+
+## 9. End goal
+
+The final target is a semantic Docling output of a complete scientific or technical document such that:
+
+- every block has provenance back to backend evidence;
+- every important relation is explicit or explicitly unresolved;
+- captions, references, footnotes, equations, figures, tables, page numbers, and headers/footers are linked when evidence supports it;
+- every conflict is recorded, not silently resolved;
+- every confidence score can be traced to backend evidence, priors, and ground-truth calibration;
 - the resulting Docling can round-trip to a faithful Markdown or structured representation suitable for ingestion by downstream knowledge systems.
 
-The system is judged not on any individual backend's output but on the robustness of the post-consensus, ground-truth-validated reconstruction.
+The system is judged not on any individual backend's output, but on the robustness of the post-consensus, ground-truth-calibrated reconstruction.
