@@ -10,7 +10,7 @@ The goal is not simply to extract text. The goal is to reconstruct the document 
 
 ## 1. Project goal
 
-`pdf2md` processes different classes of PDF documents:
+`pdf2md` processes different classes of complete PDF documents:
 
 - scanned or image-based PDFs;
 - born-digital PDFs with embedded text;
@@ -42,11 +42,11 @@ The target system is:
 
 ```text
 Complete sequential PDF
-  ├── scanned PDF
-  ├── born-digital PDF with embedded text
-  ├── mixed PDF
-  ├── LaTeX-compiled PDF
-  └── tagged PDF
+  - scanned PDF
+  - born-digital PDF with embedded text
+  - mixed PDF
+  - LaTeX-compiled PDF
+  - tagged PDF
 
   -> input classification
   -> backend extraction
@@ -151,7 +151,45 @@ Successes and failures against the ground-truth corpus are used to calibrate bac
 
 ---
 
-## 7. Document model
+## 7. Robust ensemble OCR and extraction
+
+`pdf2md` is designed as an ensemble system. OCR and document extraction are not delegated to a single backend. Each backend contributes evidence about the same complete document, and that evidence is judged against prior experience from the ground-truth corpus.
+
+The ground-truth corpus is used to measure backend behaviour feature by feature. The system should learn where each backend succeeds and where it fails.
+
+Examples:
+
+```text
+Backend A may be strong on body text but weak on tables.
+Backend B may be strong on formula detection but weak on reading order.
+Backend C may be strong on captions but weak on footnotes.
+The embedded PDF text layer may be reliable for born-digital text but incomplete for figures or scanned regions.
+Tagged PDF structure may be reliable for hierarchy but incomplete for visual layout.
+LaTeXML may be highly reliable for source-known structure but unavailable for ordinary PDFs.
+```
+
+These observations become calibration priors. During consensus, backend outputs are not treated equally in all situations. Their evidence is weighted according to previously observed reliability on similar document features.
+
+The intended learning loop is:
+
+```text
+ground-truth corpus
+  -> backend success/failure measurements
+  -> feature-specific backend confidence
+  -> weighted page-level consensus
+  -> whole-document semantic linking
+  -> Docling output with provenance and confidence
+```
+
+When backends agree, confidence increases. When they disagree, the system uses calibrated priors, document structure, geometry, embedded text, tagged structure, and semantic constraints to select, defer, or mark conflicts explicitly.
+
+This is the reason for maintaining a growing source-known ground-truth corpus. The corpus does not only test the pipeline. It trains the trust model for the ensemble.
+
+The aim is robust OCR and extraction through calibrated agreement, especially for scientific documents containing equations, tables, captions, references, footnotes, and mixed text/image regions.
+
+---
+
+## 8. Document model
 
 The project distinguishes several layers.
 
@@ -231,7 +269,7 @@ pdf2md-specific audit metadata
 
 ---
 
-## 8. Backends
+## 9. Backends
 
 Backends are isolated and interchangeable.
 
@@ -251,7 +289,7 @@ The central pipeline should not depend on one backend being correct. It should u
 
 ---
 
-## 9. Current repository direction
+## 10. Current repository direction
 
 The repository is organised around staged contracts and validation tools.
 
@@ -288,7 +326,7 @@ The project is currently in a late-prototype / early-alpha stage. The core contr
 
 ---
 
-## 10. Local acceptance programme
+## 11. Local acceptance programme
 
 The local acceptance programme validates the system progressively:
 
@@ -307,7 +345,7 @@ Missing tools such as `lualatex`, `latexml`, backend conda environments, CUDA, o
 
 ---
 
-## 11. Typical development flow
+## 12. Typical development flow
 
 Install the central package in the main repository environment:
 
@@ -348,7 +386,7 @@ Backend model execution should happen inside each backend-specific environment, 
 
 ---
 
-## 12. Design principles
+## 13. Design principles
 
 ### Complete document, not loose pages
 
@@ -362,6 +400,10 @@ No backend is assumed to be authoritative. The system records agreement, disagre
 
 The LaTeX-derived ground-truth corpus is expected to expand. Each new fixture increases the ability to test and calibrate the system.
 
+### Robustness comes from calibrated agreement
+
+The system should become more accurate as it observes more successes and failures against ground truth. Backend confidence should be feature-specific, not global.
+
 ### Conflicts are first-class
 
 A conflict should not disappear silently. If a relation, block, table, equation, or reference cannot be resolved safely, the unresolved state is recorded.
@@ -372,7 +414,7 @@ Markdown and RAG outputs are useful, but Docling is the main structured represen
 
 ---
 
-## 13. Repository governance for agents
+## 14. Repository governance for agents
 
 Coding agents should follow the repository plan protocol.
 
@@ -386,7 +428,7 @@ Agent work should not modify files outside the active plan whitelist.
 
 ---
 
-## 14. Status
+## 15. Status
 
 The project has implemented substantial parts of the multi-pipeline architecture:
 
@@ -415,7 +457,7 @@ calibrate backend confidence from observed success and failure
 
 ---
 
-## 15. Licence and contribution policy
+## 16. Licence and contribution policy
 
 This repository is distributed under the licence declared in `LICENSE`.
 
