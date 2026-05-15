@@ -25,7 +25,7 @@ Owner:
 Agent team / human reviewer / local acceptance layer
 
 Sequence:
-Plan 8 of the MVP implementation plan sequence.
+Plan 8 of the pre-MVP implementation sequence, ending at Plan 16.
 
 Previous plan:
 Plan 7 — Local environment and toolchain preflight
@@ -49,7 +49,7 @@ It must verify the readiness of source-known artefacts that already exist on dis
 
 This plan is inspect-only. It does not compile LaTeX, run LuaLaTeX, run LaTeXML, generate new ground truth, run validators, run backends, run calibration, run consensus, run semantic linking, or export Docling from backend output.
 
-It also performs a narrow documentation consistency check to ensure that the remaining legacy documentation files do not contradict ROADMAP.md.
+It also performs a narrow documentation consistency check. That check is limited to legacy documentation, agent governance compatibility, and one README command example that still documents an obsolete validator flag.
 
 The plan answers this question:
 
@@ -141,7 +141,9 @@ In scope:
 7. Write a human-readable validation summary.
 8. Support strict and non-strict modes.
 9. Add minimal fixture corpora for ready, partial, and empty cases.
-10. Perform narrow documentation consistency edits if ROADMAP.md is contradicted by allowed documentation files.
+10. Perform narrow documentation consistency edits if ROADMAP.md or PLAN_TEMPLATE.md is contradicted by allowed documentation files.
+11. Align README.md Section 12 with the inspect-only Plan 8 CLI by removing the obsolete `--run-validator` example flag if present.
+12. Add a narrow compatibility note to agent.md if its older mode/status terminology conflicts with PLAN_TEMPLATE.md for template-based plans.
 
 Out of scope:
 
@@ -159,7 +161,7 @@ Out of scope:
 12. Running Docling export from backend output.
 13. Rewriting generator or validator scripts.
 14. Changing ROADMAP.md.
-15. Changing README.md.
+15. Changing README.md outside Section 12.
 16. Changing project.md.
 17. Changing current_plan.md.
 18. Changing next_plan.md.
@@ -226,14 +228,33 @@ README_latex_docling_groundtruth.md
 docs/docling_layer.md
 history.md
 agent.md
+README.md
 ```
 
-Documentation edits are allowed only to remove direct contradiction with ROADMAP.md, mark legacy material as legacy, or clarify source-of-truth hierarchy. Broad rewriting, style polishing, and new architectural claims are out of scope.
-
-The agent must not modify these files:
+Documentation edit limits:
 
 ```text
-README.md
+README_latex_docling_groundtruth.md:
+  Only to remove direct contradiction with ROADMAP.md or clarify the ground-truth corpus role.
+
+docs/docling_layer.md:
+  Only to mark legacy material as legacy or clarify its relationship to the current canonical Docling export path.
+
+history.md:
+  Only to add or correct completed governance milestones such as ROADMAP.md or PLAN_TEMPLATE.md if missing.
+
+agent.md:
+  Only to add a narrow compatibility note that, for plans written using PLAN_TEMPLATE.md, the PLAN_TEMPLATE.md lifecycle, checkpoints and human-verification rules supersede older status terminology where they conflict.
+
+README.md:
+  Only Section 12, only to align the `tools/local_groundtruth_validate.py` example with the Plan 8 inspect-only CLI by removing obsolete validator/generator flags such as `--run-validator`.
+```
+
+Broad rewriting, style polishing, and new architectural claims are out of scope.
+
+The agent must not modify these files, except where explicitly allowed above:
+
+```text
 ROADMAP.md
 PLAN_TEMPLATE.md
 project.md
@@ -506,7 +527,7 @@ Title:
 Perform narrow documentation consistency check.
 
 Goal:
-Ensure allowed documentation files do not contradict ROADMAP.md.
+Ensure allowed documentation files do not contradict ROADMAP.md, PLAN_TEMPLATE.md, or the inspect-only Plan 8 CLI.
 
 Files allowed:
 
@@ -515,18 +536,21 @@ README_latex_docling_groundtruth.md
 docs/docling_layer.md
 history.md
 agent.md
+README.md
 ```
 
 Implementation requirements:
 
-1. Read each allowed documentation file and compare key claims against ROADMAP.md and project.md.
+1. Read each allowed documentation file and compare key claims against ROADMAP.md, project.md, PLAN_TEMPLATE.md, and this plan.
 2. In `README_latex_docling_groundtruth.md`, ensure ground truth is not described as temporary if ROADMAP.md treats it as the calibration corpus.
 3. In `docs/docling_layer.md`, mark legacy Docling inspection paths as legacy or clarify their relationship to the current canonical export path.
 4. In `history.md`, update only if it omits already-completed roadmap governance milestones such as ROADMAP.md or PLAN_TEMPLATE.md.
-5. In `agent.md`, update only if it contradicts the source-of-truth hierarchy.
-6. Do not perform style-only edits.
-7. Do not edit README.md, project.md, ROADMAP.md, current_plan.md, or next_plan.md.
-8. If no contradictions exist, record “no contradictions found” in the agent report and make no documentation changes.
+5. In `agent.md`, add a narrow compatibility note if older mode, status, run_log, or review terminology conflicts with PLAN_TEMPLATE.md for template-based plans.
+6. In `README.md`, edit only Section 12 to ensure the `tools/local_groundtruth_validate.py` example matches the inspect-only Plan 8 CLI and does not include `--run-validator`, generator, compiler, or validator flags.
+7. Do not perform style-only edits.
+8. Do not edit README.md outside Section 12.
+9. Do not edit project.md, ROADMAP.md, current_plan.md, or next_plan.md.
+10. If no contradictions exist, record “no contradictions found” in the agent report and make no documentation changes.
 
 Automated tests required:
 
@@ -824,7 +848,7 @@ Any text editor or git diff tool.
 Command:
 
 ```bash
-git diff -- README_latex_docling_groundtruth.md docs/docling_layer.md history.md agent.md
+git diff -- README.md README_latex_docling_groundtruth.md docs/docling_layer.md history.md agent.md
 ```
 
 Verification procedure:
@@ -834,30 +858,39 @@ Verification procedure:
    source-of-truth hierarchy,
    legacy Docling layer clarification,
    ground-truth corpus role,
-   history update for ROADMAP.md or PLAN_TEMPLATE.md.
-3. Confirm there are no broad style-only rewrites.
-4. Search for outdated claims:
+   history update for ROADMAP.md or PLAN_TEMPLATE.md,
+   PLAN_TEMPLATE.md compatibility note in agent.md,
+   README.md Section 12 CLI alignment.
+3. Confirm README.md changes, if any, are limited to Section 12 and remove obsolete validator/generator flags from the `tools/local_groundtruth_validate.py` example.
+4. Confirm agent.md changes, if any, are limited to a compatibility note for PLAN_TEMPLATE.md-based plans.
+5. Confirm there are no broad style-only rewrites.
+6. Search for outdated claims:
 
 ```bash
-grep -R "PDF-to-Markdown only\|scanned image PDFs only\|Docling later\|semantic_document.json is canonical\|temporary ground truth" README_latex_docling_groundtruth.md docs/docling_layer.md history.md agent.md
+grep -R "PDF-to-Markdown only\|scanned image PDFs only\|Docling later\|semantic_document.json is canonical\|temporary ground truth\|--run-validator" README.md README_latex_docling_groundtruth.md docs/docling_layer.md history.md agent.md
 ```
 
-5. Confirm either no matches exist, or matches are explicitly marked as legacy or non-canonical.
+7. Confirm either no matches exist, or matches are explicitly marked as legacy, non-canonical, or outside the Plan 8 local_groundtruth_validate.py example.
 
 Pass criteria:
 
 ```text
 Documentation changes are narrow.
-No allowed doc contradicts ROADMAP.md.
+No allowed doc contradicts ROADMAP.md, project.md, PLAN_TEMPLATE.md, or the Plan 8 CLI.
 Legacy paths are marked as legacy or non-canonical.
-No README.md, ROADMAP.md, project.md, current_plan.md, or next_plan.md change is included.
+README.md changes, if any, are limited to Section 12.
+README.md Section 12 no longer documents --run-validator for tools/local_groundtruth_validate.py.
+agent.md has no unqualified contradiction with PLAN_TEMPLATE.md for template-based plans.
+No ROADMAP.md, project.md, current_plan.md, or next_plan.md change is included.
 ```
 
 Fail criteria:
 
 ```text
 Documentation diff contains broad rewrites.
-A doc still contradicts ROADMAP.md.
+A doc still contradicts ROADMAP.md or PLAN_TEMPLATE.md.
+README.md is changed outside Section 12.
+README.md still documents --run-validator for tools/local_groundtruth_validate.py.
 A canonical claim points to an obsolete path.
 Forbidden documentation files are modified.
 ```
@@ -1104,10 +1137,12 @@ Reviewer checklist:
 14. Did non-strict mode write a report even when corpus is incomplete?
 15. Did strict mode fail when corpus_ready is false?
 16. Did documentation edits stay narrow?
-17. Is Plan 9 clearly identified as the next plan?
-18. Is it safe to mark this plan human_verified?
-19. Is it safe to promote the next plan?
-20. Is ROADMAP.md progress allowed to change?
+17. Were README.md edits, if any, limited to Section 12 and CLI flag alignment?
+18. Was agent.md updated only with a PLAN_TEMPLATE.md compatibility note, if needed?
+19. Is Plan 9 clearly identified as the next plan?
+20. Is it safe to mark this plan human_verified?
+21. Is it safe to promote the next plan?
+22. Is ROADMAP.md progress allowed to change?
 
 Status history:
 
