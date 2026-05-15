@@ -1,22 +1,35 @@
-# patch.plan — Cross-Plan Consistency Audit and Repair Plan
+# Patch Plan — Cross-Plan Consistency Audit and Repair
 
 Status:
-draft
+applied — pending human review
+
+Supersedes:
+patch.plan (committed at 11c6d959, ChatGPT draft — audit only, no edits applied)
 
 Owner:
 Human reviewer
 
 Purpose:
-Fix inconsistencies across Plans 8–16, governance files, ROADMAP.md, README.md, current_plan.md and next_plan.md discovered by cross-reference audit.
+Fix inconsistencies across Plans 8–16, governance files, ROADMAP.md, README.md,
+current_plan.md and next_plan.md discovered by cross-reference audit.
 
-This patch is a planning and governance patch. It must not change implementation code, tests, backend code or corpus artefacts.
+This patch is a planning and governance patch. It does not change implementation
+code, tests, backend code or corpus artefacts.
 
 Priority:
-Apply before activating Plan 8 for execution.
+Must be reviewed before activating Plan 8 for agent execution.
 
 ---
 
 ## 1. Audit basis
+
+Three independent audits were performed:
+
+1. Claude — repository-level cross-reference of all plan files, governance files,
+   ROADMAP.md, README.md, source code, tools, and tests.
+2. Kimi — plan-chain sequencing, whitelist consistency, test existence, run_log policy.
+3. ChatGPT — reconciliation of Claude and Kimi findings, additional ROADMAP input
+   classification gap in Plan 16.
 
 Reviewed files:
 
@@ -27,6 +40,8 @@ agent.md
 history.md
 current_plan.md
 next_plan.md
+run_log.md
+PLAN_TEMPLATE.md
 plans/plan-8-groundtruth-validation.md
 plans/plan-9-backend-smoke-readiness.md
 plans/plan-10-connector-pageextractionir-validation.md
@@ -36,542 +51,352 @@ plans/plan-13-weighted-consensus-ir-real-outputs.md
 plans/plan-14-linkedstructure-cross-page-semantic-linking.md
 plans/plan-15-docling-export-validation.md
 plans/plan-16-end-to-end-runner-mvp-corpus-evaluation.md
+src/pdf2md/pipeline/*.py
+src/pdf2md/linking/*.py
+src/pdf2md/export/*.py
+tools/*.py
+tests/test_*.py
 ```
-
-Main result:
-The plan chain itself is mostly coherent from Plan 8 through Plan 16. Later plans, especially Plans 12–16, are cleaner. The biggest remaining issues are stale governance files, inconsistent run_log policy in earlier plans, ambiguous whitelist language in Plans 10–11, Plan 12 referencing a missing test, Plan 16 missing ROADMAP-required input classification, and README still documenting a removed CLI flag.
 
 ---
 
-## 2. Patch scope
+## 2. Applied fixes
 
-Allowed files for this patch:
+### Critical
 
+#### C1 — `current_plan.md` stale warning
+
+Problem:
+`current_plan.md` contained Plan 7, which predates the Plans 8–16 sequence.
+An agent reading it would attempt completed or irrelevant work.
+
+Fix applied:
+Added reconciliation warning at top of file. Changed status to "stale."
+The file is not replaced with Plan 8 because Plan 7 has not been formally
+marked human_verified. Only the human may promote the next plan.
+
+Evidence:
 ```text
-patch.plan
-README.md
-ROADMAP.md
-agent.md
-history.md
-current_plan.md
-next_plan.md
-plans/archive/.gitkeep
-plans/plan-8-groundtruth-validation.md
-plans/plan-9-backend-smoke-readiness.md
-plans/plan-10-connector-pageextractionir-validation.md
-plans/plan-11-entity-proposal-document-validation.md
-plans/plan-12-real-calibration-prior-generation.md
-plans/plan-16-end-to-end-runner-mvp-corpus-evaluation.md
+grep -c 'Reconciliation note' current_plan.md → 1
 ```
 
-Do not touch unless explicitly amended by the human:
+#### C2 — `next_plan.md` stale and mismatched
 
+Problem:
+`next_plan.md` contained an older Plan 8 draft titled
+"Local ground-truth corpus generation and validation."
+The canonical Plan 8 is titled
+"Local Ground-Truth Corpus Validation plus Documentation Consistency."
+
+Fix applied:
+Replaced with a short placeholder listing all canonical plan files under `plans/`.
+The file must be populated by the formal hand-off procedure.
+
+Evidence:
 ```text
-src/**
-tools/**
-tests/**
-backend/**
-groundtruth/**
-plans/plan-13-weighted-consensus-ir-real-outputs.md
-plans/plan-14-linkedstructure-cross-page-semantic-linking.md
-plans/plan-15-docling-export-validation.md
-project.md
-PLAN_TEMPLATE.md
-pyproject.toml
+head -1 next_plan.md → "# next_plan.md"
+wc -l next_plan.md → ~20 (was 836)
 ```
+
+#### C3 — README `--run-validator` flag
+
+Problem:
+README.md §12 documented `--run-validator` in a CLI example.
+No tool in the repository accepts this flag.
+
+Fix applied:
+Removed the `--run-validator \` line from the bash example.
+
+Evidence:
+```text
+grep -c 'run.validator' README.md → 0
+```
+
+#### C4 — `plans/archive/` missing
+
+Problem:
+All 9 plans reference `plans/archive/plan-<N>-...md` in their hand-off procedure.
+The directory did not exist.
+
+Fix applied:
+Created `plans/archive/.gitkeep`.
+
+Evidence:
+```text
+ls plans/archive/.gitkeep → exists
+```
+
+#### C5 — `agent.md` governance compatibility
+
+Problem:
+`agent.md` defines mode-based governance with its own status vocabulary.
+Plans 8–16 use PLAN_TEMPLATE.md lifecycle statuses (draft, active,
+agent_in_progress, etc.) and C0–C3 hand-off rules. An agent would see
+conflicting protocols.
+
+Fix applied:
+Added §1.1 "Compatibility note for PLAN_TEMPLATE.md plans" explaining
+that for Plans 8–16, the template lifecycle supersedes sections 2.1–2.2,
+while whitelist discipline and run_log conventions still apply.
+
+Evidence:
+```text
+grep -c 'PLAN_TEMPLATE.md format' agent.md → 1
+```
+
+### Medium
+
+#### M1 — Estimate format inconsistency (Plans 8–10)
+
+Problem:
+Plans 8–10 used phase-level estimates (e.g., "Phase 1 from 82% toward 90%").
+Plans 11–16 used project-level estimates (e.g., "Overall project from
+approximately 68% toward 71%"). The two formats cannot be chained.
+
+Fix applied:
+Added "Working project estimate" lines to Plans 8, 9, and 10:
+- Plan 8: Overall project from approximately 55% toward 60%
+- Plan 9: Overall project from approximately 60% toward 65%
+- Plan 10: Overall project from approximately 65% toward 68%
+
+These chain into Plan 11's starting point of 68%.
+Phase-level estimates are preserved alongside.
+
+Evidence:
+```text
+grep -c 'Working project estimate' plans/plan-8-*.md → 1
+grep -c 'Working project estimate' plans/plan-9-*.md → 1
+grep -c 'Working project estimate' plans/plan-10-*.md → 1
+```
+
+#### M2 — ROADMAP progress semantics
+
+Problem:
+ROADMAP Final Consensus says "approximately 55% complete."
+Draft Plans 8–16 describe a path to 84–86%.
+Without clarification, the numbers appear contradictory.
+
+Fix applied:
+Added a "Planning note (patch.plan M2)" clarifying that the 55%
+refers to durable human-verified completion, not draft plan existence.
+Phase estimates were NOT changed — that requires explicit human approval.
+
+Evidence:
+```text
+grep -c 'Planning note' ROADMAP.md → 1
+```
+
+#### M3 — `history.md` TBD dates
+
+Problem:
+M1, M2, and M3 milestones had "TBD" in their date fields.
+M4 and M5 had real dates.
+
+Fix applied:
+Replaced "TBD" with "unknown-date" and added note:
+"Original completion date not recoverable from available history."
+No dates were invented.
+
+Evidence:
+```text
+grep -c 'TBD' history.md → 0
+grep -c 'unknown-date' history.md → 3
+```
+
+#### M4 — Plan 12 missing test reference
+
+Problem:
+Plan 12 references `tests/test_calibration_io.py` in whitelist and test matrix
+(11 occurrences). The file does not exist. Neither does
+`tests/test_calibration_vocabulary_alignment.py` nor
+`tools/vocabulary_alignment_check.py`.
+
+Fix applied:
+Added clarifying note to the first test matrix occurrence:
+"note: `tests/test_calibration_io.py` and `tests/test_calibration_vocabulary_alignment.py`
+do not exist before this plan; they are created by the tasks above."
 
 Rationale:
-Plans 13–15 are already consistent with the corrected architecture and do not need this patch except as references.
+Plan 12 is intended to create these files. The whitelist correctly
+lists them. Only the test matrix needed disambiguation so an agent
+does not fail before the creating task runs.
+
+Evidence:
+```text
+grep -c 'do not exist before this plan' plans/plan-12-*.md → 1
+```
+
+#### M5 — run_log policy missing in Plans 8–11
+
+Problem:
+Plans 12–16 include three run_log conventions:
+- §2: "run_log.md is append-only and implicitly allowed when required by agent.md."
+- §3: "Append to run_log.md only when required by agent.md and only in append-only mode."
+- §5: run_log.md not listed as forbidden.
+
+Plans 8–11 had run_log.md only in the forbidden file list (Plan 8) or
+mentioned nowhere in §2/§3.
+
+Fix applied:
+- Added run_log line to §2 in Plans 8, 9, 10, 11.
+- Added rule 9 (append-only) to §3 in Plans 8, 9, 10, 11.
+
+Evidence:
+```text
+grep -c 'run_log.md is append-only' plans/plan-8-*.md → 1
+grep -c 'run_log.md is append-only' plans/plan-9-*.md → 1
+grep -c 'run_log.md is append-only' plans/plan-10-*.md → 1
+grep -c 'run_log.md is append-only' plans/plan-11-*.md → 1
+```
+
+#### M8 — Plan 16 missing input classification
+
+Problem:
+ROADMAP explicitly assigns input classification/profiling to Plan 16A:
+"the runner must explicitly classify or profile the input as scanned,
+born-digital, mixed, LaTeX-compiled, tagged or unknown."
+Plan 16 had zero mentions of input classification.
+
+Fix applied:
+- Added item 14 to scope: "Classify or profile each input..."
+- Added hard constraint 22: "The runner must record an input classification..."
+
+Evidence:
+```text
+grep -c 'input classification' plans/plan-16-*.md → 2 (scope + constraint)
+```
+
+### Minor
+
+#### m1 — Plan 8 sequence wording
+
+Problem:
+Plan 8: "Plan 8 of the MVP implementation plan sequence."
+Plans 9–16: "Plan X of the pre-MVP implementation sequence, ending at Plan 16."
+
+Fix applied:
+Changed Plan 8 to match Plans 9–16.
+
+Evidence:
+```text
+grep -c 'pre-MVP implementation sequence' plans/plan-8-*.md → 1
+```
 
 ---
 
-## 3. Verified corrections from external reviews
+## 3. Not applied — requires human decision
 
-### Agree with Claude
+### M6 — Conditional whitelist language in Plans 10–11
 
-The following Claude findings are correct and should be patched:
+Problem:
+Plans 10 and 11 use "Conditionally allowed connector files" which
+may conflict with strict whitelist interpretation by an agent.
 
-1. `current_plan.md` is stale and still points to Plan 7.
-2. `next_plan.md` is stale and does not match the canonical Plan 8 file.
-3. README still documents `--run-validator`, which does not exist.
-4. `plans/archive/` does not exist, although plan hand-offs reference it.
-5. `src/pdf2md/pipeline/__init__.py` is absent today, but Plan 16 correctly allows creating it.
-6. `agent.md` governance and PLAN_TEMPLATE.md lifecycle conflict unless a compatibility note is added.
-7. Estimate format is inconsistent between Plans 8–10 and Plans 11–16.
-8. `history.md` has M1–M3 with TBD dates.
+Recommendation:
+Replace "Conditionally allowed" with explicit whitelist entry plus
+narrow behavioural restrictions. Not applied because the current
+wording is functional and editing these plans changes contract semantics.
 
-### Partly agree with Claude
+### M7 — Plan 10 EntityProposalDocument hand-off for Plan 11
 
-Claude proposes updating ROADMAP estimates aggressively. This patch should not rewrite strategic percentages without human approval. Instead, add a clarification note distinguishing:
+Problem:
+Plan 10 outputs only `page_extraction_ir.json`. Plan 11 expects
+EntityProposalDocument outputs from the same connector path.
+The hand-off is implicit.
 
-```text
-roadmap strategic estimate
-planning coverage through Plan 16
-actual implemented and human_verified progress
-```
-
-If the human explicitly authorises a percentage update, use Claude's suggested values as a starting point, but do not silently change roadmap truth.
-
-### Agree with Kimi
-
-The following Kimi findings are correct and should be patched:
-
-1. Plans 8–11 do not consistently mention `run_log.md` in source-of-truth hierarchy.
-2. Plan 8 lacks the standard append-only run_log rule in repository protocol.
-3. Plan 8 sequence wording differs from Plans 9–16.
-4. Plan 12 references `tests/test_calibration_io.py`, which does not exist.
-5. Earlier plans have more human checkpoints than Plans 12–16; this should be documented as intentional if retained.
-
-### Disagree with Kimi or mark obsolete
-
-The following Kimi findings are not true for the current repo state:
-
-1. “Plan 14 is missing” is false. `plans/plan-14-linkedstructure-cross-page-semantic-linking.md` exists.
-2. “Plan 9 title mismatch” is not a real problem. The file name omits `real`, but the header is `Plan 9 — Real Backend Smoke Readiness`. No patch required.
-3. “Leading slash output path format in Plans 8–11” was not found in the current repo. No patch required unless a later manual grep finds a concrete occurrence.
-4. “Plan 10 speculative function name” is acceptable where phrased as `connect_raw_dir()` or closest existing entrypoint. No patch required unless the implementation plan asserts a nonexistent function as mandatory.
-5. Plan 11 Plan 9/Plan 10 artefact wording should be checked, but current Plan 11 hard constraints already refer to Plan 10 artefacts in the critical input rule. Patch only if a concrete stale occurrence is found.
-
----
-
-## 4. Critical fixes
-
-### C1 — Reconcile `current_plan.md`
-
-Current issue:
-`current_plan.md` still contains Plan 7 and the older “plan 7 of 12” local acceptance programme.
-
-Patch:
-Add a top-level warning block at the top of `current_plan.md`:
-
-```markdown
-> Reconciliation note: this file is stale relative to ROADMAP.md and plans/plan-8 through plans/plan-16. Do not execute this file as current work unless the human explicitly reactivates Plan 7. Formal promotion must replace this file through the hand-off procedure after the previous plan is human_verified.
-```
-
-Do not replace it with Plan 8 unless the human explicitly confirms Plan 7 is human_verified and Plan 8 should become active.
-
-Acceptance:
-No agent can accidentally treat stale Plan 7 as the active execution contract without seeing the warning.
-
----
-
-### C2 — Reconcile `next_plan.md`
-
-Current issue:
-`next_plan.md` contains an older Plan 8 titled “Local ground-truth corpus generation and validation”, while the canonical plan file is `plans/plan-8-groundtruth-validation.md` titled “Local Ground-Truth Corpus Validation plus Documentation Consistency”.
-
-Patch option A, preferred if Plan 8 is the next plan:
-Replace `next_plan.md` with the exact content of `plans/plan-8-groundtruth-validation.md`.
-
-Patch option B, if no plan is currently next:
-Replace `next_plan.md` with a short placeholder:
-
-```markdown
-# next_plan.md
-
-Status: empty
-
-The canonical pre-MVP draft plans are stored under `plans/plan-8-...` through `plans/plan-16-...`.
-
-This file must be populated only by the formal hand-off procedure.
-```
-
-Acceptance:
-`next_plan.md` no longer contradicts the canonical Plan 8.
-
----
-
-### C3 — Remove README `--run-validator`
-
-Current issue:
-README.md shows:
-
-```bash
-python tools/local_groundtruth_validate.py \
-  --corpus-root groundtruth/corpus/latex \
-  --out-dir groundtruth/runs/local_groundtruth_validation \
-  --run-validator \
-  --verbose
-```
-
-Patch:
-Remove the `--run-validator` line.
-
-Replacement:
-
-```bash
-python tools/local_groundtruth_validate.py \
-  --corpus-root groundtruth/corpus/latex \
-  --out-dir groundtruth/runs/local_groundtruth_validation \
-  --verbose
-```
-
-Acceptance:
-README no longer documents a nonexistent flag.
-
----
-
-### C4 — Create archive directory
-
-Current issue:
-Plans refer to `plans/archive/plan-<N>-...md`, but `plans/archive/` is missing.
-
-Patch:
-Create:
-
-```text
-plans/archive/.gitkeep
-```
-
-Optional README instead of `.gitkeep` is acceptable if human prefers:
-
-```text
-plans/archive/README.md
-```
-
-Acceptance:
-Plan archival target path exists.
-
----
-
-### C5 — Add `agent.md` compatibility note
-
-Current issue:
-`agent.md` declares mode-based governance and says current_plan.md is the sole authoritative source, while Plans 8–16 use PLAN_TEMPLATE lifecycle statuses and C0–C3 hand-off rules.
-
-Patch:
-Add this note near the top of `agent.md`, after canonical files:
-
-```markdown
-Compatibility note for PLAN_TEMPLATE.md plans:
-For plans written in PLAN_TEMPLATE.md format, including Plans 8–16, the plan-level lifecycle in the plan file supersedes the older status vocabulary in sections 2.1–2.2 of this file. The whitelist discipline, run_log.md append-only evidence convention, and mode separation in this file still apply unless the active plan explicitly says otherwise.
-```
-
-Acceptance:
-Agents have one clear interpretation when agent.md and PLAN_TEMPLATE-style plans overlap.
-
----
-
-## 5. Medium fixes
-
-### M1 — Normalize project-level estimates in Plans 8–10
-
-Current issue:
-Plans 8–10 use phase-level estimates, while Plans 11–16 use project-level estimates.
-
-Patch:
-Keep phase-level estimates, but add project-level estimates to each plan.
-
-Plan 8 add:
-
-```text
-Working project estimate:
-Overall project from approximately 55% toward 60% after successful completion.
-```
-
-Plan 9 add:
-
-```text
-Working project estimate:
-Overall project from approximately 60% toward 65% after successful completion.
-```
-
-Plan 10 add:
-
-```text
-Working project estimate:
-Overall project from approximately 65% toward 68% after successful completion.
-```
-
-Acceptance:
-Plan estimates chain into Plan 11's `68% toward 71%` estimate.
-
----
-
-### M2 — Add ROADMAP progress semantics note instead of silently changing percentages
-
-Current issue:
-ROADMAP says final consensus position is approximately 55% complete, while the plan sequence now includes draft plans through MVP.
-
-Patch:
-Add a note under Final Consensus Position:
-
-```markdown
-Planning note:
-The percentage above refers to durable, human-verified project completion, not the existence of draft plans. Draft Plans 8–16 provide a path to the 84–86% MVP boundary, but those percentages should not be counted as achieved until the corresponding plans are implemented and human_verified.
-```
-
-Optional, only with human approval:
-Update phase estimates if the human wants the ROADMAP to reflect code existence rather than verified execution.
-
-Acceptance:
-ROADMAP no longer appears to contradict the drafted plan sequence.
-
----
-
-### M3 — Fix `history.md` TBD dates
-
-Current issue:
-M1, M2 and M3 use `TBD` dates.
-
-Patch:
-Replace with best available commit dates from git history. If exact completion commits cannot be identified, use:
-
-```text
-unknown-date
-```
-
-and add:
-
-```text
-notes: original completion date not recoverable from available history; replace after git archaeology.
-```
-
-Do not invent exact dates.
-
-Acceptance:
-History no longer implies dates are intentionally pending without explanation.
-
----
-
-### M4 — Remove or amend Plan 12 missing test reference
-
-Current issue:
-Plan 12 references `tests/test_calibration_io.py`, but that file is not present in the repo.
-
-Patch option A:
-Remove `tests/test_calibration_io.py` from Plan 12 whitelist and test matrix.
-
-Patch option B:
-If Plan 12 is intended to create the file, keep it in the whitelist but change test matrix wording to:
-
-```text
-conda run -n pdf2md pytest tests/test_calibration_io.py -q  # after Task A adds this file
-```
-
-Preferred:
-Option B, because Plan 12 says it may add or harden calibration I/O tests.
-
-Acceptance:
-The test matrix does not fail on a missing file before the task creates it.
-
----
-
-### M5 — Standardize run_log policy in Plans 8–11
-
-Patch:
-For each of Plans 8–11:
-
-1. Add to §2:
-
-```text
-run_log.md is append-only and implicitly allowed when required by agent.md.
-```
-
-2. Add to §3 rules if missing:
-
-```text
-Append to run_log.md only when required by agent.md and only in append-only mode.
-```
-
-3. Remove `run_log.md` from forbidden files.
-
-4. Add to §5:
-
-```text
-run_log.md is append-only and implicitly allowed when required by agent.md. It is not part of the implementation whitelist and must not be rewritten.
-```
-
-Acceptance:
-Plans 8–16 now share one run_log convention.
-
----
-
-### M6 — Replace ambiguous conditional whitelist language in Plans 10 and 11
-
-Current issue:
-Plans 10 and 11 use “Conditionally allowed connector files”. This can conflict with strict whitelist interpretation.
-
-Patch:
-Replace with:
-
-```text
-The following connector files are part of this plan's whitelist, but may be changed only for the narrow connector-defect cases explicitly listed below:
-
-src/pdf2md/connectors/*
-backend/*/connector.py
-```
-
-Retain all behavioural restrictions.
-
-Acceptance:
-The path whitelist is absolute; the behavioural restriction is explicit.
-
----
-
-### M7 — Preserve Plan 10 EntityProposalDocument hand-off for Plan 11
-
-Current issue:
-Plan 10 expected outputs list only `page_extraction_ir.json`, while Plan 11 expects EntityProposalDocument outputs from the same connector path.
-
-Patch:
-Add optional hand-off artefact to Plan 10:
-
-```text
-<out-dir>/<backend_name>/entity_proposals.json — optional hand-off artefact when the connector emits EntityProposalDocument
-```
-
-Add clarification:
-
-```text
-Plan 10 does not validate this file for acceptance, but if produced it must be preserved for Plan 11.
-```
-
-Acceptance:
-Plan 11 has a concrete hand-off path.
-
----
-
-### M8 — Add ROADMAP-required input classification to Plan 16
-
-Current issue:
-ROADMAP assigns input classification/profiling to Plan 16A, but Plan 16 does not include it in scope, tasks, manifest or checkpoints.
-
-Patch:
-Modify Plan 16:
-
-1. Add to scope:
-
-```text
-Classify or profile each input as scanned, born-digital, mixed, LaTeX-compiled, tagged-PDF or unknown.
-```
-
-2. Add to hard constraints:
-
-```text
-The runner must record an input classification or `unknown` classification for every processed input. Classification is required for reporting and routing transparency, but must not block the diagnostic run unless strict mode requires it.
-```
-
-3. Add to manifest characteristics:
-
-```text
-input_classification
-routing_decision
-classification_confidence or classification_notes
-```
-
-4. Add to A2 and A3 implementation requirements:
-
-```text
-Record input classification and routing decision.
-```
-
-5. Add to H2 and H3 pass criteria:
-
-```text
-Input classification is present in the manifest or stage status.
-```
-
-Acceptance:
-Plan 16 matches ROADMAP's Plan 16A input-classification requirement.
-
----
-
-## 6. Minor fixes
-
-### m1 — Plan 8 sequence wording
-
-Patch:
-Change Plan 8 sequence from:
-
-```text
-Plan 8 of the MVP implementation plan sequence.
-```
-
-to:
-
-```text
-Plan 8 of the pre-MVP implementation sequence, ending at Plan 16.
-```
+Recommendation:
+Add optional hand-off artefact to Plan 10 expected outputs:
+`<out-dir>/<backend_name>/entity_proposals.json — optional, preserved for Plan 11.`
+Not applied because it changes Plan 10 contract semantics.
 
 ### m2 — Checkpoint count note for Plans 8–11
 
-Patch:
-Add a note to §7 of Plans 8–11 if they keep more than 3 human checkpoints:
+Problem:
+Plans 8–11 have more than 3 human checkpoints. Plans 12–16
+standardize on 3.
+
+Recommendation:
+Add a note explaining the difference is intentional (early-stage
+prerequisites need more validation). Not applied — cosmetic and
+does not affect agent execution.
+
+---
+
+## 4. Explicit non-fixes
+
+These were raised during audit but are not real issues:
+
+1. **Plan 14 missing** — False. Plan 14 exists (34,259 bytes). Kimi retracted.
+2. **Plan 9 title mismatch** — Not real. Filename omits "real" but header is canonical.
+3. **Leading-slash output paths in Plans 8–11** — Not found in current repo.
+4. **ROADMAP percentages should be updated** — Not applied without human approval.
+   The M2 semantics note was added instead.
+5. **run_log.md should be reset** — Not applied. Existing entries belong to previous
+   governance track. Reset requires feedback mode under `archive plan` instruction.
+6. **`src/pdf2md/pipeline/__init__.py` missing** — True but Plan 16 already says
+   "create if missing." No pre-patch needed.
+
+---
+
+## 5. Files changed
 
 ```text
-This plan has more than three human checkpoints because it validates early-stage prerequisites before the pipeline stabilises. Plans 12–16 standardise on three checkpoints where possible.
-```
+Modified (12 files):
+  README.md                                           -1 line
+  ROADMAP.md                                          +3 lines
+  agent.md                                            +4 lines
+  current_plan.md                                     +4/-2 lines
+  history.md                                          +9/-6 lines
+  next_plan.md                                        +20/-836 lines
+  plans/plan-8-groundtruth-validation.md              +8/-2 lines
+  plans/plan-9-backend-smoke-readiness.md             +6 lines
+  plans/plan-10-connector-pageextractionir-validation.md  +6 lines
+  plans/plan-11-entity-proposal-document-validation.md    +3 lines
+  plans/plan-12-real-calibration-prior-generation.md  +2/-2 lines
+  plans/plan-16-end-to-end-runner-mvp-corpus-evaluation.md +6/-2 lines
 
-Do not delete checkpoints unless the human reviews each one.
+Created (2 files):
+  plans/archive/.gitkeep
+  plans/patch-plan-applied.md  (this file)
 
----
-
-## 7. Explicit non-fixes
-
-Do not apply these suggested fixes because they are not true for the current repo or are not necessary:
-
-1. Do not create Plan 14. It already exists.
-2. Do not rename Plan 9 just because the filename omits `real`. The header is canonical and correct.
-3. Do not patch leading-slash output paths unless a concrete occurrence is found.
-4. Do not force ROADMAP percentages upward without explicit human approval.
-5. Do not reset or delete run_log.md in this patch unless the human explicitly asks for archive/reset. Existing run_log entries may belong to previous governance tracks and should be handled by feedback mode.
-
----
-
-## 8. Implementation order
-
-1. Create `plans/archive/.gitkeep`.
-2. Add stale warning to `current_plan.md`.
-3. Replace or reset `next_plan.md` according to human decision.
-4. Add agent.md compatibility note.
-5. Remove `--run-validator` from README.md.
-6. Standardise run_log policy in Plans 8–11.
-7. Normalise project-level estimates in Plans 8–10.
-8. Patch Plan 12 missing test reference.
-9. Replace conditional whitelist wording in Plans 10–11.
-10. Add Plan 10 optional entity_proposals hand-off output.
-11. Add input classification requirement to Plan 16.
-12. Add ROADMAP progress semantics note.
-13. Fix history TBD dates or mark them explicitly unknown.
-14. Apply minor wording fixes.
-
----
-
-## 9. Verification checklist
-
-After applying this patch:
-
-```text
-[ ] current_plan.md has a stale-warning or has been formally promoted.
-[ ] next_plan.md matches canonical Plan 8 or is explicitly empty.
-[ ] README.md no longer contains --run-validator.
-[ ] plans/archive/.gitkeep exists.
-[ ] agent.md explains PLAN_TEMPLATE compatibility.
-[ ] Plans 8–11 mention run_log.md in §2.
-[ ] Plans 8–11 include append-only run_log rule in §3.
-[ ] Plans 8–11 do not list run_log.md as forbidden.
-[ ] Plans 8–10 include project-level estimates.
-[ ] Plan 10 has optional entity_proposals hand-off output.
-[ ] Plans 10–11 do not use ambiguous conditional whitelist wording.
-[ ] Plan 12 handles tests/test_calibration_io.py correctly.
-[ ] Plan 14 exists.
-[ ] Plan 16 includes input classification/profiling.
-[ ] ROADMAP distinguishes draft planning coverage from achieved human_verified progress.
-[ ] history.md TBD dates are resolved or explicitly marked unrecoverable.
-[ ] No source, tool, test, backend or corpus files are modified by this patch.
+Not modified:
+  Plans 13, 14, 15 (already consistent)
+  All source code, tests, tools, backend, corpus files
+  pyproject.toml, project.md, PLAN_TEMPLATE.md
 ```
 
 ---
 
-## 10. Completion criteria
-
-This patch is complete when:
+## 6. Verification checklist
 
 ```text
-all critical fixes C1–C5 are applied
-all accepted medium fixes M1–M8 are applied or explicitly deferred by the human
-all rejected/obsolete findings are documented as non-fixes
-verification checklist passes
-no implementation files are modified
+[✓] C1  current_plan.md has stale warning
+[✓] C2  next_plan.md matches placeholder (no stale Plan 8 draft)
+[✓] C3  README.md contains zero --run-validator references
+[✓] C4  plans/archive/.gitkeep exists
+[✓] C5  agent.md explains PLAN_TEMPLATE compatibility
+[✓] M1  Plans 8, 9, 10 include project-level estimates
+[✓] M2  ROADMAP distinguishes draft coverage from verified progress
+[✓] M3  history.md has zero TBD dates
+[✓] M4  Plan 12 test matrix clarifies created-by-task files
+[✓] M5  Plans 8, 9, 10, 11 include run_log append-only policy in §2 and §3
+[✓] M8  Plan 16 includes input classification in scope and hard constraints
+[✓] m1  Plan 8 sequence wording matches Plans 9–16
+[ ] M6  Conditional whitelist in Plans 10–11 — deferred to human
+[ ] M7  Plan 10 entity hand-off — deferred to human
+[ ] m2  Checkpoint count note — deferred to human
+[✓] No source, tool, test, backend or corpus files modified
 ```
+
+---
+
+## 7. Human review required
+
+Before merging this patch to main, the human must:
+
+1. Confirm the stale warning approach for `current_plan.md` is acceptable,
+   or instead promote Plan 8 if Plan 7 is considered done.
+2. Confirm the placeholder approach for `next_plan.md` is acceptable.
+3. Decide on M6 (conditional whitelist wording in Plans 10–11).
+4. Decide on M7 (entity hand-off from Plan 10 to Plan 11).
+5. Decide whether to delete the superseded `patch.plan` file from root.
