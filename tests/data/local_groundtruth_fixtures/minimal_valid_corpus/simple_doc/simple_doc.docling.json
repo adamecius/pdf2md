@@ -1,0 +1,10 @@
+{
+  "schema_name": "DoclingDocument",
+  "version": "1.0.0",
+  "name": "simple_doc",
+  "texts": [
+    {"self_ref": "#/texts/0", "label": "section_header", "text": "Introduction"},
+    {"self_ref": "#/texts/1", "label": "text", "text": "A simple ground-truth fixture document with one equation."}
+  ],
+  "body": {"self_ref": "#/body", "children": [{"$ref": "#/texts/0"}, {"$ref": "#/texts/1"}]}
+}

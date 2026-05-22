@@ -51,3 +51,30 @@ Append-only log of completed milestones. Edited only by feedback mode under the 
 - tests_passed_human: [`PR accepted by human feedback on 2026-05-07`]
 - key_artifacts: [`src/pdf2md/consensus/grouping.py`, `src/pdf2md/consensus/scoring.py`, `src/pdf2md/consensus/factory.py`, `src/pdf2md/consensus/io.py`, `src/pdf2md/consensus/reporting.py`, `tools/build_consensus.py`, `tests/data/consensus_fixtures/*`, `tests/test_consensus_grouping.py`, `tests/test_consensus_scoring.py`, `tests/test_consensus_factory.py`, `tests/test_build_consensus_cli.py`]
 - notes: Plan archival was performed after human feedback accepted the PR and asked to close the current plan. The only recorded environment limitation was that `git diff --name-only main..HEAD` could not run in the checkout because no `main` ref existed; committed files were otherwise kept within the Plan 4 whitelist.
+
+## M6 — 2026-05-22 — Plan 5: LinkedStructure semantic linking
+
+- goal: build a document-level LinkedStructure from ConsensusIR, EntityProposalDocument, and CalibrationPriorDocument inputs, with cross-page semantic linking, resolvers, and an audit report.
+- archived_plan_summary: added the `pdf2md.linking` package (extraction, resolvers, builder, reporting, I/O) and the `LinkedStructure` model, plus the `tools/build_linked_structure.py` CLI. Implemented and reworked across run_log PR #1 and PR #2.
+- tests_passed_automated: [`pytest tests/test_linked_structure_contracts.py -q`, `pytest tests/test_linking_extract.py -q`, `pytest tests/test_linking_resolvers.py -q`, `pytest tests/test_linked_structure_builder.py -q`, `pytest tests/test_build_linked_structure_cli.py -q`, `pytest tests/ -q`]
+- tests_passed_human: [PR accepted by human feedback]
+- key_artifacts: [`src/pdf2md/models/linked.py`, `src/pdf2md/linking/`, `tools/build_linked_structure.py`, `tests/test_linked_structure_contracts.py`, `tests/test_linking_extract.py`, `tests/test_linking_resolvers.py`, `tests/test_linked_structure_builder.py`, `tests/test_build_linked_structure_cli.py`]
+- notes: archived retroactively on 2026-05-22 during the Plan 7→8 transition; this plan was completed but never given a milestone at the time. Original evidence is run_log PR #1–#2, preserved in the git history of run_log.md.
+
+## M7 — 2026-05-22 — Plan 6: Docling, RAG, and markdown export
+
+- goal: export a LinkedStructure to Docling JSON, RAG chunk documents, and a markdown preview, with an export manifest and reporting.
+- archived_plan_summary: added the `pdf2md.export` package (docling, rag, markdown, I/O, reporting) and the export models, plus the `tools/export_linked_docling.py` CLI. Implemented and reworked across run_log PR #3 and PR #4.
+- tests_passed_automated: [`pytest tests/test_export_contracts.py -q`, `pytest tests/test_docling_export.py -q`, `pytest tests/test_rag_export.py -q`, `pytest tests/test_markdown_export.py -q`, `pytest tests/test_export_io_cli.py -q`, `pytest tests/ -q`]
+- tests_passed_human: [PR accepted by human feedback]
+- key_artifacts: [`src/pdf2md/models/export.py`, `src/pdf2md/export/`, `tools/export_linked_docling.py`, `tests/test_export_contracts.py`, `tests/test_docling_export.py`, `tests/test_rag_export.py`, `tests/test_markdown_export.py`, `tests/test_export_io_cli.py`]
+- notes: archived retroactively on 2026-05-22 during the Plan 7→8 transition. Original evidence is run_log PR #3–#4, preserved in the git history of run_log.md.
+
+## M8 — 2026-05-22 — Plan 7: Local environment and toolchain preflight
+
+- goal: verify the local machine has the Python package surface, project and connector CLIs, LaTeX/LaTeXML tools, backend conda environments, and writable output roots required by the later local acceptance plans, without running OCR or LaTeX.
+- archived_plan_summary: added `src/pdf2md/local/preflight.py` and `tools/local_groundtruth_preflight.py`, producing a machine-readable `PreflightReport` and a human-readable summary with strict and non-strict modes. Implemented in commit `4b616302`. Review `PR_review #5` confirmed the commit touched only the six whitelisted files with no dependency changes.
+- tests_passed_automated: [`pytest tests/test_local_preflight.py -q` → 32 passed, 0 skipped/xfail; `pytest tests/ -q` → 678 passed, 212 skipped, 0 failed; `tools/local_groundtruth_preflight.py` → environment_ready=true, 26/26 required and 5/5 optional checks pass, `--strict` exits 0]
+- tests_passed_human: [human verification accepted on 2026-05-22]
+- key_artifacts: [`src/pdf2md/local/preflight.py`, `tools/local_groundtruth_preflight.py`, `tests/test_local_preflight.py`, `tests/data/local_preflight_fixtures/`]
+- notes: the Plan 7 implementation never produced a run_log.md PR entry, so `PR_review #5` recorded a process-fail verdict despite all acceptance tests passing; the review section lives in current_plan.md commit `4b6a588a`. Human verification was accepted on 2026-05-22 and the plan archived; run_log.md was reset for Plan 8 in the same archival.

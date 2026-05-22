@@ -5,6 +5,8 @@ This layer converts `semantic_document.json` into a real DoclingDocument export 
 
 This is **not** final canonical reconstruction.
 
+> **Legacy / experimental.** This inspection layer (`pdf2md.utils.docling_adapter`, consuming `semantic_document.json`) predates and is distinct from the current canonical Docling export path: `tools/export_linked_docling.py` with `src/pdf2md/export/`, which exports a `LinkedStructure` to Docling JSON. For canonical Docling output use the export path; this layer is retained for experimental inspection only.
+
 ## Input
 - `semantic_document.json`
 

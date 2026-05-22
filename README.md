@@ -377,7 +377,6 @@ Validate the local ground-truth corpus:
 python tools/local_groundtruth_validate.py \
   --corpus-root groundtruth/corpus/latex \
   --out-dir groundtruth/runs/local_groundtruth_validation \
-  --run-validator \
   --verbose
 ```
 

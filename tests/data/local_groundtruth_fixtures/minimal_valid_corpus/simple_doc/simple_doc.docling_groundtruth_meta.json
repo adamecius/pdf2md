@@ -1,0 +1,6 @@
+{
+  "document_id": "simple_doc",
+  "source": "latex",
+  "expected_features": ["equations", "sections"],
+  "expected_counts": {"sections": 1, "equations": 1}
+}
