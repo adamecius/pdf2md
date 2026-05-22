@@ -1,0 +1,6 @@
+source_path = "tests/data/local_groundtruth_fixtures/partial_corpus/incomplete_doc/incomplete_doc.tex"
+document_id = "incomplete_doc"
+documentclass = "article"
+expected_features = ["sections"]
+expected_counts = { sections = 1, figures = 0, tables = 0, equations = 0, footnotes = 0 }
+notes = "Partial fixture document: the .docling.json artefact is intentionally absent."

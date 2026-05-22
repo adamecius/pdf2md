@@ -1,7 +1,7 @@
 # Plan 8 — Local Ground-Truth Corpus Validation plus Documentation Consistency
 
 Status:
-active
+human_verification_required
 
 Allowed status values:
 draft

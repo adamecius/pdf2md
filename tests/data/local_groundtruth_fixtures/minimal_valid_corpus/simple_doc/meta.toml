@@ -1,0 +1,6 @@
+source_path = "tests/data/local_groundtruth_fixtures/minimal_valid_corpus/simple_doc/simple_doc.tex"
+document_id = "simple_doc"
+documentclass = "article"
+expected_features = ["equations", "sections"]
+expected_counts = { sections = 1, figures = 0, tables = 0, equations = 1, footnotes = 0 }
+notes = "Minimal valid fixture document for Plan 8 corpus validation."
