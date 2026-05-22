@@ -78,3 +78,12 @@ Append-only log of completed milestones. Edited only by feedback mode under the 
 - tests_passed_human: [human verification accepted on 2026-05-22]
 - key_artifacts: [`src/pdf2md/local/preflight.py`, `tools/local_groundtruth_preflight.py`, `tests/test_local_preflight.py`, `tests/data/local_preflight_fixtures/`]
 - notes: the Plan 7 implementation never produced a run_log.md PR entry, so `PR_review #5` recorded a process-fail verdict despite all acceptance tests passing; the review section lives in current_plan.md commit `4b6a588a`. Human verification was accepted on 2026-05-22 and the plan archived; run_log.md was reset for Plan 8 in the same archival.
+
+## M9 — 2026-05-22 — Plan 8: Local ground-truth corpus validation plus documentation consistency
+
+- goal: verify that the local LaTeX-derived ground-truth corpus can be discovered, inspected, classified, and reported before any backend run, and perform a narrow documentation consistency check.
+- archived_plan_summary: added `src/pdf2md/local/groundtruth.py` (corpus discovery, artefact inspection, readiness classification, deterministic `GroundtruthValidationReport`) and the inspect-only `tools/local_groundtruth_validate.py` CLI with strict and non-strict modes; fixtures for ready, partial, and empty corpora plus 14 unit tests. A4 documentation edits: `README.md` Section 12 dropped the obsolete `--run-validator` flag and `docs/docling_layer.md` gained a legacy/canonical clarification note. Implemented in commit `d86ac56b`; marked `human_verified` in `81444362`.
+- tests_passed_automated: [`pytest tests/test_local_groundtruth_validate.py -q` → 14 passed; `pytest tests/test_local_preflight.py -q` → 32 passed; `pytest tests/ -q` → 692 passed, 212 skipped, 0 failed]
+- tests_passed_human: [H1–H4 verified on 2026-05-22 via `sandbox/plan8_human_verification.sh` — all PASS; real corpus showed 57/57 documents ready; PR approved on the `plan-8-groundtruth-validation` branch]
+- key_artifacts: [`src/pdf2md/local/groundtruth.py`, `tools/local_groundtruth_validate.py`, `tests/test_local_groundtruth_validate.py`, `tests/data/local_groundtruth_fixtures/`, `plans/archive/plan-8-groundtruth-validation.md`]
+- notes: Plan 8 followed the PLAN_TEMPLATE lifecycle (draft → active → agent_in_progress → human_verification_required → human_verified → finished) and did not use run_log.md. Archived on 2026-05-22 during the Plan 8→9 transition; Plan 9 (Real Backend Smoke Readiness) promoted to current_plan.md.
