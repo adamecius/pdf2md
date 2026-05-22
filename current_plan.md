@@ -1,7 +1,7 @@
-# Plan 9 — Real Backend Smoke Readiness
+# Plan 10 — Connector Implementation and PageExtractionIR Validation
 
 Status:
-human_verified
+draft
 
 Allowed status values:
 draft
@@ -18,52 +18,43 @@ Linked ROADMAP phase:
 Phase 2 — Extraction and normalisation
 
 Current roadmap estimate:
-Phase 2 from 60% toward 70%
+Phase 2 from approximately 70% toward 80%
 
 Owner:
 Agent team / human reviewer / local acceptance layer
 
 Sequence:
-Plan 9 of the pre-MVP implementation sequence, ending at Plan 16.
+Plan 10 of the pre-MVP implementation sequence, ending at Plan 16.
 
 Previous plan:
-Plan 8 — Local Ground-Truth Corpus Validation plus Documentation Consistency
+Plan 9 — Real Backend Smoke Readiness
 
 Required previous plan status:
 human_verified
 
 Next plan after completion:
-Plan 10 — Connector Implementation and PageExtractionIR Validation
+Plan 11 — EntityProposalDocument Validation
 
 Branch name:
-plan-9-backend-smoke-readiness
+plan-10-connector-pageextractionir-validation
 
 ---
 
 ## 1. Purpose
 
-This plan verifies that configured real backend execution can be attempted, classified, and reported before connector normalisation begins.
+This plan validates that real raw backend outputs from Plan 9 can be converted through the repository connector path into valid and semantically useful `PageExtractionIR`.
 
-Plan 9 is a smoke-readiness plan. It does not validate PageExtractionIR, EntityProposalDocument, calibration, consensus, semantic linking, or Docling export. It only checks whether configured backends can run on a real PDF input and produce smoke output artefacts.
-
-The core question is:
+Plan 10 is the first plan where real backend outputs enter the canonical extraction evidence model. It answers this question:
 
 ```text
-Can at least two configured backends run on a real PDF and produce output artefacts, while every other configured backend is classified clearly?
+Can successful Plan 9 backend outputs be normalised into PageExtractionIR with meaningful pages, blocks, text, block kinds, provenance, and raw artefact references?
 ```
 
-Plan 9 must wrap the repository's existing backend execution path. It must not create a parallel backend runner that diverges from the pipeline.
+The connector path may emit both `PageExtractionIR` and `EntityProposalDocument` in one call. Plan 10 may implement or harden the connector path as needed, but acceptance validates only the `PageExtractionIR` part.
 
-Where existing functions are available, the implementation must reuse them, for example:
+`EntityProposalDocument` validation belongs to Plan 11.
 
-```text
-load_backend_config()
-run_configured_backends()
-```
-
-If these names do not exist or differ in the current code, the agent must inspect the existing backend execution code and reuse the closest existing loader/runner. If no reusable runner exists, the agent must stop and report a blocker rather than inventing a separate execution architecture.
-
-The agent writes code, report contracts, CLI wrapper, and mocked tests. The human reviewer runs real backend smoke checks because real execution depends on local conda environments, model weights, CUDA, external binaries, and filesystem paths.
+Plan 10 does not run calibration, consensus, semantic linking, Docling export, RAG export, Markdown export, or the end-to-end runner.
 
 ---
 
@@ -96,7 +87,7 @@ git status --short
 git fetch --all --prune
 git checkout main
 git pull --ff-only
-git switch -c plan-9-backend-smoke-readiness
+git switch -c plan-10-connector-pageextractionir-validation
 ```
 
 Rules:
@@ -107,7 +98,7 @@ Rules:
 4. Do not modify files outside the whitelist.
 5. Do not install or use undeclared dependencies.
 6. Do not change ROADMAP.md progress.
-7. Do not promote this plan to current_plan.md unless Plan 8 has been marked human_verified and archived.
+7. Do not promote this plan to current_plan.md unless Plan 9 has been marked human_verified and archived.
 8. Do not mark this plan human_verified or finished. Only the human reviewer may do that.
 
 Main repository environment:
@@ -128,15 +119,7 @@ or from an activated environment:
 conda activate pdf2md
 ```
 
-Backend runtime commands must use the configured backend environments through the existing backend runner. Typical backend environments may include:
-
-```text
-pdf2md-mineru
-pdf2md-paddleocr
-pdf2md-deepseek
-```
-
-This plan must not install or repair backend environments automatically.
+This plan consumes existing Plan 9 backend smoke outputs. It does not execute real backends by default. If new backend execution is needed, that work belongs to Plan 9 or to a human-provided artefact outside Plan 10.
 
 ---
 
@@ -144,42 +127,41 @@ This plan must not install or repair backend environments automatically.
 
 In scope:
 
-1. Inspect or reuse the existing backend configuration loader.
-2. Inspect or reuse the existing configured backend runner.
-3. Add a smoke wrapper around existing backend execution.
-4. Run all configured backends, or classify unavailable/unconfigured backends.
-5. Capture command, exit code, duration, stdout snippet, stderr snippet, output directory and output files found.
-6. Classify each backend into a smoke-readiness status.
-7. Enforce a gate of at least two successful configured backends by default.
-8. Make the gate minimum configurable with `--gate-minimum`, default `2`.
-9. Provide non-strict and strict-gate behaviour.
-10. Write a machine-readable smoke report.
-11. Write a human-readable smoke summary.
-12. Add mocked automated tests that require no backend environment, no models, no GPU and no network access.
-13. Provide human verification commands for real backend execution on a real PDF.
-14. Treat GLM as not_configured unless it is explicitly present and enabled in the backend config.
-15. Provide `next_action` guidance for each backend result.
+1. Inspect the existing connector architecture and reuse the existing connector entrypoint.
+2. Use real raw backend output directories from Plan 9 where available.
+3. Convert Plan 9 successful backend outputs into `PageExtractionIR`.
+4. Validate `PageExtractionIR` structurally using the repository model/schema.
+5. Perform semantic smoke validation of the resulting IR.
+6. Report per-backend connector validation status.
+7. Report page count, block count, block-kind counts, text presence, bbox presence, provenance presence, and raw artefact references.
+8. Preserve raw backend artefact references.
+9. Support incremental backend acceptance.
+10. Write a machine-readable connector validation report.
+11. Write a human-readable connector validation summary.
+12. Add automated tests using fixtures or mocks that do not require real backend environments.
+13. Avoid validating EntityProposalDocument as a Plan 10 pass/fail criterion.
 
 Out of scope:
 
-1. Installing backend conda environments.
-2. Downloading model weights.
-3. Fixing CUDA, drivers, system libraries or external binaries.
-4. Modifying backend implementation code.
-5. Modifying backend configuration by default.
-6. Creating a new backend runner that bypasses the existing backend execution path.
-7. Normalising backend output to PageExtractionIR.
-8. Creating or validating EntityProposalDocument.
-9. Running calibration.
-10. Running consensus.
-11. Running semantic linking.
-12. Running Docling export.
-13. Editing ROADMAP.md.
-14. Editing README.md.
-15. Editing project.md.
-16. Editing current_plan.md.
-17. Editing next_plan.md.
-18. Committing smoke reports as repository artefacts.
+1. Running backend model scripts.
+2. Installing backend environments.
+3. Downloading model weights.
+4. Modifying backend execution code.
+5. Modifying backend configuration.
+6. Creating a parallel connector architecture.
+7. Validating EntityProposalDocument.
+8. Running calibration.
+9. Running consensus.
+10. Running semantic linking.
+11. Running Docling export.
+12. Running RAG export.
+13. Running Markdown export.
+14. Running the end-to-end pipeline.
+15. Editing ROADMAP.md.
+16. Editing README.md.
+17. Editing project.md.
+18. Editing current_plan.md.
+19. Editing next_plan.md.
 
 Hard constraints:
 
@@ -187,11 +169,12 @@ Hard constraints:
 2. The agent must not mark this plan as human_verified or finished.
 3. The agent may only mark agent_in_progress, agent_complete, human_verification_required, blocked, or superseded.
 4. Human verification is required before merge to main, milestone completion, next-plan promotion, or ROADMAP.md progress updates.
-5. Real backend failures must be classified as backend, environment, dependency, model, timeout, output, or configuration issues. They must not be treated as repository defects unless the wrapper or report logic is wrong.
-6. The automated tests must use mocks and temporary files only.
-7. The agent must not run real backends in automated tests.
-8. If existing backend execution functions cannot be found, the agent must stop and report a blocker.
-9. If backend config is missing or incomplete, the tool must classify the affected backends as not_configured rather than creating config by default.
+5. The agent must reuse the existing connector path if present, for example `connect_raw_dir()` or the closest existing connector entrypoint.
+6. The agent must not validate `EntityProposalDocument` as part of Plan 10 acceptance.
+7. The agent must not import calibration, consensus, linking, Docling export, RAG export, or end-to-end runner code for Plan 10 validation.
+8. Pydantic/schema validity alone is not enough for full Plan 10 success; the human semantic smoke checkpoint must pass.
+9. If real Plan 9 outputs are missing, the implementation may still be tested with fixtures or mocks, but human verification must classify the missing real outputs.
+10. If a forbidden file must be changed, this plan is incomplete and must be revised by a human before implementation starts.
 
 Allowed Python dependencies:
 
@@ -199,7 +182,7 @@ Allowed Python dependencies:
 none beyond existing repository dependencies
 ```
 
-Allowed external tools for agent automated tests:
+Allowed external tools for automated tests:
 
 ```text
 none
@@ -208,7 +191,7 @@ none
 Allowed external tools for human verification:
 
 ```text
-configured backend commands executed through the existing repository backend runner
+none beyond local file and JSON inspection tools
 ```
 
 Allowed environment-modifying commands:
@@ -224,21 +207,56 @@ none
 The agent may create or modify only these implementation and test files:
 
 ```text
-src/pdf2md/local/backend_smoke.py
+src/pdf2md/local/connector_validation.py
 
-tools/backend_smoke.py
+tools/validate_connectors_page_ir.py
 
-tests/test_backend_smoke.py
+tests/test_connector_page_ir_validation.py
+
+tests/data/connector_validation_fixtures/minimal_markdown_backend/output.md
+tests/data/connector_validation_fixtures/missing_output_backend/.gitkeep
+tests/data/connector_validation_fixtures/schema_failure_backend/output.md
 ```
 
-The agent may create temporary outputs only through the smoke CLI at runtime. These outputs must not be committed by default:
+The agent may modify connector code only if the existing connector path is incomplete or defective for PageExtractionIR validation. Any connector code change must be narrowly justified in the agent report.
+
+Conditionally allowed connector files:
 
 ```text
-<out-dir>/backend_smoke_report.json
-<out-dir>/backend_smoke_summary.txt
+src/pdf2md/connectors/*
+backend/*/connector.py
 ```
 
-The agent must not modify these files unless a human explicitly revises this plan:
+Conditionally allowed connector changes are limited to:
+
+```text
+- reusing or exposing the existing connector entrypoint
+- fixing connector defects that prevent PageExtractionIR output from validating
+- preserving raw artefact references
+- preserving backend provenance
+- improving PageExtractionIR construction
+```
+
+Conditionally allowed connector changes must not:
+
+```text
+- validate EntityProposalDocument as a Plan 10 acceptance target
+- implement calibration
+- implement consensus
+- implement semantic linking
+- implement Docling export
+- change backend execution behaviour
+```
+
+Expected output artefacts, produced by the CLI and not committed unless a later policy explicitly allows it:
+
+```text
+<out-dir>/connector_validation_report.json
+<out-dir>/connector_validation_summary.txt
+<out-dir>/<backend_name>/page_extraction_ir.json
+```
+
+The agent must not modify these files unless this plan is explicitly amended by the human reviewer:
 
 ```text
 README.md
@@ -255,77 +273,65 @@ pyproject.toml
 config/backends.toml
 config/*
 
-src/pdf2md/models/*
+src/pdf2md/local/backend_smoke.py
 src/pdf2md/local/groundtruth.py
 src/pdf2md/local/preflight.py
-src/pdf2md/connectors/*
 src/pdf2md/calibration/*
 src/pdf2md/consensus/*
 src/pdf2md/linking/*
 src/pdf2md/export/*
 
-backend/*
-groundtruth/corpus/*
-
+tools/backend_smoke.py
 tools/local_groundtruth_validate.py
 tools/local_groundtruth_preflight.py
 tools/calibrate_priors.py
 tools/build_consensus.py
 tools/build_linked_structure.py
 tools/export_linked_docling.py
+
+groundtruth/corpus/*
 ```
 
-If `config/backends.toml` does not exist or is incomplete, Plan 9 must report not_configured/config-related readiness in the smoke report. It must not modify config unless this plan is explicitly amended by the human reviewer.
-
-If a forbidden file must be changed, this plan is incomplete and must be revised by a human before implementation starts.
-
-Expected output artefacts, produced by the CLI and not committed unless a later policy explicitly allows it:
+Required connector validation report contract:
 
 ```text
-<out-dir>/backend_smoke_report.json — machine-readable backend smoke report
-<out-dir>/backend_smoke_summary.txt — human-readable backend smoke summary
-```
-
-Required report contract:
-
-```text
-schema_name: pdf2md.BackendSmokeReport
+schema_name: pdf2md.ConnectorPageExtractionIRValidationReport
 schema_version: 1.0.0
 generated_at: ISO 8601 timestamp
-tool_name: backend_smoke
-repo_root: path
-corpus_root: path or null
-input_pdf: path
-gate_minimum: int
-gate_passed: bool
-total_backends: int
-backends_successful: int
+tool_name: validate_connectors_page_ir
+plan9_report_path: path or null
+gate_mode: preferred | reduced
+preferred_gate_passed: bool
+minimum_gate_passed: bool
+human_reduced_gate_required: bool
+total_backends_considered: int
+backends_validated: int
 backends_failed: int
 backends_deferred: int
-results: list of per-backend entries
+results: list of per-backend validation entries
 warnings: list of strings
 metadata: dict
 ```
 
-Per-backend result contract:
+Per-backend connector validation entry contract:
 
 ```text
 backend_name: str
-configured: bool
-enabled: bool
-environment_name: str or null
-command: list[str] or string or null
-input_pdf: str or null
-output_dir: str or null
-exit_code: int or null
-duration_seconds: float or null
-status: success | env_not_ready | model_missing | dependency_missing | backend_crash | output_missing | timeout | not_configured
-expected_output_patterns: list[str]
-output_files_found: list[str]
-missing_output_patterns: list[str]
-stdout_snippet: str
-stderr_snippet: str
-failure_reason: str or null
+plan9_status: str or null
+raw_output_dir: str or null
+connector_entrypoint: str
+status: validated | connector_crash | schema_failed | missing_required_output | deferred_from_plan_9
+page_count: int
+block_count: int
+block_kind_counts: dict
+has_text: bool
+has_bboxes: bool
+has_provenance: bool
+raw_artefact_references: list[str]
+semantic_quality_passed: bool
+warnings: list[str]
+errors: list[str]
+validation_error_summary: str or null
 next_action: str
 metadata: dict
 ```
@@ -333,47 +339,40 @@ metadata: dict
 Status taxonomy:
 
 ```text
-success:
-  The backend command completed successfully and at least one expected output artefact was found.
+validated:
+  The connector produced PageExtractionIR and it validated structurally.
+  Full success also requires semantic_quality_passed=true in human verification.
 
-env_not_ready:
-  The required conda environment, command, interpreter, binary, path, or runtime shell is missing or unavailable.
+connector_crash:
+  The connector raised an exception, exited unexpectedly, or could not complete.
 
-model_missing:
-  Model weights, checkpoints, Hugging Face cache entries, local model paths, or required downloaded assets are missing.
+schema_failed:
+  The connector returned PageExtractionIR-like data, but schema/model validation failed.
+  Detailed causes such as invalid bbox, invalid block kind, missing provenance, empty required fields, or invalid page structure must be recorded in warnings/errors/validation_error_summary, not as separate statuses.
 
-dependency_missing:
-  Python modules, shared libraries, system libraries, OCR engines, CUDA libraries, or other dependencies are missing.
+missing_required_output:
+  A Plan 9 success backend output directory lacks files required by the connector.
 
-backend_crash:
-  The backend command exits non-zero or raises a runtime exception that is not better classified as env_not_ready, model_missing, dependency_missing, timeout, or output_missing.
-
-output_missing:
-  The backend command exits successfully but expected output artefacts are missing.
-
-timeout:
-  The backend run exceeds the configured timeout.
-
-not_configured:
-  The backend is absent from config, disabled in config, has no command, or is present in the repository but not configured for execution.
+deferred_from_plan_9:
+  Backend did not have Plan 9 status success, or no raw output directory is available, so connector validation is not attempted.
 ```
 
 Gate rule:
 
 ```text
-The default gate_minimum is 2.
-The gate counts only backends with status success.
-A zero exit code alone is not enough for success.
-Success requires at least one expected output artefact.
-The smoke tool must attempt or classify all configured backends; it must not stop at the first failure.
+Preferred gate:
+  At least two Plan 9 success backends produce structurally valid PageExtractionIR and pass semantic smoke validation.
+
+Minimum gate:
+  At least one Plan 9 success backend produces structurally valid PageExtractionIR and passes semantic smoke validation;
+  all other Plan 9 success backends are classified;
+  human reviewer explicitly approves reduced-gate progression.
 ```
 
-GLM rule:
+Reduced-gate rule:
 
 ```text
-GLM is not automatically part of the canonical backend set.
-If GLM exists under backend/ but is absent from backend configuration, report it as not_configured or omit it according to the behaviour of the existing config loader.
-Do not force GLM into the configured backend set in Plan 9.
+If only the minimum gate passes, this plan may not be marked human_verified unless the human verification report explicitly records reduced-gate approval and explains why progression to Plan 11 is acceptable.
 ```
 
 ---
@@ -383,161 +382,200 @@ Do not force GLM into the configured backend set in Plan 9.
 Task A1:
 
 Title:
-Inspect and wrap existing backend execution.
+Inspect and reuse existing connector path.
 
 Goal:
-Create `src/pdf2md/local/backend_smoke.py` that reuses the existing backend config and execution path to support smoke readiness reporting.
+Identify the existing connector entrypoint and use it for Plan 10 validation without creating a parallel connector architecture.
 
 Files allowed:
 
 ```text
-src/pdf2md/local/backend_smoke.py
-tests/test_backend_smoke.py
+src/pdf2md/local/connector_validation.py
+tests/test_connector_page_ir_validation.py
 ```
 
 Implementation requirements:
 
-1. Inspect the repository for existing backend config loading and backend execution functions.
-2. Prefer reusing existing functions such as `load_backend_config()` and `run_configured_backends()` if present.
-3. If function names differ, reuse the closest existing loader and runner.
-4. Do not implement a new backend execution architecture if an existing one is available.
-5. If no reusable backend runner exists, stop and report a blocker.
-6. Define typed models or Pydantic models for `BackendSmokeReport` and per-backend smoke results.
-7. Implement smoke result classification from runner results, subprocess-like results, stdout, stderr, timeout and output artefact presence.
-8. Implement deterministic sorting of backend results by backend name.
-9. Include `next_action` in every backend result.
-10. Do not import or modify connector, calibration, consensus, linking, or export code.
+1. Inspect the repository for the existing connector entrypoint, expected to be `connect_raw_dir()` or equivalent.
+2. Reuse the existing connector entrypoint.
+3. If connector names differ, use the closest existing connector entrypoint.
+4. If no reusable connector exists, stop and report a blocker.
+5. Do not create a parallel connector architecture.
+6. Do not use Plan 9 `status=success` as proof of connector sufficiency.
+7. Inspect the actual raw output directory before connector execution.
+8. Do not import calibration, consensus, linking, export, or end-to-end runner code.
 
 Automated tests required:
 
 ```bash
-conda run -n pdf2md pytest tests/test_backend_smoke.py -q
+conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -q
 ```
 
 Expected output:
-A module importable as:
+A validation module importable as:
 
 ```python
-from pdf2md.local.backend_smoke import build_backend_smoke_report
+from pdf2md.local.connector_validation import build_connector_validation_report
 ```
 
 Completion evidence:
-Agent must report existing runner/config functions reused, models created, classification logic implemented, and tests run.
+Agent must report which connector entrypoint was reused and whether any connector changes were required.
 
 Human verification required:
-no. Covered by H1, H2, and H3.
+no. Covered by H1, H2, H3, and H4.
 
 Task A2:
 
 Title:
-Implement backend smoke CLI.
+Implement connector validation models and report builder.
 
 Goal:
-Create `tools/backend_smoke.py` as a CLI entry point around the backend smoke module.
+Create a report layer that validates PageExtractionIR outputs and records per-backend connector status.
 
 Files allowed:
 
 ```text
-tools/backend_smoke.py
-tests/test_backend_smoke.py
+src/pdf2md/local/connector_validation.py
+tests/test_connector_page_ir_validation.py
 ```
 
 Implementation requirements:
 
-1. Accept `--corpus-root`, default `groundtruth/corpus/latex`.
-2. Accept `--input-pdf`, optional but required for real backend execution unless the tool can select one from the corpus.
-3. Accept `--out-dir`, required.
-4. Accept `--gate-minimum`, default `2`.
-5. Accept `--strict-gate`.
-6. Accept `--timeout-seconds`, default `300`.
-7. Accept `--verbose`.
-8. Write `backend_smoke_report.json` and `backend_smoke_summary.txt`.
-9. In non-strict-gate mode, write report and exit 0 even when gate_passed is false, unless there is a repository defect in the smoke wrapper itself.
-10. In strict-gate mode, exit 1 when gate_passed is false.
-11. Print summary to stdout when `--verbose` is set.
-12. Do not expose normalisation, connector, calibration, consensus, linking, or export options.
+1. Define typed models or Pydantic models for the connector validation report and per-backend entries.
+2. Use only five connector statuses: `validated`, `connector_crash`, `schema_failed`, `missing_required_output`, `deferred_from_plan_9`.
+3. Record detailed validation errors in `warnings`, `errors`, and `validation_error_summary`.
+4. Include `semantic_quality_passed` as a separate boolean, not a status.
+5. Include page count, block count, block-kind counts, text presence, bbox presence, provenance presence, and raw artefact references.
+6. Record `next_action` for every backend result.
+7. Support preferred and minimum gate calculation.
+8. Require explicit human reduced-gate approval before minimum-gate-only completion.
 
 Automated tests required:
 
 ```bash
-conda run -n pdf2md pytest tests/test_backend_smoke.py -q
+conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -q
+```
+
+Expected output:
+Connector validation report objects validate and serialise deterministically.
+
+Completion evidence:
+Agent must report report schema, status taxonomy, gate logic, and tests.
+
+Human verification required:
+no. Covered by H1, H2, H3, and H4.
+
+Task A3:
+
+Title:
+Implement connector validation CLI.
+
+Goal:
+Create `tools/validate_connectors_page_ir.py` as a CLI wrapper around the connector validation module.
+
+Files allowed:
+
+```text
+tools/validate_connectors_page_ir.py
+tests/test_connector_page_ir_validation.py
+```
+
+Implementation requirements:
+
+1. Accept `--plan9-report`, optional but required for real Plan 9 output validation unless explicit backend/output pairs are supplied.
+2. Accept `--backend-output`, repeatable as `<backend_name>=<raw_output_dir>`.
+3. Accept `--out-dir`, required.
+4. Accept `--preferred-gate-minimum`, default `2`.
+5. Accept `--allow-reduced-gate`, default false.
+6. Accept `--verbose`.
+7. Write `connector_validation_report.json` and `connector_validation_summary.txt`.
+8. Write per-backend `page_extraction_ir.json` files when validation succeeds.
+9. In normal mode, exit 0 only if preferred gate passes.
+10. If `--allow-reduced-gate` is set, exit 0 when minimum gate passes and preferred gate fails, but mark `human_reduced_gate_required=true` in the report.
+11. Exit 1 when neither preferred nor minimum gate passes.
+12. Do not expose EntityProposalDocument validation options.
+13. Do not expose calibration, consensus, linking or export options.
+
+Automated tests required:
+
+```bash
+conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -q
 ```
 
 Expected output:
 A script runnable as:
 
 ```bash
-conda run -n pdf2md python tools/backend_smoke.py --input-pdf <pdf> --out-dir <path>
+conda run -n pdf2md python tools/validate_connectors_page_ir.py --plan9-report <report.json> --out-dir <path>
 ```
 
 Completion evidence:
 Agent must report CLI command examples, gate behaviour, exit-code behaviour, and tests run.
 
 Human verification required:
-no. Covered by H1, H2, and H3.
+yes. Covered by H2 and H3.
 
-Task A3:
+Task A4:
 
 Title:
-Add mocked automated tests for classification and gate behaviour.
+Add automated connector validation tests.
 
 Goal:
-Create automated tests that validate Plan 9 logic without running real backends.
+Verify Plan 10 behaviour without requiring real backend environments.
 
 Files allowed:
 
 ```text
-tests/test_backend_smoke.py
+tests/test_connector_page_ir_validation.py
+tests/data/connector_validation_fixtures/*
 ```
 
 Implementation requirements:
 
-1. Mock the existing backend runner or subprocess-like result objects.
-2. Use `tmp_path` to create temporary output files for success and output_missing cases.
-3. Test `success` classification when exit code is 0 and expected output files exist.
-4. Test `output_missing` when exit code is 0 but expected outputs are absent.
-5. Test `env_not_ready` from missing conda environment, missing command, or executable-not-found stderr.
-6. Test `model_missing` from missing checkpoint/model/cache stderr.
-7. Test `dependency_missing` from ImportError, ModuleNotFoundError, shared-library, CUDA-library or system-library errors.
-8. Test `backend_crash` from generic non-zero runtime failure.
-9. Test `timeout` classification.
-10. Test `not_configured` classification.
-11. Test gate pass when at least two backends have status success.
-12. Test gate fail when fewer than two backends have status success.
-13. Test strict-gate exit behaviour.
+1. Add or use a minimal raw markdown backend fixture that the existing connector can parse.
+2. Test successful PageExtractionIR validation.
+3. Test missing required output classification.
+4. Test connector crash classification via mocking.
+5. Test schema_failed classification via invalid connector output.
+6. Test deferred_from_plan_9 when Plan 9 status is not success.
+7. Test preferred gate pass with two validated backends.
+8. Test preferred gate fail with one validated backend.
+9. Test minimum gate pass with one validated backend.
+10. Test `--allow-reduced-gate` behaviour.
+11. Test semantic_quality_passed true when pages, blocks and meaningful text are present.
+12. Test semantic_quality_passed false when IR validates but text is empty, noise-like, or block count is zero.
+13. Test that EntityProposalDocument output, if present, is not used for Plan 10 pass/fail.
 14. Test JSON report contract.
 15. Test summary writing.
-16. Ensure no real backend, model, CUDA or network dependency is required.
-17. Do not add permanent mock output fixtures unless the human reviewer amends the plan.
 
 Required tests:
 
 ```text
-test_success_requires_exit_zero_and_output_files
-test_exit_zero_without_outputs_is_output_missing
-test_env_not_ready_classification
-test_model_missing_classification
-test_dependency_missing_classification
-test_backend_crash_classification
-test_timeout_classification
-test_not_configured_classification
-test_gate_passes_with_two_successes
-test_gate_fails_with_one_success
-test_strict_gate_exit_one_when_gate_fails
-test_nonstrict_gate_exit_zero_when_gate_fails
+test_reuses_existing_connector_entrypoint
+test_valid_backend_output_produces_page_extraction_ir
+test_missing_required_output_classification
+test_connector_crash_classification
+test_schema_failed_classification
+test_deferred_from_plan9_classification
+test_preferred_gate_passes_with_two_validated_backends
+test_preferred_gate_fails_with_one_validated_backend
+test_minimum_gate_passes_with_one_validated_backend
+test_allow_reduced_gate_sets_human_required_flag
+test_semantic_quality_passes_for_nonempty_document_text
+test_semantic_quality_fails_for_empty_or_noise_ir
+test_entity_proposals_are_ignored_for_plan10_acceptance
 test_report_json_contract
 test_summary_is_written
-test_next_action_is_present_for_every_backend
 ```
 
 Automated tests required:
 
 ```bash
-conda run -n pdf2md pytest tests/test_backend_smoke.py -q
+conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -q
 ```
 
 Expected output:
-All Plan 9 tests pass without real backend execution.
+All Plan 10 automated tests pass without running real backends.
 
 Completion evidence:
 Agent must report test count, pass count, and exit code.
@@ -545,46 +583,46 @@ Agent must report test count, pass count, and exit code.
 Human verification required:
 no. Covered by H1.
 
-Task A4:
+Task A5:
 
 Title:
-Produce smoke report hand-off information for Plan 10.
+Provide Plan 11 hand-off summary.
 
 Goal:
-Ensure the report contains enough information for a human to decide which backend outputs should be attempted first in Plan 10, without Plan 9 making connector-readiness decisions.
+Ensure the report identifies which PageExtractionIR outputs are suitable candidates for EntityProposalDocument validation in Plan 11 without validating entities in Plan 10.
 
 Files allowed:
 
 ```text
-src/pdf2md/local/backend_smoke.py
-tools/backend_smoke.py
-tests/test_backend_smoke.py
+src/pdf2md/local/connector_validation.py
+tools/validate_connectors_page_ir.py
+tests/test_connector_page_ir_validation.py
 ```
 
 Implementation requirements:
 
-1. Include `output_files_found` for each backend.
-2. Include `expected_output_patterns` and `missing_output_patterns` where the existing runner or config provides expected patterns.
-3. Include `next_action` for each backend.
-4. Do not add a `ready_for_connector_validation` field.
-5. Do not inspect or import connector code to decide connector sufficiency.
-6. Make the summary list successful backends first, followed by failed/deferred backends and their next action.
-7. Clearly state that Plan 10 will decide whether the smoke outputs are sufficient for PageExtractionIR normalisation.
+1. List validated backend names.
+2. List reduced-gate state if applicable.
+3. List per-backend PageExtractionIR output paths.
+4. List semantic quality warnings.
+5. State explicitly that EntityProposalDocument validation is deferred to Plan 11.
+6. Do not add entity validation metrics.
+7. Do not require entity proposals for Plan 10 success.
 
 Automated tests required:
 
 ```bash
-conda run -n pdf2md pytest tests/test_backend_smoke.py -q
+conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -q
 ```
 
 Expected output:
-Reports guide the human reviewer without collapsing Plan 9 into Plan 10.
+The summary gives the human reviewer enough information to draft Plan 11 scope.
 
 Completion evidence:
-Agent must report report fields and hand-off summary behaviour.
+Agent must report hand-off fields and summary behaviour.
 
 Human verification required:
-yes. Covered by H3.
+yes. Covered by H4.
 
 ---
 
@@ -593,83 +631,85 @@ yes. Covered by H3.
 Checkpoint H0:
 
 Title:
-Confirm real smoke input PDF exists.
+Locate Plan 9 smoke report and successful backend outputs.
 
 Purpose:
-Confirm that at least one real PDF exists for backend smoke execution. Do not use `.pdf.placeholder` files for real backend smoke.
+Confirm that Plan 10 has real Plan 9 outputs to consume, or classify missing outputs before connector validation.
 
 Required environment:
 Shell with repository checkout.
 
 Preconditions:
-Plan 8 has completed or the human has identified an approved local PDF.
+Plan 9 has completed and produced a backend smoke report.
 
 Command:
 
 ```bash
-find groundtruth/corpus/latex -name "*.pdf" -type f | head -5
+ls -lh groundtruth/runs/backend_smoke/backend_smoke_report.json
+python -m json.tool groundtruth/runs/backend_smoke/backend_smoke_report.json | head -80
 ```
 
 Verification procedure:
 
-1. Run the command exactly as written.
-2. Confirm at least one real `.pdf` file is listed.
-3. If no PDF is listed, the human must provide an approved real PDF path or generate one outside Plan 9.
-4. Confirm the selected PDF is not a `.pdf.placeholder` file.
-5. Record the selected PDF path for H2 and H3.
+1. Run both commands exactly as written.
+2. Confirm the Plan 9 report exists.
+3. Identify backends with `status == "success"`.
+4. Confirm each successful backend has an output directory or output files recorded.
+5. Record the successful backend names and raw output directories.
+6. If no Plan 9 report exists, this checkpoint fails unless the human provides an approved equivalent report.
 
 Pass criteria:
 
 ```text
-A real PDF path is available.
-The selected path ends with .pdf.
-The selected path does not end with .pdf.placeholder.
-The selected path can be read by the local user.
+Plan 9 smoke report exists.
+At least one backend has status success.
+Successful backend output paths are recorded.
 ```
 
 Fail criteria:
 
 ```text
-No real PDF is available.
-Only .pdf.placeholder files exist.
-The selected file cannot be read.
-The selected file was generated by Plan 9 itself.
+Plan 9 report is missing.
+No successful backend exists.
+Successful backend output paths are missing.
 ```
 
 Evidence to record:
 
 ```text
-Paste the command.
-Paste the selected PDF path.
-Paste ls -lh output for the selected PDF.
+Paste the Plan 9 report path.
+Paste successful backend names.
+Paste raw output directory for each successful backend.
+Paste gate_passed and backends_successful from the Plan 9 report.
 ```
 
 Checkpoint H1:
 
 Title:
-Verify mocked backend smoke tests.
+Run automated connector validation tests.
 
 Purpose:
-Confirm that automated Plan 9 tests pass without real backend environments.
+Confirm that Plan 10 tests pass without real backend execution.
 
 Required environment:
 pdf2md
 
 Preconditions:
-Tasks A1, A2, A3 and A4 are complete.
+Tasks A1 through A5 are complete.
 
 Command:
 
 ```bash
-conda run -n pdf2md pytest tests/test_backend_smoke.py -v
+conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -v
 ```
 
 Verification procedure:
 
 1. Run the command exactly as written.
 2. Confirm all tests pass.
-3. Confirm no test requires CUDA, model weights, backend conda environments, network access, or real backend binaries.
-4. Confirm no tests are skipped due to missing real backend dependencies.
+3. Confirm no test runs real backends.
+4. Confirm no test runs calibration, consensus, linking or export.
+5. Confirm no test requires CUDA, model weights, backend conda environments, network access, or real backend binaries.
 
 Pass criteria:
 
@@ -677,7 +717,7 @@ Pass criteria:
 All tests pass.
 Exit code is 0.
 No real backend is executed.
-No tests are skipped because of missing backend environments or models.
+No downstream pipeline layer is executed.
 ```
 
 Fail criteria:
@@ -685,7 +725,7 @@ Fail criteria:
 ```text
 Any test fails.
 Any test requires real backend execution.
-Any test depends on CUDA, models, backend conda environments or network access.
+Any test touches calibration, consensus, linking or export.
 ```
 
 Evidence to record:
@@ -698,155 +738,246 @@ Paste the exit code.
 Checkpoint H2:
 
 Title:
-Run real backend smoke on one approved PDF.
+Validate PageExtractionIR from one successful backend output.
 
 Purpose:
-Confirm that configured backends can be attempted on a real PDF and classified correctly.
+Confirm that at least one Plan 9 successful backend output can be converted into structurally valid and semantically useful PageExtractionIR.
 
 Required environment:
-pdf2md plus configured backend environments as available locally.
+pdf2md
 
 Preconditions:
-H0 has selected a real PDF path.
-The existing backend configuration is present or the tool can classify missing configuration as not_configured.
-The agent implementation has passed H1.
+H0 identified at least one successful backend output directory.
+H1 passed.
 
 Command template:
 
 ```bash
-conda run -n pdf2md python tools/backend_smoke.py --corpus-root groundtruth/corpus/latex --input-pdf <SELECTED_PDF_FROM_H0> --out-dir groundtruth/runs/backend_smoke --gate-minimum 2 --verbose
-```
-
-Strict gate command:
-
-```bash
-conda run -n pdf2md python tools/backend_smoke.py --corpus-root groundtruth/corpus/latex --input-pdf <SELECTED_PDF_FROM_H0> --out-dir groundtruth/runs/backend_smoke_strict --gate-minimum 2 --strict-gate --verbose
+conda run -n pdf2md python tools/validate_connectors_page_ir.py --backend-output <BACKEND_NAME>=<RAW_OUTPUT_DIR_FROM_H0> --out-dir groundtruth/runs/connector_validation_one_backend --allow-reduced-gate --verbose
 ```
 
 Expected output files:
 
 ```text
-groundtruth/runs/backend_smoke/backend_smoke_report.json
-groundtruth/runs/backend_smoke/backend_smoke_summary.txt
-groundtruth/runs/backend_smoke_strict/backend_smoke_report.json
-groundtruth/runs/backend_smoke_strict/backend_smoke_summary.txt
+groundtruth/runs/connector_validation_one_backend/connector_validation_report.json
+groundtruth/runs/connector_validation_one_backend/connector_validation_summary.txt
+groundtruth/runs/connector_validation_one_backend/<backend_name>/page_extraction_ir.json
 ```
 
 Verification procedure:
 
-1. Replace `<SELECTED_PDF_FROM_H0>` with the real PDF path recorded in H0.
-2. Run the non-strict command.
+1. Replace `<BACKEND_NAME>` and `<RAW_OUTPUT_DIR_FROM_H0>` with one Plan 9 success backend.
+2. Run the command exactly as written.
 3. Record the exit code.
-4. Confirm both non-strict output files exist.
-5. Run the strict-gate command.
-6. Record the exit code.
-7. Confirm both strict output files exist even if the strict command exits 1.
-8. Inspect both JSON reports.
-9. Confirm each configured backend has a status.
-10. Confirm `success` appears only when exit code was 0 and output files were found.
-11. Confirm `output_missing` is used for exit-code-0 runs with missing outputs.
-12. Confirm failures are classified as env_not_ready, model_missing, dependency_missing, backend_crash, output_missing, timeout or not_configured.
-13. Confirm GLM is not forced into the configured backend set unless config enables it.
+4. Confirm expected output files exist.
+5. Inspect the JSON report.
+6. Confirm backend status is `validated`.
+7. Confirm `semantic_quality_passed` is true.
+8. Open the generated `page_extraction_ir.json`.
+9. Confirm page_count > 0.
+10. Confirm block_count > 0.
+11. Confirm block text contains real document text rather than logs, empty strings, or pure markup noise.
+12. Confirm backend provenance exists.
+13. Confirm raw artefact references exist.
+14. Confirm EntityProposalDocument validation is not used for pass/fail.
 
 Pass criteria:
 
 ```text
-Non-strict command writes report and summary.
-Strict command writes report and summary.
-All configured backends are classified.
-The report counts only status=success toward the gate.
-Success requires output artefacts.
-Failures include failure_reason and next_action.
-No normalisation, connector, calibration, consensus, linking or export code is run.
+Command exits 0.
+Connector validation report exists.
+PageExtractionIR JSON exists.
+Backend status is validated.
+semantic_quality_passed is true.
+page_count > 0.
+block_count > 0.
+Block text is meaningful document text.
+Provenance is present.
+Raw artefact references are present.
+EntityProposalDocument validation is not used for Plan 10 pass/fail.
 ```
 
 Fail criteria:
 
 ```text
-The tool crashes before writing a report.
-A configured backend is omitted without classification.
-Exit-code-0 with no outputs is reported as success.
-Failures lack classification.
-GLM is forced into the run despite not being configured.
-Forbidden pipeline stages are executed.
+Command exits non-zero.
+No PageExtractionIR JSON is written.
+Backend status is not validated.
+semantic_quality_passed is false.
+IR validates structurally but contains empty or noise-like content.
+EntityProposalDocument validation is required for pass/fail.
 ```
 
 Evidence to record:
 
 ```text
-Paste both commands.
-Paste both exit codes.
-Paste gate_passed, gate_minimum, total_backends, backends_successful, backends_failed and backends_deferred from the JSON report.
-Paste the per-backend status table from backend_smoke_summary.txt.
-Paste next_action for each non-success backend.
+Paste the command.
+Paste the exit code.
+Paste backend status and semantic_quality_passed.
+Paste page_count, block_count and block_kind_counts.
+Paste a short excerpt of block text from page_extraction_ir.json.
+Paste raw artefact references.
 ```
 
 Checkpoint H3:
 
 Title:
-Verify smoke gate and Plan 10 hand-off scope.
+Validate PageExtractionIR from all Plan 9 successful backend outputs.
 
 Purpose:
-Confirm that the smoke report is sufficient for the human reviewer to define which backend outputs should be attempted first in Plan 10, without Plan 9 deciding connector readiness.
+Confirm preferred or reduced Plan 10 gate using all available Plan 9 success backends.
 
 Required environment:
-Any text editor or JSON inspection tool.
+pdf2md
 
 Preconditions:
-H2 has produced a real backend smoke report.
+H0 identified Plan 9 successful backend outputs.
+H1 passed.
 
 Command:
 
 ```bash
-python -m json.tool groundtruth/runs/backend_smoke/backend_smoke_report.json
+conda run -n pdf2md python tools/validate_connectors_page_ir.py --plan9-report groundtruth/runs/backend_smoke/backend_smoke_report.json --out-dir groundtruth/runs/connector_validation --verbose
+```
+
+Reduced-gate command, only if preferred gate fails and human wants to evaluate reduced-gate progression:
+
+```bash
+conda run -n pdf2md python tools/validate_connectors_page_ir.py --plan9-report groundtruth/runs/backend_smoke/backend_smoke_report.json --out-dir groundtruth/runs/connector_validation_reduced --allow-reduced-gate --verbose
+```
+
+Expected output files:
+
+```text
+groundtruth/runs/connector_validation/connector_validation_report.json
+groundtruth/runs/connector_validation/connector_validation_summary.txt
+```
+
+or for reduced gate:
+
+```text
+groundtruth/runs/connector_validation_reduced/connector_validation_report.json
+groundtruth/runs/connector_validation_reduced/connector_validation_summary.txt
 ```
 
 Verification procedure:
 
-1. Open the non-strict smoke report.
-2. Count backends with `status == "success"`.
-3. Confirm the count equals `backends_successful`.
-4. Confirm `gate_passed` is true only if `backends_successful >= gate_minimum`.
-5. Confirm each backend result includes `output_files_found`.
-6. Confirm each backend result includes `next_action`.
-7. Confirm the report does not include `ready_for_connector_validation`.
-8. Confirm the summary states that Plan 10 will decide whether outputs are sufficient for PageExtractionIR normalisation.
-9. Record the successful backend names for Plan 10 planning.
+1. Run the normal command.
+2. If it exits 0, inspect the preferred-gate report.
+3. If it exits 1 because only one backend validated, run the reduced-gate command only if the human wants to evaluate reduced-gate progression.
+4. Confirm every Plan 9 success backend has a Plan 10 status.
+5. Confirm statuses are limited to validated, connector_crash, schema_failed, missing_required_output, or deferred_from_plan_9.
+6. Confirm detailed validation failures are recorded in warnings/errors/validation_error_summary.
+7. Confirm preferred gate passes only if at least two backends are validated and semantic_quality_passed is true.
+8. Confirm minimum gate passes only if at least one backend is validated and semantic_quality_passed is true.
+9. If reduced gate is used, confirm `human_reduced_gate_required=true`.
 
 Pass criteria:
 
 ```text
-Gate calculation is correct.
-Every backend has status, output_files_found and next_action.
-The report does not include ready_for_connector_validation.
-The report gives enough evidence for the human to choose initial Plan 10 backend scope.
+Every Plan 9 success backend is classified.
+Preferred gate passes with at least two validated semantically useful IRs; or reduced gate is explicitly requested and recorded.
+Detailed errors are present for failed connectors.
+No EntityProposalDocument validation is used for pass/fail.
 ```
 
 Fail criteria:
 
 ```text
-Gate calculation is wrong.
-A backend lacks status or next_action.
-The report contains ready_for_connector_validation.
-The report tries to validate PageExtractionIR or connector sufficiency.
+A Plan 9 success backend is omitted.
+Statuses outside the five-status taxonomy are used.
+Preferred gate passes with fewer than two validated semantically useful IRs.
+Reduced gate passes without human_reduced_gate_required=true.
+Errors are not explained.
+EntityProposalDocument validation affects Plan 10 pass/fail.
 ```
 
 Evidence to record:
 
 ```text
-Paste backends_successful and gate_passed.
-Paste successful backend names.
-Paste the summary section that lists next actions.
-Paste confirmation that ready_for_connector_validation is absent.
+Paste the command or commands.
+Paste exit code or exit codes.
+Paste preferred_gate_passed, minimum_gate_passed and human_reduced_gate_required.
+Paste the per-backend status table.
+Paste any reduced-gate approval rationale if used.
 ```
 
 Checkpoint H4:
 
 Title:
-Verify no forbidden pipeline layers were modified.
+Inspect semantic usefulness and Plan 11 hand-off.
 
 Purpose:
-Confirm that Plan 9 remains a smoke-readiness plan and does not bleed into connector, calibration, consensus, linking or export work.
+Confirm that validated PageExtractionIR outputs contain meaningful document evidence and that the hand-off to Plan 11 is clear.
+
+Required environment:
+Any text editor or JSON inspection tool.
+
+Preconditions:
+H2 or H3 produced at least one PageExtractionIR JSON.
+
+Command:
+
+```bash
+python -m json.tool groundtruth/runs/connector_validation/connector_validation_report.json
+```
+
+If reduced gate was used:
+
+```bash
+python -m json.tool groundtruth/runs/connector_validation_reduced/connector_validation_report.json
+```
+
+Verification procedure:
+
+1. Open the connector validation report.
+2. Identify validated backends.
+3. Open each generated `page_extraction_ir.json` for validated backends.
+4. Confirm pages are in document order.
+5. Confirm blocks contain meaningful document text rather than logs, file paths, or parser noise.
+6. Confirm block kinds are plausible for the source document.
+7. Confirm provenance refers to the backend and raw artefact.
+8. Confirm raw artefact references are present.
+9. Confirm semantic quality warnings are recorded if content is weak.
+10. Confirm the summary states that EntityProposalDocument validation is deferred to Plan 11.
+
+Pass criteria:
+
+```text
+At least one validated PageExtractionIR contains meaningful document evidence.
+Preferred gate has two validated semantically useful backends, or reduced gate is explicitly approved.
+The hand-off to Plan 11 identifies validated backends and PageExtractionIR paths.
+EntityProposalDocument validation remains deferred.
+```
+
+Fail criteria:
+
+```text
+Validated PageExtractionIR contains only empty text, logs, file paths, or parser noise.
+No provenance is present.
+No raw artefact references are present.
+Plan 10 summary attempts to validate EntityProposalDocument.
+Plan 11 hand-off is unclear.
+```
+
+Evidence to record:
+
+```text
+Paste validated backend names.
+Paste PageExtractionIR output paths.
+Paste one representative text excerpt per validated backend.
+Paste block_kind_counts per validated backend.
+Paste Plan 11 hand-off summary.
+Paste reduced-gate approval rationale if used.
+```
+
+Checkpoint H5:
+
+Title:
+Verify forbidden layers were untouched.
+
+Purpose:
+Confirm that Plan 10 remains a connector/PageExtractionIR plan and does not bleed into calibration, consensus, linking, export or end-to-end work.
 
 Required environment:
 Git checkout.
@@ -860,27 +991,27 @@ git diff --name-only
 Verification procedure:
 
 1. Run the command exactly as written.
-2. Confirm changed files are limited to the Plan 9 whitelist.
-3. Confirm no files under `src/pdf2md/connectors/`, `src/pdf2md/calibration/`, `src/pdf2md/consensus/`, `src/pdf2md/linking/`, or `src/pdf2md/export/` were modified.
-4. Confirm `config/backends.toml` was not modified unless this plan was explicitly amended by a human.
-5. Confirm smoke reports are not committed by default.
+2. Confirm changed files are limited to the Plan 10 whitelist and any narrowly justified connector files.
+3. Confirm no files under `src/pdf2md/calibration/`, `src/pdf2md/consensus/`, `src/pdf2md/linking/`, or `src/pdf2md/export/` were modified.
+4. Confirm backend execution code and config files were not modified.
+5. Confirm generated validation reports are not committed by default.
 
 Pass criteria:
 
 ```text
-Only whitelisted files are modified.
-No connector, calibration, consensus, linking or export files are modified.
-No backend implementation files are modified.
-No backend config files are modified without explicit plan amendment.
-No generated smoke reports are committed by default.
+Only whitelisted files and explicitly justified connector files are modified.
+No calibration, consensus, linking, export or end-to-end files are modified.
+No backend execution code is modified.
+No backend config files are modified.
+Generated reports are not committed by default.
 ```
 
 Fail criteria:
 
 ```text
 Forbidden files are modified.
-Backend execution architecture is reimplemented in parallel.
-Connector or PageExtractionIR logic is added.
+Connector validation is mixed with calibration, consensus, linking or export.
+Backend execution or config is changed without plan amendment.
 Generated reports are committed without explicit policy.
 ```
 
@@ -898,75 +1029,61 @@ List each changed file and why it changed.
 Agent automated test matrix:
 
 ```bash
+conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -q
 conda run -n pdf2md pytest tests/test_backend_smoke.py -q
 conda run -n pdf2md pytest tests/test_local_groundtruth_validate.py -q
-conda run -n pdf2md pytest tests/test_local_preflight.py -q
 ```
 
 Human verification test matrix:
 
 ```text
-H0 real PDF availability
-H1 mocked backend smoke tests
-H2 real backend smoke on one approved PDF
-H3 smoke gate and Plan 10 hand-off scope
-H4 forbidden-layer diff check
+H0 locate Plan 9 report and successful backend outputs
+H1 automated connector validation tests
+H2 validate one successful backend output
+H3 validate all Plan 9 success backend outputs
+H4 inspect semantic usefulness and Plan 11 hand-off
+H5 forbidden-layer diff check
 ```
 
-Smoke status classes:
+Connector status classes:
 
-success:
-The backend command completed successfully and at least one expected output artefact was found.
+validated:
+The connector produced PageExtractionIR and it validated structurally. Human verification must also confirm semantic_quality_passed.
 
-env_not_ready:
-The required conda environment, command, interpreter, binary, path, or runtime shell is missing or unavailable.
+connector_crash:
+The connector raised an exception, exited unexpectedly, or could not complete.
 
-model_missing:
-Model weights, checkpoints, Hugging Face cache entries, local model paths, or required downloaded assets are missing.
+schema_failed:
+The connector returned PageExtractionIR-like data, but schema/model validation failed. Specific validation details belong in warnings/errors/validation_error_summary.
 
-dependency_missing:
-Python modules, shared libraries, system libraries, OCR engines, CUDA libraries, or other dependencies are missing.
+missing_required_output:
+A Plan 9 success backend output directory lacks files required by the connector.
 
-backend_crash:
-The backend command exits non-zero or raises a runtime exception that is not better classified as env_not_ready, model_missing, dependency_missing, timeout, or output_missing.
-
-output_missing:
-The backend command exits successfully but expected output artefacts are missing.
-
-timeout:
-The backend run exceeds the configured timeout.
-
-not_configured:
-The backend is absent from config, disabled in config, has no command, or is present in the repository but not configured for execution.
+deferred_from_plan_9:
+Backend did not have Plan 9 status success, or no raw output directory is available, so connector validation is not attempted.
 
 Failure classes:
 
 repository_defect:
-The wrapper, CLI, report generation, classification logic, or tests are wrong.
+The validation wrapper, CLI, report generation, gate logic, tests, or connector integration are wrong.
 
-environment_missing:
-A required local environment, backend executable, system package, CUDA runtime or shell command is missing.
+connector_defect:
+The existing connector path cannot produce valid PageExtractionIR from otherwise valid raw backend output.
 
-model_missing:
-A model, checkpoint, Hugging Face cache entry, local model directory or required asset is missing.
+schema_failure:
+The connector output fails PageExtractionIR schema/model validation.
 
-dependency_missing:
-A Python module, shared library, system library, OCR runtime or CUDA library is missing.
+missing_required_output:
+Required raw backend files are missing from the Plan 9 output directory.
 
-backend_runtime_failure:
-A backend crashes for a reason not better classified as environment, dependency, model, output or timeout.
+semantic_quality_failure:
+The PageExtractionIR validates structurally but contains empty, non-document-like, parser-noise, log-like, or otherwise unusable content.
 
-output_missing:
-A backend command exits successfully but expected output artefacts are missing.
-
-configuration_missing:
-Backend config is missing, incomplete or disables a backend.
-
-timeout:
-A backend smoke run exceeds the allowed time.
+plan9_artifact_missing:
+The Plan 9 smoke report or successful backend output paths are missing.
 
 human_procedure_error:
-The human ran the wrong command, used the wrong PDF, used a placeholder PDF, inspected the wrong report, or used the wrong environment.
+The human ran the wrong command, selected the wrong report, inspected the wrong output, or used stale Plan 9 artefacts.
 
 test_expectation_wrong:
 The test or checkpoint expectation is inconsistent with the plan or repository contract.
@@ -974,28 +1091,22 @@ The test or checkpoint expectation is inconsistent with the plan or repository c
 Failure handling:
 
 If failure_class is repository_defect:
-The agent must fix the wrapper, CLI, classification, report, or tests.
+The agent must fix the validation wrapper, CLI, report generation, gate logic, tests, or connector integration.
 
-If failure_class is environment_missing:
-The human or environment owner must fix the environment, or the backend remains classified as env_not_ready.
+If failure_class is connector_defect:
+The agent may fix the connector only within the conditional connector whitelist and only for PageExtractionIR validation.
 
-If failure_class is model_missing:
-The human or environment owner must install or configure model weights, or the backend remains classified as model_missing.
+If failure_class is schema_failure:
+The report must record validation details. The agent may fix connector output only if the issue is a connector defect.
 
-If failure_class is dependency_missing:
-The human or environment owner must fix dependencies, or the backend remains classified as dependency_missing.
+If failure_class is missing_required_output:
+The backend remains classified for Plan 10 as missing_required_output unless the human provides corrected raw output artefacts.
 
-If failure_class is backend_runtime_failure:
-The backend remains classified as backend_crash unless the wrapper classification is wrong.
+If failure_class is semantic_quality_failure:
+The backend must not count toward the preferred or minimum semantic gate until corrected or explicitly accepted by the human with risk noted.
 
-If failure_class is output_missing:
-The backend remains classified as output_missing unless the expected output pattern is wrong.
-
-If failure_class is configuration_missing:
-The backend remains not_configured unless the human amends the plan to allow config changes.
-
-If failure_class is timeout:
-The backend remains timeout unless the human increases timeout or fixes the environment.
+If failure_class is plan9_artifact_missing:
+The human must provide the missing Plan 9 report or output artefacts, or Plan 10 is blocked.
 
 If failure_class is human_procedure_error:
 The human checkpoint must be rerun correctly.
@@ -1013,7 +1124,7 @@ Required before agent starts:
 
 ```text
 status is active
-Plan 8 status is human_verified or human explicitly approves drafting only
+Plan 9 status is human_verified or human explicitly approves drafting only
 scope is clear
 file whitelist is complete
 forbidden files are listed
@@ -1031,7 +1142,7 @@ Required before human verification:
 ```text
 all agent tasks attempted
 all required automated tests run
-no forbidden files modified
+no forbidden files modified without conditional justification
 no undeclared dependencies used
 agent report completed
 status set to agent_complete or human_verification_required
@@ -1045,6 +1156,7 @@ Required before merge or milestone completion:
 all human checkpoints run
 all expected output files produced
 all pass criteria satisfied or failures classified
+preferred gate passed, or minimum gate passed with explicit reduced-gate human approval
 human verification report completed
 status set to human_verified by a human
 ```
@@ -1055,10 +1167,10 @@ Required before promotion:
 
 ```text
 status is human_verified
-Plan 9 is archived after completion
+Plan 10 is archived after completion
 history.md summary is prepared or updated
-Plan 10 exists as next_plan.md or approved prepared plan
-Plan 10 may be promoted to current_plan.md only after Plan 9 is finished
+Plan 11 exists as next_plan.md or approved prepared plan
+Plan 11 may be promoted to current_plan.md only after Plan 10 is finished
 ROADMAP.md progress is updated only if explicitly approved by the human
 ```
 
@@ -1086,11 +1198,11 @@ Hand-off procedure after human verification:
 1. Archive current_plan.md as:
 
 ```text
-plans/archive/plan-9-backend-smoke-readiness.md
+plans/archive/plan-10-connector-pageextractionir-validation.md
 ```
 
 2. Append a milestone summary to history.md.
-3. Promote Plan 10 to current_plan.md.
+3. Promote Plan 11 to current_plan.md.
 4. Create a new next_plan.md from PLAN_TEMPLATE.md or from an approved prepared plan.
 5. Record the commit SHA or PR number.
 6. Record the human verification evidence.
@@ -1108,15 +1220,16 @@ Status:
 Branch:
 Commit or PR:
 Files changed:
+Conditional connector files touched:
 Forbidden files touched:
 Tasks attempted:
-Existing runner/config functions reused:
+Existing connector entrypoint reused:
 Automated tests run:
 Automated tests passed:
 Automated tests failed:
 Failure classes:
-Environment failures:
-Backend statuses from mocks:
+Plan 9 artefact status:
+Validated backend fixtures:
 Dependencies added:
 External tools used by agent:
 Output artefacts created:
@@ -1132,16 +1245,20 @@ Plan:
 Reviewer:
 Date:
 Environment:
-Selected smoke PDF:
+Plan 9 report path:
+Plan 9 successful backend outputs:
 Commands run:
 Exit codes:
 Output files checked:
-Backend statuses:
-Gate minimum:
-Gate passed:
-Successful backends:
-Deferred backends:
-Next actions:
+Connector statuses:
+Preferred gate passed:
+Minimum gate passed:
+Reduced gate approved:
+Reduced gate rationale:
+Validated backends:
+PageExtractionIR paths:
+Semantic quality evidence:
+Plan 11 hand-off scope:
 Pass criteria satisfied:
 Fail criteria triggered:
 Failure classes:
@@ -1152,27 +1269,27 @@ human_verified or rejected
 
 Reviewer checklist:
 
-1. Did the agent modify only whitelisted files?
+1. Did the agent modify only whitelisted files and narrowly justified connector files?
 2. Did the agent avoid all forbidden files?
 3. Were all declared automated tests run?
 4. Did any automated test fail?
-5. Did automated tests avoid real backend execution?
-6. Did the implementation reuse the existing backend config/runner path?
-7. Did the implementation avoid creating a parallel backend runner?
-8. Were real backend runs performed only by the human checkpoint?
-9. Was a real PDF used, not a `.pdf.placeholder`?
-10. Did `success` require both exit code 0 and output artefacts?
-11. Was exit-code-0 with no outputs classified as output_missing?
-12. Were all configured backends classified?
-13. Was GLM treated as not_configured unless config explicitly enabled it?
-14. Did each backend result include status, output_files_found, failure_reason where relevant, and next_action?
-15. Was `ready_for_connector_validation` absent from the report?
-16. Did the report avoid PageExtractionIR and connector sufficiency decisions?
-17. Did non-strict mode write reports even when the gate failed?
-18. Did strict-gate mode fail when gate_passed is false?
+5. Did the implementation reuse the existing connector path?
+6. Did the implementation avoid creating a parallel connector architecture?
+7. Were Plan 9 successful outputs used as inputs?
+8. Did the implementation avoid backend execution?
+9. Did the implementation validate only PageExtractionIR?
+10. Was EntityProposalDocument validation excluded from pass/fail?
+11. Were connector statuses limited to the five-status taxonomy?
+12. Were schema failure details recorded in warnings/errors/validation_error_summary?
+13. Did preferred gate require two structurally valid and semantically useful PageExtractionIR outputs?
+14. Did minimum gate require one structurally valid and semantically useful PageExtractionIR output plus explicit human approval?
+15. Was semantic_quality_passed checked separately from schema validity?
+16. Did human inspection confirm meaningful document text, not logs or parser noise?
+17. Was provenance present?
+18. Were raw artefact references present?
 19. Were generated reports left uncommitted by default?
-20. Were connectors, calibration, consensus, linking and export files untouched?
-21. Is Plan 10 clearly identified as the next plan?
+20. Were calibration, consensus, linking, export and end-to-end files untouched?
+21. Is Plan 11 clearly identified as the next plan?
 22. Is it safe to mark this plan human_verified?
 23. Is it safe to promote the next plan?
 24. Is ROADMAP.md progress allowed to change?
@@ -1186,11 +1303,11 @@ date — status — actor — note
 Example:
 
 ```text
-2026-05-09 — draft — human — Plan 9 created from ROADMAP.md and PLAN_TEMPLATE.md
+2026-05-09 — draft — human — Plan 10 created from ROADMAP.md and PLAN_TEMPLATE.md
 2026-05-09 — active — human — approved for agent execution
 2026-05-09 — agent_in_progress — agent — branch created
 2026-05-09 — agent_complete — agent — automated tests passed
-2026-05-09 — human_verification_required — agent — awaiting human backend smoke checks
+2026-05-09 — human_verification_required — agent — awaiting human connector validation checks
 2026-05-09 — human_verified — human — all checkpoints passed
 2026-05-09 — finished — human — archived and promoted
 ```
