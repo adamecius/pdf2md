@@ -1045,3 +1045,50 @@ environment_ready = true
 or the user explicitly decides to proceed despite known missing optional components.
 
 Plan 8 will then validate the actual LaTeX/LuaTeX/LaTeXML ground-truth corpus generation and validation path.
+
+---
+
+## Status
+
+Plan 7 declares no enumerated task IDs; its work units are the section 13
+acceptance criteria. No task can be promoted to `done`: there are no task IDs
+to promote, and PR_review #5 below returns `fail` on process grounds. No prior
+`done` state exists, so nothing is demoted.
+
+- implementation: present — commit `4b616302` ("implemented the plan 7")
+- acceptance substance: verified green (see PR_review #5)
+- tasks_promoted: none
+- plan state: blocked on bookkeeping — see PR_review #5
+
+## PR_review #5
+
+Reviewed object: the Plan 7 implementation in commit `4b616302`. Numbered #5 as
+the next integer after run_log.md PR #4. No `## PR #5` entry exists in
+run_log.md — that absence is the central finding.
+
+- verdict: fail
+- whitelist_violations: none — `4b616302` touched exactly the six Plan 7
+  whitelist files and nothing else.
+- test_contract_violations: none — all `tests/test_local_preflight.py` tests
+  executed and passed; no skips, no mis-tags.
+- dependency_violations: none — `pyproject.toml` untouched; no packages or
+  environment-modifying external tools installed.
+- tasks_promoted: []
+- notes:
+  - Fail cause is process, not code: required check #2 fails — the Plan 7 work
+    has no run_log.md evidence entry. run_log.md still holds PR #1–#4 (Plan 5
+    linking, Plan 6 export); it was never reset for Plan 7. Review mode cannot
+    write run_log.md, so this is unrepairable here.
+  - Code substance passes every acceptance criterion: `pytest
+    tests/test_local_preflight.py -q` → 32 passed, 0 skipped/xfail; `pytest
+    tests/ -q` → 678 passed, 212 skipped, 0 failed; preflight tool reports
+    `environment_ready: true` (26/26 required, 5/5 optional, 1 optional warning
+    for the optional `pdf2md-glm` env); `--strict` exits 0.
+  - current_plan.md is structurally non-conforming to agent.md §1: no `tasks`
+    list with IDs, and it shipped without `## Status` / `## PR_reviews` /
+    `## Feedback` sections. Adding task IDs is feedback mode's job.
+  - history.md ends at M5 (Plan 4); Plans 5 and 6 were implemented but never
+    archived, so run_log.md and history.md are out of sync with reality.
+  - To clear this fail: an agent-mode session appends a PR #5 evidence entry to
+    run_log.md for the Plan 7 work; review then re-issues a `pass`; feedback
+    mode (`archive plan`) records the milestones and resets run_log.md.
