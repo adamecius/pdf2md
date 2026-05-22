@@ -1,7 +1,7 @@
 # Plan 9 — Real Backend Smoke Readiness
 
 Status:
-draft
+human_verification_required
 
 Allowed status values:
 draft
