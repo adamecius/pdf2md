@@ -28,6 +28,43 @@ From this folder (`backend/paddleocr`):
    python delete_env.py
    ```
 
+## GPU vs CPU runtime
+
+PP-StructureV3 (the default pipeline) is roughly **17× faster on GPU** than
+on CPU for OCR-bound workloads. Indicative wall clock on a 27-page input PDF:
+
+- CPU (paddlepaddle 3.0.0):                     ~10 minutes
+- GPU (paddlepaddle-gpu 3.0.0 cu118, RTX A6000): ~35 seconds
+
+If you have CUDA available, install the GPU build:
+
+```bash
+# Replace the CPU paddlepaddle with the matching GPU build.
+conda run -n pdf2md-paddleocr pip uninstall -y paddlepaddle
+conda run -n pdf2md-paddleocr pip install --no-deps paddlepaddle-gpu==3.0.0 \
+    -i https://www.paddlepaddle.org.cn/packages/stable/cu118/
+
+# paddle 3.0.0 cu118 needs cuDNN 8 and cuBLAS 11 (not bundled with the wheel).
+conda run -n pdf2md-paddleocr pip install \
+    "nvidia-cudnn-cu11>=8.9,<9.0" \
+    "nvidia-cublas-cu11" \
+    "nvidia-cuda-nvrtc-cu11"
+
+# Restore the small CPU deps that --no-deps stripped above.
+conda run -n pdf2md-paddleocr pip install decorator astor
+```
+
+When invoking the backend, set `device = "gpu:0"` (or `auto`) and point
+`LD_LIBRARY_PATH` at the cuDNN / cuBLAS / nvrtc directories from the
+nvidia wheels above — see the commented `[backends.paddleocr.env]` block
+in `pdf2md.backends.example.toml`.
+
+**Version pinning note.** Paddle 3.1+ ships cuDNN 9 but introduces an
+oneDNN PIR-to-runtime conversion bug for
+`pir::ArrayAttribute<pir::DoubleAttribute>` that crashes both PPStructureV3
+and PP-OCRv5. Paddle **3.0.0** is the preferred local build until upstream
+fixes the issue.
+
 ## Upstream package / project links
 
 - PaddleOCR docs: https://www.paddleocr.ai/

@@ -34,9 +34,26 @@ enabled = false
 runner = "conda"
 env_name = "pdf2md-paddleocr"
 script = "backend/paddleocr/pdf2md_paddleocr.py"
+# --keep-output stops the backend script from rmtree-ing its --out-dir at
+# end-of-run, which the orchestrator (tools/backend_smoke.py) needs to
+# read its outputs back. See backend/paddleocr/README.md.
+extra_args = ["--keep-output"]
+
+# GPU runtime: paddlepaddle-gpu 3.0.0 (cu118) needs cuDNN 8 + cuBLAS 11,
+# which are NOT bundled with the wheel. Install nvidia-cudnn-cu11>=8.9,<9
+# (+ cublas + nvrtc) into the paddleocr conda env and point LD_LIBRARY_PATH
+# at them. paddle 3.1+ ships cuDNN 9 but has an oneDNN PIR-to-runtime bug
+# that crashes PPStructureV3 / PP-OCRv5 on this host class — 3.0.0 is the
+# preferred local-GPU build at the time of writing (2026-05).
+#
+# [backends.paddleocr.env]
+# LD_LIBRARY_PATH = "/path/to/env/lib/python3.11/site-packages/nvidia/cudnn/lib:/path/to/env/lib/python3.11/site-packages/nvidia/cublas/lib:/path/to/env/lib/python3.11/site-packages/nvidia/cuda_nvrtc/lib"
 
 [backends.paddleocr.args]
 lang = "en"
+# device options: "gpu:0" (preferred), "auto", "cpu".
+# Indicative runtime on a 27-page PDF: ~35 s on RTX A6000 vs ~10 min on CPU
+# with PP-StructureV3.
 device = "auto"
 
 # GLM is API-only and should remain disabled unless explicitly configured.
