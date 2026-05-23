@@ -1,4 +1,4 @@
-# Plan 18 — Docling Strict-Validation Hardening (Plan 17 A8 follow-up)
+# Plan 20 — Docling Strict-Validation Hardening (Plan 17 A8 follow-up)
 
 Status:
 draft
@@ -25,7 +25,9 @@ Owner:
 Agent team / human reviewer
 
 Sequence:
-Plan 18 of the post-MVP refinement track.
+Plan 20 of the post-MVP refinement track. Scheduled after the user-authored
+Plan 18 (single-document orchestrator) and Plan 19 (external dataset
+compilation and evaluation).
 
 Previous plan:
 Plan 17 — Docling Export Wiring Hardening (human_verified)
@@ -34,10 +36,10 @@ Required previous plan status:
 human_verified
 
 Next plan after completion:
-Plan 19+ — TBD.
+Plan 21+ — TBD.
 
 Branch name:
-plan-18-docling-strict-validation-hardening
+plan-20-docling-strict-validation-hardening
 
 ---
 
@@ -47,7 +49,7 @@ Plan 17 fixed the three highest-impact export wiring defects (origin
 block, label vocabulary, schema version). Two strict-validation cases
 remained xfailed in
 `tests/test_docling_export_wiring.py::TestDoclingCoreStrictValidation`
-with a documented "A8 follow-up" reason — Plan 18 closes them.
+with a documented "A8 follow-up" reason — Plan 20 closes them.
 
 The four concrete defects to fix, all in
 `src/pdf2md/export/docling.py`:
@@ -108,7 +110,7 @@ git status --short
 git fetch --all --prune
 git checkout main
 git pull --ff-only
-git switch -c plan-18-docling-strict-validation-hardening
+git switch -c plan-20-docling-strict-validation-hardening
 ```
 
 Rules:
@@ -320,7 +322,7 @@ conda run -n pdf2md pytest tests/ -q
 
 Pass criteria:
 
-- Pass count ≥ Plan 17's count (878) plus the new Plan 18 tests.
+- Pass count ≥ Plan 17's count (878) plus the new Plan 20 tests.
 - xfailed count drops by 2 (Plan 17's A8 follow-up xfails are gone).
 - 0 failed.
 
@@ -358,9 +360,9 @@ Only files in the whitelist may appear.
 ## 8. Hand-off procedure
 
 1. Archive `current_plan.md` to
-   `plans/archive/plan-18-docling-strict-validation-hardening.md`.
-2. Append milestone M19 to `history.md`.
-3. Reset `current_plan.md` to the Plan 19+ placeholder.
+   `plans/archive/plan-20-docling-strict-validation-hardening.md`.
+2. Append the next milestone (Mn) to `history.md`.
+3. Reset `current_plan.md` to the Plan 21+ placeholder.
 4. Record commit SHA / PR number in the milestone entry.
 
 ---
