@@ -6,9 +6,11 @@ import typer
 
 from pdf2md.backends.runner import run_configured_backends
 from pdf2md.config import load_backend_config
+from pdf2md.datasets.cli import datasets_app
 from pdf2md.pipeline.convert import convert_pdf
 
 app = typer.Typer(help="PDF to Markdown converter.")
+app.add_typer(datasets_app, name="datasets")
 
 
 @app.command()
