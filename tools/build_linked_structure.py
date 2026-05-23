@@ -14,7 +14,11 @@ if str(SRC) not in sys.path:
 
 from pdf2md.linking.builder import LinkerSettings, build_linked_structure
 from pdf2md.linking.io import load_linker_inputs, write_linker_outputs
-from pdf2md.linking.reporting import build_linking_report
+from pdf2md.linking.reporting import (
+    READINESS_STATUSES,
+    build_linking_report,
+    build_linking_summary,
+)
 
 
 def _parser() -> argparse.ArgumentParser:
@@ -27,6 +31,21 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument("--strict", action="store_true")
     parser.add_argument("--verbose", action="store_true")
     parser.add_argument("--low-confidence-threshold", type=float, default=0.60)
+    parser.add_argument(
+        "--inspection-status",
+        default="diagnostic_only",
+        choices=list(READINESS_STATUSES),
+        help=(
+            "Human-supplied Plan 15 readiness verdict comparing LinkedStructure "
+            "coherence against the source ConsensusIR. Defaults to diagnostic_only."
+        ),
+    )
+    parser.add_argument(
+        "--inspection-note",
+        action="append",
+        default=[],
+        help="Optional inspection note (repeatable).",
+    )
     return parser
 
 
@@ -54,11 +73,27 @@ def main(argv: list[str] | None = None) -> int:
         )
         if loaded.warnings:
             linked = result.linked.model_copy(update={"warnings": result.linked.warnings + loaded.warnings})
-            result = type(result)(linked=linked, report=build_linking_report(linked), warnings=result.warnings + loaded.warnings)
-        write_linker_outputs(result=result, out_dir=args.out_dir)
+        else:
+            linked = result.linked
+        rebuilt_report = build_linking_report(
+            linked,
+            low_confidence_threshold=args.low_confidence_threshold,
+            inspection_status=args.inspection_status,
+            inspection_notes=args.inspection_note,
+        )
+        merged = type(result)(
+            linked=linked,
+            report=rebuilt_report,
+            warnings=result.warnings + loaded.warnings,
+        )
+        write_linker_outputs(result=merged, out_dir=args.out_dir)
         if args.verbose:
-            for warning in result.warnings:
+            for warning in merged.warnings:
                 print(f"warning:{warning}", file=sys.stderr)
+            print(build_linking_summary(rebuilt_report), end="")
+            print(f"linked_structure: {args.out_dir / 'linked_structure.json'}")
+            print(f"linking_report: {args.out_dir / 'reports' / 'linking_report.json'}")
+            print(f"inspection_status: {rebuilt_report['inspection_status']}")
         return 0
     except Exception as exc:
         print(str(exc), file=sys.stderr)
