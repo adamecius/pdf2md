@@ -1,19 +1,55 @@
-"""Project LinkedStructure into a Docling-compatible JSON dictionary."""
+"""Project LinkedStructure into a Docling-compatible JSON dictionary.
+
+Plan 17 wiring guarantees (post-MVP refinement):
+
+- ``origin.filename`` and ``origin.binary_hash`` are always populated when
+  a source PDF path is supplied; otherwise placeholders are written that
+  still pass ``docling_core.types.doc.DoclingDocument.model_validate``.
+- Every emitted ``label`` is a member of
+  ``docling_core.types.doc.DocItemLabel`` (or ``None`` for group items
+  whose docling representation does not require a label). Unknown
+  ``LinkedNodeType`` values fall back to ``"text"`` with a
+  ``block_kind_unmapped`` warning.
+- ``schema_version`` is resolved at module load from the installed
+  ``docling_core`` package's default, falling back to ``"1.10.0"`` if
+  unavailable.
+"""
 
 from __future__ import annotations
 
+import hashlib
 from dataclasses import dataclass
 from importlib import import_module, util
+from pathlib import Path
 from typing import Any
 
 from pdf2md.models.ir import ConsensusIR
 from pdf2md.models.linked import LinkedNode, LinkedNodeType, LinkedRelationType, LinkedStructure, LinkStatus
 
 
+def _resolve_docling_schema_version() -> str:
+    """Return the docling_core default schema version, fallback to 1.10.0."""
+
+    try:
+        if util.find_spec("docling_core") is not None:
+            mod = import_module("docling_core.types.doc")
+            doc_cls = getattr(mod, "DoclingDocument", None)
+            if doc_cls is not None:
+                field = doc_cls.model_fields.get("version")
+                if field is not None and field.default is not None:
+                    return str(field.default)
+    except Exception:  # noqa: BLE001 - any failure -> safe fallback
+        pass
+    return "1.10.0"
+
+
+_DOCLING_SCHEMA_VERSION_DEFAULT: str = _resolve_docling_schema_version()
+
+
 @dataclass(frozen=True)
 class DoclingExportSettings:
     schema_name: str = "DoclingDocument"
-    schema_version: str = "1.7.0"
+    schema_version: str = _DOCLING_SCHEMA_VERSION_DEFAULT
     include_unresolved: bool = True
     coord_origin: str = "BOTTOMLEFT"
 
@@ -27,9 +63,16 @@ class DoclingExportResult:
 _GROUP_TYPES = {LinkedNodeType.DOCUMENT, LinkedNodeType.SECTION, LinkedNodeType.LIST, LinkedNodeType.REFERENCE_SECTION}
 _TABLE_TYPES = {LinkedNodeType.TABLE}
 _PICTURE_TYPES = {LinkedNodeType.FIGURE}
+
+# LinkedNodeType -> docling_core.types.doc.DocItemLabel string value.
+# Every entry is a real DocItemLabel; previous draft used "toc_entry",
+# "reference_marker", and "unknown" which are NOT in the enum. Body
+# paragraphs map to "text" rather than "paragraph" to match the corpus
+# groundtruth convention (both are valid DocItemLabel values; "text" is
+# the one Docling itself emits for narrative body content).
 _TEXT_LABELS = {
     LinkedNodeType.TITLE: "title",
-    LinkedNodeType.PARAGRAPH: "paragraph",
+    LinkedNodeType.PARAGRAPH: "text",
     LinkedNodeType.LIST_ITEM: "list_item",
     LinkedNodeType.CAPTION: "caption",
     LinkedNodeType.EQUATION: "formula",
@@ -37,18 +80,57 @@ _TEXT_LABELS = {
     LinkedNodeType.PAGE_NUMBER: "page_footer",
     LinkedNodeType.HEADER: "page_header",
     LinkedNodeType.FOOTER: "page_footer",
-    LinkedNodeType.TOC_ENTRY: "toc_entry",
+    LinkedNodeType.TOC_ENTRY: "text",  # was "toc_entry" (not a DocItemLabel)
     LinkedNodeType.REFERENCE_ITEM: "reference",
-    LinkedNodeType.BIBLIOGRAPHY_MARKER: "reference_marker",
+    LinkedNodeType.BIBLIOGRAPHY_MARKER: "reference",  # was "reference_marker"
     LinkedNodeType.CODE: "code",
-    LinkedNodeType.UNKNOWN: "unknown",
+    LinkedNodeType.UNKNOWN: "text",  # was "unknown" (not a DocItemLabel)
 }
-_GROUP_LABELS = {
-    LinkedNodeType.SECTION: "section",
-    LinkedNodeType.LIST: "list",
-    LinkedNodeType.REFERENCE_SECTION: "references",
-    LinkedNodeType.DOCUMENT: "document",
+
+# Group items in docling-core do NOT carry a `label`; previously we emitted
+# strings like "section" / "list" / "references" / "document" which fail
+# strict validation. Plan 17 leaves the label off on groups (the schema
+# accepts `label = None`).
+_GROUP_LABELS: dict[LinkedNodeType, str | None] = {
+    LinkedNodeType.SECTION: None,
+    LinkedNodeType.LIST: None,
+    LinkedNodeType.REFERENCE_SECTION: None,
+    LinkedNodeType.DOCUMENT: None,
 }
+
+
+def _compute_origin(source_pdf: Path | str | None) -> tuple[dict[str, Any], list[str]]:
+    """Build the docling `origin` block from a source PDF path.
+
+    Returns (origin_dict, warnings). The dict is always a valid
+    ``DocumentOrigin`` payload: ``filename``, ``binary_hash`` and
+    ``mimetype`` are always populated. If ``source_pdf`` is None or the
+    path does not exist, sentinel values are written and an
+    ``origin_pdf_path_unknown`` warning is recorded.
+
+    ``binary_hash`` is the lower 63 bits of the sha256 digest converted
+    to an unsigned int. docling-core's schema models the field as a
+    positive int; 63 bits comfortably fits in a Python int and gives
+    deterministic, collision-resistant identity for an input PDF.
+    """
+
+    warnings: list[str] = []
+    if source_pdf is None:
+        return (
+            {"mimetype": "application/pdf", "binary_hash": 0, "filename": "unknown.pdf"},
+            ["origin_pdf_path_unknown"],
+        )
+    path = Path(source_pdf)
+    filename = path.name or "unknown.pdf"
+    if not path.is_file():
+        warnings.append("origin_pdf_path_unknown")
+        return ({"mimetype": "application/pdf", "binary_hash": 0, "filename": filename}, warnings)
+    h = hashlib.sha256()
+    with path.open("rb") as fh:
+        for chunk in iter(lambda: fh.read(1024 * 1024), b""):
+            h.update(chunk)
+    binary_hash = int.from_bytes(h.digest()[:8], "big") & ((1 << 63) - 1)
+    return ({"mimetype": "application/pdf", "binary_hash": binary_hash, "filename": filename}, warnings)
 
 
 def _value(value: Any) -> Any:
@@ -105,6 +187,7 @@ def build_docling_document(
     linked: LinkedStructure,
     consensus: ConsensusIR | None = None,
     settings: DoclingExportSettings = DoclingExportSettings(),
+    source_pdf: Path | str | None = None,
 ) -> DoclingExportResult:
     warnings: list[str] = []
     nodes = sorted(linked.nodes, key=lambda n: (n.order, n.id))
@@ -121,11 +204,14 @@ def build_docling_document(
         if _value(node.status) == "unresolved":
             warnings.append(f"unresolved_node_emitted:{node.id}")
 
+    origin, origin_warnings = _compute_origin(source_pdf)
+    warnings.extend(origin_warnings)
+
     document: dict[str, Any] = {
         "schema_name": settings.schema_name,
         "version": settings.schema_version,
         "name": linked.document_id,
-        "origin": {"mimetype": "application/pdf", "binary_hash": None},
+        "origin": origin,
         "body": {"self_ref": "#/body", "children": []},
         "groups": [],
         "texts": [],
@@ -154,7 +240,13 @@ def build_docling_document(
         if ntype in _GROUP_TYPES:
             ref = f"#/groups/{len(document['groups'])}"
             item = _base_item(node, ref, consensus)
-            item.update({"name": _text(node), "label": _GROUP_LABELS.get(ntype, _node_type(node)), "children": []})
+            # docling-core groups do not require (and reject) the legacy
+            # pdf2md group labels like "section"/"list"/"references".
+            # Drop the label key entirely when the mapping says None.
+            group_label = _GROUP_LABELS.get(ntype, None)
+            item.update({"name": _text(node), "children": []})
+            if group_label is not None:
+                item["label"] = group_label
             document["groups"].append(item)
         elif ntype in _TABLE_TYPES:
             ref = f"#/tables/{len(document['tables'])}"
@@ -168,10 +260,13 @@ def build_docling_document(
             document["pictures"].append(item)
         else:
             if ntype not in _TEXT_LABELS:
-                warnings.append(f"unsupported_node_type:{node.id}")
+                warnings.append(f"block_kind_unmapped:{node.id}:{_node_type(node)}")
             ref = f"#/texts/{len(document['texts'])}"
             item = _base_item(node, ref, consensus)
-            item.update({"label": _TEXT_LABELS.get(ntype, "unknown"), "text": _text(node)})
+            # Fall back to "text" (a valid DocItemLabel) for unmapped kinds;
+            # this is recorded as a warning above so the human reviewer sees
+            # it on the export report.
+            item.update({"label": _TEXT_LABELS.get(ntype, "text"), "text": _text(node)})
             document["texts"].append(item)
         node_ref[node.id] = ref
 
