@@ -1,0 +1,12 @@
+{
+  "schema_name": "pdf2md.EntityProposalDocument",
+  "schema_version": "1.0.0",
+  "document_id": "plan11_doc",
+  "backend": "empty_backend",
+  "backend_version": null,
+  "page_count": 1,
+  "entities": [],
+  "relations": [],
+  "warnings": ["no_entities_detected"],
+  "metadata": {"connector": "markdown_fallback"}
+}

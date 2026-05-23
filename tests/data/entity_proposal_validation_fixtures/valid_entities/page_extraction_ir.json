@@ -1,0 +1,60 @@
+{
+  "schema_name": "pdf2md.ConnectorPageExtractionIRBundle",
+  "schema_version": "1.0.0",
+  "backend": "minimal",
+  "page_count": 2,
+  "pages": [
+    {
+      "schema_name": "pdf2md.PageExtractionIR",
+      "schema_version": "1.0.0",
+      "document_id": "plan11_doc",
+      "backend": "minimal",
+      "backend_version": null,
+      "page_no": 1,
+      "page_size": {"width": 1.0, "height": 1.0},
+      "blocks": [
+        {
+          "id": "minimal:plan11_doc:p1:b0",
+          "backend": "minimal",
+          "page_no": 1,
+          "kind": "heading",
+          "bbox": null,
+          "order": 0,
+          "text": "Introduction",
+          "confidence": null,
+          "spans": null,
+          "raw_ref": "output.md",
+          "metadata": {"markdown_heading_level": 1}
+        }
+      ],
+      "raw_artifact_ref": "output.md",
+      "metadata": {"connector": "markdown_fallback"}
+    },
+    {
+      "schema_name": "pdf2md.PageExtractionIR",
+      "schema_version": "1.0.0",
+      "document_id": "plan11_doc",
+      "backend": "minimal",
+      "backend_version": null,
+      "page_no": 2,
+      "page_size": {"width": 1.0, "height": 1.0},
+      "blocks": [
+        {
+          "id": "minimal:plan11_doc:p2:b0",
+          "backend": "minimal",
+          "page_no": 2,
+          "kind": "heading",
+          "bbox": null,
+          "order": 0,
+          "text": "Methods",
+          "confidence": null,
+          "spans": null,
+          "raw_ref": "output.md",
+          "metadata": {"markdown_heading_level": 1}
+        }
+      ],
+      "raw_artifact_ref": "output.md",
+      "metadata": {"connector": "markdown_fallback"}
+    }
+  ]
+}

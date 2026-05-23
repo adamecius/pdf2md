@@ -1,0 +1,34 @@
+{
+  "schema_name": "pdf2md.ConnectorPageExtractionIRBundle",
+  "schema_version": "1.0.0",
+  "backend": "broken_backend",
+  "page_count": 1,
+  "pages": [
+    {
+      "schema_name": "pdf2md.PageExtractionIR",
+      "schema_version": "1.0.0",
+      "document_id": "plan11_doc",
+      "backend": "broken_backend",
+      "backend_version": null,
+      "page_no": 1,
+      "page_size": {"width": 1.0, "height": 1.0},
+      "blocks": [
+        {
+          "id": "broken_backend:plan11_doc:p1:b0",
+          "backend": "broken_backend",
+          "page_no": 1,
+          "kind": "heading",
+          "bbox": null,
+          "order": 0,
+          "text": "Introduction",
+          "confidence": null,
+          "spans": null,
+          "raw_ref": "output.md",
+          "metadata": {}
+        }
+      ],
+      "raw_artifact_ref": "output.md",
+      "metadata": {}
+    }
+  ]
+}
