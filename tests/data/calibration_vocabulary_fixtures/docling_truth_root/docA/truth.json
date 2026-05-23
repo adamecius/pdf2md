@@ -1,0 +1,38 @@
+{
+  "schema_name": "pdf2md.CalibrationTruthDocument",
+  "schema_version": "1.0.0",
+  "document_id": "docA",
+  "blocks": [
+    {
+      "id": "tb1",
+      "block_kind": "text",
+      "text": "Document body paragraph.",
+      "page_no": 1,
+      "metadata": {}
+    },
+    {
+      "id": "tb2",
+      "block_kind": "section_header",
+      "text": "Methods",
+      "page_no": 1,
+      "metadata": {}
+    },
+    {
+      "id": "tb3",
+      "block_kind": "title",
+      "text": "Some Title",
+      "page_no": 1,
+      "metadata": {}
+    },
+    {
+      "id": "tb4",
+      "block_kind": "picture",
+      "text": null,
+      "page_no": 2,
+      "metadata": {}
+    }
+  ],
+  "entities": [],
+  "relations": [],
+  "metadata": {}
+}

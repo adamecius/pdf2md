@@ -1,0 +1,17 @@
+{
+  "schema_name": "pdf2md.CalibrationTruthDocument",
+  "schema_version": "1.0.0",
+  "document_id": "missing_mandatory_doc",
+  "blocks": [
+    {
+      "id": "tb1",
+      "block_kind": "weird_docling_label",
+      "text": "Body with an unmapped label.",
+      "page_no": 1,
+      "metadata": {}
+    }
+  ],
+  "entities": [],
+  "relations": [],
+  "metadata": {}
+}
