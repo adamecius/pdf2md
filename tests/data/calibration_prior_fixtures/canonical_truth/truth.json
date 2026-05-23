@@ -1,0 +1,16 @@
+{
+  "schema_name": "pdf2md.CalibrationTruthDocument",
+  "schema_version": "1.0.0",
+  "document_id": "canonical_doc",
+  "blocks": [
+    {"id": "tb1", "block_kind": "paragraph", "text": "Body paragraph one.", "page_no": 1, "metadata": {}},
+    {"id": "tb2", "block_kind": "heading", "text": "Section A", "page_no": 1, "metadata": {}},
+    {"id": "tb3", "block_kind": "paragraph", "text": "Body paragraph two.", "page_no": 1, "metadata": {}},
+    {"id": "tb4", "block_kind": "heading", "text": "Section B", "page_no": 2, "metadata": {}},
+    {"id": "tb5", "block_kind": "paragraph", "text": "Body paragraph three.", "page_no": 2, "metadata": {}},
+    {"id": "tb6", "block_kind": "figure", "text": null, "page_no": 2, "metadata": {}}
+  ],
+  "entities": [],
+  "relations": [],
+  "metadata": {}
+}

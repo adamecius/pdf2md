@@ -1,0 +1,13 @@
+{
+  "schema_name": "pdf2md.ConnectorManifest",
+  "schema_version": "1.0.0",
+  "document_id": "canonical_doc",
+  "backend": "glm",
+  "backend_version": "0.0.0",
+  "raw_dir": "synthetic",
+  "page_count": 2,
+  "page_ir_files": ["pages/page_0001.json", "pages/page_0002.json"],
+  "entity_file": "entities.json",
+  "warnings": [],
+  "created_at": "2026-05-23T00:00:00Z"
+}

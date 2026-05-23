@@ -1,0 +1,15 @@
+{
+  "schema_name": "pdf2md.PageExtractionIR",
+  "schema_version": "1.0.0",
+  "document_id": "canonical_doc",
+  "backend": "glm",
+  "backend_version": "0.0.0",
+  "page_no": 2,
+  "page_size": {"width": 1.0, "height": 1.0},
+  "blocks": [
+    {"id": "glm:canonical_doc:p2:b0", "backend": "glm", "page_no": 2, "kind": "heading", "order": 0, "text": "Section B", "raw_ref": "output.md", "metadata": {}},
+    {"id": "glm:canonical_doc:p2:b1", "backend": "glm", "page_no": 2, "kind": "paragraph", "order": 1, "text": "Body paragraph three.", "raw_ref": "output.md", "metadata": {}}
+  ],
+  "raw_artifact_ref": "output.md",
+  "metadata": {}
+}

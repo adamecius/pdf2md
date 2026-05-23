@@ -1,0 +1,31 @@
+{
+  "schema_name": "pdf2md.CalibrationTruthDocument",
+  "schema_version": "1.0.0",
+  "document_id": "docB",
+  "blocks": [
+    {
+      "id": "tb1",
+      "block_kind": "text",
+      "text": "Another body paragraph.",
+      "page_no": 1,
+      "metadata": {}
+    },
+    {
+      "id": "tb2",
+      "block_kind": "caption",
+      "text": "Figure 1: a caption.",
+      "page_no": 1,
+      "metadata": {}
+    },
+    {
+      "id": "tb3",
+      "block_kind": "table",
+      "text": null,
+      "page_no": 2,
+      "metadata": {}
+    }
+  ],
+  "entities": [],
+  "relations": [],
+  "metadata": {}
+}

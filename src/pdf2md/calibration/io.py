@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from pdf2md.calibration.vocabulary import normalise_truth_payload
 from pdf2md.models.entities import EntityProposalDocument
 from pdf2md.models.ir import PageExtractionIR
 from pdf2md.models.priors import CalibrationPriorDocument, CalibrationTruthDocument
@@ -74,6 +75,48 @@ def _load_model(path: Path, model: type[Any], warning: str, warnings: list[str],
         return None
 
 
+def load_calibration_truth_document(
+    path: Path,
+    *,
+    strict: bool = False,
+    warnings: list[str] | None = None,
+) -> CalibrationTruthDocument | None:
+    """Load a ``truth.json`` file with the Docling-to-BlockKind mapping applied.
+
+    The mandatory top-four Docling labels (``text``, ``section_header``,
+    ``title``, ``picture``) and the rest of the canonical mapping declared in
+    ``pdf2md.calibration.vocabulary.DOCLING_LABEL_TO_BLOCK_KIND`` are rewritten
+    before Pydantic validation, so ``CalibrationTruthDocument.blocks[].block_kind``
+    always receives canonical ``BlockKind`` values. Already-canonical truth
+    files pass through unchanged.
+    """
+
+    warnings = warnings if warnings is not None else []
+    try:
+        raw = json.loads(Path(path).read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        if strict:
+            raise
+        warnings.append(f"truth_missing:{path}")
+        return None
+    except json.JSONDecodeError as exc:
+        if strict:
+            raise
+        warnings.append(f"invalid_truth:{path}")
+        warnings.append(f"invalid_truth:{path}_detail:JSONDecodeError:{exc.msg}")
+        return None
+
+    payload = normalise_truth_payload(raw)
+    try:
+        return CalibrationTruthDocument.model_validate(payload)
+    except Exception as exc:
+        if strict:
+            raise
+        warnings.append(f"invalid_truth:{path}")
+        warnings.append(f"invalid_truth:{path}_detail:{exc.__class__.__name__}")
+        return None
+
+
 def load_calibration_document(*, item: CalibrationDocumentInput, strict: bool = False) -> CalibrationLoadResult:
     warnings: list[str] = []
     truth: CalibrationTruthDocument | None = None
@@ -82,7 +125,7 @@ def load_calibration_document(*, item: CalibrationDocumentInput, strict: bool = 
         if strict:
             raise FileNotFoundError(item.truth_path)
     else:
-        truth = _load_model(item.truth_path, CalibrationTruthDocument, f"invalid_truth:{item.truth_path}", warnings, strict)
+        truth = load_calibration_truth_document(item.truth_path, strict=strict, warnings=warnings)
     pages_by_backend: dict[str, list[PageExtractionIR]] = {}
     entities_by_backend: dict[str, EntityProposalDocument] = {}
     for backend, root in sorted(item.prediction_roots.items()):

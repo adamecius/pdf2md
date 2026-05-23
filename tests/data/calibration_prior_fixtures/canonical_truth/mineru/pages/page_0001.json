@@ -1,0 +1,16 @@
+{
+  "schema_name": "pdf2md.PageExtractionIR",
+  "schema_version": "1.0.0",
+  "document_id": "canonical_doc",
+  "backend": "mineru",
+  "backend_version": "0.0.0",
+  "page_no": 1,
+  "page_size": {"width": 1.0, "height": 1.0},
+  "blocks": [
+    {"id": "mineru:canonical_doc:p1:b0", "backend": "mineru", "page_no": 1, "kind": "paragraph", "order": 0, "text": "Body paragraph one.", "raw_ref": "output.md", "metadata": {}},
+    {"id": "mineru:canonical_doc:p1:b1", "backend": "mineru", "page_no": 1, "kind": "heading", "order": 1, "text": "Section A", "raw_ref": "output.md", "metadata": {}},
+    {"id": "mineru:canonical_doc:p1:b2", "backend": "mineru", "page_no": 1, "kind": "paragraph", "order": 2, "text": "Body paragraph two.", "raw_ref": "output.md", "metadata": {}}
+  ],
+  "raw_artifact_ref": "output.md",
+  "metadata": {}
+}
