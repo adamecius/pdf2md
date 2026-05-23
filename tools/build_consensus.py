@@ -14,6 +14,7 @@ if str(SRC) not in sys.path:
 
 from pdf2md.consensus.factory import ConsensusFactorySettings, build_consensus_ir
 from pdf2md.consensus.io import load_consensus_inputs, write_consensus_outputs
+from pdf2md.consensus.reporting import INSPECTION_STATUSES, build_consensus_report
 from pdf2md.consensus.scoring import ConsensusScoringSettings
 
 
@@ -34,6 +35,30 @@ def _parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--verbose", action="store_true")
     parser.add_argument("--min-agreement-score", default=0.50, type=float)
     parser.add_argument("--unresolved-margin", default=0.05, type=float)
+    parser.add_argument(
+        "--inspection-status",
+        default="diagnostic_only",
+        choices=list(INSPECTION_STATUSES),
+        help=(
+            "Human-supplied quality verdict comparing ConsensusIR against backends "
+            "and ground truth. Defaults to diagnostic_only."
+        ),
+    )
+    parser.add_argument(
+        "--ground-truth",
+        default=None,
+        type=Path,
+        help=(
+            "Optional ground-truth artefact reference recorded in the report. "
+            "No automated comparison is performed in Plan 13."
+        ),
+    )
+    parser.add_argument(
+        "--inspection-note",
+        action="append",
+        default=[],
+        help="Optional inspection note (repeatable).",
+    )
     return parser.parse_args(argv)
 
 
@@ -62,11 +87,29 @@ def main(argv: list[str] | None = None) -> int:
             priors_by_backend=loaded.priors_by_backend,
             settings=settings,
         )
-        merged = type(result)(consensus=result.consensus, report={**result.report, "warnings": loaded.warnings + result.warnings}, warnings=loaded.warnings + result.warnings)
+        all_warnings = loaded.warnings + result.warnings
+        rebuilt_report = build_consensus_report(
+            consensus=result.consensus,
+            warnings=all_warnings,
+            backend_summary=result.report.get("backend_summary", {}),
+            inspection_status=args.inspection_status,
+            ground_truth_ref=str(args.ground_truth) if args.ground_truth else None,
+            inspection_notes=args.inspection_note,
+        )
+        merged = type(result)(
+            consensus=result.consensus,
+            report=rebuilt_report,
+            warnings=all_warnings,
+        )
         write_consensus_outputs(result=merged, out_dir=args.out_dir)
         if args.verbose:
             for warning in merged.warnings:
                 print(f"warning: {warning}", file=sys.stderr)
+            print(f"consensus_ir: {args.out_dir / 'consensus_ir.json'}")
+            print(f"consensus_report: {args.out_dir / 'reports' / 'consensus_report.json'}")
+            print(f"consensus_summary: {args.out_dir / 'consensus_summary.txt'}")
+            print(f"inspection_status: {rebuilt_report['inspection_status']}")
+            print(f"plan14_readiness: {rebuilt_report['plan14_readiness']}")
         return 0
     except Exception as exc:  # noqa: BLE001 - CLI converts strict failures to exit code 1
         print(f"error: {exc}", file=sys.stderr)

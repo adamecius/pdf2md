@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from pdf2md.consensus.factory import ConsensusRunResult
+from pdf2md.consensus.reporting import build_consensus_summary
 from pdf2md.models.entities import EntityProposalDocument
 from pdf2md.models.ir import ConsensusIR, PageExtractionIR
 from pdf2md.models.priors import CalibrationPriorDocument
@@ -107,4 +108,5 @@ def write_consensus_outputs(*, result: ConsensusRunResult, out_dir: Path) -> Non
     reports_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "consensus_ir.json").write_text(result.consensus.model_dump_json(indent=2))
     (reports_dir / "consensus_report.json").write_text(json.dumps(result.report, indent=2, sort_keys=True))
+    (out_dir / "consensus_summary.txt").write_text(build_consensus_summary(result.report))
     ConsensusIR.model_validate_json((out_dir / "consensus_ir.json").read_text())
