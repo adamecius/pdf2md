@@ -1,4 +1,4 @@
-# Plan 14 — LinkedStructure and Cross-Page Semantic Linking
+# Plan 15 — Docling Export Validation
 
 Status:
 draft
@@ -18,77 +18,78 @@ Linked ROADMAP phase:
 Phase 4 — Semantic document construction and export preparation
 
 Current roadmap estimate:
-Overall project from approximately 78% toward 80–81% after successful completion.
+Overall project from approximately 80–81% toward 83–85% after successful completion.
 
 Note:
-This plan validates and hardens the existing linking stack on real Plan 13 ConsensusIR outputs. It does not build cross-page linking from scratch. It does not perform Docling export.
+This plan validates the existing export stack on real Plan 14 LinkedStructure outputs. It does not build a new exporter. It does not run the end-to-end pipeline. It uses the available LaTeX-derived Docling ground-truth corpus for structural comparison, without treating the corpus count as fixed.
 
 Owner:
 Agent team / human reviewer / local acceptance layer
 
 Sequence:
-Plan 14 of the pre-MVP implementation sequence, ending at Plan 16.
+Plan 15 of the pre-MVP implementation sequence, ending at Plan 16.
 
 Previous plan:
-Plan 13 — Weighted ConsensusIR on Real Outputs
+Plan 14 — LinkedStructure and Cross-Page Semantic Linking
 
 Required previous plan status:
 human_verified
 
 Next plan after completion:
-Plan 15 — Docling Export Validation
+Plan 16 — End-to-End Runner and MVP Corpus Evaluation
 
 Branch name:
-plan-14-linkedstructure-cross-page-semantic-linking
+plan-15-docling-export-validation
 
 ---
 
 ## 1. Purpose
 
-This plan runs and hardens the existing linking stack on real Plan 13 ConsensusIR outputs.
+This plan runs and hardens the existing export stack on real Plan 14 LinkedStructure outputs.
 
-The repository already has the linking stack:
+The repository already has the export stack:
 
 ```text
-src/pdf2md/linking/builder.py
-src/pdf2md/linking/extract.py
-src/pdf2md/linking/resolvers.py
-src/pdf2md/linking/reporting.py
-src/pdf2md/linking/io.py
-src/pdf2md/linking/__init__.py
+src/pdf2md/export/docling.py
+src/pdf2md/export/rag.py
+src/pdf2md/export/markdown.py
+src/pdf2md/export/io.py
+src/pdf2md/export/reporting.py
+src/pdf2md/export/__init__.py
 ```
 
 and the CLI:
 
 ```text
-tools/build_linked_structure.py
+tools/export_linked_docling.py
 ```
 
-Plan 14 must reuse this stack.
+Plan 15 must reuse this stack.
 
 The core question is:
 
 ```text
-Can the existing linker build a valid, inspectable LinkedStructure from real weighted ConsensusIR outputs, while preserving ordering, provenance, confidence, unresolved links and cross-page semantic relations?
+Can the existing exporter produce structurally valid Docling JSON, RAG chunks and Markdown preview from real LinkedStructure outputs, and are those outputs comparable with the available LaTeX-derived Docling ground truth?
 ```
 
-Plan 14 must prove that the existing linking path works on real Plan 13 outputs, including:
+Plan 15 must prove that the existing export path works on real Plan 14 outputs, including:
 
 ```text
-document reading order
-section hierarchy
-cross-page continuity
-caption links
-figure/table sequence links
-footnote links
-reference links
-TOC links where available
-provenance back to ConsensusIR
-confidence and unresolved warnings
-Plan 15 export readiness
+Docling JSON structure
+body / texts / tables / pictures / groups references
+self_ref integrity
+children reference integrity
+prov / page_no preservation where available
+labels present and valid
+RAG chunks with text and confidence
+Markdown preview with legible content
+export manifest with artefact status and sha256 values
+export report with useful counts and warnings
+optional docling_core validation when available
+Plan 16 readiness
 ```
 
-This plan does not perform Docling export. Docling export is Plan 15.
+This plan does not run the full end-to-end pipeline. That is Plan 16.
 
 ---
 
@@ -123,7 +124,7 @@ git status --short
 git fetch --all --prune
 git checkout main
 git pull --ff-only
-git switch -c plan-14-linkedstructure-cross-page-semantic-linking
+git switch -c plan-15-docling-export-validation
 ```
 
 Rules:
@@ -134,7 +135,7 @@ Rules:
 4. Do not modify files outside the whitelist.
 5. Do not install or use undeclared dependencies.
 6. Do not change ROADMAP.md progress.
-7. Do not promote this plan to current_plan.md unless Plan 13 has been marked human_verified and archived.
+7. Do not promote this plan to current_plan.md unless Plan 14 has been marked human_verified and archived.
 8. Do not mark this plan human_verified or finished. Only the human reviewer may do that.
 9. Append to run_log.md only when required by agent.md and only in append-only mode.
 
@@ -156,7 +157,7 @@ or from an activated environment:
 conda activate pdf2md
 ```
 
-This plan does not run backend model execution, consensus generation, calibration or export. It consumes artefacts already produced by earlier plans.
+This plan does not run backend model execution, connector generation, calibration, consensus generation, linking generation, or the end-to-end pipeline. It consumes artefacts already produced by earlier plans.
 
 ---
 
@@ -164,35 +165,37 @@ This plan does not run backend model execution, consensus generation, calibratio
 
 In scope:
 
-1. Inspect the existing linking stack.
-2. Run `tools/build_linked_structure.py` on real Plan 13 ConsensusIR output.
-3. Use Plan 13 `consensus_ir.json` as the primary input.
-4. Use Plan 13 `reports/consensus_report.json` when available.
-5. Use Plan 11 or Plan 13 entities-root when available.
-6. Use Plan 12 priors-root when available.
-7. Fix real-data issues inside the linking whitelist.
-8. Validate `linked_structure.json`.
-9. Validate `reports/linking_report.json`.
-10. Confirm cross-page reading order and section hierarchy.
-11. Confirm caption, footnote, reference and TOC links where evidence exists.
-12. Confirm unresolved links are explicit.
-13. Confirm provenance traces back to ConsensusIR.
-14. Confirm Plan 15 readiness.
+1. Inspect the existing export stack.
+2. Run `tools/export_linked_docling.py` on real Plan 14 `linked_structure.json` output.
+3. Use Plan 14 `linked_structure.json` as the primary required input.
+4. Use Plan 13 `consensus_ir.json` when available.
+5. Use source PDF path when available.
+6. Produce Docling JSON using the existing exporter.
+7. Produce RAG chunks using the existing RAG exporter by default.
+8. Produce Markdown preview using the existing Markdown exporter by default.
+9. Produce export report and manifest using the existing I/O path.
+10. Validate Docling-like structure using repository validation.
+11. Attempt optional `docling_core` validation when available.
+12. Treat `docling_core_unavailable` or equivalent as a warning, not a repository defect.
+13. Compare produced Docling JSON structurally against the available LaTeX-derived ground-truth `.docling.json` files.
+14. Validate that RAG chunks contain text and confidence information.
+15. Validate that Markdown preview contains legible content.
+16. Validate export manifest artefact status and sha256 values.
+17. Confirm Plan 16 readiness.
 
 Out of scope:
 
-1. Creating a new linking architecture.
+1. Creating a new export architecture.
 2. Running backend execution.
 3. Generating new PageExtractionIR.
 4. Generating new EntityProposalDocument.
 5. Generating new calibration priors.
 6. Generating new ConsensusIR.
-7. Creating embedded-text or tagged-PDF candidates.
-8. Running Docling export.
-9. Running Markdown export.
-10. Running RAG export.
-11. Running the end-to-end pipeline.
-12. Modifying ROADMAP.md, README.md, project.md, current_plan.md or next_plan.md.
+7. Generating new LinkedStructure.
+8. Modifying linking logic.
+9. Running the end-to-end pipeline.
+10. Changing ground-truth corpus files.
+11. Modifying ROADMAP.md, README.md, project.md, current_plan.md or next_plan.md.
 
 Hard constraints:
 
@@ -200,20 +203,22 @@ Hard constraints:
 2. The agent must not mark this plan as human_verified or finished.
 3. The agent may only mark agent_in_progress, agent_complete, human_verification_required, blocked, or superseded.
 4. Human verification is required before merge to main, milestone completion, next-plan promotion, or ROADMAP.md progress updates.
-5. Plan 14 must use `tools/build_linked_structure.py`.
-6. Plan 14 must not create a replacement linking CLI.
-7. Plan 14 must not create a new linking architecture.
-8. Plan 14 must consume real Plan 13 ConsensusIR output for real execution.
-9. If Plan 13 `consensus_ir.json` is missing, Plan 14 is blocked for real execution.
+5. Plan 15 must use `tools/export_linked_docling.py`.
+6. Plan 15 must not create a replacement export CLI.
+7. Plan 15 must not create a new export architecture.
+8. Plan 15 must consume real Plan 14 `linked_structure.json` for real execution.
+9. If Plan 14 `linked_structure.json` is missing, Plan 15 is blocked for real execution.
 10. Synthetic fixtures may be used only for automated tests.
-11. Synthetic fixtures must not be used as a substitute for real Plan 13 outputs in human verification.
-12. `--consensus-ir` is a single JSON file path, not a directory root.
-13. `linked_structure.json` and `reports/linking_report.json` are the expected outputs.
-14. `linked_structure_report.json` is not an expected output.
-15. `linked_structure_summary.txt` is not an expected output.
-16. Missing entities-root or priors-root may degrade linking quality. The plan must record this explicitly instead of pretending those inputs exist.
-17. Links must not be fabricated. If caption, footnote, reference or TOC links cannot be resolved, they must be marked unresolved or reported as warnings.
-18. Plan 14 must not perform Docling export.
+11. Synthetic fixtures must not be used as a substitute for real Plan 14 outputs in human verification.
+12. `--linked-structure` is a single JSON file path, not a directory root.
+13. `--consensus-ir` is optional in the CLI, but should be provided in human verification when Plan 13 output is available.
+14. If `--consensus-ir` is omitted, the warning must be recorded and export quality may be degraded.
+15. Human checkpoint H2 must run default export behaviour: do not pass `--no-rag` or `--no-markdown`.
+16. The five default artefacts are expected in H2: Docling JSON, RAG chunks, Markdown preview, export report and export manifest.
+17. Ground-truth comparison is structural alignment, not exact JSON diff.
+18. Plan 15 must not perform end-to-end orchestration.
+19. Plan 15 must not modify the ground-truth corpus.
+20. Plan 15 must not claim MVP completion.
 
 Allowed Python dependencies:
 
@@ -246,25 +251,26 @@ none
 The agent may create or modify only these implementation and test files:
 
 ```text
-src/pdf2md/linking/builder.py
-src/pdf2md/linking/extract.py
-src/pdf2md/linking/resolvers.py
-src/pdf2md/linking/reporting.py
-src/pdf2md/linking/io.py
-src/pdf2md/linking/__init__.py
+src/pdf2md/export/docling.py
+src/pdf2md/export/rag.py
+src/pdf2md/export/markdown.py
+src/pdf2md/export/io.py
+src/pdf2md/export/reporting.py
+src/pdf2md/export/__init__.py
 
-tools/build_linked_structure.py
+tools/export_linked_docling.py
 
-tests/test_linked_structure_builder.py
-tests/test_build_linked_structure_cli.py
-tests/test_linking_extract.py
-tests/test_linking_resolvers.py
+tests/test_docling_export.py
+tests/test_rag_export.py
+tests/test_markdown_export.py
+tests/test_export_io_cli.py
+tests/test_export_contracts.py
 ```
 
 The agent may create test fixtures only under:
 
 ```text
-tests/data/linking_fixtures/**
+tests/data/export_fixtures/**
 ```
 
 run_log.md is append-only and implicitly allowed when required by agent.md. It is not part of the implementation whitelist and must not be rewritten.
@@ -272,8 +278,11 @@ run_log.md is append-only and implicitly allowed when required by agent.md. It i
 The agent may create temporary outputs only through CLI execution. These outputs must not be committed by default:
 
 ```text
-<out-dir>/linked_structure.json
-<out-dir>/reports/linking_report.json
+<out-dir>/docling/<doc_id>.docling.json
+<out-dir>/rag/<doc_id>.rag_chunks.json
+<out-dir>/markdown/<doc_id>.preview.md
+<out-dir>/reports/export_report.json
+<out-dir>/export_manifest.json
 ```
 
 The agent must not modify these files unless this plan is explicitly amended by the human reviewer:
@@ -296,7 +305,9 @@ src/pdf2md/local/*
 src/pdf2md/connectors/*
 src/pdf2md/calibration/*
 src/pdf2md/consensus/*
-src/pdf2md/export/*
+src/pdf2md/linking/*
+
+src/pdf2md/models/*
 
 tools/backend_smoke.py
 tools/validate_connectors_page_ir.py
@@ -304,7 +315,7 @@ tools/validate_entity_proposals.py
 tools/vocabulary_alignment_check.py
 tools/calibrate_priors.py
 tools/build_consensus.py
-tools/export_linked_docling.py
+tools/build_linked_structure.py
 tools/local_groundtruth_validate.py
 tools/local_groundtruth_preflight.py
 
@@ -312,76 +323,99 @@ backend/*
 groundtruth/corpus/*
 ```
 
-If a defect is found in calibration, connector, consensus, export or backend execution code, the agent must stop and report a blocker. Do not modify those files under this plan without a human amendment.
+If a defect is found in linking, consensus, calibration, connector, backend execution or model schema code, the agent must stop and report a blocker. Do not modify those files under this plan without a human amendment.
 
-Expected output artefacts, produced by `tools/build_linked_structure.py` and not committed unless a later policy explicitly allows it:
+Expected output artefacts, produced by `tools/export_linked_docling.py` and not committed unless a later policy explicitly allows it:
 
 ```text
-<out-dir>/linked_structure.json
-<out-dir>/reports/linking_report.json
+<out-dir>/docling/<doc_id>.docling.json
+<out-dir>/rag/<doc_id>.rag_chunks.json
+<out-dir>/markdown/<doc_id>.preview.md
+<out-dir>/reports/export_report.json
+<out-dir>/export_manifest.json
 ```
 
 Required output characteristics:
 
-`linked_structure.json` must contain a valid LinkedStructure.
+The produced Docling JSON must expose or preserve:
 
-`reports/linking_report.json` must expose or summarise:
+```text
+document identity
+body structure
+texts / tables / pictures / groups where applicable
+self_ref references
+children references
+labels
+provenance where available
+page_no where available
+unresolved markers when requested or applicable
+```
+
+The produced RAG chunks must expose:
 
 ```text
 document_id
-source consensus_ir path
-source consensus_report path if used
-entities_root path if used
-priors_root path if used
-node counts
-edge/link counts
-unresolved link counts
-low-confidence warning counts
-caption link status
-footnote link status
-reference link status
-TOC link status
-figure/table sequence status
-cross-page continuity status
-provenance status
-warnings
-errors
-Plan 15 readiness notes
+chunk ids
+text content
+source references or provenance where available
+confidence or quality metadata where available
+warnings if any
 ```
 
-LinkedStructure outcome taxonomy:
+The produced Markdown preview must contain legible textual content and obvious structure where available.
 
-linked:
-A relation or structure element was resolved with evidence.
+The export manifest must expose:
 
-unresolved:
-A relation candidate exists but cannot be resolved confidently.
+```text
+document_id
+source_linked_structure
+source_consensus_ir when provided
+source_pdf when provided
+artefact paths
+artefact types
+artefact statuses
+sha256 values for written artefacts
+warnings
+```
 
-missing_input:
-A useful optional input such as entities-root or priors-root is unavailable.
+The export report must expose or summarise:
 
-low_confidence:
-A relation or structure decision exists but is below the configured confidence threshold.
+```text
+document_id
+Docling structural warnings
+RAG chunk counts
+Markdown size or content status
+manifest status
+warnings
+errors
+Plan 16 readiness notes
+```
 
-not_applicable:
-A relation type is not present in the document.
+Export outcome taxonomy:
+
+exported:
+All default artefacts were written and validated structurally.
+
+exported_with_warnings:
+Artefacts were written but warnings remain, such as optional missing consensus_ir or docling_core unavailable.
+
+structural_mismatch:
+Docling-like structure fails repository validation or structural ground-truth comparison.
+
+ground_truth_unavailable:
+No matching ground-truth `.docling.json` was found for the chosen document.
 
 blocked:
-The linker cannot proceed because required Plan 13 ConsensusIR input is missing or invalid.
+Required Plan 14 `linked_structure.json` is missing or invalid.
 
-Quality inspection outcome taxonomy:
-
-ready_for_plan_15:
-LinkedStructure is coherent enough to attempt Docling export.
+ready_for_plan_16:
+Export outputs are coherent enough for end-to-end MVP corpus evaluation.
 
 ready_with_warnings:
-LinkedStructure can proceed to Plan 15, but unresolved links or missing optional inputs must be noted.
+Export outputs can proceed to Plan 16, but warnings must be carried forward.
 
-not_ready_for_plan_15:
-Ordering, hierarchy, provenance or critical relations are broken.
-
-diagnostic_only:
-Run was performed only for diagnostic purposes because real Plan 13 inputs were incomplete.
+not_ready_for_plan_16:
+Docling JSON, RAG, Markdown, manifest or report quality is insufficient.
 
 ---
 
@@ -390,82 +424,90 @@ Run was performed only for diagnostic purposes because real Plan 13 inputs were 
 Task A1:
 
 Title:
-Inspect and run the existing linking path on real data.
+Inspect and run the existing export path on real data.
 
 Goal:
-Use the current `tools/build_linked_structure.py` and linking modules on one real Plan 13 ConsensusIR output.
+Use the current `tools/export_linked_docling.py` and export modules on one real Plan 14 `linked_structure.json` output.
 
 Files allowed:
 
 ```text
-tools/build_linked_structure.py
-src/pdf2md/linking/builder.py
-src/pdf2md/linking/extract.py
-src/pdf2md/linking/resolvers.py
-src/pdf2md/linking/reporting.py
-src/pdf2md/linking/io.py
-src/pdf2md/linking/__init__.py
-tests/test_linked_structure_builder.py
-tests/test_build_linked_structure_cli.py
-tests/test_linking_extract.py
-tests/test_linking_resolvers.py
+tools/export_linked_docling.py
+src/pdf2md/export/docling.py
+src/pdf2md/export/rag.py
+src/pdf2md/export/markdown.py
+src/pdf2md/export/io.py
+src/pdf2md/export/reporting.py
+src/pdf2md/export/__init__.py
+tests/test_docling_export.py
+tests/test_rag_export.py
+tests/test_markdown_export.py
+tests/test_export_io_cli.py
+tests/test_export_contracts.py
 run_log.md append-only if required by agent.md
 ```
 
 Implementation requirements:
 
-1. Inspect `tools/build_linked_structure.py`.
+1. Inspect `tools/export_linked_docling.py`.
 2. Confirm actual CLI flags:
+   - `--linked-structure`
    - `--consensus-ir`
-   - `--consensus-report`
-   - `--entities-root`
-   - `--priors-root`
+   - `--source-pdf`
    - `--out-dir`
    - `--strict`
    - `--verbose`
-   - `--low-confidence-threshold`
-3. Confirm `--consensus-ir` expects a single JSON file path.
-4. Inspect `src/pdf2md/linking/builder.py`.
-5. Inspect `src/pdf2md/linking/extract.py`.
-6. Inspect `src/pdf2md/linking/resolvers.py`.
-7. Inspect `src/pdf2md/linking/reporting.py`.
-8. Inspect `src/pdf2md/linking/io.py`.
-9. Locate one real Plan 13 `consensus_ir.json`.
-10. If real Plan 13 `consensus_ir.json` is missing, report a blocker in run_log.md and halt real execution.
-11. Do not use synthetic fixtures as a substitute for real Plan 13 output.
-12. Run the existing linking path on the real Plan 13 ConsensusIR output.
-13. Record whether consensus_report, entities-root or priors-root were available.
-14. Record what breaks, if anything.
-15. Do not create new linking modules.
-16. Do not create a new CLI.
-17. Do not run consensus, calibration or export.
+   - `--no-rag`
+   - `--no-markdown`
+   - `--include-unresolved`
+   - `--max-chars`
+3. Confirm `--linked-structure` expects a single JSON file path.
+4. Confirm `--consensus-ir` is optional.
+5. Inspect `src/pdf2md/export/docling.py`.
+6. Inspect `src/pdf2md/export/rag.py`.
+7. Inspect `src/pdf2md/export/markdown.py`.
+8. Inspect `src/pdf2md/export/io.py`.
+9. Inspect `src/pdf2md/export/reporting.py`.
+10. Locate one real Plan 14 `linked_structure.json`.
+11. If real Plan 14 `linked_structure.json` is missing, report a blocker in run_log.md and halt real execution.
+12. Do not use synthetic fixtures as a substitute for real Plan 14 output.
+13. Run the existing export path on the real Plan 14 LinkedStructure output using default RAG and Markdown behaviour.
+14. Provide `--consensus-ir` when a real Plan 13 ConsensusIR is available.
+15. Record whether `consensus_ir_missing` or docling_core unavailable warnings appear.
+16. Do not run linking, consensus, calibration or backend extraction.
 
 Command template:
 
 ```bash
-conda run -n pdf2md python tools/build_linked_structure.py --consensus-ir <PLAN13_CONSENSUS_IR_JSON> --consensus-report <PLAN13_CONSENSUS_REPORT_JSON> --entities-root <ENTITIES_ROOT> --priors-root <PLAN12_PRIORS_ROOT> --out-dir groundtruth/runs/linked_structure_one_document --strict --verbose
+conda run -n pdf2md python tools/export_linked_docling.py --linked-structure <PLAN14_LINKED_STRUCTURE_JSON> --consensus-ir <PLAN13_CONSENSUS_IR_JSON> --source-pdf <SOURCE_PDF_PATH> --out-dir groundtruth/runs/docling_export_one_document --strict --verbose
 ```
 
-If consensus_report, entities-root or priors-root are not available but the CLI supports omission, the agent may omit only those optional flags and must record the resulting warnings.
+If `consensus-ir` or `source-pdf` is unavailable but optional in the CLI, omit only the unavailable optional flags and record the resulting warnings.
+
+Do not pass `--no-rag` or `--no-markdown` in this task.
 
 Automated tests required:
 
 ```bash
-conda run -n pdf2md pytest tests/test_linked_structure_builder.py -q
-conda run -n pdf2md pytest tests/test_build_linked_structure_cli.py -q
-conda run -n pdf2md pytest tests/test_linking_extract.py -q
-conda run -n pdf2md pytest tests/test_linking_resolvers.py -q
+conda run -n pdf2md pytest tests/test_docling_export.py -q
+conda run -n pdf2md pytest tests/test_rag_export.py -q
+conda run -n pdf2md pytest tests/test_markdown_export.py -q
+conda run -n pdf2md pytest tests/test_export_io_cli.py -q
+conda run -n pdf2md pytest tests/test_export_contracts.py -q
 ```
 
 Expected output:
 
 ```text
-groundtruth/runs/linked_structure_one_document/linked_structure.json
-groundtruth/runs/linked_structure_one_document/reports/linking_report.json
+groundtruth/runs/docling_export_one_document/docling/<doc_id>.docling.json
+groundtruth/runs/docling_export_one_document/rag/<doc_id>.rag_chunks.json
+groundtruth/runs/docling_export_one_document/markdown/<doc_id>.preview.md
+groundtruth/runs/docling_export_one_document/reports/export_report.json
+groundtruth/runs/docling_export_one_document/export_manifest.json
 ```
 
 Completion evidence:
-Agent must report command used, CLI flags confirmed, outputs created, missing optional inputs and failures observed.
+Agent must report command used, CLI flags confirmed, outputs created, warnings observed and failures observed.
 
 Human verification required:
 yes. Covered by H1 and H2.
@@ -473,117 +515,119 @@ yes. Covered by H1 and H2.
 Task A2:
 
 Title:
-Fix linking path for real data and add integration coverage.
+Compare Docling output against available ground truth and fix export issues.
 
 Goal:
-Fix failures found in A1 inside the existing linking modules and ensure real-data patterns are covered.
+Validate the exported Docling JSON against repository contracts and the available LaTeX-derived ground-truth `.docling.json` files.
 
 Files allowed:
 
 ```text
-src/pdf2md/linking/builder.py
-src/pdf2md/linking/extract.py
-src/pdf2md/linking/resolvers.py
-src/pdf2md/linking/reporting.py
-src/pdf2md/linking/io.py
-src/pdf2md/linking/__init__.py
-tools/build_linked_structure.py
-tests/test_linked_structure_builder.py
-tests/test_build_linked_structure_cli.py
-tests/test_linking_extract.py
-tests/test_linking_resolvers.py
-tests/data/linking_fixtures/**
+src/pdf2md/export/docling.py
+src/pdf2md/export/rag.py
+src/pdf2md/export/markdown.py
+src/pdf2md/export/io.py
+src/pdf2md/export/reporting.py
+src/pdf2md/export/__init__.py
+tools/export_linked_docling.py
+tests/test_docling_export.py
+tests/test_rag_export.py
+tests/test_markdown_export.py
+tests/test_export_io_cli.py
+tests/test_export_contracts.py
+tests/data/export_fixtures/**
 run_log.md append-only if required by agent.md
 ```
 
 Implementation requirements:
 
-1. Fix real-data loading issues in `linking/io.py` if needed.
-2. Fix candidate extraction issues in `linking/extract.py` if real ConsensusIR patterns are not recognised.
-3. Fix resolver issues in `linking/resolvers.py` if reading order, hierarchy, captions, footnotes, references, TOC links or figure/table sequences fail.
-4. Fix builder orchestration issues in `linking/builder.py` if candidates are extracted but not assembled correctly.
-5. Fix `reporting.py` if warnings, unresolved links or Plan 15 readiness are not inspectable.
-6. Add or update integration coverage under `tests/data/linking_fixtures/**` only when needed.
-7. Ensure cross-page continuity is preserved.
-8. Ensure caption links are resolved only when evidence exists.
-9. Ensure footnote/reference/TOC links are resolved only when evidence exists.
-10. Ensure unresolved links are explicit in `linked_structure.json` or `reports/linking_report.json`.
-11. Ensure missing entities-root or priors-root are reported as warnings when relevant.
-12. Preserve provenance back to ConsensusIR.
-13. Do not fabricate missing links.
-14. Do not modify consensus, calibration, connector or export code.
-15. Do not perform Docling export.
+1. Use existing repository validation, including `validate_docling_like_document` where applicable.
+2. Use optional `try_validate_with_docling_core` where available.
+3. Treat docling_core absence as a warning, not a repository defect.
+4. Compare produced Docling JSON structurally against the available matching ground-truth `.docling.json` when available.
+5. Do not require exact JSON equality.
+6. Verify body structure is present.
+7. Verify references such as `self_ref` and `children` are valid where present.
+8. Verify labels are present and valid where expected.
+9. Verify provenance and page numbers where available.
+10. Verify tables and pictures where present.
+11. Verify unresolved content handling when applicable.
+12. Fix only export-layer issues inside the whitelist.
+13. Do not modify ground-truth files.
+14. Do not modify linked structure, consensus, calibration or connector code.
+15. Record ground_truth_unavailable when no matching ground-truth Docling file exists.
 
 Automated tests required:
 
 ```bash
-conda run -n pdf2md pytest tests/test_linked_structure_builder.py -q
-conda run -n pdf2md pytest tests/test_build_linked_structure_cli.py -q
-conda run -n pdf2md pytest tests/test_linking_extract.py -q
-conda run -n pdf2md pytest tests/test_linking_resolvers.py -q
+conda run -n pdf2md pytest tests/test_docling_export.py -q
+conda run -n pdf2md pytest tests/test_export_contracts.py -q
+conda run -n pdf2md pytest tests/test_export_io_cli.py -q
 ```
 
 Expected output:
-Existing linking path works on fixtures and real Plan 13 ConsensusIR outputs, or blockers are explicitly reported.
+Produced Docling JSON validates structurally and is meaningfully comparable to available ground truth.
 
 Completion evidence:
-Agent must report files changed, defects fixed, tests run and any remaining unresolved issues.
+Agent must report files changed, structural comparison result, docling_core status and tests run.
 
 Human verification required:
-yes. Covered by H2.
+yes. Covered by H3.
 
 Task A3:
 
 Title:
-Validate LinkedStructure quality and Plan 15 readiness.
+Validate RAG, Markdown, manifest and Plan 16 readiness.
 
 Goal:
-Verify that the linked structure is coherent enough for Docling export in Plan 15.
+Verify all default export artefacts and decide whether outputs are ready for Plan 16 end-to-end evaluation.
 
 Files allowed:
 
 ```text
-src/pdf2md/linking/reporting.py
-tools/build_linked_structure.py
-tests/test_linked_structure_builder.py
-tests/test_build_linked_structure_cli.py
-tests/test_linking_extract.py
-tests/test_linking_resolvers.py
-tests/data/linking_fixtures/**
+src/pdf2md/export/rag.py
+src/pdf2md/export/markdown.py
+src/pdf2md/export/io.py
+src/pdf2md/export/reporting.py
+src/pdf2md/export/__init__.py
+tools/export_linked_docling.py
+tests/test_rag_export.py
+tests/test_markdown_export.py
+tests/test_export_io_cli.py
+tests/test_export_contracts.py
+tests/data/export_fixtures/**
 run_log.md append-only if required by agent.md
 ```
 
 Implementation requirements:
 
-1. Inspect `linked_structure.json` against the source ConsensusIR.
-2. Verify document-level reading order.
-3. Verify section hierarchy.
-4. Verify cross-page continuity.
-5. Verify figure/table caption links where evidence exists.
-6. Verify figure/table sequencing where evidence exists.
-7. Verify footnote links where evidence exists.
-8. Verify reference links where evidence exists.
-9. Verify TOC links where evidence exists.
-10. Verify unresolved links are explicit.
-11. Verify provenance traces back to ConsensusIR.
-12. Verify `reports/linking_report.json` contains useful warnings and readiness information.
-13. Classify Plan 15 readiness as `ready_for_plan_15`, `ready_with_warnings`, or `not_ready_for_plan_15`.
-14. Do not perform Docling export.
+1. Validate RAG chunks JSON.
+2. Confirm RAG chunks contain text where the source document has text.
+3. Confirm RAG chunks contain confidence or quality metadata where available.
+4. Confirm Markdown preview is legible.
+5. Confirm Markdown preview preserves obvious headings and paragraph flow where available.
+6. Inspect `export_manifest.json`.
+7. Confirm all written artefacts have sha256 values.
+8. Confirm skipped artefacts are only skipped when explicitly disabled, not during default H2 run.
+9. Inspect `reports/export_report.json`.
+10. Confirm counts and warnings are coherent.
+11. Classify Plan 16 readiness as `ready_for_plan_16`, `ready_with_warnings`, or `not_ready_for_plan_16`.
+12. Do not run the end-to-end pipeline.
 
 Automated tests required:
 
 ```bash
-conda run -n pdf2md pytest tests/test_linked_structure_builder.py -q
-conda run -n pdf2md pytest tests/test_build_linked_structure_cli.py -q
-conda run -n pdf2md pytest tests/test_linking_extract.py -q
-conda run -n pdf2md pytest tests/test_linking_resolvers.py -q
+conda run -n pdf2md pytest tests/test_rag_export.py -q
+conda run -n pdf2md pytest tests/test_markdown_export.py -q
+conda run -n pdf2md pytest tests/test_export_io_cli.py -q
+conda run -n pdf2md pytest tests/test_export_contracts.py -q
 ```
 
 Expected output:
-Plan 15 readiness is clearly recorded in `reports/linking_report.json` or the agent report.
+All five default export artefacts are validated and Plan 16 readiness is clear.
 
 Completion evidence:
-Agent must report quality observations and Plan 15 readiness.
+Agent must report manifest status, RAG status, Markdown status, export report status and Plan 16 readiness.
 
 Human verification required:
 yes. Covered by H3.
@@ -598,69 +642,70 @@ Title:
 Input readiness and existing CLI gate.
 
 Purpose:
-Confirm that Plan 14 has a real Plan 13 ConsensusIR file and uses the existing linking CLI.
+Confirm that Plan 15 has a real Plan 14 LinkedStructure file and uses the existing export CLI.
 
 Required environment:
 pdf2md
 
 Preconditions:
-Plan 13 is human_verified.
-Plan 13 produced `consensus_ir.json`.
-Plan 13 produced `reports/consensus_report.json` if available.
-Plan 12 priors-root and Plan 11/13 entities-root are identified if available.
+Plan 14 is human_verified.
+Plan 14 produced `linked_structure.json`.
+Plan 13 produced `consensus_ir.json` if available.
+Source PDF is identified if available.
 
 Command:
 
 ```bash
-conda run -n pdf2md python tools/build_linked_structure.py --help
-ls -lh <PLAN13_CONSENSUS_IR_JSON>
-ls -lh <PLAN13_CONSENSUS_REPORT_JSON>
+conda run -n pdf2md python tools/export_linked_docling.py --help
+ls -lh <PLAN14_LINKED_STRUCTURE_JSON>
 ```
 
 Optional:
 
 ```bash
-ls -lh <ENTITIES_ROOT>
-ls -lh <PLAN12_PRIORS_ROOT>
+ls -lh <PLAN13_CONSENSUS_IR_JSON>
+ls -lh <SOURCE_PDF_PATH>
 ```
 
 Verification procedure:
 
 1. Run the help command.
-2. Confirm the CLI is `tools/build_linked_structure.py`.
+2. Confirm the CLI is `tools/export_linked_docling.py`.
 3. Confirm the help output includes:
+   - `--linked-structure`
    - `--consensus-ir`
-   - `--consensus-report`
-   - `--entities-root`
-   - `--priors-root`
+   - `--source-pdf`
    - `--out-dir`
    - `--strict`
    - `--verbose`
-   - `--low-confidence-threshold`
-4. Confirm `--consensus-ir` is a single JSON file path.
-5. Confirm `PLAN13_CONSENSUS_IR_JSON` exists.
-6. Confirm `PLAN13_CONSENSUS_IR_JSON` is from real Plan 13 output, not a test fixture.
-7. Confirm consensus_report path if available.
-8. Confirm entities-root and priors-root if available.
-9. If real Plan 13 `consensus_ir.json` is missing, mark Plan 14 blocked for real execution.
+   - `--no-rag`
+   - `--no-markdown`
+   - `--include-unresolved`
+   - `--max-chars`
+4. Confirm `--linked-structure` is a single JSON file path.
+5. Confirm `PLAN14_LINKED_STRUCTURE_JSON` exists.
+6. Confirm `PLAN14_LINKED_STRUCTURE_JSON` is from real Plan 14 output, not a test fixture.
+7. Confirm consensus-ir path if available.
+8. Confirm source-pdf path if available.
+9. If real Plan 14 `linked_structure.json` is missing, mark Plan 15 blocked for real execution.
 
 Pass criteria:
 
 ```text
 Existing CLI is used.
-PLAN13_CONSENSUS_IR_JSON exists.
-PLAN13_CONSENSUS_IR_JSON is a real Plan 13 artefact.
---consensus-ir is treated as a file path.
+PLAN14_LINKED_STRUCTURE_JSON exists.
+PLAN14_LINKED_STRUCTURE_JSON is a real Plan 14 artefact.
+--linked-structure is treated as a file path.
 Optional input availability is recorded.
 ```
 
 Fail criteria:
 
 ```text
-A new linking CLI is used.
-PLAN13_CONSENSUS_IR_JSON is missing.
-A test fixture is used as substitute for real Plan 13 output.
---consensus-ir is treated as a directory.
+A new export CLI is used.
+PLAN14_LINKED_STRUCTURE_JSON is missing.
+A test fixture is used as substitute for real Plan 14 output.
+--linked-structure is treated as a directory.
 Optional missing inputs are not recorded.
 ```
 
@@ -668,19 +713,19 @@ Evidence to record:
 
 ```text
 Paste help output or relevant flags.
-Paste PLAN13_CONSENSUS_IR_JSON path.
-Paste consensus_report path if available.
-Paste entities-root and priors-root availability.
+Paste PLAN14_LINKED_STRUCTURE_JSON path.
+Paste consensus-ir availability.
+Paste source-pdf availability.
 Paste whether any optional inputs are missing.
 ```
 
 Checkpoint H2:
 
 Title:
-One-document LinkedStructure build.
+One-document default export.
 
 Purpose:
-Confirm that the existing linking path builds valid LinkedStructure from real Plan 13 ConsensusIR.
+Confirm that the existing export path writes all default artefacts from real Plan 14 LinkedStructure.
 
 Required environment:
 pdf2md
@@ -692,55 +737,62 @@ Tasks A1 and A2 are complete.
 Command:
 
 ```bash
-conda run -n pdf2md python tools/build_linked_structure.py --consensus-ir <PLAN13_CONSENSUS_IR_JSON> --consensus-report <PLAN13_CONSENSUS_REPORT_JSON> --entities-root <ENTITIES_ROOT> --priors-root <PLAN12_PRIORS_ROOT> --out-dir groundtruth/runs/linked_structure_one_document --strict --verbose
+conda run -n pdf2md python tools/export_linked_docling.py --linked-structure <PLAN14_LINKED_STRUCTURE_JSON> --consensus-ir <PLAN13_CONSENSUS_IR_JSON> --source-pdf <SOURCE_PDF_PATH> --out-dir groundtruth/runs/docling_export_one_document --strict --verbose
 ```
 
-If consensus_report, entities-root or priors-root are unavailable but optional in the CLI, omit only the unavailable optional flags and record the warning.
+If consensus-ir or source-pdf are unavailable but optional in the CLI, omit only the unavailable optional flags and record the warning.
+
+Do not pass `--no-rag` or `--no-markdown`.
 
 Expected output files:
 
 ```text
-groundtruth/runs/linked_structure_one_document/linked_structure.json
-groundtruth/runs/linked_structure_one_document/reports/linking_report.json
+groundtruth/runs/docling_export_one_document/docling/<doc_id>.docling.json
+groundtruth/runs/docling_export_one_document/rag/<doc_id>.rag_chunks.json
+groundtruth/runs/docling_export_one_document/markdown/<doc_id>.preview.md
+groundtruth/runs/docling_export_one_document/reports/export_report.json
+groundtruth/runs/docling_export_one_document/export_manifest.json
 ```
 
 Verification procedure:
 
-1. Replace placeholders with real Plan 13, Plan 12 and entity paths.
+1. Replace placeholders with real Plan 14, Plan 13 and source PDF paths where available.
 2. Run the command exactly as written, omitting unavailable optional flags only if needed.
 3. Confirm the command exits 0.
-4. Open `linked_structure.json`.
-5. Confirm LinkedStructure validates.
-6. Open `reports/linking_report.json`.
-7. Confirm source ConsensusIR path is recorded or traceable.
-8. Confirm missing optional inputs are recorded as warnings if omitted.
-9. Confirm unresolved links are explicit.
-10. Confirm no `linked_structure_report.json` is expected.
-11. Confirm no `linked_structure_summary.txt` is expected.
-12. Confirm no Docling, Markdown or RAG export artefacts are produced.
+4. Confirm the Docling JSON exists.
+5. Confirm the RAG chunks JSON exists.
+6. Confirm the Markdown preview exists.
+7. Confirm `reports/export_report.json` exists.
+8. Confirm `export_manifest.json` exists.
+9. Open Docling JSON and confirm body structure and labels are present.
+10. Open export report and confirm warnings are understandable.
+11. Confirm `docling_core_unavailable` or equivalent is only a warning if present.
+12. Confirm no end-to-end pipeline was run.
 
 Pass criteria:
 
 ```text
-linked_structure.json exists.
-reports/linking_report.json exists.
-LinkedStructure validates.
-Real Plan 13 ConsensusIR was used.
-Missing optional inputs are recorded.
-Unresolved links are explicit.
-No export artefacts are produced.
+Command exits 0.
+All five default artefacts exist.
+Docling JSON validates structurally under repository validation.
+RAG chunks are produced.
+Markdown preview is produced.
+Export report exists.
+Manifest exists and records written artefacts.
+Missing optional inputs are recorded as warnings.
+No end-to-end pipeline is run.
 ```
 
 Fail criteria:
 
 ```text
-linked_structure.json is missing.
-reports/linking_report.json is missing.
-LinkedStructure fails validation.
-A test fixture is used as substitute for real Plan 13 output.
-Unresolved links are hidden.
-Links are fabricated without evidence.
-Docling export is performed inside Plan 14.
+Command exits non-zero.
+Any default artefact is missing.
+Docling JSON is structurally invalid.
+RAG or Markdown are skipped in default run.
+Manifest is missing.
+Warnings are hidden.
+End-to-end pipeline is run.
 ```
 
 Evidence to record:
@@ -748,21 +800,22 @@ Evidence to record:
 ```text
 Paste the command.
 Paste exit code.
-Paste linked_structure.json path.
-Paste reports/linking_report.json path.
-Paste missing optional input warnings.
-Paste one resolved relation if present.
-Paste one unresolved relation or warning if present.
-Paste confirmation that no export artefacts were produced.
+Paste Docling JSON path.
+Paste RAG chunks path.
+Paste Markdown preview path.
+Paste export report path.
+Paste export manifest path.
+Paste warnings.
+Paste confirmation that no end-to-end pipeline was run.
 ```
 
 Checkpoint H3:
 
 Title:
-Quality and Plan 15 readiness.
+Ground-truth comparison, artefact quality and Plan 16 readiness.
 
 Purpose:
-Confirm that LinkedStructure is coherent enough to attempt Docling export in Plan 15.
+Confirm that exported Docling JSON is structurally comparable to the available LaTeX-derived ground truth, and that RAG, Markdown, report and manifest are ready for Plan 16.
 
 Required environment:
 pdf2md
@@ -776,62 +829,70 @@ Command:
 Manual inspection of:
 
 ```text
-groundtruth/runs/linked_structure_one_document/linked_structure.json
-groundtruth/runs/linked_structure_one_document/reports/linking_report.json
-<PLAN13_CONSENSUS_IR_JSON>
-<PLAN13_CONSENSUS_REPORT_JSON>
+groundtruth/runs/docling_export_one_document/docling/<doc_id>.docling.json
+groundtruth/runs/docling_export_one_document/rag/<doc_id>.rag_chunks.json
+groundtruth/runs/docling_export_one_document/markdown/<doc_id>.preview.md
+groundtruth/runs/docling_export_one_document/reports/export_report.json
+groundtruth/runs/docling_export_one_document/export_manifest.json
+<matching groundtruth/corpus/latex/**/<doc_id>.docling.json if available>
 ```
+
+Optional helper commands may be used only if already present in the repository.
 
 Verification procedure:
 
-1. Open `linked_structure.json`.
-2. Open `reports/linking_report.json`.
-3. Open the source ConsensusIR.
-4. Verify document-level reading order.
-5. Verify section hierarchy.
-6. Verify cross-page continuity.
-7. Inspect figure/table caption links where present.
-8. Inspect footnote/reference/TOC links where present.
-9. Confirm unresolved links are explicit.
-10. Confirm provenance traces back to ConsensusIR.
-11. Confirm Plan 15 readiness is stated.
-12. Confirm no export output is claimed.
+1. Open produced Docling JSON.
+2. Locate matching ground-truth `.docling.json` if available.
+3. If ground truth is available, compare structure rather than exact byte-level JSON.
+4. Confirm body structure is plausible.
+5. Confirm texts / tables / pictures / groups are structurally comparable where present.
+6. Confirm `self_ref` and `children` references are intact where present.
+7. Confirm provenance and page numbers are present where source data supports them.
+8. Open RAG chunks and confirm text content exists.
+9. Confirm RAG chunk confidence or quality metadata exists where available.
+10. Open Markdown preview and confirm legible content.
+11. Open export manifest and confirm sha256 values for written artefacts.
+12. Open export report and confirm counts and warnings are coherent.
+13. Classify Plan 16 readiness as `ready_for_plan_16`, `ready_with_warnings`, or `not_ready_for_plan_16`.
+14. Confirm no MVP completion is claimed.
 
 Pass criteria:
 
 ```text
-Document order is coherent.
-Section hierarchy is plausible.
-Cross-page continuity is preserved.
-Caption/footnote/reference/TOC links are either plausible or explicitly unresolved.
-Provenance is traceable.
-Plan 15 readiness is ready_for_plan_15 or ready_with_warnings.
-No export output is produced.
+Produced Docling JSON is structurally valid.
+If ground truth exists, exported structure is meaningfully comparable to it.
+RAG chunks contain text.
+Markdown preview is legible.
+Manifest records written artefacts and sha256 values.
+Export report is coherent.
+Plan 16 readiness is ready_for_plan_16 or ready_with_warnings.
+No MVP completion is claimed.
 ```
 
 Fail criteria:
 
 ```text
-Document order is incoherent.
-Section hierarchy is broken.
-Cross-page continuity is lost.
-Links are fabricated.
-Unresolved links are hidden.
-Provenance is lost.
-Plan 15 readiness is missing.
-Docling export is performed.
+Produced Docling JSON is structurally invalid.
+Ground-truth comparison reveals major missing structure with no diagnosis.
+RAG chunks are empty despite source text.
+Markdown preview is empty or unreadable.
+Manifest lacks sha256 values for written artefacts.
+Export report is missing or incoherent.
+Plan 16 readiness is missing.
+MVP completion is claimed inside Plan 15.
 ```
 
 Evidence to record:
 
 ```text
-Paste linked_structure.json path.
-Paste linking_report.json path.
-Paste reading order assessment.
-Paste section hierarchy assessment.
-Paste caption/footnote/reference/TOC assessment.
-Paste unresolved link summary.
-Paste Plan 15 readiness.
+Paste produced Docling JSON path.
+Paste matching ground-truth path or state ground_truth_unavailable.
+Paste structural comparison summary.
+Paste RAG chunk summary.
+Paste Markdown preview summary.
+Paste manifest artefact status and sha256 summary.
+Paste export report warnings.
+Paste Plan 16 readiness.
 ```
 
 ---
@@ -841,82 +902,98 @@ Paste Plan 15 readiness.
 Agent automated test matrix:
 
 ```bash
-conda run -n pdf2md pytest tests/test_linked_structure_builder.py -q
-conda run -n pdf2md pytest tests/test_build_linked_structure_cli.py -q
-conda run -n pdf2md pytest tests/test_linking_extract.py -q
-conda run -n pdf2md pytest tests/test_linking_resolvers.py -q
+conda run -n pdf2md pytest tests/test_docling_export.py -q
+conda run -n pdf2md pytest tests/test_rag_export.py -q
+conda run -n pdf2md pytest tests/test_markdown_export.py -q
+conda run -n pdf2md pytest tests/test_export_io_cli.py -q
+conda run -n pdf2md pytest tests/test_export_contracts.py -q
 ```
 
 Human verification test matrix:
 
 ```text
 H1 input readiness and existing CLI gate
-H2 one-document LinkedStructure build
-H3 quality and Plan 15 readiness
+H2 one-document default export
+H3 ground-truth comparison, artefact quality and Plan 16 readiness
 ```
 
 Plan-level statuses:
 
-linking_ready:
-Real Plan 13 ConsensusIR is available and the linker inputs are identified.
+export_ready:
+Real Plan 14 LinkedStructure is available and export inputs are identified.
 
-linking_blocked:
-Real Plan 13 ConsensusIR is missing or invalid.
+export_blocked:
+Real Plan 14 LinkedStructure is missing or invalid.
 
 diagnostic_only:
-Human permits a diagnostic run with incomplete optional inputs, but real Plan 13 ConsensusIR is still required.
+Human permits a diagnostic run with incomplete optional inputs, but real Plan 14 LinkedStructure is still required.
 
-Per-document linking statuses:
+Per-document export statuses:
 
-linked_structure_built:
-LinkedStructure validates for the document.
+exported:
+All default artefacts are written and structurally valid.
 
-linked_structure_failed:
-Linking fails.
+exported_with_warnings:
+Default artefacts are written but warnings remain.
 
-ready_for_plan_15:
-LinkedStructure is coherent enough for Docling export validation.
+structural_mismatch:
+Docling JSON is structurally invalid or not meaningfully comparable to ground truth.
+
+ground_truth_unavailable:
+No matching ground-truth `.docling.json` was found for the selected document.
+
+ready_for_plan_16:
+Export output is coherent enough for end-to-end MVP corpus evaluation.
 
 ready_with_warnings:
-LinkedStructure is usable for Plan 15 but unresolved links or missing optional inputs must be noted.
+Export output can proceed to Plan 16 but warnings must be carried forward.
 
-not_ready_for_plan_15:
-Ordering, hierarchy, provenance or critical relations are broken.
+not_ready_for_plan_16:
+Docling JSON, RAG, Markdown, manifest or report quality is insufficient.
 
 Failure classes:
 
 repository_defect:
-Existing linking builder, extraction, resolver, reporting, I/O, tests or CLI integration are wrong.
+Existing export builder, Docling exporter, RAG exporter, Markdown exporter, reporting, I/O, tests or CLI integration are wrong.
 
-missing_plan13_consensus:
-Real Plan 13 `consensus_ir.json` is missing.
+missing_plan14_linked_structure:
+Real Plan 14 `linked_structure.json` is missing.
 
-invalid_plan13_consensus:
-Plan 13 `consensus_ir.json` exists but fails validation.
+invalid_plan14_linked_structure:
+Plan 14 `linked_structure.json` exists but fails validation.
 
-missing_optional_inputs:
-consensus_report, entities-root or priors-root are unavailable.
+missing_optional_consensus_ir:
+ConsensusIR is unavailable. Export may proceed with warning, but quality may degrade.
 
-linking_schema_failure:
-LinkedStructure fails schema validation.
+missing_optional_source_pdf:
+Source PDF is unavailable. Export may proceed with warning if not required.
 
-reading_order_failure:
-Document reading order is incoherent.
+docling_structural_failure:
+Produced Docling JSON fails repository structural validation.
 
-section_hierarchy_failure:
-Section hierarchy is broken.
+docling_core_unavailable:
+Optional docling_core validation cannot run. This is a warning, not a repository defect.
 
-relation_resolution_failure:
-Captions, footnotes, references or TOC links are wrong or fabricated.
+docling_core_validation_failure:
+docling_core is available but rejects the document.
 
-unresolved_reporting_failure:
-Unresolved links are hidden.
+ground_truth_comparison_failure:
+Produced Docling JSON is not structurally comparable to available ground truth and no acceptable explanation exists.
 
-provenance_failure:
-LinkedStructure loses traceability to ConsensusIR.
+rag_export_failure:
+RAG chunks are missing, empty or invalid in default export.
+
+markdown_export_failure:
+Markdown preview is missing, empty or unreadable in default export.
+
+manifest_failure:
+Export manifest is missing artefact status or sha256 values for written artefacts.
+
+reporting_failure:
+Export report is missing, incoherent or hides warnings.
 
 scope_violation:
-Plan 14 performs consensus, calibration, backend extraction, export or end-to-end work.
+Plan 15 performs linking, consensus, calibration, backend extraction or end-to-end work.
 
 human_procedure_error:
 Human ran the wrong command, used wrong paths or inspected stale outputs.
@@ -929,32 +1006,41 @@ Failure handling:
 If failure_class is repository_defect:
 The agent must fix the implementation or report a blocker.
 
-If failure_class is missing_plan13_consensus:
-Plan 14 is blocked for real execution until Plan 13 output exists.
+If failure_class is missing_plan14_linked_structure:
+Plan 15 is blocked for real execution until Plan 14 output exists.
 
-If failure_class is invalid_plan13_consensus:
-Plan 13 must be fixed or reverified.
+If failure_class is invalid_plan14_linked_structure:
+Plan 14 must be fixed or reverified.
 
-If failure_class is missing_optional_inputs:
-Proceed only if CLI supports omission and warnings are recorded.
+If failure_class is missing_optional_consensus_ir:
+Proceed only if warning is recorded and human accepts degraded quality.
 
-If failure_class is linking_schema_failure:
-Fix linking construction or schema usage.
+If failure_class is missing_optional_source_pdf:
+Proceed only if warning is recorded.
 
-If failure_class is reading_order_failure:
-Fix reading-order extraction or resolver logic.
+If failure_class is docling_structural_failure:
+Fix export structure before human_verified.
 
-If failure_class is section_hierarchy_failure:
-Fix section hierarchy resolver logic.
+If failure_class is docling_core_unavailable:
+Record warning and continue.
 
-If failure_class is relation_resolution_failure:
-Fix resolver logic or mark relation unresolved.
+If failure_class is docling_core_validation_failure:
+Classify whether the defect is repository export logic or optional validator incompatibility.
 
-If failure_class is unresolved_reporting_failure:
-Fix reporting before human_verified.
+If failure_class is ground_truth_comparison_failure:
+Diagnose structural mismatch and fix export logic if appropriate.
 
-If failure_class is provenance_failure:
-Fix provenance propagation before human_verified.
+If failure_class is rag_export_failure:
+Fix RAG export before human_verified unless human explicitly scopes RAG out in an amended plan.
+
+If failure_class is markdown_export_failure:
+Fix Markdown export before human_verified unless human explicitly scopes Markdown out in an amended plan.
+
+If failure_class is manifest_failure:
+Fix manifest generation before human_verified.
+
+If failure_class is reporting_failure:
+Fix export reporting before human_verified.
 
 If failure_class is scope_violation:
 Reject the plan output and revise.
@@ -975,7 +1061,7 @@ Required before agent starts:
 
 ```text
 status is active
-Plan 13 status is human_verified or human explicitly approves drafting only
+Plan 14 status is human_verified or human explicitly approves drafting only
 scope is clear
 file whitelist is complete
 forbidden files are listed
@@ -995,10 +1081,9 @@ all agent tasks attempted
 all required automated tests run
 no forbidden files modified without human amendment
 no undeclared dependencies used
-existing build_linked_structure.py path used
-real Plan 13 consensus_ir.json used or blocker reported
-linked_structure.json produced or blocker reported
-reports/linking_report.json produced or blocker reported
+existing export_linked_docling.py path used
+real Plan 14 linked_structure.json used or blocker reported
+all five default artefacts produced or blocker reported
 agent report completed
 status set to agent_complete or human_verification_required
 ```
@@ -1009,10 +1094,10 @@ Required before merge or milestone completion:
 
 ```text
 H1 input readiness passed
-H2 one-document LinkedStructure build passed
-H3 quality and Plan 15 readiness completed
+H2 one-document default export passed
+H3 ground-truth comparison and Plan 16 readiness completed
 all expected output files produced or failures classified
-Plan 15 readiness recorded
+Plan 16 readiness recorded
 human verification report completed
 status set to human_verified by a human
 ```
@@ -1023,10 +1108,10 @@ Required before promotion:
 
 ```text
 status is human_verified
-Plan 14 is archived after completion
+Plan 15 is archived after completion
 history.md summary is prepared or updated
-Plan 15 exists as next_plan.md or approved prepared plan
-Plan 15 may be promoted to current_plan.md only after Plan 14 is finished
+Plan 16 exists as next_plan.md or approved prepared plan
+Plan 16 may be promoted to current_plan.md only after Plan 15 is finished
 ROADMAP.md progress is updated only if explicitly approved by the human
 ```
 
@@ -1054,11 +1139,11 @@ Hand-off procedure after human verification:
 1. Archive current_plan.md as:
 
 ```text
-plans/archive/plan-14-linkedstructure-cross-page-semantic-linking.md
+plans/archive/plan-15-docling-export-validation.md
 ```
 
 2. Append a milestone summary to history.md.
-3. Promote Plan 15 to current_plan.md.
+3. Promote Plan 16 to current_plan.md.
 4. Create a new next_plan.md from PLAN_TEMPLATE.md or from an approved prepared plan.
 5. Record the commit SHA or PR number.
 6. Record the human verification evidence.
@@ -1078,22 +1163,25 @@ Commit or PR:
 Files changed:
 Forbidden files touched:
 Tasks attempted:
-Existing linking code reused:
-build_linked_structure.py CLI flags confirmed:
+Existing export code reused:
+export_linked_docling.py CLI flags confirmed:
+PLAN14_LINKED_STRUCTURE_JSON:
 PLAN13_CONSENSUS_IR_JSON:
-PLAN13_CONSENSUS_REPORT_JSON:
-ENTITIES_ROOT:
-PLAN12_PRIORS_ROOT:
+SOURCE_PDF_PATH:
 Optional inputs missing:
 Automated tests run:
 Automated tests passed:
 Automated tests failed:
 Failure classes:
-LinkedStructure command:
-Generated linked_structure.json:
-Generated reports/linking_report.json:
-Quality inspection result:
-Plan 15 readiness:
+Export command:
+Generated Docling JSON:
+Generated RAG chunks:
+Generated Markdown preview:
+Generated export report:
+Generated export manifest:
+Ground-truth comparison result:
+docling_core status:
+Plan 16 readiness:
 Dependencies added:
 External tools used by agent:
 Output artefacts created:
@@ -1109,22 +1197,22 @@ Plan:
 Reviewer:
 Date:
 Environment:
+Plan 14 linked_structure:
 Plan 13 consensus_ir:
-Plan 13 consensus_report:
-Entities root:
-Priors root:
+Source PDF:
 Commands run:
 Exit codes:
 Output files checked:
-LinkedStructure status:
-Linking report status:
-Reading order assessment:
-Section hierarchy assessment:
-Cross-page continuity assessment:
-Caption/footnote/reference/TOC assessment:
-Unresolved links:
-Provenance status:
-Plan 15 readiness:
+Docling JSON status:
+RAG chunks status:
+Markdown preview status:
+Export report status:
+Export manifest status:
+Ground-truth file inspected:
+Structural comparison summary:
+docling_core status:
+Warnings:
+Plan 16 readiness:
 Pass criteria satisfied:
 Fail criteria triggered:
 Failure classes:
@@ -1140,34 +1228,42 @@ Reviewer checklist:
 3. Was run_log.md append-only if touched?
 4. Were all declared automated tests run?
 5. Did any automated test fail?
-6. Did the implementation reuse `tools/build_linked_structure.py`?
-7. Did the implementation avoid creating a new linking CLI?
-8. Did the implementation reuse existing linking modules?
-9. Did the implementation use real Plan 13 `consensus_ir.json` for human verification?
+6. Did the implementation reuse `tools/export_linked_docling.py`?
+7. Did the implementation avoid creating a new export CLI?
+8. Did the implementation reuse existing export modules?
+9. Did the implementation use real Plan 14 `linked_structure.json` for human verification?
 10. Did the implementation avoid using synthetic fixtures as real-input substitutes?
-11. Did the implementation treat `--consensus-ir` as a file path?
-12. Did the implementation produce `linked_structure.json`?
-13. Did the implementation produce `reports/linking_report.json`?
-14. Did the implementation avoid requiring `linked_structure_report.json`?
-15. Did the implementation avoid requiring `linked_structure_summary.txt`?
-16. Did the implementation avoid consensus work?
-17. Did the implementation avoid calibration work?
-18. Did the implementation avoid backend extraction?
-19. Did the implementation avoid Docling export?
-20. Did LinkedStructure validate?
-21. Is reading order coherent?
-22. Is section hierarchy plausible?
-23. Is cross-page continuity preserved?
-24. Are caption/footnote/reference/TOC links plausible or explicitly unresolved?
-25. Are unresolved links visible?
-26. Is provenance traceable to ConsensusIR?
-27. Are missing optional inputs recorded as warnings?
-28. Is Plan 15 readiness clear?
-29. Were generated reports left uncommitted by default?
-30. Is Plan 15 clearly identified as the next plan?
-31. Is it safe to mark this plan human_verified?
-32. Is it safe to promote the next plan?
-33. Is ROADMAP.md progress allowed to change?
+11. Did the implementation treat `--linked-structure` as a file path?
+12. Was `--consensus-ir` provided when available?
+13. If `--consensus-ir` was omitted, was the warning recorded?
+14. Did H2 run default export without `--no-rag` or `--no-markdown`?
+15. Did the implementation produce Docling JSON?
+16. Did the implementation produce RAG chunks?
+17. Did the implementation produce Markdown preview?
+18. Did the implementation produce `reports/export_report.json`?
+19. Did the implementation produce `export_manifest.json`?
+20. Did Docling JSON validate structurally?
+21. Was docling_core validation attempted when available?
+22. Was docling_core absence treated as warning rather than failure?
+23. Was ground-truth comparison structural, not exact JSON diff?
+24. Are `self_ref` and `children` references intact where present?
+25. Are labels present and valid where expected?
+26. Is provenance/page_no preserved where source data supports it?
+27. Do RAG chunks contain text?
+28. Is Markdown preview legible?
+29. Does manifest include sha256 for written artefacts?
+30. Is export report coherent?
+31. Did the implementation avoid linking work?
+32. Did the implementation avoid consensus work?
+33. Did the implementation avoid calibration work?
+34. Did the implementation avoid backend extraction?
+35. Did the implementation avoid end-to-end pipeline work?
+36. Is Plan 16 readiness clear?
+37. Were generated outputs left uncommitted by default?
+38. Is Plan 16 clearly identified as the next plan?
+39. Is it safe to mark this plan human_verified?
+40. Is it safe to promote the next plan?
+41. Is ROADMAP.md progress allowed to change?
 
 Status history:
 
@@ -1178,11 +1274,11 @@ date — status — actor — note
 Example:
 
 ```text
-2026-05-09 — draft — human — Plan 14 created from ROADMAP.md and PLAN_TEMPLATE.md
+2026-05-09 — draft — human — Plan 15 created from ROADMAP.md and PLAN_TEMPLATE.md
 2026-05-09 — active — human — approved for agent execution
 2026-05-09 — agent_in_progress — agent — branch created
-2026-05-09 — agent_complete — agent — automated tests passed and linked structure output generated
-2026-05-09 — human_verification_required — agent — awaiting human linked-structure checks
+2026-05-09 — agent_complete — agent — automated tests passed and export output generated
+2026-05-09 — human_verification_required — agent — awaiting human export checks
 2026-05-09 — human_verified — human — all checkpoints passed
 2026-05-09 — finished — human — archived and promoted
 ```
