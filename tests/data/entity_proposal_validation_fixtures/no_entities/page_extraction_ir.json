@@ -1,0 +1,20 @@
+{
+  "schema_name": "pdf2md.ConnectorPageExtractionIRBundle",
+  "schema_version": "1.0.0",
+  "backend": "empty_backend",
+  "page_count": 1,
+  "pages": [
+    {
+      "schema_name": "pdf2md.PageExtractionIR",
+      "schema_version": "1.0.0",
+      "document_id": "plan11_doc",
+      "backend": "empty_backend",
+      "backend_version": null,
+      "page_no": 1,
+      "page_size": {"width": 1.0, "height": 1.0},
+      "blocks": [],
+      "raw_artifact_ref": "output.md",
+      "metadata": {"connector": "markdown_fallback"}
+    }
+  ]
+}

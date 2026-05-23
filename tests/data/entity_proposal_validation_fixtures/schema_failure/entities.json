@@ -1,0 +1,61 @@
+{
+  "schema_name": "pdf2md.EntityProposalDocument",
+  "schema_version": "1.0.0",
+  "document_id": "plan11_doc",
+  "backend": "broken_backend",
+  "backend_version": null,
+  "page_count": 1,
+  "entities": [
+    {
+      "id": "ent:broken_backend:plan11_doc:section:1",
+      "entity_type": "section",
+      "subtype": null,
+      "canonical_text": "Introduction",
+      "page_no": 1,
+      "block_ids": ["broken_backend:plan11_doc:p1:b0"],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "broken_backend:plan11_doc:p1:b0",
+          "raw_ref": "output.md",
+          "text": "Introduction",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "heading_section_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": null,
+      "metadata": {}
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel:broken_backend:plan11_doc:1",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:broken_backend:plan11_doc:section:1",
+      "target_entity_id": "ent:broken_backend:plan11_doc:section:999",
+      "confidence": 0.5,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": null,
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "fixture relation to missing target",
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    }
+  ],
+  "warnings": [],
+  "metadata": {}
+}
