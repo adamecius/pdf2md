@@ -1,4 +1,4 @@
-# Plan 18 — Single-Document Pipeline Orchestrator
+# Additional Plan 2 — Repository Sanitisation and Legacy Removal
 
 Status:
 draft
@@ -15,80 +15,61 @@ blocked
 superseded
 
 Linked ROADMAP phase:
-Phase 6 — Functional application and CLI/API
-Phase 5 consumer — uses all staged pipeline outputs
+Phase 0 — Repository hygiene and public presentation
 
 Current roadmap estimate:
 Post-MVP. No ROADMAP.md percentage change until human approval.
 
 Note:
-This plan wires the six existing pipeline stages into a single command that
-takes a PDF and produces consensus-derived Docling JSON, Markdown, and RAG
-chunks. All stage logic already exists and is tested. The gap is an
-orchestrator that chains them with a canonical directory layout and handles
-errors, partial results, and stage skipping.
+This plan removes legacy artefacts, untracked virtual environments, dead code,
+and orphan files from the repository. It improves the public presentation on
+GitHub and adds baseline tooling configuration. It does not change any active
+pipeline logic.
 
-This plan does NOT implement new extraction logic, new consensus algorithms,
-or new export formats. It reuses the existing modules unchanged.
+The repository currently tracks 18,531 files, of which 17,816 (96%) belong to
+a committed Python virtual environment (.venv-mineru/). The git objects
+directory is 305MB. Root-level scripts, old plan drafts, schema examples, and
+a duplicate package directory clutter the top level. Several internal modules
+under `utils/`, `adapters/`, `renderers/`, and `models/document.py` are
+superseded by the current staged pipeline but still have test coverage.
+
+This plan separates work into safe deletions (no imports anywhere) and
+controlled deprecation (still imported by some tests).
 
 Owner:
 Agent team / human reviewer / local acceptance layer
 
 Sequence:
-Plan 18 of the post-MVP implementation sequence.
+Additional Plan 2 of the post-MVP implementation sequence.
 
 Previous plan:
-Plan 17 — External Ground-Truth Dataset Downloaders
+Plan 18 — Single-Document Pipeline Orchestrator
 
 Required previous plan status:
 human_verified
 
 Next plan after completion:
-Plan 19 — External Dataset Compilation and Evaluation
+Additional Plan 3 — Docstrings, Type Annotations, and Linter Configuration
 
 Branch name:
-plan-18-single-document-orchestrator
+additional-plan-2-repository-sanitisation
 
 ---
 
 ## 1. Purpose
 
-This plan implements a single-document pipeline orchestrator that executes the
-full pdf2md pipeline from one PDF input to final exports.
+This plan makes the public repository clean, navigable, and professional by
+removing files that should never have been tracked, deleting dead legacy
+artefacts, deprecating superseded modules, consolidating scattered
+documentation, and adding baseline developer tooling.
 
-The six stages already exist as independent modules and CLI tools:
+After this plan:
 
-```text
-Stage 1 — Backend execution          backends/runner.py      (run_configured_backends)
-Stage 2 — Connector (raw → IR)       connectors/common.py    (connect_raw_dir)
-Stage 3 — Calibration priors         calibration/*           (build_prior_document)
-Stage 4 — Consensus                  consensus/factory.py    (build_consensus_ir)
-Stage 5 — Linked structure           linking/builder.py      (build_linked_structure)
-Stage 6 — Export                     export/io.py            (build_export_run)
-```
-
-Each stage writes artefacts to disk and the next stage reads them. But no
-orchestrator chains them. The existing `pipeline/convert.py` is a placeholder
-that runs a single backend through a single adapter, bypassing consensus
-entirely. The existing `tools/` scripts are standalone CLIs that must be
-invoked manually in sequence.
-
-This plan:
-
-1. Defines the canonical run directory layout in `pipeline/artifacts.py`.
-2. Implements a stage runner in `pipeline/orchestrator.py` that calls each
-   stage's Python API (not subprocess) in sequence.
-3. Adds a `pdf2md convert` CLI command that replaces the current placeholder.
-4. Handles stage failures gracefully: reports partial results, classifies
-   failures, and produces a pipeline manifest.
-
-The core question this plan answers:
-
-```text
-Can a user run `pdf2md convert input.pdf --config pdf2md.backends.toml`
-and get consensus-derived Docling JSON, Markdown, and RAG output from all
-enabled backends without manually invoking six separate tools?
-```
+- `git clone` downloads ~700 files instead of ~18,500.
+- The repository root contains only files that belong there.
+- Legacy modules are clearly marked and isolated.
+- `.gitignore` prevents future accidents.
+- `pyproject.toml` includes ruff and mypy configuration.
 
 ---
 
@@ -121,18 +102,17 @@ git status --short
 git fetch --all --prune
 git checkout main
 git pull --ff-only
-git switch -c plan-18-single-document-orchestrator
+git switch -c additional-plan-2-repository-sanitisation
 ```
 
 Rules:
 
 1. Do not work directly on main.
 2. Do not start from a dirty working tree.
-3. If git status is not clean before branch creation, stop and report the uncommitted files.
-4. Do not modify files outside the whitelist.
-5. Do not install or use undeclared dependencies.
-6. Do not change ROADMAP.md progress.
-7. Do not mark this plan human_verified or finished. Only the human reviewer may do that.
+3. Do not modify files outside the whitelist.
+4. Do not install or use undeclared dependencies.
+5. Do not change ROADMAP.md progress.
+6. Do not mark this plan human_verified or finished.
 
 Main conda environment:
 
@@ -140,22 +120,7 @@ Main conda environment:
 pdf2md
 ```
 
-Repository-level commands must run using:
-
-```bash
-conda run -n pdf2md python <command>
-```
-
-or from an activated environment:
-
-```bash
-conda activate pdf2md
-```
-
-Backend execution during human verification requires backend-specific
-environments (pdf2md-mineru, pdf2md-paddleocr, etc). The orchestrator must
-invoke backends using the same conda-run subprocess mechanism as the existing
-`run_configured_backends`.
+This plan does not require backend environments.
 
 ---
 
@@ -163,429 +128,663 @@ invoke backends using the same conda-run subprocess mechanism as the existing
 
 In scope:
 
-1. Canonical run directory layout definition in `pipeline/artifacts.py`.
-2. Pipeline orchestrator in `pipeline/orchestrator.py` that calls stages 1–6
-   via their Python API.
-3. Pipeline stage status tracking and manifest generation.
-4. Replacement of the placeholder `convert` command in `cli/main.py`.
-5. Graceful handling of missing backends, failed stages, and partial results.
-6. Unit tests using mock backends and synthetic connector outputs.
+1. Remove `.venv-mineru/` from git tracking.
+2. Delete dead root-level scripts and legacy plan files.
+3. Delete orphan directories (`.current/`, `pdf2md/`, `schema_examples/`).
+4. Relocate superseded root-level documentation to `docs/archive/`.
+5. Move superseded internal modules to `src/pdf2md/_legacy/`.
+6. Mark legacy-dependent tests with a pytest marker.
+7. Update `.gitignore` to prevent future accidents.
+8. Add ruff and mypy baseline configuration to `pyproject.toml`.
+9. Consolidate `scripts/` shell scripts into `docs/archive/` or delete.
+10. Clean up `tests/temp_tests/` — relocate or mark as legacy.
 
 Out of scope:
 
-1. New extraction logic or new backend wrappers.
-2. New consensus algorithms or scoring changes.
-3. New export formats.
-4. Parallel backend execution (backends run sequentially as today).
-5. Resume/checkpoint from a partial run.
-6. Web or API surfaces.
-7. Changes to the `run-backends` command.
-8. Changes to any existing stage module's internal logic.
+1. Writing new docstrings or type annotations (Additional Plan 3).
+2. Rewriting tests that depend on legacy modules.
+3. Modifying any active pipeline module logic.
+4. Git history rewriting (BFG / filter-repo). The `.venv-mineru/` blobs
+   remain in git history; only tracking is removed. History cleanup is a
+   separate manual operation documented in this plan but not executed by
+   the agent.
+5. Modifying backend wrappers under `backend/`.
 
 Hard constraints:
 
 1. The agent must not modify files outside the whitelist.
-2. The agent must not mark this plan as human_verified or finished.
-3. The orchestrator must call existing stage modules via their Python API,
-   not by spawning subprocess calls to `tools/*.py`.
-4. Backend execution is the one exception: it must use subprocess via
-   `run_configured_backends` because backends run in separate conda environments.
-5. The orchestrator must not duplicate logic from existing stage modules.
-6. Stage 3 (calibration) is optional: if no priors directory is provided or
-   no ground-truth is available, the consensus runs with default priors.
-7. The orchestrator must work with a single backend (SINGLE_SOURCE consensus
-   mode) as well as multiple backends.
+2. The agent must not break any currently passing test that does NOT depend
+   on legacy modules.
+3. Legacy-dependent tests must still pass (they import from `_legacy/`
+   after the move).
+4. The agent must not delete `models/document.py` — it moves to `_legacy/`.
+5. Human verification is required before merge.
 
 Allowed Python dependencies:
 
 ```text
-none (uses only existing project dependencies: pydantic, typer)
+ruff (dev dependency, not runtime)
+mypy (dev dependency, not runtime)
 ```
 
 Allowed external tools:
 
 ```text
-conda — for backend subprocess execution (existing mechanism)
+git rm --cached — to untrack .venv-mineru without deleting from disk
 ```
 
 ---
 
 ## 5. File whitelist and forbidden files
 
-The agent may create or modify only these files:
+### Files the agent must DELETE (git rm):
 
 ```text
-src/pdf2md/pipeline/artifacts.py
-src/pdf2md/pipeline/orchestrator.py
-src/pdf2md/pipeline/reporting.py
-src/pdf2md/cli/main.py
-tests/test_pipeline_artifacts.py
-tests/test_pipeline_orchestrator.py
-tests/test_pipeline_cli.py
-tests/data/orchestrator_fixtures/.gitkeep
+.venv-mineru/                              (git rm -r --cached; add to .gitignore)
+compare_pre_docling_groundtruth.py         (dead — no imports anywhere)
+latex_to_pre_docling_groundtruth.py        (dead — no imports anywhere)
+plan5.md                                   (legacy plan draft)
+patch.plan                                 (legacy patch notes)
+patch.plan8.md                             (legacy patch notes)
+.current/                                  (ad-hoc consensus output for one document)
+pdf2md/__init__.py                         (orphan — real package is src/pdf2md/)
+pdf2md/                                    (empty after __init__.py removal)
+schema_examples/                           (schemas from a pre-IR format)
+```
+
+### Files the agent must RELOCATE:
+
+```text
+README_latex_docling_groundtruth.md        → docs/archive/README_latex_docling_groundtruth.md
+run_latex_docling_backends.sh              → docs/archive/run_latex_docling_backends.sh
+generate_latex_docling_groundtruth.py      → docs/archive/generate_latex_docling_groundtruth.py
+validate_latex_docling_groundtruth.py      → docs/archive/validate_latex_docling_groundtruth.py
+scripts/local_build_docling_fixtures.sh    → docs/archive/local_build_docling_fixtures.sh
+scripts/local_validate_docling_fixtures.sh → docs/archive/local_validate_docling_fixtures.sh
+
+src/pdf2md/utils/consensus_report.py       → src/pdf2md/_legacy/consensus_report.py
+src/pdf2md/utils/semantic_linker.py        → src/pdf2md/_legacy/semantic_linker.py
+src/pdf2md/utils/media_materializer.py     → src/pdf2md/_legacy/media_materializer.py
+src/pdf2md/utils/semantic_document_builder.py → src/pdf2md/_legacy/semantic_document_builder.py
+src/pdf2md/utils/docling_adapter.py        → src/pdf2md/_legacy/docling_adapter.py
+src/pdf2md/utils/__init__.py               → (delete after moves; utils/ becomes empty)
+src/pdf2md/adapters/base.py                → src/pdf2md/_legacy/adapters_base.py
+src/pdf2md/adapters/__init__.py            → (delete)
+src/pdf2md/backends/base.py                → src/pdf2md/_legacy/backends_base.py
+src/pdf2md/renderers/markdown.py           → src/pdf2md/_legacy/renderers_markdown.py
+src/pdf2md/renderers/__init__.py           → (delete)
+src/pdf2md/models/document.py              → src/pdf2md/_legacy/models_document.py
+src/pdf2md/pipeline/convert.py             → src/pdf2md/_legacy/pipeline_convert.py
+
+tests/temp_tests/                          → tests/_legacy_temp/
+```
+
+### Files the agent may CREATE:
+
+```text
+src/pdf2md/_legacy/__init__.py
+src/pdf2md/_legacy/README.md
+docs/archive/README.md
+```
+
+### Files the agent may MODIFY:
+
+```text
+.gitignore
+pyproject.toml
+src/pdf2md/models/__init__.py              (remove document.py imports)
+src/pdf2md/cli/main.py                     (remove convert_pdf import)
+tests/test_consensus_report.py             (update imports to _legacy)
+tests/test_media_materializer.py           (update imports to _legacy)
+tests/test_docling_adapter.py              (update imports to _legacy)
+tests/test_semantic_linker.py              (update imports to _legacy)
+tests/test_semantic_document_builder.py    (update imports to _legacy)
+tests/test_groundtruth_regressions.py      (update imports to _legacy)
+tests/test_groundtruth_e2e.py              (update imports to _legacy)
+tests/test_mock_backend_schema.py          (update imports to _legacy)
+tests/test_models_and_rendering.py         (update imports to _legacy)
 run_log.md
 ```
 
-The agent must not modify these files:
+### Forbidden files (must not be modified):
 
 ```text
-README.md
 ROADMAP.md
+README.md
 project.md
-current_plan.md
-next_plan.md
-history.md
 PLAN_TEMPLATE.md
-src/pdf2md/backends/runner.py
-src/pdf2md/connectors/common.py
-src/pdf2md/consensus/factory.py
-src/pdf2md/consensus/grouping.py
-src/pdf2md/consensus/scoring.py
+src/pdf2md/consensus/*
+src/pdf2md/connectors/*
 src/pdf2md/calibration/*
 src/pdf2md/linking/*
 src/pdf2md/export/*
-src/pdf2md/models/*
+src/pdf2md/models/ir.py
+src/pdf2md/models/entities.py
+src/pdf2md/models/priors.py
+src/pdf2md/models/linked.py
+src/pdf2md/models/export.py
+src/pdf2md/models/semantic_document.py
+src/pdf2md/backends/runner.py
+src/pdf2md/config.py
+src/pdf2md/local/*
+src/pdf2md/conventions/*
+src/pdf2md/testing/*
 backend/*
 tools/*
 groundtruth/*
-pyproject.toml
-```
-
-Expected output artefacts (created at runtime, not committed):
-
-```text
-<out-dir>/pipeline_manifest.json          — stage-by-stage status
-<out-dir>/pipeline_summary.txt            — human-readable summary
-<out-dir>/input/<filename>.pdf            — copy of input
-<out-dir>/raw/<backend>/                  — raw backend outputs
-<out-dir>/connector/<backend>/pages/      — PageExtractionIR JSON
-<out-dir>/connector/<backend>/entities.json
-<out-dir>/priors/<backend>.json           — calibration priors (if available)
-<out-dir>/consensus/consensus_ir.json
-<out-dir>/consensus/reports/
-<out-dir>/linked/linked_structure.json
-<out-dir>/linked/reports/
-<out-dir>/export/docling.json
-<out-dir>/export/rag_chunks.json
-<out-dir>/export/preview.md
-<out-dir>/export/reports/
-```
-
-Required pipeline_manifest.json contract:
-
-```text
-schema_name: pdf2md.PipelineManifest
-schema_version: 1
-document_id
-input_pdf
-backends_requested
-backends_succeeded
-stages:
-  - name: backend_execution | connector | calibration | consensus | linking | export
-    status: success | failed | skipped | not_started
-    started_at
-    finished_at
-    duration_seconds
-    output_dir
-    warnings
-    error (if failed)
-overall_status: success | partial | failed
 ```
 
 ---
 
 ## 6. Agent tasks
 
-### Task A1 — Canonical run directory layout
+### Task A1 — Remove .venv-mineru from tracking
 
 Title:
-Define canonical directory layout in pipeline/artifacts.py
+Untrack committed virtual environment
 
 Goal:
-Replace the placeholder in `pipeline/artifacts.py` with path helper functions
-that define the canonical directory structure for a pipeline run.
+Remove `.venv-mineru/` from git tracking without deleting it from disk, and
+prevent re-addition via `.gitignore`.
 
 Files allowed:
 
 ```text
-src/pdf2md/pipeline/artifacts.py
-tests/test_pipeline_artifacts.py
+.gitignore
+.venv-mineru/ (git rm --cached only)
 ```
 
 Implementation requirements:
 
-1. Define a `RunLayout` dataclass or class that, given a `run_dir: Path`,
-   provides properties for every subdirectory:
+1. Run `git rm -r --cached .venv-mineru/`.
+2. Add the following to `.gitignore`:
 
-   ```python
-   layout = RunLayout(run_dir)
-   layout.input_dir        # run_dir / "input"
-   layout.raw_dir          # run_dir / "raw"
-   layout.raw_backend_dir(backend)  # run_dir / "raw" / backend
-   layout.connector_dir    # run_dir / "connector"
-   layout.connector_backend_dir(backend)  # run_dir / "connector" / backend
-   layout.priors_dir       # run_dir / "priors"
-   layout.consensus_dir    # run_dir / "consensus"
-   layout.linked_dir       # run_dir / "linked"
-   layout.export_dir       # run_dir / "export"
-   layout.manifest_path    # run_dir / "pipeline_manifest.json"
-   layout.summary_path     # run_dir / "pipeline_summary.txt"
+   ```text
+   # Virtual environments — never track
+   .venv*/
+   venv*/
+   .env/
+   env/
    ```
 
-2. Provide a `create_dirs()` method that creates the top-level subdirectories.
+3. Also add these missing entries to `.gitignore`:
 
-3. The layout must be compatible with the existing `run_configured_backends`
-   output: backends write to `raw/<backend>/` and this layout must not
-   conflict with that.
+   ```text
+   # IDE
+   .idea/
+   .vscode/
+   *.swp
+   *.swo
+   *~
 
-4. The connector output layout must match what `consensus/io.py`'s
-   `load_consensus_inputs` expects: `<connector_root>/<backend>/pages/*.json`
-   + `<backend>/entities.json`.
+   # OS
+   .DS_Store
+   Thumbs.db
 
-5. The priors layout must match what `consensus/io.py` expects:
-   `<priors_root>/<backend>.json`.
+   # Distribution / packaging
+   dist/
+   build/
+   *.egg-info/
+   *.egg
+
+   # Coverage
+   htmlcov/
+   .coverage
+   .coverage.*
+   ```
+
+4. Verify with `git status` that `.venv-mineru/` appears as deleted (from
+   tracking) and that the files still exist on disk.
 
 Automated tests required:
 
 ```bash
-conda run -n pdf2md pytest tests/test_pipeline_artifacts.py -q
+git ls-files .venv-mineru/ | wc -l    # must be 0
+test -d .venv-mineru                  # must still exist on disk
 ```
-
-Tests must cover:
-- all path properties return expected paths
-- create_dirs creates the directory tree
-- layout is consistent with consensus/io expectations
 
 Expected output:
-`from pdf2md.pipeline.artifacts import RunLayout` works.
+`.venv-mineru/` untracked. `.gitignore` updated.
 
 Completion evidence:
-Files changed, tests run, exit codes.
-
-Human verification required:
-no
-
----
-
-### Task A2 — Pipeline orchestrator
-
-Title:
-Implement stage-by-stage orchestrator
-
-Goal:
-Implement `pipeline/orchestrator.py` that chains stages 1–6 using existing
-module APIs, tracks per-stage status, and produces a pipeline manifest.
-
-Files allowed:
-
-```text
-src/pdf2md/pipeline/orchestrator.py
-src/pdf2md/pipeline/reporting.py
-tests/test_pipeline_orchestrator.py
-tests/data/orchestrator_fixtures/.gitkeep
-```
-
-Implementation requirements:
-
-1. Define a `PipelineSettings` dataclass:
-
-   ```python
-   @dataclass
-   class PipelineSettings:
-       config: dict                    # backend TOML config (loaded)
-       priors_dir: Path | None = None  # pre-computed priors (optional)
-       force: bool = False
-       dry_run: bool = False
-       timeout: int | None = None
-       keep_going: bool = True         # continue past backend failures
-       skip_calibration: bool = False  # skip stage 3 if no truth available
-       skip_export: bool = False       # stop after consensus
-       verbose: bool = False
-   ```
-
-2. Implement `run_pipeline(input_pdf: Path, out_dir: Path, settings: PipelineSettings) -> PipelineResult`:
-
-   **Stage 1 — Backend execution:**
-   Call `run_configured_backends` with `work_dir=layout.run_dir`,
-   `run_name="raw"` (so raw outputs land in `<out_dir>/raw/<backend>/`).
-   This is the only stage that uses subprocess (conda run).
-   Record which backends succeeded.
-
-   **Stage 2 — Connector:**
-   For each backend that produced raw output, call `connect_raw_dir`
-   with `out_dir=layout.connector_backend_dir(backend)`.
-   Use the backend-specific `BackendConnectorConfig` from
-   `backend/<name>/connector.py` if available, otherwise use the
-   default config from `connectors/common.py`.
-   This produces `connector/<backend>/pages/*.json` and
-   `connector/<backend>/entities.json`.
-
-   **Stage 3 — Calibration (optional):**
-   If `settings.priors_dir` is provided and contains `<backend>.json`
-   files, copy them to `layout.priors_dir`.
-   If not provided, skip this stage with status `skipped` and let
-   consensus use default priors (0.5).
-   Do NOT run calibration matching here — calibration is a corpus-level
-   activity that must be done separately against ground truth. This stage
-   only makes existing priors available to consensus.
-
-   **Stage 4 — Consensus:**
-   Call `load_consensus_inputs` with
-   `connector_root=layout.connector_dir` and
-   `priors_root=layout.priors_dir`.
-   Call `build_consensus_ir` with the loaded inputs.
-   Call `write_consensus_outputs` to `layout.consensus_dir`.
-
-   **Stage 5 — Linked structure:**
-   Call `load_linker_inputs` with the consensus IR path and
-   entities/priors roots.
-   Call `build_linked_structure`.
-   Call `write_linker_outputs` to `layout.linked_dir`.
-
-   **Stage 6 — Export:**
-   Call `load_export_inputs` with the linked structure path.
-   Call `build_export_run` with Docling, RAG, and Markdown settings.
-   Call `write_export_outputs` to `layout.export_dir`.
-
-3. Each stage must be wrapped in a try/except. On failure:
-   - Record the error in the pipeline manifest.
-   - If `keep_going` is True and downstream stages can't proceed,
-     mark them as `not_started` (not `failed`).
-   - If `keep_going` is False, stop immediately.
-
-4. After all stages, write `pipeline_manifest.json` and
-   `pipeline_summary.txt`.
-
-5. Return a `PipelineResult` dataclass:
-
-   ```python
-   @dataclass
-   class PipelineResult:
-       overall_status: str             # "success" | "partial" | "failed"
-       stages: list[StageStatus]
-       manifest_path: Path
-       consensus_ir_path: Path | None
-       docling_path: Path | None
-       markdown_path: Path | None
-       warnings: list[str]
-   ```
-
-6. The orchestrator must handle:
-   - Zero backends enabled → fail with clear message.
-   - All backends fail → stage 2+ cannot proceed → overall_status "failed".
-   - Some backends fail → proceed with successful ones → overall_status
-     "partial" if downstream stages succeed.
-   - Single backend → SINGLE_SOURCE consensus mode (already supported).
-   - No priors → consensus uses default confidence 0.5 (already supported).
-
-7. Implement `reporting.py` with:
-   - `build_pipeline_summary(manifest: dict) -> str` for the text summary.
-
-Automated tests required:
-
-```bash
-conda run -n pdf2md pytest tests/test_pipeline_orchestrator.py -q
-```
-
-Tests must NOT call real backends or require conda environments. They must:
-- Mock `run_configured_backends` to simulate backend success/failure and
-  produce synthetic raw output (a simple markdown file).
-- Test full pipeline with one mock backend → single-source consensus.
-- Test full pipeline with two mock backends → multi-source consensus.
-- Test partial failure: one backend fails, one succeeds → partial result.
-- Test all backends fail → overall_status "failed", downstream skipped.
-- Test with pre-existing priors directory → priors loaded.
-- Test without priors → consensus runs with defaults.
-- Test dry-run mode → no files created.
-- Test that pipeline_manifest.json is valid JSON with required fields.
-
-Test fixtures: use `tests/data/orchestrator_fixtures/` for any synthetic
-connector outputs needed. Prefer generating fixtures in-test using
-`pdf2md.testing.mock_backend_ir` where possible.
-
-Expected output:
-`from pdf2md.pipeline.orchestrator import run_pipeline` works.
-
-Completion evidence:
-Files changed, tests run, exit codes.
-
-Human verification required:
-no
-
----
-
-### Task A3 — CLI integration
-
-Title:
-Replace placeholder convert command with pipeline orchestrator
-
-Goal:
-Replace the placeholder `convert` command in `cli/main.py` with a real
-implementation that calls `run_pipeline`.
-
-Files allowed:
-
-```text
-src/pdf2md/cli/main.py
-tests/test_pipeline_cli.py
-```
-
-Implementation requirements:
-
-1. Replace the existing `convert` command:
-
-   ```python
-   @app.command()
-   def convert(
-       pdf_path: Path = typer.Argument(..., help="Input PDF path."),
-       config: Path = typer.Option(Path("pdf2md.backends.toml"), "--config"),
-       out_dir: Path = typer.Option(None, "--out-dir", help="Output directory. Default: .tmp/<pdf-stem>/"),
-       priors_dir: Path | None = typer.Option(None, "--priors-dir", help="Pre-computed calibration priors."),
-       force: bool = typer.Option(False, "--force"),
-       dry_run: bool = typer.Option(False, "--dry-run"),
-       timeout: int | None = typer.Option(None, "--timeout"),
-       keep_going: bool = typer.Option(True, "--keep-going"),
-       skip_export: bool = typer.Option(False, "--skip-export"),
-       verbose: bool = typer.Option(False, "--verbose"),
-   ) -> None:
-   ```
-
-2. The command must:
-   - Load the backend config from the TOML file.
-   - Default `out_dir` to `.tmp/<pdf-stem>/` if not provided.
-   - Call `run_pipeline`.
-   - Print the pipeline summary to stdout.
-   - Exit with code 0 on success, 1 on failure, 2 on partial.
-
-3. The existing `run-backends` command must remain unchanged. It continues
-   to work independently for users who want backend-only execution.
-
-4. Remove the old `convert_pdf` import from cli/main.py. The placeholder
-   `pipeline/convert.py` may remain as-is (it is not deleted) but the CLI
-   no longer calls it.
-
-Automated tests required:
-
-```bash
-conda run -n pdf2md pytest tests/test_pipeline_cli.py -q
-```
-
-Tests must mock `run_pipeline` to avoid real backend execution. Tests must
-cover:
-- `pdf2md convert --help` shows all options.
-- `pdf2md convert --dry-run` with mocked pipeline.
-- Exit code mapping: 0 for success, 1 for failed, 2 for partial.
-- Default out_dir is `.tmp/<stem>/`.
-
-Expected output:
-`pdf2md convert input.pdf --config pdf2md.backends.toml` invokes the full
-pipeline.
-
-Completion evidence:
-Files changed, tests run, exit codes.
+`git diff --cached --stat` showing ~17,816 deletions. `.gitignore` diff.
 
 Human verification required:
 yes (see checkpoint H1)
+
+---
+
+### Task A2 — Delete dead root-level files
+
+Title:
+Remove legacy scripts, orphan plans, and dead directories
+
+Goal:
+Delete files at the repository root that have no imports, no references, and
+no active purpose.
+
+Files allowed:
+
+```text
+compare_pre_docling_groundtruth.py
+latex_to_pre_docling_groundtruth.py
+plan5.md
+patch.plan
+patch.plan8.md
+.current/
+pdf2md/
+schema_examples/
+```
+
+Implementation requirements:
+
+1. Delete each file with `git rm`:
+
+   ```bash
+   git rm compare_pre_docling_groundtruth.py
+   git rm latex_to_pre_docling_groundtruth.py
+   git rm plan5.md
+   git rm patch.plan
+   git rm patch.plan8.md
+   git rm -r .current/
+   git rm -r pdf2md/
+   git rm -r schema_examples/
+   ```
+
+2. Verify none of these files are imported by any `.py` file under `src/`
+   or `tests/` before deleting. (Pre-verified during plan creation: none
+   are imported.)
+
+3. The `scripts/` directory becomes empty after Task A3. Delete it with
+   `git rm -r scripts/`.
+
+Automated tests required:
+
+```bash
+conda run -n pdf2md pytest tests/ -q --ignore=tests/temp_tests --ignore=tests/_legacy_temp -x
+```
+
+All currently passing tests that don't depend on legacy utils must still pass.
+
+Expected output:
+Root directory is clean.
+
+Completion evidence:
+`git rm` output. `ls` of root showing only legitimate files.
+
+Human verification required:
+no
+
+---
+
+### Task A3 — Relocate legacy documentation and scripts
+
+Title:
+Move superseded docs and scripts to docs/archive/
+
+Goal:
+Preserve legacy documentation and scripts for reference without cluttering
+the root or active directories.
+
+Files allowed:
+
+```text
+docs/archive/README.md                     (create)
+docs/archive/README_latex_docling_groundtruth.md
+docs/archive/run_latex_docling_backends.sh
+docs/archive/generate_latex_docling_groundtruth.py
+docs/archive/validate_latex_docling_groundtruth.py
+docs/archive/local_build_docling_fixtures.sh
+docs/archive/local_validate_docling_fixtures.sh
+scripts/                                   (delete after moving)
+README_latex_docling_groundtruth.md         (delete from root)
+run_latex_docling_backends.sh               (delete from root)
+generate_latex_docling_groundtruth.py       (delete from root)
+validate_latex_docling_groundtruth.py       (delete from root)
+```
+
+Implementation requirements:
+
+1. Create `docs/archive/` directory.
+
+2. `git mv` each file to `docs/archive/`.
+
+3. Create `docs/archive/README.md`:
+
+   ```markdown
+   # Archived Scripts and Documentation
+
+   These files are from earlier development phases and are preserved for
+   reference. They are not part of the active pipeline.
+
+   The active pipeline modules are under `src/pdf2md/` and the active
+   tools are under `tools/`.
+
+   ## Contents
+
+   - `README_latex_docling_groundtruth.md` — original LaTeX ground-truth
+     harness documentation.
+   - `generate_latex_docling_groundtruth.py` — original fixture generator.
+   - `validate_latex_docling_groundtruth.py` — original fixture validator.
+   - `run_latex_docling_backends.sh` — original bash orchestrator.
+   - `local_build_docling_fixtures.sh` — local fixture build script.
+   - `local_validate_docling_fixtures.sh` — local fixture validation script.
+   ```
+
+4. Delete `scripts/` directory after moving its contents.
+
+Automated tests required:
+
+```text
+none (documentation only)
+```
+
+Expected output:
+Root is clean. `docs/archive/` has legacy files.
+
+Completion evidence:
+`git mv` output. `ls docs/archive/`.
+
+Human verification required:
+no
+
+---
+
+### Task A4 — Move superseded modules to _legacy/
+
+Title:
+Relocate legacy utils, adapters, renderers, and old model to _legacy package
+
+Goal:
+Move superseded internal modules to `src/pdf2md/_legacy/` with a clear
+deprecation notice, preserving import paths for existing tests.
+
+Files allowed:
+
+```text
+src/pdf2md/_legacy/__init__.py             (create)
+src/pdf2md/_legacy/README.md               (create)
+src/pdf2md/_legacy/consensus_report.py     (moved from utils/)
+src/pdf2md/_legacy/semantic_linker.py      (moved from utils/)
+src/pdf2md/_legacy/media_materializer.py   (moved from utils/)
+src/pdf2md/_legacy/semantic_document_builder.py (moved from utils/)
+src/pdf2md/_legacy/docling_adapter.py      (moved from utils/)
+src/pdf2md/_legacy/adapters_base.py        (moved from adapters/)
+src/pdf2md/_legacy/backends_base.py        (moved from backends/)
+src/pdf2md/_legacy/renderers_markdown.py   (moved from renderers/)
+src/pdf2md/_legacy/models_document.py      (moved from models/)
+src/pdf2md/_legacy/pipeline_convert.py     (moved from pipeline/)
+src/pdf2md/utils/                          (delete after moving)
+src/pdf2md/adapters/                       (delete after moving)
+src/pdf2md/renderers/                      (delete after moving)
+src/pdf2md/models/__init__.py              (modify: remove document.py imports)
+src/pdf2md/models/document.py              (delete after copy to _legacy)
+src/pdf2md/pipeline/convert.py             (delete after copy to _legacy)
+src/pdf2md/cli/main.py                     (modify: remove convert_pdf import)
+```
+
+Implementation requirements:
+
+1. Create `src/pdf2md/_legacy/__init__.py` with:
+
+   ```python
+   """Superseded modules preserved for backward compatibility.
+
+   These modules are from earlier development phases. The active pipeline
+   uses modules under consensus/, connectors/, calibration/, linking/,
+   and export/. These legacy modules will be removed in a future version.
+   """
+   ```
+
+2. Create `src/pdf2md/_legacy/README.md`:
+
+   ```markdown
+   # Legacy Modules
+
+   These modules are superseded by the current staged pipeline:
+
+   | Legacy module          | Replaced by                        |
+   |------------------------|------------------------------------|
+   | consensus_report.py    | consensus/factory.py + consensus/reporting.py |
+   | semantic_linker.py     | linking/builder.py + linking/extract.py |
+   | media_materializer.py  | export/io.py                       |
+   | semantic_document_builder.py | export/docling.py             |
+   | docling_adapter.py     | export/docling.py + export/io.py   |
+   | adapters_base.py       | connectors/common.py               |
+   | backends_base.py       | backends/runner.py                 |
+   | renderers_markdown.py  | export/markdown.py                 |
+   | models_document.py     | models/ir.py (PageExtractionIR, ConsensusIR) |
+   | pipeline_convert.py    | pipeline/orchestrator.py (Plan 18) |
+
+   These modules and their tests will be removed after all dependent
+   tests are migrated.
+   ```
+
+3. Move each file with `git mv`. For files that change names (e.g.
+   `adapters/base.py` → `_legacy/adapters_base.py`), use `git mv` then
+   rename, or `cp` + `git rm` + `git add`.
+
+4. Adjust internal imports within moved modules if they reference each
+   other. For example, `adapters/base.py` imports
+   `from pdf2md.models import Document` — update to
+   `from pdf2md._legacy.models_document import Document`.
+
+5. Update `src/pdf2md/models/__init__.py`:
+   - Remove `from .document import BBox, Block, Document, Flag, Page, SourceRef`
+   - Remove those names from `__all__`
+   - Keep all other imports (ir, entities, priors, linked, export) unchanged
+
+6. Update `src/pdf2md/cli/main.py`:
+   - Remove `from pdf2md.pipeline.convert import convert_pdf`
+   - Update the `convert` command to not reference `convert_pdf`
+   - If Plan 18 is not yet merged, make the convert command print
+     "Pipeline orchestrator not implemented yet. See Plan 18." instead
+     of referencing the old placeholder.
+
+7. Delete now-empty directories: `utils/`, `adapters/`, `renderers/`.
+
+8. Move `tests/temp_tests/` to `tests/_legacy_temp/`:
+   ```bash
+   git mv tests/temp_tests tests/_legacy_temp
+   ```
+
+Automated tests required:
+
+```bash
+conda run -n pdf2md pytest tests/ -q --ignore=tests/_legacy_temp -x
+```
+
+All tests NOT in `_legacy_temp` must pass. This verifies that moving modules
+didn't break active pipeline tests.
+
+Expected output:
+`src/pdf2md/utils/`, `src/pdf2md/adapters/`, `src/pdf2md/renderers/` no
+longer exist. `src/pdf2md/_legacy/` contains the moved modules.
+
+Completion evidence:
+`git mv` output, test results, import verification.
+
+Human verification required:
+no
+
+---
+
+### Task A5 — Update legacy-dependent test imports
+
+Title:
+Repoint test imports from old paths to _legacy paths
+
+Goal:
+Update all test files that import from `pdf2md.utils`, `pdf2md.adapters`,
+`pdf2md.renderers`, or `pdf2md.models.document` to import from
+`pdf2md._legacy` instead.
+
+Files allowed:
+
+```text
+tests/test_consensus_report.py
+tests/test_media_materializer.py
+tests/test_docling_adapter.py
+tests/test_semantic_linker.py
+tests/test_semantic_document_builder.py
+tests/test_groundtruth_regressions.py
+tests/test_groundtruth_e2e.py
+tests/test_mock_backend_schema.py
+tests/test_models_and_rendering.py
+tests/_legacy_temp/conftest.py
+tests/_legacy_temp/test_ashcroft_pipeline_contract.py
+tests/_legacy_temp/test_docling_adapter_edge_cases.py
+```
+
+Implementation requirements:
+
+1. In each test file, replace import paths:
+   - `from pdf2md.utils import X` → `from pdf2md._legacy import X`
+     (adjust submodule paths as needed)
+   - `from pdf2md.utils.consensus_report import X` →
+     `from pdf2md._legacy.consensus_report import X`
+   - `from pdf2md.models import Block, Document, Page` →
+     `from pdf2md._legacy.models_document import Block, Document, Page`
+   - `from pdf2md.renderers.markdown import render_markdown` →
+     `from pdf2md._legacy.renderers_markdown import render_markdown`
+   - `from pdf2md.adapters.base import Adapter` →
+     `from pdf2md._legacy.adapters_base import Adapter`
+
+2. For `tests/_legacy_temp/conftest.py`, update the `run_cli` calls that
+   use `-m pdf2md.utils.X` to use `-m pdf2md._legacy.X`. Ensure the
+   legacy modules have `if __name__ == "__main__"` blocks if they are
+   called as CLI scripts.
+
+3. Add a `legacy` pytest marker to all affected test files:
+
+   ```python
+   import pytest
+   pytestmark = pytest.mark.legacy
+   ```
+
+4. Register the marker in `pyproject.toml`:
+
+   ```toml
+   [tool.pytest.ini_options]
+   markers = [
+       "legacy: tests for superseded modules (will be removed)",
+   ]
+   ```
+
+Automated tests required:
+
+```bash
+conda run -n pdf2md pytest tests/ -q -x
+```
+
+ALL tests (including legacy) must pass with updated imports.
+
+```bash
+conda run -n pdf2md pytest tests/ -q -m "not legacy" -x
+```
+
+Non-legacy tests must also pass independently.
+
+Expected output:
+All tests pass. Legacy tests are marked and filterable.
+
+Completion evidence:
+Test output for both commands. Diff of import changes.
+
+Human verification required:
+yes (see checkpoint H2)
+
+---
+
+### Task A6 — Add tooling configuration
+
+Title:
+Add ruff and mypy baseline config to pyproject.toml
+
+Goal:
+Establish linter and type checker configuration so future code follows
+consistent standards.
+
+Files allowed:
+
+```text
+pyproject.toml
+```
+
+Implementation requirements:
+
+1. Add ruff configuration:
+
+   ```toml
+   [tool.ruff]
+   target-version = "py311"
+   line-length = 120
+
+   [tool.ruff.lint]
+   select = [
+       "E",      # pycodestyle errors
+       "W",      # pycodestyle warnings
+       "F",      # pyflakes
+       "I",      # isort
+       "UP",     # pyupgrade
+       "B",      # flake8-bugbear
+       "SIM",    # flake8-simplify
+       "RUF",    # ruff-specific
+   ]
+   ignore = [
+       "E501",   # line too long (handled by formatter)
+       "B008",   # do not perform function calls in argument defaults (typer pattern)
+   ]
+
+   [tool.ruff.lint.isort]
+   known-first-party = ["pdf2md"]
+   ```
+
+2. Add mypy configuration:
+
+   ```toml
+   [tool.mypy]
+   python_version = "3.11"
+   warn_return_any = true
+   warn_unused_configs = true
+   ignore_missing_imports = true
+   exclude = [
+       "src/pdf2md/_legacy/",
+       "tests/_legacy_temp/",
+       "docs/archive/",
+   ]
+   ```
+
+3. Add optional dev dependencies:
+
+   ```toml
+   [project.optional-dependencies]
+   dev = [
+       "ruff>=0.4",
+       "mypy>=1.10",
+       "pytest>=8",
+   ]
+   ```
+
+4. Do NOT run ruff fix or mypy on the entire codebase in this plan.
+   The configuration is baseline only. Fixing lint issues is Additional Plan 3.
+
+Automated tests required:
+
+```bash
+conda run -n pdf2md python -c "import tomllib; tomllib.load(open('pyproject.toml','rb'))"
+```
+
+Verify pyproject.toml is valid TOML.
+
+Expected output:
+`pyproject.toml` has ruff, mypy, and dev deps configured.
+
+Completion evidence:
+Diff of pyproject.toml.
+
+Human verification required:
+no
 
 ---
 
@@ -594,70 +793,57 @@ yes (see checkpoint H1)
 ### Checkpoint H1
 
 Title:
-Verify convert command with dry-run (no backends required)
+Verify .venv-mineru is untracked and .gitignore is correct
 
 Purpose:
-Confirm that the convert command parses arguments correctly and that dry-run
-mode works without real backends or conda environments.
+Confirm that the virtual environment is no longer tracked, the files still
+exist on disk, and .gitignore prevents re-addition.
 
 Required environment:
 pdf2md
 
 Preconditions:
-The repository package is installed in editable mode.
-Pipeline orchestrator is implemented.
-cli/main.py has the new convert command.
+Task A1 is complete. Changes are staged but not yet committed.
 
 Commands:
 
 ```bash
-conda run -n pdf2md pdf2md convert --help
-conda run -n pdf2md pdf2md convert test_visual.pdf --config pdf2md.backends.example.toml --dry-run --verbose
-```
-
-Input files:
-
-```text
-test_visual.pdf (existing in repo root)
-pdf2md.backends.example.toml (existing in repo root)
-```
-
-Expected output files:
-
-```text
-none (dry-run does not create files)
+git ls-files .venv-mineru/ | wc -l
+test -d .venv-mineru && echo "exists on disk" || echo "MISSING"
+echo ".venv-test-ignore" > .venv-test-ignore
+git check-ignore .venv-test-ignore
+rm .venv-test-ignore
 ```
 
 Verification procedure:
 
-1. Run `pdf2md convert --help`. Confirm it shows: pdf_path, --config,
-   --out-dir, --priors-dir, --force, --dry-run, --timeout, --keep-going,
-   --skip-export, --verbose.
-2. Run the dry-run command. Confirm it prints the planned stages and
-   backend list without executing anything.
-3. Confirm no directories were created under `.tmp/`.
+1. `git ls-files .venv-mineru/ | wc -l` must return 0.
+2. `.venv-mineru/` must still exist on disk.
+3. `.venv-test-ignore` must be ignored by git (verifying the pattern works).
+4. Review `.gitignore` additions for completeness.
 
 Pass criteria:
 
 ```text
-Help shows all documented options.
-Dry-run exits without error.
-No files or directories created.
+Zero tracked files under .venv-mineru/.
+Directory exists on disk.
+.gitignore correctly matches .venv* patterns.
 ```
 
 Fail criteria:
 
 ```text
-Help is missing options.
-Dry-run crashes or creates files.
+Any files still tracked under .venv-mineru/.
+Directory was deleted from disk.
+.gitignore pattern doesn't match test file.
 ```
 
 Evidence to record:
 
 ```text
-Paste stdout of --help.
-Paste stdout of --dry-run.
-Confirm .tmp/ was not modified.
+Output of git ls-files count.
+Output of disk existence check.
+Output of git check-ignore.
 ```
 
 ---
@@ -665,94 +851,62 @@ Confirm .tmp/ was not modified.
 ### Checkpoint H2
 
 Title:
-Verify full pipeline with at least one real backend
+Verify all tests pass after import migration
 
 Purpose:
-Confirm that the orchestrator chains all six stages correctly and produces
-consensus-derived final output from a real PDF.
+Confirm that legacy tests still pass with updated import paths and that
+non-legacy tests are unaffected.
 
 Required environment:
-pdf2md (plus at least one backend environment, e.g. pdf2md-mineru)
+pdf2md
 
 Preconditions:
-At least one backend is configured and enabled in pdf2md.backends.toml.
-The backend conda environment is functional.
-The repository package is installed in editable mode.
+Tasks A1–A5 are complete.
 
 Commands:
 
 ```bash
-conda run -n pdf2md pdf2md convert test_visual.pdf \
-    --config pdf2md.backends.toml \
-    --out-dir /tmp/pdf2md_pipeline_test \
-    --keep-going \
-    --verbose
-```
-
-Input files:
-
-```text
-test_visual.pdf
-pdf2md.backends.toml
-```
-
-Expected output files:
-
-```text
-/tmp/pdf2md_pipeline_test/pipeline_manifest.json
-/tmp/pdf2md_pipeline_test/pipeline_summary.txt
-/tmp/pdf2md_pipeline_test/input/test_visual.pdf
-/tmp/pdf2md_pipeline_test/raw/<backend>/output.md
-/tmp/pdf2md_pipeline_test/connector/<backend>/pages/page_0001.json
-/tmp/pdf2md_pipeline_test/connector/<backend>/entities.json
-/tmp/pdf2md_pipeline_test/consensus/consensus_ir.json
-/tmp/pdf2md_pipeline_test/linked/linked_structure.json
-/tmp/pdf2md_pipeline_test/export/docling.json
-/tmp/pdf2md_pipeline_test/export/preview.md
+conda run -n pdf2md pytest tests/ -q -x 2>&1 | tail -20
+conda run -n pdf2md pytest tests/ -q -m "not legacy" -x 2>&1 | tail -20
+conda run -n pdf2md pytest tests/ -q -m "legacy" -x 2>&1 | tail -20
 ```
 
 Verification procedure:
 
-1. Run the command. Record exit code.
-2. Open `pipeline_manifest.json`. Verify all six stages have a status.
-3. Confirm at least one backend has status `success` in stage 1.
-4. Open `connector/<backend>/pages/page_0001.json`. Verify it is valid
-   PageExtractionIR JSON.
-5. Open `consensus/consensus_ir.json`. Verify it has `document_id`,
-   `pages`, `backends` fields.
-6. Open `export/docling.json`. Verify it is valid JSON.
-7. Open `export/preview.md`. Verify it contains text content from the PDF.
-8. Read `pipeline_summary.txt`. Verify it lists stages and outcomes.
+1. Run all tests. Record pass/fail counts.
+2. Run non-legacy tests only. Verify all pass.
+3. Run legacy tests only. Verify all pass.
+4. Verify that `src/pdf2md/utils/` does not exist.
+5. Verify that `src/pdf2md/adapters/` does not exist.
+6. Verify that `src/pdf2md/renderers/` does not exist.
+7. Verify that `src/pdf2md/_legacy/` exists and contains the moved modules.
+8. Verify that root directory no longer contains legacy scripts.
 
 Pass criteria:
 
 ```text
-Command exits 0 (success) or 2 (partial if some backends failed).
-All expected output files exist.
-pipeline_manifest.json has all six stages.
-consensus_ir.json lists the successful backends.
-export/docling.json is valid JSON with text content.
-export/preview.md is non-empty.
+All tests pass.
+Legacy marker correctly filters tests.
+Deleted directories are gone.
+_legacy/ contains expected modules.
+Root is clean.
 ```
 
 Fail criteria:
 
 ```text
-Command exits 1 (total failure) when at least one backend should work.
-Any expected output file is missing.
-pipeline_manifest.json is malformed.
-consensus_ir.json references zero backends.
+Any test fails.
+Legacy marker is not registered.
+Deleted directories still exist.
+Active pipeline modules were modified.
 ```
 
 Evidence to record:
 
 ```text
-Paste exit code.
-Paste pipeline_summary.txt content.
-Paste first 20 lines of pipeline_manifest.json.
-Paste document_id and page_count from consensus_ir.json.
-Paste first 10 lines of export/preview.md.
-Confirm stage statuses from manifest.
+Test output (all, non-legacy, legacy).
+ls src/pdf2md/ (top-level directories).
+ls of repository root.
 ```
 
 ---
@@ -760,61 +914,85 @@ Confirm stage statuses from manifest.
 ### Checkpoint H3
 
 Title:
-Verify multi-backend consensus with at least two backends
+Verify repository root presentation
 
 Purpose:
-Confirm that when multiple backends are enabled, the consensus stage produces
-multi-source agreement scores and the final output reflects merged evidence.
+Confirm the repository looks clean and professional on GitHub.
 
 Required environment:
-pdf2md (plus at least two backend environments)
-
-Preconditions:
-At least two backends are configured and enabled.
-Both backend conda environments are functional.
+Any (visual inspection of file listing)
 
 Commands:
 
 ```bash
-conda run -n pdf2md pdf2md convert test_visual.pdf \
-    --config pdf2md.backends.toml \
-    --out-dir /tmp/pdf2md_multi_test \
-    --verbose
+ls -la $(git ls-files | sed 's|/.*||' | sort -u)
 ```
 
 Verification procedure:
 
-1. Run the command. Record exit code.
-2. Open `consensus/consensus_ir.json`.
-3. Verify `backends` array has at least two entries.
-4. Inspect `pages[0].blocks[0]`. Verify it has:
-   - `selection_mode` (expect `agreed` or `single_source`)
-   - `agreement_score` > 0
-   - `candidate_ids` with entries from different backends
-5. Open `consensus/reports/consensus_report.json`. Verify
-   `backend_summary` has entries for both backends.
+1. Review root-level file listing. It should contain only:
+
+   ```text
+   .codex
+   .github/
+   .gitignore
+   .python-version
+   backend/
+   CLA.md
+   configs/
+   CONTRIBUTING.md
+   current_plan.md
+   docs/
+   groundtruth/
+   history.md
+   LICENSE
+   next_plan.md
+   NOTICE
+   pdf2md.backends.example.toml
+   pdf2md.consensus.example.toml
+   PLAN_TEMPLATE.md
+   plans/
+   project.md
+   pyproject.toml
+   README.md
+   ROADMAP.md
+   run_log.md
+   src/
+   tests/
+   tools/
+   ```
+
+2. Verify the following are GONE from root:
+   - `compare_pre_docling_groundtruth.py`
+   - `latex_to_pre_docling_groundtruth.py`
+   - `generate_latex_docling_groundtruth.py`
+   - `validate_latex_docling_groundtruth.py`
+   - `run_latex_docling_backends.sh`
+   - `plan5.md`, `patch.plan`, `patch.plan8.md`
+   - `README_latex_docling_groundtruth.md`
+   - `schema_examples/`
+   - `.current/`
+   - `pdf2md/`
+   - `scripts/`
 
 Pass criteria:
 
 ```text
-Consensus IR lists 2+ backends.
-At least some blocks have selection_mode = "agreed".
-candidate_ids reference blocks from different backends.
+Root contains only the expected files listed above.
+No legacy scripts or orphan directories remain.
 ```
 
 Fail criteria:
 
 ```text
-Consensus IR lists only one backend when two were enabled.
-All blocks are single_source despite multiple backends.
+Any legacy file remains at root.
+Any expected file is missing.
 ```
 
 Evidence to record:
 
 ```text
-Paste backends array from consensus_ir.json.
-Paste one agreed block showing candidate_ids from different backends.
-Paste backend_summary from consensus_report.json.
+Output of ls showing root contents.
 ```
 
 ---
@@ -824,61 +1002,33 @@ Paste backend_summary from consensus_report.json.
 Agent automated test matrix:
 
 ```bash
-conda run -n pdf2md pytest tests/test_pipeline_artifacts.py -q
-conda run -n pdf2md pytest tests/test_pipeline_orchestrator.py -q
-conda run -n pdf2md pytest tests/test_pipeline_cli.py -q
-```
-
-Human verification test matrix:
-
-```text
-pdf2md convert --help
-pdf2md convert test_visual.pdf --dry-run --verbose
-pdf2md convert test_visual.pdf --out-dir /tmp/pdf2md_pipeline_test --verbose
-pdf2md convert test_visual.pdf --out-dir /tmp/pdf2md_multi_test --verbose (multi-backend)
+conda run -n pdf2md pytest tests/ -q -x
+conda run -n pdf2md pytest tests/ -q -m "not legacy" -x
+conda run -n pdf2md pytest tests/ -q -m "legacy" -x
 ```
 
 Failure classes:
 
 repository_defect:
-The orchestrator logic is wrong, a stage call fails due to implementation
-error, or the pipeline manifest schema is invalid.
-
-environment_missing:
-Backend conda environments are not configured, git is not installed, or
-required system packages are absent.
-
-backend_failure:
-A backend subprocess fails. This is expected for some environments and
-must be classified separately from repository defects.
+An import was broken by the move, a file was deleted that was still needed,
+or the _legacy package is not importable.
 
 test_expectation_wrong:
-The test or checkpoint expectation is inconsistent with the plan.
+A test expectation references an old path that was not updated.
+
+import_path_error:
+A moved module has internal imports that were not updated.
 
 human_procedure_error:
-The human ran the wrong command or used the wrong config.
-
-upstream_dependency_issue:
-A third-party package changed behaviour.
-
-permission_or_filesystem_error:
-The command cannot write to the output directory.
-
-timeout:
-A backend did not finish within the configured timeout.
+The human ran the wrong command.
 
 Failure handling:
 
 If failure_class is repository_defect:
-The agent must fix the implementation or report a blocker.
+The agent must fix the broken import or restore the file.
 
-If failure_class is backend_failure:
-The orchestrator must handle this gracefully: record the failure, proceed
-with remaining backends, and report partial results.
-
-If failure_class is environment_missing:
-The human must configure the environment. This does not block agent tests
-because agent tests mock backend execution.
+If failure_class is import_path_error:
+The agent must update the internal import in the _legacy module.
 
 ---
 
@@ -886,76 +1036,41 @@ because agent tests mock backend execution.
 
 Checkpoint C0: Plan ready
 
-Required before agent starts:
-
 ```text
 status is active
-scope is clear
 file whitelist is complete
-forbidden files are listed
-dependencies are declared
-agent tasks are listed
-automated tests are listed
-human verification checkpoints are listed
-next plan is identified
+all delete/move operations are listed
 ```
 
 Checkpoint C1: Agent implementation complete
 
-Required before human verification:
-
 ```text
-all agent tasks attempted
-all required automated tests run
+all tasks attempted
+all automated tests run
 no forbidden files modified
-no undeclared dependencies used
-agent report completed
-status set to agent_complete or human_verification_required
+status set to human_verification_required
 ```
 
 Checkpoint C2: Human verification complete
 
-Required before merge or milestone completion:
-
 ```text
-all human checkpoints run
-all expected output files produced
-all pass criteria satisfied
-failure classes recorded for any failures
-human verification report completed
-status set to human_verified by a human
-```
-
-Checkpoint C3: Plan finished and promoted
-
-Required before promotion:
-
-```text
-status is human_verified
-previous plan is archived
-history.md summary is prepared or updated
-next_plan.md is promoted to current_plan.md (Plan 19)
-new next_plan.md is created
-ROADMAP.md progress is updated only if explicitly approved by the human
+all checkpoints passed
+status set to human_verified
 ```
 
 Push and PR policy:
 
 ```text
-The agent may push an implementation branch if the plan allows it.
-The agent may open a draft PR if the plan allows it.
+The agent may push the branch and open a draft PR.
 The agent must not merge to main.
-The agent must not direct-push to main.
+The PR diff should show ~17,800+ file deletions (mostly .venv-mineru).
 ```
 
-Hand-off procedure after human verification:
+Hand-off after human verification:
 
-1. Archive this plan as plans/archive/plan-18-single-document-orchestrator.md.
-2. Append a milestone summary to history.md.
-3. Promote next_plan.md to current_plan.md (Plan 19).
-4. Create new next_plan.md.
-5. Record commit SHA or PR number.
-6. Confirm whether ROADMAP.md progress should change.
+1. Archive as plans/archive/additional-plan-2-repository-sanitisation.md.
+2. Append milestone to history.md.
+3. Promote next_plan.md.
 
 ---
 
@@ -964,70 +1079,41 @@ Hand-off procedure after human verification:
 Agent report template:
 
 ```text
-Plan: 18
+Plan: Additional Plan 2
 Status:
 Branch:
 Commit or PR:
-Files changed:
+Files deleted:
+Files moved:
+Files modified:
 Forbidden files touched:
-Tasks attempted:
-Automated tests run:
-Automated tests passed:
-Automated tests failed:
-Failure classes:
-Environment failures:
-Dependencies added:
-External tools used:
-Output artefacts created:
-Human verification still required:
+Tracked file count before:
+Tracked file count after:
+Tests run (all):
+Tests run (non-legacy):
+Tests run (legacy):
+Tests passed:
+Tests failed:
 Blockers:
-Next recommended action:
-```
-
-Human verification report template:
-
-```text
-Plan: 18
-Reviewer:
-Date:
-Environment:
-Backends tested:
-Commands run:
-Exit codes:
-Output files checked:
-Stage statuses:
-Consensus backends:
-Consensus mode (agreed/single_source):
-Export files:
-Pass criteria satisfied:
-Fail criteria triggered:
-Failure classes:
-Evidence:
-Decision:
-human_verified or rejected
 ```
 
 Reviewer checklist:
 
 1. Did the agent modify only whitelisted files?
 2. Did the agent avoid all forbidden files?
-3. Were all declared automated tests run?
-4. Did any automated test fail?
-5. Were failures classified correctly?
-6. Is `pipeline/artifacts.py` no longer a placeholder?
-7. Does the orchestrator call stage modules via Python API (not subprocess)?
-8. Is backend execution the only subprocess call?
-9. Does the orchestrator handle all-backends-fail gracefully?
-10. Does single-backend mode produce valid output?
-11. Does multi-backend mode produce consensus with agreement scores?
-12. Is the `run-backends` command unchanged?
-13. Does `--dry-run` produce no side effects?
-14. Is `pipeline_manifest.json` valid and complete?
-15. Does `pipeline_summary.txt` accurately reflect stage outcomes?
-16. Were all human verification checkpoints run exactly as written?
-17. Is the next plan clearly identified?
-18. Is it safe to mark this plan human_verified?
-19. Is ROADMAP.md progress allowed to change?
+3. Is .venv-mineru/ untracked but still on disk?
+4. Are all dead root files deleted?
+5. Are legacy scripts in docs/archive/?
+6. Is src/pdf2md/_legacy/ correctly structured?
+7. Are legacy test imports updated?
+8. Is the legacy pytest marker registered?
+9. Do all tests pass?
+10. Is pyproject.toml valid TOML?
+11. Does ruff config target Python 3.11?
+12. Is the repository root clean?
+13. Are active pipeline modules untouched?
+14. Is models/__init__.py updated (document.py imports removed)?
+15. Is cli/main.py updated (convert_pdf import removed)?
 
 Status history:
 
@@ -1038,109 +1124,86 @@ date — status — actor — note
 Example:
 
 ```text
-2026-05-24 — draft — human — Plan 18 created for single-document orchestrator
+2026-05-24 — draft — human — Additional Plan 2 created for repository sanitisation
 ```
 
 ---
 
 ## 11. Design notes
 
-### Current gap illustrated
+### Why not delete legacy modules outright?
 
-Today, processing a single document requires six manual invocations:
+Nine test files (1,283 lines total) import from `pdf2md.utils`, and some of
+those tests verify behaviour of the old consensus report, semantic linker, and
+docling adapter that may still be useful as regression baselines. Deleting the
+modules would break these tests immediately.
 
-```bash
-# 1. Run backends
-pdf2md run-backends input.pdf --config pdf2md.backends.toml
+Moving to `_legacy/` preserves test coverage while making the deprecation
+explicit. Additional Plan 3 can decide whether to migrate the test coverage to the
+current pipeline modules or remove it entirely.
 
-# 2. Connect each backend's raw output to IR
-python backend/mineru/connector.py \
-    --raw-dir .tmp/input/raw/mineru --document-id input --out-dir .tmp/input/connector
-python backend/paddleocr/connector.py \
-    --raw-dir .tmp/input/raw/paddleocr --document-id input --out-dir .tmp/input/connector
+### Why not rewrite git history?
 
-# 3. (Optional) Copy pre-computed priors
-cp calibration_output/priors/*.json .tmp/input/priors/
+Removing `.venv-mineru/` from tracking (`git rm --cached`) prevents new clones
+from downloading the files on checkout. However, the binary blobs remain in
+git history, inflating `git clone` size.
 
-# 4. Build consensus
-python tools/build_consensus.py \
-    --connector-root .tmp/input/connector --document-id input \
-    --priors-root .tmp/input/priors --out-dir .tmp/input/consensus
-
-# 5. Build linked structure
-python tools/build_linked_structure.py \
-    --consensus-ir .tmp/input/consensus/consensus_ir.json \
-    --entities-root .tmp/input/connector \
-    --priors-root .tmp/input/priors \
-    --out-dir .tmp/input/linked
-
-# 6. Export
-python tools/export_linked_docling.py \
-    --linked-structure .tmp/input/linked/linked_structure.json \
-    --consensus-ir .tmp/input/consensus/consensus_ir.json \
-    --out-dir .tmp/input/export
-```
-
-After this plan, one command replaces all six:
+Rewriting history (with `git filter-repo` or BFG Repo-Cleaner) is a
+destructive operation that invalidates all existing clones, forks, and open
+PRs. It should be done as a manual one-time operation after this plan is
+merged, documented here for reference:
 
 ```bash
-pdf2md convert input.pdf --config pdf2md.backends.toml
+# After merge, on a fresh clone:
+pip install git-filter-repo
+git filter-repo --path .venv-mineru/ --invert-paths
+git push --force --all
+git push --force --tags
 ```
 
-### Stage 3 (calibration) clarification
+This is explicitly out of scope for the agent.
 
-Calibration priors are a **corpus-level** artefact. They are computed once by
-running `tools/calibrate_priors.py` against ground-truth fixtures and the
-connector output of multiple documents. The result is a set of
-`priors/<backend>.json` files.
+### .gitignore additions rationale
 
-The orchestrator does NOT re-run calibration matching per document. It only
-**loads** pre-existing priors if `--priors-dir` is provided. Without priors,
-the consensus scoring uses default confidence (0.5) for all backends and
-block kinds. This is correct single-document behaviour.
+The current `.gitignore` is minimal. The additions cover:
 
-The recommended workflow is:
+- Virtual environments (`.venv*/`, `venv*/`) — prevents any env from being
+  tracked again.
+- IDE files (`.idea/`, `.vscode/`) — common development artefacts.
+- OS files (`.DS_Store`, `Thumbs.db`) — cross-platform noise.
+- Distribution packaging (`dist/`, `build/`, `*.egg-info/`) — standard
+  Python packaging artefacts.
+- Coverage reports (`htmlcov/`, `.coverage`) — CI artefacts.
 
-1. Run calibration once on the ground-truth corpus → produces `priors/`.
-2. Use those priors for all subsequent `pdf2md convert` invocations via
-   `--priors-dir priors/`.
-
-### Connector dispatch
-
-The orchestrator must detect which `BackendConnectorConfig` to use for each
-backend. The approach:
-
-1. Try to import `backend/<name>/connector.py` and call its `connect()`
-   function (which already wraps `connect_raw_dir` with backend-specific
-   config).
-2. If no backend-specific connector exists, fall back to
-   `connect_raw_dir` with default `BackendConnectorConfig`.
-
-The existing backend connectors (`backend/mineru/connector.py`, etc.) already
-handle backend-specific markdown file patterns and manifest locations.
-
-### Exit code convention
+### Root file inventory after cleanup
 
 ```text
-0 — all stages succeeded, all backends succeeded
-1 — pipeline failed (zero backends or critical stage failure)
-2 — partial success (some backends failed, but final output was produced)
+.codex                          — agent config
+.github/                        — PR template
+.gitignore                      — updated
+.python-version                 — Python version pin
+agent.md                        — agent governance protocol
+backend/                        — backend wrappers
+CLA.md                          — contributor licence
+configs/                        — OCR convention configs
+CONTRIBUTING.md                 — contribution guide
+current_plan.md                 — active plan
+docs/                           — documentation + archive
+groundtruth/                    — ground-truth corpus
+history.md                      — completed milestones
+LICENSE                         — AGPL-3.0
+next_plan.md                    — next plan placeholder
+NOTICE                          — copyright notice
+pdf2md.backends.example.toml    — example backend config
+pdf2md.consensus.example.toml   — example consensus config
+PLAN_TEMPLATE.md                — plan format template
+plans/                          — all plans
+project.md                      — architecture description
+pyproject.toml                  — package config + tooling
+README.md                       — public entry point
+ROADMAP.md                      — product roadmap
+run_log.md                      — agent run log
+src/                            — main package
+tests/                          — test suite
+tools/                          — CLI tools for pipeline stages
 ```
-
-### Relationship to existing run-backends command
-
-The `run-backends` command remains unchanged. It is useful for:
-- Running backends without downstream processing.
-- Debugging backend execution independently.
-- Producing raw output for manual connector/consensus invocation.
-
-The `convert` command is a superset: it calls `run-backends` logic internally
-as stage 1 and then continues through stages 2–6.
-
-### Relationship to Plan 16 (MVP runner)
-
-Plan 16 specified a `tools/run_mvp_pipeline.py` entry point. This plan
-supersedes that approach by implementing the orchestrator directly in the
-package (`pipeline/orchestrator.py`) and exposing it via the public CLI.
-The `tools/` scripts remain as standalone utilities for advanced users and
-debugging.
