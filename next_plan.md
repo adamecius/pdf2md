@@ -1,4 +1,4 @@
-# Plan 10 — Connector Implementation and PageExtractionIR Validation
+# Plan 12 — Real Calibration Prior Generation
 
 Status:
 draft
@@ -15,46 +15,83 @@ blocked
 superseded
 
 Linked ROADMAP phase:
-Phase 2 — Extraction and normalisation
+Phase 5 — Evaluation, confidence and iteration loop
+Phase 3 preparation — weighted consensus inputs
 
 Current roadmap estimate:
-Phase 2 from approximately 70% toward 80%
+Overall project from approximately 71% toward 75% after successful completion.
+
+Note:
+This percentage is the working pre-MVP execution estimate for Plans 8–16. It may differ from the more conservative phase-weighted estimate in ROADMAP.md.
 
 Owner:
 Agent team / human reviewer / local acceptance layer
 
 Sequence:
-Plan 10 of the pre-MVP implementation sequence, ending at Plan 16.
+Plan 12 of the pre-MVP implementation sequence, ending at Plan 16.
 
 Previous plan:
-Plan 9 — Real Backend Smoke Readiness
+Plan 11 — EntityProposalDocument Validation
 
 Required previous plan status:
 human_verified
 
 Next plan after completion:
-Plan 11 — EntityProposalDocument Validation
+Plan 13 — Weighted ConsensusIR on Real Outputs
 
 Branch name:
-plan-10-connector-pageextractionir-validation
+plan-12-real-calibration-prior-generation
 
 ---
 
 ## 1. Purpose
 
-This plan validates that real raw backend outputs from Plan 9 can be converted through the repository connector path into valid and semantically useful `PageExtractionIR`.
+This plan generates real calibration priors from the validated ground-truth corpus and the real backend outputs validated through Plans 10 and 11.
 
-Plan 10 is the first plan where real backend outputs enter the canonical extraction evidence model. It answers this question:
+Plans 8 to 11 validated that the required evidence exists and is structured:
+
+Plan 8 validated the local ground-truth corpus.
+
+Plan 9 classified real backend smoke readiness.
+
+Plan 10 validated PageExtractionIR from real backend outputs.
+
+Plan 11 validated EntityProposalDocument outputs from the same connector path.
+
+Plan 12 now measures backend reliability against ground truth and produces CalibrationPriorDocument outputs that can be consumed by Plan 13 for weighted ConsensusIR.
+
+The core question is:
 
 ```text
-Can successful Plan 9 backend outputs be normalised into PageExtractionIR with meaningful pages, blocks, text, block kinds, provenance, and raw artefact references?
+Can the project produce trustworthy backend priors from real ground truth and real backend outputs, with verified Docling-label-to-BlockKind alignment?
 ```
 
-The connector path may emit both `PageExtractionIR` and `EntityProposalDocument` in one call. Plan 10 may implement or harden the connector path as needed, but acceptance validates only the `PageExtractionIR` part.
+This plan is execution-oriented. The calibration schema and matching/metrics code already exist. Plan 12 must not redesign the prior schema unless a concrete blocker is discovered and approved by a human.
 
-`EntityProposalDocument` validation belongs to Plan 11.
+The main technical blocker is vocabulary alignment.
 
-Plan 10 does not run calibration, consensus, semantic linking, Docling export, RAG export, Markdown export, or the end-to-end runner.
+Ground-truth Docling labels such as:
+
+```text
+text
+section_header
+title
+picture
+```
+
+must be mapped into canonical BlockKind values such as:
+
+```text
+paragraph
+heading
+figure
+```
+
+before matching is trusted.
+
+This is a hard gate. Without this mapping, the calibration matcher will inflate false positives and false negatives for the most common corpus categories.
+
+Plan 12 must fix and verify the calibration truth loading path so that CalibrationTruthDocument uses canonical BlockKind values before matching.
 
 ---
 
@@ -74,6 +111,8 @@ next_plan.md is the next planned execution contract.
 
 history.md records completed milestones after human verification.
 
+run_log.md is append-only and implicitly allowed when required by agent.md.
+
 This plan controls only the work explicitly described here.
 
 ---
@@ -87,7 +126,7 @@ git status --short
 git fetch --all --prune
 git checkout main
 git pull --ff-only
-git switch -c plan-10-connector-pageextractionir-validation
+git switch -c plan-12-real-calibration-prior-generation
 ```
 
 Rules:
@@ -98,8 +137,9 @@ Rules:
 4. Do not modify files outside the whitelist.
 5. Do not install or use undeclared dependencies.
 6. Do not change ROADMAP.md progress.
-7. Do not promote this plan to current_plan.md unless Plan 9 has been marked human_verified and archived.
+7. Do not promote this plan to current_plan.md unless Plan 11 has been marked human_verified and archived.
 8. Do not mark this plan human_verified or finished. Only the human reviewer may do that.
+9. Append to run_log.md only when required by agent.md and only in append-only mode.
 
 Main repository environment:
 
@@ -119,49 +159,64 @@ or from an activated environment:
 conda activate pdf2md
 ```
 
-This plan consumes existing Plan 9 backend smoke outputs. It does not execute real backends by default. If new backend execution is needed, that work belongs to Plan 9 or to a human-provided artefact outside Plan 10.
+This plan does not run backend model execution. It consumes artefacts already produced by earlier plans.
 
 ---
 
-## 4. Scope, constraints, and dependencies
+## 4. Scope, constraints and dependencies
 
 In scope:
 
-1. Inspect the existing connector architecture and reuse the existing connector entrypoint.
-2. Use real raw backend output directories from Plan 9 where available.
-3. Convert Plan 9 successful backend outputs into `PageExtractionIR`.
-4. Validate `PageExtractionIR` structurally using the repository model/schema.
-5. Perform semantic smoke validation of the resulting IR.
-6. Report per-backend connector validation status.
-7. Report page count, block count, block-kind counts, text presence, bbox presence, provenance presence, and raw artefact references.
-8. Preserve raw backend artefact references.
-9. Support incremental backend acceptance.
-10. Write a machine-readable connector validation report.
-11. Write a human-readable connector validation summary.
-12. Add automated tests using fixtures or mocks that do not require real backend environments.
-13. Avoid validating EntityProposalDocument as a Plan 10 pass/fail criterion.
+1. Inspect existing calibration code:
+   - `tools/calibrate_priors.py`
+   - `src/pdf2md/calibration/io.py`
+   - `src/pdf2md/calibration/matching.py`
+   - `src/pdf2md/calibration/metrics.py`
+   - `src/pdf2md/models/priors.py`
+2. Run existing calibration tests:
+   - `tests/test_calibration_matching.py`
+   - `tests/test_calibration_metrics.py`
+3. Add or harden calibration I/O tests if required.
+4. Implement a vocabulary alignment check for calibration truth labels.
+5. Verify mandatory Docling-label-to-BlockKind mappings:
+   - `text` -> `paragraph`
+   - `section_header` -> `heading`
+   - `title` -> `heading`
+   - `picture` -> `figure`
+6. Implement the mapping in the calibration truth loading path.
+7. Ensure CalibrationTruthDocument receives canonical BlockKind values.
+8. Do not fix vocabulary mismatch by weakening `matching.py` or comparing arbitrary raw labels.
+9. Build or locate the calibration input root expected by `discover_calibration_inputs`.
+10. Run `calibrate_priors.py` on one eligible backend.
+11. Run `calibrate_priors.py` on all eligible backends.
+12. Produce validated CalibrationPriorDocument outputs.
+13. Produce a calibration report and human-readable summary.
+14. Produce a BlockKind vocabulary alignment report.
+15. Report block_kind_priors, entity_type_priors, relation_type_priors and calibration_key_priors separately.
+16. Mark sparse or low-support metrics as underpowered or no_samples according to the existing CalibrationStatus model.
+17. Prepare Plan 13 hand-off information describing which priors are safe for weighted consensus.
 
 Out of scope:
 
 1. Running backend model scripts.
 2. Installing backend environments.
 3. Downloading model weights.
-4. Modifying backend execution code.
-5. Modifying backend configuration.
-6. Creating a parallel connector architecture.
-7. Validating EntityProposalDocument.
-8. Running calibration.
-9. Running consensus.
-10. Running semantic linking.
-11. Running Docling export.
-12. Running RAG export.
-13. Running Markdown export.
-14. Running the end-to-end pipeline.
-15. Editing ROADMAP.md.
-16. Editing README.md.
-17. Editing project.md.
-18. Editing current_plan.md.
-19. Editing next_plan.md.
+4. Running consensus.
+5. Building weighted ConsensusIR.
+6. Resolving backend conflicts.
+7. Running semantic linking.
+8. Building LinkedStructure.
+9. Running Docling export.
+10. Running RAG export.
+11. Running Markdown export.
+12. Running the end-to-end pipeline.
+13. Retraining models.
+14. Automatically updating production weights.
+15. Modifying ROADMAP.md.
+16. Modifying README.md.
+17. Modifying project.md.
+18. Modifying current_plan.md.
+19. Modifying next_plan.md.
 
 Hard constraints:
 
@@ -169,12 +224,20 @@ Hard constraints:
 2. The agent must not mark this plan as human_verified or finished.
 3. The agent may only mark agent_in_progress, agent_complete, human_verification_required, blocked, or superseded.
 4. Human verification is required before merge to main, milestone completion, next-plan promotion, or ROADMAP.md progress updates.
-5. The agent must reuse the existing connector path if present, for example `connect_raw_dir()` or the closest existing connector entrypoint.
-6. The agent must not validate `EntityProposalDocument` as part of Plan 10 acceptance.
-7. The agent must not import calibration, consensus, linking, Docling export, RAG export, or end-to-end runner code for Plan 10 validation.
-8. Pydantic/schema validity alone is not enough for full Plan 10 success; the human semantic smoke checkpoint must pass.
-9. If real Plan 9 outputs are missing, the implementation may still be tested with fixtures or mocks, but human verification must classify the missing real outputs.
-10. If a forbidden file must be changed, this plan is incomplete and must be revised by a human before implementation starts.
+5. Vocabulary alignment is a global plan-level gate, not a per-backend status.
+6. The top four Docling labels must be mapped before trusted priors can be generated: `text`, `section_header`, `title`, `picture`.
+7. Mapping must be applied upstream in the calibration truth loading path.
+8. `matching.py` must not be changed to tolerate raw Docling labels as a workaround.
+9. CalibrationPriorDocument schema must remain the canonical prior contract.
+10. Sparse support must not be hidden behind apparently high precision, recall or F1 values.
+11. Underpowered and no_samples metrics must remain visible in the outputs.
+12. If the vocabulary alignment gate fails, Plan 12 cannot be human_verified.
+13. If fewer than two backends calibrate successfully, reduced-gate progression requires explicit human approval.
+14. Calibration outputs must not be used to run consensus inside Plan 12.
+15. If Plan 10/11 artefacts are missing, the agent must report a blocker in run_log.md and halt real calibration execution.
+16. Do not synthesise calibration inputs for real calibration.
+17. Do not fabricate backend outputs.
+18. Synthetic fixtures may be used only for automated tests.
 
 Allowed Python dependencies:
 
@@ -207,53 +270,34 @@ none
 The agent may create or modify only these implementation and test files:
 
 ```text
-src/pdf2md/local/connector_validation.py
+src/pdf2md/calibration/io.py
+src/pdf2md/calibration/vocabulary.py
 
-tools/validate_connectors_page_ir.py
+tools/vocabulary_alignment_check.py
+tools/calibrate_priors.py
 
-tests/test_connector_page_ir_validation.py
-
-tests/data/connector_validation_fixtures/minimal_markdown_backend/output.md
-tests/data/connector_validation_fixtures/missing_output_backend/.gitkeep
-tests/data/connector_validation_fixtures/schema_failure_backend/output.md
+tests/test_calibration_matching.py
+tests/test_calibration_metrics.py
+tests/test_calibration_io.py
+tests/test_calibration_vocabulary_alignment.py
 ```
 
-The agent may modify connector code only if the existing connector path is incomplete or defective for PageExtractionIR validation. Any connector code change must be narrowly justified in the agent report.
-
-Conditionally allowed connector files:
+The agent may create test fixtures only under:
 
 ```text
-src/pdf2md/connectors/*
-backend/*/connector.py
+tests/data/calibration_vocabulary_fixtures/**
+tests/data/calibration_prior_fixtures/**
 ```
 
-Conditionally allowed connector changes are limited to:
+run_log.md is append-only and implicitly allowed when required by agent.md. It is not part of the implementation whitelist and must not be rewritten.
+
+The agent may create temporary outputs only through CLI execution. These outputs must not be committed by default:
 
 ```text
-- reusing or exposing the existing connector entrypoint
-- fixing connector defects that prevent PageExtractionIR output from validating
-- preserving raw artefact references
-- preserving backend provenance
-- improving PageExtractionIR construction
-```
-
-Conditionally allowed connector changes must not:
-
-```text
-- validate EntityProposalDocument as a Plan 10 acceptance target
-- implement calibration
-- implement consensus
-- implement semantic linking
-- implement Docling export
-- change backend execution behaviour
-```
-
-Expected output artefacts, produced by the CLI and not committed unless a later policy explicitly allows it:
-
-```text
-<out-dir>/connector_validation_report.json
-<out-dir>/connector_validation_summary.txt
-<out-dir>/<backend_name>/page_extraction_ir.json
+<out-dir>/reports/blockkind_vocabulary_alignment_report.json
+<out-dir>/reports/calibration_report.json
+<out-dir>/reports/calibration_summary.txt
+<out-dir>/priors/<backend>.json
 ```
 
 The agent must not modify these files unless this plan is explicitly amended by the human reviewer:
@@ -267,113 +311,130 @@ current_plan.md
 next_plan.md
 history.md
 agent.md
-run_log.md
 pyproject.toml
 
 config/backends.toml
 config/*
 
-src/pdf2md/local/backend_smoke.py
-src/pdf2md/local/groundtruth.py
-src/pdf2md/local/preflight.py
-src/pdf2md/calibration/*
+src/pdf2md/local/*
+src/pdf2md/connectors/*
 src/pdf2md/consensus/*
 src/pdf2md/linking/*
 src/pdf2md/export/*
 
+src/pdf2md/calibration/matching.py
+src/pdf2md/calibration/metrics.py
+src/pdf2md/models/priors.py
+
 tools/backend_smoke.py
+tools/validate_connectors_page_ir.py
+tools/validate_entity_proposals.py
 tools/local_groundtruth_validate.py
 tools/local_groundtruth_preflight.py
-tools/calibrate_priors.py
 tools/build_consensus.py
 tools/build_linked_structure.py
 tools/export_linked_docling.py
 
+backend/*
 groundtruth/corpus/*
 ```
 
-Required connector validation report contract:
+If a defect is found in `matching.py`, `metrics.py`, or `priors.py`, the agent must stop and report a blocker. Do not modify those files under this plan without a human amendment.
+
+Expected output artefacts, produced by CLI tools and not committed unless a later policy explicitly allows it:
 
 ```text
-schema_name: pdf2md.ConnectorPageExtractionIRValidationReport
+<out-dir>/reports/blockkind_vocabulary_alignment_report.json
+<out-dir>/reports/calibration_report.json
+<out-dir>/reports/calibration_summary.txt
+<out-dir>/priors/<backend>.json
+```
+
+Required vocabulary alignment report contract:
+
+```text
+schema_name: pdf2md.BlockKindVocabularyAlignmentReport
 schema_version: 1.0.0
 generated_at: ISO 8601 timestamp
-tool_name: validate_connectors_page_ir
-plan9_report_path: path or null
-gate_mode: preferred | reduced
-preferred_gate_passed: bool
-minimum_gate_passed: bool
-human_reduced_gate_required: bool
-total_backends_considered: int
-backends_validated: int
-backends_failed: int
-backends_deferred: int
-results: list of per-backend validation entries
-warnings: list of strings
+tool_name: vocabulary_alignment_check
+truth_root: path
+mapping_source: string
+mandatory_mapping_passed: bool
+all_observed_labels_mapped: bool
+top_label_coverage: dict
+mapping_used: dict
+observed_truth_labels: dict
+mapped_labels: dict
+unmapped_labels: list
+mandatory_labels: list
+warnings: list
+errors: list
 metadata: dict
 ```
 
-Per-backend connector validation entry contract:
+Mandatory mapping entries:
 
 ```text
-backend_name: str
-plan9_status: str or null
-raw_output_dir: str or null
-connector_entrypoint: str
-status: validated | connector_crash | schema_failed | missing_required_output | deferred_from_plan_9
-page_count: int
-block_count: int
-block_kind_counts: dict
-has_text: bool
-has_bboxes: bool
-has_provenance: bool
-raw_artefact_references: list[str]
-semantic_quality_passed: bool
+text: paragraph
+section_header: heading
+title: heading
+picture: figure
+```
+
+Required calibration report contract:
+
+```text
+schema_name: pdf2md.CalibrationReport
+schema_version: 1.0.0
+document_count: int
+backends: list[str]
+prior_files: dict[str, str]
 warnings: list[str]
-errors: list[str]
-validation_error_summary: str or null
-next_action: str
-metadata: dict
+settings: dict
+vocabulary_alignment_report: path or null
+plan13_readiness: dict
 ```
 
-Status taxonomy:
+Required CalibrationPriorDocument output:
+
+The per-backend prior files must validate against the existing CalibrationPriorDocument model.
+
+Each prior should preserve separate lists for:
 
 ```text
-validated:
-  The connector produced PageExtractionIR and it validated structurally.
-  Full success also requires semantic_quality_passed=true in human verification.
-
-connector_crash:
-  The connector raised an exception, exited unexpectedly, or could not complete.
-
-schema_failed:
-  The connector returned PageExtractionIR-like data, but schema/model validation failed.
-  Detailed causes such as invalid bbox, invalid block kind, missing provenance, empty required fields, or invalid page structure must be recorded in warnings/errors/validation_error_summary, not as separate statuses.
-
-missing_required_output:
-  A Plan 9 success backend output directory lacks files required by the connector.
-
-deferred_from_plan_9:
-  Backend did not have Plan 9 status success, or no raw output directory is available, so connector validation is not attempted.
+block_kind_priors
+entity_type_priors
+relation_type_priors
+calibration_key_priors
 ```
 
-Gate rule:
+Per-backend Plan 12 status taxonomy:
 
-```text
-Preferred gate:
-  At least two Plan 9 success backends produce structurally valid PageExtractionIR and pass semantic smoke validation.
+calibrated:
+At least one useful prior group is generated and the CalibrationPriorDocument validates.
 
-Minimum gate:
-  At least one Plan 9 success backend produces structurally valid PageExtractionIR and passes semantic smoke validation;
-  all other Plan 9 success backends are classified;
-  human reviewer explicitly approves reduced-gate progression.
-```
+underpowered:
+Calibration runs, but support is too low for one or more important metrics. This must remain visible.
 
-Reduced-gate rule:
+no_samples:
+No usable samples are available for the relevant backend or feature group.
 
-```text
-If only the minimum gate passes, this plan may not be marked human_verified unless the human verification report explicitly records reduced-gate approval and explains why progression to Plan 11 is acceptable.
-```
+insufficient_backend_output:
+Backend outputs exist but are too sparse or incomplete for meaningful calibration.
+
+calibration_crash:
+Calibration loading, matching, metrics or prior generation crashes.
+
+deferred_from_plan_10_or_11:
+Backend was not eligible because previous plan artefacts are missing or invalid.
+
+Global vocabulary gate:
+
+vocabulary_alignment_passed:
+Mandatory top-four labels are mapped into canonical BlockKind values and calibration truth loading uses canonical values.
+
+vocabulary_alignment_failed:
+Mandatory mappings are missing or the truth loading path still exposes raw Docling labels.
 
 ---
 
@@ -382,430 +443,521 @@ If only the minimum gate passes, this plan may not be marked human_verified unle
 Task A1:
 
 Title:
-Inspect and reuse existing connector path.
+Inspect existing calibration path and run existing tests.
 
 Goal:
-Identify the existing connector entrypoint and use it for Plan 10 validation without creating a parallel connector architecture.
+Confirm the current calibration code and tests before introducing the vocabulary alignment fix.
 
 Files allowed:
 
 ```text
-src/pdf2md/local/connector_validation.py
-tests/test_connector_page_ir_validation.py
+tests/test_calibration_matching.py
+tests/test_calibration_metrics.py
+run_log.md append-only if required by agent.md
 ```
 
 Implementation requirements:
 
-1. Inspect the repository for the existing connector entrypoint, expected to be `connect_raw_dir()` or equivalent.
-2. Reuse the existing connector entrypoint.
-3. If connector names differ, use the closest existing connector entrypoint.
-4. If no reusable connector exists, stop and report a blocker.
-5. Do not create a parallel connector architecture.
-6. Do not use Plan 9 `status=success` as proof of connector sufficiency.
-7. Inspect the actual raw output directory before connector execution.
-8. Do not import calibration, consensus, linking, export, or end-to-end runner code.
+1. Inspect `tools/calibrate_priors.py`.
+2. Inspect `src/pdf2md/calibration/io.py`.
+3. Inspect `src/pdf2md/calibration/matching.py` without modifying it.
+4. Inspect `src/pdf2md/calibration/metrics.py` without modifying it.
+5. Inspect `src/pdf2md/models/priors.py` without modifying it.
+6. Confirm `calibrate_priors.py` CLI arguments:
+   - `--root`
+   - `--out-dir`
+   - `--backends`
+   - `--min-samples`
+   - `--smoothing-alpha`
+   - `--smoothing-beta`
+   - `--default-confidence`
+   - `--strict`
+   - `--verbose`
+7. Run existing calibration tests.
+8. If a defect is found in matching.py, metrics.py or priors.py, stop and report a blocker rather than modifying those files.
 
 Automated tests required:
 
 ```bash
-conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -q
+conda run -n pdf2md pytest tests/test_calibration_matching.py -q
+conda run -n pdf2md pytest tests/test_calibration_metrics.py -q
 ```
 
 Expected output:
-A validation module importable as:
-
-```python
-from pdf2md.local.connector_validation import build_connector_validation_report
-```
+Existing matching and metrics tests pass before vocabulary work starts, or failures are reported as blockers.
 
 Completion evidence:
-Agent must report which connector entrypoint was reused and whether any connector changes were required.
+Agent must report test counts, pass counts and any failures.
 
 Human verification required:
-no. Covered by H1, H2, H3, and H4.
+no. Covered by agent report.
 
 Task A2:
 
 Title:
-Implement connector validation models and report builder.
+Implement vocabulary alignment check.
 
 Goal:
-Create a report layer that validates PageExtractionIR outputs and records per-backend connector status.
+Create a vocabulary alignment check that detects raw Docling labels and verifies mapping into canonical BlockKind values.
 
 Files allowed:
 
 ```text
-src/pdf2md/local/connector_validation.py
-tests/test_connector_page_ir_validation.py
+src/pdf2md/calibration/vocabulary.py
+tools/vocabulary_alignment_check.py
+tests/test_calibration_vocabulary_alignment.py
+tests/data/calibration_vocabulary_fixtures/**
+run_log.md append-only if required by agent.md
 ```
 
 Implementation requirements:
 
-1. Define typed models or Pydantic models for the connector validation report and per-backend entries.
-2. Use only five connector statuses: `validated`, `connector_crash`, `schema_failed`, `missing_required_output`, `deferred_from_plan_9`.
-3. Record detailed validation errors in `warnings`, `errors`, and `validation_error_summary`.
-4. Include `semantic_quality_passed` as a separate boolean, not a status.
-5. Include page count, block count, block-kind counts, text presence, bbox presence, provenance presence, and raw artefact references.
-6. Record `next_action` for every backend result.
-7. Support preferred and minimum gate calculation.
-8. Require explicit human reduced-gate approval before minimum-gate-only completion.
+1. Implement or expose a mapping for Docling labels to BlockKind.
+2. Mandatory mappings:
+   - `text` -> `paragraph`
+   - `section_header` -> `heading`
+   - `title` -> `heading`
+   - `picture` -> `figure`
+3. Include additional mappings where already supported or observed:
+   - `caption` -> `caption`
+   - `table` -> `table`
+   - `formula` -> `formula`
+   - `equation` -> `formula`, if observed and approved by current schema
+   - `list_item` -> `list_item`
+   - `unknown` -> `unknown`
+4. Generate `blockkind_vocabulary_alignment_report.json`.
+5. Report observed truth labels and counts.
+6. Report mapped labels.
+7. Report unmapped labels.
+8. Report whether `mandatory_mapping_passed` is true.
+9. The top-four mandatory labels must be mapped. No exception is allowed for these four labels.
+10. Do not treat documented unmapped top labels as a pass.
+11. If non-top labels remain unmapped, record them with counts and risk level.
+12. Use existing mapping patterns from the repository where applicable, for example semantic document mapping precedent.
+13. Do not duplicate inconsistent mappings silently across multiple modules.
 
 Automated tests required:
 
 ```bash
-conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -q
+conda run -n pdf2md pytest tests/test_calibration_vocabulary_alignment.py -q
 ```
 
 Expected output:
-Connector validation report objects validate and serialise deterministically.
+Vocabulary alignment tool reports mandatory labels as mapped and fails when mandatory labels are unmapped.
 
 Completion evidence:
-Agent must report report schema, status taxonomy, gate logic, and tests.
+Agent must report the mapping table and test results.
 
 Human verification required:
-no. Covered by H1, H2, H3, and H4.
+yes. Covered by H1.
 
 Task A3:
 
 Title:
-Implement connector validation CLI.
+Apply mapping in calibration truth loading path.
 
 Goal:
-Create `tools/validate_connectors_page_ir.py` as a CLI wrapper around the connector validation module.
+Ensure CalibrationTruthDocument is loaded with canonical BlockKind values before matching.
 
 Files allowed:
 
 ```text
-tools/validate_connectors_page_ir.py
-tests/test_connector_page_ir_validation.py
+src/pdf2md/calibration/io.py
+src/pdf2md/calibration/vocabulary.py
+tests/test_calibration_io.py
+tests/test_calibration_vocabulary_alignment.py
+run_log.md append-only if required by agent.md
 ```
 
 Implementation requirements:
 
-1. Accept `--plan9-report`, optional but required for real Plan 9 output validation unless explicit backend/output pairs are supplied.
-2. Accept `--backend-output`, repeatable as `<backend_name>=<raw_output_dir>`.
-3. Accept `--out-dir`, required.
-4. Accept `--preferred-gate-minimum`, default `2`.
-5. Accept `--allow-reduced-gate`, default false.
-6. Accept `--verbose`.
-7. Write `connector_validation_report.json` and `connector_validation_summary.txt`.
-8. Write per-backend `page_extraction_ir.json` files when validation succeeds.
-9. In normal mode, exit 0 only if preferred gate passes.
-10. If `--allow-reduced-gate` is set, exit 0 when minimum gate passes and preferred gate fails, but mark `human_reduced_gate_required=true` in the report.
-11. Exit 1 when neither preferred nor minimum gate passes.
-12. Do not expose EntityProposalDocument validation options.
-13. Do not expose calibration, consensus, linking or export options.
+1. Implement mapping in the calibration truth loading path.
+2. CalibrationTruthDocument must receive canonical BlockKind values.
+3. Raw Docling labels must not reach `match_blocks` as `truth_block.block_kind`.
+4. Fix must be upstream of `matching.py`.
+5. Do not modify `matching.py` to compare raw Docling labels.
+6. If `truth.json` is already canonical, preserve it unchanged.
+7. If `truth.json` carries raw Docling labels, normalise them before CalibrationTruthDocument validation or during a clearly defined truth-loading conversion step.
+8. Add tests proving that:
+   - `text` becomes `paragraph`
+   - `section_header` becomes `heading`
+   - `title` becomes `heading`
+   - `picture` becomes `figure`
+9. Add tests proving unknown mandatory labels fail the vocabulary gate.
+10. Add tests proving CalibrationTruthDocument validates after mapping.
 
 Automated tests required:
 
 ```bash
-conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -q
+conda run -n pdf2md pytest tests/test_calibration_io.py -q
+conda run -n pdf2md pytest tests/test_calibration_vocabulary_alignment.py -q
+conda run -n pdf2md pytest tests/test_calibration_matching.py -q
 ```
 
 Expected output:
-A script runnable as:
-
-```bash
-conda run -n pdf2md python tools/validate_connectors_page_ir.py --plan9-report <report.json> --out-dir <path>
-```
+Calibration truth loading produces canonical BlockKind values and matching tests still pass.
 
 Completion evidence:
-Agent must report CLI command examples, gate behaviour, exit-code behaviour, and tests run.
+Agent must report files changed, mapping location, and tests run.
 
 Human verification required:
-yes. Covered by H2 and H3.
+yes. Covered by H1.
 
 Task A4:
 
 Title:
-Add automated connector validation tests.
+Build or locate calibration input root.
 
 Goal:
-Verify Plan 10 behaviour without requiring real backend environments.
+Ensure Plan 12 can run `calibrate_priors.py` on a root compatible with `discover_calibration_inputs`.
 
 Files allowed:
 
 ```text
-tests/test_connector_page_ir_validation.py
-tests/data/connector_validation_fixtures/*
+tools/calibrate_priors.py
+src/pdf2md/calibration/io.py
+tests/test_calibration_io.py
+run_log.md append-only if required by agent.md
 ```
 
 Implementation requirements:
 
-1. Add or use a minimal raw markdown backend fixture that the existing connector can parse.
-2. Test successful PageExtractionIR validation.
-3. Test missing required output classification.
-4. Test connector crash classification via mocking.
-5. Test schema_failed classification via invalid connector output.
-6. Test deferred_from_plan_9 when Plan 9 status is not success.
-7. Test preferred gate pass with two validated backends.
-8. Test preferred gate fail with one validated backend.
-9. Test minimum gate pass with one validated backend.
-10. Test `--allow-reduced-gate` behaviour.
-11. Test semantic_quality_passed true when pages, blocks and meaningful text are present.
-12. Test semantic_quality_passed false when IR validates but text is empty, noise-like, or block count is zero.
-13. Test that EntityProposalDocument output, if present, is not used for Plan 10 pass/fail.
-14. Test JSON report contract.
-15. Test summary writing.
-
-Required tests:
-
-```text
-test_reuses_existing_connector_entrypoint
-test_valid_backend_output_produces_page_extraction_ir
-test_missing_required_output_classification
-test_connector_crash_classification
-test_schema_failed_classification
-test_deferred_from_plan9_classification
-test_preferred_gate_passes_with_two_validated_backends
-test_preferred_gate_fails_with_one_validated_backend
-test_minimum_gate_passes_with_one_validated_backend
-test_allow_reduced_gate_sets_human_required_flag
-test_semantic_quality_passes_for_nonempty_document_text
-test_semantic_quality_fails_for_empty_or_noise_ir
-test_entity_proposals_are_ignored_for_plan10_acceptance
-test_report_json_contract
-test_summary_is_written
-```
+1. Use existing `discover_calibration_inputs` expectations.
+2. Confirm supported layout:
+   - `truth.json`
+   - `backend_ir/<backend>/pages/*.json`
+   - `backend_ir/<backend>/entities.json`
+3. Confirm whether Plan 10 and Plan 11 outputs already produce this layout.
+4. If Plan 10/11 artefacts are missing, report a blocker in run_log.md and halt real calibration execution.
+5. Do not synthesise calibration inputs for real calibration.
+6. Do not fabricate backend outputs.
+7. Synthetic fixtures may be used only for automated tests.
+8. If artefacts exist but the path layout differs from `discover_calibration_inputs`, add only minimal calibration-input discovery support inside calibration I/O, or report the required staging path.
+9. Record `CALIBRATION_ROOT_FROM_A4` in the agent report.
+10. H1, H2 and H3 must use `CALIBRATION_ROOT_FROM_A4`.
 
 Automated tests required:
 
 ```bash
-conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -q
+conda run -n pdf2md pytest tests/test_calibration_io.py -q
 ```
 
 Expected output:
-All Plan 10 automated tests pass without running real backends.
+Calibration inputs can be discovered from a valid fixture root, and the real calibration root is recorded or the plan is blocked.
 
 Completion evidence:
-Agent must report test count, pass count, and exit code.
+Agent must report the expected calibration root layout, `CALIBRATION_ROOT_FROM_A4`, and any blockers.
 
 Human verification required:
-no. Covered by H1.
+no. H1, H2 and H3 verify real execution using `CALIBRATION_ROOT_FROM_A4`.
 
 Task A5:
 
 Title:
-Provide Plan 11 hand-off summary.
+Run one-backend calibration.
 
 Goal:
-Ensure the report identifies which PageExtractionIR outputs are suitable candidates for EntityProposalDocument validation in Plan 11 without validating entities in Plan 10.
+Run `calibrate_priors.py` on one eligible backend and validate the resulting CalibrationPriorDocument.
 
 Files allowed:
 
 ```text
-src/pdf2md/local/connector_validation.py
-tools/validate_connectors_page_ir.py
-tests/test_connector_page_ir_validation.py
+tools/calibrate_priors.py
+src/pdf2md/calibration/io.py
+src/pdf2md/calibration/vocabulary.py
+tests/test_calibration_io.py
+tests/test_calibration_vocabulary_alignment.py
+run_log.md append-only if required by agent.md
 ```
 
 Implementation requirements:
 
-1. List validated backend names.
-2. List reduced-gate state if applicable.
-3. List per-backend PageExtractionIR output paths.
-4. List semantic quality warnings.
-5. State explicitly that EntityProposalDocument validation is deferred to Plan 11.
-6. Do not add entity validation metrics.
-7. Do not require entity proposals for Plan 10 success.
+1. Use one backend that passed Plan 10/11 eligibility.
+2. Use `CALIBRATION_ROOT_FROM_A4`.
+3. Run `calibrate_priors.py` with exact CLI flags.
+4. Produce `priors/<backend>.json`.
+5. Produce `reports/calibration_report.json`.
+6. Validate prior JSON against CalibrationPriorDocument.
+7. Inspect block_kind_priors for paragraph and heading where available.
+8. Record precision, recall, F1 and support.
+9. Verify low-support metrics are underpowered or no_samples.
+10. Do not generate consensus.
+
+Command template:
+
+```bash
+conda run -n pdf2md python tools/calibrate_priors.py --root <CALIBRATION_ROOT_FROM_A4> --out-dir groundtruth/runs/calibration_one_backend --backends <BACKEND_NAME> --min-samples 5 --strict --verbose
+```
+
+Expected output:
+
+```text
+groundtruth/runs/calibration_one_backend/priors/<BACKEND_NAME>.json
+groundtruth/runs/calibration_one_backend/reports/calibration_report.json
+```
 
 Automated tests required:
 
 ```bash
-conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -q
+conda run -n pdf2md pytest tests/test_calibration_matching.py -q
+conda run -n pdf2md pytest tests/test_calibration_metrics.py -q
+conda run -n pdf2md pytest tests/test_calibration_io.py -q
+```
+
+Completion evidence:
+Agent must record command, output paths and prior schema validation.
+
+Human verification required:
+yes. Covered by H2.
+
+Task A6:
+
+Title:
+Run all eligible backend calibration.
+
+Goal:
+Generate CalibrationPriorDocument outputs for all eligible backends.
+
+Files allowed:
+
+```text
+tools/calibrate_priors.py
+src/pdf2md/calibration/io.py
+src/pdf2md/calibration/vocabulary.py
+tests/test_calibration_io.py
+tests/test_calibration_vocabulary_alignment.py
+run_log.md append-only if required by agent.md
+```
+
+Implementation requirements:
+
+1. Identify eligible backends from Plan 10 and Plan 11 outputs.
+2. Use `CALIBRATION_ROOT_FROM_A4`.
+3. Run `calibrate_priors.py` on all eligible backends.
+4. Produce one prior document per backend.
+5. Produce `calibration_report.json`.
+6. Produce `calibration_summary.txt` if not already produced by the CLI.
+7. Keep block_kind_priors, entity_type_priors, relation_type_priors and calibration_key_priors separated.
+8. Classify backend calibration outcomes.
+9. Record underpowered and no_samples metrics.
+10. Do not hide sparse support.
+11. Do not feed priors into consensus in this plan.
+
+Command template:
+
+```bash
+conda run -n pdf2md python tools/calibrate_priors.py --root <CALIBRATION_ROOT_FROM_A4> --out-dir groundtruth/runs/calibration_all_backends --min-samples 5 --strict --verbose
 ```
 
 Expected output:
-The summary gives the human reviewer enough information to draft Plan 11 scope.
+
+```text
+groundtruth/runs/calibration_all_backends/priors/<backend>.json
+groundtruth/runs/calibration_all_backends/reports/calibration_report.json
+groundtruth/runs/calibration_all_backends/reports/calibration_summary.txt
+```
+
+Automated tests required:
+
+```bash
+conda run -n pdf2md pytest tests/test_calibration_matching.py -q
+conda run -n pdf2md pytest tests/test_calibration_metrics.py -q
+conda run -n pdf2md pytest tests/test_calibration_io.py -q
+conda run -n pdf2md pytest tests/test_calibration_vocabulary_alignment.py -q
+```
 
 Completion evidence:
-Agent must report hand-off fields and summary behaviour.
+Agent must report output paths, backend statuses and test results.
 
 Human verification required:
-yes. Covered by H4.
+yes. Covered by H3.
+
+Task A7:
+
+Title:
+Prepare Plan 13 prior hand-off.
+
+Goal:
+Summarise which priors are safe for weighted ConsensusIR in Plan 13.
+
+Files allowed:
+
+```text
+tools/calibrate_priors.py
+src/pdf2md/calibration/io.py
+src/pdf2md/calibration/vocabulary.py
+tests/test_calibration_io.py
+tests/test_calibration_vocabulary_alignment.py
+run_log.md append-only if required by agent.md
+```
+
+Implementation requirements:
+
+1. Identify priors safe_for_consensus.
+2. Identify priors underpowered.
+3. Identify priors with no_samples.
+4. Identify backends blocked by missing outputs.
+5. Identify warnings from vocabulary alignment.
+6. Summarise block_kind_priors separately from entity_type_priors and relation_type_priors.
+7. Do not build consensus.
+8. Do not update production weights.
+9. Do not change ROADMAP.md.
+
+Expected output:
+Plan 13 readiness section in `calibration_summary.txt` or `calibration_report.json`.
+
+Human verification required:
+yes. Covered by H3.
 
 ---
 
 ## 7. Human verification checkpoints
 
-Checkpoint H0:
-
-Title:
-Locate Plan 9 smoke report and successful backend outputs.
-
-Purpose:
-Confirm that Plan 10 has real Plan 9 outputs to consume, or classify missing outputs before connector validation.
-
-Required environment:
-Shell with repository checkout.
-
-Preconditions:
-Plan 9 has completed and produced a backend smoke report.
-
-Command:
-
-```bash
-ls -lh groundtruth/runs/backend_smoke/backend_smoke_report.json
-python -m json.tool groundtruth/runs/backend_smoke/backend_smoke_report.json | head -80
-```
-
-Verification procedure:
-
-1. Run both commands exactly as written.
-2. Confirm the Plan 9 report exists.
-3. Identify backends with `status == "success"`.
-4. Confirm each successful backend has an output directory or output files recorded.
-5. Record the successful backend names and raw output directories.
-6. If no Plan 9 report exists, this checkpoint fails unless the human provides an approved equivalent report.
-
-Pass criteria:
-
-```text
-Plan 9 smoke report exists.
-At least one backend has status success.
-Successful backend output paths are recorded.
-```
-
-Fail criteria:
-
-```text
-Plan 9 report is missing.
-No successful backend exists.
-Successful backend output paths are missing.
-```
-
-Evidence to record:
-
-```text
-Paste the Plan 9 report path.
-Paste successful backend names.
-Paste raw output directory for each successful backend.
-Paste gate_passed and backends_successful from the Plan 9 report.
-```
-
 Checkpoint H1:
 
 Title:
-Run automated connector validation tests.
+Vocabulary alignment gate.
 
 Purpose:
-Confirm that Plan 10 tests pass without real backend execution.
+Confirm that ground-truth Docling labels are mapped into canonical BlockKind values before calibration priors are trusted.
 
 Required environment:
 pdf2md
 
 Preconditions:
-Tasks A1 through A5 are complete.
+Tasks A2, A3 and A4 are complete.
+Task A4 recorded `CALIBRATION_ROOT_FROM_A4` in the agent report.
 
 Command:
 
 ```bash
-conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -v
-```
-
-Verification procedure:
-
-1. Run the command exactly as written.
-2. Confirm all tests pass.
-3. Confirm no test runs real backends.
-4. Confirm no test runs calibration, consensus, linking or export.
-5. Confirm no test requires CUDA, model weights, backend conda environments, network access, or real backend binaries.
-
-Pass criteria:
-
-```text
-All tests pass.
-Exit code is 0.
-No real backend is executed.
-No downstream pipeline layer is executed.
-```
-
-Fail criteria:
-
-```text
-Any test fails.
-Any test requires real backend execution.
-Any test touches calibration, consensus, linking or export.
-```
-
-Evidence to record:
-
-```text
-Paste the pytest output.
-Paste the exit code.
-```
-
-Checkpoint H2:
-
-Title:
-Validate PageExtractionIR from one successful backend output.
-
-Purpose:
-Confirm that at least one Plan 9 successful backend output can be converted into structurally valid and semantically useful PageExtractionIR.
-
-Required environment:
-pdf2md
-
-Preconditions:
-H0 identified at least one successful backend output directory.
-H1 passed.
-
-Command template:
-
-```bash
-conda run -n pdf2md python tools/validate_connectors_page_ir.py --backend-output <BACKEND_NAME>=<RAW_OUTPUT_DIR_FROM_H0> --out-dir groundtruth/runs/connector_validation_one_backend --allow-reduced-gate --verbose
+conda run -n pdf2md python tools/vocabulary_alignment_check.py --root <CALIBRATION_ROOT_FROM_A4> --out-dir groundtruth/runs/calibration_vocabulary_alignment --verbose
 ```
 
 Expected output files:
 
 ```text
-groundtruth/runs/connector_validation_one_backend/connector_validation_report.json
-groundtruth/runs/connector_validation_one_backend/connector_validation_summary.txt
-groundtruth/runs/connector_validation_one_backend/<backend_name>/page_extraction_ir.json
+groundtruth/runs/calibration_vocabulary_alignment/reports/blockkind_vocabulary_alignment_report.json
 ```
 
 Verification procedure:
 
-1. Replace `<BACKEND_NAME>` and `<RAW_OUTPUT_DIR_FROM_H0>` with one Plan 9 success backend.
-2. Run the command exactly as written.
-3. Record the exit code.
-4. Confirm expected output files exist.
-5. Inspect the JSON report.
-6. Confirm backend status is `validated`.
-7. Confirm `semantic_quality_passed` is true.
-8. Open the generated `page_extraction_ir.json`.
-9. Confirm page_count > 0.
-10. Confirm block_count > 0.
-11. Confirm block text contains real document text rather than logs, empty strings, or pure markup noise.
-12. Confirm backend provenance exists.
-13. Confirm raw artefact references exist.
-14. Confirm EntityProposalDocument validation is not used for pass/fail.
+1. Confirm `CALIBRATION_ROOT_FROM_A4` exists in the agent report.
+2. Run the command exactly as written, replacing `<CALIBRATION_ROOT_FROM_A4>` with the recorded calibration input root.
+3. Open `blockkind_vocabulary_alignment_report.json`.
+4. Confirm `mandatory_mapping_passed` is true.
+5. Confirm `mapping_used` includes:
+   - `text: paragraph`
+   - `section_header: heading`
+   - `title: heading`
+   - `picture: figure`
+6. Confirm `top_label_coverage` shows those labels are mapped.
+7. Confirm `unmapped_labels` does not include `text`, `section_header`, `title` or `picture`.
+8. Confirm calibration truth loading produces canonical BlockKind values before matching.
+9. Confirm `matching.py` was not changed to accept raw Docling labels.
+
+Pass criteria:
+
+```text
+mandatory_mapping_passed is true.
+text maps to paragraph.
+section_header maps to heading.
+title maps to heading.
+picture maps to figure.
+No mandatory top-four label is unmapped.
+CalibrationTruthDocument loads with canonical BlockKind values.
+matching.py is not weakened or bypassed.
+```
+
+Fail criteria:
+
+```text
+CALIBRATION_ROOT_FROM_A4 is missing.
+Any top-four label is unmapped.
+mapping_used is absent or ambiguous.
+truth_block.block_kind can still contain raw Docling labels.
+matching.py is modified to compare raw labels instead of canonical BlockKind values.
+The alignment report is missing.
+```
+
+Evidence to record:
+
+```text
+Paste CALIBRATION_ROOT_FROM_A4.
+Paste the command.
+Paste mandatory_mapping_passed.
+Paste mapping_used for text, section_header, title and picture.
+Paste unmapped_labels.
+Paste confirmation that matching.py was not changed.
+Paste the path to the alignment report.
+```
+
+Checkpoint H2:
+
+Title:
+One-backend calibration sanity check.
+
+Purpose:
+Confirm that one eligible backend can produce a valid CalibrationPriorDocument with plausible metrics.
+
+Required environment:
+pdf2md
+
+Preconditions:
+H1 passed.
+One eligible backend from Plan 10/11 is available.
+Task A5 is complete.
+
+Command:
+
+```bash
+conda run -n pdf2md python tools/calibrate_priors.py --root <CALIBRATION_ROOT_FROM_A4> --out-dir groundtruth/runs/calibration_one_backend --backends <BACKEND_NAME> --min-samples 5 --strict --verbose
+```
+
+Expected output files:
+
+```text
+groundtruth/runs/calibration_one_backend/priors/<BACKEND_NAME>.json
+groundtruth/runs/calibration_one_backend/reports/calibration_report.json
+```
+
+Verification procedure:
+
+1. Replace `<CALIBRATION_ROOT_FROM_A4>` with the root recorded by A4.
+2. Replace `<BACKEND_NAME>` with one eligible backend.
+3. Run the command exactly as written.
+4. Confirm the command exits 0.
+5. Open `priors/<BACKEND_NAME>.json`.
+6. Confirm `schema_name` is `pdf2md.CalibrationPriorDocument`.
+7. Confirm `backend` equals `<BACKEND_NAME>`.
+8. Confirm `block_kind_priors` exist.
+9. Confirm paragraph and heading metrics exist where supported by corpus data.
+10. Confirm each metric includes precision, recall, f1, support, calibrated_confidence and status.
+11. Confirm support equals true_positive + false_positive + false_negative.
+12. Confirm low-support metrics are marked underpowered or no_samples.
+13. Confirm warnings are visible.
+14. Confirm no consensus output is produced.
 
 Pass criteria:
 
 ```text
 Command exits 0.
-Connector validation report exists.
-PageExtractionIR JSON exists.
-Backend status is validated.
-semantic_quality_passed is true.
-page_count > 0.
-block_count > 0.
-Block text is meaningful document text.
-Provenance is present.
-Raw artefact references are present.
-EntityProposalDocument validation is not used for Plan 10 pass/fail.
+CalibrationPriorDocument validates.
+At least one block_kind_prior exists.
+Metrics include precision, recall, f1 and support.
+Sparse support is visible and not hidden.
+No consensus, linking or export files are produced.
 ```
 
 Fail criteria:
 
 ```text
 Command exits non-zero.
-No PageExtractionIR JSON is written.
-Backend status is not validated.
-semantic_quality_passed is false.
-IR validates structurally but contains empty or noise-like content.
-EntityProposalDocument validation is required for pass/fail.
+Prior document is missing.
+Prior document fails schema validation.
+Metrics are missing support.
+High-looking metrics are produced with hidden sparse support.
+Consensus, linking or export is run.
 ```
 
 Evidence to record:
@@ -813,213 +965,91 @@ Evidence to record:
 ```text
 Paste the command.
 Paste the exit code.
-Paste backend status and semantic_quality_passed.
-Paste page_count, block_count and block_kind_counts.
-Paste a short excerpt of block text from page_extraction_ir.json.
-Paste raw artefact references.
+Paste the prior file path.
+Paste the first paragraph and heading metric if present.
+Paste warnings.
+Paste confirmation that no consensus/export output was produced.
 ```
 
 Checkpoint H3:
 
 Title:
-Validate PageExtractionIR from all Plan 9 successful backend outputs.
+Full calibration and Plan 13 readiness.
 
 Purpose:
-Confirm preferred or reduced Plan 10 gate using all available Plan 9 success backends.
+Confirm that all eligible backend priors are generated or classified, and that the outputs are safe to feed into Plan 13.
 
 Required environment:
 pdf2md
 
 Preconditions:
-H0 identified Plan 9 successful backend outputs.
 H1 passed.
+H2 passed.
+Task A6 and A7 are complete.
 
 Command:
 
 ```bash
-conda run -n pdf2md python tools/validate_connectors_page_ir.py --plan9-report groundtruth/runs/backend_smoke/backend_smoke_report.json --out-dir groundtruth/runs/connector_validation --verbose
-```
-
-Reduced-gate command, only if preferred gate fails and human wants to evaluate reduced-gate progression:
-
-```bash
-conda run -n pdf2md python tools/validate_connectors_page_ir.py --plan9-report groundtruth/runs/backend_smoke/backend_smoke_report.json --out-dir groundtruth/runs/connector_validation_reduced --allow-reduced-gate --verbose
+conda run -n pdf2md python tools/calibrate_priors.py --root <CALIBRATION_ROOT_FROM_A4> --out-dir groundtruth/runs/calibration_all_backends --min-samples 5 --strict --verbose
 ```
 
 Expected output files:
 
 ```text
-groundtruth/runs/connector_validation/connector_validation_report.json
-groundtruth/runs/connector_validation/connector_validation_summary.txt
-```
-
-or for reduced gate:
-
-```text
-groundtruth/runs/connector_validation_reduced/connector_validation_report.json
-groundtruth/runs/connector_validation_reduced/connector_validation_summary.txt
+groundtruth/runs/calibration_all_backends/reports/calibration_report.json
+groundtruth/runs/calibration_all_backends/reports/calibration_summary.txt
+groundtruth/runs/calibration_all_backends/priors/<backend>.json
 ```
 
 Verification procedure:
 
-1. Run the normal command.
-2. If it exits 0, inspect the preferred-gate report.
-3. If it exits 1 because only one backend validated, run the reduced-gate command only if the human wants to evaluate reduced-gate progression.
-4. Confirm every Plan 9 success backend has a Plan 10 status.
-5. Confirm statuses are limited to validated, connector_crash, schema_failed, missing_required_output, or deferred_from_plan_9.
-6. Confirm detailed validation failures are recorded in warnings/errors/validation_error_summary.
-7. Confirm preferred gate passes only if at least two backends are validated and semantic_quality_passed is true.
-8. Confirm minimum gate passes only if at least one backend is validated and semantic_quality_passed is true.
-9. If reduced gate is used, confirm `human_reduced_gate_required=true`.
+1. Replace `<CALIBRATION_ROOT_FROM_A4>` with the root recorded by A4.
+2. Run the command exactly as written.
+3. Confirm the command exits 0, or classify the failure.
+4. Open `calibration_report.json`.
+5. Confirm each eligible backend is represented.
+6. Open each `priors/<backend>.json` file.
+7. Confirm each prior validates against CalibrationPriorDocument.
+8. Confirm block_kind_priors, entity_type_priors, relation_type_priors and calibration_key_priors are separated.
+9. Confirm underpowered and no_samples statuses are visible.
+10. Confirm any failed or deferred backend is classified.
+11. Confirm Plan 13 readiness identifies safe_for_consensus and underpowered priors.
+12. Confirm no weighted ConsensusIR is built in Plan 12.
 
 Pass criteria:
 
 ```text
-Every Plan 9 success backend is classified.
-Preferred gate passes with at least two validated semantically useful IRs; or reduced gate is explicitly requested and recorded.
-Detailed errors are present for failed connectors.
-No EntityProposalDocument validation is used for pass/fail.
+All eligible backends either produce valid priors or are classified.
+Calibration report exists.
+Calibration summary exists.
+Vocabulary alignment has passed.
+Priors preserve target-specific lists.
+Sparse priors are marked underpowered or no_samples.
+Plan 13 readiness is explicit.
+No consensus, linking or export output is produced.
 ```
 
 Fail criteria:
 
 ```text
-A Plan 9 success backend is omitted.
-Statuses outside the five-status taxonomy are used.
-Preferred gate passes with fewer than two validated semantically useful IRs.
-Reduced gate passes without human_reduced_gate_required=true.
-Errors are not explained.
-EntityProposalDocument validation affects Plan 10 pass/fail.
+Eligible backends disappear without classification.
+Calibration report is missing.
+Prior files fail schema validation.
+Vocabulary alignment is missing or failed.
+Sparse priors are hidden.
+Plan 12 builds consensus or export output.
 ```
 
 Evidence to record:
 
 ```text
-Paste the command or commands.
-Paste exit code or exit codes.
-Paste preferred_gate_passed, minimum_gate_passed and human_reduced_gate_required.
-Paste the per-backend status table.
-Paste any reduced-gate approval rationale if used.
-```
-
-Checkpoint H4:
-
-Title:
-Inspect semantic usefulness and Plan 11 hand-off.
-
-Purpose:
-Confirm that validated PageExtractionIR outputs contain meaningful document evidence and that the hand-off to Plan 11 is clear.
-
-Required environment:
-Any text editor or JSON inspection tool.
-
-Preconditions:
-H2 or H3 produced at least one PageExtractionIR JSON.
-
-Command:
-
-```bash
-python -m json.tool groundtruth/runs/connector_validation/connector_validation_report.json
-```
-
-If reduced gate was used:
-
-```bash
-python -m json.tool groundtruth/runs/connector_validation_reduced/connector_validation_report.json
-```
-
-Verification procedure:
-
-1. Open the connector validation report.
-2. Identify validated backends.
-3. Open each generated `page_extraction_ir.json` for validated backends.
-4. Confirm pages are in document order.
-5. Confirm blocks contain meaningful document text rather than logs, file paths, or parser noise.
-6. Confirm block kinds are plausible for the source document.
-7. Confirm provenance refers to the backend and raw artefact.
-8. Confirm raw artefact references are present.
-9. Confirm semantic quality warnings are recorded if content is weak.
-10. Confirm the summary states that EntityProposalDocument validation is deferred to Plan 11.
-
-Pass criteria:
-
-```text
-At least one validated PageExtractionIR contains meaningful document evidence.
-Preferred gate has two validated semantically useful backends, or reduced gate is explicitly approved.
-The hand-off to Plan 11 identifies validated backends and PageExtractionIR paths.
-EntityProposalDocument validation remains deferred.
-```
-
-Fail criteria:
-
-```text
-Validated PageExtractionIR contains only empty text, logs, file paths, or parser noise.
-No provenance is present.
-No raw artefact references are present.
-Plan 10 summary attempts to validate EntityProposalDocument.
-Plan 11 hand-off is unclear.
-```
-
-Evidence to record:
-
-```text
-Paste validated backend names.
-Paste PageExtractionIR output paths.
-Paste one representative text excerpt per validated backend.
-Paste block_kind_counts per validated backend.
-Paste Plan 11 hand-off summary.
-Paste reduced-gate approval rationale if used.
-```
-
-Checkpoint H5:
-
-Title:
-Verify forbidden layers were untouched.
-
-Purpose:
-Confirm that Plan 10 remains a connector/PageExtractionIR plan and does not bleed into calibration, consensus, linking, export or end-to-end work.
-
-Required environment:
-Git checkout.
-
-Command:
-
-```bash
-git diff --name-only
-```
-
-Verification procedure:
-
-1. Run the command exactly as written.
-2. Confirm changed files are limited to the Plan 10 whitelist and any narrowly justified connector files.
-3. Confirm no files under `src/pdf2md/calibration/`, `src/pdf2md/consensus/`, `src/pdf2md/linking/`, or `src/pdf2md/export/` were modified.
-4. Confirm backend execution code and config files were not modified.
-5. Confirm generated validation reports are not committed by default.
-
-Pass criteria:
-
-```text
-Only whitelisted files and explicitly justified connector files are modified.
-No calibration, consensus, linking, export or end-to-end files are modified.
-No backend execution code is modified.
-No backend config files are modified.
-Generated reports are not committed by default.
-```
-
-Fail criteria:
-
-```text
-Forbidden files are modified.
-Connector validation is mixed with calibration, consensus, linking or export.
-Backend execution or config is changed without plan amendment.
-Generated reports are committed without explicit policy.
-```
-
-Evidence to record:
-
-```text
-Paste git diff --name-only.
-List each changed file and why it changed.
+Paste the command.
+Paste the exit code.
+Paste calibration_report.json path.
+Paste list of generated prior files.
+Paste backend statuses.
+Paste Plan 13 readiness summary.
+Paste any reduced-gate approval rationale if fewer than two backends produce usable priors.
 ```
 
 ---
@@ -1029,61 +1059,79 @@ List each changed file and why it changed.
 Agent automated test matrix:
 
 ```bash
-conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -q
-conda run -n pdf2md pytest tests/test_backend_smoke.py -q
-conda run -n pdf2md pytest tests/test_local_groundtruth_validate.py -q
+conda run -n pdf2md pytest tests/test_calibration_matching.py -q
+conda run -n pdf2md pytest tests/test_calibration_metrics.py -q
+conda run -n pdf2md pytest tests/test_calibration_io.py -q
+conda run -n pdf2md pytest tests/test_calibration_vocabulary_alignment.py -q
 ```
 
 Human verification test matrix:
 
 ```text
-H0 locate Plan 9 report and successful backend outputs
-H1 automated connector validation tests
-H2 validate one successful backend output
-H3 validate all Plan 9 success backend outputs
-H4 inspect semantic usefulness and Plan 11 hand-off
-H5 forbidden-layer diff check
+H1 vocabulary alignment gate
+H2 one-backend calibration sanity check
+H3 full calibration and Plan 13 readiness
 ```
 
-Connector status classes:
+Plan-level vocabulary statuses:
 
-validated:
-The connector produced PageExtractionIR and it validated structurally. Human verification must also confirm semantic_quality_passed.
+vocabulary_alignment_passed:
+Mandatory top-four Docling labels are mapped into canonical BlockKind values and calibration truth loading uses canonical values.
 
-connector_crash:
-The connector raised an exception, exited unexpectedly, or could not complete.
+vocabulary_alignment_failed:
+Any mandatory top-four label is unmapped, or raw Docling labels still reach CalibrationTruthDocument or matching.
 
-schema_failed:
-The connector returned PageExtractionIR-like data, but schema/model validation failed. Specific validation details belong in warnings/errors/validation_error_summary.
+Per-backend calibration statuses:
 
-missing_required_output:
-A Plan 9 success backend output directory lacks files required by the connector.
+calibrated:
+Backend prior document validates and contains usable metrics.
 
-deferred_from_plan_9:
-Backend did not have Plan 9 status success, or no raw output directory is available, so connector validation is not attempted.
+underpowered:
+Backend prior document validates but important metrics have low support.
+
+no_samples:
+Backend has no usable samples for one or more target groups.
+
+insufficient_backend_output:
+Backend outputs are too sparse or incomplete.
+
+calibration_crash:
+Calibration loading, matching, metrics or prior generation crashes.
+
+deferred_from_plan_10_or_11:
+Backend was not eligible because previous plan artefacts are missing or invalid.
 
 Failure classes:
 
 repository_defect:
-The validation wrapper, CLI, report generation, gate logic, tests, or connector integration are wrong.
+The vocabulary mapping, truth loading, calibration wrapper, report generation, tests or CLI integration are wrong.
 
-connector_defect:
-The existing connector path cannot produce valid PageExtractionIR from otherwise valid raw backend output.
+vocabulary_alignment_failure:
+Mandatory mapping failed or raw labels still reach calibration matching.
 
-schema_failure:
-The connector output fails PageExtractionIR schema/model validation.
+truth_loading_failure:
+CalibrationTruthDocument cannot be loaded after mapping.
 
-missing_required_output:
-Required raw backend files are missing from the Plan 9 output directory.
+matching_failure:
+Matching crashes or returns structurally invalid match records.
 
-semantic_quality_failure:
-The PageExtractionIR validates structurally but contains empty, non-document-like, parser-noise, log-like, or otherwise unusable content.
+metrics_failure:
+Metric generation fails or produces invalid CalibrationMetric values.
 
-plan9_artifact_missing:
-The Plan 9 smoke report or successful backend output paths are missing.
+prior_schema_failure:
+CalibrationPriorDocument fails schema validation.
+
+insufficient_ground_truth:
+Ground truth lacks enough samples for a target.
+
+insufficient_backend_output:
+Backend outputs are too sparse or incomplete.
+
+plan10_or_11_artifact_missing:
+Required PageExtractionIR or EntityProposalDocument artefacts are missing.
 
 human_procedure_error:
-The human ran the wrong command, selected the wrong report, inspected the wrong output, or used stale Plan 9 artefacts.
+Human ran the wrong command, used the wrong root, inspected stale outputs or skipped the vocabulary gate.
 
 test_expectation_wrong:
 The test or checkpoint expectation is inconsistent with the plan or repository contract.
@@ -1091,32 +1139,41 @@ The test or checkpoint expectation is inconsistent with the plan or repository c
 Failure handling:
 
 If failure_class is repository_defect:
-The agent must fix the validation wrapper, CLI, report generation, gate logic, tests, or connector integration.
+The agent must fix the implementation or report a blocker.
 
-If failure_class is connector_defect:
-The agent may fix the connector only within the conditional connector whitelist and only for PageExtractionIR validation.
+If failure_class is vocabulary_alignment_failure:
+Plan 12 cannot proceed to trusted priors until mapping is fixed.
 
-If failure_class is schema_failure:
-The report must record validation details. The agent may fix connector output only if the issue is a connector defect.
+If failure_class is truth_loading_failure:
+Fix calibration truth loading or classify as blocker.
 
-If failure_class is missing_required_output:
-The backend remains classified for Plan 10 as missing_required_output unless the human provides corrected raw output artefacts.
+If failure_class is matching_failure:
+Fix matching only if the defect is in matching logic. Do not use matching.py to paper over raw-label vocabulary problems.
 
-If failure_class is semantic_quality_failure:
-The backend must not count toward the preferred or minimum semantic gate until corrected or explicitly accepted by the human with risk noted.
+If failure_class is metrics_failure:
+Fix metrics or report blocker.
 
-If failure_class is plan9_artifact_missing:
-The human must provide the missing Plan 9 report or output artefacts, or Plan 10 is blocked.
+If failure_class is prior_schema_failure:
+Fix prior generation or report blocker.
+
+If failure_class is insufficient_ground_truth:
+Record underpowered or no_samples status.
+
+If failure_class is insufficient_backend_output:
+Record backend as insufficient_backend_output.
+
+If failure_class is plan10_or_11_artifact_missing:
+Human must provide artefacts or the backend is deferred.
 
 If failure_class is human_procedure_error:
-The human checkpoint must be rerun correctly.
+Human checkpoint must be rerun correctly.
 
 If failure_class is test_expectation_wrong:
 The plan must be revised by a human before continuing.
 
 ---
 
-## 9. Checkpoints, push policy, and hand-off
+## 9. Checkpoints, push policy and hand-off
 
 Checkpoint C0: Plan ready
 
@@ -1124,7 +1181,7 @@ Required before agent starts:
 
 ```text
 status is active
-Plan 9 status is human_verified or human explicitly approves drafting only
+Plan 11 status is human_verified or human explicitly approves drafting only
 scope is clear
 file whitelist is complete
 forbidden files are listed
@@ -1142,8 +1199,10 @@ Required before human verification:
 ```text
 all agent tasks attempted
 all required automated tests run
-no forbidden files modified without conditional justification
+no forbidden files modified without human amendment
 no undeclared dependencies used
+vocabulary alignment report produced
+CALIBRATION_ROOT_FROM_A4 recorded or blocker reported
 agent report completed
 status set to agent_complete or human_verification_required
 ```
@@ -1153,10 +1212,11 @@ Checkpoint C2: Human verification complete
 Required before merge or milestone completion:
 
 ```text
-all human checkpoints run
-all expected output files produced
-all pass criteria satisfied or failures classified
-preferred gate passed, or minimum gate passed with explicit reduced-gate human approval
+H1 vocabulary alignment gate passed
+H2 one-backend calibration sanity check passed
+H3 full calibration and Plan 13 readiness reviewed
+all expected output files produced or failures classified
+preferred gate passed, or reduced gate explicitly approved by human
 human verification report completed
 status set to human_verified by a human
 ```
@@ -1167,10 +1227,10 @@ Required before promotion:
 
 ```text
 status is human_verified
-Plan 10 is archived after completion
+Plan 12 is archived after completion
 history.md summary is prepared or updated
-Plan 11 exists as next_plan.md or approved prepared plan
-Plan 11 may be promoted to current_plan.md only after Plan 10 is finished
+Plan 13 exists as next_plan.md or approved prepared plan
+Plan 13 may be promoted to current_plan.md only after Plan 12 is finished
 ROADMAP.md progress is updated only if explicitly approved by the human
 ```
 
@@ -1198,11 +1258,11 @@ Hand-off procedure after human verification:
 1. Archive current_plan.md as:
 
 ```text
-plans/archive/plan-10-connector-pageextractionir-validation.md
+plans/archive/plan-12-real-calibration-prior-generation.md
 ```
 
 2. Append a milestone summary to history.md.
-3. Promote Plan 11 to current_plan.md.
+3. Promote Plan 13 to current_plan.md.
 4. Create a new next_plan.md from PLAN_TEMPLATE.md or from an approved prepared plan.
 5. Record the commit SHA or PR number.
 6. Record the human verification evidence.
@@ -1220,16 +1280,20 @@ Status:
 Branch:
 Commit or PR:
 Files changed:
-Conditional connector files touched:
 Forbidden files touched:
 Tasks attempted:
-Existing connector entrypoint reused:
+Existing calibration code reused:
+Vocabulary mapping implemented:
+Mandatory mappings:
+CALIBRATION_ROOT_FROM_A4:
 Automated tests run:
 Automated tests passed:
 Automated tests failed:
 Failure classes:
-Plan 9 artefact status:
-Validated backend fixtures:
+Calibration root used:
+One-backend calibration command:
+All-backend calibration command:
+Generated prior files:
 Dependencies added:
 External tools used by agent:
 Output artefacts created:
@@ -1245,20 +1309,19 @@ Plan:
 Reviewer:
 Date:
 Environment:
-Plan 9 report path:
-Plan 9 successful backend outputs:
+Calibration root:
+Vocabulary alignment report:
+Mandatory mappings passed:
 Commands run:
 Exit codes:
 Output files checked:
-Connector statuses:
-Preferred gate passed:
-Minimum gate passed:
+Generated priors:
+Backend calibration statuses:
+Underpowered priors:
+No-sample priors:
 Reduced gate approved:
 Reduced gate rationale:
-Validated backends:
-PageExtractionIR paths:
-Semantic quality evidence:
-Plan 11 hand-off scope:
+Plan 13 readiness:
 Pass criteria satisfied:
 Fail criteria triggered:
 Failure classes:
@@ -1269,30 +1332,33 @@ human_verified or rejected
 
 Reviewer checklist:
 
-1. Did the agent modify only whitelisted files and narrowly justified connector files?
+1. Did the agent modify only whitelisted files?
 2. Did the agent avoid all forbidden files?
-3. Were all declared automated tests run?
-4. Did any automated test fail?
-5. Did the implementation reuse the existing connector path?
-6. Did the implementation avoid creating a parallel connector architecture?
-7. Were Plan 9 successful outputs used as inputs?
-8. Did the implementation avoid backend execution?
-9. Did the implementation validate only PageExtractionIR?
-10. Was EntityProposalDocument validation excluded from pass/fail?
-11. Were connector statuses limited to the five-status taxonomy?
-12. Were schema failure details recorded in warnings/errors/validation_error_summary?
-13. Did preferred gate require two structurally valid and semantically useful PageExtractionIR outputs?
-14. Did minimum gate require one structurally valid and semantically useful PageExtractionIR output plus explicit human approval?
-15. Was semantic_quality_passed checked separately from schema validity?
-16. Did human inspection confirm meaningful document text, not logs or parser noise?
-17. Was provenance present?
-18. Were raw artefact references present?
-19. Were generated reports left uncommitted by default?
-20. Were calibration, consensus, linking, export and end-to-end files untouched?
-21. Is Plan 11 clearly identified as the next plan?
-22. Is it safe to mark this plan human_verified?
-23. Is it safe to promote the next plan?
-24. Is ROADMAP.md progress allowed to change?
+3. Was run_log.md append-only if touched?
+4. Were all declared automated tests run?
+5. Did any automated test fail?
+6. Did the implementation use the existing calibration schema?
+7. Did the implementation avoid redesigning CalibrationPriorDocument?
+8. Did the implementation verify mandatory Docling-label-to-BlockKind mappings?
+9. Are text, section_header, title and picture mapped correctly?
+10. Is the mapping applied in the calibration truth loading path?
+11. Did raw Docling labels stop before matching.py?
+12. Was matching.py not weakened to compare raw labels?
+13. Were matching.py, metrics.py and priors.py left untouched unless the human amended the plan?
+14. Did vocabulary alignment pass before trusted priors were generated?
+15. Was CALIBRATION_ROOT_FROM_A4 recorded before human checkpoints?
+16. Did one-backend calibration produce a valid CalibrationPriorDocument?
+17. Did all-backend calibration produce priors or classifications for all eligible backends?
+18. Are block_kind_priors, entity_type_priors, relation_type_priors and calibration_key_priors separate?
+19. Are precision, recall, F1 and support visible?
+20. Are underpowered and no_samples metrics visible?
+21. Are sparse priors prevented from looking overconfident?
+22. Did the plan avoid consensus, linking, export and end-to-end work?
+23. Were generated reports left uncommitted by default?
+24. Is Plan 13 clearly identified as the next plan?
+25. Is it safe to mark this plan human_verified?
+26. Is it safe to promote the next plan?
+27. Is ROADMAP.md progress allowed to change?
 
 Status history:
 
@@ -1303,11 +1369,11 @@ date — status — actor — note
 Example:
 
 ```text
-2026-05-09 — draft — human — Plan 10 created from ROADMAP.md and PLAN_TEMPLATE.md
+2026-05-09 — draft — human — Plan 12 created from ROADMAP.md and PLAN_TEMPLATE.md
 2026-05-09 — active — human — approved for agent execution
 2026-05-09 — agent_in_progress — agent — branch created
-2026-05-09 — agent_complete — agent — automated tests passed
-2026-05-09 — human_verification_required — agent — awaiting human connector validation checks
+2026-05-09 — agent_complete — agent — automated tests passed and vocabulary alignment report generated
+2026-05-09 — human_verification_required — agent — awaiting human calibration checks
 2026-05-09 — human_verified — human — all checkpoints passed
 2026-05-09 — finished — human — archived and promoted
 ```
