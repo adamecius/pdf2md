@@ -1,4 +1,4 @@
-# Plan 17 — External Ground-Truth Dataset Downloaders
+# Additional Plan 1 — External Ground-Truth Dataset Downloaders
 
 Status:
 draft
@@ -13,42 +13,6 @@ human_verified
 finished
 blocked
 superseded
-
-Linked ROADMAP phase:
-Phase 1 — Ground-truth engine (expansion)
-Phase 6 consumer — CLI surface for dataset management
-
-Current roadmap estimate:
-Post-MVP. No ROADMAP.md percentage change until human approval.
-
-Note:
-This is the first post-MVP plan. It adds an opt-in dataset download layer for
-external LaTeX source corpora. These corpora complement the existing
-LaTeX-generated fixtures under `groundtruth/corpus/latex/` by providing
-real-world and community-authored LaTeX projects whose compiled PDFs can later
-serve as evaluation inputs for the backend ensemble.
-
-This plan covers download, positioning, manifest generation and documentation
-only. Compilation, backend execution, and ground-truth promotion belong to
-Plan 18.
-
-Owner:
-Agent team / human reviewer / local acceptance layer
-
-Sequence:
-Plan 17 of the post-MVP implementation sequence.
-
-Previous plan:
-Plan 16 — End-to-End Runner and MVP Corpus Evaluation
-
-Required previous plan status:
-human_verified
-
-Next plan after completion:
-Plan 18 — External Dataset Compilation and Evaluation
-
-Branch name:
-plan-17-external-dataset-downloaders
 
 ---
 
