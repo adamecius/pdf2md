@@ -782,7 +782,10 @@ def main() -> int:
             use_doc_unwarping=args.use_doc_unwarping,
             page_start=args.start,
             page_end=args.end,
-            keep_output=args.keep_output,
+            # User explicitly supplied --out-dir: never rmtree it. Auto-derived
+            # working directories continue to honour the original --keep-output
+            # flag for backwards compatibility.
+            keep_output=args.keep_output or bool(args.out_dir),
             json_out=json_out,
             debug_types=args.debug_types,
         )
