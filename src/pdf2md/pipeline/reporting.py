@@ -120,8 +120,50 @@ def classify_mvp_readiness(documents: list["DocumentRecord"]) -> "MvpReadiness":
     return _mvp_readiness(documents)
 
 
+def build_orchestrator_pipeline_summary(manifest: dict) -> str:
+    """Render a Plan 18 ``pipeline_manifest.json`` dict as plain text.
+
+    Distinct from :func:`build_pipeline_summary` which renders the Plan 16
+    ``PipelineManifest`` pydantic model. The orchestrator stores its manifest
+    as a plain dict, so we accept that shape directly.
+    """
+
+    lines = [
+        "Pipeline Summary",
+        "================",
+        f"Document: {manifest.get('document_id', '')}",
+        f"Input: {manifest.get('input_pdf', '')}",
+        f"Overall: {manifest.get('overall_status', '')}",
+        "",
+        f"Backends requested: {list(manifest.get('backends_requested', []))}",
+        f"Backends succeeded: {list(manifest.get('backends_succeeded', []))}",
+        "",
+        "Stages:",
+    ]
+    for stage in manifest.get("stages", []):
+        name = stage.get("name", "")
+        status = stage.get("status", "")
+        duration = stage.get("duration_seconds")
+        duration_str = f"{duration:.2f}s" if isinstance(duration, (int, float)) else "-"
+        lines.append(f"  {name:<22} [{status}]    {duration_str}")
+        if stage.get("error"):
+            lines.append(f"    error: {stage['error']}")
+        for warning in stage.get("warnings", []) or []:
+            lines.append(f"    warning: {warning}")
+
+    warnings = manifest.get("warnings", []) or []
+    if warnings:
+        lines.append("")
+        lines.append("Warnings:")
+        for warning in warnings:
+            lines.append(f"  - {warning}")
+
+    return "\n".join(lines) + "\n"
+
+
 __all__ = [
     "build_pipeline_summary",
+    "build_orchestrator_pipeline_summary",
     "build_corpus_summary",
     "classify_mvp_readiness",
 ]
