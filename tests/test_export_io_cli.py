@@ -99,3 +99,190 @@ def test_cli_option_variants_succeed(tmp_path: Path, args: list[str]):
     result = subprocess.run([sys.executable, "tools/export_linked_docling.py", "--linked-structure", str(FIX / "linked_structure.json"), "--consensus-ir", str(FIX / "consensus_ir.json"), "--out-dir", str(out), *args], text=True, capture_output=True)
     assert result.returncode == 0, result.stderr
     ExportManifestDocument.model_validate_json((out / "export_manifest.json").read_text())
+
+
+# ---------------------------------------------------------------------------
+# Plan 15 hardening tests
+# ---------------------------------------------------------------------------
+
+from pdf2md.export.reporting import (
+    INSPECTION_STATUSES,
+    build_export_report,
+)
+
+
+def _build_run(name: str = "simple_document"):
+    fix = Path("tests/data/export_fixtures") / name
+    loaded = load_export_inputs(
+        linked_structure_path=fix / "linked_structure.json",
+        consensus_ir_path=fix / "consensus_ir.json",
+    )
+    result = build_export_run(
+        linked=loaded.linked,
+        consensus=loaded.consensus,
+        source_linked_structure=str(fix / "linked_structure.json"),
+        source_consensus_ir=str(fix / "consensus_ir.json"),
+        source_pdf=None,
+        docling_settings=DoclingExportSettings(),
+        rag_settings=RagExportSettings(),
+        markdown_settings=MarkdownExportSettings(),
+    )
+    return result, loaded
+
+
+class TestPlan15ReportHardening:
+    def test_report_contains_plan16_readiness(self):
+        result, loaded = _build_run("simple_document")
+        report = build_export_report(
+            document_id=loaded.linked.document_id,
+            docling=result.docling,
+            rag_chunks=result.rag_chunks,
+            markdown=result.markdown,
+            warnings=list(result.warnings),
+        )
+        for field in (
+            "document_id",
+            "docling_text_count",
+            "docling_table_count",
+            "docling_picture_count",
+            "docling_group_count",
+            "docling_page_count",
+            "docling_warning_count",
+            "rag_chunk_count",
+            "markdown_char_count",
+            "consensus_report_used",
+            "source_pdf_supplied",
+            "ground_truth_supplied",
+            "docling_core_validation_available",
+            "warning_count",
+            "inspection_status",
+            "end_to_end_orchestration_handed_off_by",
+        ):
+            assert field in report["plan16_readiness"], field
+        assert report["plan16_readiness"]["end_to_end_orchestration_handed_off_by"] == "plan_16"
+
+    def test_default_inspection_status_is_diagnostic_only(self):
+        result, loaded = _build_run("simple_document")
+        report = build_export_report(
+            document_id=loaded.linked.document_id,
+            docling=result.docling,
+            rag_chunks=result.rag_chunks,
+            markdown=result.markdown,
+            warnings=list(result.warnings),
+        )
+        assert report["inspection_status"] == "diagnostic_only"
+        assert report["inspection_notes"] == []
+        assert report["ground_truth_ref"] is None
+
+    def test_report_accepts_all_inspection_statuses(self):
+        result, loaded = _build_run("simple_document")
+        for status in INSPECTION_STATUSES:
+            report = build_export_report(
+                document_id=loaded.linked.document_id,
+                docling=result.docling,
+                rag_chunks=result.rag_chunks,
+                markdown=result.markdown,
+                warnings=list(result.warnings),
+                inspection_status=status,
+            )
+            assert report["inspection_status"] == status
+
+    def test_report_rejects_unknown_inspection_status(self):
+        result, loaded = _build_run("simple_document")
+        with pytest.raises(ValueError):
+            build_export_report(
+                document_id=loaded.linked.document_id,
+                docling=result.docling,
+                rag_chunks=result.rag_chunks,
+                markdown=result.markdown,
+                warnings=list(result.warnings),
+                inspection_status="totally_made_up",
+            )
+
+    def test_report_records_ground_truth_and_notes(self):
+        result, loaded = _build_run("simple_document")
+        report = build_export_report(
+            document_id=loaded.linked.document_id,
+            docling=result.docling,
+            rag_chunks=result.rag_chunks,
+            markdown=result.markdown,
+            warnings=list(result.warnings),
+            inspection_status="ready_with_warnings",
+            inspection_notes=["docling_core unavailable on this host"],
+            source_pdf="/path/to/some.pdf",
+            ground_truth_ref="groundtruth/corpus/latex/doc/expected.docling.json",
+        )
+        assert report["ground_truth_ref"].endswith("expected.docling.json")
+        assert "docling_core unavailable on this host" in report["inspection_notes"]
+        assert report["plan16_readiness"]["source_pdf_supplied"] is True
+        assert report["plan16_readiness"]["ground_truth_supplied"] is True
+
+    def test_report_detects_docling_core_unavailable_in_warnings(self):
+        result, loaded = _build_run("simple_document")
+        warnings = list(result.warnings) + ["docling_core_unavailable"]
+        report = build_export_report(
+            document_id=loaded.linked.document_id,
+            docling=result.docling,
+            rag_chunks=result.rag_chunks,
+            markdown=result.markdown,
+            warnings=warnings,
+        )
+        assert report["plan16_readiness"]["docling_core_validation_available"] is False
+
+
+class TestPlan15CLI:
+    SCRIPT = "tools/export_linked_docling.py"
+    FIX = Path("tests/data/export_fixtures/simple_document")
+
+    def _run(self, tmp_path: Path, extra: list[str] | None = None):
+        out = tmp_path / "out"
+        return subprocess.run(
+            [
+                sys.executable,
+                self.SCRIPT,
+                "--linked-structure",
+                str(self.FIX / "linked_structure.json"),
+                "--consensus-ir",
+                str(self.FIX / "consensus_ir.json"),
+                "--out-dir",
+                str(out),
+                *(extra or []),
+            ],
+            text=True,
+            capture_output=True,
+        ), out
+
+    def test_cli_default_inspection_status_is_diagnostic_only(self, tmp_path: Path):
+        proc, out = self._run(tmp_path)
+        assert proc.returncode == 0, proc.stderr
+        report = json.loads((out / "reports" / "export_report.json").read_text())
+        assert report["inspection_status"] == "diagnostic_only"
+        assert report["ground_truth_ref"] is None
+
+    def test_cli_accepts_inspection_status_and_notes(self, tmp_path: Path):
+        proc, out = self._run(
+            tmp_path,
+            extra=[
+                "--inspection-status",
+                "ready_for_plan_16",
+                "--inspection-note",
+                "synthetic; clean export",
+                "--ground-truth",
+                "groundtruth/corpus/latex/x.docling.json",
+            ],
+        )
+        assert proc.returncode == 0, proc.stderr
+        report = json.loads((out / "reports" / "export_report.json").read_text())
+        assert report["inspection_status"] == "ready_for_plan_16"
+        assert "synthetic; clean export" in report["inspection_notes"]
+        assert report["ground_truth_ref"].endswith("x.docling.json")
+        assert report["plan16_readiness"]["ground_truth_supplied"] is True
+
+    def test_cli_rejects_unknown_inspection_status(self, tmp_path: Path):
+        proc, _ = self._run(tmp_path, extra=["--inspection-status", "totally_made_up"])
+        assert proc.returncode != 0
+
+    def test_cli_verbose_prints_plan16_readiness_summary(self, tmp_path: Path):
+        proc, _ = self._run(tmp_path, extra=["--verbose"])
+        assert proc.returncode == 0, proc.stderr
+        assert "end_to_end_orchestration_handed_off_by: plan_16" in proc.stdout
