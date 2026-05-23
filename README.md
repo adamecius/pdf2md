@@ -467,6 +467,25 @@ run full local end-to-end corpus evaluation
 calibrate backend confidence from observed success and failure
 ```
 
+Concrete TODOs queued for future plans (not yet drafted):
+
+```text
+- consensus-calibration-and-real-example workflow
+    Draft a plan that gives runnable operator instructions for:
+      (a) running consensus calibration against the compiled
+          groundtruth corpus to derive backend confidence priors
+          (tools/calibrate_priors.py against fixtures produced by
+          tools/compile_latex_groundth.py);
+      (b) using the pdf2md convert CLI (Plan 18) on real PDFs end
+          to end with the derived priors.
+
+- docling-strict-validation hardening (Plan 17 A8 follow-up)
+    Strip pdf2md-only extras from docling pictures/tables, uppercase
+    prov.bbox.coord_origin (TOPLEFT/BOTTOMLEFT), and emit the
+    required prov.charspan field on every prov entry. Closes the two
+    xfailed TestDoclingCoreStrictValidation cases.
+```
+
 ---
 
 ## 16. Licence and contribution policy
