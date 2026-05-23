@@ -1,4 +1,4 @@
-# Plan 10 — Connector Implementation and PageExtractionIR Validation
+# Plan 11 — EntityProposalDocument Validation
 
 Status:
 draft
@@ -18,43 +18,58 @@ Linked ROADMAP phase:
 Phase 2 — Extraction and normalisation
 
 Current roadmap estimate:
-Phase 2 from approximately 70% toward 80%
+Overall project from approximately 68% toward 71% after successful completion.
 
 Owner:
 Agent team / human reviewer / local acceptance layer
 
 Sequence:
-Plan 10 of the pre-MVP implementation sequence, ending at Plan 16.
+Plan 11 of the pre-MVP implementation sequence, ending at Plan 16.
 
 Previous plan:
-Plan 9 — Real Backend Smoke Readiness
+Plan 10 — Connector Implementation and PageExtractionIR Validation
 
 Required previous plan status:
 human_verified
 
 Next plan after completion:
-Plan 11 — EntityProposalDocument Validation
+Plan 12 — Real Calibration Prior Generation
 
 Branch name:
-plan-10-connector-pageextractionir-validation
+plan-11-entity-proposal-document-validation
 
 ---
 
 ## 1. Purpose
 
-This plan validates that real raw backend outputs from Plan 9 can be converted through the repository connector path into valid and semantically useful `PageExtractionIR`.
+This plan validates `EntityProposalDocument` outputs produced by the same connector path validated in Plan 10.
 
-Plan 10 is the first plan where real backend outputs enter the canonical extraction evidence model. It answers this question:
+Plan 10 validates `PageExtractionIR`. Plan 11 validates the second connector output: `EntityProposalDocument`.
+
+The connector may emit both `PageExtractionIR` and `EntityProposalDocument` in one pass. Plan 11 must not reopen connector architecture except for narrow defect fixes discovered during entity validation.
+
+The core question is:
 
 ```text
-Can successful Plan 9 backend outputs be normalised into PageExtractionIR with meaningful pages, blocks, text, block kinds, provenance, and raw artefact references?
+Can the connector produce valid, traceable and semantically plausible EntityProposalDocument outputs from Plan 10 validated backend artefacts?
 ```
 
-The connector path may emit both `PageExtractionIR` and `EntityProposalDocument` in one call. Plan 10 may implement or harden the connector path as needed, but acceptance validates only the `PageExtractionIR` part.
+Plan 11 validates:
 
-`EntityProposalDocument` validation belongs to Plan 11.
+```text
+- entity proposal schema
+- EntityType values
+- EntityEvidence references
+- EntityProposal block references
+- RelationProposal endpoints and RelationType values
+- provenance
+- confidence sources where present in the current schema
+- empty entity outputs as explicit no_entities_produced outcomes
+```
 
-Plan 10 does not run calibration, consensus, semantic linking, Docling export, RAG export, Markdown export, or the end-to-end runner.
+Relation validation is in scope because the repository schema already supports relation proposals, including relation types such as `CAPTION_OF`, `FOOTNOTE_ANCHOR_FOR`, `TOC_POINTS_TO`, `REFERENCE_MENTION_OF`, `SAME_ENTITY_AS`, `NEAR`, `SEQUENCE_NEXT`, and `CANDIDATE_FOR`, where those are present in the current code.
+
+Plan 11 does not perform calibration, consensus, semantic linking, Docling export, RAG export, Markdown export, or end-to-end runner work.
 
 ---
 
@@ -87,7 +102,7 @@ git status --short
 git fetch --all --prune
 git checkout main
 git pull --ff-only
-git switch -c plan-10-connector-pageextractionir-validation
+git switch -c plan-11-entity-proposal-document-validation
 ```
 
 Rules:
@@ -98,7 +113,7 @@ Rules:
 4. Do not modify files outside the whitelist.
 5. Do not install or use undeclared dependencies.
 6. Do not change ROADMAP.md progress.
-7. Do not promote this plan to current_plan.md unless Plan 9 has been marked human_verified and archived.
+7. Do not promote this plan to current_plan.md unless Plan 10 has been marked human_verified and archived.
 8. Do not mark this plan human_verified or finished. Only the human reviewer may do that.
 
 Main repository environment:
@@ -119,7 +134,7 @@ or from an activated environment:
 conda activate pdf2md
 ```
 
-This plan consumes existing Plan 9 backend smoke outputs. It does not execute real backends by default. If new backend execution is needed, that work belongs to Plan 9 or to a human-provided artefact outside Plan 10.
+This plan consumes existing Plan 10 connector validation outputs. It does not execute real backends by default and does not rerun Plan 10 unless the human provides existing artefacts or explicitly approves rerun inputs.
 
 ---
 
@@ -127,41 +142,44 @@ This plan consumes existing Plan 9 backend smoke outputs. It does not execute re
 
 In scope:
 
-1. Inspect the existing connector architecture and reuse the existing connector entrypoint.
-2. Use real raw backend output directories from Plan 9 where available.
-3. Convert Plan 9 successful backend outputs into `PageExtractionIR`.
-4. Validate `PageExtractionIR` structurally using the repository model/schema.
-5. Perform semantic smoke validation of the resulting IR.
-6. Report per-backend connector validation status.
-7. Report page count, block count, block-kind counts, text presence, bbox presence, provenance presence, and raw artefact references.
-8. Preserve raw backend artefact references.
-9. Support incremental backend acceptance.
-10. Write a machine-readable connector validation report.
-11. Write a human-readable connector validation summary.
-12. Add automated tests using fixtures or mocks that do not require real backend environments.
-13. Avoid validating EntityProposalDocument as a Plan 10 pass/fail criterion.
+1. Locate Plan 10 connector validation reports and PageExtractionIR outputs.
+2. Locate EntityProposalDocument outputs produced by the same connector path.
+3. Validate EntityProposalDocument structurally using the repository model/schema.
+4. Validate entity proposal evidence references.
+5. Validate EntityType values.
+6. Validate RelationProposal endpoints and RelationType values using the current schema.
+7. Validate provenance fields where the schema requires or supports them.
+8. Validate confidence sources where the schema requires or supports them.
+9. Record entity counts by type.
+10. Record relation counts by type.
+11. Classify zero-entity outputs explicitly as `no_entities_produced`.
+12. Produce per-backend entity validation reports.
+13. Produce a machine-readable entity validation report.
+14. Produce a human-readable entity validation summary.
+15. Add automated tests with fixtures or mocks that do not require real backend environments.
+16. Add human checkpoints for semantic plausibility of entities and relations.
+17. Prepare hand-off information for Plan 12 calibration priors.
 
 Out of scope:
 
-1. Running backend model scripts.
-2. Installing backend environments.
-3. Downloading model weights.
-4. Modifying backend execution code.
-5. Modifying backend configuration.
-6. Creating a parallel connector architecture.
-7. Validating EntityProposalDocument.
-8. Running calibration.
-9. Running consensus.
-10. Running semantic linking.
-11. Running Docling export.
-12. Running RAG export.
-13. Running Markdown export.
-14. Running the end-to-end pipeline.
-15. Editing ROADMAP.md.
-16. Editing README.md.
-17. Editing project.md.
-18. Editing current_plan.md.
-19. Editing next_plan.md.
+1. Reopening connector architecture.
+2. Modifying connector code except for narrow defect fixes required for EntityProposalDocument validity.
+3. Running backend model scripts.
+4. Running PageExtractionIR validation as a Plan 11 acceptance target.
+5. Inventing new EntityType or RelationType values.
+6. Adding new relation semantics not present in the current schema.
+7. Running calibration.
+8. Running consensus.
+9. Running semantic linking.
+10. Running Docling export.
+11. Running RAG export.
+12. Running Markdown export.
+13. Running the end-to-end pipeline.
+14. Editing ROADMAP.md.
+15. Editing README.md.
+16. Editing project.md.
+17. Editing current_plan.md.
+18. Editing next_plan.md.
 
 Hard constraints:
 
@@ -169,12 +187,13 @@ Hard constraints:
 2. The agent must not mark this plan as human_verified or finished.
 3. The agent may only mark agent_in_progress, agent_complete, human_verification_required, blocked, or superseded.
 4. Human verification is required before merge to main, milestone completion, next-plan promotion, or ROADMAP.md progress updates.
-5. The agent must reuse the existing connector path if present, for example `connect_raw_dir()` or the closest existing connector entrypoint.
-6. The agent must not validate `EntityProposalDocument` as part of Plan 10 acceptance.
-7. The agent must not import calibration, consensus, linking, Docling export, RAG export, or end-to-end runner code for Plan 10 validation.
-8. Pydantic/schema validity alone is not enough for full Plan 10 success; the human semantic smoke checkpoint must pass.
-9. If real Plan 9 outputs are missing, the implementation may still be tested with fixtures or mocks, but human verification must classify the missing real outputs.
-10. If a forbidden file must be changed, this plan is incomplete and must be revised by a human before implementation starts.
+5. The agent must reuse existing EntityProposalDocument schema and connector artefacts.
+6. The agent must not add relation types or entity types unless the plan is explicitly amended by the human.
+7. Schema failures must be recorded as `schema_failed`, with exact Pydantic or validation details in warnings/errors.
+8. Evidence-reference failures covered by current schema validators must be classified as `schema_failed`, not as a separate top-level status.
+9. Empty but valid EntityProposalDocument outputs must be classified as `no_entities_produced`, not silently counted as validated.
+10. If Plan 10 artefacts are missing, the affected backend must be classified as `deferred_from_plan_10` or the plan must be blocked if no valid inputs exist.
+11. Pydantic/schema validity alone is not enough for full semantic acceptance; human semantic plausibility checkpoints must pass for validated status to count toward the gate.
 
 Allowed Python dependencies:
 
@@ -207,18 +226,21 @@ none
 The agent may create or modify only these implementation and test files:
 
 ```text
-src/pdf2md/local/connector_validation.py
+src/pdf2md/local/entity_proposal_validation.py
 
-tools/validate_connectors_page_ir.py
+tools/validate_entity_proposals.py
 
-tests/test_connector_page_ir_validation.py
+tests/test_entity_proposal_validation.py
 
-tests/data/connector_validation_fixtures/minimal_markdown_backend/output.md
-tests/data/connector_validation_fixtures/missing_output_backend/.gitkeep
-tests/data/connector_validation_fixtures/schema_failure_backend/output.md
+tests/data/entity_proposal_validation_fixtures/valid_entities/entities.json
+tests/data/entity_proposal_validation_fixtures/valid_entities/page_extraction_ir.json
+tests/data/entity_proposal_validation_fixtures/no_entities/entities.json
+tests/data/entity_proposal_validation_fixtures/no_entities/page_extraction_ir.json
+tests/data/entity_proposal_validation_fixtures/schema_failure/entities.json
+tests/data/entity_proposal_validation_fixtures/schema_failure/page_extraction_ir.json
 ```
 
-The agent may modify connector code only if the existing connector path is incomplete or defective for PageExtractionIR validation. Any connector code change must be narrowly justified in the agent report.
+The agent may modify connector code only if a narrow defect prevents valid EntityProposalDocument output from being loaded or validated. Such changes must be justified in the agent report and must not alter PageExtractionIR validation behaviour from Plan 10.
 
 Conditionally allowed connector files:
 
@@ -230,30 +252,32 @@ backend/*/connector.py
 Conditionally allowed connector changes are limited to:
 
 ```text
-- reusing or exposing the existing connector entrypoint
-- fixing connector defects that prevent PageExtractionIR output from validating
-- preserving raw artefact references
-- preserving backend provenance
-- improving PageExtractionIR construction
+- exposing already-produced EntityProposalDocument output
+- preserving entity provenance
+- preserving entity evidence references
+- preserving relation proposals already supported by the schema
+- fixing schema defects in EntityProposalDocument construction
 ```
 
 Conditionally allowed connector changes must not:
 
 ```text
-- validate EntityProposalDocument as a Plan 10 acceptance target
+- rework connector architecture
+- change Plan 10 PageExtractionIR acceptance semantics
 - implement calibration
 - implement consensus
 - implement semantic linking
 - implement Docling export
+- implement new entity or relation types outside the current schema
 - change backend execution behaviour
 ```
 
 Expected output artefacts, produced by the CLI and not committed unless a later policy explicitly allows it:
 
 ```text
-<out-dir>/connector_validation_report.json
-<out-dir>/connector_validation_summary.txt
-<out-dir>/<backend_name>/page_extraction_ir.json
+<out-dir>/entity_proposal_validation_report.json
+<out-dir>/entity_proposal_validation_summary.txt
+<out-dir>/<backend_name>/entity_proposals.json
 ```
 
 The agent must not modify these files unless this plan is explicitly amended by the human reviewer:
@@ -273,6 +297,7 @@ pyproject.toml
 config/backends.toml
 config/*
 
+src/pdf2md/local/connector_validation.py
 src/pdf2md/local/backend_smoke.py
 src/pdf2md/local/groundtruth.py
 src/pdf2md/local/preflight.py
@@ -281,6 +306,7 @@ src/pdf2md/consensus/*
 src/pdf2md/linking/*
 src/pdf2md/export/*
 
+tools/validate_connectors_page_ir.py
 tools/backend_smoke.py
 tools/local_groundtruth_validate.py
 tools/local_groundtruth_preflight.py
@@ -292,20 +318,21 @@ tools/export_linked_docling.py
 groundtruth/corpus/*
 ```
 
-Required connector validation report contract:
+Required entity validation report contract:
 
 ```text
-schema_name: pdf2md.ConnectorPageExtractionIRValidationReport
+schema_name: pdf2md.EntityProposalDocumentValidationReport
 schema_version: 1.0.0
 generated_at: ISO 8601 timestamp
-tool_name: validate_connectors_page_ir
-plan9_report_path: path or null
+tool_name: validate_entity_proposals
+plan10_report_path: path or null
 gate_mode: preferred | reduced
 preferred_gate_passed: bool
 minimum_gate_passed: bool
 human_reduced_gate_required: bool
 total_backends_considered: int
 backends_validated: int
+backends_no_entities: int
 backends_failed: int
 backends_deferred: int
 results: list of per-backend validation entries
@@ -313,22 +340,24 @@ warnings: list of strings
 metadata: dict
 ```
 
-Per-backend connector validation entry contract:
+Per-backend entity validation entry contract:
 
 ```text
 backend_name: str
-plan9_status: str or null
-raw_output_dir: str or null
-connector_entrypoint: str
-status: validated | connector_crash | schema_failed | missing_required_output | deferred_from_plan_9
-page_count: int
-block_count: int
-block_kind_counts: dict
-has_text: bool
-has_bboxes: bool
+plan10_status: str or null
+page_extraction_ir_path: str or null
+entity_document_path: str or null
+connector_entrypoint: str or null
+status: validated | no_entities_produced | schema_failed | connector_crash | deferred_from_plan_10
+entity_count: int
+entity_type_counts: dict
+relation_count: int
+relation_type_counts: dict
+has_evidence: bool
+has_relations: bool
 has_provenance: bool
-raw_artefact_references: list[str]
-semantic_quality_passed: bool
+has_confidence_sources: bool
+semantic_plausibility_passed: bool
 warnings: list[str]
 errors: list[str]
 validation_error_summary: str or null
@@ -340,39 +369,47 @@ Status taxonomy:
 
 ```text
 validated:
-  The connector produced PageExtractionIR and it validated structurally.
-  Full success also requires semantic_quality_passed=true in human verification.
+  EntityProposalDocument validates structurally and contains at least one entity or relation proposal with acceptable evidence/provenance quality.
 
-connector_crash:
-  The connector raised an exception, exited unexpectedly, or could not complete.
+no_entities_produced:
+  EntityProposalDocument validates structurally but contains zero entity proposals and zero useful relation proposals.
+  This is not a connector crash and is useful evidence for Plan 12 calibration.
 
 schema_failed:
-  The connector returned PageExtractionIR-like data, but schema/model validation failed.
-  Detailed causes such as invalid bbox, invalid block kind, missing provenance, empty required fields, or invalid page structure must be recorded in warnings/errors/validation_error_summary, not as separate statuses.
+  EntityProposalDocument-like data exists, but schema/model validation fails.
+  This includes invalid EntityType, invalid RelationType, invalid evidence references, invalid block ID patterns, relation endpoints that do not exist, malformed confidence source data, or other Pydantic/model errors.
 
-missing_required_output:
-  A Plan 9 success backend output directory lacks files required by the connector.
+connector_crash:
+  The connector or validation wrapper raised an exception, exited unexpectedly, or could not load/produce the EntityProposalDocument.
 
-deferred_from_plan_9:
-  Backend did not have Plan 9 status success, or no raw output directory is available, so connector validation is not attempted.
+deferred_from_plan_10:
+  Backend did not have Plan 10 status validated, or no Plan 10 artefacts are available, so entity validation is not attempted.
 ```
 
 Gate rule:
 
 ```text
 Preferred gate:
-  At least two Plan 9 success backends produce structurally valid PageExtractionIR and pass semantic smoke validation.
+  At least two Plan 10 validated backends produce EntityProposalDocument outputs with status validated and semantic_plausibility_passed=true.
 
 Minimum gate:
-  At least one Plan 9 success backend produces structurally valid PageExtractionIR and passes semantic smoke validation;
-  all other Plan 9 success backends are classified;
+  At least one Plan 10 validated backend produces EntityProposalDocument output with status validated and semantic_plausibility_passed=true;
+  all other Plan 10 validated backends are classified;
   human reviewer explicitly approves reduced-gate progression.
+```
+
+No-entity rule:
+
+```text
+Backends classified as no_entities_produced do not count toward the preferred or minimum validated gate.
+They also do not count as connector failures.
+They must be recorded for Plan 12 calibration and later consensus weighting.
 ```
 
 Reduced-gate rule:
 
 ```text
-If only the minimum gate passes, this plan may not be marked human_verified unless the human verification report explicitly records reduced-gate approval and explains why progression to Plan 11 is acceptable.
+If only the minimum gate passes, this plan may not be marked human_verified unless the human verification report explicitly records reduced-gate approval and explains why progression to Plan 12 is acceptable.
 ```
 
 ---
@@ -382,131 +419,133 @@ If only the minimum gate passes, this plan may not be marked human_verified unle
 Task A1:
 
 Title:
-Inspect and reuse existing connector path.
+Inspect existing entity schema and connector outputs.
 
 Goal:
-Identify the existing connector entrypoint and use it for Plan 10 validation without creating a parallel connector architecture.
+Ground Plan 11 validation in the existing EntityProposalDocument, EntityType, RelationType, EntityEvidence and RelationProposal schema.
 
 Files allowed:
 
 ```text
-src/pdf2md/local/connector_validation.py
-tests/test_connector_page_ir_validation.py
+src/pdf2md/local/entity_proposal_validation.py
+tests/test_entity_proposal_validation.py
 ```
 
 Implementation requirements:
 
-1. Inspect the repository for the existing connector entrypoint, expected to be `connect_raw_dir()` or equivalent.
-2. Reuse the existing connector entrypoint.
-3. If connector names differ, use the closest existing connector entrypoint.
-4. If no reusable connector exists, stop and report a blocker.
-5. Do not create a parallel connector architecture.
-6. Do not use Plan 9 `status=success` as proof of connector sufficiency.
-7. Inspect the actual raw output directory before connector execution.
-8. Do not import calibration, consensus, linking, export, or end-to-end runner code.
+1. Inspect the repository schema for EntityProposalDocument, EntityProposal, EntityEvidence, RelationProposal, EntityType and RelationType.
+2. Reuse the existing schema; do not invent new entity or relation types.
+3. Inspect Plan 10 output conventions for PageExtractionIR and entity artefacts.
+4. Confirm whether connector output stores entity proposals as `entities.json`, embedded connector return data, or another current path.
+5. If entity artefact location is unknown, derive it from the Plan 10 validation report or connector output metadata.
+6. Do not create a parallel entity schema.
+7. Do not modify calibration, consensus, linking, export, or end-to-end code.
 
 Automated tests required:
 
 ```bash
-conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -q
+conda run -n pdf2md pytest tests/test_entity_proposal_validation.py -q
 ```
 
 Expected output:
 A validation module importable as:
 
 ```python
-from pdf2md.local.connector_validation import build_connector_validation_report
+from pdf2md.local.entity_proposal_validation import build_entity_proposal_validation_report
 ```
 
 Completion evidence:
-Agent must report which connector entrypoint was reused and whether any connector changes were required.
+Agent must report which schema classes and relation types were reused.
 
 Human verification required:
-no. Covered by H1, H2, H3, and H4.
+no. Covered by H1, H2, H3 and H4.
 
 Task A2:
 
 Title:
-Implement connector validation models and report builder.
+Implement entity validation report models and classifier.
 
 Goal:
-Create a report layer that validates PageExtractionIR outputs and records per-backend connector status.
+Create a validation layer that classifies EntityProposalDocument outputs using the five-status taxonomy.
 
 Files allowed:
 
 ```text
-src/pdf2md/local/connector_validation.py
-tests/test_connector_page_ir_validation.py
+src/pdf2md/local/entity_proposal_validation.py
+tests/test_entity_proposal_validation.py
 ```
 
 Implementation requirements:
 
-1. Define typed models or Pydantic models for the connector validation report and per-backend entries.
-2. Use only five connector statuses: `validated`, `connector_crash`, `schema_failed`, `missing_required_output`, `deferred_from_plan_9`.
+1. Define typed models or Pydantic models for the entity validation report and per-backend entries.
+2. Use only five statuses: `validated`, `no_entities_produced`, `schema_failed`, `connector_crash`, `deferred_from_plan_10`.
 3. Record detailed validation errors in `warnings`, `errors`, and `validation_error_summary`.
-4. Include `semantic_quality_passed` as a separate boolean, not a status.
-5. Include page count, block count, block-kind counts, text presence, bbox presence, provenance presence, and raw artefact references.
-6. Record `next_action` for every backend result.
-7. Support preferred and minimum gate calculation.
-8. Require explicit human reduced-gate approval before minimum-gate-only completion.
+4. Classify empty valid EntityProposalDocument outputs as `no_entities_produced`.
+5. Treat Pydantic validation failures, invalid relation endpoints and invalid evidence references as `schema_failed`.
+6. Include entity count, entity type counts, relation count and relation type counts.
+7. Include booleans for has_evidence, has_relations, has_provenance and has_confidence_sources.
+8. Include `semantic_plausibility_passed` as a separate boolean, not a status.
+9. Include `next_action` for every backend result.
+10. Support preferred and minimum gate calculation.
+11. Require explicit human reduced-gate approval before minimum-gate-only completion.
 
 Automated tests required:
 
 ```bash
-conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -q
+conda run -n pdf2md pytest tests/test_entity_proposal_validation.py -q
 ```
 
 Expected output:
-Connector validation report objects validate and serialise deterministically.
+Entity validation report objects validate and serialise deterministically.
 
 Completion evidence:
 Agent must report report schema, status taxonomy, gate logic, and tests.
 
 Human verification required:
-no. Covered by H1, H2, H3, and H4.
+no. Covered by H1, H2, H3 and H4.
 
 Task A3:
 
 Title:
-Implement connector validation CLI.
+Implement entity proposal validation CLI.
 
 Goal:
-Create `tools/validate_connectors_page_ir.py` as a CLI wrapper around the connector validation module.
+Create `tools/validate_entity_proposals.py` as a CLI wrapper around the entity validation module.
 
 Files allowed:
 
 ```text
-tools/validate_connectors_page_ir.py
-tests/test_connector_page_ir_validation.py
+tools/validate_entity_proposals.py
+tests/test_entity_proposal_validation.py
 ```
 
 Implementation requirements:
 
-1. Accept `--plan9-report`, optional but required for real Plan 9 output validation unless explicit backend/output pairs are supplied.
-2. Accept `--backend-output`, repeatable as `<backend_name>=<raw_output_dir>`.
-3. Accept `--out-dir`, required.
-4. Accept `--preferred-gate-minimum`, default `2`.
-5. Accept `--allow-reduced-gate`, default false.
-6. Accept `--verbose`.
-7. Write `connector_validation_report.json` and `connector_validation_summary.txt`.
-8. Write per-backend `page_extraction_ir.json` files when validation succeeds.
-9. In normal mode, exit 0 only if preferred gate passes.
-10. If `--allow-reduced-gate` is set, exit 0 when minimum gate passes and preferred gate fails, but mark `human_reduced_gate_required=true` in the report.
-11. Exit 1 when neither preferred nor minimum gate passes.
-12. Do not expose EntityProposalDocument validation options.
-13. Do not expose calibration, consensus, linking or export options.
+1. Accept `--plan10-report`, optional but required for real Plan 10 output validation unless explicit backend/entity pairs are supplied.
+2. Accept `--backend-entities`, repeatable as `<backend_name>=<entity_document_path>`.
+3. Accept `--page-ir`, repeatable as `<backend_name>=<page_extraction_ir_path>` for evidence cross-checking when needed.
+4. Accept `--out-dir`, required.
+5. Accept `--preferred-gate-minimum`, default `2`.
+6. Accept `--allow-reduced-gate`, default false.
+7. Accept `--verbose`.
+8. Write `entity_proposal_validation_report.json` and `entity_proposal_validation_summary.txt`.
+9. Write per-backend `entity_proposals.json` copies or normalised reports only when validation succeeds or when explicitly useful for review.
+10. In normal mode, exit 0 only if preferred gate passes.
+11. If `--allow-reduced-gate` is set, exit 0 when minimum gate passes and preferred gate fails, but mark `human_reduced_gate_required=true` in the report.
+12. Exit 1 when neither preferred nor minimum gate passes.
+13. Do not expose calibration, consensus, linking, export or end-to-end options.
 
 Automated tests required:
 
 ```bash
-conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -q
+conda run -n pdf2md pytest tests/test_entity_proposal_validation.py -q
 ```
 
 Expected output:
 A script runnable as:
 
 ```bash
-conda run -n pdf2md python tools/validate_connectors_page_ir.py --plan9-report <report.json> --out-dir <path>
+conda run -n pdf2md python tools/validate_entity_proposals.py --plan10-report <report.json> --out-dir <path>
 ```
 
 Completion evidence:
@@ -518,52 +557,62 @@ yes. Covered by H2 and H3.
 Task A4:
 
 Title:
-Add automated connector validation tests.
+Add automated entity validation tests.
 
 Goal:
-Verify Plan 10 behaviour without requiring real backend environments.
+Verify Plan 11 behaviour without requiring real backend environments.
 
 Files allowed:
 
 ```text
-tests/test_connector_page_ir_validation.py
-tests/data/connector_validation_fixtures/*
+tests/test_entity_proposal_validation.py
+tests/data/entity_proposal_validation_fixtures/*
 ```
 
 Implementation requirements:
 
-1. Add or use a minimal raw markdown backend fixture that the existing connector can parse.
-2. Test successful PageExtractionIR validation.
-3. Test missing required output classification.
-4. Test connector crash classification via mocking.
-5. Test schema_failed classification via invalid connector output.
-6. Test deferred_from_plan_9 when Plan 9 status is not success.
-7. Test preferred gate pass with two validated backends.
-8. Test preferred gate fail with one validated backend.
-9. Test minimum gate pass with one validated backend.
-10. Test `--allow-reduced-gate` behaviour.
-11. Test semantic_quality_passed true when pages, blocks and meaningful text are present.
-12. Test semantic_quality_passed false when IR validates but text is empty, noise-like, or block count is zero.
-13. Test that EntityProposalDocument output, if present, is not used for Plan 10 pass/fail.
-14. Test JSON report contract.
-15. Test summary writing.
+1. Add or use a valid EntityProposalDocument fixture with entities, evidence and at least one relation if supported by the current schema.
+2. Add or use an empty but valid EntityProposalDocument fixture.
+3. Add or use an invalid EntityProposalDocument fixture that triggers schema_failed.
+4. Add or use a matching PageExtractionIR fixture for cross-checking evidence against blocks where needed.
+5. Test validated status.
+6. Test no_entities_produced status.
+7. Test schema_failed status.
+8. Test connector_crash classification by mocking.
+9. Test deferred_from_plan_10 classification.
+10. Test entity type counting.
+11. Test relation type counting.
+12. Test relation endpoints are schema-validated.
+13. Test evidence references are schema-validated.
+14. Test preferred gate pass with two validated backends.
+15. Test preferred gate fail with one validated backend.
+16. Test minimum gate pass with one validated backend.
+17. Test no_entities_produced does not count as validated gate success.
+18. Test `--allow-reduced-gate` behaviour.
+19. Test semantic_plausibility_passed true for plausible entities/relations.
+20. Test semantic_plausibility_passed false for empty, noise-like or implausible entity outputs.
+21. Test JSON report contract.
+22. Test summary writing.
 
 Required tests:
 
 ```text
-test_reuses_existing_connector_entrypoint
-test_valid_backend_output_produces_page_extraction_ir
-test_missing_required_output_classification
+test_valid_entity_document_classifies_validated
+test_empty_entity_document_classifies_no_entities_produced
+test_invalid_entity_document_classifies_schema_failed
 test_connector_crash_classification
-test_schema_failed_classification
-test_deferred_from_plan9_classification
+test_deferred_from_plan10_classification
+test_entity_type_counts_are_reported
+test_relation_type_counts_are_reported
+test_relation_endpoints_are_validated_by_schema
+test_evidence_references_are_validated_by_schema
 test_preferred_gate_passes_with_two_validated_backends
 test_preferred_gate_fails_with_one_validated_backend
 test_minimum_gate_passes_with_one_validated_backend
+test_no_entities_produced_does_not_count_toward_validated_gate
 test_allow_reduced_gate_sets_human_required_flag
-test_semantic_quality_passes_for_nonempty_document_text
-test_semantic_quality_fails_for_empty_or_noise_ir
-test_entity_proposals_are_ignored_for_plan10_acceptance
+test_semantic_plausibility_passes_for_plausible_entities
+test_semantic_plausibility_fails_for_noise_or_empty_entities
 test_report_json_contract
 test_summary_is_written
 ```
@@ -571,11 +620,11 @@ test_summary_is_written
 Automated tests required:
 
 ```bash
-conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -q
+conda run -n pdf2md pytest tests/test_entity_proposal_validation.py -q
 ```
 
 Expected output:
-All Plan 10 automated tests pass without running real backends.
+All Plan 11 automated tests pass without running real backends.
 
 Completion evidence:
 Agent must report test count, pass count, and exit code.
@@ -586,37 +635,41 @@ no. Covered by H1.
 Task A5:
 
 Title:
-Provide Plan 11 hand-off summary.
+Provide Plan 12 calibration hand-off summary.
 
 Goal:
-Ensure the report identifies which PageExtractionIR outputs are suitable candidates for EntityProposalDocument validation in Plan 11 without validating entities in Plan 10.
+Ensure the report identifies which entity outputs can contribute to real calibration priors in Plan 12.
 
 Files allowed:
 
 ```text
-src/pdf2md/local/connector_validation.py
-tools/validate_connectors_page_ir.py
-tests/test_connector_page_ir_validation.py
+src/pdf2md/local/entity_proposal_validation.py
+tools/validate_entity_proposals.py
+tests/test_entity_proposal_validation.py
 ```
 
 Implementation requirements:
 
 1. List validated backend names.
-2. List reduced-gate state if applicable.
-3. List per-backend PageExtractionIR output paths.
-4. List semantic quality warnings.
-5. State explicitly that EntityProposalDocument validation is deferred to Plan 11.
-6. Do not add entity validation metrics.
-7. Do not require entity proposals for Plan 10 success.
+2. List no_entities_produced backend names.
+3. List reduced-gate state if applicable.
+4. List entity type counts by backend.
+5. List relation type counts by backend.
+6. List semantic plausibility warnings.
+7. List entity output paths.
+8. State explicitly that real calibration priors are deferred to Plan 12.
+9. Do not compute calibration metrics.
+10. Do not compare to ground truth in Plan 11.
+11. Do not produce priors.
 
 Automated tests required:
 
 ```bash
-conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -q
+conda run -n pdf2md pytest tests/test_entity_proposal_validation.py -q
 ```
 
 Expected output:
-The summary gives the human reviewer enough information to draft Plan 11 scope.
+The summary gives the human reviewer enough information to draft Plan 12 scope.
 
 Completion evidence:
 Agent must report hand-off fields and summary behaviour.
@@ -631,65 +684,75 @@ yes. Covered by H4.
 Checkpoint H0:
 
 Title:
-Locate Plan 9 smoke report and successful backend outputs.
+Locate Plan 10 connector validation outputs.
 
 Purpose:
-Confirm that Plan 10 has real Plan 9 outputs to consume, or classify missing outputs before connector validation.
+Confirm that Plan 11 has Plan 10 artefacts to consume.
 
 Required environment:
 Shell with repository checkout.
 
 Preconditions:
-Plan 9 has completed and produced a backend smoke report.
+Plan 10 has completed and produced a connector validation report.
 
 Command:
 
 ```bash
-ls -lh groundtruth/runs/backend_smoke/backend_smoke_report.json
-python -m json.tool groundtruth/runs/backend_smoke/backend_smoke_report.json | head -80
+ls -lh groundtruth/runs/connector_validation/connector_validation_report.json
+python -m json.tool groundtruth/runs/connector_validation/connector_validation_report.json | head -100
+```
+
+If reduced gate was used in Plan 10:
+
+```bash
+ls -lh groundtruth/runs/connector_validation_reduced/connector_validation_report.json
+python -m json.tool groundtruth/runs/connector_validation_reduced/connector_validation_report.json | head -100
 ```
 
 Verification procedure:
 
-1. Run both commands exactly as written.
-2. Confirm the Plan 9 report exists.
-3. Identify backends with `status == "success"`.
-4. Confirm each successful backend has an output directory or output files recorded.
-5. Record the successful backend names and raw output directories.
-6. If no Plan 9 report exists, this checkpoint fails unless the human provides an approved equivalent report.
+1. Run the appropriate commands exactly as written.
+2. Confirm the Plan 10 report exists.
+3. Identify backends with Plan 10 status `validated`.
+4. Confirm each validated backend has a PageExtractionIR output path.
+5. Confirm entity artefact paths are present or can be derived from connector outputs.
+6. If no Plan 10 report exists, this checkpoint fails unless the human provides an approved equivalent report.
 
 Pass criteria:
 
 ```text
-Plan 9 smoke report exists.
-At least one backend has status success.
-Successful backend output paths are recorded.
+Plan 10 connector validation report exists.
+At least one backend has status validated.
+PageExtractionIR path exists for each validated backend.
+Entity artefact path exists or can be derived for each validated backend.
 ```
 
 Fail criteria:
 
 ```text
-Plan 9 report is missing.
-No successful backend exists.
-Successful backend output paths are missing.
+Plan 10 report is missing.
+No Plan 10 validated backend exists.
+PageExtractionIR paths are missing.
+Entity artefacts cannot be found or derived.
 ```
 
 Evidence to record:
 
 ```text
-Paste the Plan 9 report path.
-Paste successful backend names.
-Paste raw output directory for each successful backend.
-Paste gate_passed and backends_successful from the Plan 9 report.
+Paste the Plan 10 report path.
+Paste validated backend names.
+Paste PageExtractionIR path for each validated backend.
+Paste entity artefact path for each validated backend if present.
+Paste preferred_gate_passed, minimum_gate_passed and human_reduced_gate_required from the Plan 10 report.
 ```
 
 Checkpoint H1:
 
 Title:
-Run automated connector validation tests.
+Run automated entity proposal validation tests.
 
 Purpose:
-Confirm that Plan 10 tests pass without real backend execution.
+Confirm that Plan 11 tests pass without real backend execution.
 
 Required environment:
 pdf2md
@@ -700,7 +763,7 @@ Tasks A1 through A5 are complete.
 Command:
 
 ```bash
-conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -v
+conda run -n pdf2md pytest tests/test_entity_proposal_validation.py -v
 ```
 
 Verification procedure:
@@ -738,74 +801,67 @@ Paste the exit code.
 Checkpoint H2:
 
 Title:
-Validate PageExtractionIR from one successful backend output.
+Validate EntityProposalDocument from one Plan 10 validated backend.
 
 Purpose:
-Confirm that at least one Plan 9 successful backend output can be converted into structurally valid and semantically useful PageExtractionIR.
+Confirm that at least one Plan 10 validated backend output can produce valid entity proposal evidence.
 
 Required environment:
 pdf2md
 
 Preconditions:
-H0 identified at least one successful backend output directory.
+H0 identified at least one Plan 10 validated backend.
 H1 passed.
 
 Command template:
 
 ```bash
-conda run -n pdf2md python tools/validate_connectors_page_ir.py --backend-output <BACKEND_NAME>=<RAW_OUTPUT_DIR_FROM_H0> --out-dir groundtruth/runs/connector_validation_one_backend --allow-reduced-gate --verbose
+conda run -n pdf2md python tools/validate_entity_proposals.py --backend-entities <BACKEND_NAME>=<ENTITY_DOCUMENT_PATH_FROM_H0> --page-ir <BACKEND_NAME>=<PAGE_EXTRACTION_IR_PATH_FROM_H0> --out-dir groundtruth/runs/entity_validation_one_backend --allow-reduced-gate --verbose
 ```
 
 Expected output files:
 
 ```text
-groundtruth/runs/connector_validation_one_backend/connector_validation_report.json
-groundtruth/runs/connector_validation_one_backend/connector_validation_summary.txt
-groundtruth/runs/connector_validation_one_backend/<backend_name>/page_extraction_ir.json
+groundtruth/runs/entity_validation_one_backend/entity_proposal_validation_report.json
+groundtruth/runs/entity_validation_one_backend/entity_proposal_validation_summary.txt
 ```
 
 Verification procedure:
 
-1. Replace `<BACKEND_NAME>` and `<RAW_OUTPUT_DIR_FROM_H0>` with one Plan 9 success backend.
+1. Replace `<BACKEND_NAME>`, `<ENTITY_DOCUMENT_PATH_FROM_H0>` and `<PAGE_EXTRACTION_IR_PATH_FROM_H0>` with paths from H0.
 2. Run the command exactly as written.
 3. Record the exit code.
 4. Confirm expected output files exist.
 5. Inspect the JSON report.
-6. Confirm backend status is `validated`.
-7. Confirm `semantic_quality_passed` is true.
-8. Open the generated `page_extraction_ir.json`.
-9. Confirm page_count > 0.
-10. Confirm block_count > 0.
-11. Confirm block text contains real document text rather than logs, empty strings, or pure markup noise.
-12. Confirm backend provenance exists.
-13. Confirm raw artefact references exist.
-14. Confirm EntityProposalDocument validation is not used for pass/fail.
+6. Confirm backend status is `validated` or `no_entities_produced`.
+7. If status is `validated`, confirm entity_count > 0 or relation_count > 0.
+8. Confirm EntityType values are valid.
+9. Confirm RelationType values are valid where relations exist.
+10. Confirm relation endpoints reference existing entities where relations exist.
+11. Confirm evidence references are valid where evidence exists.
+12. Confirm provenance exists where required or supported by the schema.
+13. Confirm semantic_plausibility_passed reflects human judgement.
 
 Pass criteria:
 
 ```text
-Command exits 0.
-Connector validation report exists.
-PageExtractionIR JSON exists.
-Backend status is validated.
-semantic_quality_passed is true.
-page_count > 0.
-block_count > 0.
-Block text is meaningful document text.
-Provenance is present.
-Raw artefact references are present.
-EntityProposalDocument validation is not used for Plan 10 pass/fail.
+Command writes report and summary.
+Backend is classified as validated or no_entities_produced.
+If validated, entity_count > 0 or relation_count > 0.
+Entity and relation schema checks pass.
+Evidence/provenance checks pass where required by schema.
+semantic_plausibility_passed is true for validated backends.
 ```
 
 Fail criteria:
 
 ```text
-Command exits non-zero.
-No PageExtractionIR JSON is written.
-Backend status is not validated.
-semantic_quality_passed is false.
-IR validates structurally but contains empty or noise-like content.
-EntityProposalDocument validation is required for pass/fail.
+No report is written.
+Backend classification is absent.
+Invalid EntityType or RelationType is accepted.
+Invalid relation endpoints are accepted.
+Invalid evidence references are accepted.
+Validated backend has no meaningful entity or relation evidence.
 ```
 
 Evidence to record:
@@ -813,51 +869,53 @@ Evidence to record:
 ```text
 Paste the command.
 Paste the exit code.
-Paste backend status and semantic_quality_passed.
-Paste page_count, block_count and block_kind_counts.
-Paste a short excerpt of block text from page_extraction_ir.json.
-Paste raw artefact references.
+Paste backend status and semantic_plausibility_passed.
+Paste entity_count, entity_type_counts, relation_count and relation_type_counts.
+Paste one representative entity proposal.
+Paste one representative relation proposal if relations exist.
 ```
 
 Checkpoint H3:
 
 Title:
-Validate PageExtractionIR from all Plan 9 successful backend outputs.
+Validate EntityProposalDocument from all Plan 10 validated backend outputs.
 
 Purpose:
-Confirm preferred or reduced Plan 10 gate using all available Plan 9 success backends.
+Confirm preferred or reduced Plan 11 gate using all available Plan 10 validated backends.
 
 Required environment:
 pdf2md
 
 Preconditions:
-H0 identified Plan 9 successful backend outputs.
+H0 identified Plan 10 validated backend outputs.
 H1 passed.
 
 Command:
 
 ```bash
-conda run -n pdf2md python tools/validate_connectors_page_ir.py --plan9-report groundtruth/runs/backend_smoke/backend_smoke_report.json --out-dir groundtruth/runs/connector_validation --verbose
+conda run -n pdf2md python tools/validate_entity_proposals.py --plan10-report groundtruth/runs/connector_validation/connector_validation_report.json --out-dir groundtruth/runs/entity_validation --verbose
 ```
 
 Reduced-gate command, only if preferred gate fails and human wants to evaluate reduced-gate progression:
 
 ```bash
-conda run -n pdf2md python tools/validate_connectors_page_ir.py --plan9-report groundtruth/runs/backend_smoke/backend_smoke_report.json --out-dir groundtruth/runs/connector_validation_reduced --allow-reduced-gate --verbose
+conda run -n pdf2md python tools/validate_entity_proposals.py --plan10-report groundtruth/runs/connector_validation/connector_validation_report.json --out-dir groundtruth/runs/entity_validation_reduced --allow-reduced-gate --verbose
 ```
+
+If Plan 10 used reduced gate, replace `groundtruth/runs/connector_validation/connector_validation_report.json` with the approved reduced-gate Plan 10 report.
 
 Expected output files:
 
 ```text
-groundtruth/runs/connector_validation/connector_validation_report.json
-groundtruth/runs/connector_validation/connector_validation_summary.txt
+groundtruth/runs/entity_validation/entity_proposal_validation_report.json
+groundtruth/runs/entity_validation/entity_proposal_validation_summary.txt
 ```
 
 or for reduced gate:
 
 ```text
-groundtruth/runs/connector_validation_reduced/connector_validation_report.json
-groundtruth/runs/connector_validation_reduced/connector_validation_summary.txt
+groundtruth/runs/entity_validation_reduced/entity_proposal_validation_report.json
+groundtruth/runs/entity_validation_reduced/entity_proposal_validation_summary.txt
 ```
 
 Verification procedure:
@@ -865,31 +923,34 @@ Verification procedure:
 1. Run the normal command.
 2. If it exits 0, inspect the preferred-gate report.
 3. If it exits 1 because only one backend validated, run the reduced-gate command only if the human wants to evaluate reduced-gate progression.
-4. Confirm every Plan 9 success backend has a Plan 10 status.
-5. Confirm statuses are limited to validated, connector_crash, schema_failed, missing_required_output, or deferred_from_plan_9.
+4. Confirm every Plan 10 validated backend has a Plan 11 status.
+5. Confirm statuses are limited to validated, no_entities_produced, schema_failed, connector_crash, or deferred_from_plan_10.
 6. Confirm detailed validation failures are recorded in warnings/errors/validation_error_summary.
-7. Confirm preferred gate passes only if at least two backends are validated and semantic_quality_passed is true.
-8. Confirm minimum gate passes only if at least one backend is validated and semantic_quality_passed is true.
+7. Confirm preferred gate passes only if at least two backends are validated and semantic_plausibility_passed is true.
+8. Confirm minimum gate passes only if at least one backend is validated and semantic_plausibility_passed is true.
 9. If reduced gate is used, confirm `human_reduced_gate_required=true`.
+10. Confirm no_entities_produced backends are listed but do not count toward validated gate success.
 
 Pass criteria:
 
 ```text
-Every Plan 9 success backend is classified.
-Preferred gate passes with at least two validated semantically useful IRs; or reduced gate is explicitly requested and recorded.
-Detailed errors are present for failed connectors.
-No EntityProposalDocument validation is used for pass/fail.
+Every Plan 10 validated backend is classified.
+Preferred gate passes with at least two validated semantically plausible entity documents; or reduced gate is explicitly requested and recorded.
+Detailed errors are present for failed entity validations.
+No calibration, consensus, linking, or export is run.
+No_entities_produced is recorded without being treated as connector failure.
 ```
 
 Fail criteria:
 
 ```text
-A Plan 9 success backend is omitted.
+A Plan 10 validated backend is omitted.
 Statuses outside the five-status taxonomy are used.
-Preferred gate passes with fewer than two validated semantically useful IRs.
+Preferred gate passes with fewer than two validated semantically plausible entity documents.
 Reduced gate passes without human_reduced_gate_required=true.
+No_entities_produced counts as validated gate success.
 Errors are not explained.
-EntityProposalDocument validation affects Plan 10 pass/fail.
+Calibration or consensus metrics are computed.
 ```
 
 Evidence to record:
@@ -899,75 +960,79 @@ Paste the command or commands.
 Paste exit code or exit codes.
 Paste preferred_gate_passed, minimum_gate_passed and human_reduced_gate_required.
 Paste the per-backend status table.
+Paste entity_type_counts and relation_type_counts for validated backends.
 Paste any reduced-gate approval rationale if used.
 ```
 
 Checkpoint H4:
 
 Title:
-Inspect semantic usefulness and Plan 11 hand-off.
+Inspect semantic plausibility and Plan 12 hand-off.
 
 Purpose:
-Confirm that validated PageExtractionIR outputs contain meaningful document evidence and that the hand-off to Plan 11 is clear.
+Confirm that validated entity proposals are meaningful and that the hand-off to Plan 12 calibration is clear.
 
 Required environment:
 Any text editor or JSON inspection tool.
 
 Preconditions:
-H2 or H3 produced at least one PageExtractionIR JSON.
+H2 or H3 produced at least one entity validation report.
 
 Command:
 
 ```bash
-python -m json.tool groundtruth/runs/connector_validation/connector_validation_report.json
+python -m json.tool groundtruth/runs/entity_validation/entity_proposal_validation_report.json
 ```
 
 If reduced gate was used:
 
 ```bash
-python -m json.tool groundtruth/runs/connector_validation_reduced/connector_validation_report.json
+python -m json.tool groundtruth/runs/entity_validation_reduced/entity_proposal_validation_report.json
 ```
 
 Verification procedure:
 
-1. Open the connector validation report.
+1. Open the entity validation report.
 2. Identify validated backends.
-3. Open each generated `page_extraction_ir.json` for validated backends.
-4. Confirm pages are in document order.
-5. Confirm blocks contain meaningful document text rather than logs, file paths, or parser noise.
-6. Confirm block kinds are plausible for the source document.
-7. Confirm provenance refers to the backend and raw artefact.
-8. Confirm raw artefact references are present.
-9. Confirm semantic quality warnings are recorded if content is weak.
-10. Confirm the summary states that EntityProposalDocument validation is deferred to Plan 11.
+3. Identify no_entities_produced backends.
+4. Inspect representative entity proposals.
+5. Confirm entity proposals are based on meaningful document blocks, not parser noise.
+6. Confirm captions, figures, tables, equations, references, footnotes or TOC-like entities are plausible where present.
+7. Confirm relations such as CAPTION_OF and NEAR are plausible where present.
+8. Confirm relation endpoints point to existing entities.
+9. Confirm evidence references point to valid block/source IDs according to the schema.
+10. Confirm the summary states that real calibration priors are deferred to Plan 12.
+11. Confirm no calibration metrics or priors are computed.
 
 Pass criteria:
 
 ```text
-At least one validated PageExtractionIR contains meaningful document evidence.
-Preferred gate has two validated semantically useful backends, or reduced gate is explicitly approved.
-The hand-off to Plan 11 identifies validated backends and PageExtractionIR paths.
-EntityProposalDocument validation remains deferred.
+At least one validated EntityProposalDocument contains meaningful entity or relation evidence, or no_entities_produced is explicitly classified and accepted by the human as expected for that backend.
+Preferred gate has two validated semantically plausible backends, or reduced gate is explicitly approved.
+The hand-off to Plan 12 identifies validated, no_entities_produced, failed and deferred backends.
+No calibration metrics or priors are produced.
 ```
 
 Fail criteria:
 
 ```text
-Validated PageExtractionIR contains only empty text, logs, file paths, or parser noise.
-No provenance is present.
-No raw artefact references are present.
-Plan 10 summary attempts to validate EntityProposalDocument.
-Plan 11 hand-off is unclear.
+Validated entity proposals are parser noise or meaningless.
+Relations are implausible or point to non-existing entities.
+Evidence references are invalid.
+No_entities_produced is silently treated as success.
+Plan 11 summary attempts to compute calibration priors.
+Plan 12 hand-off is unclear.
 ```
 
 Evidence to record:
 
 ```text
 Paste validated backend names.
-Paste PageExtractionIR output paths.
-Paste one representative text excerpt per validated backend.
-Paste block_kind_counts per validated backend.
-Paste Plan 11 hand-off summary.
+Paste no_entities_produced backend names.
+Paste one representative entity proposal per validated backend.
+Paste one representative relation proposal per validated backend if relations exist.
+Paste entity_type_counts and relation_type_counts.
+Paste Plan 12 hand-off summary.
 Paste reduced-gate approval rationale if used.
 ```
 
@@ -977,7 +1042,7 @@ Title:
 Verify forbidden layers were untouched.
 
 Purpose:
-Confirm that Plan 10 remains a connector/PageExtractionIR plan and does not bleed into calibration, consensus, linking, export or end-to-end work.
+Confirm that Plan 11 remains an EntityProposalDocument validation plan and does not bleed into calibration, consensus, linking, export or end-to-end work.
 
 Required environment:
 Git checkout.
@@ -991,7 +1056,7 @@ git diff --name-only
 Verification procedure:
 
 1. Run the command exactly as written.
-2. Confirm changed files are limited to the Plan 10 whitelist and any narrowly justified connector files.
+2. Confirm changed files are limited to the Plan 11 whitelist and any narrowly justified connector files.
 3. Confirm no files under `src/pdf2md/calibration/`, `src/pdf2md/consensus/`, `src/pdf2md/linking/`, or `src/pdf2md/export/` were modified.
 4. Confirm backend execution code and config files were not modified.
 5. Confirm generated validation reports are not committed by default.
@@ -1010,7 +1075,7 @@ Fail criteria:
 
 ```text
 Forbidden files are modified.
-Connector validation is mixed with calibration, consensus, linking or export.
+Entity validation is mixed with calibration, consensus, linking or export.
 Backend execution or config is changed without plan amendment.
 Generated reports are committed without explicit policy.
 ```
@@ -1029,61 +1094,61 @@ List each changed file and why it changed.
 Agent automated test matrix:
 
 ```bash
+conda run -n pdf2md pytest tests/test_entity_proposal_validation.py -q
 conda run -n pdf2md pytest tests/test_connector_page_ir_validation.py -q
 conda run -n pdf2md pytest tests/test_backend_smoke.py -q
-conda run -n pdf2md pytest tests/test_local_groundtruth_validate.py -q
 ```
 
 Human verification test matrix:
 
 ```text
-H0 locate Plan 9 report and successful backend outputs
-H1 automated connector validation tests
-H2 validate one successful backend output
-H3 validate all Plan 9 success backend outputs
-H4 inspect semantic usefulness and Plan 11 hand-off
+H0 locate Plan 10 outputs
+H1 automated entity validation tests
+H2 validate one Plan 10 validated backend
+H3 validate all Plan 10 validated backends
+H4 inspect semantic plausibility and Plan 12 hand-off
 H5 forbidden-layer diff check
 ```
 
-Connector status classes:
+Entity validation status classes:
 
 validated:
-The connector produced PageExtractionIR and it validated structurally. Human verification must also confirm semantic_quality_passed.
+EntityProposalDocument validates structurally and contains at least one entity or relation proposal with acceptable evidence/provenance quality.
 
-connector_crash:
-The connector raised an exception, exited unexpectedly, or could not complete.
+no_entities_produced:
+EntityProposalDocument validates structurally but contains zero entity proposals and zero useful relation proposals. This is not a connector crash and is useful evidence for Plan 12 calibration.
 
 schema_failed:
-The connector returned PageExtractionIR-like data, but schema/model validation failed. Specific validation details belong in warnings/errors/validation_error_summary.
+EntityProposalDocument-like data exists, but schema/model validation fails. Specific validation details belong in warnings/errors/validation_error_summary.
 
-missing_required_output:
-A Plan 9 success backend output directory lacks files required by the connector.
+connector_crash:
+The connector or validation wrapper raised an exception, exited unexpectedly, or could not load/produce the EntityProposalDocument.
 
-deferred_from_plan_9:
-Backend did not have Plan 9 status success, or no raw output directory is available, so connector validation is not attempted.
+deferred_from_plan_10:
+Backend did not have Plan 10 status validated, or no Plan 10 artefacts are available, so entity validation is not attempted.
 
 Failure classes:
 
 repository_defect:
-The validation wrapper, CLI, report generation, gate logic, tests, or connector integration are wrong.
+The validation wrapper, CLI, report generation, gate logic, tests, or entity validation integration are wrong.
 
 connector_defect:
-The existing connector path cannot produce valid PageExtractionIR from otherwise valid raw backend output.
+The existing connector path cannot produce valid EntityProposalDocument from otherwise valid raw backend output.
 
 schema_failure:
-The connector output fails PageExtractionIR schema/model validation.
+The entity document fails EntityProposalDocument schema/model validation.
 
-missing_required_output:
-Required raw backend files are missing from the Plan 9 output directory.
+no_entities_produced:
+The entity document is structurally valid but contains zero entity proposals and zero useful relation proposals.
 
-semantic_quality_failure:
-The PageExtractionIR validates structurally but contains empty, non-document-like, parser-noise, log-like, or otherwise unusable content.
+semantic_plausibility_failure:
+The entity document validates structurally but contains parser-noise, implausible, untraceable, or otherwise unusable entity/relation proposals.
 
-plan9_artifact_missing:
-The Plan 9 smoke report or successful backend output paths are missing.
+plan10_artifact_missing:
+The Plan 10 connector validation report, PageExtractionIR output, or entity artefact paths are missing.
 
 human_procedure_error:
-The human ran the wrong command, selected the wrong report, inspected the wrong output, or used stale Plan 9 artefacts.
+The human ran the wrong command, selected the wrong report, inspected the wrong output, or used stale Plan 10 artefacts.
 
 test_expectation_wrong:
 The test or checkpoint expectation is inconsistent with the plan or repository contract.
@@ -1091,22 +1156,22 @@ The test or checkpoint expectation is inconsistent with the plan or repository c
 Failure handling:
 
 If failure_class is repository_defect:
-The agent must fix the validation wrapper, CLI, report generation, gate logic, tests, or connector integration.
+The agent must fix the validation wrapper, CLI, report generation, gate logic, tests, or entity validation integration.
 
 If failure_class is connector_defect:
-The agent may fix the connector only within the conditional connector whitelist and only for PageExtractionIR validation.
+The agent may fix the connector only within the conditional connector whitelist and only for EntityProposalDocument validity.
 
 If failure_class is schema_failure:
-The report must record validation details. The agent may fix connector output only if the issue is a connector defect.
+The report must record validation details. The agent may fix connector entity output only if the issue is a connector defect.
 
-If failure_class is missing_required_output:
-The backend remains classified for Plan 10 as missing_required_output unless the human provides corrected raw output artefacts.
+If failure_class is no_entities_produced:
+The backend does not count toward the validated gate, but it is recorded for Plan 12 calibration.
 
-If failure_class is semantic_quality_failure:
+If failure_class is semantic_plausibility_failure:
 The backend must not count toward the preferred or minimum semantic gate until corrected or explicitly accepted by the human with risk noted.
 
-If failure_class is plan9_artifact_missing:
-The human must provide the missing Plan 9 report or output artefacts, or Plan 10 is blocked.
+If failure_class is plan10_artifact_missing:
+The human must provide the missing Plan 10 report or output artefacts, or Plan 11 is blocked.
 
 If failure_class is human_procedure_error:
 The human checkpoint must be rerun correctly.
@@ -1124,7 +1189,7 @@ Required before agent starts:
 
 ```text
 status is active
-Plan 9 status is human_verified or human explicitly approves drafting only
+Plan 10 status is human_verified or human explicitly approves drafting only
 scope is clear
 file whitelist is complete
 forbidden files are listed
@@ -1167,10 +1232,10 @@ Required before promotion:
 
 ```text
 status is human_verified
-Plan 10 is archived after completion
+Plan 11 is archived after completion
 history.md summary is prepared or updated
-Plan 11 exists as next_plan.md or approved prepared plan
-Plan 11 may be promoted to current_plan.md only after Plan 10 is finished
+Plan 12 exists as next_plan.md or approved prepared plan
+Plan 12 may be promoted to current_plan.md only after Plan 11 is finished
 ROADMAP.md progress is updated only if explicitly approved by the human
 ```
 
@@ -1198,11 +1263,11 @@ Hand-off procedure after human verification:
 1. Archive current_plan.md as:
 
 ```text
-plans/archive/plan-10-connector-pageextractionir-validation.md
+plans/archive/plan-11-entity-proposal-document-validation.md
 ```
 
 2. Append a milestone summary to history.md.
-3. Promote Plan 11 to current_plan.md.
+3. Promote Plan 12 to current_plan.md.
 4. Create a new next_plan.md from PLAN_TEMPLATE.md or from an approved prepared plan.
 5. Record the commit SHA or PR number.
 6. Record the human verification evidence.
@@ -1223,13 +1288,14 @@ Files changed:
 Conditional connector files touched:
 Forbidden files touched:
 Tasks attempted:
-Existing connector entrypoint reused:
+Schema classes reused:
+Relation types reused:
 Automated tests run:
 Automated tests passed:
 Automated tests failed:
 Failure classes:
-Plan 9 artefact status:
-Validated backend fixtures:
+Plan 10 artefact status:
+Validated entity fixtures:
 Dependencies added:
 External tools used by agent:
 Output artefacts created:
@@ -1245,20 +1311,22 @@ Plan:
 Reviewer:
 Date:
 Environment:
-Plan 9 report path:
-Plan 9 successful backend outputs:
+Plan 10 report path:
+Plan 10 validated backend outputs:
 Commands run:
 Exit codes:
 Output files checked:
-Connector statuses:
+Entity validation statuses:
 Preferred gate passed:
 Minimum gate passed:
 Reduced gate approved:
 Reduced gate rationale:
 Validated backends:
-PageExtractionIR paths:
-Semantic quality evidence:
-Plan 11 hand-off scope:
+No-entity backends:
+Entity type counts:
+Relation type counts:
+Semantic plausibility evidence:
+Plan 12 hand-off scope:
 Pass criteria satisfied:
 Fail criteria triggered:
 Failure classes:
@@ -1273,26 +1341,29 @@ Reviewer checklist:
 2. Did the agent avoid all forbidden files?
 3. Were all declared automated tests run?
 4. Did any automated test fail?
-5. Did the implementation reuse the existing connector path?
-6. Did the implementation avoid creating a parallel connector architecture?
-7. Were Plan 9 successful outputs used as inputs?
-8. Did the implementation avoid backend execution?
-9. Did the implementation validate only PageExtractionIR?
-10. Was EntityProposalDocument validation excluded from pass/fail?
-11. Were connector statuses limited to the five-status taxonomy?
-12. Were schema failure details recorded in warnings/errors/validation_error_summary?
-13. Did preferred gate require two structurally valid and semantically useful PageExtractionIR outputs?
-14. Did minimum gate require one structurally valid and semantically useful PageExtractionIR output plus explicit human approval?
-15. Was semantic_quality_passed checked separately from schema validity?
-16. Did human inspection confirm meaningful document text, not logs or parser noise?
-17. Was provenance present?
-18. Were raw artefact references present?
-19. Were generated reports left uncommitted by default?
-20. Were calibration, consensus, linking, export and end-to-end files untouched?
-21. Is Plan 11 clearly identified as the next plan?
-22. Is it safe to mark this plan human_verified?
-23. Is it safe to promote the next plan?
-24. Is ROADMAP.md progress allowed to change?
+5. Did the implementation reuse the existing EntityProposalDocument schema?
+6. Did the implementation reuse the existing EntityType and RelationType enums?
+7. Did the implementation avoid inventing new entity or relation types?
+8. Were Plan 10 validated outputs used as inputs?
+9. Did the implementation avoid backend execution?
+10. Did the implementation validate only EntityProposalDocument?
+11. Was PageExtractionIR used only as evidence context, not as the Plan 11 acceptance target?
+12. Were calibration, consensus, linking, export and end-to-end code untouched?
+13. Were entity validation statuses limited to the five-status taxonomy?
+14. Were schema failure details recorded in warnings/errors/validation_error_summary?
+15. Did no_entities_produced remain separate from connector failure?
+16. Did no_entities_produced avoid counting toward validated gate success?
+17. Were relation proposals validated where present?
+18. Were relation endpoints checked by schema/model validation?
+19. Were evidence references checked by schema/model validation?
+20. Did preferred gate require two validated semantically plausible EntityProposalDocument outputs?
+21. Did minimum gate require one validated semantically plausible EntityProposalDocument output plus explicit human approval?
+22. Did human inspection confirm plausible entities and relations, not parser noise?
+23. Were generated reports left uncommitted by default?
+24. Is Plan 12 clearly identified as the next plan?
+25. Is it safe to mark this plan human_verified?
+26. Is it safe to promote the next plan?
+27. Is ROADMAP.md progress allowed to change?
 
 Status history:
 
@@ -1303,11 +1374,11 @@ date — status — actor — note
 Example:
 
 ```text
-2026-05-09 — draft — human — Plan 10 created from ROADMAP.md and PLAN_TEMPLATE.md
+2026-05-09 — draft — human — Plan 11 created from ROADMAP.md and PLAN_TEMPLATE.md
 2026-05-09 — active — human — approved for agent execution
 2026-05-09 — agent_in_progress — agent — branch created
 2026-05-09 — agent_complete — agent — automated tests passed
-2026-05-09 — human_verification_required — agent — awaiting human connector validation checks
+2026-05-09 — human_verification_required — agent — awaiting human entity validation checks
 2026-05-09 — human_verified — human — all checkpoints passed
 2026-05-09 — finished — human — archived and promoted
 ```
