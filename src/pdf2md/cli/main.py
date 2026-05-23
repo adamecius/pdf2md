@@ -7,17 +7,69 @@ import typer
 from pdf2md.backends.runner import run_configured_backends
 from pdf2md.config import load_backend_config
 from pdf2md.datasets.cli import datasets_app
-from pdf2md.pipeline.convert import convert_pdf
+from pdf2md.pipeline.orchestrator import PipelineSettings, run_pipeline
 
 app = typer.Typer(help="PDF to Markdown converter.")
 app.add_typer(datasets_app, name="datasets")
 
 
 @app.command()
-def convert(pdf_path: str) -> None:
-    """Convert a PDF to Markdown (placeholder)."""
-    _ = convert_pdf
-    typer.echo(f"Conversion pipeline not implemented yet for: {pdf_path}")
+def convert(
+    pdf_path: Path = typer.Argument(..., help="Input PDF path."),
+    config: Path = typer.Option(Path("pdf2md.backends.toml"), "--config", help="Backend TOML config file path."),
+    out_dir: Path = typer.Option(None, "--out-dir", help="Output directory. Default: .tmp/<pdf-stem>/"),
+    priors_dir: Path = typer.Option(None, "--priors-dir", help="Pre-computed calibration priors directory."),
+    force: bool = typer.Option(False, "--force", help="Overwrite existing output directory."),
+    dry_run: bool = typer.Option(False, "--dry-run", help="Plan the run; do not execute or write files."),
+    timeout: int = typer.Option(None, "--timeout", help="Per-backend timeout override (seconds)."),
+    keep_going: bool = typer.Option(True, "--keep-going/--no-keep-going", help="Continue past backend failures."),
+    skip_export: bool = typer.Option(False, "--skip-export", help="Stop after consensus."),
+    verbose: bool = typer.Option(False, "--verbose", help="Verbose logging."),
+) -> None:
+    """Convert a PDF to consensus-derived Docling JSON, Markdown, and RAG chunks.
+
+    Runs all enabled backends in ``--config``, joins their outputs through
+    consensus and linked-structure stages, and emits final exports under
+    ``--out-dir``.
+    """
+
+    resolved_out_dir = out_dir if out_dir is not None else Path(".tmp") / pdf_path.stem
+
+    try:
+        cfg = load_backend_config(config)
+    except (FileNotFoundError, ValueError) as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(code=1)
+
+    settings = PipelineSettings(
+        config=cfg,
+        priors_dir=priors_dir,
+        force=force,
+        dry_run=dry_run,
+        timeout=timeout,
+        keep_going=keep_going,
+        skip_calibration=False,
+        skip_export=skip_export,
+        verbose=verbose,
+    )
+
+    try:
+        result = run_pipeline(pdf_path, resolved_out_dir, settings)
+    except (FileNotFoundError, ValueError) as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(code=1)
+
+    if not dry_run and result.manifest_path.exists():
+        try:
+            typer.echo(result.manifest_path.with_name("pipeline_summary.txt").read_text(encoding="utf-8"))
+        except OSError:
+            typer.echo(f"manifest: {result.manifest_path}")
+
+    if result.overall_status in ("success", "not_started"):
+        raise typer.Exit(code=0)
+    if result.overall_status == "partial":
+        raise typer.Exit(code=2)
+    raise typer.Exit(code=1)
 
 
 @app.command("run-backends", help="Run configured backend wrappers into a .tmp/<run-name>/ folder.")

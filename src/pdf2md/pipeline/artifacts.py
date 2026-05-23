@@ -209,6 +209,80 @@ def corpus_document_paths(*, document_id: str, corpus_out_dir: Path, corpus_work
     )
 
 
+# ---------------------------------------------------------------------------
+# Plan 18 — single-document orchestrator run layout
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class RunLayout:
+    """Canonical directory layout for a Plan 18 ``pdf2md convert`` run.
+
+    Given a single ``run_dir`` root, exposes the subdirectories every stage
+    reads from and writes to. ``create_dirs()`` materialises the top-level
+    subdirectory tree but never the per-backend subdirectories — those are
+    created lazily by the connector / backend runner.
+    """
+
+    run_dir: Path
+
+    @property
+    def input_dir(self) -> Path:
+        return self.run_dir / "input"
+
+    @property
+    def raw_dir(self) -> Path:
+        return self.run_dir / "raw"
+
+    def raw_backend_dir(self, backend: str) -> Path:
+        return self.raw_dir / backend
+
+    @property
+    def connector_dir(self) -> Path:
+        return self.run_dir / "connector"
+
+    def connector_backend_dir(self, backend: str) -> Path:
+        return self.connector_dir / backend
+
+    @property
+    def priors_dir(self) -> Path:
+        return self.run_dir / "priors"
+
+    @property
+    def consensus_dir(self) -> Path:
+        return self.run_dir / "consensus"
+
+    @property
+    def linked_dir(self) -> Path:
+        return self.run_dir / "linked"
+
+    @property
+    def export_dir(self) -> Path:
+        return self.run_dir / "export"
+
+    @property
+    def manifest_path(self) -> Path:
+        return self.run_dir / ARTEFACT_PIPELINE_MANIFEST
+
+    @property
+    def summary_path(self) -> Path:
+        return self.run_dir / ARTEFACT_PIPELINE_SUMMARY
+
+    def create_dirs(self) -> "RunLayout":
+        for directory in (
+            self.run_dir,
+            self.input_dir,
+            self.raw_dir,
+            self.connector_dir,
+            self.priors_dir,
+            self.consensus_dir,
+            self.linked_dir,
+            self.export_dir,
+        ):
+            Path(directory).mkdir(parents=True, exist_ok=True)
+        return self
+
+
 __all__ = [
     "ARTEFACT_PIPELINE_MANIFEST",
     "ARTEFACT_PIPELINE_SUMMARY",
@@ -222,6 +296,7 @@ __all__ = [
     "EXPORT_MANIFEST",
     "OneDocumentPaths",
     "CorpusDocumentPaths",
+    "RunLayout",
     "one_document_paths",
     "corpus_document_paths",
 ]
