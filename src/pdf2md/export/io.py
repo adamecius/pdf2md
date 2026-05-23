@@ -65,7 +65,7 @@ def build_export_run(
     include_rag: bool = True,
     include_markdown: bool = True,
 ) -> ExportRunResult:
-    docling_result = build_docling_document(linked=linked, consensus=consensus, settings=docling_settings)
+    docling_result = build_docling_document(linked=linked, consensus=consensus, settings=docling_settings, source_pdf=source_pdf)
     warnings = list(docling_result.warnings)
     structural = validate_docling_like_document(docling_result.document)
     warnings.extend(w for w in structural if w not in warnings)

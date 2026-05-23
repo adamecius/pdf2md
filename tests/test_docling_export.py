@@ -29,8 +29,11 @@ def test_simple_docling_top_level_body_and_unique_refs():
 def test_sections_paragraphs_figures_and_captions_project():
     linked, consensus = load("simple_document")
     doc = build_docling_document(linked=linked, consensus=consensus).document
-    assert any(group["label"] == "section" and group["name"] == "Introduction" for group in doc["groups"])
-    assert any(text["label"] == "paragraph" and "introduction" in text["text"] for text in doc["texts"])
+    # Plan 17: group items no longer carry a stringy `label` field; the
+    # `name` carries the heading. Body paragraphs use label="text" (a
+    # docling-core DocItemLabel) not the legacy "paragraph" string.
+    assert any(group.get("name") == "Introduction" for group in doc["groups"])
+    assert any(text["label"] == "text" and "introduction" in text["text"] for text in doc["texts"])
     assert len(doc["pictures"]) == 1
     assert doc["pictures"][0]["metadata"]["captions"]
 
@@ -41,7 +44,18 @@ def test_rich_tables_relations_conflicts_pages_and_core_validation():
     assert len(doc["tables"]) == 1
     assert len(doc["pictures"]) == 1
     footnote = next(item for item in doc["texts"] if item["label"] == "footnote")
-    paragraph = next(item for item in doc["texts"] if item["label"] == "paragraph")
+    # Plan 17: body paragraphs now use docling-core's "text" label, so we
+    # pick the specific paragraph that has the footnote_anchor_for link
+    # (the rich_document fixture also has a TOC entry mapped to "text").
+    paragraph = next(
+        item
+        for item in doc["texts"]
+        if item["label"] == "text"
+        and any(
+            link.get("relation_type") == "footnote_anchor_for"
+            for link in item.get("metadata", {}).get("links", [])
+        )
+    )
     assert any(link["relation_type"] == "footnote_anchor_for" for link in footnote["metadata"].get("links", []))
     assert any(link["relation_type"] == "footnote_anchor_for" for link in paragraph["metadata"].get("links", []))
     assert paragraph["metadata"]["footnote_anchors"] == [footnote["self_ref"]]
