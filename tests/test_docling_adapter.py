@@ -3,7 +3,9 @@ import json
 from pathlib import Path
 import pytest
 
-from pdf2md.utils import docling_adapter as da
+from pdf2md._legacy import docling_adapter as da
+
+pytestmark = pytest.mark.legacy
 
 class FakeBackend:
     def __init__(self): self.texts=[]; self.pictures=[]

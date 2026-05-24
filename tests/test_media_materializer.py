@@ -2,7 +2,11 @@ from pathlib import Path
 import sys
 import types
 
-from pdf2md.utils import media_materializer as mm
+import pytest
+
+from pdf2md._legacy import media_materializer as mm
+
+pytestmark = pytest.mark.legacy
 
 
 class _Rect:

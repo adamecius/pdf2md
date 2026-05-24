@@ -5,7 +5,11 @@ import subprocess
 import sys
 from pathlib import Path
 
-from pdf2md.utils.semantic_linker import build_semantic_links, extract_equation_number, normalise_latex
+import pytest
+
+from pdf2md._legacy.semantic_linker import build_semantic_links, extract_equation_number, normalise_latex
+
+pytestmark = pytest.mark.legacy
 
 
 def _report(groups, conflicts=None):
@@ -74,7 +78,7 @@ def test_cli_writes_semantic_links(tmp_path):
     inp = tmp_path / "consensus_report.json"
     out = tmp_path / "semantic_links.json"
     inp.write_text(json.dumps(_report([])), encoding="utf-8")
-    cmd = [sys.executable, "-m", "pdf2md.utils.semantic_linker", str(inp), "--output", str(out), "--json-only"]
+    cmd = [sys.executable, "-m", "pdf2md._legacy.semantic_linker", str(inp), "--output", str(out), "--json-only"]
     res = subprocess.run(cmd, env={"PYTHONPATH": "src"}, check=False, capture_output=True, text=True)
     assert res.returncode == 0
     assert out.exists()

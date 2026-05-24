@@ -1,6 +1,16 @@
 import json, subprocess, tempfile
 from pathlib import Path
 
+import pytest
+
+# Additional Plan 2 deleted compare_pre_docling_groundtruth.py and relocated
+# generate_latex_docling_groundtruth.py + validate_latex_docling_groundtruth.py
+# to docs/archive/. These tests invoke them via subprocess at the repo root.
+# Marked legacy and skipped until a follow-up plan rewires or retires them.
+pytestmark = pytest.mark.skip(
+    reason="legacy: tools relocated/deleted by Additional Plan 2"
+)
+
 
 def _gen(out:Path):
     subprocess.run(["python","generate_latex_docling_groundtruth.py","--output-root",str(out)],check=True)

@@ -9,7 +9,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 import json
 from pathlib import Path
 
-from pdf2md.utils import consensus_report as cr
+import pytest
+
+from pdf2md._legacy import consensus_report as cr
+
+pytestmark = pytest.mark.legacy
 
 
 def _mk_backend(root: Path, name: str, blocks: list[dict], stem: str = "TestDoc") -> Path:

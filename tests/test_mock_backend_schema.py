@@ -7,7 +7,9 @@ import pytest
 
 from pdf2md.testing import build_label_map, generate_mock_backend_ir, get_detectable_references
 from tests.groundtruth_paths import corpus_doc_dir, corpus_doc_ids
-from pdf2md.utils import consensus_report
+from pdf2md._legacy import consensus_report
+
+pytestmark = pytest.mark.legacy
 
 FIX_ROOT = Path('groundtruth/corpus/latex')
 FIXTURES = ['simple_title_paragraph', 'figure_caption_reference', 'equation_label_reference']
