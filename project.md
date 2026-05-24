@@ -35,32 +35,29 @@ A born-digital PDF may contain a reliable text layer but poor structural informa
 Target pipeline:
 
 ```text
-Complete sequential PDF
-  - scanned PDF
-  - born-digital PDF with embedded text
-  - mixed PDF
-  - LaTeX-compiled PDF
-  - tagged PDF
+Complete sequential PDF (any class: scanned, born-digital, mixed, LaTeX, tagged)
 
-  -> input classification
-  -> backend extraction
+  -> visual OCR via the configured backend ensemble
   -> per-backend PageExtractionIR
   -> EntityProposalDocument
-  -> CalibrationPriorDocument
-  -> page-level ConsensusIR
+  -> CalibrationPriorDocument (loaded, not computed inline)
+  -> page-level ConsensusIR (Bayesian feature picker over backends)
   -> whole-document LinkedStructure
   -> Docling JSON
   -> validation, reports, RAG chunks, Markdown preview
 ```
 
+There is no PDF-type classifier or input-routing stage. Every document
+is rasterised and run through the same visual-OCR backend ensemble; the
+consensus stage is responsible for picking the most reliable feature
+extraction per block kind, not the input-classification stage.
+
 The semantic stage is fed by several orthogonal sources:
 
-- text and layout from OCR/layout backends;
-- embedded text from born-digital PDFs;
-- geometry and embedded media from PyMuPDF or equivalent tools;
-- tagged-PDF structure when available;
-- LaTeX and LaTeXML-derived ground-truth signal for controlled corpus documents;
-- calibration priors derived from previous backend successes and failures.
+- text and layout from visual OCR / layout backends (paddleocr, deepseek-ocr, mineru);
+- entity proposals derived from each backend's connector output;
+- calibration priors that quantify how reliable each backend is per
+  BlockKind / EntityType (see §5 below).
 
 Comparison happens at the earliest practical stage, at page-level extraction IR, and again at the semantic and Docling stages.
 
@@ -111,18 +108,39 @@ LaTeXML is reliable for source-known structure but is available only for LaTeX-d
 
 These observations become calibration priors. During consensus, evidence is weighted according to observed reliability, not by treating all backends equally in every situation.
 
-The intended feedback loop is:
+The pipeline operates as a Bayesian feature picker: at each consensus
+group, the per-candidate score combines text overlap, bbox IoU, reading
+order, block-kind agreement and **calibrated backend priors** (currently
+0.20 + 0.10 + 0.05 + 0.10 + 0.35 + 0.20 weighting, see
+[src/pdf2md/consensus/scoring.py](src/pdf2md/consensus/scoring.py)).
+Low-prior block kinds for a backend correctly fall to FALLBACK or
+UNRESOLVED so downstream consumers know the system was uncertain.
+
+Priors are resolved at consensus load time via a **three-level
+fallback chain** (Plan 19):
 
 ```text
-ground-truth corpus
-  -> backend success/failure measurements
-  -> feature-specific backend confidence
-  -> weighted page-level consensus
-  -> whole-document semantic linking
-  -> Docling output with provenance and confidence
+user-calibrated prior on disk   (refresh via tools/calibrate_priors.py)
+  -> factory prior shipped under src/pdf2md/data/factory_priors/<backend>.json
+  -> uninformative prior generated at runtime
+     (uniform default_confidence, status=UNINFORMATIVE)
 ```
 
-When backends agree, confidence increases. When they disagree, the system uses calibrated priors, geometry, embedded text, tagged structure, and document-level semantic constraints to select a candidate, defer the decision, or record an explicit conflict.
+The chain is deterministic and silent in the happy path; the two
+fallback transitions emit warnings ``prior_factory:<backend>`` and
+``prior_uninformative:<backend>`` so reports record which level was
+used. The consensus pipeline therefore always works — even on a fresh
+install with no calibration data — and gracefully sharpens as
+ground-truth measurements accumulate.
+
+Calibration itself is **offline**: ``tools/calibrate_priors.py`` runs
+against a ground-truth corpus and writes new priors that can replace
+the factory priors (or live in a user-controlled directory). The
+``--from-scratch`` flag stamps ``calibration_mode="from_scratch"`` in
+the output metadata so downstream consumers can see provenance. There
+is no per-document online prior update inside ``run_pipeline``.
+
+When backends agree, confidence increases. When they disagree, the system uses calibrated priors, geometry, embedded text, and document-level semantic constraints to select a candidate, defer the decision, or record an explicit conflict.
 
 The aim is to produce an OCR and extraction result that is more robust than any individual backend.
 

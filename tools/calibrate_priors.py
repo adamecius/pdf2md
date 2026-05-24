@@ -55,6 +55,18 @@ def build_arg_parser() -> argparse.ArgumentParser:
             "is being run against truth files known to already carry canonical labels."
         ),
     )
+    parser.add_argument(
+        "--from-scratch",
+        action="store_true",
+        help=(
+            "Run calibration from an uninformative baseline, ignoring any factory "
+            "priors shipped under pdf2md/data/factory_priors/. Calibration metrics "
+            "are still derived only from truth + backend outputs (this flag does "
+            "not change the matching or smoothing logic); it only records "
+            "calibration_mode=\"from_scratch\" in the output metadata so the "
+            "downstream consensus consumer can see the provenance."
+        ),
+    )
     return parser
 
 
@@ -258,6 +270,7 @@ def main(argv: list[str] | None = None) -> int:
             )
             priors.append(prior)
         plan13_readiness = _plan13_readiness(priors, backend_inputs_seen)
+        calibration_mode = "from_scratch" if args.from_scratch else "incremental"
         report = {
             "schema_name": "pdf2md.CalibrationReport",
             "schema_version": "1.0.0",
@@ -271,9 +284,14 @@ def main(argv: list[str] | None = None) -> int:
                 "smoothing_beta": settings.smoothing_beta,
                 "default_confidence": settings.default_confidence,
             },
+            "calibration_mode": calibration_mode,
             "vocabulary_alignment_report": vocabulary_alignment_report_path,
             "plan13_readiness": plan13_readiness,
         }
+        # Stamp the same provenance on every per-backend prior so consumers
+        # downstream can read it from a single file.
+        for prior in priors:
+            prior.metadata["calibration_mode"] = calibration_mode
         write_prior_outputs(priors=priors, report=report, out_dir=args.out_dir)
         summary_path = Path(args.out_dir) / "reports" / "calibration_summary.txt"
         summary_path.write_text(_summary_text(report, vocabulary_alignment_passed), encoding="utf-8")

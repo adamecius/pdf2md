@@ -1,0 +1,442 @@
+{
+  "schema_name": "pdf2md.CalibrationPriorDocument",
+  "schema_version": "1.0.0",
+  "backend": "paddleocr",
+  "backend_version": null,
+  "generated_from": [
+    ".tmp/calibration_corpus/linked_sections_figures/truth.json",
+    ".tmp/calibration_corpus/lists_footnotes_tables/truth.json",
+    ".tmp/calibration_corpus/src__.current__docling_groundtruth__batch_001__linked_sections_figures__input__linked_sections_figures/truth.json",
+    ".tmp/calibration_corpus/src__.current__docling_groundtruth__batch_001__lists_footnotes_tables__input__lists_footnotes_tables/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_001__all_features_small__input__all_features_small/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_001__bibliography_like_references__input__bibliography_like_references/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_001__equation_label_reference__input__equation_label_reference/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_001__figure_caption_reference__input__figure_caption_reference/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_001__footnote_inside_list__input__footnote_inside_list/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_001__footnotes_basic__input__footnotes_basic/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_001__inline_and_display_math__input__inline_and_display_math/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_001__itemize_enumerate_nested__input__itemize_enumerate_nested/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_001__mixed_captions_near_text__input__mixed_captions_near_text/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_001__multipage_references__input__multipage_references/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_001__multipage_sections__input__multipage_sections/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_001__multiple_equations_references__input__multiple_equations_references/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_001__section_subsection_references__input__section_subsection_references/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_001__simple_title_paragraph__input__simple_title_paragraph/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_001__table_caption_reference__input__table_caption_reference/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_001__table_with_multiline_cells__input__table_with_multiline_cells/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_001__two_figures_cross_references__input__two_figures_cross_references/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_001__unnumbered_sections__input__unnumbered_sections/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_002__det_all_features__input__det_all_features/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_002__det_bibliography__input__det_bibliography/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_002__det_equation_reference__input__det_equation_reference/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_002__det_figure_reference__input__det_figure_reference/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_002__det_footnote__input__det_footnote/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_002__det_section_reference__input__det_section_reference/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_002__det_table_reference__input__det_table_reference/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_002__det_title_paragraph__input__det_title_paragraph/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_pr60__all_features_small__input__all_features_small/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_pr60__bibliography_like_references__input__bibliography_like_references/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_pr60__equation_label_reference__input__equation_label_reference/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_pr60__figure_caption_reference__input__figure_caption_reference/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_pr60__footnote_inside_list__input__footnote_inside_list/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_pr60__footnotes_basic__input__footnotes_basic/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_pr60__inline_and_display_math__input__inline_and_display_math/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_pr60__itemize_enumerate_nested__input__itemize_enumerate_nested/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_pr60__mixed_captions_near_text__input__mixed_captions_near_text/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_pr60__multipage_references__input__multipage_references/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_pr60__multipage_sections__input__multipage_sections/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_pr60__simple_title_paragraph__input__simple_title_paragraph/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_pr60__table_caption_reference__input__table_caption_reference/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_pr60__table_with_multiline_cells__input__table_with_multiline_cells/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_pr60__two_figures_cross_references__input__two_figures_cross_references/truth.json",
+    ".tmp/calibration_corpus/src__.current__latex_docling_groundtruth__batch_pr60__unnumbered_sections__input__unnumbered_sections/truth.json",
+    ".tmp/calibration_corpus/src__tests__docling_groundtruth__latex_sources__batch_001__linked_sections_figures/truth.json",
+    ".tmp/calibration_corpus/src__tests__docling_groundtruth__latex_sources__batch_001__lists_footnotes_tables/truth.json"
+  ],
+  "min_samples": 5,
+  "smoothing_alpha": 1.0,
+  "smoothing_beta": 1.0,
+  "default_confidence": 0.5,
+  "block_kind_priors": [
+    {
+      "target": "block_kind",
+      "key": "caption",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 24,
+        "false_negative": 28
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 52,
+      "calibrated_confidence": 0.038461538461538464,
+      "status": "calibrated",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "figure",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 15
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 15,
+      "calibrated_confidence": 0.5,
+      "status": "calibrated",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "footnote",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 20
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 20,
+      "calibrated_confidence": 0.5,
+      "status": "calibrated",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "formula",
+      "counts": {
+        "true_positive": 2,
+        "false_positive": 13,
+        "false_negative": 19
+      },
+      "precision": 0.13333333333333333,
+      "recall": 0.09523809523809523,
+      "f1": 0.1111111111111111,
+      "support": 34,
+      "calibrated_confidence": 0.17647058823529413,
+      "status": "calibrated",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "heading",
+      "counts": {
+        "true_positive": 39,
+        "false_positive": 65,
+        "false_negative": 82
+      },
+      "precision": 0.375,
+      "recall": 0.32231404958677684,
+      "f1": 0.3466666666666666,
+      "support": 186,
+      "calibrated_confidence": 0.37735849056603776,
+      "status": "calibrated",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "list_item",
+      "counts": {
+        "true_positive": 6,
+        "false_positive": 10,
+        "false_negative": 24
+      },
+      "precision": 0.375,
+      "recall": 0.2,
+      "f1": 0.26086956521739135,
+      "support": 40,
+      "calibrated_confidence": 0.3888888888888889,
+      "status": "calibrated",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "paragraph",
+      "counts": {
+        "true_positive": 23,
+        "false_positive": 137,
+        "false_negative": 48
+      },
+      "precision": 0.14375,
+      "recall": 0.323943661971831,
+      "f1": 0.19913419913419914,
+      "support": 208,
+      "calibrated_confidence": 0.14814814814814814,
+      "status": "calibrated",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "table",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 3,
+        "false_negative": 13
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 16,
+      "calibrated_confidence": 0.2,
+      "status": "calibrated",
+      "metadata": {}
+    }
+  ],
+  "entity_type_priors": [
+    {
+      "target": "entity_type",
+      "key": "caption",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 24,
+        "false_negative": 28
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 52,
+      "calibrated_confidence": 0.038461538461538464,
+      "status": "calibrated",
+      "metadata": {}
+    },
+    {
+      "target": "entity_type",
+      "key": "equation",
+      "counts": {
+        "true_positive": 2,
+        "false_positive": 13,
+        "false_negative": 19
+      },
+      "precision": 0.13333333333333333,
+      "recall": 0.09523809523809523,
+      "f1": 0.1111111111111111,
+      "support": 34,
+      "calibrated_confidence": 0.17647058823529413,
+      "status": "calibrated",
+      "metadata": {}
+    },
+    {
+      "target": "entity_type",
+      "key": "figure",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 15
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 15,
+      "calibrated_confidence": 0.5,
+      "status": "calibrated",
+      "metadata": {}
+    },
+    {
+      "target": "entity_type",
+      "key": "footnote",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 20,
+        "false_negative": 20
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 40,
+      "calibrated_confidence": 0.045454545454545456,
+      "status": "calibrated",
+      "metadata": {}
+    },
+    {
+      "target": "entity_type",
+      "key": "page_number",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 1,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 1,
+      "calibrated_confidence": 0.3333333333333333,
+      "status": "underpowered",
+      "metadata": {}
+    },
+    {
+      "target": "entity_type",
+      "key": "section",
+      "counts": {
+        "true_positive": 42,
+        "false_positive": 62,
+        "false_negative": 79
+      },
+      "precision": 0.40384615384615385,
+      "recall": 0.34710743801652894,
+      "f1": 0.3733333333333333,
+      "support": 183,
+      "calibrated_confidence": 0.4056603773584906,
+      "status": "calibrated",
+      "metadata": {}
+    },
+    {
+      "target": "entity_type",
+      "key": "table",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 3,
+        "false_negative": 13
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 16,
+      "calibrated_confidence": 0.2,
+      "status": "calibrated",
+      "metadata": {}
+    }
+  ],
+  "relation_type_priors": [
+    {
+      "target": "relation_type",
+      "key": "caption_of",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 3,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 3,
+      "calibrated_confidence": 0.2,
+      "status": "underpowered",
+      "metadata": {}
+    },
+    {
+      "target": "relation_type",
+      "key": "near",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 121,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 121,
+      "calibrated_confidence": 0.008130081300813009,
+      "status": "calibrated",
+      "metadata": {}
+    }
+  ],
+  "calibration_key_priors": [
+    {
+      "target": "calibration_key",
+      "key": "paddleocr:caption:caption_detector",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 24,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 24,
+      "calibrated_confidence": 0.038461538461538464,
+      "status": "calibrated",
+      "metadata": {}
+    },
+    {
+      "target": "calibration_key",
+      "key": "paddleocr:equation:equation_detector",
+      "counts": {
+        "true_positive": 2,
+        "false_positive": 13,
+        "false_negative": 0
+      },
+      "precision": 0.13333333333333333,
+      "recall": 1.0,
+      "f1": 0.23529411764705882,
+      "support": 15,
+      "calibrated_confidence": 0.17647058823529413,
+      "status": "calibrated",
+      "metadata": {}
+    },
+    {
+      "target": "calibration_key",
+      "key": "paddleocr:footnote:footnote_detector",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 20,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 20,
+      "calibrated_confidence": 0.045454545454545456,
+      "status": "calibrated",
+      "metadata": {}
+    },
+    {
+      "target": "calibration_key",
+      "key": "paddleocr:page_number:page_number_detector",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 1,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 1,
+      "calibrated_confidence": 0.3333333333333333,
+      "status": "underpowered",
+      "metadata": {}
+    },
+    {
+      "target": "calibration_key",
+      "key": "paddleocr:section:heading_section_detector",
+      "counts": {
+        "true_positive": 42,
+        "false_positive": 62,
+        "false_negative": 0
+      },
+      "precision": 0.40384615384615385,
+      "recall": 1.0,
+      "f1": 0.5753424657534247,
+      "support": 104,
+      "calibrated_confidence": 0.4056603773584906,
+      "status": "calibrated",
+      "metadata": {}
+    },
+    {
+      "target": "calibration_key",
+      "key": "paddleocr:table:figure_table_detector",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 3,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 3,
+      "calibrated_confidence": 0.2,
+      "status": "underpowered",
+      "metadata": {}
+    }
+  ],
+  "warnings": [],
+  "metadata": {
+    "document_count": 57,
+    "prior_type": "factory",
+    "source": "calibrated_against_synthetic_latex_corpus"
+  }
+}

@@ -41,23 +41,23 @@ The pipeline compares backend outputs, records agreement and conflict, and build
 The target system is:
 
 ```text
-Complete sequential PDF
-  - scanned PDF
-  - born-digital PDF with embedded text
-  - mixed PDF
-  - LaTeX-compiled PDF
-  - tagged PDF
+Complete sequential PDF (any class: scanned, born-digital, mixed, LaTeX, tagged)
 
-  -> input classification
-  -> backend extraction
-  -> PageExtractionIR
+  -> visual OCR via the configured backend ensemble
+  -> per-backend PageExtractionIR
   -> EntityProposalDocument
-  -> CalibrationPriorDocument
-  -> ConsensusIR
+  -> CalibrationPriorDocument (resolved at consensus load time;
+                               see "Prior resolution" below)
+  -> ConsensusIR              (Bayesian feature picker over backends)
   -> LinkedStructure
   -> Docling JSON
   -> validation and confidence reporting
 ```
+
+There is no PDF-type classifier or input-routing stage. Every document
+goes through the same visual-OCR backend ensemble; the consensus stage
+picks the most reliable feature extraction per BlockKind / EntityType,
+not the input-classification stage.
 
 Ground truth is produced from:
 
@@ -79,11 +79,10 @@ The intended high-level pipeline is:
 
 ```text
 PDF document
-  -> input classification
-  -> backend extraction
+  -> backend extraction (visual OCR ensemble)
   -> per-backend PageExtractionIR
   -> entity proposals
-  -> backend calibration priors
+  -> backend calibration priors (loaded via three-level fallback)
   -> page-level ConsensusIR
   -> whole-document LinkedStructure
   -> Docling JSON
@@ -95,6 +94,26 @@ The pipeline is deliberately staged.
 Low-level comparison happens early, at page and block level. Whole-document reasoning happens later, when the system has enough evidence to resolve relations such as captions, references, footnotes, section hierarchy, table of contents, and bibliography structure.
 
 Docling is the canonical structured export target. Markdown is a human-readable preview, not the source of truth.
+
+### Prior resolution (Plan 19)
+
+Calibration priors are *loaded* at consensus time via a three-level
+fallback chain — the consensus pipeline never blocks waiting for
+calibration data:
+
+```text
+user-calibrated prior at <priors-dir>/<backend>.json   (refresh via tools/calibrate_priors.py)
+  -> factory prior at src/pdf2md/data/factory_priors/<backend>.json
+  -> uninformative prior built at runtime
+     (uniform 0.50 confidence, status=UNINFORMATIVE)
+```
+
+The chain is silent in the happy path; the two fallback transitions
+emit warnings `prior_factory:<backend>` and `prior_uninformative:<backend>`
+so reports record which level was used. Calibration is offline: run
+`tools/calibrate_priors.py` against a ground-truth corpus to refresh
+priors; the `--from-scratch` flag stamps `calibration_mode="from_scratch"`
+in the output metadata.
 
 ---
 
@@ -112,8 +131,9 @@ The target architecture is described across a small set of repository files.
 | `next_plan.md` | Next planned milestone. Useful for development sequencing, but not the canonical architecture. |
 | `history.md` | Completed milestones and archived implementation history. |
 | `agent.md` | Rules for Codex or other coding agents working on the repository. |
-| `README_latex_docling_groundtruth.md` | Ground-truth corpus and LaTeX/Docling validation harness. |
-| `docs/docling_layer.md` | Older Docling inspection-layer documentation. This should be reviewed because it may no longer describe the canonical export path. |
+| `docs/calibration.md` | Operator's guide for `tools/calibrate_priors.py`, the three-level prior fallback, and the factory-prior update protocol. |
+| `docs/datasets.md` | External ground-truth dataset registry (`pdf2md datasets …` CLI). |
+| `docs/docling_layer.md` | Legacy Docling inspection-layer pointer. Marks the deprecated `pdf2md._legacy.docling_adapter` path and redirects readers to the canonical export under `src/pdf2md/export/`. |
 
 The durable product architecture should live in `project.md` and be summarised in this README. The active implementation plan should live in `current_plan.md`. Historical plans and logs should not be used as the product vision unless they have been consolidated into `project.md` or `ROADMAP.md`.
 

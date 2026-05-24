@@ -1,0 +1,279 @@
+{
+  "schema_name": "pdf2md.CalibrationPriorDocument",
+  "schema_version": "1.0.0",
+  "backend": "mineru",
+  "backend_version": null,
+  "generated_from": [],
+  "min_samples": 5,
+  "smoothing_alpha": 1.0,
+  "smoothing_beta": 1.0,
+  "default_confidence": 0.5,
+  "block_kind_priors": [
+    {
+      "target": "block_kind",
+      "key": "paragraph",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0,
+      "calibrated_confidence": 0.5,
+      "status": "uninformative",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "heading",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0,
+      "calibrated_confidence": 0.5,
+      "status": "uninformative",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "formula",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0,
+      "calibrated_confidence": 0.5,
+      "status": "uninformative",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "figure",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0,
+      "calibrated_confidence": 0.5,
+      "status": "uninformative",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "table",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0,
+      "calibrated_confidence": 0.5,
+      "status": "uninformative",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "caption",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0,
+      "calibrated_confidence": 0.5,
+      "status": "uninformative",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "list",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0,
+      "calibrated_confidence": 0.5,
+      "status": "uninformative",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "list_item",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0,
+      "calibrated_confidence": 0.5,
+      "status": "uninformative",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "footnote",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0,
+      "calibrated_confidence": 0.5,
+      "status": "uninformative",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "page_number",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0,
+      "calibrated_confidence": 0.5,
+      "status": "uninformative",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "header",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0,
+      "calibrated_confidence": 0.5,
+      "status": "uninformative",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "footer",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0,
+      "calibrated_confidence": 0.5,
+      "status": "uninformative",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "reference",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0,
+      "calibrated_confidence": 0.5,
+      "status": "uninformative",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "bibitem",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0,
+      "calibrated_confidence": 0.5,
+      "status": "uninformative",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "code",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0,
+      "calibrated_confidence": 0.5,
+      "status": "uninformative",
+      "metadata": {}
+    },
+    {
+      "target": "block_kind",
+      "key": "unknown",
+      "counts": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0,
+      "calibrated_confidence": 0.5,
+      "status": "uninformative",
+      "metadata": {}
+    }
+  ],
+  "entity_type_priors": [],
+  "relation_type_priors": [],
+  "calibration_key_priors": [],
+  "warnings": [
+    "uninformative_prior:no_calibration_data"
+  ],
+  "metadata": {
+    "prior_type": "factory",
+    "source": "uninformative_placeholder"
+  }
+}

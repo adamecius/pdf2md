@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import json
 from enum import Enum
+from importlib import resources
 from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
@@ -24,6 +26,7 @@ class CalibrationStatus(str, Enum):
     CALIBRATED = "calibrated"
     UNDERPOWERED = "underpowered"
     NO_SAMPLES = "no_samples"
+    UNINFORMATIVE = "uninformative"
 
 
 class MatchOutcome(str, Enum):
@@ -67,6 +70,8 @@ class CalibrationMetric(_PriorBaseModel):
             raise ValueError("underpowered status requires positive support")
         if self.status == CalibrationStatus.CALIBRATED and self.support <= 0:
             raise ValueError("calibrated status requires positive support")
+        if self.status == CalibrationStatus.UNINFORMATIVE and self.support != 0:
+            raise ValueError("uninformative status requires zero support")
         return self
 
 
@@ -191,6 +196,92 @@ def lookup_confidence(prior: CalibrationPriorDocument, target: CalibrationTarget
     return metric.calibrated_confidence
 
 
+# ---------------------------------------------------------------------------
+# Plan 19 — three-level prior hierarchy (uninformative -> factory -> user)
+# ---------------------------------------------------------------------------
+
+
+_UNINFORMATIVE_WARNING = "uninformative_prior:no_calibration_data"
+
+
+def build_uninformative_prior(
+    backend: str,
+    *,
+    default_confidence: float = 0.50,
+    min_samples: int = 5,
+    smoothing_alpha: float = 1.0,
+    smoothing_beta: float = 1.0,
+) -> CalibrationPriorDocument:
+    """Return a uniform prior with one UNINFORMATIVE metric per BlockKind.
+
+    The document carries zero support, ``calibrated_confidence`` set to
+    ``default_confidence`` for every block kind, and a single warning
+    flagging that no calibration data was consumed. ``lookup_confidence``
+    returns ``default_confidence`` for any key — known or unknown — so
+    downstream scoring is identical to the pre-Plan-19 "no priors"
+    fallback path.
+    """
+
+    metrics: list[CalibrationMetric] = []
+    for block_kind in BlockKind:
+        metrics.append(
+            CalibrationMetric(
+                target=CalibrationTarget.BLOCK_KIND,
+                key=block_kind.value,
+                counts=CalibrationCounts(true_positive=0, false_positive=0, false_negative=0),
+                precision=0.0,
+                recall=0.0,
+                f1=0.0,
+                support=0,
+                calibrated_confidence=default_confidence,
+                status=CalibrationStatus.UNINFORMATIVE,
+                metadata={},
+            )
+        )
+    return CalibrationPriorDocument(
+        backend=backend,
+        backend_version=None,
+        generated_from=[],
+        min_samples=min_samples,
+        smoothing_alpha=smoothing_alpha,
+        smoothing_beta=smoothing_beta,
+        default_confidence=default_confidence,
+        block_kind_priors=metrics,
+        entity_type_priors=[],
+        relation_type_priors=[],
+        calibration_key_priors=[],
+        warnings=[_UNINFORMATIVE_WARNING],
+        metadata={"prior_type": "uninformative"},
+    )
+
+
+def load_factory_prior(backend: str) -> CalibrationPriorDocument | None:
+    """Load a factory prior shipped under ``pdf2md/data/factory_priors/``.
+
+    Returns ``None`` when the file is missing, unreadable, or fails
+    schema validation. The lookup uses ``importlib.resources`` so the
+    file resolves both from an editable checkout (``src/pdf2md/data/``)
+    and from an installed wheel.
+    """
+
+    try:
+        ref = resources.files("pdf2md.data.factory_priors").joinpath(f"{backend}.json")
+    except (ModuleNotFoundError, FileNotFoundError):
+        return None
+    try:
+        text = ref.read_text(encoding="utf-8")
+    except (FileNotFoundError, OSError, AttributeError):
+        return None
+    try:
+        payload = json.loads(text)
+    except json.JSONDecodeError:
+        return None
+    try:
+        return CalibrationPriorDocument.model_validate(payload)
+    except Exception:  # noqa: BLE001
+        return None
+
+
 __all__ = [
     "PRIOR_SCHEMA_VERSION",
     "CalibrationTarget",
@@ -206,4 +297,6 @@ __all__ = [
     "prior_key",
     "lookup_prior",
     "lookup_confidence",
+    "build_uninformative_prior",
+    "load_factory_prior",
 ]

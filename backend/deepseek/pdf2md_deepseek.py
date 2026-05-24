@@ -344,6 +344,8 @@ def run_inference(
         img_files.append(img_file)
 
         print(f"[ocr]   Page {i}/{len(pages)} …", end=" ", flush=True)
+        # eval_mode=True so model.infer() actually returns the OCR text. Without
+        # it the call returns None and the markdown ends up empty.
         md = model.infer(
             tokenizer,
             prompt=prompt,
@@ -353,6 +355,7 @@ def run_inference(
             image_size=image_size,
             crop_mode=True,
             save_results=False,
+            eval_mode=True,
             **extra_infer,
         )
         page_md.append(f"\n\n<!-- page {i} -->\n{md}")

@@ -14,12 +14,22 @@ from pdf2md.models.priors import CalibrationPriorDocument, CalibrationTarget, lo
 
 @dataclass(frozen=True)
 class ConsensusScoringSettings:
-    text_weight: float = 0.35
-    bbox_weight: float = 0.15
-    order_weight: float = 0.10
+    # Weights rebalanced so calibrated priors carry 55% (was 30%). With the
+    # old 0.35/0.15/0.10/0.10/0.20/0.10 split the single-backend score floor
+    # was 0.625 (text_score=1.0, bbox_score=0.5, order_score=1.0,
+    # kind_score=1.0, prior=0) — above min_agreement_score=0.50, so even a
+    # backend with 0.0 calibrated confidence always selected. The new
+    # 0.20/0.10/0.05/0.10/0.35/0.20 split gives base 0.40; a block_kind with
+    # calibrated_confidence < ~0.18 (when entity_prior is also weak) falls
+    # below min_agreement_score and is marked FALLBACK. See:
+    #   - tools/calibrate_priors.py output for the synthetic LaTeX corpus
+    #   - groundtruth/runs/calibration_run/priors/paddleocr.json
+    text_weight: float = 0.20
+    bbox_weight: float = 0.10
+    order_weight: float = 0.05
     kind_weight: float = 0.10
-    backend_prior_weight: float = 0.20
-    entity_prior_weight: float = 0.10
+    backend_prior_weight: float = 0.35
+    entity_prior_weight: float = 0.20
     unresolved_margin: float = 0.05
     min_agreement_score: float = 0.50
     default_prior_confidence: float = 0.50

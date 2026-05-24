@@ -21,8 +21,22 @@ runs/
 
 # Local backend orchestration config and run outputs
 pdf2md.backends.toml
+pdf2md.backends.*-only.toml
 .tmp/
 .local_models/
+
+# Compiled outputs of tools/compile_latex_groundth.py — derived from the
+# tracked .tex sources; do not commit per-machine compile output.
+groundtruth/corpus/latex/**/*.pdf
+groundtruth/corpus/latex/**/*.synctex.gz
+groundtruth/corpus/latex/**/*.latexml.xml
+groundtruth/corpus/latex/**/*.latexml.log
+groundtruth/corpus/latex/**/build.log
+
+# Local-only paper PDFs / ad-hoc scratch scripts
+examples/
+papers/
+download_arxiv.py
 
 # Virtual environments — never track
 .venv*/

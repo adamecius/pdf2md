@@ -28,6 +28,9 @@ package-dir = {"" = "src"}
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+pdf2md = ["data/factory_priors/*.json"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = [".", "src"]
@@ -66,5 +69,4 @@ ignore_missing_imports = true
 exclude = [
     "src/pdf2md/_legacy/",
     "tests/_legacy_temp/",
-    "docs/archive/",
 ]
