@@ -1,0 +1,16 @@
+As shown in Figure 3, the proposed method outperforms the
+baselines reported by Smith et al. (2020) and reproduced in
+Table 2 of our supplementary material. The derivation of
+Equation (3.2) follows directly from Theorem 3.2 (see Proof
+of Theorem 3.2 in Appendix A).
+
+Definition 1.1 introduces the central object of study; an
+illustrative case is given in Example 2.3, with implementation
+details deferred to Section 4 and Chapter 5. For a more thorough
+treatment of the convergence argument see Eq. 7 and the
+corresponding figure caption in Figure 3.2.
+
+Empirical results in Tables 1 and 2 are consistent with prior
+work [15], [12, 13], and (Brown, 2019), and contradict the
+weaker claim of Corollary 4.1. footnote 3 discusses the
+limitations of the assumption used in Sec. 2.3.
