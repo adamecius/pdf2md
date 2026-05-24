@@ -7,7 +7,7 @@ def main():
  p=argparse.ArgumentParser(description='Setup backend environment')
  p.add_argument('--manager',choices=['conda','venv'],default='conda')
  p.add_argument('--env-name')
- p.add_argument('--python',default='3.11')
+ p.add_argument('--python',default='3.12')
  a=p.parse_args(); here=Path(__file__).resolve().parent
  req=here/'requirements.txt'; yml=here/'environment.yml'
  env=a.env_name

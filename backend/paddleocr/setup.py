@@ -36,13 +36,17 @@ MIN_VRAM_MB = 2_000       # PaddleOCR works on light GPUs; 2 GB minimum
 MIN_RAM_GB = 8
 MIN_DISK_GB = 10
 
-# PaddlePaddle GPU version → CUDA index URLs
-# (ordered newest first — we pick the best match for the system)
-PADDLE_VERSION = "3.3.0"
+# PaddlePaddle GPU version → CUDA index URLs.
+#
+# Paddle 3.0.0 cu118 is the tested/working version for this repo (Plan 19
+# calibration runs used it on an RTX A6000). Paddle 3.1+ introduces an
+# oneDNN PIR-to-runtime bug that crashes both PPStructureV3 and PP-OCRv5,
+# so pin to 3.0.0 until upstream ships a fix. Newer CUDA toolkits work
+# via the cu118 wheels + nvidia-cudnn-cu11>=8.9,<9 supplemental wheels.
+# See backend/paddleocr/README.md and
+# docs/how-to/troubleshoot-local-runs.md.
+PADDLE_VERSION = "3.0.0"
 PADDLE_CUDA_MAP = {
-    "13.0": f"paddlepaddle-gpu=={PADDLE_VERSION} -i https://www.paddlepaddle.org.cn/packages/stable/cu130/",
-    "12.9": f"paddlepaddle-gpu=={PADDLE_VERSION} -i https://www.paddlepaddle.org.cn/packages/stable/cu129/",
-    "12.6": f"paddlepaddle-gpu=={PADDLE_VERSION} -i https://www.paddlepaddle.org.cn/packages/stable/cu126/",
     "11.8": f"paddlepaddle-gpu=={PADDLE_VERSION} -i https://www.paddlepaddle.org.cn/packages/stable/cu118/",
 }
 

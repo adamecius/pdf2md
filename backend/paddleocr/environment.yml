@@ -1,6 +1,6 @@
 name: pdf2md-paddleocr
 dependencies:
-  - python=3.11
+  - python=3.12
   - pip
   - pip:
       - -r requirements.txt
