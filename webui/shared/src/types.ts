@@ -264,6 +264,24 @@ export interface DoclingDocument {
 // Per-doc dataset descriptor used by the UI to drive its dropdowns
 // ---------------------------------------------------------------------------
 
+export interface DatasetAvailability {
+  /** True when the compiled PDF is reachable in this deploy. */
+  hasPdf: boolean;
+  /** True when the ground-truth `.docling.json` is reachable. */
+  hasDocling: boolean;
+  /** Backends with per-page extraction IR available (may be synthesised). */
+  hasBackends: string[];
+  /** True when a ConsensusIR is reachable. */
+  hasConsensus: boolean;
+  /**
+   * True when the backend pages + consensus IR shipped in this deploy were
+   * synthesised from the ground truth by `webui/scripts/stage-data.mjs`,
+   * rather than produced by a real pipeline run. The Compare view surfaces
+   * a "demo data" banner when this is set.
+   */
+  demo_synthesized: boolean;
+}
+
 export interface DatasetEntry {
   id: string;
   label: string;
@@ -271,4 +289,10 @@ export interface DatasetEntry {
   doclingPath: string;
   source: "groundtruth" | "papers_run";
   backends: string[]; // backends with connector output available
+  availability: DatasetAvailability;
+}
+
+/** Shape of `/api/_availability.json` written by stage-data.mjs. */
+export interface AvailabilityManifest {
+  groundtruth: Record<string, DatasetAvailability>;
 }
