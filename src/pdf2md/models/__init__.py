@@ -6,6 +6,14 @@ used across `connectors/`, `consensus/`, `calibration/`, `linking/`, and
 importing from the individual submodules.
 """
 
+from .cross_ref import (
+    CROSS_REF_SCHEMA_VERSION,
+    CrossReferenceGraph,
+    RefEdge,
+    RefMarker,
+    RefType,
+    SemanticEntity,
+)
 from .entities import (
     ENTITY_SCHEMA_VERSION,
     ConfidenceSource,
@@ -83,6 +91,7 @@ from .priors import (
 )
 
 __all__ = [
+    "CROSS_REF_SCHEMA_VERSION",
     "ENTITY_SCHEMA_VERSION",
     "EXPORT_SCHEMA_VERSION",
     "LINKED_SCHEMA_VERSION",
@@ -103,6 +112,7 @@ __all__ = [
     "ConsensusIR",
     "ConsensusPage",
     "CoordOrigin",
+    "CrossReferenceGraph",
     "EntityEvidence",
     "EntityProposal",
     "EntityProposalDocument",
@@ -129,9 +139,13 @@ __all__ = [
     "RagChunk",
     "RagChunkDocument",
     "RagChunkType",
+    "RefEdge",
+    "RefMarker",
+    "RefType",
     "RelationProposal",
     "RelationType",
     "SelectionMode",
+    "SemanticEntity",
     "Span",
     "TruthBlock",
     "TruthEntity",
