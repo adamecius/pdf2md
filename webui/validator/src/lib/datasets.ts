@@ -11,9 +11,13 @@
  *      and consensus/consensus_ir.json.
  *
  * The Vite dev middleware exposes both prefixes under /api/.
+ *
+ * On the static (GitHub Pages) deploy, per-doc availability is read once
+ * from `/api/_availability.json` written by `webui/scripts/stage-data.mjs`.
+ * That avoids one HEAD probe per doc-per-backend-per-feature.
  */
 
-import type { DatasetEntry } from "@pdf2md/shared";
+import type { AvailabilityManifest, DatasetAvailability, DatasetEntry } from "@pdf2md/shared";
 import { fetchJson, listDir, tryFetchJson } from "./api";
 
 interface DirEntry {
@@ -21,21 +25,46 @@ interface DirEntry {
   is_dir: boolean;
 }
 
+const EMPTY_AVAILABILITY: DatasetAvailability = {
+  hasPdf: false,
+  hasDocling: false,
+  hasBackends: [],
+  hasConsensus: false,
+  demo_synthesized: false,
+};
+
+let _manifestCache: AvailabilityManifest | null | undefined;
+
+async function fetchAvailabilityManifest(): Promise<AvailabilityManifest | null> {
+  if (_manifestCache !== undefined) return _manifestCache;
+  _manifestCache = await tryFetchJson<AvailabilityManifest>("/api/_availability.json");
+  return _manifestCache;
+}
+
 /** Per-doc descriptor — what the UI knows about a single document. */
-async function describeGroundtruth(name: string): Promise<DatasetEntry | null> {
+async function describeGroundtruth(
+  name: string,
+  manifest: AvailabilityManifest | null,
+): Promise<DatasetEntry | null> {
   const base = `/api/groundtruth/corpus/latex/${name}`;
   const docling = `${base}/${name}.docling.json`;
   const pdf = `${base}/${name}.pdf`;
   // Sniff the docling.json to confirm it's a real document.
   const ok = await tryFetchJson<unknown>(docling);
   if (!ok) return null;
+  const availability =
+    manifest?.groundtruth?.[name] ?? {
+      ...EMPTY_AVAILABILITY,
+      hasDocling: true,
+    };
   return {
     id: `gt:${name}`,
     label: name,
     pdfPath: pdf,
     doclingPath: docling,
     source: "groundtruth",
-    backends: [],
+    backends: availability.hasBackends,
+    availability,
   };
 }
 
@@ -58,17 +87,25 @@ async function describePaperRun(tag: string): Promise<DatasetEntry | null> {
     doclingPath: `${base}/export/docling/docling.json`,
     source: "papers_run",
     backends,
+    availability: {
+      hasPdf: true,
+      hasDocling: true,
+      hasBackends: backends,
+      hasConsensus: true,
+      demo_synthesized: false,
+    },
   };
 }
 
 export async function listDatasets(): Promise<DatasetEntry[]> {
   const out: DatasetEntry[] = [];
+  const manifest = await fetchAvailabilityManifest();
 
   // Ground truth — list the corpus directory.
   const corpus = await listDir("/api/groundtruth/corpus/latex");
   if (corpus) {
     const docs = corpus.filter((e: DirEntry) => e.is_dir);
-    const described = await Promise.all(docs.map((d) => describeGroundtruth(d.name)));
+    const described = await Promise.all(docs.map((d) => describeGroundtruth(d.name, manifest)));
     for (const d of described) if (d) out.push(d);
   }
 

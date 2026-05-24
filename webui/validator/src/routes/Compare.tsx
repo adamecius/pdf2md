@@ -51,12 +51,21 @@ async function loadCompare(docId: string): Promise<CompareData> {
   // Ground-truth docling JSON.
   const truth = await tryFetchJson<DoclingDocument>(dataset.doclingPath);
 
-  // Consensus IR (only exists for papers_run; for groundtruth nothing yet).
+  // Consensus IR. Probed at two locations:
+  //   - papers_run:      .tmp/papers_run/<tag>/consensus/consensus_ir.json
+  //   - groundtruth/demo:.tmp/calibration_corpus/<doc>/consensus_ir.json
+  //                      (the static-deploy synthesised data — produced by
+  //                      webui/scripts/stage-data.mjs from the docling JSON)
   let consensus: ConsensusIR | null = null;
   if (dataset.source === "papers_run") {
     const tag = dataset.id.slice("run:".length);
     consensus = await tryFetchJson<ConsensusIR>(
       `/api/.tmp/papers_run/${tag}/consensus/consensus_ir.json`,
+    );
+  } else {
+    const name = dataset.id.slice("gt:".length);
+    consensus = await tryFetchJson<ConsensusIR>(
+      `/api/.tmp/calibration_corpus/${name}/consensus_ir.json`,
     );
   }
 
@@ -288,8 +297,20 @@ export default function Compare() {
     return <div className="p-4 text-sm text-slate-500">loading…</div>;
   }
 
+  const isSynth = data.dataset.availability?.demo_synthesized === true;
+
   return (
-    <div className="grid h-full grid-cols-12 gap-0 overflow-hidden">
+    <div className="flex h-full flex-col overflow-hidden">
+      {isSynth && (
+        <div className="border-b border-amber-300 bg-amber-50 px-3 py-1 text-xs text-amber-900">
+          <strong>Demo data:</strong> the per-backend pages and consensus IR shown
+          here were synthesised from the ground-truth Docling JSON by{" "}
+          <code>webui/scripts/stage-data.mjs</code>. Real pipeline output requires{" "}
+          <code>tools/run_mvp_pipeline.py</code> locally. The PDF panel and the
+          ground-truth tree are real.
+        </div>
+      )}
+    <div className="grid flex-1 grid-cols-12 gap-0 overflow-hidden">
       {/* PDF panel (5 cols) */}
       <div className="col-span-5 border-r border-slate-300 bg-white">
         <PdfPanel
@@ -363,6 +384,7 @@ export default function Compare() {
           />
         </div>
       </div>
+    </div>
     </div>
   );
 }

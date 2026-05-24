@@ -43,6 +43,48 @@ jobs:
           cache: "npm"
           cache-dependency-path: webui/package-lock.json
 
+      # Compile the LaTeX corpus to PDFs so the validator's PDF panel
+      # has something to render in the static deploy. The .tex sources
+      # are in git; the .pdf outputs are .gitignored. We use lualatex
+      # only (no latexml) since the validator doesn't consume the XML.
+      - name: Install TeX Live (lualatex only)
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y --no-install-recommends \
+            texlive-luatex \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-fonts-extra \
+            texlive-science \
+            lmodern
+
+      - name: Compile corpus PDFs (lualatex)
+        env:
+          CORPUS_ROOT: groundtruth/corpus/latex
+        run: |
+          set -eu
+          shopt -s nullglob
+          ok=0
+          fail=0
+          for tex in "${CORPUS_ROOT}"/*/*.tex; do
+            doc_dir=$(dirname "$tex")
+            base=$(basename "$tex" .tex)
+            if lualatex --interaction=nonstopmode --halt-on-error \
+                 --output-directory "$doc_dir" "$tex" \
+                 > "$doc_dir/build.log" 2>&1; then
+              # lualatex may need a second pass for references/labels
+              lualatex --interaction=nonstopmode --halt-on-error \
+                   --output-directory "$doc_dir" "$tex" \
+                   >> "$doc_dir/build.log" 2>&1 || true
+              ok=$((ok+1))
+            else
+              echo "::warning::lualatex failed for $tex (see $doc_dir/build.log)"
+              fail=$((fail+1))
+            fi
+          done
+          echo "Compiled $ok PDFs; $fail failed."
+
       - name: Install workspace deps
         working-directory: webui
         run: npm ci || npm install
@@ -51,7 +93,8 @@ jobs:
         working-directory: webui
         env:
           VITE_BASE: /${{ github.event.repository.name }}/
-        # `build:pages` stages the repo artefacts into validator/public/api/
+        # `build:pages` stages the repo artefacts (including the freshly
+        # compiled PDFs from the step above) into validator/public/api/
         # and runs `vite build` with the correct base path.
         run: npm run build:pages
 

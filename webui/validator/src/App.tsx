@@ -53,8 +53,43 @@ function Layout(props: { children: React.ReactNode }) {
   );
 }
 
+type DocFilter = "all" | "complete" | "no_pdf" | "no_backends" | "no_consensus";
+
+const FILTER_LABEL: Record<DocFilter, string> = {
+  all: "all docs",
+  complete: "complete (PDF + backends + consensus)",
+  no_pdf: "missing PDF",
+  no_backends: "no backends",
+  no_consensus: "no consensus",
+};
+
+function passesFilter(d: DatasetEntry, filter: DocFilter): boolean {
+  const a = d.availability;
+  switch (filter) {
+    case "all":
+      return true;
+    case "complete":
+      return a.hasPdf && a.hasBackends.length > 0 && a.hasConsensus;
+    case "no_pdf":
+      return !a.hasPdf;
+    case "no_backends":
+      return a.hasBackends.length === 0;
+    case "no_consensus":
+      return !a.hasConsensus;
+  }
+}
+
+function statusBadges(d: DatasetEntry): string {
+  const a = d.availability;
+  const pdf = a.hasPdf ? "P" : "·";
+  const be = a.hasBackends.length ? `B${a.hasBackends.length}` : "·";
+  const cons = a.hasConsensus ? "C" : "·";
+  return `${pdf} ${be} ${cons}`;
+}
+
 function DocPicker() {
   const [datasets, setDatasets] = useState<DatasetEntry[]>([]);
+  const [filter, setFilter] = useState<DocFilter>("all");
   const navigate = useNavigate();
   const params = useParams<{ docId?: string }>();
 
@@ -64,21 +99,41 @@ function DocPicker() {
       .catch((e) => console.error("listDatasets failed", e));
   }, []);
 
+  const filtered = datasets.filter((d) => passesFilter(d, filter));
+
   return (
-    <select
-      className="rounded border border-slate-300 bg-white px-2 py-1 text-sm"
-      value={params.docId ?? ""}
-      onChange={(e) => navigate(`/compare/${encodeURIComponent(e.target.value)}`)}
-    >
-      <option value="" disabled>
-        — pick a document —
-      </option>
-      {datasets.map((d) => (
-        <option key={d.id} value={d.id}>
-          [{d.source}] {d.label}
+    <div className="flex items-center gap-2">
+      <select
+        className="rounded border border-slate-300 bg-white px-2 py-1 text-xs"
+        value={filter}
+        onChange={(e) => setFilter(e.target.value as DocFilter)}
+        title="Filter by per-doc availability"
+      >
+        {(["all", "complete", "no_pdf", "no_backends", "no_consensus"] as DocFilter[]).map((f) => (
+          <option key={f} value={f}>
+            {FILTER_LABEL[f]} ({datasets.filter((d) => passesFilter(d, f)).length})
+          </option>
+        ))}
+      </select>
+      <select
+        className="min-w-[20rem] rounded border border-slate-300 bg-white px-2 py-1 text-sm"
+        value={params.docId ?? ""}
+        onChange={(e) => navigate(`/compare/${encodeURIComponent(e.target.value)}`)}
+      >
+        <option value="" disabled>
+          — pick a document ({filtered.length}) —
         </option>
-      ))}
-    </select>
+        {filtered.map((d) => (
+          <option
+            key={d.id}
+            value={d.id}
+            title={`PDF:${d.availability.hasPdf} · backends:${d.availability.hasBackends.join(",") || "none"} · consensus:${d.availability.hasConsensus}`}
+          >
+            {statusBadges(d)}  [{d.source}] {d.label}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 }
 
