@@ -15,7 +15,25 @@ class TestConsensusIO:
         r=load_consensus_inputs(connector_root=ROOT/"simple_agreement", document_id="doc-1", backends=["mineru","paddleocr"], priors_root=ROOT/"simple_agreement"/"priors")
         assert set(r.pages_by_backend)=={"mineru","paddleocr"} and set(r.entities_by_backend)=={"mineru","paddleocr"} and set(r.priors_by_backend)=={"mineru","paddleocr"}
     def test_load_consensus_inputs_lenient_missing_prior_adds_warning(self):
-        assert "prior_missing:deepseek" in load_consensus_inputs(connector_root=ROOT/"single_source", document_id="doc-1", backends=["deepseek"], priors_root=None).warnings
+        # Plan 19: the deprecated "prior_missing" warning is replaced by the
+        # three-level fallback chain. With no priors_root and no factory
+        # prior shipped for "deepseek-unknown" (deepseek IS shipped, so
+        # we test by using a name that has no factory file), io falls
+        # through to uninformative. For deepseek specifically the factory
+        # prior IS shipped, so the warning becomes prior_factory:deepseek.
+        warnings = load_consensus_inputs(
+            connector_root=ROOT/"single_source",
+            document_id="doc-1",
+            backends=["deepseek"],
+            priors_root=None,
+        ).warnings
+        # One of the new fallback warnings must fire; the old
+        # prior_missing string is no longer emitted by the io layer.
+        assert "prior_missing:deepseek" not in warnings
+        assert (
+            "prior_factory:deepseek" in warnings
+            or "prior_uninformative:deepseek" in warnings
+        )
     def test_load_consensus_inputs_lenient_missing_entities_adds_warning(self, tmp_path):
         d=tmp_path/"root"/"b"/"pages"; d.mkdir(parents=True); (d/"page_0001.json").write_text((ROOT/"single_source/deepseek/pages/page_0001.json").read_text().replace('"deepseek"','"b"').replace('deepseek:doc-1','b:doc-1'))
         assert "entities_missing:b" in load_consensus_inputs(connector_root=tmp_path/"root", document_id="doc-1", backends=["b"]).warnings

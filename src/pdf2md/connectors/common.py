@@ -94,23 +94,97 @@ def write_connector_result(*, result: ConnectorResult, backend: str, document_id
     return manifest_path
 
 
+# Pre-compiled deepseek-OCR tag patterns. DeepSeek-OCR-2 prefixes every
+# block with `<|ref|>tag<|/ref|><|det|>[[bbox]]<|/det|>\n<content>` where
+# `tag` is one of title / sub_title / text / figure_title / image /
+# equation / table / footnote / page-header / page-footer / list /
+# list_item. We use these tags as the primary block-kind signal and
+# strip the prefix from the block text so downstream text comparison is
+# clean.
+_DEEPSEEK_REF_RE = re.compile(r"<\|ref\|>([^<]+)<\|/ref\|>")
+_DEEPSEEK_DET_RE = re.compile(r"<\|det\|>[^<]*<\|/det\|>")
+_DEEPSEEK_TAG_TO_BLOCK_KIND: dict[str, BlockKind] = {
+    "title": BlockKind.HEADING,
+    "sub_title": BlockKind.HEADING,
+    "section_header": BlockKind.HEADING,
+    "text": BlockKind.PARAGRAPH,
+    "paragraph": BlockKind.PARAGRAPH,
+    "figure_title": BlockKind.CAPTION,
+    "caption": BlockKind.CAPTION,
+    "image": BlockKind.FIGURE,
+    "figure": BlockKind.FIGURE,
+    "equation": BlockKind.FORMULA,
+    "formula": BlockKind.FORMULA,
+    "table": BlockKind.TABLE,
+    "list": BlockKind.LIST,
+    "list_item": BlockKind.LIST_ITEM,
+    "footnote": BlockKind.FOOTNOTE,
+    "page-header": BlockKind.HEADER,
+    "page_header": BlockKind.HEADER,
+    "page-footer": BlockKind.FOOTER,
+    "page_footer": BlockKind.FOOTER,
+    "page_number": BlockKind.PAGE_NUMBER,
+    "header": BlockKind.HEADER,
+    "footer": BlockKind.FOOTER,
+}
+
+
+def _strip_deepseek_tags(chunk: str) -> tuple[str, str | None]:
+    """Strip leading deepseek-OCR `<|ref|>` / `<|det|>` tags from a chunk.
+
+    Returns (clean_text, ref_tag) — ``ref_tag`` is the value inside
+    `<|ref|>...<|/ref|>`, lowercased, or None if no tag was found. The
+    rest of any embedded `<|det|>` markers are also dropped so the block
+    text doesn't carry bbox noise into text-overlap matching.
+    """
+
+    m = _DEEPSEEK_REF_RE.match(chunk.strip())
+    if not m:
+        return chunk, None
+    tag = m.group(1).strip().lower()
+    # Drop the leading ref tag and any det tag that follows on the same line.
+    cleaned = _DEEPSEEK_REF_RE.sub("", chunk, count=1)
+    cleaned = _DEEPSEEK_DET_RE.sub("", cleaned, count=1)
+    return cleaned.strip(), tag
+
+
 def markdown_to_pages(text: str, *, backend: str, backend_version: str | None, document_id: str, raw_ref: str | None, warnings: list[str]) -> list[PageExtractionIR]:
     if not text.strip():
         warnings.append("raw_text_missing")
         return []
     warnings.append("page_size_missing")
-    chunks = re.split(r"<---\s*Page Split\s*--->|\f|<!--\s*pagebreak\s*-->", text, flags=re.I)
+    # Page split markers we know about:
+    #   - paddleocr-style "<--- Page Split --->" / "<!-- pagebreak -->" / form-feed
+    #   - deepseek-style "<!-- page N -->" (one per page, inclusive of page 1)
+    chunks = re.split(r"<---\s*Page Split\s*--->|\f|<!--\s*pagebreak\s*-->|<!--\s*page\s+\d+\s*-->", text, flags=re.I)
+    # Drop the leading empty chunk that appears when text starts with a marker
+    # (e.g. deepseek emits `<!-- page 1 -->` at the very top).
+    chunks = [c for c in chunks if c.strip()]
     pages: list[PageExtractionIR] = []
     for page_no, page_text in enumerate(chunks, start=1):
         blocks = []
         for order, chunk in enumerate([c.strip() for c in re.split(r"\n\s*\n", page_text) if c.strip()]):
-            kind, metadata = classify_block(chunk)
-            blocks.append(ExtractionBlock(id=extraction_id(backend, document_id, page_no, order), backend=backend, page_no=page_no, kind=kind, order=order, text=chunk, raw_ref=raw_ref, metadata=metadata))
+            cleaned, ref_tag = _strip_deepseek_tags(chunk)
+            kind, metadata = classify_block(cleaned, ref_tag=ref_tag)
+            blocks.append(ExtractionBlock(id=extraction_id(backend, document_id, page_no, order), backend=backend, page_no=page_no, kind=kind, order=order, text=cleaned, raw_ref=raw_ref, metadata=metadata))
         pages.append(PageExtractionIR(document_id=document_id, backend=backend, backend_version=backend_version, page_no=page_no, page_size=PageSize(width=1.0, height=1.0), blocks=blocks, raw_artifact_ref=raw_ref, metadata={"connector": "markdown_fallback"}))
     return pages
 
 
-def classify_block(text: str) -> tuple[BlockKind, dict[str, Any]]:
+def classify_block(text: str, *, ref_tag: str | None = None) -> tuple[BlockKind, dict[str, Any]]:
+    if ref_tag is not None:
+        mapped = _DEEPSEEK_TAG_TO_BLOCK_KIND.get(ref_tag)
+        if mapped is not None:
+            metadata: dict[str, Any] = {"source_tag": ref_tag}
+            if mapped == BlockKind.HEADING:
+                first = text.strip().splitlines()[0].strip() if text.strip() else ""
+                if m := re.match(r"^(#{1,6})\s+(.+)$", first):
+                    metadata["markdown_heading_level"] = len(m.group(1))
+                elif ref_tag == "title":
+                    metadata["markdown_heading_level"] = 1
+                elif ref_tag == "sub_title":
+                    metadata["markdown_heading_level"] = 2
+            return mapped, metadata
     first = text.strip().splitlines()[0].strip() if text.strip() else ""
     if m := re.match(r"^(#{1,6})\s+(.+)$", first):
         return BlockKind.HEADING, {"markdown_heading_level": len(m.group(1))}

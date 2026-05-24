@@ -10,7 +10,11 @@ from pdf2md.consensus.factory import ConsensusRunResult
 from pdf2md.consensus.reporting import build_consensus_summary
 from pdf2md.models.entities import EntityProposalDocument
 from pdf2md.models.ir import ConsensusIR, PageExtractionIR
-from pdf2md.models.priors import CalibrationPriorDocument
+from pdf2md.models.priors import (
+    CalibrationPriorDocument,
+    build_uninformative_prior,
+    load_factory_prior,
+)
 
 
 @dataclass(frozen=True)
@@ -43,6 +47,43 @@ def _discover_backends(connector_root: Path, backends: list[str] | None) -> list
     if backends:
         return backends
     return sorted(path.name for path in connector_root.iterdir() if path.is_dir() and path.name != "priors")
+
+
+def _resolve_prior_with_fallback(
+    *,
+    backend: str,
+    priors_root: Path | None,
+    priors_by_backend: dict[str, CalibrationPriorDocument],
+    warnings: list[str],
+    strict: bool,
+) -> None:
+    """Plan 19 fallback chain: user prior on disk → factory prior → uninformative.
+
+    Always populates ``priors_by_backend[backend]`` (never empty for a
+    backend with page data) and appends a level-specific warning so the
+    caller can tell which level was used:
+
+      - user prior on disk: no warning (expected, silent)
+      - factory: ``prior_factory:<backend>``
+      - uninformative: ``prior_uninformative:<backend>``
+    """
+
+    if priors_root is not None:
+        prior_path = priors_root / f"{backend}.json"
+        if prior_path.exists():
+            try:
+                priors_by_backend[backend] = CalibrationPriorDocument.model_validate(_load_json(prior_path))
+                return
+            except Exception as exc:  # noqa: BLE001
+                _warn_or_raise(strict, warnings, f"invalid_prior:{backend}", exc)
+                # fall through to factory / uninformative
+    factory = load_factory_prior(backend)
+    if factory is not None:
+        priors_by_backend[backend] = factory
+        warnings.append(f"prior_factory:{backend}")
+        return
+    priors_by_backend[backend] = build_uninformative_prior(backend)
+    warnings.append(f"prior_uninformative:{backend}")
 
 
 def load_consensus_inputs(
@@ -84,17 +125,17 @@ def load_consensus_inputs(
                 _warn_or_raise(strict, warnings, f"invalid_entities:{backend}", exc)
         else:
             warnings.append(f"entities_missing:{backend}")
-        if priors_root is not None:
-            prior_path = priors_root / f"{backend}.json"
-            if prior_path.exists():
-                try:
-                    priors_by_backend[backend] = CalibrationPriorDocument.model_validate(_load_json(prior_path))
-                except Exception as exc:  # noqa: BLE001
-                    _warn_or_raise(strict, warnings, f"invalid_prior:{backend}", exc)
-            else:
-                warnings.append(f"prior_missing:{backend}")
-        else:
-            warnings.append(f"prior_missing:{backend}")
+        # Plan 19 — three-level prior fallback. Only backends that
+        # produced page data need a prior at all (consensus has nothing
+        # to score otherwise).
+        if backend in pages_by_backend:
+            _resolve_prior_with_fallback(
+                backend=backend,
+                priors_root=priors_root,
+                priors_by_backend=priors_by_backend,
+                warnings=warnings,
+                strict=strict,
+            )
     return ConsensusLoadResult(
         pages_by_backend=pages_by_backend,
         entities_by_backend=entities_by_backend,

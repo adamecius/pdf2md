@@ -61,7 +61,13 @@ class TestPriorEnums:
         assert [item.value for item in CalibrationTarget] == ["block_kind", "entity_type", "relation_type", "calibration_key"]
 
     def test_calibration_status_values_match_specification(self):
-        assert [item.value for item in CalibrationStatus] == ["calibrated", "underpowered", "no_samples"]
+        # Plan 19 added UNINFORMATIVE for the three-level prior fallback.
+        assert [item.value for item in CalibrationStatus] == [
+            "calibrated",
+            "underpowered",
+            "no_samples",
+            "uninformative",
+        ]
 
     def test_match_outcome_values_match_specification(self):
         assert [item.value for item in MatchOutcome] == ["true_positive", "false_positive", "false_negative"]

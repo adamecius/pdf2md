@@ -32,3 +32,22 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
 - conditional_file_changes: src/pdf2md/cli/main.py — single-line `app.add_typer(datasets_app, name="datasets")` import + registration, exactly per the plan whitelist
 - blockers: []
 - status: ready_for_review
+
+## PR #2 — 2026-05-24T11:30:00Z — mode: agent — Plan 19
+- branch: plan-19-uninformative-priors-consensus-bootstrap
+- tasks_attempted:
+    - A1 (UNINFORMATIVE status + build_uninformative_prior): files_touched=[src/pdf2md/models/priors.py, tests/test_uninformative_priors.py], tests_pass=[12/12 in tests/test_uninformative_priors.py], tests_fail_env=[], tests_fail_real=[]
+    - A2 (factory_priors dir + load_factory_prior + package-data): files_touched=[src/pdf2md/models/priors.py, src/pdf2md/data/__init__.py, src/pdf2md/data/factory_priors/__init__.py, src/pdf2md/data/factory_priors/paddleocr.json, src/pdf2md/data/factory_priors/deepseek.json, src/pdf2md/data/factory_priors/mineru.json, pyproject.toml, tests/test_factory_priors.py], tests_pass=[15/15], tests_fail_env=[], tests_fail_real=[]
+    - A3 (three-level fallback in consensus io): files_touched=[src/pdf2md/consensus/io.py, tests/test_consensus_prior_fallback.py], tests_pass=[11/11 incl. A4 end-to-end tests in same file], tests_fail_env=[], tests_fail_real=[]
+    - A4 (end-to-end consensus at each prior level): co-located in tests/test_consensus_prior_fallback.py (TestEndToEndConsensusBuilds + TestPriorByBackendNeverEmpty); covered by the 11/11 count above
+    - A5 (--from-scratch flag): files_touched=[tools/calibrate_priors.py, tests/test_uninformative_priors.py], tests_pass=[2 additional subprocess tests stamping calibration_mode]
+- automated_test_commands:
+    - `pytest tests/test_uninformative_priors.py tests/test_factory_priors.py tests/test_consensus_prior_fallback.py tests/test_calibration_matching.py tests/test_calibration_metrics.py -q` → 74 passed
+    - `pytest tests/ -q` → 932 passed, 219 skipped, 16 xfailed, 0 failed
+- factory_priors_committed: paddleocr (calibrated against synthetic LaTeX corpus, support=571), deepseek (calibrated against synthetic LaTeX corpus, support=582), mineru (uninformative_placeholder until benchmark run finishes)
+- stale_test_expectations_updated: tests/test_prior_contracts.py (CalibrationStatus enum list now includes UNINFORMATIVE); tests/test_build_consensus_cli.py (prior_missing warning replaced by prior_factory or prior_uninformative)
+- dependencies_added: []
+- external_tools_used: []
+- forbidden_files_touched: []
+- blockers: []
+- status: ready_for_review
