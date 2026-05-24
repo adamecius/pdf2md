@@ -1,0 +1,50 @@
+/* Plan 008_0 — minimal styling for the cross-reference graph viewer. */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font: 14px system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #222;
+  background: #fff;
+}
+
+header {
+  padding: 0.5rem 1rem;
+  background: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 60px;
+}
+
+header strong { font-size: 1rem; }
+
+header .file-picker {
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+}
+
+header .file-picker input[type="file"] { display: none; }
+
+header #status { color: #555; font-size: 0.9rem; }
+
+#chart {
+  width: 100vw;
+  height: calc(100vh - 60px);
+  background: #fff;
+}
+
+.link { stroke: #999; }
+.link.unresolved { stroke: #c0392b; stroke-dasharray: 4 3; }
+
+.node circle { stroke: #fff; stroke-width: 1.5px; }
+.node text { font-size: 10px; pointer-events: none; fill: #333; }
