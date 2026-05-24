@@ -20,6 +20,8 @@ SNIPPET_LIMIT = 1000
 
 
 class CheckStatus(str, Enum):
+    """Outcome of a single preflight check."""
+
     PASS = "pass"
     WARN = "warn"
     FAIL = "fail"
@@ -27,6 +29,8 @@ class CheckStatus(str, Enum):
 
 
 class CheckSeverity(str, Enum):
+    """Whether a preflight check is required for environment readiness."""
+
     REQUIRED = "required"
     OPTIONAL = "optional"
 
@@ -36,6 +40,21 @@ class _PreflightBaseModel(BaseModel):
 
 
 class PreflightCheck(_PreflightBaseModel):
+    """One preflight check entry.
+
+    Attributes:
+        id: Stable identifier for the check.
+        label: Human-readable label.
+        status: Outcome of the check.
+        severity: Whether the check is required or optional.
+        command: Command line executed, when applicable.
+        returncode: Process exit code, when a command ran.
+        stdout_snippet: Truncated stdout for diagnostics.
+        stderr_snippet: Truncated stderr for diagnostics.
+        message: Short message describing the outcome.
+        metadata: Free-form metadata, including ``failure_class``.
+    """
+
     id: str
     label: str
     status: CheckStatus
@@ -49,6 +68,21 @@ class PreflightCheck(_PreflightBaseModel):
 
 
 class PreflightReport(_PreflightBaseModel):
+    """Aggregated local preflight report.
+
+    Attributes:
+        schema_name: Fixed schema marker.
+        schema_version: Schema version string.
+        environment_ready: True only when every required check passed.
+        required_passed: Number of required checks with PASS status.
+        required_failed: Number of required checks with FAIL status.
+        optional_passed: Number of optional checks with PASS status.
+        optional_failed: Number of optional checks with FAIL status.
+        checks: Individual PreflightCheck entries.
+        warnings: Run-level warnings (e.g. messages from WARN checks).
+        metadata: Free-form metadata describing the run.
+    """
+
     schema_name: Literal["pdf2md.LocalPreflightReport"] = "pdf2md.LocalPreflightReport"
     schema_version: Literal["1.0.0"] = LOCAL_PREFLIGHT_SCHEMA_VERSION
     environment_ready: bool = False
@@ -101,6 +135,18 @@ class PreflightReport(_PreflightBaseModel):
 
 @dataclass(frozen=True)
 class PreflightSettings:
+    """Configuration for ``build_preflight_report``.
+
+    Attributes:
+        required_backends: Backends whose connector and environment are
+            required for an environment to be considered ready.
+        optional_backends: Backends checked but not required.
+        backend_env_prefix: Prefix used to derive expected conda
+            environment names from backend names.
+        output_roots: Directories that must be writable.
+        timeout_seconds: Per-subprocess timeout for help/version probes.
+    """
+
     required_backends: tuple[str, ...] = ("mineru", "paddleocr", "deepseek")
     optional_backends: tuple[str, ...] = ()
     backend_env_prefix: str = "pdf2md-"

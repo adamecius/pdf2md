@@ -18,6 +18,14 @@ from pdf2md.models.linked import LinkedStructure
 
 @dataclass(frozen=True)
 class ExportLoadResult:
+    """Inputs loaded from disk for an export run.
+
+    Attributes:
+        linked: Parsed LinkedStructure document.
+        consensus: Parsed ConsensusIR, if provided and valid.
+        warnings: Warnings raised while loading inputs.
+    """
+
     linked: LinkedStructure
     consensus: ConsensusIR | None
     warnings: list[str]
@@ -25,6 +33,19 @@ class ExportLoadResult:
 
 @dataclass(frozen=True)
 class ExportRunResult:
+    """Aggregated outputs of a single export run.
+
+    Attributes:
+        docling: Projected Docling document dictionary.
+        rag_chunks: RAG chunk document with per-chunk metadata.
+        markdown: Markdown preview text.
+        manifest: Export manifest describing produced artefacts.
+        report: Export audit report dictionary.
+        warnings: Combined warnings across all sub-builders.
+        write_rag: Whether RAG output should be written to disk.
+        write_markdown: Whether markdown output should be written to disk.
+    """
+
     docling: dict[str, Any]
     rag_chunks: RagChunkDocument
     markdown: str
@@ -36,6 +57,23 @@ class ExportRunResult:
 
 
 def load_export_inputs(*, linked_structure_path: Path, consensus_ir_path: Path | None = None, strict: bool = False) -> ExportLoadResult:
+    """Load LinkedStructure and optional ConsensusIR documents from disk.
+
+    Args:
+        linked_structure_path: Path to ``linked_structure.json``.
+        consensus_ir_path: Optional path to ``consensus_ir.json``; when
+            absent a ``consensus_ir_missing`` warning is recorded.
+        strict: When true, re-raise consensus parsing errors instead of
+            downgrading to a warning.
+
+    Returns:
+        An ExportLoadResult with the parsed documents and warnings.
+
+    Raises:
+        ValidationError: When ``strict`` is set and the consensus IR file
+            cannot be parsed.
+    """
+
     linked = LinkedStructure.model_validate_json(linked_structure_path.read_text())
     warnings: list[str] = []
     consensus: ConsensusIR | None = None
@@ -65,6 +103,39 @@ def build_export_run(
     include_rag: bool = True,
     include_markdown: bool = True,
 ) -> ExportRunResult:
+    """Build a complete export run from in-memory inputs.
+
+    Projects the LinkedStructure into a Docling document, builds RAG
+    chunks and the markdown preview, validates the Docling output (both
+    structurally and through ``docling_core`` when available), and
+    assembles the export manifest plus audit report.
+
+    Args:
+        linked: Linked structure to export.
+        consensus: Optional consensus IR for provenance backfill.
+        source_linked_structure: Filesystem reference recorded in the
+            manifest for the linked structure input.
+        source_consensus_ir: Optional manifest reference for the
+            consensus IR.
+        source_pdf: Optional manifest reference for the source PDF.
+        docling_settings: Settings for the Docling projection.
+        rag_settings: Settings for RAG chunk generation.
+        markdown_settings: Settings for markdown preview rendering.
+        strict: When true, raise ``ValueError`` on structural Docling
+            validation failure.
+        include_rag: When false, skip RAG chunk generation and mark the
+            artefact as skipped in the manifest.
+        include_markdown: When false, skip markdown preview generation.
+
+    Returns:
+        An ExportRunResult containing every produced artefact and the
+        aggregated warning list.
+
+    Raises:
+        ValueError: When ``strict`` is set and structural Docling
+            validation reports any issue.
+    """
+
     docling_result = build_docling_document(linked=linked, consensus=consensus, settings=docling_settings, source_pdf=source_pdf)
     warnings = list(docling_result.warnings)
     structural = validate_docling_like_document(docling_result.document)
@@ -93,6 +164,19 @@ def build_export_run(
 
 
 def write_export_outputs(*, result: ExportRunResult, out_dir: Path) -> None:
+    """Write every artefact in an export run to disk under ``out_dir``.
+
+    Materialises the Docling JSON, audit report, RAG chunks, markdown
+    preview, and export manifest. Computes sha256 digests for every
+    written file and updates the manifest with those digests before
+    writing ``export_manifest.json``.
+
+    Args:
+        result: The export run result to persist.
+        out_dir: Destination directory; subdirectories are created as
+            needed.
+    """
+
     docling_path = out_dir / f"docling/{result.manifest.document_id}.docling.json"
     report_path = out_dir / "reports/export_report.json"
     rag_path = out_dir / f"rag/{result.manifest.document_id}.rag_chunks.json"

@@ -1,10 +1,40 @@
+"""Align ground-truth objects to backend-extracted blocks.
+
+For each ground-truth object emitted by `latex_groundtruth.extract_groundtruth_objects`,
+this module finds candidate backend blocks whose normalised text matches and
+records the match reasons for downstream convention determination.
+"""
+
 from __future__ import annotations
 import re
 from .latex_groundtruth import text_key
 
-def _txt(b): return ((b.get('content') or {}).get('text') or b.get('text') or '')
+def _txt(b: dict) -> str: return ((b.get('content') or {}).get('text') or b.get('text') or '')
 
 def align_groundtruth_to_backend(groundtruth: dict, backend_blocks: list[dict], *, backend: str, doc_id: str) -> list[dict]:
+    """Match ground-truth objects to backend blocks for convention analysis.
+
+    For each ground-truth object (equation, figure, table, footnote,
+    reference), scans ``backend_blocks`` for matches keyed on the
+    object-type specific signals defined in the module docstring (body
+    keys, equation numeric labels, caption keys, cell text keys,
+    footnote text keys, expected rendered reference forms). Returns one
+    alignment record per ground-truth object with the matched backend
+    blocks and a coarse status (``matched``, ``partial``, ``missed``).
+
+    Args:
+        groundtruth: Output of
+            :func:`pdf2md.conventions.latex_groundtruth.extract_groundtruth_objects`.
+        backend_blocks: Raw backend block dicts (as loaded from
+            ``extraction_ir`` JSON).
+        backend: Backend identifier recorded on each record.
+        doc_id: Document identifier recorded on each record.
+
+    Returns:
+        One alignment record per ground-truth object, each carrying the
+        original GT object, matched blocks with deduplicated block IDs,
+        a status, and a confidence label.
+    """
     records=[]
     for gt in groundtruth.get('objects', []):
         matched=[]; reasons=[]

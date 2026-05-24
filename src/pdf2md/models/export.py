@@ -14,6 +14,8 @@ RAG_CHUNK_ID_PATTERN = re.compile(r"^chunk:[A-Za-z0-9_.-]+:\d+$")
 
 
 class ExportArtefactType(str, Enum):
+    """Kinds of artefacts produced by the export stage."""
+
     DOCLING_JSON = "docling_json"
     RAG_CHUNKS = "rag_chunks"
     MARKDOWN_PREVIEW = "markdown_preview"
@@ -21,6 +23,8 @@ class ExportArtefactType(str, Enum):
 
 
 class ExportStatus(str, Enum):
+    """Outcome status for a single export artefact."""
+
     WRITTEN = "written"
     WRITTEN_WITH_WARNINGS = "written_with_warnings"
     SKIPPED = "skipped"
@@ -28,6 +32,8 @@ class ExportStatus(str, Enum):
 
 
 class RagChunkType(str, Enum):
+    """Canonical chunk-type taxonomy for RAG-oriented exports."""
+
     TITLE = "title"
     SECTION = "section"
     PARAGRAPH = "paragraph"
@@ -47,6 +53,17 @@ class _ExportBaseModel(BaseModel):
 
 
 class ExportArtefact(_ExportBaseModel):
+    """One artefact written by the export stage.
+
+    Attributes:
+        artefact_type: Kind of artefact (Docling JSON, RAG chunks, ...).
+        path: Relative or absolute path the artefact was written to.
+        status: Outcome status (written, skipped, failed, ...).
+        sha256: Optional 64-char lowercase hex content hash.
+        warnings: Per-artefact warnings.
+        metadata: Free-form metadata bag.
+    """
+
     artefact_type: ExportArtefactType
     path: str = Field(min_length=1)
     status: ExportStatus
@@ -63,6 +80,24 @@ class ExportArtefact(_ExportBaseModel):
 
 
 class ExportManifestDocument(_ExportBaseModel):
+    """Manifest enumerating every artefact written for one document.
+
+    Produced by the export stage as a sibling to the artefacts it
+    references and consumed by downstream tooling that needs to locate
+    and validate exported outputs.
+
+    Attributes:
+        schema_name: Fixed marker for the JSON schema.
+        schema_version: Schema version string.
+        document_id: Identifier of the source document.
+        source_linked_structure: Path of the LinkedStructure input.
+        source_consensus_ir: Optional path of the ConsensusIR input.
+        source_pdf: Optional path of the originating PDF.
+        artefacts: ExportArtefact entries with unique paths.
+        warnings: Manifest-level warnings.
+        metadata: Free-form metadata bag.
+    """
+
     schema_name: Literal["pdf2md.ExportManifestDocument"] = "pdf2md.ExportManifestDocument"
     schema_version: Literal["1.0.0"] = EXPORT_SCHEMA_VERSION
     document_id: str = Field(min_length=1)
@@ -82,6 +117,23 @@ class ExportManifestDocument(_ExportBaseModel):
 
 
 class RagChunk(_ExportBaseModel):
+    """One retrieval-oriented chunk extracted from the linked structure.
+
+    Attributes:
+        id: Canonical chunk id (`chunk:<doc>:<index>`).
+        chunk_type: Chunk-type taxonomy value.
+        title: Optional chunk title or heading.
+        text: Concatenated chunk text (non-empty).
+        node_ids: LinkedStructure node ids backing the chunk.
+        relation_ids: Optional LinkedStructure relation ids backing the chunk.
+        page_start: One-based first page covered by the chunk, if any.
+        page_end: One-based last page covered by the chunk, if any.
+        section_path: Section breadcrumbs leading to the chunk.
+        breadcrumbs: Free-form breadcrumb labels.
+        confidence: Aggregate confidence in [0, 1].
+        metadata: Free-form metadata bag.
+    """
+
     id: str
     chunk_type: RagChunkType
     title: str | None = None
@@ -110,6 +162,17 @@ class RagChunk(_ExportBaseModel):
 
 
 class RagChunkDocument(_ExportBaseModel):
+    """Document-level bundle of RAG chunks emitted by the export stage.
+
+    Attributes:
+        schema_name: Fixed marker for the JSON schema.
+        schema_version: Schema version string.
+        document_id: Identifier of the source document.
+        chunks: RagChunk entries with unique ids.
+        warnings: Document-level warnings.
+        metadata: Free-form metadata bag.
+    """
+
     schema_name: Literal["pdf2md.RagChunkDocument"] = "pdf2md.RagChunkDocument"
     schema_version: Literal["1.0.0"] = EXPORT_SCHEMA_VERSION
     document_id: str = Field(min_length=1)

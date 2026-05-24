@@ -1,3 +1,11 @@
+"""Pydantic data contracts for the pdf2md pipeline.
+
+Re-exports the IR, entity, prior, linked-structure, and export contracts
+used across `connectors/`, `consensus/`, `calibration/`, `linking/`, and
+`export/`. Importing names from `pdf2md.models` is preferred over
+importing from the individual submodules.
+"""
+
 from .ir import (
     BackendManifest,
     BlockKind,

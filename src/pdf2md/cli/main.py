@@ -1,3 +1,12 @@
+"""Typer-based command-line entry point for the `pdf2md` package.
+
+Exposes the top-level subcommands: pipeline orchestration (`convert`,
+`run-pipeline`), backend orchestration (`run-backends`), and the
+external-dataset commands (`datasets ...`). Each subcommand is a thin
+wrapper that loads configuration and delegates to the corresponding
+pipeline/orchestrator module.
+"""
+
 from __future__ import annotations
 
 from pathlib import Path

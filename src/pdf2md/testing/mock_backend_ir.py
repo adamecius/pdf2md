@@ -1,3 +1,11 @@
+"""Generate mock backend `PageExtractionIR` from a real PDF.
+
+Walks a PDF with PyMuPDF, applies a few heuristic regexes for figure /
+table / equation / section detection, and emits an IR document plus a
+label map for tests that need realistic-shape backend output without
+invoking a real OCR backend.
+"""
+
 from __future__ import annotations
 import hashlib, json, re
 from pathlib import Path
@@ -91,7 +99,7 @@ def get_detectable_references(fixture_dir: Path) -> list[dict]:
     nums={(v['kind'],v['numeric_label']) for v in lm.values() if v['detectable']}
     return [r for r in refs if (r['kind'],r['label']) in nums]
 
-def generate_mock_backend_ir(fixture_dir: Path, out_dir: Path, backend_name: str='mineru'):
+def generate_mock_backend_ir(fixture_dir: Path, out_dir: Path, backend_name: str='mineru') -> tuple[Path, Path]:
     fixture_dir,out_dir=Path(fixture_dir),Path(out_dir)
     gt=json.loads((fixture_dir/'groundtruth'/'source_groundtruth_ir.json').read_text())
     det_path = fixture_dir / "groundtruth" / "expected_detectable_contract.json"

@@ -14,6 +14,22 @@ from pdf2md.models.priors import CalibrationPriorDocument, CalibrationTarget, lo
 
 @dataclass(frozen=True)
 class LinkCandidate:
+    """A consensus block prepared for promotion to a linked node.
+
+    Attributes:
+        consensus_block_id: Identifier of the source consensus block.
+        node_type: Linked node type assigned (refined by entity evidence
+            when available).
+        text: Verbatim text of the consensus block.
+        page_no: Page number on which the block appears.
+        order: Reading-order index inside the page.
+        source_backend: Backend selected by consensus for this block, or None.
+        source_entity_ids: Entity ids that support this candidate's typing.
+        confidence: Blended confidence in the typing and selection.
+        metadata: Free-form metadata copied from the consensus block plus
+            ``candidate_ids`` and (optionally) ``entity_types``.
+    """
+
     consensus_block_id: str
     node_type: LinkedNodeType
     text: str
@@ -64,16 +80,39 @@ _ENTITY_TYPE_MAP = {
 
 
 def normalise_text(text: str | None) -> str:
+    """Return a whitespace-collapsed, casefolded form of text for comparisons."""
     return re.sub(r"\s+", " ", (text or "").strip()).casefold()
 
 
 def consensus_block_to_node_type(block: ConsensusBlock) -> LinkedNodeType:
+    """Map a consensus block kind to the corresponding ``LinkedNodeType``.
+
+    Args:
+        block: Consensus block whose kind drives the mapping.
+
+    Returns:
+        The matching ``LinkedNodeType``, or ``LinkedNodeType.UNKNOWN`` when
+        the kind has no defined mapping.
+    """
     return _BLOCK_KIND_MAP.get(block.kind, LinkedNodeType.UNKNOWN)
 
 
 def entity_support_for_block(
     *, consensus_block: ConsensusBlock, entities_by_backend: dict[str, EntityProposalDocument]
 ) -> list[EntityProposal]:
+    """Return entity proposals whose blocks overlap the consensus block's candidates.
+
+    Used during link extraction to refine node typing and contribute to the
+    blended confidence of a link candidate.
+
+    Args:
+        consensus_block: Consensus block whose candidate ids drive the lookup.
+        entities_by_backend: Entity proposal documents keyed by backend name.
+
+    Returns:
+        Supporting entity proposals across all backends, sorted by descending
+        confidence.
+    """
     candidate_ids = set(consensus_block.candidate_ids)
     supported: list[EntityProposal] = []
     for document in entities_by_backend.values():
@@ -114,6 +153,22 @@ def extract_link_candidates(
     entities_by_backend: dict[str, EntityProposalDocument],
     priors_by_backend: dict[str, CalibrationPriorDocument],
 ) -> list[LinkCandidate]:
+    """Build one ``LinkCandidate`` per consensus block in reading order.
+
+    Walks every page and block of the consensus IR, looks up supporting entity
+    evidence, refines the linked node type from the highest-confidence entity,
+    and computes a blended confidence using the block's agreement score,
+    entity confidences, and per-backend calibration priors.
+
+    Args:
+        consensus: Consensus IR for the document.
+        entities_by_backend: Entity proposal documents keyed by backend name.
+        priors_by_backend: Calibration prior documents keyed by backend name.
+
+    Returns:
+        Link candidates in the same page/order traversal as the input
+        consensus IR.
+    """
     candidates: list[LinkCandidate] = []
     for page in consensus.pages:
         for block in page.blocks:

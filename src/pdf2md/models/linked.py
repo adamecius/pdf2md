@@ -18,6 +18,8 @@ LINKED_CONFLICT_ID_PATTERN = re.compile(r"^lconf:[A-Za-z0-9_.-]+:\d+$")
 
 
 class LinkedNodeType(str, Enum):
+    """Canonical node-type taxonomy for LinkedStructure nodes."""
+
     DOCUMENT = "document"
     TITLE = "title"
     SECTION = "section"
@@ -41,6 +43,8 @@ class LinkedNodeType(str, Enum):
 
 
 class LinkedRelationType(str, Enum):
+    """Canonical relation-type taxonomy for LinkedStructure relations."""
+
     CONTAINS = "contains"
     FOLLOWS = "follows"
     PARENT_OF = "parent_of"
@@ -60,12 +64,16 @@ class LinkedRelationType(str, Enum):
 
 
 class LinkStatus(str, Enum):
+    """Resolution status for a LinkedStructure node, relation, or conflict."""
+
     RESOLVED = "resolved"
     RESOLVED_LOW_CONFIDENCE = "resolved_low_confidence"
     UNRESOLVED = "unresolved"
 
 
 class LinkEvidenceKind(str, Enum):
+    """Kinds of evidence supporting a linker decision."""
+
     CONSENSUS_BLOCK = "consensus_block"
     ENTITY_PROPOSAL = "entity_proposal"
     RELATION_PROPOSAL = "relation_proposal"
@@ -85,6 +93,17 @@ class _LinkedBaseModel(BaseModel):
 
 
 class LinkEvidence(_LinkedBaseModel):
+    """One piece of evidence supporting a linker decision.
+
+    Attributes:
+        kind: Category of evidence (consensus block, entity, prior, ...).
+        source_id: Optional id of the source artefact (block, entity, ...).
+        page_no: One-based page number the evidence relates to, if any.
+        confidence: Evidence weight in [0, 1].
+        reason: Human-readable justification for the evidence.
+        metadata: Free-form metadata bag.
+    """
+
     kind: LinkEvidenceKind
     source_id: str | None = None
     page_no: int | None = Field(default=None, ge=1)
@@ -94,6 +113,26 @@ class LinkEvidence(_LinkedBaseModel):
 
 
 class LinkedNode(_LinkedBaseModel):
+    """One node in the document's linked semantic structure.
+
+    Produced by the linker from consensus blocks and entity proposals
+    and consumed by the export stage.
+
+    Attributes:
+        id: Canonical node id (`node:<doc>:<index>`).
+        node_type: Node-type taxonomy value.
+        text: Optional normalised text for the node.
+        page_no: One-based page number for the node, if page-local.
+        order: Reading-order index within the document.
+        consensus_block_id: Optional backing ConsensusBlock id.
+        source_backend: Optional backend the node was lifted from.
+        source_entity_ids: EntityProposal ids backing the node.
+        confidence: Linker confidence in [0, 1].
+        status: Link-status (resolved, resolved-low-confidence, unresolved).
+        evidence: One or more LinkEvidence items backing the node.
+        metadata: Free-form metadata bag.
+    """
+
     id: str
     node_type: LinkedNodeType
     text: str | None = None
@@ -131,6 +170,19 @@ class LinkedNode(_LinkedBaseModel):
 
 
 class LinkedRelation(_LinkedBaseModel):
+    """One relation between two nodes in the linked semantic structure.
+
+    Attributes:
+        id: Canonical relation id (`lrel:<doc>:<index>`).
+        relation_type: Relation-type taxonomy value.
+        source_node_id: Node id of the source endpoint.
+        target_node_id: Node id of the target endpoint.
+        confidence: Linker confidence in [0, 1].
+        status: Link-status for the relation.
+        evidence: One or more LinkEvidence items backing the relation.
+        metadata: Free-form metadata bag.
+    """
+
     id: str
     relation_type: LinkedRelationType
     source_node_id: str
@@ -162,6 +214,20 @@ class LinkedRelation(_LinkedBaseModel):
 
 
 class LinkedConflict(_LinkedBaseModel):
+    """A first-class conflict recorded in the linked structure.
+
+    Attributes:
+        id: Canonical conflict id (`lconf:<doc>:<index>`).
+        conflict_type: Free-form conflict-type tag.
+        source_conflict_id: Optional originating consensus conflict id.
+        node_ids: LinkedNode ids participating in the conflict.
+        relation_ids: LinkedRelation ids participating in the conflict.
+        description: Human-readable description of the conflict.
+        status: Link-status (typically unresolved).
+        evidence: One or more LinkEvidence items backing the conflict.
+        metadata: Free-form metadata bag.
+    """
+
     id: str
     conflict_type: str = Field(min_length=1)
     source_conflict_id: str | None = None
@@ -204,6 +270,26 @@ class LinkedConflict(_LinkedBaseModel):
 
 
 class LinkedStructure(_LinkedBaseModel):
+    """Document-level linked semantic structure.
+
+    Produced by the linker from ConsensusIR plus EntityProposalDocuments
+    and consumed by the export stage as the canonical pre-export shape.
+
+    Attributes:
+        schema_name: Fixed marker for the JSON schema.
+        schema_version: Schema version string.
+        document_id: Identifier of the source document.
+        source_consensus_ir: Optional path of the ConsensusIR input.
+        source_consensus_report: Optional path of the consensus report.
+        source_entity_documents: Paths of EntityProposalDocument inputs.
+        source_prior_documents: Paths of calibration prior inputs.
+        nodes: LinkedNode entries with unique ids.
+        relations: LinkedRelation entries with unique ids.
+        conflicts: LinkedConflict entries with unique ids.
+        warnings: Document-level warnings.
+        metadata: Free-form metadata bag.
+    """
+
     schema_name: Literal["pdf2md.LinkedStructure"] = "pdf2md.LinkedStructure"
     schema_version: Literal["1.0.0"] = LINKED_SCHEMA_VERSION
     document_id: str = Field(min_length=1)
@@ -242,14 +328,20 @@ class LinkedStructure(_LinkedBaseModel):
 
 
 def linked_node_id(document_id: str, index: int) -> str:
+    """Build a canonical linked node id."""
+
     return f"node:{document_id}:{index}"
 
 
 def linked_relation_id(document_id: str, index: int) -> str:
+    """Build a canonical linked relation id."""
+
     return f"lrel:{document_id}:{index}"
 
 
 def linked_conflict_id(document_id: str, index: int) -> str:
+    """Build a canonical linked conflict id."""
+
     return f"lconf:{document_id}:{index}"
 
 

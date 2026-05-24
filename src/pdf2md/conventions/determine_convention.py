@@ -1,3 +1,10 @@
+"""CLI entry point that derives per-backend OCR conventions from ground truth.
+
+Walks a ground-truth corpus, aligns backend-extracted blocks to ground-truth
+objects via `alignment.align_groundtruth_to_backend`, and emits a JSON +
+Markdown report classifying the OCR conventions observed per backend.
+"""
+
 from __future__ import annotations
 import argparse, json
 from collections import defaultdict
@@ -25,6 +32,18 @@ SAFE_PROPOSED_RULES_BY_CONVENTION = {
 
 
 def doc_id_from_tex_path(tex: Path, batch_root: Path) -> str:
+    """Derive a stable document ID from a TeX source path.
+
+    Handles both the ``<doc_id>/input/...`` layout used by the
+    calibration batches and the simpler ``<doc_id>/source.tex`` layout.
+
+    Args:
+        tex: Path to a ``.tex`` source file inside ``batch_root``.
+        batch_root: Root of the batch directory.
+
+    Returns:
+        The document identifier (top-level batch subdirectory).
+    """
     rel = tex.relative_to(batch_root)
     if len(rel.parts) >= 3 and rel.parts[1] == 'input':
         return rel.parts[0]
@@ -34,6 +53,22 @@ def doc_id_from_tex_path(tex: Path, batch_root: Path) -> str:
 
 
 def load_backend_blocks(batch_root: Path, doc_id: str, backend: str) -> tuple[list[dict], bool]:
+    """Load all extraction blocks emitted by a backend for one document.
+
+    Probes both the per-doc layout
+    (``<doc_id>/backend_ir/<backend>/.current/extraction_ir/<doc_id>/``)
+    and the legacy flat layout
+    (``backend_ir/<backend>/<doc_id>/``), deduplicating by file path.
+
+    Args:
+        batch_root: Root of the batch directory.
+        doc_id: Document identifier.
+        backend: Backend identifier.
+
+    Returns:
+        ``(blocks, has_ir)`` — the concatenated block list and a flag
+        indicating whether any extraction-IR directory was found.
+    """
     blocks: list[dict] = []
     roots = [
         batch_root / doc_id / 'backend_ir' / backend / '.current' / 'extraction_ir' / doc_id,
@@ -68,13 +103,28 @@ def _detect_backends(batch_root: Path, doc_ids: list[str]) -> list[str]:
     return sorted(found)
 
 
-def _status_from_counts(c):
+def _status_from_counts(c: dict[str, int]) -> str:
     if c['missed'] > 0 or c['ambiguous'] > 0: return 'fail'
     if c['partial'] > 0: return 'warn'
     return 'pass'
 
 
-def main():
+def main() -> None:
+    """CLI entry point: emit a convention-determination report for a batch.
+
+    Walks every TeX source under ``--root/--batch``, aligns each
+    ground-truth object against every backend's extraction IR, derives
+    per-backend convention examples and proposed rules, and writes a
+    JSON (optionally Markdown) report under ``--output``. With
+    ``--write-proposed-config`` also emits an
+    ``ocr_conventions.proposed.toml`` containing only the safely
+    formalisable rules from
+    :data:`SAFE_PROPOSED_RULES_BY_CONVENTION`.
+
+    Raises:
+        SystemExit: In ``--strict`` mode when the overall status is
+            ``fail`` (or ``warn`` without ``--allow-partial``).
+    """
     p=argparse.ArgumentParser(); p.add_argument('--root',required=True); p.add_argument('--batch',required=True); p.add_argument('--output',required=True)
     p.add_argument('--backend',action='append'); p.add_argument('--write-proposed-config',action='store_true'); p.add_argument('--emit-markdown-report',action='store_true')
     p.add_argument('--strict',action='store_true'); p.add_argument('--allow-partial',action='store_true')

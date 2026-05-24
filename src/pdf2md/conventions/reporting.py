@@ -1,3 +1,5 @@
+"""Emit JSON and (optional) Markdown reports for convention determination."""
+
 from __future__ import annotations
 import json
 from pathlib import Path

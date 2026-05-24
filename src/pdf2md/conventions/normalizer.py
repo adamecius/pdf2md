@@ -1,3 +1,11 @@
+"""Apply convention-driven normalisation to backend-extracted blocks.
+
+Loads a rule-set (default or TOML) and rewrites backend block text and
+typing so that downstream consensus comparisons are invariant to known
+OCR convention quirks (ligatures, equation numbering, footnote
+attachment, etc.).
+"""
+
 from __future__ import annotations
 import argparse, json, re
 from pathlib import Path

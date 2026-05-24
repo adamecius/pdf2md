@@ -26,6 +26,16 @@ from pdf2md.models.ir import BlockKind, ExtractionBlock, PageExtractionIR, PageS
 
 @dataclass(frozen=True)
 class ConnectorResult:
+    """Output of a single backend connector run.
+
+    Attributes:
+        pages: Per-page extraction IR derived from the backend's
+            markdown.
+        entities: Entity proposals recognised across all pages.
+        warnings: Connector warnings (missing manifest, missing raw
+            text, etc.).
+    """
+
     pages: list[PageExtractionIR]
     entities: EntityProposalDocument
     warnings: list[str]
@@ -33,6 +43,18 @@ class ConnectorResult:
 
 @dataclass(frozen=True)
 class BackendConnectorConfig:
+    """Connector configuration for a single backend.
+
+    Attributes:
+        backend: Backend identifier (e.g. ``paddleocr``, ``deepseek``).
+        default_backend_version: Version recorded when the raw manifest
+            does not supply one.
+        markdown_file_candidates: Filenames to probe for the backend's
+            markdown output, in priority order.
+        manifest_file_candidates: Filenames to probe for the backend's
+            JSON manifest, in priority order.
+    """
+
     backend: str
     default_backend_version: str | None
     markdown_file_candidates: tuple[str, ...] = ("output.md", "output.mmd", "result.md", "result.mmd")
@@ -40,6 +62,26 @@ class BackendConnectorConfig:
 
 
 def connect_raw_dir(*, raw_dir: Path, document_id: str, config: BackendConnectorConfig, out_dir: Path | None = None) -> ConnectorResult:
+    """Read a backend's raw output directory and produce connector IR.
+
+    Discovers the markdown and manifest artefacts in ``raw_dir``, parses
+    them into per-page extraction IR, recognises entities, and (if
+    ``out_dir`` is given) writes the connector outputs to disk.
+
+    Args:
+        raw_dir: Directory containing the backend's raw markdown and
+            manifest files.
+        document_id: Stable identifier embedded in IR/entity IDs.
+        config: Backend-specific connector configuration.
+        out_dir: Optional output root; when provided, per-page IR and
+            entities are written under ``<out_dir>/<backend>/``.
+
+    Returns:
+        A ConnectorResult holding pages, entities, and warnings.
+
+    Raises:
+        ValueError: If ``raw_dir`` does not exist or is not a directory.
+    """
     raw_dir = Path(raw_dir)
     if not raw_dir.exists() or not raw_dir.is_dir():
         raise ValueError(f"raw_dir does not exist: {raw_dir}")
@@ -64,6 +106,25 @@ def connect_raw_dir(*, raw_dir: Path, document_id: str, config: BackendConnector
 
 
 def write_connector_result(*, result: ConnectorResult, backend: str, document_id: str, raw_dir: Path, out_dir: Path) -> Path:
+    """Persist a ConnectorResult under ``<out_dir>/<backend>/``.
+
+    Writes one JSON file per page under ``pages/``, an ``entities.json``,
+    and a top-level ``manifest.json`` referencing both.
+
+    Args:
+        result: ConnectorResult to serialise.
+        backend: Backend identifier used as a subdirectory name.
+        document_id: Document identifier recorded in the manifest.
+        raw_dir: Raw input directory recorded in the manifest for
+            traceability.
+        out_dir: Output root that will contain ``<backend>/``.
+
+    Returns:
+        Path to the written ``manifest.json``.
+
+    Raises:
+        ValueError: If ``out_dir`` exists but is not a directory.
+    """
     if out_dir.exists() and not out_dir.is_dir():
         raise ValueError(f"out_dir is not a directory: {out_dir}")
     target = out_dir / backend
@@ -149,6 +210,28 @@ def _strip_deepseek_tags(chunk: str) -> tuple[str, str | None]:
 
 
 def markdown_to_pages(text: str, *, backend: str, backend_version: str | None, document_id: str, raw_ref: str | None, warnings: list[str]) -> list[PageExtractionIR]:
+    """Split backend markdown into per-page extraction IR with blocks.
+
+    Splits on the known page markers emitted by the supported backends
+    (PaddleOCR-style ``<--- Page Split --->`` and ``<!-- pagebreak -->``,
+    DeepSeek-style ``<!-- page N -->``, and form feed), then breaks each
+    page on blank lines to form blocks and classifies each block via
+    :func:`classify_block`. Appends ``raw_text_missing`` /
+    ``page_size_missing`` warnings as appropriate.
+
+    Args:
+        text: Raw markdown emitted by the backend.
+        backend: Backend identifier embedded in block IDs.
+        backend_version: Optional version stamp recorded on each page.
+        document_id: Document identifier embedded in IDs.
+        raw_ref: Optional relative path to the source markdown, recorded
+            on every block.
+        warnings: Mutable warning list that this function appends to.
+
+    Returns:
+        One PageExtractionIR per detected page; empty if ``text`` is
+        empty.
+    """
     if not text.strip():
         warnings.append("raw_text_missing")
         return []
@@ -172,6 +255,22 @@ def markdown_to_pages(text: str, *, backend: str, backend_version: str | None, d
 
 
 def classify_block(text: str, *, ref_tag: str | None = None) -> tuple[BlockKind, dict[str, Any]]:
+    """Infer a BlockKind for a markdown chunk.
+
+    If a DeepSeek ``<|ref|>`` tag was stripped upstream, the tag is
+    consulted first. Otherwise the chunk is matched against markdown
+    heuristics for headings, formulas, tables, figures, captions, and
+    list items, with PARAGRAPH as the fallback.
+
+    Args:
+        text: Block text after page-split processing.
+        ref_tag: Optional lowercased DeepSeek reference tag (e.g.
+            ``title``, ``equation``).
+
+    Returns:
+        ``(kind, metadata)`` where ``metadata`` may carry
+        ``markdown_heading_level`` or ``source_tag``.
+    """
     if ref_tag is not None:
         mapped = _DEEPSEEK_TAG_TO_BLOCK_KIND.get(ref_tag)
         if mapped is not None:
@@ -202,10 +301,31 @@ def classify_block(text: str, *, ref_tag: str | None = None) -> tuple[BlockKind,
 
 
 def recognize_entities(pages: list[PageExtractionIR], *, backend: str, backend_version: str | None, document_id: str, warnings: list[str]) -> EntityProposalDocument:
+    """Recognise entities and relations across all pages of a document.
+
+    Applies the markdown-fallback heuristic detectors (sections, TOC
+    entries, page numbers, footnotes/reference items, equations,
+    captions, figures, tables, headers, footers) and emits adjacency,
+    caption, TOC, and sequence relations.
+
+    Args:
+        pages: Per-page extraction IR produced by
+            :func:`markdown_to_pages`.
+        backend: Backend identifier embedded in entity/relation IDs.
+        backend_version: Optional backend version recorded on the
+            document.
+        document_id: Document identifier embedded in IDs.
+        warnings: Warning list propagated to the resulting document.
+
+    Returns:
+        An EntityProposalDocument with proposed entities, relations,
+        and the input warnings.
+    """
     entities: list[EntityProposal] = []
     idx = 0
 
     def add(entity_type: EntityType, block: ExtractionBlock, confidence: float, detector: str, *, subtype: str | None = None, metadata: dict[str, Any] | None = None, evidence_kind: EvidenceKind = EvidenceKind.BLOCK_TEXT) -> EntityProposal:
+        """Append a new EntityProposal anchored on ``block`` and return it."""
         nonlocal idx
         idx += 1
         md = {"detector": detector, **(metadata or {})}

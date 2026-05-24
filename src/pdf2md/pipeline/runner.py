@@ -39,6 +39,8 @@ PIPELINE_SCHEMA_VERSION = "1.0.0"
 
 
 class StageName(str, Enum):
+    """Names of the seven MVP pipeline stages."""
+
     BACKEND_SMOKE = "backend_smoke"
     CONNECTOR_CANONICAL = "connector_canonical"
     CONNECTOR_VALIDATION = "connector_validation"
@@ -60,6 +62,8 @@ STAGE_ORDER: tuple[StageName, ...] = (
 
 
 class StageStatus(str, Enum):
+    """Lifecycle states of a single pipeline stage."""
+
     PENDING = "pending"
     RUNNING = "running"
     SUCCEEDED = "succeeded"
@@ -69,6 +73,8 @@ class StageStatus(str, Enum):
 
 
 class DocumentResult(str, Enum):
+    """Per-document outcome classification."""
+
     PASSED = "passed"
     PASSED_WITH_WARNINGS = "passed_with_warnings"
     FAILED = "failed"
@@ -77,6 +83,8 @@ class DocumentResult(str, Enum):
 
 
 class MvpReadiness(str, Enum):
+    """Aggregate MVP readiness verdict for a run."""
+
     MVP_READY = "MVP_ready"
     MVP_READY_WITH_WARNINGS = "MVP_ready_with_warnings"
     MVP_NOT_READY = "MVP_not_ready"
@@ -93,6 +101,22 @@ class _PipelineBaseModel(BaseModel):
 
 
 class StageRecord(_PipelineBaseModel):
+    """Per-stage record written into the pipeline manifest.
+
+    Attributes:
+        name: Stage identifier.
+        status: Lifecycle state at the end of the run.
+        started_at: ISO-8601 UTC timestamp at stage start.
+        finished_at: ISO-8601 UTC timestamp at stage finish.
+        duration_seconds: Wall-clock stage duration.
+        skipped_reason: Reason for ``SKIPPED`` status, when applicable.
+        failure_class: Short failure category, when applicable.
+        failure_detail: Free-form failure detail, when applicable.
+        warnings: Stage-level warnings.
+        artefacts: Mapping of logical artefact name to filesystem path.
+        metadata: Free-form per-stage metadata.
+    """
+
     name: StageName
     status: StageStatus = StageStatus.PENDING
     started_at: str | None = None
@@ -107,6 +131,20 @@ class StageRecord(_PipelineBaseModel):
 
 
 class DocumentRecord(_PipelineBaseModel):
+    """Per-document outcome and stage history.
+
+    Attributes:
+        document_id: Logical document identifier.
+        input_pdf: Filesystem path of the input PDF, when known.
+        result: Aggregated DocumentResult classification.
+        selected_backends: Backends the caller asked the runner to use.
+        eligible_backends: Backends that produced raw output successfully.
+        final_artefacts: Final artefact paths from the export stage.
+        stages: StageRecord entries in canonical stage order.
+        warnings: Document-level warnings.
+        metadata: Free-form per-document metadata.
+    """
+
     document_id: str
     input_pdf: str | None = None
     result: DocumentResult = DocumentResult.SKIPPED
@@ -119,6 +157,25 @@ class DocumentRecord(_PipelineBaseModel):
 
 
 class PipelineManifest(_PipelineBaseModel):
+    """MVP pipeline manifest (Plan 16).
+
+    Attributes:
+        schema_name: Fixed schema marker.
+        schema_version: Schema version string.
+        generated_at: UTC timestamp of manifest generation.
+        mode: ``one_document`` or ``corpus_subset``.
+        input_pdf: Input PDF path for ``one_document`` mode.
+        corpus_root: Corpus root path for ``corpus_subset`` mode.
+        out_dir: Output directory for the run.
+        work_dir: Work directory for intermediate artefacts.
+        selected_backends: Backends the caller asked the runner to use.
+        documents: Per-document DocumentRecord entries.
+        warnings: Run-level warnings.
+        errors: Run-level errors.
+        mvp_readiness: Aggregated MvpReadiness verdict.
+        metadata: Free-form run metadata.
+    """
+
     schema_name: Literal["pdf2md.MvpPipelineManifest"] = "pdf2md.MvpPipelineManifest"
     schema_version: Literal["1.0.0"] = PIPELINE_SCHEMA_VERSION
     generated_at: str
@@ -136,6 +193,26 @@ class PipelineManifest(_PipelineBaseModel):
 
 
 class CorpusEvaluation(_PipelineBaseModel):
+    """Aggregate evaluation produced by ``run_corpus``.
+
+    Attributes:
+        schema_name: Fixed schema marker.
+        schema_version: Schema version string.
+        generated_at: UTC timestamp of evaluation generation.
+        corpus_root: Corpus root path inspected.
+        out_dir: Output directory for the run.
+        selected_documents: Document ids selected for evaluation.
+        document_results: Mapping of document id to DocumentResult value.
+        stage_bottlenecks: Per-stage count of failed documents.
+        backend_eligibility: Per-backend count of eligible documents.
+        final_export_availability: Per-document boolean for whether the
+            export stage produced final artefacts.
+        confidence_summary: Aggregated summary statistics.
+        warnings: Run-level warnings.
+        mvp_readiness: Aggregated MvpReadiness verdict.
+        metadata: Free-form evaluation metadata.
+    """
+
     schema_name: Literal["pdf2md.MvpCorpusEvaluation"] = "pdf2md.MvpCorpusEvaluation"
     schema_version: Literal["1.0.0"] = PIPELINE_SCHEMA_VERSION
     generated_at: str

@@ -13,6 +13,24 @@ from pdf2md.models.priors import CalibrationTarget, CalibrationTruthDocument, Ma
 
 @dataclass(frozen=True)
 class MatchRecord:
+    """One match outcome between a prediction and the calibration truth.
+
+    Attributes:
+        target: Calibration target this record contributes to (block kind,
+            entity type, relation type, or calibration key).
+        key: Target-specific bucket identifier (e.g. block-kind value, entity
+            type name, calibration key).
+        backend: Backend whose prediction produced the record.
+        prediction_id: Identifier of the predicted item, or None for false
+            negatives (truth-only items).
+        truth_id: Identifier of the truth item, or None for false positives
+            (predictions with no truth counterpart).
+        outcome: True positive, false positive, or false negative.
+        confidence: Predicted confidence if available, else None.
+        metadata: Free-form per-record annotations (e.g. token-overlap score
+            or warning markers).
+    """
+
     target: CalibrationTarget
     key: str
     backend: str
@@ -27,12 +45,34 @@ _WORD_RE = re.compile(r"\w+", re.UNICODE)
 
 
 def normalise_text(text: str | None) -> str:
+    """Return a casefolded, whitespace-collapsed word-token form of text.
+
+    Args:
+        text: Input string, or None.
+
+    Returns:
+        The lowercase tokens joined by single spaces, or an empty string if
+        ``text`` is None or contains no word characters.
+    """
     if text is None:
         return ""
     return " ".join(_WORD_RE.findall(text.casefold()))
 
 
 def token_overlap(a: str | None, b: str | None) -> float:
+    """Return the Jaccard overlap of word tokens between two strings.
+
+    Both inputs are normalised by :func:`normalise_text` before comparison.
+    Two empty inputs are treated as identical (score 1.0); a single empty
+    input scores 0.0.
+
+    Args:
+        a: First string, or None.
+        b: Second string, or None.
+
+    Returns:
+        Token-set Jaccard similarity in the range ``[0.0, 1.0]``.
+    """
     a_tokens = set(_WORD_RE.findall(normalise_text(a)))
     b_tokens = set(_WORD_RE.findall(normalise_text(b)))
     if not a_tokens and not b_tokens:
@@ -57,6 +97,23 @@ def _block_score(prediction: ExtractionBlock, truth_text: str | None) -> float:
 
 
 def match_blocks(*, backend: str, pages: list[PageExtractionIR], truth: CalibrationTruthDocument) -> list[MatchRecord]:
+    """Greedily match predicted blocks against truth blocks by kind and text.
+
+    Predicted and truth blocks must share the same page number and the same
+    block kind, and their text token-overlap must reach ``0.80`` to count as
+    a true positive. Unmatched predictions become false positives and
+    unmatched truth blocks become false negatives, all bucketed by block
+    kind.
+
+    Args:
+        backend: Backend name to attach to every emitted record.
+        pages: Per-page extraction IRs containing predicted blocks.
+        truth: Ground-truth document.
+
+    Returns:
+        One ``MatchRecord`` per outcome (true positive, false positive, false
+        negative) for the ``BLOCK_KIND`` calibration target.
+    """
     predictions = [block for page in pages for block in sorted(page.blocks, key=lambda b: b.order)]
     candidates: list[tuple[float, int, str, ExtractionBlock, Any]] = []
     for order, prediction in enumerate(predictions):
@@ -151,6 +208,26 @@ def _entity_match_map(predictions: EntityProposalDocument, truth: CalibrationTru
 
 
 def match_entities(*, backend: str, predictions: EntityProposalDocument, truth: CalibrationTruthDocument) -> list[MatchRecord]:
+    """Match predicted entities to truth entities and emit per-entity records.
+
+    Entities must share an entity type and (when known) a page number;
+    page-number entities additionally require canonical-text equality.
+    Beyond exact metadata signals (equation/caption numbers, markers),
+    matching falls back to canonical-text token overlap with a threshold of
+    ``0.75``. Each matched prediction emits both an ``ENTITY_TYPE`` record
+    and, if it carries a ``calibration_key``, an extra
+    ``CALIBRATION_KEY`` record. Unmatched truth entities emit false
+    negatives.
+
+    Args:
+        backend: Backend name to attach to every emitted record.
+        predictions: Backend's entity proposal document.
+        truth: Ground-truth document.
+
+    Returns:
+        One ``MatchRecord`` per outcome, possibly with paired records for
+        entries that carry a calibration key.
+    """
     mapping = _entity_match_map(predictions, truth)
     used_truth = set(mapping.values())
     records: list[MatchRecord] = []
@@ -167,6 +244,24 @@ def match_entities(*, backend: str, predictions: EntityProposalDocument, truth: 
 
 
 def match_relations(*, backend: str, predictions: EntityProposalDocument, truth: CalibrationTruthDocument) -> list[MatchRecord]:
+    """Match predicted relations to truth relations via their entity mapping.
+
+    A predicted relation matches a truth relation when the relation type, the
+    truth ids of the resolved source entity, and the resolved target entity
+    all agree. Predictions whose source or target entity did not match a
+    truth entity are still emitted as false positives but tagged with a
+    ``warning`` metadata flag. Unmatched truth relations emit false
+    negatives.
+
+    Args:
+        backend: Backend name to attach to every emitted record.
+        predictions: Backend's entity proposal document (carries relations).
+        truth: Ground-truth document.
+
+    Returns:
+        One ``MatchRecord`` per outcome for the ``RELATION_TYPE`` calibration
+        target.
+    """
     entity_mapping = _entity_match_map(predictions, truth)
     records: list[MatchRecord] = []
     truth_by_key = {

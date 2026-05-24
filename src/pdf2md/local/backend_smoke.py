@@ -72,6 +72,8 @@ _DEPENDENCY_MARKERS: tuple[str, ...] = (
 
 
 class BackendSmokeStatus(str, Enum):
+    """Per-backend smoke-readiness status taxonomy."""
+
     SUCCESS = "success"
     ENV_NOT_READY = "env_not_ready"
     MODEL_MISSING = "model_missing"
@@ -138,6 +140,32 @@ class _SmokeBaseModel(BaseModel):
 
 
 class BackendSmokeResult(_SmokeBaseModel):
+    """Per-backend smoke run outcome.
+
+    Attributes:
+        backend_name: Configured backend identifier.
+        configured: Whether the backend appears in configuration.
+        enabled: Whether the backend is enabled for execution.
+        environment_name: Conda or venv environment name, when known.
+        command: Command line executed by the backend runner.
+        input_pdf: Path of the PDF that was processed.
+        output_dir: Directory where the backend wrote artefacts.
+        exit_code: Process exit code, when the backend ran.
+        duration_seconds: Wall-clock duration of the backend run.
+        status: Classified smoke-readiness status.
+        expected_output_patterns: Artefact filenames the backend should
+            produce.
+        output_files_found: Patterns from ``expected_output_patterns``
+            that are present and non-empty.
+        missing_output_patterns: Expected patterns that are absent.
+        stdout_snippet: Truncated stdout for diagnostics.
+        stderr_snippet: Truncated stderr for diagnostics.
+        failure_reason: Human-readable failure reason for non-success
+            statuses.
+        next_action: Recommended next action for the operator.
+        metadata: Free-form per-backend metadata.
+    """
+
     backend_name: str
     configured: bool
     enabled: bool
@@ -159,6 +187,29 @@ class BackendSmokeResult(_SmokeBaseModel):
 
 
 class BackendSmokeReport(_SmokeBaseModel):
+    """Aggregated backend smoke-readiness report (Plan 9).
+
+    Attributes:
+        schema_name: Fixed schema marker.
+        schema_version: Schema version string.
+        generated_at: UTC timestamp at which the report was produced.
+        tool_name: Identifier of the reporting tool.
+        repo_root: Absolute path of the repository root.
+        corpus_root: Optional path of the ground-truth corpus.
+        input_pdf: Path of the PDF the smoke run processed.
+        gate_minimum: Number of successful backends required to pass.
+        gate_passed: Whether the gate threshold was met.
+        total_backends: Number of backends in ``results``.
+        backends_successful: Count of ``success`` results.
+        backends_failed: Count of crash / output-missing / timeout
+            results.
+        backends_deferred: Count of env-missing / model-missing /
+            dependency-missing / not-configured results.
+        results: Per-backend BackendSmokeResult entries.
+        warnings: Run-level warnings (config loading, runner errors).
+        metadata: Free-form report metadata.
+    """
+
     schema_name: Literal["pdf2md.BackendSmokeReport"] = "pdf2md.BackendSmokeReport"
     schema_version: Literal["1.0.0"] = BACKEND_SMOKE_SCHEMA_VERSION
     generated_at: str

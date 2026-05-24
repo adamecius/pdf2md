@@ -1,6 +1,14 @@
+"""Embedded LaTeX fixture sources (batch 002) used by the test suite.
+
+`generate_batch_002` materialises each fixture to a `.tex` file under a
+caller-provided directory so tests can compile + run the full pipeline
+against a known-good source.
+"""
+
 from __future__ import annotations
 import json
 from pathlib import Path
+from typing import Any
 
 BATCH_002_FIXTURES = {
     "det_title_paragraph": r"""\documentclass[letterpaper]{article}
@@ -78,7 +86,7 @@ As shown in [1].
 }
 
 
-def _contracts(doc_id: str):
+def _contracts(doc_id: str) -> tuple[dict[str, Any], dict[str, Any]]:
     base = {"document_id": doc_id, "expected_title": doc_id.replace('det_', '').replace('_', ' ').title(), "expected_sections": [], "expected_subsections": [], "expected_ordered_block_constraints": [], "expected_labels": [], "expected_references": [], "expected_captions": [], "expected_nested_list_structure": True, "expected_table_cells": [], "expected_markdown_snippets": [], "allowed_warnings": [], "tolerance_policy": {"whitespace": True}}
     det = {"document_id": doc_id, "expected_title": base['expected_title'], "expected_sections": [], "expected_anchors": [], "expected_resolved_references": [], "expected_block_types": ["title", "heading", "paragraph"], "expected_footnote_count": 0, "expected_bibliography_refs": []}
     if doc_id == 'det_figure_reference':

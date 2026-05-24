@@ -62,7 +62,21 @@ ALL_STAGE_NAMES: tuple[str, ...] = (
 
 @dataclass
 class PipelineSettings:
-    """Configuration for a single ``run_pipeline`` invocation."""
+    """Configuration for a single ``run_pipeline`` invocation.
+
+    Attributes:
+        config: Backend configuration dictionary used by the runner.
+        priors_dir: Optional directory containing calibration prior JSON
+            files to copy into the run's ``priors/`` subtree.
+        force: When true, delete an existing ``out_dir`` before running.
+        dry_run: When true, print the plan and return without writing.
+        timeout: Per-backend subprocess timeout in seconds.
+        keep_going: When true, continue downstream stages even after
+            individual stage failures.
+        skip_calibration: Skip the calibration copy stage.
+        skip_export: Skip the export stage.
+        verbose: Enable verbose stage logging.
+    """
 
     config: dict
     priors_dir: Path | None = None
@@ -77,7 +91,18 @@ class PipelineSettings:
 
 @dataclass
 class StageStatus:
-    """Per-stage status entry written into ``pipeline_manifest.json``."""
+    """Per-stage status entry written into ``pipeline_manifest.json``.
+
+    Attributes:
+        name: Stage identifier (one of ``ALL_STAGE_NAMES``).
+        status: ``success``, ``failed``, ``skipped`` or ``not_started``.
+        started_at: ISO-8601 UTC timestamp at stage start.
+        finished_at: ISO-8601 UTC timestamp at stage finish.
+        duration_seconds: Wall-clock stage duration.
+        output_dir: Filesystem path of the stage's output directory.
+        warnings: Stage-level warning messages.
+        error: Failure message, when ``status == "failed"``.
+    """
 
     name: str
     status: str = "not_started"  # success | failed | skipped | not_started
@@ -89,6 +114,7 @@ class StageStatus:
     error: str | None = None
 
     def to_dict(self) -> dict:
+        """Return a JSON-serialisable representation of this stage entry."""
         payload = {
             "name": self.name,
             "status": self.status,
@@ -105,6 +131,22 @@ class StageStatus:
 
 @dataclass
 class PipelineResult:
+    """Result of a single ``run_pipeline`` invocation.
+
+    Attributes:
+        overall_status: ``success``, ``partial``, ``failed`` or
+            ``not_started`` (dry run).
+        stages: StageStatus entries in canonical stage order.
+        manifest_path: Path of the written ``pipeline_manifest.json``.
+        consensus_ir_path: Path of ``consensus_ir.json`` when consensus
+            succeeded, otherwise None.
+        docling_path: Path of the Docling JSON when export succeeded,
+            otherwise None.
+        markdown_path: Path of the markdown preview when export
+            succeeded, otherwise None.
+        warnings: Run-level warning messages.
+    """
+
     overall_status: str  # "success" | "partial" | "failed"
     stages: list[StageStatus]
     manifest_path: Path

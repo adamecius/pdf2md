@@ -1,3 +1,10 @@
+"""Extract structured ground-truth objects from LaTeX source.
+
+Parses raw LaTeX (figures, tables, captions, equations) into normalised
+ground-truth objects with stable keys used by the alignment module to
+match backend-extracted blocks against ground truth.
+"""
+
 from __future__ import annotations
 import re
 

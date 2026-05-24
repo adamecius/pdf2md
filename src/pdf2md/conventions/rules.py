@@ -1,3 +1,5 @@
+"""Default convention rules and a matcher for applying them to blocks."""
+
 from __future__ import annotations
 import re
 from .schemas import Rule

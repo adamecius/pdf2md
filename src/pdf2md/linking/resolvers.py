@@ -13,6 +13,19 @@ from pdf2md.models.linked import LinkEvidence, LinkEvidenceKind, LinkedNodeType,
 
 @dataclass(frozen=True)
 class ResolvedLink:
+    """One inter-candidate relation produced by a resolver.
+
+    Attributes:
+        relation_type: Type of link being asserted (e.g. ``FOLLOWS``,
+            ``CAPTION_OF``).
+        source_candidate_id: Consensus block id of the source candidate.
+        target_candidate_id: Consensus block id of the target candidate.
+        confidence: Resolver-specific confidence in the link.
+        status: ``RESOLVED`` or ``RESOLVED_LOW_CONFIDENCE``.
+        evidence: Tuple of evidence records explaining the link.
+        metadata: Free-form metadata recorded by the producing resolver.
+    """
+
     relation_type: LinkedRelationType
     source_candidate_id: str
     target_candidate_id: str
@@ -24,6 +37,13 @@ class ResolvedLink:
 
 @dataclass(frozen=True)
 class ResolverResult:
+    """Aggregate output of a single resolver pass.
+
+    Attributes:
+        links: Links produced by the resolver.
+        warnings: Stable warning codes for ambiguous or missing targets.
+    """
+
     links: tuple[ResolvedLink, ...] = ()
     warnings: tuple[str, ...] = ()
 
@@ -41,6 +61,19 @@ def _link(rt: LinkedRelationType, src: LinkCandidate, tgt: LinkCandidate, conf: 
 
 
 def resolve_reading_order(candidates: list[LinkCandidate]) -> ResolverResult:
+    """Emit ``FOLLOWS`` links between adjacent body candidates in reading order.
+
+    Page numbers, headers, footers, and the document root are excluded so the
+    chain reflects body content only. Evidence kind is
+    ``LinkEvidenceKind.READING_ORDER``.
+
+    Args:
+        candidates: All link candidates for the document.
+
+    Returns:
+        A ``ResolverResult`` of consecutive-pair ``FOLLOWS`` links and no
+        warnings.
+    """
     excluded = {LinkedNodeType.PAGE_NUMBER, LinkedNodeType.HEADER, LinkedNodeType.FOOTER, LinkedNodeType.DOCUMENT}
     body = [c for c in _sorted(candidates) if c.node_type not in excluded]
     links = [_link(LinkedRelationType.FOLLOWS, body[i], body[i + 1], 0.95, LinkEvidenceKind.READING_ORDER, "adjacent reading order") for i in range(len(body) - 1)]
@@ -58,6 +91,22 @@ def _section_level(candidate: LinkCandidate) -> int | None:
 
 
 def resolve_section_hierarchy(candidates: list[LinkCandidate]) -> ResolverResult:
+    """Build the section tree and attach body candidates to their owning section.
+
+    Uses ``metadata["section_level"]`` or a leading dotted number
+    (e.g. ``"2.1"``) to compute a section depth, then maintains a depth stack
+    in reading order to emit ``PARENT_OF`` links between sections and
+    ``CONTAINS`` links from a section to its body items (paragraphs, lists,
+    figures, tables, captions, equations, footnotes, reference items).
+    Sections without a derivable level emit a warning and default to level 1.
+
+    Args:
+        candidates: All link candidates for the document.
+
+    Returns:
+        A ``ResolverResult`` with the hierarchy links and any
+        ``section_level_missing`` warnings.
+    """
     links: list[ResolvedLink] = []
     warnings: list[str] = []
     stack: list[tuple[int, LinkCandidate]] = []
@@ -92,6 +141,21 @@ def _toc_title_page(text: str) -> tuple[str, int | None]:
 
 
 def resolve_toc_links(candidates: list[LinkCandidate]) -> ResolverResult:
+    """Link table-of-contents entries to the sections they point to.
+
+    Parses each ToC entry to recover its title and (when present) target page
+    number, then matches against section/reference-section candidates by
+    normalised title equality, page agreement, or best token-overlap.
+    Emits ``TOC_POINTS_TO`` links for unambiguous matches; ambiguous or
+    missing targets become ``toc_target_ambiguous`` /
+    ``toc_target_missing`` warnings.
+
+    Args:
+        candidates: All link candidates for the document.
+
+    Returns:
+        A ``ResolverResult`` with ToC links and per-entry warnings.
+    """
     sections = [c for c in candidates if c.node_type in {LinkedNodeType.SECTION, LinkedNodeType.REFERENCE_SECTION}]
     links: list[ResolvedLink] = []
     warnings: list[str] = []
@@ -143,6 +207,22 @@ def _number_value(text: str) -> int | None:
 
 
 def resolve_page_number_sequence(candidates: list[LinkCandidate]) -> ResolverResult:
+    """Chain printed page numbers via ``PAGE_NUMBER_SEQUENCE_NEXT`` links.
+
+    Both Arabic and Roman numerals are parsed. Consecutive numbers (``n``,
+    ``n+1``) produce a high-confidence link; a Roman-to-Arabic transition
+    between adjacent physical pages is recognised as front-matter switching
+    to body numbering and emits a low-confidence link. Non-monotonic or
+    skipped numbers produce ``page_number_sequence_conflict`` or
+    ``page_number_sequence_gap`` warnings.
+
+    Args:
+        candidates: All link candidates for the document.
+
+    Returns:
+        A ``ResolverResult`` with page-sequence links and any gap/conflict
+        warnings.
+    """
     nums = [c for c in _sorted(candidates) if c.node_type == LinkedNodeType.PAGE_NUMBER and _number_value(c.text) is not None]
     links: list[ResolvedLink] = []
     warnings: list[str] = []
@@ -162,6 +242,20 @@ def resolve_page_number_sequence(candidates: list[LinkCandidate]) -> ResolverRes
 
 
 def resolve_repeating_headers_footers(candidates: list[LinkCandidate]) -> ResolverResult:
+    """Link header/footer candidates that share normalised text across pages.
+
+    Groups headers and footers by casefolded text (excluding numeric-only
+    text, which is handled by the page-number resolver), then emits
+    ``HEADER_REPEATS_AS`` and ``FOOTER_REPEATS_AS`` links between consecutive
+    occurrences in reading order.
+
+    Args:
+        candidates: All link candidates for the document.
+
+    Returns:
+        A ``ResolverResult`` with header/footer repetition links and no
+        warnings.
+    """
     links: list[ResolvedLink] = []
     for node_type, rel_type in ((LinkedNodeType.HEADER, LinkedRelationType.HEADER_REPEATS_AS), (LinkedNodeType.FOOTER, LinkedRelationType.FOOTER_REPEATS_AS)):
         groups: dict[str, list[LinkCandidate]] = defaultdict(list)
@@ -176,6 +270,21 @@ def resolve_repeating_headers_footers(candidates: list[LinkCandidate]) -> Resolv
 
 
 def resolve_captions(candidates: list[LinkCandidate]) -> ResolverResult:
+    """Attach captions to their nearest figure or table via ``CAPTION_OF`` links.
+
+    A caption starting with "table" prefers tables, one starting with
+    "figure" prefers figures, otherwise both pools are searched. Same-page
+    targets give a high-confidence resolved link; adjacent-page targets give
+    a low-confidence link. Equidistant ties become
+    ``caption_target_ambiguous`` warnings and captions with no candidate
+    target become ``caption_target_missing`` warnings.
+
+    Args:
+        candidates: All link candidates for the document.
+
+    Returns:
+        A ``ResolverResult`` with caption links and per-caption warnings.
+    """
     links: list[ResolvedLink] = []
     warnings: list[str] = []
     figures = [c for c in candidates if c.node_type == LinkedNodeType.FIGURE]
@@ -214,6 +323,22 @@ def _flat_markers(text: str) -> set[str]:
 
 
 def resolve_footnotes(candidates: list[LinkCandidate]) -> ResolverResult:
+    """Link footnotes to the same-page body candidate that introduces their marker.
+
+    Footnote markers are extracted as bracketed or dotted small numbers; an
+    anchor candidate on the same page whose text contains the same marker
+    becomes the source of a ``FOOTNOTE_ANCHOR_FOR`` link (with bracketed
+    ``[n]`` forms preferred when both styles match). Multiple matches emit
+    ``footnote_anchor_ambiguous`` and no matches emit
+    ``footnote_anchor_missing``.
+
+    Args:
+        candidates: All link candidates for the document.
+
+    Returns:
+        A ``ResolverResult`` with footnote-anchor links and per-footnote
+        warnings.
+    """
     links: list[ResolvedLink] = []
     warnings: list[str] = []
     anchors = [c for c in candidates if c.node_type not in {LinkedNodeType.FOOTNOTE, LinkedNodeType.PAGE_NUMBER, LinkedNodeType.HEADER, LinkedNodeType.FOOTER, LinkedNodeType.SECTION, LinkedNodeType.REFERENCE_SECTION}]
@@ -240,6 +365,19 @@ def _eq_no(c: LinkCandidate) -> int | None:
 
 
 def resolve_equation_sequence(candidates: list[LinkCandidate]) -> ResolverResult:
+    """Chain equations via ``EQUATION_SEQUENCE_NEXT`` using their numbering.
+
+    Equation numbers come from ``metadata["number"]`` or a trailing
+    parenthesised number in the text (e.g. ``"... (3)"``). Adjacent
+    equations whose numbers are consecutive produce a link; gaps in
+    numbering emit ``equation_sequence_gap`` warnings.
+
+    Args:
+        candidates: All link candidates for the document.
+
+    Returns:
+        A ``ResolverResult`` with equation-sequence links and gap warnings.
+    """
     eqs = [c for c in _sorted(candidates) if c.node_type == LinkedNodeType.EQUATION]
     links: list[ResolvedLink] = []
     warnings: list[str] = []
@@ -266,6 +404,21 @@ def _object_no(candidate: LinkCandidate, caption_lookup: dict[str, LinkCandidate
 
 
 def resolve_figure_table_sequence(candidates: list[LinkCandidate]) -> ResolverResult:
+    """Chain figures and tables independently via their own sequence relations.
+
+    Object numbers come from metadata (``number``/``sequence_number``), an
+    explicit caption referencing the object, or a leading ``"Figure N"`` /
+    ``"Table N"`` token. Adjacent objects whose numbers are consecutive
+    produce ``FIGURE_SEQUENCE_NEXT`` or ``TABLE_SEQUENCE_NEXT`` links; gaps
+    emit ``figure_sequence_gap`` or ``table_sequence_gap`` warnings.
+
+    Args:
+        candidates: All link candidates for the document.
+
+    Returns:
+        A ``ResolverResult`` with figure/table sequence links and gap
+        warnings.
+    """
     links: list[ResolvedLink] = []
     warnings: list[str] = []
     # If extraction metadata supplied a caption target id, use it to infer an object number.
@@ -296,6 +449,23 @@ def _author_years(text: str) -> set[tuple[str, str]]:
 
 
 def resolve_references(candidates: list[LinkCandidate]) -> ResolverResult:
+    """Build the bibliography chain and resolve in-text citations to reference items.
+
+    Reference items are chained via ``REFERENCE_SEQUENCE_NEXT``. Body
+    candidates carrying ``[n]`` bracketed markers or ``(Author, Year)``
+    author-year patterns get ``REFERENCES`` links to the matching reference
+    item. Ambiguous and unresolved citations emit
+    ``reference_target_ambiguous`` and ``reference_target_missing``
+    warnings; if reference items exist with no detected references section,
+    a ``reference_section_missing`` warning is emitted once.
+
+    Args:
+        candidates: All link candidates for the document.
+
+    Returns:
+        A ``ResolverResult`` with reference sequence and citation links plus
+        any reference-target warnings.
+    """
     links: list[ResolvedLink] = []
     warnings: list[str] = []
     ref_sections = [c for c in candidates if c.node_type == LinkedNodeType.REFERENCE_SECTION or normalise_text(c.text) in {"references", "bibliography", "works cited"}]
@@ -340,6 +510,21 @@ def resolve_references(candidates: list[LinkCandidate]) -> ResolverResult:
 
 
 def run_all_resolvers(candidates: list[LinkCandidate]) -> ResolverResult:
+    """Run every resolver in order and return the deduplicated, merged result.
+
+    Resolvers run in the order: reading order, section hierarchy, ToC,
+    page-number sequence, repeating headers/footers, captions, footnotes,
+    equation sequence, figure/table sequence, references. Duplicate links
+    (same relation type and endpoints) are kept only once, preferring the
+    earliest producer.
+
+    Args:
+        candidates: All link candidates for the document.
+
+    Returns:
+        A ``ResolverResult`` with the merged, deduplicated links and the
+        concatenated warning list from every resolver.
+    """
     all_links: list[ResolvedLink] = []
     all_warnings: list[str] = []
     for resolver in (resolve_reading_order, resolve_section_hierarchy, resolve_toc_links, resolve_page_number_sequence, resolve_repeating_headers_footers, resolve_captions, resolve_footnotes, resolve_equation_sequence, resolve_figure_table_sequence, resolve_references):

@@ -48,6 +48,16 @@ _DOCLING_SCHEMA_VERSION_DEFAULT: str = _resolve_docling_schema_version()
 
 @dataclass(frozen=True)
 class DoclingExportSettings:
+    """Settings controlling the Docling export projection.
+
+    Attributes:
+        schema_name: Value written to the top-level ``schema_name`` field.
+        schema_version: Docling schema version recorded on the document.
+        include_unresolved: Emit nodes whose status is ``unresolved`` when
+            true; drop them silently when false.
+        coord_origin: Coordinate origin convention recorded with bboxes.
+    """
+
     schema_name: str = "DoclingDocument"
     schema_version: str = _DOCLING_SCHEMA_VERSION_DEFAULT
     include_unresolved: bool = True
@@ -56,6 +66,13 @@ class DoclingExportSettings:
 
 @dataclass(frozen=True)
 class DoclingExportResult:
+    """Result of a Docling export build.
+
+    Attributes:
+        document: The Docling document as a JSON-serialisable dictionary.
+        warnings: Warnings raised while projecting the LinkedStructure.
+    """
+
     document: dict[str, Any]
     warnings: list[str]
 
@@ -189,6 +206,26 @@ def build_docling_document(
     settings: DoclingExportSettings = DoclingExportSettings(),
     source_pdf: Path | str | None = None,
 ) -> DoclingExportResult:
+    """Project a LinkedStructure into a Docling-compatible document dict.
+
+    Walks ``linked.nodes`` in reading order, maps each node to the
+    appropriate Docling container (``texts``, ``tables``, ``pictures`` or
+    ``groups``), attaches provenance and metadata, and resolves relations
+    into Docling parent/child references. Unknown block kinds are routed
+    to ``texts`` with a ``block_kind_unmapped`` warning.
+
+    Args:
+        linked: Linked structure to project.
+        consensus: Optional consensus IR used to backfill bbox/page
+            provenance when nodes carry only consensus block references.
+        settings: Schema-name and inclusion settings.
+        source_pdf: Original PDF path; used to populate ``origin``.
+
+    Returns:
+        A DoclingExportResult containing the document dict and the
+        warning list (schema, provenance and validation warnings).
+    """
+
     warnings: list[str] = []
     nodes = sorted(linked.nodes, key=lambda n: (n.order, n.id))
     emitted_nodes = [n for n in nodes if settings.include_unresolved or _value(n.status) != "unresolved"]
@@ -324,6 +361,19 @@ def _items_by_ref(document: dict[str, Any]) -> dict[str, dict[str, Any]]:
 
 
 def validate_docling_like_document(document: dict[str, Any]) -> list[str]:
+    """Run lightweight structural checks on a Docling-like document.
+
+    Verifies that required top-level keys are present, ``self_ref`` values
+    are unique, child references resolve, page references are known and
+    pdf2md metadata is attached.
+
+    Args:
+        document: The Docling document dictionary to validate.
+
+    Returns:
+        A list of warning strings (empty when the document is valid).
+    """
+
     warnings: list[str] = []
     required = ["schema_name", "version", "name", "origin", "body", "groups", "texts", "tables", "pictures", "pages", "key_value_items", "form_items", "metadata"]
     for key in required:
@@ -358,6 +408,17 @@ def validate_docling_like_document(document: dict[str, Any]) -> list[str]:
 
 
 def try_validate_with_docling_core(document: dict[str, Any]) -> tuple[bool, str | None]:
+    """Attempt validation through ``docling_core.types.doc.DoclingDocument``.
+
+    Args:
+        document: The Docling document dictionary to validate.
+
+    Returns:
+        A tuple ``(ok, reason)`` where ``ok`` is ``True`` only when
+        docling_core is installed and accepts the document; ``reason``
+        carries a short marker string explaining the outcome.
+    """
+
     if util.find_spec("docling_core") is None:
         return False, "docling_core_unavailable"
     module = import_module("docling_core.types.doc.document")

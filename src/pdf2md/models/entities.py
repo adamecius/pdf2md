@@ -16,6 +16,8 @@ RELATION_ID_PATTERN = re.compile(r"^rel:[a-z0-9_-]+:[A-Za-z0-9_.-]+:\d+$")
 
 
 class EntityType(str, Enum):
+    """Canonical entity-type taxonomy for document-level entity proposals."""
+
     DOCUMENT_TITLE = "document_title"
     SECTION = "section"
     TOC_ENTRY = "toc_entry"
@@ -34,6 +36,8 @@ class EntityType(str, Enum):
 
 
 class RelationType(str, Enum):
+    """Canonical relation-type taxonomy for entity-to-entity proposals."""
+
     CAPTION_OF = "caption_of"
     FOOTNOTE_ANCHOR_FOR = "footnote_anchor_for"
     TOC_POINTS_TO = "toc_points_to"
@@ -45,6 +49,8 @@ class RelationType(str, Enum):
 
 
 class EvidenceKind(str, Enum):
+    """Kinds of evidence supporting an entity or relation proposal."""
+
     BLOCK_TEXT = "block_text"
     BBOX = "bbox"
     REGEX = "regex"
@@ -57,6 +63,8 @@ class EvidenceKind(str, Enum):
 
 
 class ConfidenceSource(str, Enum):
+    """Provenance of a confidence value attached to a proposal."""
+
     HEURISTIC = "heuristic"
     CALIBRATED = "calibrated"
     MANUAL = "manual"
@@ -68,6 +76,20 @@ class _EntityBaseModel(BaseModel):
 
 
 class EntityEvidence(_EntityBaseModel):
+    """One piece of evidence backing an entity or relation proposal.
+
+    Attributes:
+        kind: Category of evidence (text, bbox, regex, position, ...).
+        page_no: One-based page number the evidence comes from, if any.
+        source_block_id: Extraction block id the evidence references, if any.
+        raw_ref: Free-form reference to a backend-native artifact.
+        text: Optional textual excerpt supporting the proposal.
+        bbox: Optional bounding box localising the evidence.
+        weight: Weight of this evidence in [0, 1].
+        reason: Human-readable justification for the evidence.
+        metadata: Free-form metadata bag.
+    """
+
     kind: EvidenceKind
     page_no: int | None = Field(default=None, ge=1)
     source_block_id: str | None = None
@@ -87,6 +109,25 @@ class EntityEvidence(_EntityBaseModel):
 
 
 class EntityProposal(_EntityBaseModel):
+    """One backend's proposal for a document-level entity.
+
+    Produced by entity-proposal stages from per-backend extractions and
+    consumed by the linker when building the unified LinkedStructure.
+
+    Attributes:
+        id: Canonical entity id (`ent:<backend>:<doc>:<type>:<index>`).
+        entity_type: Entity-type taxonomy value.
+        subtype: Optional finer-grained subtype tag.
+        canonical_text: Normalised textual form, if applicable.
+        page_no: One-based page number, if entity is page-local.
+        block_ids: Extraction block ids supporting this proposal.
+        confidence: Proposal confidence in [0, 1].
+        confidence_source: How the confidence was produced.
+        evidence: One or more EntityEvidence items backing the proposal.
+        calibration_key: Optional key used to look up calibrated priors.
+        metadata: Free-form metadata bag.
+    """
+
     id: str
     entity_type: EntityType
     subtype: str | None = None
@@ -116,6 +157,19 @@ class EntityProposal(_EntityBaseModel):
 
 
 class RelationProposal(_EntityBaseModel):
+    """One backend's proposal for a relation between two entities.
+
+    Attributes:
+        id: Canonical relation id (`rel:<backend>:<doc>:<index>`).
+        relation_type: Relation-type taxonomy value.
+        source_entity_id: Entity id of the relation's source endpoint.
+        target_entity_id: Entity id of the relation's target endpoint.
+        confidence: Proposal confidence in [0, 1].
+        confidence_source: How the confidence was produced.
+        evidence: One or more EntityEvidence items backing the proposal.
+        metadata: Free-form metadata bag.
+    """
+
     id: str
     relation_type: RelationType
     source_entity_id: str
@@ -147,6 +201,24 @@ class RelationProposal(_EntityBaseModel):
 
 
 class EntityProposalDocument(_EntityBaseModel):
+    """Per-backend, per-document bundle of entity and relation proposals.
+
+    Produced by the entity-proposal stage for one backend over one
+    document and consumed by the linker.
+
+    Attributes:
+        schema_name: Fixed marker for the JSON schema.
+        schema_version: Schema version string.
+        document_id: Identifier of the source document.
+        backend: Backend that produced the proposals.
+        backend_version: Optional backend version tag.
+        page_count: Total number of pages in the document.
+        entities: List of EntityProposal items with unique ids.
+        relations: List of RelationProposal items with unique ids.
+        warnings: Stage-level warnings.
+        metadata: Free-form metadata bag.
+    """
+
     schema_name: Literal["pdf2md.EntityProposalDocument"] = "pdf2md.EntityProposalDocument"
     schema_version: Literal["1.0.0"] = ENTITY_SCHEMA_VERSION
     document_id: str = Field(min_length=1)

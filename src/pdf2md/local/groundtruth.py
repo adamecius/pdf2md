@@ -42,6 +42,8 @@ _META_FIELDS: tuple[str, ...] = (
 
 
 class DocumentStatus(str, Enum):
+    """Ground-truth document readiness classification."""
+
     READY = "ready"
     PARTIAL = "partial"
     MISSING_CRITICAL = "missing_critical"
@@ -52,6 +54,16 @@ class _GroundtruthBaseModel(BaseModel):
 
 
 class ArtefactPresence(_GroundtruthBaseModel):
+    """Presence record for one ground-truth artefact kind.
+
+    Attributes:
+        kind: Artefact kind identifier (e.g. ``tex``, ``meta_toml``).
+        required: Whether the artefact is required for readiness.
+        present: True when at least one matching file was found.
+        paths: Basenames of the matching files.
+        detail: Optional free-form note explaining the presence record.
+    """
+
     kind: str
     required: bool
     present: bool
@@ -60,6 +72,22 @@ class ArtefactPresence(_GroundtruthBaseModel):
 
 
 class DocumentValidationEntry(_GroundtruthBaseModel):
+    """Validation outcome for a single ground-truth document directory.
+
+    Attributes:
+        document_id: Logical document identifier (directory name).
+        document_path: Filesystem path of the document directory.
+        status: Readiness classification.
+        artefacts: Per-kind ArtefactPresence records.
+        required_present: Required artefact kinds that were found.
+        required_missing: Required artefact kinds that were absent.
+        optional_present: Optional artefact kinds that were found.
+        optional_missing: Optional artefact kinds that were absent.
+        warnings: Per-document warnings (missing artefacts, parse
+            failures).
+        metadata: Free-form metadata, including meta.toml expectations.
+    """
+
     document_id: str
     document_path: str
     status: DocumentStatus
@@ -73,6 +101,24 @@ class DocumentValidationEntry(_GroundtruthBaseModel):
 
 
 class GroundtruthValidationReport(_GroundtruthBaseModel):
+    """Aggregated ground-truth corpus validation report.
+
+    Attributes:
+        schema_name: Fixed schema marker.
+        schema_version: Schema version string.
+        generated_at: UTC timestamp of report generation.
+        tool_name: Identifier of the reporting tool.
+        corpus_root: Filesystem path of the inspected corpus root.
+        corpus_ready: True only when every document is ``READY``.
+        total_documents: Number of documents inspected.
+        documents_ready: Count of ready documents.
+        documents_partial: Count of partial documents.
+        documents_missing_critical: Count of missing-critical documents.
+        documents: Per-document validation entries.
+        warnings: Run-level warnings.
+        metadata: Free-form report metadata.
+    """
+
     schema_name: Literal["pdf2md.LocalGroundtruthValidationReport"] = (
         "pdf2md.LocalGroundtruthValidationReport"
     )

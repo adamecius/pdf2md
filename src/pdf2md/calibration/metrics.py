@@ -19,6 +19,23 @@ from pdf2md.models.priors import (
 
 @dataclass(frozen=True)
 class CalibrationSettings:
+    """Thresholds and smoothing parameters used to compute calibration priors.
+
+    Attributes:
+        min_samples: Minimum number of supporting matches (TP+FP+FN) required
+            before a metric is considered ``CALIBRATED`` rather than
+            ``UNDERPOWERED``.
+        smoothing_alpha: Laplace alpha pseudo-count added to true positives in
+            smoothed-precision computation.
+        smoothing_beta: Laplace beta pseudo-count added to false positives in
+            smoothed-precision computation.
+        default_confidence: Confidence value to fall back to when a key has no
+            calibration prior.
+
+    Raises:
+        ValueError: If any field is outside its admissible range.
+    """
+
     min_samples: int = 5
     smoothing_alpha: float = 1.0
     smoothing_beta: float = 1.0
@@ -36,21 +53,25 @@ class CalibrationSettings:
 
 
 def compute_precision(tp: int, fp: int) -> float:
+    """Return ``tp / (tp + fp)``, or ``0.0`` when both counts are zero."""
     denominator = tp + fp
     return 0.0 if denominator == 0 else tp / denominator
 
 
 def compute_recall(tp: int, fn: int) -> float:
+    """Return ``tp / (tp + fn)``, or ``0.0`` when both counts are zero."""
     denominator = tp + fn
     return 0.0 if denominator == 0 else tp / denominator
 
 
 def compute_f1(precision: float, recall: float) -> float:
+    """Return the harmonic mean of precision and recall, or ``0.0`` when both are zero."""
     denominator = precision + recall
     return 0.0 if denominator == 0 else 2 * precision * recall / denominator
 
 
 def smoothed_precision(tp: int, fp: int, alpha: float, beta: float) -> float:
+    """Return Laplace-smoothed precision ``(tp + alpha) / (tp + fp + alpha + beta)``."""
     return (tp + alpha) / (tp + fp + alpha + beta)
 
 
@@ -62,6 +83,22 @@ def metric_from_counts(
     settings: CalibrationSettings,
     metadata: dict[str, Any] | None = None,
 ) -> CalibrationMetric:
+    """Build a calibration metric from raw TP/FP/FN counts.
+
+    Computes precision, recall, F1, and smoothed precision (the calibrated
+    confidence), and assigns a status of ``NO_SAMPLES``, ``UNDERPOWERED``, or
+    ``CALIBRATED`` based on the support count and ``settings.min_samples``.
+
+    Args:
+        target: Calibration target this metric belongs to.
+        key: Target-specific bucket key (block-kind value, entity type, ...).
+        counts: TP/FP/FN counts for the bucket.
+        settings: Thresholds and smoothing parameters.
+        metadata: Optional free-form payload attached to the metric.
+
+    Returns:
+        A ``CalibrationMetric`` populated with the derived values.
+    """
     tp = counts.true_positive
     fp = counts.false_positive
     fn = counts.false_negative
@@ -124,6 +161,24 @@ def build_prior_document(
     warnings: list[str],
     metadata: dict[str, Any] | None = None,
 ) -> CalibrationPriorDocument:
+    """Aggregate match records into a per-backend ``CalibrationPriorDocument``.
+
+    Records are bucketed by ``(target, key)``, converted to counts, and turned
+    into sorted ``CalibrationMetric`` lists for each calibration target
+    (block kind, entity type, relation type, and calibration key).
+
+    Args:
+        backend: Identifier of the backend the priors describe.
+        backend_version: Backend version string for traceability, or None.
+        generated_from: Document identifiers contributing to the priors.
+        records: Match records produced by the matching pass.
+        settings: Thresholds and smoothing parameters.
+        warnings: Non-fatal warnings to propagate into the prior document.
+        metadata: Optional free-form payload attached to the prior document.
+
+    Returns:
+        A ``CalibrationPriorDocument`` ready to be serialised to disk.
+    """
     counts = _counts_from_records(records)
     return CalibrationPriorDocument(
         backend=backend,

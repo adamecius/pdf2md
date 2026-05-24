@@ -1,3 +1,10 @@
+"""TOML configuration loader for backend orchestration.
+
+Parses `pdf2md.backends.toml` files into a validated dictionary used by
+`pdf2md.backends.runner` to dispatch each enabled OCR backend in its own
+conda environment.
+"""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -8,6 +15,19 @@ REQUIRED_BACKEND_KEYS = {"enabled", "runner", "env_name", "script"}
 
 
 def load_backend_config(path: Path) -> dict:
+    """Load and validate a backend TOML configuration file.
+
+    Args:
+        path: Filesystem path to a ``pdf2md.backends.toml`` file.
+
+    Returns:
+        The parsed configuration dict (``settings`` and ``backends``
+        tables).
+
+    Raises:
+        FileNotFoundError: If ``path`` does not exist.
+        ValueError: If the configuration fails schema validation.
+    """
     with path.open("rb") as f:
         config = tomllib.load(f)
     validate_backend_config(config)
@@ -15,11 +35,34 @@ def load_backend_config(path: Path) -> dict:
 
 
 def get_enabled_backends(config: dict) -> dict:
+    """Return the subset of configured backends with ``enabled = true``.
+
+    Args:
+        config: Parsed backend configuration dict.
+
+    Returns:
+        Mapping from backend name to its TOML table, preserving order
+        of the input dict, restricted to entries with ``enabled = true``.
+    """
     backends = config.get("backends", {})
     return {name: data for name, data in backends.items() if data.get("enabled") is True}
 
 
 def validate_backend_config(config: dict) -> None:
+    """Validate the shape of a parsed backend TOML config.
+
+    Checks that ``[settings]`` (if present) is a table, ``[backends]``
+    exists and is a table, and every backend entry carries the required
+    keys (``enabled``, ``runner``, ``env_name``, ``script``) with the
+    expected types.
+
+    Args:
+        config: Parsed configuration dict.
+
+    Raises:
+        ValueError: On any structural or type mismatch, with a message
+            naming the offending key.
+    """
     if not isinstance(config, dict):
         raise ValueError("Config must be a TOML table.")
 
