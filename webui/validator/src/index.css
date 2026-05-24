@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset for full-viewport layout */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+/* Tree node hover highlight, applied via inline data attributes */
+[data-block-highlight="true"] {
+  outline: 2px solid #f59e0b;
+  background-color: rgba(245, 158, 11, 0.10);
+}
+
+/* Bbox overlays on the PDF canvas */
+.bbox-overlay {
+  position: absolute;
+  pointer-events: auto;
+  cursor: pointer;
+  border: 1.5px solid;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.bbox-overlay:hover {
+  background-color: rgba(245, 158, 11, 0.18);
+  outline: 2px solid #f59e0b;
+}
+
+.bbox-overlay-label {
+  position: absolute;
+  top: -16px;
+  left: 0;
+  font-size: 9px;
+  padding: 1px 4px;
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 2px;
+  white-space: nowrap;
+  pointer-events: none;
+}
