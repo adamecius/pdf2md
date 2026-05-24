@@ -26,7 +26,7 @@ import type {
 } from "@pdf2md/shared";
 import BlockTree, { type BlockNode } from "../components/BlockTree";
 import PdfPanel, { type BlockOverlay } from "../components/PdfPanel";
-import { fetchJson, tryFetchJson } from "../lib/api";
+import { assetUrl, listDir, tryFetchJson } from "../lib/api";
 import { listDatasets } from "../lib/datasets";
 
 // ---------------------------------------------------------------------------
@@ -86,9 +86,7 @@ async function loadCompare(docId: string): Promise<CompareData> {
 }
 
 async function loadPages(connectorRoot: string): Promise<PageExtractionIR[]> {
-  const dir = await tryFetchJson<{ name: string; is_dir: boolean }[]>(
-    `${connectorRoot}/pages`,
-  );
+  const dir = await listDir(`${connectorRoot}/pages`);
   if (!dir) return [];
   const pages: PageExtractionIR[] = [];
   for (const entry of dir.filter((e) => !e.is_dir && e.name.endsWith(".json"))) {
@@ -295,7 +293,7 @@ export default function Compare() {
       {/* PDF panel (5 cols) */}
       <div className="col-span-5 border-r border-slate-300 bg-white">
         <PdfPanel
-          pdfPath={data.dataset.pdfPath}
+          pdfPath={assetUrl(data.dataset.pdfPath)}
           overlays={overlays}
           highlightedId={highlightedId}
           onHover={setHighlightedId}

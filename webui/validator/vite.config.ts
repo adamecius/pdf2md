@@ -86,7 +86,14 @@ const repoDataServer: Plugin = {
   },
 };
 
+// Production base path. Set via `VITE_BASE=/pdf2md/ npm run build:pages`
+// for GitHub Pages deploys (where the SPA is served from
+// https://<owner>.github.io/<repo>/). Defaults to "/" so local builds and
+// previews work without configuration.
+const PROD_BASE = process.env.VITE_BASE ?? "/";
+
 export default defineConfig({
+  base: PROD_BASE,
   plugins: [react(), repoDataServer],
   resolve: {
     alias: {
