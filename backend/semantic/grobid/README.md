@@ -12,6 +12,14 @@ where layout dominates).
 
 ## Install
 
+> :warning: **The Docker install path below is inconsistent with the
+> rest of the project** (every other backend uses a `pdf2md-<name>`
+> conda env). A redesign that swaps Docker for a `pdf2md-grobid` conda
+> env + a startup script is queued as
+> [Plan 005_2](../../../plans/005_2-grobid-conda-env.md). Use the
+> Docker path below only if you already have the Docker daemon
+> available; otherwise wait for the conda-env rewrite.
+
 GROBID runs as a Docker container. No conda env is required — only
 `requests`, already present in the main `pdf2md` env.
 

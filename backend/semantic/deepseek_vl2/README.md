@@ -12,6 +12,11 @@ layers) and the most expensive (GPU memory + a few seconds per page).
 
 ## Install
 
+> :warning: **The install path documented below is currently broken on
+> CUDA 12.x hosts** — see *"Status: install broken (2026-05-24)"* at the
+> end of this section. The conda env creates cleanly, but the model
+> load step fails. A redesign is queued as Plan 005_1.
+
 ```bash
 conda env create -f backend/semantic/deepseek_vl2/env.yaml
 conda activate pdf2md-deepseek-vl2
@@ -30,6 +35,39 @@ This creates the `pdf2md-deepseek-vl2` env with:
 | accelerate | ≥0.34 | pip |
 | sentencepiece | ≥0.2 | pip |
 | einops | ≥0.8 | pip |
+
+### Status: install broken (verified 2026-05-24)
+
+This env on its own does **not** support `deepseek-ai/deepseek-vl2-small`.
+
+- Stock `transformers` (any version from 4.45 to 4.57) does not register
+  the `deepseek_vl_v2` architecture — even with `trust_remote_code=True`.
+  Model load fails with:
+
+  ```text
+  env_not_ready: model load failed: The checkpoint you are trying to load
+  has model type `deepseek_vl_v2` but Transformers does not recognize
+  this architecture.
+  ```
+
+- Installing the official source package from
+  `git+https://github.com/deepseek-ai/DeepSeek-VL2.git` registers the
+  architecture but pins `torch==2.0.1` + `transformers==4.38.2` exactly,
+  plus needs `timm`, `xformers`, and `attrdict`. Forcing those pins
+  conflicts with the CUDA 12.x torch this env ships; relaxing them
+  (via `pip install --no-deps` plus a manual pin of newer compatible
+  versions of the transitive deps) bumps torch to 2.12 which in turn
+  breaks the conda `torchvision=0.19` binary with
+  `operator torchvision::nms does not exist`.
+
+  See `plans/005_1-deepseek-vl2-rework.md` (drafted) for the planned
+  redesign. The two paths under consideration:
+  1. Pin `deepseek-vl2`'s exact dep set (torch 2.0.1 + transformers
+     4.38.2 + matching CUDA 11.8 torchvision) in a wholly separate
+     env, isolated from the rest of the project.
+  2. Migrate the VLM backend to a stock-transformers-supported model
+     (Qwen2-VL, LLaVA-OneVision, InternVL) so the env can stay on a
+     modern CUDA toolchain.
 
 Hardware requirements:
 
