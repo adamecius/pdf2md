@@ -15,10 +15,13 @@ Clone the repo and install in editable mode in the `pdf2md` conda env:
 ```bash
 git clone https://github.com/adamecius/pdf2md.git
 cd pdf2md
-conda create -n pdf2md python=3.11 -y
+conda create -n pdf2md python=3.12 -y
 conda activate pdf2md
 python -m pip install -e .
 ```
+
+`requires-python` is `>=3.11,<3.14`. 3.12 is the tested/recommended
+version (matches the per-backend environment defaults).
 
 Confirm:
 

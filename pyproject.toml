@@ -5,11 +5,17 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pdf2md"
 version = "0.1.0"
-description = "PDF to Markdown converter skeleton"
-requires-python = ">=3.11"
+description = "Multi-backend PDF reconstruction system targeting a Docling-compatible structured output."
+# Tested on 3.11–3.13 (the conda env shipped in the repo uses 3.12). 3.14 is
+# excluded until the upstream deps publish wheels.
+requires-python = ">=3.11,<3.14"
 dependencies = [
-  "pydantic>=2",
+  "pydantic>=2.6",
   "typer>=0.12",
+  # PDF parsing — used by connectors, testing fixtures, and tools/.
+  "PyMuPDF>=1.24",
+  # Canonical export-target schema and serialiser.
+  "docling-core>=2.0",
 ]
 
 [project.optional-dependencies]

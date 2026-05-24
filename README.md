@@ -32,6 +32,156 @@ and roadmap respectively.
 
 ---
 
+## Installation
+
+### Requirements
+
+| | Version | Notes |
+|---|---|---|
+| Python | 3.11–3.13 | Recommended: **3.12** (matches all backend env files). |
+| OS | Linux / macOS / Windows | Backend GPU recipes are Linux + NVIDIA. |
+| `conda` (or `mamba`) | any recent | Backend envs are conda envs by convention. |
+
+System packages (only required if you want to compile the LaTeX
+ground-truth corpus or run the calibration tutorial):
+
+```
+TeX Live ≥ 2024 with lualatex, latexmk
+latexml         (optional — produces the XML twin used by some fixtures)
+```
+
+The main package itself has no system dependencies beyond a working
+Python.
+
+### 1. Install the main package
+
+```bash
+git clone https://github.com/adamecius/pdf2md.git
+cd pdf2md
+conda create -n pdf2md python=3.12 -y
+conda activate pdf2md
+python -m pip install -e .
+```
+
+Confirm:
+
+```bash
+pdf2md --help
+```
+
+The main package pulls in:
+
+| Dep | Pin | Used by |
+|---|---|---|
+| `pydantic` | `>=2.6` | All IR / entity / prior / linked / export models. |
+| `typer` | `>=0.12` | CLI surface (`pdf2md ...`). |
+| `PyMuPDF` | `>=1.24` | Connector + testing-fixture PDF parsing. |
+| `docling-core` | `>=2.0` | Canonical export-target schema. |
+
+For development tooling (`ruff`, `mypy`, `pytest`):
+
+```bash
+python -m pip install -e ".[dev]"
+```
+
+### 2. Supported backends
+
+A backend is **supported** when it has a tested setup script and a
+pinned working version. All four current backends are supported on
+Linux + NVIDIA GPU; `glm` also works on any host with network access
+and an API key (no GPU). MinerU and DeepSeek are GPU-required.
+
+| Backend | Env name | Python | Key versions (pinned) | GPU | Setup |
+|---|---|---|---|---|---|
+| **paddleocr** | `pdf2md-paddleocr` | 3.12 | `paddlepaddle==3.0.0` (cu118 wheel for GPU), `paddleocr>=2.7,<3.0`, `PyMuPDF>=1.24` | CUDA 11.8 + cuDNN 8 | [`backend/paddleocr/setup.py`](backend/paddleocr/setup.py) |
+| **mineru** | `pdf2md-mineru` | 3.12 | `mineru[pipeline]==3.1.4`, `torch==2.7.0+cu126`, `torchvision==0.22.0+cu126` | CUDA 12.6 | [`backend/mineru/setup.py`](backend/mineru/setup.py) |
+| **deepseek** | `pdf2md-deepseek` | 3.12.9 | `transformers==4.46.3`, `tokenizers==0.20.3`, `numpy==2.2.6`, `vllm==0.8.5+cu118` | CUDA 11.8 | [`backend/deepseek/setup.py`](backend/deepseek/setup.py) |
+| **glm** | `pdf2md-glm` | 3.12 | `requests>=2.31`, `PyMuPDF>=1.24` (API-based; no model) | not required | [`backend/glm/setup_env.py`](backend/glm/setup_env.py) |
+
+"Supported" here means: the listed setup script installs the listed
+versions and `tools/backend_smoke.py` has been observed to run an
+end-to-end PDF→IR conversion with that combination. Newer upstream
+releases may work but are not part of the supported set.
+
+### 3. Install a backend
+
+Each backend lives in its own conda env so version conflicts
+(CUDA, paddle, torch) don't poison each other. You only need one
+backend to run a conversion; install more for calibrated
+multi-backend consensus.
+
+Easiest path — install the backend's pinned env via the simple
+`setup_env.py`:
+
+```bash
+# Pick one (or more):
+python backend/paddleocr/setup_env.py
+python backend/mineru/setup_env.py
+python backend/deepseek/setup_env.py
+python backend/glm/setup_env.py
+```
+
+The `setup_env.py` scripts read the per-backend `environment.yml` and
+`requirements.txt` files (which carry the pinned versions in the
+table above). They are deterministic and offline-friendly once the
+wheels are cached.
+
+For the **rich** installer (system checks, GPU detection, optional
+model downloads, CUDA toolkit install), each backend also ships a
+`setup.py`:
+
+```bash
+python backend/paddleocr/setup.py     # PaddleOCR with GPU detection
+python backend/mineru/setup.py        # MinerU + vLLM acceleration
+python backend/deepseek/setup.py      # DeepSeek-OCR-2 + vLLM + CUDA 11.8 toolkit
+# glm has no rich setup — setup_env.py is sufficient (API-based)
+```
+
+Use `setup_env.py` to reproduce the supported version set exactly.
+Use `setup.py` when you need GPU/system-level orchestration (CUDA
+toolkit, vLLM wheels, model weight downloads).
+
+### 4. Wire the backend into the runner
+
+```bash
+cp pdf2md.backends.example.toml pdf2md.backends.toml
+# Edit: set `enabled = true` for the backends you installed.
+```
+
+For paddleocr GPU runtime, uncomment the
+`[backends.paddleocr.env]` block in `pdf2md.backends.toml` and set
+`LD_LIBRARY_PATH` to the cuDNN / cuBLAS / nvrtc directories inside
+the `pdf2md-paddleocr` conda env. See
+[`backend/paddleocr/README.md`](backend/paddleocr/README.md) for the
+full GPU recipe (paddle 3.0.0 cu118 + cuDNN 8 — paddle 3.1+ has an
+oneDNN runtime bug that crashes PPStructureV3).
+
+### 5. Verify the installation
+
+```bash
+# Smoke-check the main env
+pdf2md --help
+conda run -n pdf2md pytest tests/ -q --ignore=tests/_legacy_temp -x
+
+# Smoke-check a backend (replace paddleocr with the one you installed)
+DOC=linked_sections_figures
+PDF="groundtruth/corpus/latex/$DOC/$DOC.pdf"
+conda run -n pdf2md python tools/backend_smoke.py \
+    --input-pdf "$PDF" \
+    --out-dir /tmp/backend_smoke \
+    --gate-minimum 1 --verbose
+```
+
+If anything fails, see
+[`docs/how-to/troubleshoot-local-runs.md`](docs/how-to/troubleshoot-local-runs.md)
+for common error signatures (CUDA libs, paddle PIR bug, LaTeX toolchain).
+
+For the full operator manual,
+[`docs/getting-started.md`](docs/getting-started.md) walks the same
+flow with the next steps after install.
+
+---
+
 ## 1. Project goal
 
 `pdf2md` processes different classes of complete PDF documents:

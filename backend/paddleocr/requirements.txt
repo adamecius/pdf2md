@@ -1,4 +1,11 @@
-paddlepaddle
-paddleocr
-PyMuPDF
-Pillow
+# PaddleOCR backend — tested working set.
+# CPU build (the default). For GPU, see backend/paddleocr/README.md and
+# backend/paddleocr/setup.py: replace `paddlepaddle` with the matching
+# `paddlepaddle-gpu==3.0.0` wheel from
+# https://www.paddlepaddle.org.cn/packages/stable/cu118/ plus the
+# nvidia-cudnn-cu11 / nvidia-cublas-cu11 / nvidia-cuda-nvrtc-cu11
+# supplemental wheels.
+paddlepaddle==3.0.0
+paddleocr>=2.7,<3.0
+PyMuPDF>=1.24
+Pillow>=10

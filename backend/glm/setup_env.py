@@ -5,7 +5,7 @@ from pathlib import Path
 
 def main():
  p=argparse.ArgumentParser(description='Setup GLM backend environment')
- p.add_argument('--manager',choices=['conda','venv'],default='conda'); p.add_argument('--env-name',default='pdf2md-glm'); p.add_argument('--python',default='3.11')
+ p.add_argument('--manager',choices=['conda','venv'],default='conda'); p.add_argument('--env-name',default='pdf2md-glm'); p.add_argument('--python',default='3.12')
  a=p.parse_args(); here=Path(__file__).resolve().parent
  if a.manager=='conda': cmd=['conda','env','create','-n',a.env_name,'-f',str(here/'environment.yml')]
  else:
