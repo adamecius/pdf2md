@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0.0",
+  "doc_hash": "sha256:eval_extracted_fixture_v1",
+  "markers": [
+    {
+      "source_ref": "#/document",
+      "marker_text": "Figure 1",
+      "marker_type": "figure",
+      "char_offset": [0, 8],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Figure 2",
+      "marker_type": "figure",
+      "char_offset": [20, 28],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[15]",
+      "marker_type": "bibliography",
+      "char_offset": [60, 64],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Figure 99",
+      "marker_type": "figure",
+      "char_offset": [80, 89],
+      "confidence": 1.0,
+      "backend": "regex"
+    }
+  ],
+  "edges": [
+    {
+      "marker": {
+        "source_ref": "#/document",
+        "marker_text": "Figure 1",
+        "marker_type": "figure",
+        "char_offset": [0, 8],
+        "confidence": 1.0,
+        "backend": "regex"
+      },
+      "target_ref": "#fig:one",
+      "resolved": true,
+      "resolution_method": "exact"
+    },
+    {
+      "marker": {
+        "source_ref": "#/document",
+        "marker_text": "Figure 2",
+        "marker_type": "figure",
+        "char_offset": [20, 28],
+        "confidence": 1.0,
+        "backend": "regex"
+      },
+      "target_ref": "#fig:wrong",
+      "resolved": true,
+      "resolution_method": "exact"
+    },
+    {
+      "marker": {
+        "source_ref": "#/document",
+        "marker_text": "[15]",
+        "marker_type": "bibliography",
+        "char_offset": [60, 64],
+        "confidence": 1.0,
+        "backend": "regex"
+      },
+      "target_ref": "#bib:fifteen",
+      "resolved": true,
+      "resolution_method": "exact"
+    },
+    {
+      "marker": {
+        "source_ref": "#/document",
+        "marker_text": "Figure 99",
+        "marker_type": "figure",
+        "char_offset": [80, 89],
+        "confidence": 1.0,
+        "backend": "regex"
+      },
+      "target_ref": null,
+      "resolved": false,
+      "resolution_method": "unresolved"
+    }
+  ],
+  "entities": [
+    {
+      "item_ref": "#/bibliography/bib:fifteen",
+      "entity_type": "bibliography",
+      "label": "bib:fifteen",
+      "confidence": 1.0,
+      "backend": "regex"
+    }
+  ],
+  "backend_versions": {
+    "regex": "0.1.0"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0.0",
+  "doc_hash": "sha256:eval_truth_fixture_v1",
+  "markers": [
+    {
+      "source_ref": "#/document",
+      "marker_text": "Figure 1",
+      "marker_type": "figure",
+      "char_offset": [0, 8],
+      "confidence": 1.0,
+      "backend": "ground_truth"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Figure 2",
+      "marker_type": "figure",
+      "char_offset": [20, 28],
+      "confidence": 1.0,
+      "backend": "ground_truth"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Section 2",
+      "marker_type": "section",
+      "char_offset": [40, 49],
+      "confidence": 1.0,
+      "backend": "ground_truth"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[15]",
+      "marker_type": "bibliography",
+      "char_offset": [60, 64],
+      "confidence": 1.0,
+      "backend": "ground_truth"
+    }
+  ],
+  "edges": [
+    {
+      "marker": {
+        "source_ref": "#/document",
+        "marker_text": "Figure 1",
+        "marker_type": "figure",
+        "char_offset": [0, 8],
+        "confidence": 1.0,
+        "backend": "ground_truth"
+      },
+      "target_ref": "#fig:one",
+      "resolved": true,
+      "resolution_method": "grobid_tei"
+    },
+    {
+      "marker": {
+        "source_ref": "#/document",
+        "marker_text": "Figure 2",
+        "marker_type": "figure",
+        "char_offset": [20, 28],
+        "confidence": 1.0,
+        "backend": "ground_truth"
+      },
+      "target_ref": "#fig:two",
+      "resolved": true,
+      "resolution_method": "grobid_tei"
+    },
+    {
+      "marker": {
+        "source_ref": "#/document",
+        "marker_text": "Section 2",
+        "marker_type": "section",
+        "char_offset": [40, 49],
+        "confidence": 1.0,
+        "backend": "ground_truth"
+      },
+      "target_ref": "#sec:two",
+      "resolved": true,
+      "resolution_method": "grobid_tei"
+    },
+    {
+      "marker": {
+        "source_ref": "#/document",
+        "marker_text": "[15]",
+        "marker_type": "bibliography",
+        "char_offset": [60, 64],
+        "confidence": 1.0,
+        "backend": "ground_truth"
+      },
+      "target_ref": "#bib:fifteen",
+      "resolved": true,
+      "resolution_method": "grobid_tei"
+    }
+  ],
+  "entities": [
+    {
+      "item_ref": "#/bibliography/bib:fifteen",
+      "entity_type": "bibliography",
+      "label": "bib:fifteen",
+      "confidence": 1.0,
+      "backend": "ground_truth"
+    }
+  ],
+  "backend_versions": {
+    "ground_truth": "0.1.0"
+  }
+}
