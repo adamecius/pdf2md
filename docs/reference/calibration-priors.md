@@ -1,17 +1,17 @@
-# Calibration and factory-prior management
+# Calibration priors
 
-This document is the operator's reference for the calibration
-subsystem and the three-level prior hierarchy introduced by Plan 19.
-It covers:
+Operator reference for the calibration subsystem and the three-level
+prior fallback chain introduced by Plan 19. It covers:
 
 1. What calibration produces and where the files live.
 2. How `tools/calibrate_priors.py` is invoked.
 3. The user → factory → uninformative fallback chain consumed by
    `consensus/io.py` at runtime.
-4. **How to refresh the factory priors shipped with the package** —
-   the update protocol (covers H6).
+4. **How to refresh the factory priors shipped with the package** — the
+   update protocol (covers H6). For the condensed procedure see also
+   [`../how-to/update-factory-priors.md`](../how-to/update-factory-priors.md).
 5. How to verify the post-Plan-19 invariants (H3 + H4 in
-   [tests/test_bayesian_feature_picker_human_h.py](../tests/test_bayesian_feature_picker_human_h.py)).
+   [`tests/test_bayesian_feature_picker_human_h.py`](../../tests/test_bayesian_feature_picker_human_h.py)).
 
 ---
 
@@ -51,7 +51,7 @@ F1, support, `calibrated_confidence`, and a `status` of `calibrated`,
 `underpowered`, `no_samples`, or `uninformative`.
 
 The consensus scorer
-([src/pdf2md/consensus/scoring.py](../src/pdf2md/consensus/scoring.py))
+([`src/pdf2md/consensus/scoring.py`](../../src/pdf2md/consensus/scoring.py))
 weights `calibrated_confidence` at 0.35 per BlockKind and 0.20 per
 EntityType, which makes calibration the dominant signal in the
 post-Plan-19 weighting (0.55 of the 1.0 total weight).
@@ -124,9 +124,9 @@ prior document's own `metadata.prior_type` field (`calibrated` /
 ## 4. Factory-prior update protocol (H6)
 
 Factory priors ship under
-[src/pdf2md/data/factory_priors/](../src/pdf2md/data/factory_priors/)
+[`src/pdf2md/data/factory_priors/`](../../src/pdf2md/data/factory_priors/)
 as package data declared in
-[pyproject.toml](../pyproject.toml)'s
+[`pyproject.toml`](../../pyproject.toml)'s
 `[tool.setuptools.package-data]` section. They are loaded at runtime
 via `pdf2md.models.priors.load_factory_prior()`.
 
@@ -209,7 +209,7 @@ fallback would have produced, but with audit-able provenance.
 ## 5. Verifying the post-Plan-19 invariants (H3 + H4)
 
 Two human-verification tests sit at
-[tests/test_bayesian_feature_picker_human_h.py](../tests/test_bayesian_feature_picker_human_h.py)
+[`tests/test_bayesian_feature_picker_human_h.py`](../../tests/test_bayesian_feature_picker_human_h.py)
 and assert the two load-bearing claims of the post-Plan-19 scheme:
 
 ```bash
@@ -245,13 +245,17 @@ running `pdf2md convert papers/<paper>.pdf`.
 
 ## 6. See also
 
-- [project.md §5](../project.md) — durable architecture description of
-  the consensus + calibration design.
-- [README.md §4](../README.md) — "Prior resolution (Plan 19)" section
-  in the public README.
-- [src/pdf2md/models/priors.py](../src/pdf2md/models/priors.py) —
-  Pydantic contracts (`CalibrationPriorDocument`,
+- [`../../project.md`](../../project.md) §5 — durable architecture
+  description of the consensus + calibration design.
+- [`../../README.md`](../../README.md) §4 — "Prior resolution
+  (Plan 19)" section in the public README.
+- [`../../src/pdf2md/models/priors.py`](../../src/pdf2md/models/priors.py)
+  — Pydantic contracts (`CalibrationPriorDocument`,
   `CalibrationMetric`, `CalibrationStatus.UNINFORMATIVE`,
   `build_uninformative_prior`, `load_factory_prior`).
-- [src/pdf2md/consensus/scoring.py](../src/pdf2md/consensus/scoring.py)
+- [`../../src/pdf2md/consensus/scoring.py`](../../src/pdf2md/consensus/scoring.py)
   — the scoring weights and the selection-mode decision logic.
+- [`../how-to/update-factory-priors.md`](../how-to/update-factory-priors.md)
+  — the short procedural recipe for the update protocol.
+- [`../tutorials/03-calibrate-priors-on-corpus.md`](../tutorials/03-calibrate-priors-on-corpus.md)
+  — the guided walkthrough from corpus compile to consensus feed-in.
