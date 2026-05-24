@@ -1,4 +1,3 @@
-from .document import BBox, Block, Document, Flag, Page, SourceRef
 from .ir import (
     BackendManifest,
     BlockKind,
@@ -80,12 +79,6 @@ from .export import (
 )
 
 __all__ = [
-    "BBox",
-    "Block",
-    "Document",
-    "Flag",
-    "Page",
-    "SourceRef",
     "SCHEMA_VERSION",
     "CoordOrigin",
     "BlockKind",

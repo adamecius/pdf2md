@@ -1,4 +1,8 @@
-from pdf2md.utils.semantic_document_builder import build
+import pytest
+
+from pdf2md._legacy.semantic_document_builder import build
+
+pytestmark = pytest.mark.legacy
 
 
 def test_media_metadata_and_relations():

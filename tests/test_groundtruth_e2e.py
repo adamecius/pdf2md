@@ -4,7 +4,9 @@ from pathlib import Path
 import pytest
 from pdf2md.testing import generate_mock_backend_ir
 from tests.groundtruth_paths import corpus_doc_dir, corpus_doc_ids
-from pdf2md.utils import consensus_report, semantic_document_builder, semantic_linker
+from pdf2md._legacy import consensus_report, semantic_document_builder, semantic_linker
+
+pytestmark = pytest.mark.legacy
 
 FIX_ROOT = Path('groundtruth/corpus/latex')
 DOC_IDS = corpus_doc_ids('batch_001')

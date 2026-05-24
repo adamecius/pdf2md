@@ -23,3 +23,31 @@ runs/
 pdf2md.backends.toml
 .tmp/
 .local_models/
+
+# Virtual environments — never track
+.venv*/
+venv*/
+.env/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Coverage
+htmlcov/
+.coverage
+.coverage.*

@@ -1,5 +1,9 @@
-from pdf2md.models import Block, Document, Page
-from pdf2md.renderers.markdown import render_markdown
+import pytest
+
+from pdf2md._legacy.models_document import Block, Document, Page
+from pdf2md._legacy.renderers_markdown import render_markdown
+
+pytestmark = pytest.mark.legacy
 
 
 def _sample_document() -> Document:
