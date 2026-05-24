@@ -12,25 +12,36 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
     - blockers: []
     - status: in_progress | ready_for_review | halted
 
-## PR #1 — 2026-05-24T22:00:00Z — mode: agent — Plan 008_0
-- branch: plan-008-0-semantic-viewer
+## PR #1 — 2026-05-24T22:30:00Z — mode: agent — Additional Plan 1
+- branch: plan-add1-external-dataset-downloaders
 - tasks_attempted:
-    - T1 (graph exporter): files_touched=[src/pdf2md/semantic/graph_export.py, src/pdf2md/semantic/__init__.py], tests_pass=[tests/test_graph_export.py — 8 passed: empty payload; markerless graph synthesises unresolved edges + marker nodes; resolved edge links to target node; marker extra metadata (source_ref/char_offset/backend) included on marker nodes; extra_entities surface as nodes; backend_versions pass through metadata; to_dict has the 5 documented top-level keys; repeated marker text + same source_ref at different offsets produces two distinct marker nodes], tests_fail_env=[], tests_fail_real=[]
-    - T2 (export CLI): files_touched=[tools/export_cross_ref_graph.py], tests_pass=[tests/test_export_cross_ref_graph_cli.py — 5 passed: writes graph.json with the 5 top-level keys; --inline-viewer writes self-contained HTML with <script id="graph-data"> tag + D3 v7 CDN reference + the doc_hash from the source graph inlined verbatim; rejects missing --xref (exit 2); rejects malformed JSON (exit 2); the static viewer index.html exists, is syntactically valid HTML, and references viewer.js + style.css + the D3 v7 CDN], tests_fail_env=[], tests_fail_real=[]
-    - T3 (static viewer): files_touched=[webui/cross_ref/index.html, webui/cross_ref/viewer.js, webui/cross_ref/style.css, webui/cross_ref/README.md], tests_pass=[verified by the static-viewer text-check test in tests/test_export_cross_ref_graph_cli.py + manual smoke: the `--inline-viewer` output is byte-identical to the same template loaded via index.html]. The viewer auto-loads ``graph.json`` from its directory when served over HTTP (skipped under file:// since fetch() is blocked there); under file:// the inline-viewer mode is the supported path.
-    - T4 (acceptance H1 — automated dry-run): files_touched=[], tests_pass=[`conda run -n pdf2md python tools/build_cross_references.py --backend regex --text tests/data/semantic_fixtures/sample_text.txt --out-dir /tmp/h1_export` → exit 0; `conda run -n pdf2md python tools/export_cross_ref_graph.py --xref /tmp/h1_export/cross_references.json --output /tmp/h1_export/graph.json --inline-viewer /tmp/h1_export/viewer.html` → exit 0, 19 nodes / 18 edges, viewer.html + graph.json written, top-level keys present], tests_fail_env=[browser rendering — agent cannot launch a browser; deferred to H1 human step], tests_fail_real=[]
+    - A1 (registry): files_touched=[], tests_pass=[tests/test_dataset_registry.py — 9 passed (lookup by id; lookup by alias; unknown id raises ValueError with valid choices listed; list_datasets returns all entries; arxiv-curated has status not_available; etc.)], tests_fail_env=[], tests_fail_real=[]. Existing implementation in src/pdf2md/datasets/registry.py was complete prior to this PR; no source changes needed.
+    - A2 (downloader): files_touched=[], tests_pass=[tests/test_dataset_downloader.py — 10 passed: successful clone + positioning from a local fake git repo, keep/exclude filtering (BOOK-PDFS excluded for a tlc3-like fixture), --force replaces existing, missing --force raises, missing git binary raises clear error]. Existing implementation complete; all tests use local fake git repos created with subprocess git init / commit. No network access in any test.
+    - A3 (manifest): files_touched=[], tests_pass=[tests/test_dataset_manifest.py — 9 passed: dataset.json generation with required schema fields, manifest.jsonl with deterministic root-file discovery, global external_datasets.json creation and update, missing-directory status detection]. Existing implementation complete.
+    - A4 (CLI): files_touched=[], tests_pass=[tests/test_dataset_cli.py — 7 passed: list shows registry entries; install --dry-run produces output without side effects; install with mocked downloader succeeds; install without --force on existing raises; install arxiv-curated prints not-available (exit code non-zero per the existing merged test contract); status reads and reports from index file; --compile flag prints "Not implemented in Additional Plan 1. See Plan 18 for compilation work."]. Existing implementation already registers `datasets_app` via `app.add_typer(datasets_app, name="datasets")` in src/pdf2md/cli/main.py.
+    - A5 (docs + placeholders): files_touched=[docs/datasets.md, groundtruth/external/.gitkeep, groundtruth/manifest/.gitkeep, tests/data/fake_repo/.gitkeep], tests_pass=[A5 has no automated tests per plan; verified via H1 dry-run], tests_fail_env=[], tests_fail_real=[]
 - automated_test_commands:
-    - `conda run -n pdf2md pytest tests/test_graph_export.py tests/test_export_cross_ref_graph_cli.py -q` → 13 passed
-    - `conda run -n pdf2md pytest tests/ -q --ignore=tests/_legacy_temp -x` → 1002 passed, 212 skipped, 16 xfailed, 0 failed (Plan 007 baseline 989 → +13, no regressions)
+    - `conda run -n pdf2md pytest tests/test_dataset_registry.py tests/test_dataset_downloader.py tests/test_dataset_manifest.py tests/test_dataset_cli.py -q` → 35 passed
+    - `conda run -n pdf2md pytest tests/ -q --ignore=tests/_legacy_temp -x` → 1002 passed, 212 skipped, 16 xfailed, 0 failed (no regressions from Plan 008 baseline 1002 — the dataset modules + tests were already merged in a previous plan iteration; this PR adds only docs + .gitkeep placeholders)
+- runtime_acceptance_commands_H1:
+    - `conda run -n pdf2md pdf2md datasets list` → exit 0, lists tlc3-examples / latex-cookbook / arxiv-curated with id, aliases, licence, status
+    - `conda run -n pdf2md pdf2md datasets install tlc3 --dry-run` → exit 0, prints dataset_id / source_url / ref / output / keep=['NORMAL','SPECIAL','SUPPORT','README.md','build.lua'] / exclude=['BOOK-PDFS'] / force_required=False; no files created under groundtruth/external/
+    - `conda run -n pdf2md pdf2md datasets install latex-cookbook --dry-run` → exit 0, prints dataset_id / source_url / ref / output / keep=['.'] / exclude=[] / force_required=False; no files created
+    - `conda run -n pdf2md pdf2md datasets install arxiv-curated` → exit 1 with message "Dataset arxiv-curated is not yet available for download". Note: the source plan §7 H1 "all four commands exit without error" criterion is inconsistent with the existing merged test contract (tests/test_dataset_cli.py:117 asserts `exit_code != 0` for this case). Since the implementation + tests landed in a prior cycle, this PR preserves the merged contract; the human reviewer may treat this as the intended behaviour (cleanly-reported non-zero exit to signal "cannot proceed") or flag it for a follow-up plan.
+    - `conda run -n pdf2md pdf2md datasets install tlc3 --compile` → "Not implemented in Additional Plan 1. See Plan 18 for compilation work."; --limit and --engine follow the same pattern.
+    - `conda run -n pdf2md pdf2md datasets status` → exit 0, reports tlc3-examples=not_installed, latex-cookbook=not_installed, arxiv-curated=not_available.
 - isolation_check:
-    - `graph_export.py` depends only on `pdf2md.models.cross_ref` (pydantic models). No imports of `backend/`, `webui/validator/`, `webui/shared/`, or any other Plan 005-007 module beyond models. No torch/transformers/Node.
-    - The static viewer loads D3 v7 from `https://cdn.jsdelivr.net/npm/d3@7` at runtime; no `package.json`/`package-lock.json` added to the repo and no npm install run in agent mode.
+    - groundtruth/external/.gitkeep + groundtruth/manifest/.gitkeep + tests/data/fake_repo/.gitkeep created; groundtruth/corpus/ untouched.
+    - No modifications to backend/, src/pdf2md/{consensus,linking,export,pipeline,models,semantic,connectors,calibration,local,conventions,testing,_legacy}/, generate_latex_docling_groundtruth.py, validate_latex_docling_groundtruth.py, pyproject.toml.
+    - No additions to pyproject.toml: typer + pydantic + pytest were already required; the dataset modules use only stdlib (subprocess, pathlib, json, shutil, tempfile, hashlib, re).
 - runner_contract_compliance:
-    - `export_graph(xref, *, document_id=None, extra_entities=None) -> GraphExport` and `GraphExport.to_dict() -> dict` match the §2 signatures.
-    - `tools/export_cross_ref_graph.py` exit codes 0 (success) / 2 (bad input) match the §3 specification; the unused `1` exit code is intentionally absent (Plan 008_0 does not have a "ran but produced nothing meaningful" failure mode — the marker-only graph is the normal Plan 006 default and yields a valid renderable payload via synthetic unresolved edges).
+    - `pdf2md datasets {list, install, status}` subcommands present and functional.
+    - `--dry-run` produces zero filesystem changes (verified: ls groundtruth/external/ shows only .gitkeep after the dry-run).
+    - --compile / --limit / --engine reserved flags print the documented "Not implemented..." message and exit cleanly.
 - dependencies_added: []
-- external_tools_used: []
+- external_tools_used: []   # `git` is invoked only at user-runtime via `pdf2md datasets install` — not by the agent
 - forbidden_files_touched: []
 - environment_modifying_commands: []
-- blockers: []
+- blockers:
+    - One discrepancy between the source plan §7 H1 pass criterion ("All four commands exit without error.") and the merged implementation/test contract for `pdf2md datasets install arxiv-curated` (existing test asserts `exit_code != 0`). Documented above for human review; not blocking ready_for_review.
 - status: ready_for_review
