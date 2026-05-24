@@ -1,8 +1,8 @@
-# Plan 007_0: Semantic Layer Ground Truth & Evaluation Harness
+# Plan 008_0: Semantic CrossReferenceGraph Viewer & D3 Export
 
 ## Status: active
 ## Date: 2026-05-24
-## Depends on: Plan 006_0 (human_verified, archived as M21)
+## Depends on: Plan 007_0 (human_verified, archived as M22)
 
 Allowed status values:
 draft
@@ -16,195 +16,146 @@ blocked
 superseded
 
 Branch name:
-plan-007-0-semantic-eval
+plan-008-0-semantic-viewer
 
 Source plan:
-plans/007_0-groundtruth-evaluation-example.md
+plans/008_0-visualization-web-integration.md
 
 ---
 
 ## 1. Goal
 
-Ship the ground-truth and evaluation half of the semantic layer:
+Make the semantic layer's `CrossReferenceGraph` visualisable. Ship:
 
-1. A **LaTeXML TEI → CrossReferenceGraph** ground-truth parser that
-   produces a `CrossReferenceGraph` (with `backend="ground_truth"` and
-   `confidence=1.0`) from a `.tex` source using the system `latexml`
-   tool (LaTeXML 0.8.6 is already installed on the dev host).
-2. A **semantic evaluation harness** that aligns an extracted
-   `CrossReferenceGraph` to a ground-truth graph and reports
-   precision/recall/F1 for marker detection plus resolution accuracy.
-3. A **benchmark runner CLI** that runs the Plan 006_0 backends across
-   an existing groundtruth corpus and produces a per-backend per-document
-   comparison table (CSV + JSON).
+1. A **graph exporter** that converts a `CrossReferenceGraph` (with
+   optional structural context from a `LinkedStructure` JSON) into a
+   D3-compatible node/link JSON format.
+2. A **standalone CLI** `tools/export_cross_ref_graph.py` that consumes
+   one or more `cross_references.json` files and writes the D3 JSON to
+   disk.
+3. A **static HTML viewer** under `webui/cross_ref/` that loads a D3
+   force-directed layout from the exported JSON. No build step — pure
+   HTML + JS + D3 from CDN — so it can be served by any static file
+   server (or opened directly via `file://`).
 
 Scope reductions vs. the source plan:
 
-- New controlled `.tex` corpus (source §2.1) → **deferred to Plan 007_1**;
-  Plan 007_0 reuses the existing `groundtruth/corpus/latex/` fixtures
-  shipped with previous plans.
-- Worked example under `examples/semantic_cross_references/` (source §4)
-  → **deferred to Plan 008**; the benchmark CLI is the proof-of-life
-  artefact for Plan 007_0.
+- PDF.js page-overlay view (source §2.2) → **deferred to Plan 008_1**.
+- Evaluation dashboard (source §2.3) → **deferred to Plan 008_2**;
+  the Plan 007_0 `results.csv` is already inspectable in any spreadsheet.
+- Integrated `pdf2md` CLI subcommand (source §4.3) → **deferred to
+  Plan 006_1** (which already owns the public CLI surface).
+- Integration with the existing React/Vite `webui/validator/` workspace
+  → **deferred to Plan 008_3**; this plan ships a separate vanilla-HTML
+  page under `webui/cross_ref/` to avoid coupling agent-mode work to
+  Node toolchain availability.
 
-## 2. Ground-truth parser
+## 2. Graph export module
 
-`src/pdf2md/semantic/groundtruth.py` — new module that wraps the system
-`latexml` binary and parses its TEI output into a `CrossReferenceGraph`:
-
-```python
-def generate_ground_truth(
-    tex_path: Path,
-    output_dir: Path,
-    *,
-    latexml_bin: str = "latexml",
-) -> CrossReferenceGraph:
-    """1. Run latexml on the .tex → TEI XML in output_dir/
-       2. Parse TEI: extract <ref target="..."/>, <note>, <bibl>
-       3. Build CrossReferenceGraph with backend="ground_truth"
-    """
-```
-
-Behaviour:
-
-- `latexml` binary lookup is `shutil.which(latexml_bin)`. When absent the
-  function raises `LatexMLUnavailableError`; the CLI catches and exits 3.
-- TEI parsing reuses the existing `_REF_TYPE_TO_MARKER` mapping from
-  `backend/semantic/grobid/tei_parser.py` (loaded by `importlib.util` to
-  preserve the standalone-backend isolation).
-- Bibliography entries map to `SemanticEntity` with
-  `entity_type=BIBLIOGRAPHY`.
-- Edges with `target` attributes become resolved `RefEdge`s with
-  `resolution_method="grobid_tei"` (the canonical "TEI-derived" method).
-
-## 3. Evaluation harness
-
-`src/pdf2md/semantic/evaluation.py` — new module:
+`src/pdf2md/semantic/graph_export.py`:
 
 ```python
 @dataclass(frozen=True)
-class SemanticEvalResult:
-    document_id: str
-    backend: str
-    marker_precision: float
-    marker_recall: float
-    marker_f1: float
-    marker_f1_by_type: dict[str, float]
-    resolution_accuracy: float
-    resolution_accuracy_by_type: dict[str, float]
-    entity_precision: float
-    entity_recall: float
-    entity_f1: float
-    n_markers_extracted: int
-    n_markers_truth: int
-    n_markers_matched: int
+class GraphExport:
+    nodes: list[dict[str, object]]
+    edges: list[dict[str, object]]
+    metadata: dict[str, object]
 
-def evaluate_semantic(
-    extracted: CrossReferenceGraph,
-    ground_truth: CrossReferenceGraph,
+def export_graph(
+    xref: CrossReferenceGraph,
     *,
-    document_id: str,
-    backend: str,
-) -> SemanticEvalResult:
-    ...
+    document_id: str | None = None,
+    extra_nodes: list[SemanticEntity] | None = None,
+) -> GraphExport:
+    """Convert a CrossReferenceGraph into a D3-compatible payload.
+
+    Nodes come from:
+      - The unique union of every marker.source_ref          (type="marker_source")
+      - Every distinct target_ref on resolved edges          (type="target")
+      - Every SemanticEntity in xref.entities ∪ extra_nodes  (type=<entity_type>)
+
+    Edges come from xref.edges; resolved edges link source_ref → target_ref,
+    unresolved edges link source_ref → a synthetic "unresolved" sink so
+    the viewer can highlight them.
+    """
 ```
 
-Marker alignment is content-based:
+Output schema:
 
-- Two markers match iff they share the same `marker_type` AND have an
-  overlapping or identical `marker_text` (case-insensitive, whitespace-
-  collapsed). Char offsets are NOT used directly because the regex
-  backend operates on extracted text while ground truth comes from
-  LaTeXML — offsets are different coordinate spaces.
-
-Resolution accuracy:
-
-- For each matched marker pair, if both the extracted side and the GT
-  side have a resolved edge AND `target_ref` strings match (after
-  normalisation to drop "#" prefixes), the resolution is counted as
-  correct.
-
-Per-type metrics:
-
-- F1 per `RefType` is computed separately; missing types report 0.0
-  with `n=0` in the underlying tally.
-
-## 4. Benchmark runner CLI
-
-`tools/run_semantic_benchmark.py` — argparse CLI:
-
-```
-python tools/run_semantic_benchmark.py \
-    --gt-dir groundtruth/corpus/latex/ \
-    --backends regex \
-    --out-dir /tmp/semantic_bench
+```json
+{
+  "schema_version": "1.0.0",
+  "document_id": "linked_sections_figures",
+  "nodes": [
+    {"id": "#/texts/0",       "type": "marker_source", "label": "#/texts/0"},
+    {"id": "#fig:box-diagram","type": "figure",        "label": "fig:box-diagram"},
+    {"id": "_unresolved",     "type": "unresolved",    "label": "(unresolved)"}
+  ],
+  "edges": [
+    {"source": "#/texts/0", "target": "#fig:box-diagram",
+     "marker_type": "figure", "label": "Figure 1", "resolved": true},
+    {"source": "#/texts/3", "target": "_unresolved",
+     "marker_type": "figure", "label": "Figure 99", "resolved": false}
+  ],
+  "metadata": {
+    "doc_hash": "sha256:...",
+    "total_markers": 4,
+    "resolved_count": 3,
+    "unresolved_count": 1,
+    "backend_versions": {"regex": "0.1.0"}
+  }
+}
 ```
 
-Behaviour:
+## 3. CLI
 
-- Discovers all `*.tex` files under `--gt-dir` (recursive).
-- For each .tex: generates GT via §2, then runs each requested backend
-  against the rendered text (LaTeX → plain text via a small inline
-  detexer; the PDF / image path is out of scope for this plan).
-- Backends are the Plan 006_0 adapters by name: `regex`, `grobid`,
-  `vlm`, plus the synthetic `ensemble`. Unavailable backends are
-  skipped with a warning, not an error.
-- Writes:
-  - `<out-dir>/<doc>/gt_cross_references.json`
-  - `<out-dir>/<doc>/<backend>_cross_references.json`
-  - `<out-dir>/results.json` — all `SemanticEvalResult` entries
-  - `<out-dir>/results.csv` — flat table for downstream analysis
-- Exit codes: 0 success; 2 bad args; 3 if `latexml` is not on `$PATH`.
+`tools/export_cross_ref_graph.py`:
 
-## 5. File structure (new)
+```
+python tools/export_cross_ref_graph.py \
+    --xref out/cross_references.json \
+    --output out/graph.json \
+    [--document-id <slug>] \
+    [--inline-viewer out/viewer.html]
+```
+
+- Reads one `cross_references.json` (Plan 006 schema).
+- Writes the D3 JSON to `--output`.
+- With `--inline-viewer`, also writes a self-contained HTML file with
+  the D3 payload inlined into a `<script>` tag — opens directly with
+  `file://`, no static-server needed.
+
+Exit codes: 0 success, 2 bad input.
+
+## 4. Static viewer
+
+`webui/cross_ref/`:
+
+- `index.html` — minimal page with a `#chart` SVG container, a file
+  input that loads `graph.json` (or `graph_inline.json` adjacent to the
+  HTML), and D3 v7 from `https://cdn.jsdelivr.net/npm/d3@7`.
+- `viewer.js` — force-directed layout, colored nodes by `type`,
+  dashed-red edges for `resolved=false`, hover tooltip with the marker
+  label, basic legend.
+- `style.css` — minimal styling.
+- `README.md` — how to run the viewer (open `index.html`, point at
+  `graph.json` or use a CLI-generated inline viewer).
+
+Hard rule: no `package.json`, no Vite, no React. Pure HTML/JS so the
+agent-mode whitelist does not need Node tooling.
+
+## 5. File whitelist
 
 ```text
-src/pdf2md/semantic/groundtruth.py
-src/pdf2md/semantic/evaluation.py
-src/pdf2md/semantic/__init__.py          (re-exports)
-tools/run_semantic_benchmark.py
-tests/test_semantic_groundtruth.py
-tests/test_semantic_evaluation.py
-tests/test_run_semantic_benchmark_cli.py
-tests/data/semantic_fixtures/eval_extracted.json
-tests/data/semantic_fixtures/eval_truth.json
-```
-
-## 6. Acceptance criteria
-
-- [ ] `generate_ground_truth(...)` runs LaTeXML, parses TEI, returns a
-      `CrossReferenceGraph` with `backend_versions["ground_truth"]`
-      non-empty and at least one `RefMarker` on the existing
-      `groundtruth/corpus/latex/linked_sections_figures/linked_sections_figures.tex`
-      fixture (automated A1).
-- [ ] `evaluate_semantic(...)` reports the expected
-      precision/recall/F1 on the static
-      `tests/data/semantic_fixtures/eval_*.json` fixtures (automated A2).
-- [ ] `tools/run_semantic_benchmark.py --gt-dir <small-subset> --backends regex --out-dir <tmp>`
-      exits 0 and produces `results.json` + `results.csv` with at least
-      one row per (document, backend) pair (automated A3).
-- [ ] When `latexml` is absent (mocked PATH), the CLI exits 3 with a
-      clean `env_not_ready` message (automated A4).
-- [ ] All new test files pass: `pytest tests/test_semantic_groundtruth.py
-      tests/test_semantic_evaluation.py tests/test_run_semantic_benchmark_cli.py -q`
-      (automated A5).
-- [ ] No regressions: `pytest tests/ -q --ignore=tests/_legacy_temp -x`
-      still green (automated A6).
-
----
-
-## File whitelist
-
-```text
-src/pdf2md/semantic/groundtruth.py
-src/pdf2md/semantic/evaluation.py
+src/pdf2md/semantic/graph_export.py
 src/pdf2md/semantic/__init__.py
-tools/run_semantic_benchmark.py
-tests/test_semantic_groundtruth.py
-tests/test_semantic_evaluation.py
-tests/test_run_semantic_benchmark_cli.py
-tests/data/semantic_fixtures/eval_extracted.json
-tests/data/semantic_fixtures/eval_truth.json
+tools/export_cross_ref_graph.py
+webui/cross_ref/index.html
+webui/cross_ref/viewer.js
+webui/cross_ref/style.css
+webui/cross_ref/README.md
+tests/test_graph_export.py
+tests/test_export_cross_ref_graph_cli.py
 current_plan.md
 run_log.md
 ```
@@ -218,6 +169,8 @@ src/pdf2md/semantic/grobid_adapter.py
 src/pdf2md/semantic/vlm_adapter.py
 src/pdf2md/semantic/resolver.py
 src/pdf2md/semantic/ensemble.py
+src/pdf2md/semantic/groundtruth.py
+src/pdf2md/semantic/evaluation.py
 src/pdf2md/models/**/*
 src/pdf2md/pipeline/**/*
 src/pdf2md/cli/**/*
@@ -227,6 +180,11 @@ src/pdf2md/consensus/**/*
 src/pdf2md/linking/**/*
 src/pdf2md/export/**/*
 backend/**/*
+webui/validator/**/*
+webui/shared/**/*
+webui/scripts/**/*
+webui/package.json
+webui/package-lock.json
 project.md
 ROADMAP.md
 README.md
@@ -240,57 +198,76 @@ groundtruth/**/*
 
 ## Allowed dependencies
 
+Python packages used by the new files:
+
 ```text
-pydantic, requests          (already required)
-xml.etree                   (stdlib)
-subprocess, shutil, pathlib (stdlib)
-csv, json, dataclasses      (stdlib)
-re, argparse, sys, time     (stdlib)
-pytest                      (already required)
+pydantic, dataclasses    (already required)
+json, argparse, sys      (stdlib)
+pathlib                  (stdlib)
+pytest                   (already required)
 ```
 
-External system tool: **`latexml`** (LaTeXML 0.8.6, already installed at
-`/usr/bin/latexml` on the dev host; no install commands run in agent
-mode). The CLI gracefully exits 3 with `env_not_ready` when absent.
+JS dependencies for the static viewer are loaded from a CDN at runtime
+(`d3@7`). No npm install commands are run in agent mode.
 
 ## Allowed environment-modifying commands
 
 ```text
 none in agent mode
-
-(LaTeXML is invoked as a read-only subprocess. The agent does not run
-apt-get, cpanm, or any installer.)
 ```
+
+## 6. Acceptance criteria
+
+- [ ] `export_graph(xref)` returns a `GraphExport` with at least one
+      node per unique `source_ref` and one edge per `RefEdge` (A1).
+- [ ] Resolved edges in the exported payload have `resolved=true` and
+      the expected `target` id; unresolved edges link to the synthetic
+      `_unresolved` sink (A2).
+- [ ] `tools/export_cross_ref_graph.py --xref ... --output ...` exits
+      0 and writes a JSON file with the documented top-level keys
+      (`schema_version`, `document_id`, `nodes`, `edges`, `metadata`)
+      (A3).
+- [ ] `--inline-viewer <path>.html` writes an HTML file that contains
+      the D3 payload inlined under a `<script id="graph-data">` tag
+      AND references the D3 v7 CDN URL (A4).
+- [ ] `webui/cross_ref/index.html` parses (HTML syntactically valid)
+      and references both the local `viewer.js` and the D3 CDN (A5,
+      done as a simple text check — no headless browser required).
+- [ ] Full regression: `pytest tests/ -q --ignore=tests/_legacy_temp -x`
+      stays green at 989+ passed (A6).
+
+---
 
 ## 7. Human verification checkpoints
 
-### Checkpoint H1 — Ground truth on a known fixture
-
-Command:
+### Checkpoint H1 — Export + open viewer
 
 ```bash
-conda run -n pdf2md python tools/run_semantic_benchmark.py \
-    --gt-dir groundtruth/corpus/latex/linked_sections_figures \
-    --backends regex \
-    --out-dir /tmp/semantic_bench_h1
+# 1. Generate a CrossReferenceGraph (existing Plan 006 CLI).
+conda run -n pdf2md python tools/build_cross_references.py \
+    --backend regex \
+    --text tests/data/semantic_fixtures/sample_text.txt \
+    --out-dir /tmp/h1_export
+
+# 2. Convert to D3 JSON + inline viewer.
+conda run -n pdf2md python tools/export_cross_ref_graph.py \
+    --xref /tmp/h1_export/cross_references.json \
+    --output /tmp/h1_export/graph.json \
+    --inline-viewer /tmp/h1_export/viewer.html
+
+# 3. Open in a browser.
+xdg-open /tmp/h1_export/viewer.html
 ```
 
 Pass criteria:
 
 ```text
-exit code 0
-/tmp/semantic_bench_h1/results.json exists and is non-empty
-/tmp/semantic_bench_h1/results.csv exists with a header + ≥1 data row
-/tmp/semantic_bench_h1/<doc>/gt_cross_references.json has ≥1 marker
+exit codes 0 on both commands
+/tmp/h1_export/graph.json contains nodes[] and edges[]
+/tmp/h1_export/viewer.html opens and renders a force-directed graph
 ```
 
-### Checkpoint H2 — Eval against synthetic fixtures (also runnable as automated)
-
-```bash
-conda run -n pdf2md pytest tests/test_semantic_evaluation.py -q
-```
-
-Pass criteria: all tests green.
+(The browser step is human-verified — the agent does not run a browser.)
 
 ---
 
