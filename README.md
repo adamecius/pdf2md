@@ -1,10 +1,25 @@
 # pdf2md
 
-`pdf2md` is a multi-backend document reconstruction system for converting complete sequential PDF documents into a structured Docling representation.
+`pdf2md` is a multi-backend document reconstruction system for converting complete sequential PDF documents into a structured Docling representation, plus a planned **semantic cross-reference layer** and an **interactive visualization** of the resulting document graph.
 
 The project is designed for scientific and technical documents where the document structure matters: sections, table of contents, equations, tables, figures, captions, footnotes, glossary-like sections, references, bibliography entries, page sequence, headers, footers, and reading order.
 
 The goal is not simply to extract text. The goal is to reconstruct the document as a semantic object with provenance, confidence, conflicts, and explicit relations.
+
+The target scope is three layers:
+
+```text
+Layer 1 — Extraction   visual-OCR ensemble → PageExtractionIR → ConsensusIR
+Layer 2 — Structural   LinkedStructure → DoclingDocument (canonical export)
+Layer 3 — Semantic     CrossReferenceGraph sidecar (planned, Plans 005-007)
+                            ↓
+                       Interactive visualization (planned, Plan 008)
+```
+
+Layers 1 and 2 are largely implemented and drive the existing MVP path
+(Plans 8-16, see `ROADMAP.md`). Layer 3 and the visualization are
+post-MVP additions tracked under Plans 004-008 — additive sidecars and
+deliverables, not replacements for the structural Docling output.
 
 ---
 
@@ -545,6 +560,23 @@ This sequence exists to avoid confusing environment problems with repository def
 
 Missing tools such as `lualatex`, `latexml`, backend conda environments, CUDA, or model weights are reported as environment-not-ready conditions, not as unit-test failures.
 
+Post-MVP semantic + visualization path (planned, not yet executed):
+
+```text
+Plan 004_0 - project documentation alignment (this plan)
+Plan 005_0 - semantic backends installation + smoke tests
+             (GROBID / DeepSeek-VL2 / regex)
+Plan 006_0 - semantic layer integration + CrossReferenceGraph schema +
+             semantic profiler + Bayesian semantic router
+Plan 007_0 - LaTeXML ground-truth pipeline + semantic evaluation harness
+Plan 008_0 - interactive visualization + web integration (user deliverable)
+```
+
+These plans assume Plans 8-16 are complete and the extraction +
+structural MVP is stable. The semantic layer is a sidecar
+(`cross_references.json`) alongside the canonical DoclingDocument JSON,
+not a replacement for it.
+
 ---
 
 ## 12. Typical development flow
@@ -659,6 +691,17 @@ run real calibration prior generation
 validate weighted consensus, semantic linking and Docling export
 run full local end-to-end corpus evaluation
 calibrate backend confidence from observed success and failure
+```
+
+After the extraction + structural MVP is reached, the planned
+semantic + visualization milestones are (Plans 004-008):
+
+```text
+align project documentation around the three-layer architecture (Plan 004_0)
+install GROBID, DeepSeek-VL2, and regex semantic backends in isolated envs (Plan 005_0)
+define CrossReferenceGraph and wire semantic backends into the pipeline (Plan 006_0)
+build LaTeXML ground truth and the semantic evaluation harness (Plan 007_0)
+ship interactive cross-reference visualization as a user deliverable (Plan 008_0)
 ```
 
 Concrete TODOs queued for future plans (not yet drafted):
