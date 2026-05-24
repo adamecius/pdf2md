@@ -3,10 +3,10 @@
 from __future__ import annotations
 
 from collections import Counter
-from typing import Any, Iterable
+from collections.abc import Iterable
+from typing import Any
 
-from pdf2md.models.linked import LinkStatus, LinkedStructure
-
+from pdf2md.models.linked import LinkedStructure, LinkStatus
 
 READINESS_STATUSES: tuple[str, ...] = (
     "ready_for_plan_15",
@@ -41,22 +41,21 @@ def _relation_type_status_table(linked: LinkedStructure) -> dict[str, dict[str, 
 
 def _low_confidence_counts(
     linked: LinkedStructure, low_confidence_threshold: float
-) -> dict[str, int]:
+) -> dict[str, Any]:
     low_relations = 0
     low_nodes = 0
     for relation in linked.relations:
-        if getattr(relation, "confidence", None) is not None:
-            if relation.confidence < low_confidence_threshold:
-                low_relations += 1
+        if getattr(relation, "confidence", None) is not None and relation.confidence < low_confidence_threshold:
+            low_relations += 1
     for node in linked.nodes:
-        if getattr(node, "confidence", None) is not None:
-            if node.confidence < low_confidence_threshold:
-                low_nodes += 1
-    return {
+        if getattr(node, "confidence", None) is not None and node.confidence < low_confidence_threshold:
+            low_nodes += 1
+    result: dict[str, Any] = {
         "low_confidence_relations": low_relations,
         "low_confidence_nodes": low_nodes,
         "threshold": low_confidence_threshold,
     }
+    return result
 
 
 def _plan15_readiness(
@@ -69,8 +68,8 @@ def _plan15_readiness(
     """Surface fields Plan 15 (Docling export) needs as inputs."""
 
     has_reading_order = any(
-        "page_number_sequence_next" == str(r.relation_type).lower()
-        or "follows" == str(r.relation_type).lower()
+        str(r.relation_type).lower() == "page_number_sequence_next"
+        or str(r.relation_type).lower() == "follows"
         for r in linked.relations
     )
     return {

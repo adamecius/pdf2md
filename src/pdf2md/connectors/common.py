@@ -5,7 +5,8 @@ from __future__ import annotations
 import json
 import re
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime
+from itertools import pairwise
 from pathlib import Path
 from typing import Any
 
@@ -26,6 +27,16 @@ from pdf2md.models.ir import BlockKind, ExtractionBlock, PageExtractionIR, PageS
 
 @dataclass(frozen=True)
 class ConnectorResult:
+    """Output of a single backend connector run.
+
+    Attributes:
+        pages: Per-page extraction IR derived from the backend's
+            markdown.
+        entities: Entity proposals recognised across all pages.
+        warnings: Connector warnings (missing manifest, missing raw
+            text, etc.).
+    """
+
     pages: list[PageExtractionIR]
     entities: EntityProposalDocument
     warnings: list[str]
@@ -33,13 +44,47 @@ class ConnectorResult:
 
 @dataclass(frozen=True)
 class BackendConnectorConfig:
+    """Connector configuration for a single backend.
+
+    Attributes:
+        backend: Backend identifier (e.g. ``paddleocr``, ``deepseek``).
+        default_backend_version: Version recorded when the raw manifest
+            does not supply one.
+        markdown_file_candidates: Filenames to probe for the backend's
+            markdown output, in priority order.
+        manifest_file_candidates: Filenames to probe for the backend's
+            JSON manifest, in priority order.
+    """
+
     backend: str
     default_backend_version: str | None
     markdown_file_candidates: tuple[str, ...] = ("output.md", "output.mmd", "result.md", "result.mmd")
     manifest_file_candidates: tuple[str, ...] = ("manifest.json", "status.json", "command.json")
 
 
-def connect_raw_dir(*, raw_dir: Path, document_id: str, config: BackendConnectorConfig, out_dir: Path | None = None) -> ConnectorResult:
+def connect_raw_dir(
+    *, raw_dir: Path, document_id: str, config: BackendConnectorConfig, out_dir: Path | None = None
+) -> ConnectorResult:
+    """Read a backend's raw output directory and produce connector IR.
+
+    Discovers the markdown and manifest artefacts in ``raw_dir``, parses
+    them into per-page extraction IR, recognises entities, and (if
+    ``out_dir`` is given) writes the connector outputs to disk.
+
+    Args:
+        raw_dir: Directory containing the backend's raw markdown and
+            manifest files.
+        document_id: Stable identifier embedded in IR/entity IDs.
+        config: Backend-specific connector configuration.
+        out_dir: Optional output root; when provided, per-page IR and
+            entities are written under ``<out_dir>/<backend>/``.
+
+    Returns:
+        A ConnectorResult holding pages, entities, and warnings.
+
+    Raises:
+        ValueError: If ``raw_dir`` does not exist or is not a directory.
+    """
     raw_dir = Path(raw_dir)
     if not raw_dir.exists() or not raw_dir.is_dir():
         raise ValueError(f"raw_dir does not exist: {raw_dir}")
@@ -55,15 +100,47 @@ def connect_raw_dir(*, raw_dir: Path, document_id: str, config: BackendConnector
         pages: list[PageExtractionIR] = []
     else:
         text = markdown_path.read_text(encoding="utf-8")
-        pages = markdown_to_pages(text, backend=config.backend, backend_version=backend_version, document_id=document_id, raw_ref=_relative(markdown_path, raw_dir), warnings=warnings)
-    entities = recognize_entities(pages, backend=config.backend, backend_version=backend_version, document_id=document_id, warnings=warnings)
+        pages = markdown_to_pages(
+            text,
+            backend=config.backend,
+            backend_version=backend_version,
+            document_id=document_id,
+            raw_ref=_relative(markdown_path, raw_dir),
+            warnings=warnings,
+        )
+    entities = recognize_entities(
+        pages, backend=config.backend, backend_version=backend_version, document_id=document_id, warnings=warnings
+    )
     result = ConnectorResult(pages=pages, entities=entities, warnings=warnings)
     if out_dir is not None:
-        write_connector_result(result=result, backend=config.backend, document_id=document_id, raw_dir=raw_dir, out_dir=Path(out_dir))
+        write_connector_result(
+            result=result, backend=config.backend, document_id=document_id, raw_dir=raw_dir, out_dir=Path(out_dir)
+        )
     return result
 
 
-def write_connector_result(*, result: ConnectorResult, backend: str, document_id: str, raw_dir: Path, out_dir: Path) -> Path:
+def write_connector_result(
+    *, result: ConnectorResult, backend: str, document_id: str, raw_dir: Path, out_dir: Path
+) -> Path:
+    """Persist a ConnectorResult under ``<out_dir>/<backend>/``.
+
+    Writes one JSON file per page under ``pages/``, an ``entities.json``,
+    and a top-level ``manifest.json`` referencing both.
+
+    Args:
+        result: ConnectorResult to serialise.
+        backend: Backend identifier used as a subdirectory name.
+        document_id: Document identifier recorded in the manifest.
+        raw_dir: Raw input directory recorded in the manifest for
+            traceability.
+        out_dir: Output root that will contain ``<backend>/``.
+
+    Returns:
+        Path to the written ``manifest.json``.
+
+    Raises:
+        ValueError: If ``out_dir`` exists but is not a directory.
+    """
     if out_dir.exists() and not out_dir.is_dir():
         raise ValueError(f"out_dir is not a directory: {out_dir}")
     target = out_dir / backend
@@ -87,7 +164,7 @@ def write_connector_result(*, result: ConnectorResult, backend: str, document_id
         "page_ir_files": page_files,
         "entity_file": entity_file,
         "warnings": result.warnings,
-        "created_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+        "created_at": datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
     }
     manifest_path = target / "manifest.json"
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
@@ -148,7 +225,31 @@ def _strip_deepseek_tags(chunk: str) -> tuple[str, str | None]:
     return cleaned.strip(), tag
 
 
-def markdown_to_pages(text: str, *, backend: str, backend_version: str | None, document_id: str, raw_ref: str | None, warnings: list[str]) -> list[PageExtractionIR]:
+def markdown_to_pages(
+    text: str, *, backend: str, backend_version: str | None, document_id: str, raw_ref: str | None, warnings: list[str]
+) -> list[PageExtractionIR]:
+    """Split backend markdown into per-page extraction IR with blocks.
+
+    Splits on the known page markers emitted by the supported backends
+    (PaddleOCR-style ``<--- Page Split --->`` and ``<!-- pagebreak -->``,
+    DeepSeek-style ``<!-- page N -->``, and form feed), then breaks each
+    page on blank lines to form blocks and classifies each block via
+    :func:`classify_block`. Appends ``raw_text_missing`` /
+    ``page_size_missing`` warnings as appropriate.
+
+    Args:
+        text: Raw markdown emitted by the backend.
+        backend: Backend identifier embedded in block IDs.
+        backend_version: Optional version stamp recorded on each page.
+        document_id: Document identifier embedded in IDs.
+        raw_ref: Optional relative path to the source markdown, recorded
+            on every block.
+        warnings: Mutable warning list that this function appends to.
+
+    Returns:
+        One PageExtractionIR per detected page; empty if ``text`` is
+        empty.
+    """
     if not text.strip():
         warnings.append("raw_text_missing")
         return []
@@ -166,12 +267,50 @@ def markdown_to_pages(text: str, *, backend: str, backend_version: str | None, d
         for order, chunk in enumerate([c.strip() for c in re.split(r"\n\s*\n", page_text) if c.strip()]):
             cleaned, ref_tag = _strip_deepseek_tags(chunk)
             kind, metadata = classify_block(cleaned, ref_tag=ref_tag)
-            blocks.append(ExtractionBlock(id=extraction_id(backend, document_id, page_no, order), backend=backend, page_no=page_no, kind=kind, order=order, text=cleaned, raw_ref=raw_ref, metadata=metadata))
-        pages.append(PageExtractionIR(document_id=document_id, backend=backend, backend_version=backend_version, page_no=page_no, page_size=PageSize(width=1.0, height=1.0), blocks=blocks, raw_artifact_ref=raw_ref, metadata={"connector": "markdown_fallback"}))
+            blocks.append(
+                ExtractionBlock(
+                    id=extraction_id(backend, document_id, page_no, order),
+                    backend=backend,
+                    page_no=page_no,
+                    kind=kind,
+                    order=order,
+                    text=cleaned,
+                    raw_ref=raw_ref,
+                    metadata=metadata,
+                )
+            )
+        pages.append(
+            PageExtractionIR(
+                document_id=document_id,
+                backend=backend,
+                backend_version=backend_version,
+                page_no=page_no,
+                page_size=PageSize(width=1.0, height=1.0),
+                blocks=blocks,
+                raw_artifact_ref=raw_ref,
+                metadata={"connector": "markdown_fallback"},
+            )
+        )
     return pages
 
 
 def classify_block(text: str, *, ref_tag: str | None = None) -> tuple[BlockKind, dict[str, Any]]:
+    """Infer a BlockKind for a markdown chunk.
+
+    If a DeepSeek ``<|ref|>`` tag was stripped upstream, the tag is
+    consulted first. Otherwise the chunk is matched against markdown
+    heuristics for headings, formulas, tables, figures, captions, and
+    list items, with PARAGRAPH as the fallback.
+
+    Args:
+        text: Block text after page-split processing.
+        ref_tag: Optional lowercased DeepSeek reference tag (e.g.
+            ``title``, ``equation``).
+
+    Returns:
+        ``(kind, metadata)`` where ``metadata`` may carry
+        ``markdown_heading_level`` or ``source_tag``.
+    """
     if ref_tag is not None:
         mapped = _DEEPSEEK_TAG_TO_BLOCK_KIND.get(ref_tag)
         if mapped is not None:
@@ -201,16 +340,70 @@ def classify_block(text: str, *, ref_tag: str | None = None) -> tuple[BlockKind,
     return BlockKind.PARAGRAPH, {}
 
 
-def recognize_entities(pages: list[PageExtractionIR], *, backend: str, backend_version: str | None, document_id: str, warnings: list[str]) -> EntityProposalDocument:
+def recognize_entities(
+    pages: list[PageExtractionIR], *, backend: str, backend_version: str | None, document_id: str, warnings: list[str]
+) -> EntityProposalDocument:
+    """Recognise entities and relations across all pages of a document.
+
+    Applies the markdown-fallback heuristic detectors (sections, TOC
+    entries, page numbers, footnotes/reference items, equations,
+    captions, figures, tables, headers, footers) and emits adjacency,
+    caption, TOC, and sequence relations.
+
+    Args:
+        pages: Per-page extraction IR produced by
+            :func:`markdown_to_pages`.
+        backend: Backend identifier embedded in entity/relation IDs.
+        backend_version: Optional backend version recorded on the
+            document.
+        document_id: Document identifier embedded in IDs.
+        warnings: Warning list propagated to the resulting document.
+
+    Returns:
+        An EntityProposalDocument with proposed entities, relations,
+        and the input warnings.
+    """
     entities: list[EntityProposal] = []
     idx = 0
 
-    def add(entity_type: EntityType, block: ExtractionBlock, confidence: float, detector: str, *, subtype: str | None = None, metadata: dict[str, Any] | None = None, evidence_kind: EvidenceKind = EvidenceKind.BLOCK_TEXT) -> EntityProposal:
+    def add(
+        entity_type: EntityType,
+        block: ExtractionBlock,
+        confidence: float,
+        detector: str,
+        *,
+        subtype: str | None = None,
+        metadata: dict[str, Any] | None = None,
+        evidence_kind: EvidenceKind = EvidenceKind.BLOCK_TEXT,
+    ) -> EntityProposal:
+        """Append a new EntityProposal anchored on ``block`` and return it."""
         nonlocal idx
         idx += 1
         md = {"detector": detector, **(metadata or {})}
-        ev = EntityEvidence(kind=evidence_kind, page_no=block.page_no, source_block_id=block.id, raw_ref=block.raw_ref, text=block.text, bbox=block.bbox, weight=1.0, reason=detector, metadata={})
-        ent = EntityProposal(id=entity_id(backend, document_id, entity_type, idx), entity_type=entity_type, subtype=subtype, canonical_text=_strip_heading(block.text), page_no=block.page_no, block_ids=[block.id], confidence=confidence, confidence_source=ConfidenceSource.HEURISTIC, evidence=[ev], calibration_key=f"{backend}:{entity_type.value}:{detector}", metadata=md)
+        ev = EntityEvidence(
+            kind=evidence_kind,
+            page_no=block.page_no,
+            source_block_id=block.id,
+            raw_ref=block.raw_ref,
+            text=block.text,
+            bbox=block.bbox,
+            weight=1.0,
+            reason=detector,
+            metadata={},
+        )
+        ent = EntityProposal(
+            id=entity_id(backend, document_id, entity_type, idx),
+            entity_type=entity_type,
+            subtype=subtype,
+            canonical_text=_strip_heading(block.text),
+            page_no=block.page_no,
+            block_ids=[block.id],
+            confidence=confidence,
+            confidence_source=ConfidenceSource.HEURISTIC,
+            evidence=[ev],
+            calibration_key=f"{backend}:{entity_type.value}:{detector}",
+            metadata=md,
+        )
         entities.append(ent)
         return ent
 
@@ -221,33 +414,75 @@ def recognize_entities(pages: list[PageExtractionIR], *, backend: str, backend_v
             plain = _strip_heading(text)
             lower = plain.lower()
             if block.kind == BlockKind.HEADING:
-                add(EntityType.SECTION, block, 0.75, "heading_section_detector", metadata={"heading_level": block.metadata.get("markdown_heading_level"), "numbering": _numbering(plain)})
+                add(
+                    EntityType.SECTION,
+                    block,
+                    0.75,
+                    "heading_section_detector",
+                    metadata={
+                        "heading_level": block.metadata.get("markdown_heading_level"),
+                        "numbering": _numbering(plain),
+                    },
+                )
                 if lower in {"references", "bibliography", "works cited"}:
                     refs_started = True
                     add(EntityType.REFERENCE_SECTION, block, 0.88, "reference_section_detector")
             if m := re.match(r"^(.+?)\s+\.{3,}\s+(\d+)\s*$", plain):
-                add(EntityType.TOC_ENTRY, block, 0.74, "toc_entry_detector", metadata={"target_page_candidate": int(m.group(2)), "target_title_candidate": m.group(1).strip()})
+                add(
+                    EntityType.TOC_ENTRY,
+                    block,
+                    0.74,
+                    "toc_entry_detector",
+                    metadata={"target_page_candidate": int(m.group(2)), "target_title_candidate": m.group(1).strip()},
+                )
             if re.fullmatch(r"\d+|[ivxlcdm]+", lower) and (pos == 0 or pos == len(page.blocks) - 1):
                 add(EntityType.PAGE_NUMBER, block, 0.68, "page_number_detector", evidence_kind=EvidenceKind.POSITION)
             if m := re.match(r"^(?:\[(\d+)\]|(\d+)\.|([¹²³]))\s+.+", plain):
                 marker = next(g for g in m.groups() if g)
-                add(EntityType.FOOTNOTE if not refs_started else EntityType.REFERENCE_ITEM, block, 0.70, "footnote_detector" if not refs_started else "reference_item_detector", metadata={"marker": marker})
+                add(
+                    EntityType.FOOTNOTE if not refs_started else EntityType.REFERENCE_ITEM,
+                    block,
+                    0.70,
+                    "footnote_detector" if not refs_started else "reference_item_detector",
+                    metadata={"marker": marker},
+                )
             elif refs_started and block.kind == BlockKind.PARAGRAPH and plain:
                 add(EntityType.REFERENCE_ITEM, block, 0.62, "reference_item_detector")
             if block.kind == BlockKind.FORMULA or re.search(r"\([0-9]+(?:\.[0-9]+)*\)\s*$", plain):
                 num = (re.search(r"\(([0-9]+(?:\.[0-9]+)*)\)\s*$", plain) or [None, None])[1]
-                add(EntityType.EQUATION, block, 0.76, "equation_detector", metadata={"equation_number": num, "sequence_key": f"equation:{num}" if num else None})
+                add(
+                    EntityType.EQUATION,
+                    block,
+                    0.76,
+                    "equation_detector",
+                    metadata={"equation_number": num, "sequence_key": f"equation:{num}" if num else None},
+                )
             if block.kind == BlockKind.CAPTION:
                 cm = re.match(r"^(Figure|Fig\.|Table)\s+(\d+)", plain, re.I)
                 kind = "table" if cm and cm.group(1).lower().startswith("table") else "figure"
-                add(EntityType.CAPTION, block, 0.78, "caption_detector", metadata={"caption_kind": kind, "caption_number": cm.group(2) if cm else None})
+                add(
+                    EntityType.CAPTION,
+                    block,
+                    0.78,
+                    "caption_detector",
+                    metadata={"caption_kind": kind, "caption_number": cm.group(2) if cm else None},
+                )
             if block.kind == BlockKind.FIGURE:
                 add(EntityType.FIGURE, block, 0.82, "figure_table_detector")
             if block.kind == BlockKind.TABLE:
                 add(EntityType.TABLE, block, 0.82, "figure_table_detector")
     entities.extend(_header_footer_entities(pages, backend, document_id, idx))
     relations = _relations(entities, backend, document_id)
-    return EntityProposalDocument(document_id=document_id, backend=backend, backend_version=backend_version, page_count=len(pages), entities=entities, relations=relations, warnings=warnings, metadata={"connector": "markdown_fallback"})
+    return EntityProposalDocument(
+        document_id=document_id,
+        backend=backend,
+        backend_version=backend_version,
+        page_count=len(pages),
+        entities=entities,
+        relations=relations,
+        warnings=warnings,
+        metadata={"connector": "markdown_fallback"},
+    )
 
 
 def _relations(entities: list[EntityProposal], backend: str, document_id: str) -> list[RelationProposal]:
@@ -259,16 +494,43 @@ def _relations(entities: list[EntityProposal], backend: str, document_id: str) -
     for ents in by_page.values():
         for i, ent in enumerate(ents[:-1]):
             nxt = ents[i + 1]
-            if ent.entity_type == EntityType.CAPTION and nxt.entity_type in {EntityType.FIGURE, EntityType.TABLE} or nxt.entity_type == EntityType.CAPTION and ent.entity_type in {EntityType.FIGURE, EntityType.TABLE}:
-                relations.append(_rel(backend, document_id, len(relations) + 1, RelationType.CAPTION_OF, ent, nxt, 0.55, "adjacent caption and media"))
-            relations.append(_rel(backend, document_id, len(relations) + 1, RelationType.NEAR, ent, nxt, 0.25, "adjacent entities"))
+            if (ent.entity_type == EntityType.CAPTION and nxt.entity_type in {EntityType.FIGURE, EntityType.TABLE}) or (
+                nxt.entity_type == EntityType.CAPTION and ent.entity_type in {EntityType.FIGURE, EntityType.TABLE}
+            ):
+                relations.append(
+                    _rel(
+                        backend,
+                        document_id,
+                        len(relations) + 1,
+                        RelationType.CAPTION_OF,
+                        ent,
+                        nxt,
+                        0.55,
+                        "adjacent caption and media",
+                    )
+                )
+            relations.append(
+                _rel(backend, document_id, len(relations) + 1, RelationType.NEAR, ent, nxt, 0.25, "adjacent entities")
+            )
     sections = [e for e in entities if e.entity_type == EntityType.SECTION]
     for toc in [e for e in entities if e.entity_type == EntityType.TOC_ENTRY]:
         target = str(toc.metadata.get("target_title_candidate", "")).lower()
         for sec in sections:
             title = str(sec.canonical_text or "").lower()
             if title and (title in target or target in title or _tokens_overlap(title, target)):
-                relations.append(_rel(backend, document_id, len(relations) + 1, RelationType.TOC_POINTS_TO, toc, sec, 0.50, "toc title matches section")); break
+                relations.append(
+                    _rel(
+                        backend,
+                        document_id,
+                        len(relations) + 1,
+                        RelationType.TOC_POINTS_TO,
+                        toc,
+                        sec,
+                        0.50,
+                        "toc title matches section",
+                    )
+                )
+                break
     sequence_groups = [
         [e for e in entities if e.entity_type == EntityType.EQUATION],
         [e for e in entities if e.entity_type == EntityType.CAPTION and e.metadata.get("caption_kind") == "figure"],
@@ -276,17 +538,60 @@ def _relations(entities: list[EntityProposal], backend: str, document_id: str) -
         [e for e in entities if e.entity_type == EntityType.REFERENCE_ITEM],
     ]
     for seq in sequence_groups:
-        numbered = [(entity, _sequence_number(entity)) for entity in seq]
-        numbered = [(entity, number) for entity, number in numbered if number is not None]
-        for (a, a_number), (b, b_number) in zip(numbered, numbered[1:]):
+        numbered_raw: list[tuple[EntityProposal, tuple[int, ...] | None]] = [
+            (entity, _sequence_number(entity)) for entity in seq
+        ]
+        numbered: list[tuple[EntityProposal, tuple[int, ...]]] = [
+            (entity, number) for entity, number in numbered_raw if number is not None
+        ]
+        for (a, a_number), (b, b_number) in pairwise(numbered):
             if _numbers_are_consecutive(a_number, b_number):
-                relations.append(_rel(backend, document_id, len(relations) + 1, RelationType.SEQUENCE_NEXT, a, b, 0.45, "consecutive numbered sequence"))
+                relations.append(
+                    _rel(
+                        backend,
+                        document_id,
+                        len(relations) + 1,
+                        RelationType.SEQUENCE_NEXT,
+                        a,
+                        b,
+                        0.45,
+                        "consecutive numbered sequence",
+                    )
+                )
     return relations
 
 
-def _rel(backend: str, document_id: str, index: int, rtype: RelationType, source: EntityProposal, target: EntityProposal, confidence: float, reason: str) -> RelationProposal:
-    ev = EntityEvidence(kind=EvidenceKind.DOCUMENT_CONTEXT, page_no=source.page_no, source_block_id=source.block_ids[0] if source.block_ids else None, raw_ref=None, text=None, bbox=None, weight=1.0, reason=reason, metadata={})
-    return RelationProposal(id=relation_id(backend, document_id, index), relation_type=rtype, source_entity_id=source.id, target_entity_id=target.id, confidence=confidence, confidence_source=ConfidenceSource.HEURISTIC, evidence=[ev], metadata={"detector": f"{rtype.value}_detector"})
+def _rel(
+    backend: str,
+    document_id: str,
+    index: int,
+    rtype: RelationType,
+    source: EntityProposal,
+    target: EntityProposal,
+    confidence: float,
+    reason: str,
+) -> RelationProposal:
+    ev = EntityEvidence(
+        kind=EvidenceKind.DOCUMENT_CONTEXT,
+        page_no=source.page_no,
+        source_block_id=source.block_ids[0] if source.block_ids else None,
+        raw_ref=None,
+        text=None,
+        bbox=None,
+        weight=1.0,
+        reason=reason,
+        metadata={},
+    )
+    return RelationProposal(
+        id=relation_id(backend, document_id, index),
+        relation_type=rtype,
+        source_entity_id=source.id,
+        target_entity_id=target.id,
+        confidence=confidence,
+        confidence_source=ConfidenceSource.HEURISTIC,
+        evidence=[ev],
+        metadata={"detector": f"{rtype.value}_detector"},
+    )
 
 
 def _sequence_number(entity: EntityProposal) -> tuple[int, ...] | None:
@@ -313,11 +618,16 @@ def _numbers_are_consecutive(first: tuple[int, ...], second: tuple[int, ...]) ->
     return second[-1] == first[-1] + 1
 
 
-def _header_footer_entities(pages: list[PageExtractionIR], backend: str, document_id: str, start: int) -> list[EntityProposal]:
+def _header_footer_entities(
+    pages: list[PageExtractionIR], backend: str, document_id: str, start: int
+) -> list[EntityProposal]:
     if len(pages) < 2:
         return []
     out: list[EntityProposal] = []
-    for pos, etype, detector in [(0, EntityType.HEADER, "header_footer_detector"), (-1, EntityType.FOOTER, "header_footer_detector")]:
+    for pos, etype, detector in [
+        (0, EntityType.HEADER, "header_footer_detector"),
+        (-1, EntityType.FOOTER, "header_footer_detector"),
+    ]:
         values: dict[str, list[ExtractionBlock]] = {}
         for page in pages:
             if page.blocks:
@@ -328,8 +638,31 @@ def _header_footer_entities(pages: list[PageExtractionIR], backend: str, documen
             if text and len(blocks) >= 2:
                 for block in blocks:
                     start += 1
-                    ev = EntityEvidence(kind=EvidenceKind.POSITION, page_no=block.page_no, source_block_id=block.id, raw_ref=block.raw_ref, text=block.text, bbox=None, weight=1.0, reason=detector, metadata={})
-                    out.append(EntityProposal(id=entity_id(backend, document_id, etype, start), entity_type=etype, canonical_text=text, page_no=block.page_no, block_ids=[block.id], confidence=0.52, confidence_source=ConfidenceSource.HEURISTIC, evidence=[ev], calibration_key=f"{backend}:{etype.value}:{detector}", metadata={"detector": detector}))
+                    ev = EntityEvidence(
+                        kind=EvidenceKind.POSITION,
+                        page_no=block.page_no,
+                        source_block_id=block.id,
+                        raw_ref=block.raw_ref,
+                        text=block.text,
+                        bbox=None,
+                        weight=1.0,
+                        reason=detector,
+                        metadata={},
+                    )
+                    out.append(
+                        EntityProposal(
+                            id=entity_id(backend, document_id, etype, start),
+                            entity_type=etype,
+                            canonical_text=text,
+                            page_no=block.page_no,
+                            block_ids=[block.id],
+                            confidence=0.52,
+                            confidence_source=ConfidenceSource.HEURISTIC,
+                            evidence=[ev],
+                            calibration_key=f"{backend}:{etype.value}:{detector}",
+                            metadata={"detector": detector},
+                        )
+                    )
     return out
 
 

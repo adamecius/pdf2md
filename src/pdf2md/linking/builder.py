@@ -11,14 +11,14 @@ from pdf2md.linking.resolvers import run_all_resolvers
 from pdf2md.models.entities import EntityProposalDocument
 from pdf2md.models.ir import ConsensusIR
 from pdf2md.models.linked import (
-    LinkEvidence,
-    LinkEvidenceKind,
     LinkedConflict,
     LinkedNode,
     LinkedNodeType,
     LinkedRelation,
     LinkedRelationType,
     LinkedStructure,
+    LinkEvidence,
+    LinkEvidenceKind,
     LinkStatus,
     linked_conflict_id,
     linked_node_id,
@@ -29,6 +29,17 @@ from pdf2md.models.priors import CalibrationPriorDocument
 
 @dataclass(frozen=True)
 class LinkerSettings:
+    """Configuration for the semantic linker build pass.
+
+    Attributes:
+        strict: If True, fail fast on input problems instead of recording
+            warnings.
+        default_confidence: Confidence assigned to derived evidence that has
+            no calibrated source (e.g. preserved consensus conflicts).
+        low_confidence_threshold: Confidence below which a node or relation
+            is marked ``RESOLVED_LOW_CONFIDENCE`` instead of ``RESOLVED``.
+    """
+
     strict: bool = False
     default_confidence: float = 0.50
     low_confidence_threshold: float = 0.60
@@ -36,6 +47,16 @@ class LinkerSettings:
 
 @dataclass(frozen=True)
 class LinkerRunResult:
+    """Output of a single semantic linker run.
+
+    Attributes:
+        linked: The fully built ``LinkedStructure`` (nodes, relations,
+            conflicts).
+        report: Aggregate linking report ready to be serialised as JSON.
+        warnings: Non-fatal warnings produced during linking, with stable
+            string codes.
+    """
+
     linked: LinkedStructure
     report: dict[str, Any]
     warnings: list[str]
@@ -61,6 +82,37 @@ def build_linked_structure(
     source_prior_documents: list[str] | None = None,
     settings: LinkerSettings = LinkerSettings(),
 ) -> LinkerRunResult:
+    """Promote consensus blocks to linked nodes and run all resolvers.
+
+    Each consensus block becomes a ``LinkedNode`` whose type is refined by
+    supporting entity evidence and whose confidence blends agreement score,
+    entity confidences, and calibration priors. Every node receives a
+    ``DERIVED_FROM_CONSENSUS`` relation from the document root. The full
+    chain of semantic resolvers (reading order, section hierarchy, ToC,
+    page-number sequence, headers/footers, captions, footnotes, equation
+    sequence, figure/table sequence, references) is then run to produce the
+    inter-node relations. Source consensus conflicts and unresolved resolver
+    warnings are preserved as ``LinkedConflict`` records.
+
+    Args:
+        consensus: Consensus IR for the document to link.
+        entities_by_backend: Entity proposal documents keyed by backend name.
+        priors_by_backend: Calibration prior documents keyed by backend name.
+        consensus_report: Optional consensus report payload (recorded in
+            output metadata only).
+        source_consensus_ir: Source path of the consensus IR (recorded in the
+            ``LinkedStructure`` for traceability).
+        source_consensus_report: Source path of the consensus report.
+        source_entity_documents: Source paths of the per-backend entity
+            documents.
+        source_prior_documents: Source paths of the per-backend prior
+            documents.
+        settings: Linker configuration knobs.
+
+    Returns:
+        A ``LinkerRunResult`` containing the linked structure, the linking
+        report, and accumulated warnings.
+    """
     candidates = extract_link_candidates(consensus=consensus, entities_by_backend=entities_by_backend, priors_by_backend=priors_by_backend)
     nodes: list[LinkedNode] = [
         LinkedNode(

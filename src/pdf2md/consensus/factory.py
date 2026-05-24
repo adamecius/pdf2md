@@ -5,13 +5,14 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
-from pdf2md.consensus.grouping import CandidateGroup, group_document_candidates
+from pdf2md.consensus.grouping import group_document_candidates
 from pdf2md.consensus.reporting import build_consensus_report
 from pdf2md.consensus.scoring import ConsensusScoringSettings, GroupScore, score_candidate_group
 from pdf2md.models.entities import EntityProposalDocument
 from pdf2md.models.ir import (
     BackendManifest,
     Conflict,
+    ConflictKind,
     ConsensusBlock,
     ConsensusIR,
     ConsensusPage,
@@ -26,6 +27,15 @@ from pdf2md.models.priors import CalibrationPriorDocument
 
 @dataclass(frozen=True)
 class ConsensusRunResult:
+    """Result of a single consensus build.
+
+    Attributes:
+        consensus: Canonical ConsensusIR for the document.
+        report: Structured consensus report (selection counts,
+            per-backend summary, etc.).
+        warnings: Warnings accumulated during consensus assembly.
+    """
+
     consensus: ConsensusIR
     report: dict[str, Any]
     warnings: list[str]
@@ -33,6 +43,15 @@ class ConsensusRunResult:
 
 @dataclass(frozen=True)
 class ConsensusFactorySettings:
+    """Tunables for the consensus factory pipeline.
+
+    Attributes:
+        scoring: Candidate scoring settings forwarded to
+            :func:`pdf2md.consensus.scoring.score_candidate_group`.
+        strict: If True, downstream loaders raise on missing/invalid
+            inputs instead of warning.
+    """
+
     scoring: ConsensusScoringSettings = field(default_factory=ConsensusScoringSettings)
     strict: bool = False
 
@@ -58,7 +77,7 @@ def _make_conflict(document_id: str, index: int, score: GroupScore) -> Conflict:
     candidate_ids = [candidate.block.id for candidate in score.group.candidates]
     return Conflict(
         id=conflict_id(document_id, index),
-        kind=score.conflict_kind or "presence_conflict",
+        kind=score.conflict_kind or ConflictKind.PRESENCE_CONFLICT,
         page_no=score.group.page_no,
         candidate_ids=candidate_ids,
         description=f"Unresolved consensus group {score.group.id}",
@@ -126,6 +145,29 @@ def build_consensus_ir(
     priors_by_backend: dict[str, CalibrationPriorDocument],
     settings: ConsensusFactorySettings = ConsensusFactorySettings(),
 ) -> ConsensusRunResult:
+    """Build a canonical ConsensusIR from per-backend connector outputs.
+
+    Groups candidate blocks page-by-page via
+    :func:`pdf2md.consensus.grouping.group_document_candidates`, scores
+    each group via
+    :func:`pdf2md.consensus.scoring.score_candidate_group`, and emits a
+    ConsensusIR with per-page consensus blocks, conflicts for
+    unresolved groups, and a summary report.
+
+    Args:
+        document_id: Stable document identifier embedded in consensus
+            IDs.
+        pages_by_backend: Per-backend page IR keyed by backend name.
+        entities_by_backend: Per-backend entity proposal documents keyed
+            by backend name.
+        priors_by_backend: Per-backend calibration priors keyed by
+            backend name. Backends missing a prior receive a warning.
+        settings: Factory settings (scoring weights, strict mode).
+
+    Returns:
+        A ConsensusRunResult bundling the ConsensusIR, structured
+        report, and warnings.
+    """
     warnings: list[str] = []
     for backend in sorted(pages_by_backend):
         if backend not in entities_by_backend:

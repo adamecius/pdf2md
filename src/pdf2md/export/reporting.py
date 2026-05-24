@@ -3,12 +3,18 @@
 from __future__ import annotations
 
 import hashlib
+from collections.abc import Iterable
 from pathlib import Path
 from statistics import mean
-from typing import Any, Iterable
+from typing import Any
 
-from pdf2md.models.export import ExportArtefact, ExportArtefactType, ExportManifestDocument, ExportStatus, RagChunkDocument
-
+from pdf2md.models.export import (
+    ExportArtefact,
+    ExportArtefactType,
+    ExportManifestDocument,
+    ExportStatus,
+    RagChunkDocument,
+)
 
 INSPECTION_STATUSES: tuple[str, ...] = (
     "exported",
@@ -24,6 +30,15 @@ INSPECTION_STATUSES: tuple[str, ...] = (
 
 
 def sha256_file(path: Path) -> str:
+    """Compute the hex sha256 digest of ``path`` by streaming its bytes.
+
+    Args:
+        path: File to digest.
+
+    Returns:
+        The lowercase hexadecimal sha256 digest of the file contents.
+    """
+
     digest = hashlib.sha256()
     with path.open("rb") as fh:
         for chunk in iter(lambda: fh.read(1024 * 1024), b""):
@@ -138,17 +153,49 @@ def build_export_report(
 
 
 def build_manifest(*, document_id: str, source_linked_structure: str, source_consensus_ir: str | None, source_pdf: str | None, artefacts: list[ExportArtefact], warnings: list[str]) -> ExportManifestDocument:
+    """Assemble the ExportManifestDocument for a single export run.
+
+    Args:
+        document_id: Logical document identifier.
+        source_linked_structure: Manifest reference for the input linked
+            structure (typically a filesystem path).
+        source_consensus_ir: Optional manifest reference for the input
+            consensus IR.
+        source_pdf: Optional manifest reference for the source PDF.
+        artefacts: Artefact entries describing every produced file.
+        warnings: Run-level warning list to record on the manifest.
+
+    Returns:
+        A populated ExportManifestDocument carrying the provided inputs
+        and an ``exporter`` metadata tag.
+    """
+
     return ExportManifestDocument(document_id=document_id, source_linked_structure=source_linked_structure, source_consensus_ir=source_consensus_ir, source_pdf=source_pdf, artefacts=artefacts, warnings=warnings, metadata={"exporter": "pdf2md"})
 
 
 def artefact(path: str, artefact_type: ExportArtefactType, warnings: list[str] | None = None, sha256: str | None = None, skipped: bool = False) -> ExportArtefact:
+    """Build an ExportArtefact entry with the correct status.
+
+    Args:
+        path: Relative path to the artefact under the export root.
+        artefact_type: Artefact type enum value.
+        warnings: Warnings associated with the artefact; presence of any
+            warning promotes the status to ``WRITTEN_WITH_WARNINGS``.
+        sha256: Pre-computed sha256 hex digest, when known.
+        skipped: When true, mark the artefact ``SKIPPED`` regardless of
+            warnings.
+
+    Returns:
+        A populated ExportArtefact ready to be added to a manifest.
+    """
+
     return ExportArtefact(artefact_type=artefact_type, path=path, status=ExportStatus.SKIPPED if skipped else (ExportStatus.WRITTEN_WITH_WARNINGS if warnings else ExportStatus.WRITTEN), sha256=sha256, warnings=warnings or [], metadata={})
 
 
 __all__ = [
     "INSPECTION_STATUSES",
-    "sha256_file",
+    "artefact",
     "build_export_report",
     "build_manifest",
-    "artefact",
+    "sha256_file",
 ]

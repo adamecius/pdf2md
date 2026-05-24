@@ -13,9 +13,10 @@ decides whether smoke outputs are sufficient for connector normalisation.
 
 from __future__ import annotations
 
+import contextlib
 import json
 import subprocess
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from enum import Enum
 from pathlib import Path
 from typing import Any, Literal
@@ -25,8 +26,8 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 from pdf2md.backends.runner import derive_run_name, run_configured_backends
 from pdf2md.config import get_enabled_backends, load_backend_config
 
-BACKEND_SMOKE_SCHEMA_VERSION = "1.0.0"
-TOOL_NAME = "backend_smoke"
+BACKEND_SMOKE_SCHEMA_VERSION: Literal["1.0.0"] = "1.0.0"
+TOOL_NAME: Literal["backend_smoke"] = "backend_smoke"
 DEFAULT_CORPUS_ROOT = Path("groundtruth/corpus/latex")
 DEFAULT_GATE_MINIMUM = 2
 DEFAULT_TIMEOUT_SECONDS = 300
@@ -72,6 +73,8 @@ _DEPENDENCY_MARKERS: tuple[str, ...] = (
 
 
 class BackendSmokeStatus(str, Enum):
+    """Per-backend smoke-readiness status taxonomy."""
+
     SUCCESS = "success"
     ENV_NOT_READY = "env_not_ready"
     MODEL_MISSING = "model_missing"
@@ -134,10 +137,38 @@ _FAILURE_REASONS: dict[BackendSmokeStatus, str] = {
 
 
 class _SmokeBaseModel(BaseModel):
+    """Private Pydantic base for backend-smoke models."""
+
     model_config = ConfigDict(extra="forbid")
 
 
 class BackendSmokeResult(_SmokeBaseModel):
+    """Per-backend smoke run outcome.
+
+    Attributes:
+        backend_name: Configured backend identifier.
+        configured: Whether the backend appears in configuration.
+        enabled: Whether the backend is enabled for execution.
+        environment_name: Conda or venv environment name, when known.
+        command: Command line executed by the backend runner.
+        input_pdf: Path of the PDF that was processed.
+        output_dir: Directory where the backend wrote artefacts.
+        exit_code: Process exit code, when the backend ran.
+        duration_seconds: Wall-clock duration of the backend run.
+        status: Classified smoke-readiness status.
+        expected_output_patterns: Artefact filenames the backend should
+            produce.
+        output_files_found: Patterns from ``expected_output_patterns``
+            that are present and non-empty.
+        missing_output_patterns: Expected patterns that are absent.
+        stdout_snippet: Truncated stdout for diagnostics.
+        stderr_snippet: Truncated stderr for diagnostics.
+        failure_reason: Human-readable failure reason for non-success
+            statuses.
+        next_action: Recommended next action for the operator.
+        metadata: Free-form per-backend metadata.
+    """
+
     backend_name: str
     configured: bool
     enabled: bool
@@ -159,6 +190,29 @@ class BackendSmokeResult(_SmokeBaseModel):
 
 
 class BackendSmokeReport(_SmokeBaseModel):
+    """Aggregated backend smoke-readiness report (Plan 9).
+
+    Attributes:
+        schema_name: Fixed schema marker.
+        schema_version: Schema version string.
+        generated_at: UTC timestamp at which the report was produced.
+        tool_name: Identifier of the reporting tool.
+        repo_root: Absolute path of the repository root.
+        corpus_root: Optional path of the ground-truth corpus.
+        input_pdf: Path of the PDF the smoke run processed.
+        gate_minimum: Number of successful backends required to pass.
+        gate_passed: Whether the gate threshold was met.
+        total_backends: Number of backends in ``results``.
+        backends_successful: Count of ``success`` results.
+        backends_failed: Count of crash / output-missing / timeout
+            results.
+        backends_deferred: Count of env-missing / model-missing /
+            dependency-missing / not-configured results.
+        results: Per-backend BackendSmokeResult entries.
+        warnings: Run-level warnings (config loading, runner errors).
+        metadata: Free-form report metadata.
+    """
+
     schema_name: Literal["pdf2md.BackendSmokeReport"] = "pdf2md.BackendSmokeReport"
     schema_version: Literal["1.0.0"] = BACKEND_SMOKE_SCHEMA_VERSION
     generated_at: str
@@ -217,10 +271,7 @@ class BackendSmokeReport(_SmokeBaseModel):
 
 
 def _status_value(result: Any) -> str:
-    if isinstance(result, dict):
-        status = result.get("status")
-    else:
-        status = getattr(result, "status", None)
+    status = result.get("status") if isinstance(result, dict) else getattr(result, "status", None)
     if isinstance(status, BackendSmokeStatus):
         return status.value
     return str(status)
@@ -239,7 +290,7 @@ def _snippet(text: str | None) -> str:
 
 
 def _utc_now() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def classify_backend_status(
@@ -414,10 +465,8 @@ def _collect_run_artifacts(work_dir: Path, input_pdf: Path, enabled: dict) -> di
         command: list[str] | str | None = None
         command_path = backend_dir / "command.json"
         if command_path.is_file():
-            try:
+            with contextlib.suppress(OSError, json.JSONDecodeError):
                 command = json.loads(command_path.read_text(encoding="utf-8")).get("command")
-            except (OSError, json.JSONDecodeError):
-                pass
         found = [
             pattern
             for pattern in EXPECTED_OUTPUT_PATTERNS
@@ -478,7 +527,7 @@ def build_backend_smoke_report(
         try:
             config = load_backend_config(resolved_config)
             metadata["config_status"] = "loaded"
-        except Exception as exc:  # noqa: BLE001 - any load error degrades to not_configured
+        except Exception as exc:
             config = None
             metadata["config_status"] = "invalid"
             warnings.append(f"backend configuration could not be loaded: {exc}")
@@ -504,7 +553,7 @@ def build_backend_smoke_report(
         except subprocess.TimeoutExpired as exc:
             run_timed_out = True
             warnings.append(f"backend run timed out after {timeout_seconds}s: {exc}")
-        except Exception as exc:  # noqa: BLE001 - runner failure must not abort the report
+        except Exception as exc:
             warnings.append(f"backend runner raised an error: {exc}")
         run_artifacts = _collect_run_artifacts(work_dir, input_pdf, enabled)
     elif enabled:
@@ -651,19 +700,19 @@ def write_backend_smoke_report(*, report: BackendSmokeReport, out_dir: Path) -> 
 
 __all__ = [
     "BACKEND_SMOKE_SCHEMA_VERSION",
-    "TOOL_NAME",
     "DEFAULT_CORPUS_ROOT",
     "DEFAULT_GATE_MINIMUM",
     "DEFAULT_TIMEOUT_SECONDS",
     "EXPECTED_OUTPUT_PATTERNS",
-    "BackendSmokeStatus",
-    "BackendSmokeResult",
+    "TOOL_NAME",
     "BackendSmokeReport",
-    "classify_backend_status",
-    "next_action_for",
-    "build_backend_result",
+    "BackendSmokeResult",
+    "BackendSmokeStatus",
     "assemble_smoke_report",
+    "build_backend_result",
     "build_backend_smoke_report",
     "build_backend_smoke_summary",
+    "classify_backend_status",
+    "next_action_for",
     "write_backend_smoke_report",
 ]

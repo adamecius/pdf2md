@@ -33,6 +33,28 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
 - blockers: []
 - status: ready_for_review
 
+## PR #3 — 2026-05-24T12:30:00Z — mode: agent — Additional Plan 3 (PEP compliance)
+- branch: additional-plan-3-pep-compliance
+- tasks_attempted:
+    - A1 (docstring style guide): files_touched=[docs/docstring_style_guide.md], tests_pass=[no automated tests required]
+    - A2 (module docstrings): files_touched=[src/pdf2md/backends/runner.py, src/pdf2md/cli/main.py, src/pdf2md/config.py, src/pdf2md/conventions/__init__.py, src/pdf2md/conventions/alignment.py, src/pdf2md/conventions/determine_convention.py, src/pdf2md/conventions/latex_groundtruth.py, src/pdf2md/conventions/normalizer.py, src/pdf2md/conventions/reporting.py, src/pdf2md/conventions/rules.py, src/pdf2md/conventions/schemas.py, src/pdf2md/models/__init__.py, src/pdf2md/models/semantic_document.py, src/pdf2md/testing/__init__.py, src/pdf2md/testing/fixtures.py, src/pdf2md/testing/mock_backend_ir.py], modules_with_docstrings=66/66, ast_check=PASS
+    - A3 (return annotations): files_touched=[src/pdf2md/consensus/io.py, src/pdf2md/consensus/scoring.py, src/pdf2md/conventions/alignment.py, src/pdf2md/conventions/determine_convention.py, src/pdf2md/testing/fixtures.py, src/pdf2md/testing/mock_backend_ir.py], functions_without_returns_before=7, after=0, ast_check=PASS
+    - A4 (Google-style docstrings): public-symbols_with_docstrings_before=~200/430, after=430/430 (incl. private _BaseModel classes), ast_check=PASS; bulk work delegated to 4 parallel subagents partitioned by subpackage (models/, consensus+conventions+backends, calibration+linking, export+local+pipeline+testing), residual ~30 items finished directly
+    - A5 (ruff + mypy): files_touched=[pyproject.toml]; ruff_residuals_after_autofix=3 (RUF002 ambiguous en-dash); residuals_resolved=replaced en-dash with hyphen in src/pdf2md/conventions/rules.py, src/pdf2md/conventions/schemas.py, src/pdf2md/testing/mock_backend_ir.py; mypy_errors=0/66 source files; targeted_ignores: pyproject `ignore += UP042` (str-Enum→StrEnum rewrite would change JSON serialisation behaviour; documented inline)
+- automated_test_commands:
+    - `conda run -n pdf2md ruff check src/pdf2md/ --exclude src/pdf2md/_legacy/` → exit 0, "All checks passed!"
+    - `conda run -n pdf2md mypy src/pdf2md/ --exclude _legacy` → exit 0, "Success: no issues found in 66 source files"
+    - `conda run -n pdf2md pytest tests/ -q --ignore=tests/_legacy_temp -x` → 928 passed, 212 skipped, 16 xfailed, 0 failed
+    - AST module-docstring check → 0 missing
+    - AST return-annotation check → 0 missing
+    - AST public-symbol docstring check → 0 missing
+- dependencies_added: [ruff>=0.4 (installed ruff 0.15.14), mypy>=1.10 (installed mypy 2.1.0); declared in pyproject.toml dev extras since Additional Plan 2]
+- external_tools_used: [ruff, mypy]
+- forbidden_files_touched: []
+- environment_modifying_commands: [conda run -n pdf2md python -m pip install "ruff>=0.4" "mypy>=1.10"]
+- blockers: []
+- status: ready_for_review
+
 ## PR #2 — 2026-05-24T11:30:00Z — mode: agent — Plan 19
 - branch: plan-19-uninformative-priors-consensus-bootstrap
 - tasks_attempted:

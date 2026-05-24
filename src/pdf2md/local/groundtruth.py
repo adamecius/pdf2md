@@ -14,15 +14,15 @@ from __future__ import annotations
 
 import json
 import tomllib
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from enum import Enum
 from pathlib import Path
 from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
-LOCAL_GROUNDTRUTH_SCHEMA_VERSION = "1.0.0"
-TOOL_NAME = "local_groundtruth_validate"
+LOCAL_GROUNDTRUTH_SCHEMA_VERSION: Literal["1.0.0"] = "1.0.0"
+TOOL_NAME: Literal["local_groundtruth_validate"] = "local_groundtruth_validate"
 DEFAULT_CORPUS_ROOT = Path("groundtruth/corpus/latex")
 
 REQUIRED_ARTEFACTS: tuple[str, ...] = ("tex", "meta_toml", "docling_json")
@@ -42,16 +42,30 @@ _META_FIELDS: tuple[str, ...] = (
 
 
 class DocumentStatus(str, Enum):
+    """Ground-truth document readiness classification."""
+
     READY = "ready"
     PARTIAL = "partial"
     MISSING_CRITICAL = "missing_critical"
 
 
 class _GroundtruthBaseModel(BaseModel):
+    """Private Pydantic base for ground-truth validation models."""
+
     model_config = ConfigDict(extra="forbid")
 
 
 class ArtefactPresence(_GroundtruthBaseModel):
+    """Presence record for one ground-truth artefact kind.
+
+    Attributes:
+        kind: Artefact kind identifier (e.g. ``tex``, ``meta_toml``).
+        required: Whether the artefact is required for readiness.
+        present: True when at least one matching file was found.
+        paths: Basenames of the matching files.
+        detail: Optional free-form note explaining the presence record.
+    """
+
     kind: str
     required: bool
     present: bool
@@ -60,6 +74,22 @@ class ArtefactPresence(_GroundtruthBaseModel):
 
 
 class DocumentValidationEntry(_GroundtruthBaseModel):
+    """Validation outcome for a single ground-truth document directory.
+
+    Attributes:
+        document_id: Logical document identifier (directory name).
+        document_path: Filesystem path of the document directory.
+        status: Readiness classification.
+        artefacts: Per-kind ArtefactPresence records.
+        required_present: Required artefact kinds that were found.
+        required_missing: Required artefact kinds that were absent.
+        optional_present: Optional artefact kinds that were found.
+        optional_missing: Optional artefact kinds that were absent.
+        warnings: Per-document warnings (missing artefacts, parse
+            failures).
+        metadata: Free-form metadata, including meta.toml expectations.
+    """
+
     document_id: str
     document_path: str
     status: DocumentStatus
@@ -73,6 +103,24 @@ class DocumentValidationEntry(_GroundtruthBaseModel):
 
 
 class GroundtruthValidationReport(_GroundtruthBaseModel):
+    """Aggregated ground-truth corpus validation report.
+
+    Attributes:
+        schema_name: Fixed schema marker.
+        schema_version: Schema version string.
+        generated_at: UTC timestamp of report generation.
+        tool_name: Identifier of the reporting tool.
+        corpus_root: Filesystem path of the inspected corpus root.
+        corpus_ready: True only when every document is ``READY``.
+        total_documents: Number of documents inspected.
+        documents_ready: Count of ready documents.
+        documents_partial: Count of partial documents.
+        documents_missing_critical: Count of missing-critical documents.
+        documents: Per-document validation entries.
+        warnings: Run-level warnings.
+        metadata: Free-form report metadata.
+    """
+
     schema_name: Literal["pdf2md.LocalGroundtruthValidationReport"] = (
         "pdf2md.LocalGroundtruthValidationReport"
     )
@@ -129,10 +177,7 @@ class GroundtruthValidationReport(_GroundtruthBaseModel):
 
 
 def _document_status_value(document: Any) -> str:
-    if isinstance(document, dict):
-        status = document.get("status")
-    else:
-        status = getattr(document, "status", None)
+    status = document.get("status") if isinstance(document, dict) else getattr(document, "status", None)
     if isinstance(status, DocumentStatus):
         return status.value
     return str(status)
@@ -290,7 +335,7 @@ def build_validation_report(
     current UTC time is used.
     """
 
-    timestamp = generated_at or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    timestamp = generated_at or datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
     corpus_root_str = str(corpus_root)
     warnings: list[str] = []
     metadata: dict[str, Any] = {
@@ -389,23 +434,23 @@ def write_validation_report(*, report: GroundtruthValidationReport, out_dir: Pat
 def report_to_json_dict(report: GroundtruthValidationReport) -> dict[str, Any]:
     """Return a JSON-compatible report dictionary."""
 
-    return json.loads(report.model_dump_json())
+    return dict(json.loads(report.model_dump_json()))
 
 
 __all__ = [
-    "LOCAL_GROUNDTRUTH_SCHEMA_VERSION",
-    "TOOL_NAME",
     "DEFAULT_CORPUS_ROOT",
-    "REQUIRED_ARTEFACTS",
+    "LOCAL_GROUNDTRUTH_SCHEMA_VERSION",
     "OPTIONAL_ARTEFACTS",
-    "DocumentStatus",
+    "REQUIRED_ARTEFACTS",
+    "TOOL_NAME",
     "ArtefactPresence",
+    "DocumentStatus",
     "DocumentValidationEntry",
     "GroundtruthValidationReport",
-    "discover_corpus_documents",
-    "inspect_document",
     "build_validation_report",
     "build_validation_summary",
-    "write_validation_report",
+    "discover_corpus_documents",
+    "inspect_document",
     "report_to_json_dict",
+    "write_validation_report",
 ]

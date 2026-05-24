@@ -17,7 +17,7 @@ def _status_value(value) -> str:
     return value if isinstance(value, str) else getattr(value, "value", str(value))
 
 
-def build_pipeline_summary(manifest: "PipelineManifest") -> str:
+def build_pipeline_summary(manifest: PipelineManifest) -> str:
     """Render a human-readable summary of a one-document or corpus manifest."""
 
     mode = _status_value(manifest.mode)
@@ -72,7 +72,7 @@ def build_pipeline_summary(manifest: "PipelineManifest") -> str:
     return "\n".join(lines) + "\n"
 
 
-def build_corpus_summary(evaluation: "CorpusEvaluation") -> str:
+def build_corpus_summary(evaluation: CorpusEvaluation) -> str:
     """Render a human-readable summary of a corpus MVP evaluation."""
 
     readiness = _status_value(evaluation.mvp_readiness)
@@ -112,10 +112,10 @@ def build_corpus_summary(evaluation: "CorpusEvaluation") -> str:
     return "\n".join(lines) + "\n"
 
 
-def classify_mvp_readiness(documents: list["DocumentRecord"]) -> "MvpReadiness":
+def classify_mvp_readiness(documents: list[DocumentRecord]) -> MvpReadiness:
     """Expose the runner's classification helper publicly for tests."""
 
-    from pdf2md.pipeline.runner import _mvp_readiness  # noqa: WPS437 - intentional reuse
+    from pdf2md.pipeline.runner import _mvp_readiness
 
     return _mvp_readiness(documents)
 
@@ -162,8 +162,8 @@ def build_orchestrator_pipeline_summary(manifest: dict) -> str:
 
 
 __all__ = [
-    "build_pipeline_summary",
-    "build_orchestrator_pipeline_summary",
     "build_corpus_summary",
+    "build_orchestrator_pipeline_summary",
+    "build_pipeline_summary",
     "classify_mvp_readiness",
 ]

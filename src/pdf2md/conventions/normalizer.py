@@ -1,7 +1,19 @@
+"""Apply convention-driven normalisation to backend-extracted blocks.
+
+Loads a rule-set (default or TOML) and rewrites backend block text and
+typing so that downstream consensus comparisons are invariant to known
+OCR convention quirks (ligatures, equation numbering, footnote
+attachment, etc.).
+"""
+
 from __future__ import annotations
-import argparse, json, re
-from pathlib import Path
+
+import argparse
+import json
+import re
 import tomllib
+from pathlib import Path
+
 from .latex_groundtruth import equation_body_key
 from .rules import default_rules, rule_matches
 from .schemas import Rule
@@ -40,6 +52,22 @@ def _formula_info(text: str, rules_applied: list[dict]) -> dict | None:
 
 
 def normalise_blocks(blocks: list[dict], backend: str, rules: list[Rule]) -> list[dict]:
+    """Apply convention rules to a list of backend-extracted blocks.
+
+    Walks ``blocks``, applies each matching ``Rule`` (with backend filter,
+    type filter, text regex, and the near-caption gate where required),
+    and records the applied rules under ``block['normalisation']``.
+    Formula info is attached for blocks that look equation-like.
+
+    Args:
+        blocks: Raw backend blocks.
+        backend: Backend identifier (used to gate per-backend rules).
+        rules: Rules to apply, in priority order.
+
+    Returns:
+        A new list of blocks with normalised ``type`` and ``text`` plus
+        per-block ``normalisation`` metadata where rules matched.
+    """
     out = []
     for i, b in enumerate(blocks):
         nb = json.loads(json.dumps(b))
@@ -53,9 +81,8 @@ def normalise_blocks(blocks: list[dict], backend: str, rules: list[Rule]) -> lis
                 continue
             if r.requires_near_caption_regex and not _near_caption(blocks, i, r.requires_near_caption_regex):
                 continue
-            if r.normalised_type:
-                if not (nb.get("type") == "caption" and r.id == "table.flattened_paragraph"):
-                    nb["type"] = r.normalised_type
+            if r.normalised_type and not (nb.get("type") == "caption" and r.id == "table.flattened_paragraph"):
+                nb["type"] = r.normalised_type
             if r.normalised_text_rewrite:
                 text = re.sub(r.text_regex, r.normalised_text_rewrite, text)
                 if "content" in nb:
@@ -71,6 +98,7 @@ def normalise_blocks(blocks: list[dict], backend: str, rules: list[Rule]) -> lis
 
 
 def main() -> None:
+    """CLI entry point: normalise every backend's blocks under an input root."""
     p = argparse.ArgumentParser()
     p.add_argument("--input-root", required=True)
     p.add_argument("--config")

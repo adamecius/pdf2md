@@ -56,6 +56,9 @@ select = [
 ignore = [
     "E501",   # line too long (handled by formatter)
     "B008",   # do not perform function calls in argument defaults (typer pattern)
+    "UP042",  # str-Enum to StrEnum: behavioural-equivalent rewrite would touch
+              # every model enum and risk JSON-serialisation drift against
+              # snapshot fixtures. Plan 3 forbids runtime behaviour changes.
 ]
 
 [tool.ruff.lint.isort]

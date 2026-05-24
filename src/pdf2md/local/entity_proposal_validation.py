@@ -14,23 +14,22 @@ from __future__ import annotations
 
 import json
 import re
-from datetime import datetime, timezone
+from collections.abc import Callable, Mapping
+from datetime import UTC, datetime
 from enum import Enum
 from pathlib import Path
-from typing import Any, Callable, Literal, Mapping
+from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
 
 from pdf2md.connectors.common import BackendConnectorConfig, ConnectorResult, connect_raw_dir
 from pdf2md.models.entities import (
-    ConfidenceSource,
     EntityProposalDocument,
     EntityType,
-    RelationType,
 )
 
-ENTITY_VALIDATION_SCHEMA_VERSION = "1.0.0"
-TOOL_NAME = "validate_entity_proposals"
+ENTITY_VALIDATION_SCHEMA_VERSION: Literal["1.0.0"] = "1.0.0"
+TOOL_NAME: Literal["validate_entity_proposals"] = "validate_entity_proposals"
 DEFAULT_PREFERRED_GATE_MINIMUM = 2
 DEFAULT_DOCUMENT_ID = "plan11_doc"
 PLAN10_VALIDATED_STATUS = "validated"
@@ -73,6 +72,8 @@ _NEXT_ACTIONS: dict[EntityValidationStatus, str] = {
 
 
 class _EntityBaseModel(BaseModel):
+    """Private Pydantic base for entity-validation models."""
+
     model_config = ConfigDict(extra="forbid", use_enum_values=True)
 
 
@@ -170,7 +171,7 @@ def _count_status(results: list[Any], status: EntityValidationStatus) -> int:
 
 
 def _utc_now() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def _is_noise_text(text: str | None) -> bool:
@@ -181,9 +182,7 @@ def _is_noise_text(text: str | None) -> bool:
         return True
     if re.match(r"^(\[)?(DEBUG|INFO|WARN|WARNING|ERROR|FATAL|TRACE)(\])?[\s:]", stripped, re.I):
         return True
-    if re.fullmatch(r"/(?:[A-Za-z0-9_.\-]+/?)+", stripped):
-        return True
-    return False
+    return bool(re.fullmatch(r"/(?:[A-Za-z0-9_.\-]+/?)+", stripped))
 
 
 def _semantic_plausibility(document: EntityProposalDocument) -> tuple[bool, list[str]]:
@@ -361,7 +360,7 @@ def _load_entity_document_from_json(path: Path) -> tuple[EntityProposalDocument 
         document = EntityProposalDocument.model_validate(data)
     except ValidationError as exc:
         return None, "schema", str(exc)
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         return None, "schema", f"{type(exc).__name__}: {exc}"
     return document, "", None
 
@@ -433,7 +432,7 @@ def validate_one_backend(
                 document_id=document_id,
                 config=config,
             )
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:
             return _result(
                 backend_name=backend_name,
                 status=EntityValidationStatus.CONNECTOR_CRASH,
@@ -455,7 +454,7 @@ def validate_one_backend(
                 )
         except ValidationError as exc:
             error_kind, error_summary = "schema", str(exc)
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:
             error_kind, error_summary = "schema", f"{type(exc).__name__}: {exc}"
 
     if error_kind == "crash":
@@ -685,7 +684,7 @@ def build_entity_proposal_validation_report(
         results.append(result)
 
     preferred_passed, minimum_passed = _gates(results, preferred_gate_minimum)
-    gate_mode = "preferred"
+    gate_mode: Literal["preferred", "reduced"] = "preferred"
     human_reduced_gate_required = False
     if not preferred_passed and minimum_passed and allow_reduced_gate:
         gate_mode = "reduced"
@@ -841,17 +840,17 @@ def write_entity_proposal_validation_report(
 
 
 __all__ = [
-    "ENTITY_VALIDATION_SCHEMA_VERSION",
-    "TOOL_NAME",
-    "DEFAULT_PREFERRED_GATE_MINIMUM",
     "DEFAULT_DOCUMENT_ID",
+    "DEFAULT_PREFERRED_GATE_MINIMUM",
+    "ENTITY_VALIDATION_SCHEMA_VERSION",
     "PLAN10_VALIDATED_STATUS",
     "SEMANTIC_MIN_CONFIDENCE",
-    "EntityValidationStatus",
-    "EntityValidationResult",
+    "TOOL_NAME",
     "EntityValidationReport",
-    "validate_one_backend",
+    "EntityValidationResult",
+    "EntityValidationStatus",
     "build_entity_proposal_validation_report",
     "build_entity_proposal_validation_summary",
+    "validate_one_backend",
     "write_entity_proposal_validation_report",
 ]

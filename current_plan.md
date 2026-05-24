@@ -1,7 +1,7 @@
-# Additional Plan 2 — Repository Sanitisation and Legacy Removal
+# Additional Plan 3 — PEP Compliance: Docstrings, Type Annotations, and Linter Enforcement
 
 Status:
-draft
+active
 
 Allowed status values:
 draft
@@ -15,61 +15,68 @@ blocked
 superseded
 
 Linked ROADMAP phase:
-Phase 0 — Repository hygiene and public presentation
+Phase 0 — Repository hygiene and code quality
 
 Current roadmap estimate:
 Post-MVP. No ROADMAP.md percentage change until human approval.
 
 Note:
-This plan removes legacy artefacts, untracked virtual environments, dead code,
-and orphan files from the repository. It improves the public presentation on
-GitHub and adds baseline tooling configuration. It does not change any active
-pipeline logic.
+This plan brings all active modules into compliance with PEP 257 (docstring
+conventions), PEP 484/585/604 (type annotations), and PEP 8 (style) using
+the ruff and mypy configuration established in Additional Plan 2.
 
-The repository currently tracks 18,531 files, of which 17,816 (96%) belong to
-a committed Python virtual environment (.venv-mineru/). The git objects
-directory is 305MB. Root-level scripts, old plan drafts, schema examples, and
-a duplicate package directory clutter the top level. Several internal modules
-under `utils/`, `adapters/`, `renderers/`, and `models/document.py` are
-superseded by the current staged pipeline but still have test coverage.
+PEP 727 (Documentation Metadata in Typing) was withdrawn in October 2024.
+The current Python standard for documentation remains PEP 257 docstrings
+with a consistent content format. This plan adopts Google-style docstrings
+because they are compact, readable without rendering, and compatible with
+Sphinx, mkdocs, and IDE tooltips.
 
-This plan separates work into safe deletions (no imports anywhere) and
-controlled deprecation (still imported by some tests).
+This plan does NOT touch `_legacy/` modules or `_legacy_temp/` tests.
 
 Owner:
 Agent team / human reviewer / local acceptance layer
 
 Sequence:
-Additional Plan 2 of the post-MVP implementation sequence.
+Additional Plan 3 of the post-MVP implementation sequence.
 
 Previous plan:
-Plan 18 — Single-Document Pipeline Orchestrator
+Additional Plan 2 — Repository Sanitisation and Legacy Removal
 
 Required previous plan status:
 human_verified
 
 Next plan after completion:
-Additional Plan 3 — Docstrings, Type Annotations, and Linter Configuration
+TBD
 
 Branch name:
-additional-plan-2-repository-sanitisation
+additional-plan-3-pep-compliance
 
 ---
 
 ## 1. Purpose
 
-This plan makes the public repository clean, navigable, and professional by
-removing files that should never have been tracked, deleting dead legacy
-artefacts, deprecating superseded modules, consolidating scattered
-documentation, and adding baseline developer tooling.
+This plan ensures every active module, class, and public function in
+`src/pdf2md/` has PEP 257-compliant docstrings, complete return type
+annotations, and passes ruff and mypy without errors.
+
+Current state (measured against active modules only, excluding `_legacy/`):
+
+- 16 modules without module-level docstrings.
+- 31 modules with module-level docstrings (one-line PEP 257 style).
+- ~40 public functions without return type annotations.
+- 0 public functions with Google-style parameter/return docstrings.
+- No ruff or mypy enforcement (configuration exists from Additional Plan 2
+  but has never been run).
 
 After this plan:
 
-- `git clone` downloads ~700 files instead of ~18,500.
-- The repository root contains only files that belong there.
-- Legacy modules are clearly marked and isolated.
-- `.gitignore` prevents future accidents.
-- `pyproject.toml` includes ruff and mypy configuration.
+- Every `.py` file under `src/pdf2md/` (except `_legacy/`) has a module
+  docstring.
+- Every public function and method has a Google-style docstring with Args,
+  Returns, and Raises sections where applicable.
+- Every function has a return type annotation.
+- `ruff check src/pdf2md/` passes with zero errors.
+- `mypy src/pdf2md/` passes with zero errors (excluding `_legacy/`).
 
 ---
 
@@ -82,12 +89,6 @@ project.md is the durable architecture description.
 README.md is the public entry point.
 
 PLAN_TEMPLATE.md is the standard format for executable plans.
-
-current_plan.md is the active execution contract for agents.
-
-next_plan.md is the next planned execution contract.
-
-history.md records completed milestones after human verification.
 
 This plan controls only the work explicitly described here.
 
@@ -102,7 +103,7 @@ git status --short
 git fetch --all --prune
 git checkout main
 git pull --ff-only
-git switch -c additional-plan-2-repository-sanitisation
+git switch -c additional-plan-3-pep-compliance
 ```
 
 Rules:
@@ -110,9 +111,10 @@ Rules:
 1. Do not work directly on main.
 2. Do not start from a dirty working tree.
 3. Do not modify files outside the whitelist.
-4. Do not install or use undeclared dependencies.
-5. Do not change ROADMAP.md progress.
-6. Do not mark this plan human_verified or finished.
+4. Do not change ROADMAP.md progress.
+5. Do not mark this plan human_verified or finished.
+6. Do not change any module's runtime behaviour. All changes are
+   documentation, annotations, and formatting only.
 
 Main conda environment:
 
@@ -128,350 +130,193 @@ This plan does not require backend environments.
 
 In scope:
 
-1. Remove `.venv-mineru/` from git tracking.
-2. Delete dead root-level scripts and legacy plan files.
-3. Delete orphan directories (`.current/`, `pdf2md/`, `schema_examples/`).
-4. Relocate superseded root-level documentation to `docs/archive/`.
-5. Move superseded internal modules to `src/pdf2md/_legacy/`.
-6. Mark legacy-dependent tests with a pytest marker.
-7. Update `.gitignore` to prevent future accidents.
-8. Add ruff and mypy baseline configuration to `pyproject.toml`.
-9. Consolidate `scripts/` shell scripts into `docs/archive/` or delete.
-10. Clean up `tests/temp_tests/` — relocate or mark as legacy.
+1. Module-level docstrings for all active modules.
+2. Google-style function/method docstrings for all public functions.
+3. Return type annotations for all functions missing them.
+4. Ruff lint fixes across active source code.
+5. Mypy type error resolution across active source code.
+6. A docstring style guide committed to docs/.
 
 Out of scope:
 
-1. Writing new docstrings or type annotations (Additional Plan 3).
-2. Rewriting tests that depend on legacy modules.
-3. Modifying any active pipeline module logic.
-4. Git history rewriting (BFG / filter-repo). The `.venv-mineru/` blobs
-   remain in git history; only tracking is removed. History cleanup is a
-   separate manual operation documented in this plan but not executed by
-   the agent.
-5. Modifying backend wrappers under `backend/`.
+1. `src/pdf2md/_legacy/` modules — not touched.
+2. `tests/_legacy_temp/` — not touched.
+3. `backend/` wrapper scripts — not touched.
+4. `tools/` standalone scripts — not touched (they use argparse, not
+   the package API).
+5. Runtime behaviour changes of any kind.
+6. Refactoring or restructuring code.
+7. Adding new tests (existing tests must continue to pass).
 
 Hard constraints:
 
-1. The agent must not modify files outside the whitelist.
-2. The agent must not break any currently passing test that does NOT depend
-   on legacy modules.
-3. Legacy-dependent tests must still pass (they import from `_legacy/`
-   after the move).
-4. The agent must not delete `models/document.py` — it moves to `_legacy/`.
-5. Human verification is required before merge.
+1. No runtime behaviour change. Every diff must be docstring, annotation,
+   whitespace, or import ordering only.
+2. All currently passing tests must continue to pass.
+3. Private functions (prefixed with `_`) get docstrings only if they are
+   complex (>10 lines or non-obvious logic). Simple private helpers may
+   be skipped.
+4. Dataclass and Pydantic model fields get docstrings via class-level
+   docstrings with an Attributes section, not per-field comments.
 
 Allowed Python dependencies:
 
 ```text
-ruff (dev dependency, not runtime)
-mypy (dev dependency, not runtime)
-```
-
-Allowed external tools:
-
-```text
-git rm --cached — to untrack .venv-mineru without deleting from disk
+ruff (dev — already configured in Additional Plan 2)
+mypy (dev — already configured in Additional Plan 2)
 ```
 
 ---
 
 ## 5. File whitelist and forbidden files
 
-### Files the agent must DELETE (git rm):
+The agent may modify only these files:
 
 ```text
-.venv-mineru/                              (git rm -r --cached; add to .gitignore)
-compare_pre_docling_groundtruth.py         (dead — no imports anywhere)
-latex_to_pre_docling_groundtruth.py        (dead — no imports anywhere)
-plan5.md                                   (legacy plan draft)
-patch.plan                                 (legacy patch notes)
-patch.plan8.md                             (legacy patch notes)
-.current/                                  (ad-hoc consensus output for one document)
-pdf2md/__init__.py                         (orphan — real package is src/pdf2md/)
-pdf2md/                                    (empty after __init__.py removal)
-schema_examples/                           (schemas from a pre-IR format)
-```
-
-### Files the agent must RELOCATE:
-
-```text
-README_latex_docling_groundtruth.md        → docs/archive/README_latex_docling_groundtruth.md
-run_latex_docling_backends.sh              → docs/archive/run_latex_docling_backends.sh
-generate_latex_docling_groundtruth.py      → docs/archive/generate_latex_docling_groundtruth.py
-validate_latex_docling_groundtruth.py      → docs/archive/validate_latex_docling_groundtruth.py
-scripts/local_build_docling_fixtures.sh    → docs/archive/local_build_docling_fixtures.sh
-scripts/local_validate_docling_fixtures.sh → docs/archive/local_validate_docling_fixtures.sh
-
-src/pdf2md/utils/consensus_report.py       → src/pdf2md/_legacy/consensus_report.py
-src/pdf2md/utils/semantic_linker.py        → src/pdf2md/_legacy/semantic_linker.py
-src/pdf2md/utils/media_materializer.py     → src/pdf2md/_legacy/media_materializer.py
-src/pdf2md/utils/semantic_document_builder.py → src/pdf2md/_legacy/semantic_document_builder.py
-src/pdf2md/utils/docling_adapter.py        → src/pdf2md/_legacy/docling_adapter.py
-src/pdf2md/utils/__init__.py               → (delete after moves; utils/ becomes empty)
-src/pdf2md/adapters/base.py                → src/pdf2md/_legacy/adapters_base.py
-src/pdf2md/adapters/__init__.py            → (delete)
-src/pdf2md/backends/base.py                → src/pdf2md/_legacy/backends_base.py
-src/pdf2md/renderers/markdown.py           → src/pdf2md/_legacy/renderers_markdown.py
-src/pdf2md/renderers/__init__.py           → (delete)
-src/pdf2md/models/document.py              → src/pdf2md/_legacy/models_document.py
-src/pdf2md/pipeline/convert.py             → src/pdf2md/_legacy/pipeline_convert.py
-
-tests/temp_tests/                          → tests/_legacy_temp/
-```
-
-### Files the agent may CREATE:
-
-```text
-src/pdf2md/_legacy/__init__.py
-src/pdf2md/_legacy/README.md
-docs/archive/README.md
-```
-
-### Files the agent may MODIFY:
-
-```text
-.gitignore
-pyproject.toml
-src/pdf2md/models/__init__.py              (remove document.py imports)
-src/pdf2md/cli/main.py                     (remove convert_pdf import)
-tests/test_consensus_report.py             (update imports to _legacy)
-tests/test_media_materializer.py           (update imports to _legacy)
-tests/test_docling_adapter.py              (update imports to _legacy)
-tests/test_semantic_linker.py              (update imports to _legacy)
-tests/test_semantic_document_builder.py    (update imports to _legacy)
-tests/test_groundtruth_regressions.py      (update imports to _legacy)
-tests/test_groundtruth_e2e.py              (update imports to _legacy)
-tests/test_mock_backend_schema.py          (update imports to _legacy)
-tests/test_models_and_rendering.py         (update imports to _legacy)
+src/pdf2md/**/*.py                (all active modules, excluding _legacy/)
+docs/docstring_style_guide.md     (create)
+pyproject.toml                    (minor ruff/mypy config adjustments only)
 run_log.md
 ```
 
-### Forbidden files (must not be modified):
+The agent must NOT modify:
 
 ```text
+src/pdf2md/_legacy/*
+tests/_legacy_temp/*
+tests/**/*.py                    (no test changes — only source docstrings)
+backend/*
+tools/*
+groundtruth/*
 ROADMAP.md
 README.md
 project.md
 PLAN_TEMPLATE.md
-src/pdf2md/consensus/*
-src/pdf2md/connectors/*
-src/pdf2md/calibration/*
-src/pdf2md/linking/*
-src/pdf2md/export/*
-src/pdf2md/models/ir.py
-src/pdf2md/models/entities.py
-src/pdf2md/models/priors.py
-src/pdf2md/models/linked.py
-src/pdf2md/models/export.py
-src/pdf2md/models/semantic_document.py
-src/pdf2md/backends/runner.py
-src/pdf2md/config.py
-src/pdf2md/local/*
-src/pdf2md/conventions/*
-src/pdf2md/testing/*
-backend/*
-tools/*
-groundtruth/*
 ```
 
 ---
 
 ## 6. Agent tasks
 
-### Task A1 — Remove .venv-mineru from tracking
+### Task A1 — Docstring style guide
 
 Title:
-Untrack committed virtual environment
+Create docs/docstring_style_guide.md
 
 Goal:
-Remove `.venv-mineru/` from git tracking without deleting it from disk, and
-prevent re-addition via `.gitignore`.
+Establish the project's docstring standard so all contributors and agents
+follow the same format.
 
 Files allowed:
 
 ```text
-.gitignore
-.venv-mineru/ (git rm --cached only)
+docs/docstring_style_guide.md
 ```
 
 Implementation requirements:
 
-1. Run `git rm -r --cached .venv-mineru/`.
-2. Add the following to `.gitignore`:
+1. Document the project's docstring conventions:
 
-   ```text
-   # Virtual environments — never track
-   .venv*/
-   venv*/
-   .env/
-   env/
+   **Module docstrings** — PEP 257 one-line for focused modules, multi-line
+   for complex modules:
+
+   ```python
+   """Scoring for page-local consensus candidate groups."""
    ```
 
-3. Also add these missing entries to `.gitignore`:
+   ```python
+   """Filesystem I/O for calibration inputs and outputs.
 
-   ```text
-   # IDE
-   .idea/
-   .vscode/
-   *.swp
-   *.swo
-   *~
-
-   # OS
-   .DS_Store
-   Thumbs.db
-
-   # Distribution / packaging
-   dist/
-   build/
-   *.egg-info/
-   *.egg
-
-   # Coverage
-   htmlcov/
-   .coverage
-   .coverage.*
+   This module handles discovery of calibration documents, loading of
+   truth files with Docling-to-BlockKind normalisation, and writing
+   of prior output files.
+   """
    ```
 
-4. Verify with `git status` that `.venv-mineru/` appears as deleted (from
-   tracking) and that the files still exist on disk.
+   **Function docstrings** — Google-style:
 
-Automated tests required:
+   ```python
+   def score_candidate_group(
+       *,
+       group: CandidateGroup,
+       priors_by_backend: dict[str, CalibrationPriorDocument],
+       entities_by_backend: dict[str, EntityProposalDocument],
+       settings: ConsensusScoringSettings = ConsensusScoringSettings(),
+   ) -> GroupScore:
+       """Score candidates in a group and select the consensus winner.
 
-```bash
-git ls-files .venv-mineru/ | wc -l    # must be 0
-test -d .venv-mineru                  # must still exist on disk
-```
+       Computes a weighted score for each candidate block using text
+       overlap, bbox IoU, reading order, block kind agreement, backend
+       calibration priors, and entity-level priors. Selects the highest-
+       scoring candidate or marks the group as unresolved if the margin
+       is within the configured threshold.
 
-Expected output:
-`.venv-mineru/` untracked. `.gitignore` updated.
+       Args:
+           group: The candidate group containing blocks from
+               different backends that were matched to the same
+               logical region.
+           priors_by_backend: Calibration prior documents keyed by
+               backend name.
+           entities_by_backend: Entity proposal documents keyed by
+               backend name.
+           settings: Scoring weights and thresholds.
 
-Completion evidence:
-`git diff --cached --stat` showing ~17,816 deletions. `.gitignore` diff.
+       Returns:
+           A GroupScore with the selected candidate, agreement score,
+           selection mode, and per-candidate score breakdown.
 
-Human verification required:
-yes (see checkpoint H1)
+       Raises:
+           ValueError: If the group contains zero candidates.
+       """
+   ```
 
----
+   **Class/dataclass docstrings** — Summary plus Attributes:
 
-### Task A2 — Delete dead root-level files
+   ```python
+   @dataclass(frozen=True)
+   class ConsensusScoringSettings:
+       """Weights and thresholds for consensus candidate scoring.
 
-Title:
-Remove legacy scripts, orphan plans, and dead directories
+       Attributes:
+           text_weight: Weight for token overlap score.
+           bbox_weight: Weight for bounding box IoU score.
+           min_agreement_score: Minimum score to accept a candidate.
+       """
 
-Goal:
-Delete files at the repository root that have no imports, no references, and
-no active purpose.
+       text_weight: float = 0.35
+       bbox_weight: float = 0.15
+       min_agreement_score: float = 0.50
+   ```
 
-Files allowed:
+   **Private functions** — One-line docstring if complex; skip if trivial:
 
-```text
-compare_pre_docling_groundtruth.py
-latex_to_pre_docling_groundtruth.py
-plan5.md
-patch.plan
-patch.plan8.md
-.current/
-pdf2md/
-schema_examples/
-```
+   ```python
+   def _tokens(text: str | None) -> set[str]:
+       """Extract lowercase word tokens from text."""
+       return set(re.findall(r"[\w]+", normalise_text(text)))
+   ```
 
-Implementation requirements:
+2. Document type annotation conventions:
 
-1. Delete each file with `git rm`:
+   - Use PEP 604 union syntax: `X | Y` not `Union[X, Y]`.
+   - Use PEP 585 lowercase generics: `list[X]`, `dict[K, V]`, `tuple[X, ...]`.
+   - Use `from __future__ import annotations` in every module (already
+     present in most modules).
+   - Always annotate return types, including `-> None`.
+   - Use `Any` sparingly; prefer concrete types or TypedDict.
+
+3. Document ruff and mypy enforcement:
 
    ```bash
-   git rm compare_pre_docling_groundtruth.py
-   git rm latex_to_pre_docling_groundtruth.py
-   git rm plan5.md
-   git rm patch.plan
-   git rm patch.plan8.md
-   git rm -r .current/
-   git rm -r pdf2md/
-   git rm -r schema_examples/
+   # Lint check
+   ruff check src/pdf2md/ --exclude src/pdf2md/_legacy/
+
+   # Auto-fix safe issues
+   ruff check src/pdf2md/ --exclude src/pdf2md/_legacy/ --fix
+
+   # Type check
+   mypy src/pdf2md/ --exclude src/pdf2md/_legacy/
    ```
-
-2. Verify none of these files are imported by any `.py` file under `src/`
-   or `tests/` before deleting. (Pre-verified during plan creation: none
-   are imported.)
-
-3. The `scripts/` directory becomes empty after Task A3. Delete it with
-   `git rm -r scripts/`.
-
-Automated tests required:
-
-```bash
-conda run -n pdf2md pytest tests/ -q --ignore=tests/temp_tests --ignore=tests/_legacy_temp -x
-```
-
-All currently passing tests that don't depend on legacy utils must still pass.
-
-Expected output:
-Root directory is clean.
-
-Completion evidence:
-`git rm` output. `ls` of root showing only legitimate files.
-
-Human verification required:
-no
-
----
-
-### Task A3 — Relocate legacy documentation and scripts
-
-Title:
-Move superseded docs and scripts to docs/archive/
-
-Goal:
-Preserve legacy documentation and scripts for reference without cluttering
-the root or active directories.
-
-Files allowed:
-
-```text
-docs/archive/README.md                     (create)
-docs/archive/README_latex_docling_groundtruth.md
-docs/archive/run_latex_docling_backends.sh
-docs/archive/generate_latex_docling_groundtruth.py
-docs/archive/validate_latex_docling_groundtruth.py
-docs/archive/local_build_docling_fixtures.sh
-docs/archive/local_validate_docling_fixtures.sh
-scripts/                                   (delete after moving)
-README_latex_docling_groundtruth.md         (delete from root)
-run_latex_docling_backends.sh               (delete from root)
-generate_latex_docling_groundtruth.py       (delete from root)
-validate_latex_docling_groundtruth.py       (delete from root)
-```
-
-Implementation requirements:
-
-1. Create `docs/archive/` directory.
-
-2. `git mv` each file to `docs/archive/`.
-
-3. Create `docs/archive/README.md`:
-
-   ```markdown
-   # Archived Scripts and Documentation
-
-   These files are from earlier development phases and are preserved for
-   reference. They are not part of the active pipeline.
-
-   The active pipeline modules are under `src/pdf2md/` and the active
-   tools are under `tools/`.
-
-   ## Contents
-
-   - `README_latex_docling_groundtruth.md` — original LaTeX ground-truth
-     harness documentation.
-   - `generate_latex_docling_groundtruth.py` — original fixture generator.
-   - `validate_latex_docling_groundtruth.py` — original fixture validator.
-   - `run_latex_docling_backends.sh` — original bash orchestrator.
-   - `local_build_docling_fixtures.sh` — local fixture build script.
-   - `local_validate_docling_fixtures.sh` — local fixture validation script.
-   ```
-
-4. Delete `scripts/` directory after moving its contents.
 
 Automated tests required:
 
@@ -479,312 +324,331 @@ Automated tests required:
 none (documentation only)
 ```
 
-Expected output:
-Root is clean. `docs/archive/` has legacy files.
+Human verification required:
+no
 
-Completion evidence:
-`git mv` output. `ls docs/archive/`.
+---
+
+### Task A2 — Module-level docstrings
+
+Title:
+Add module docstrings to all active modules missing them
+
+Goal:
+Every `.py` file under `src/pdf2md/` (except `_legacy/` and `__init__.py`)
+has a PEP 257-compliant module docstring.
+
+Files allowed:
+
+```text
+src/pdf2md/config.py
+src/pdf2md/conventions/determine_convention.py
+src/pdf2md/conventions/latex_groundtruth.py
+src/pdf2md/conventions/schemas.py
+src/pdf2md/conventions/normalizer.py
+src/pdf2md/conventions/reporting.py
+src/pdf2md/conventions/rules.py
+src/pdf2md/conventions/alignment.py
+src/pdf2md/models/semantic_document.py
+src/pdf2md/cli/main.py
+src/pdf2md/backends/runner.py
+src/pdf2md/testing/fixtures.py
+src/pdf2md/testing/mock_backend_ir.py
+```
+
+Note: `models/document.py`, `backends/base.py`, `pipeline/convert.py`,
+`adapters/base.py`, and `renderers/markdown.py` are moved to `_legacy/`
+by Additional Plan 2. If Additional Plan 2 has not yet been executed
+when this plan runs, add docstrings to those files as well, but mark
+them with a `.. deprecated::` notice.
+
+Implementation requirements:
+
+1. Each module docstring must be one concise line describing the module's
+   purpose, matching the style already used in the codebase:
+
+   ```python
+   """TOML configuration loader for backend orchestration."""
+   ```
+
+2. For complex modules (>100 lines or multiple public functions), use a
+   multi-line docstring with a blank line after the summary:
+
+   ```python
+   """Convention normalisation for OCR backend outputs.
+
+   Applies configured normalisation rules to raw backend text to handle
+   known OCR conventions (ligatures, whitespace, encoding quirks) before
+   text comparison in the consensus stage.
+   """
+   ```
+
+3. `__init__.py` files: add a one-line docstring if missing, describing
+   the subpackage purpose.
+
+Automated tests required:
+
+```bash
+conda run -n pdf2md python -c "
+import ast, pathlib, sys
+missing = []
+for p in pathlib.Path('src/pdf2md').rglob('*.py'):
+    if '_legacy' in str(p) or '__pycache__' in str(p):
+        continue
+    tree = ast.parse(p.read_text())
+    if not ast.get_docstring(tree):
+        missing.append(str(p))
+if missing:
+    print('Missing module docstrings:')
+    for m in sorted(missing): print(f'  {m}')
+    sys.exit(1)
+print(f'All modules have docstrings.')
+"
+```
 
 Human verification required:
 no
 
 ---
 
-### Task A4 — Move superseded modules to _legacy/
+### Task A3 — Return type annotations
 
 Title:
-Relocate legacy utils, adapters, renderers, and old model to _legacy package
+Add return type annotations to all public functions
 
 Goal:
-Move superseded internal modules to `src/pdf2md/_legacy/` with a clear
-deprecation notice, preserving import paths for existing tests.
+Every function and method in active modules has a return type annotation.
 
 Files allowed:
 
 ```text
-src/pdf2md/_legacy/__init__.py             (create)
-src/pdf2md/_legacy/README.md               (create)
-src/pdf2md/_legacy/consensus_report.py     (moved from utils/)
-src/pdf2md/_legacy/semantic_linker.py      (moved from utils/)
-src/pdf2md/_legacy/media_materializer.py   (moved from utils/)
-src/pdf2md/_legacy/semantic_document_builder.py (moved from utils/)
-src/pdf2md/_legacy/docling_adapter.py      (moved from utils/)
-src/pdf2md/_legacy/adapters_base.py        (moved from adapters/)
-src/pdf2md/_legacy/backends_base.py        (moved from backends/)
-src/pdf2md/_legacy/renderers_markdown.py   (moved from renderers/)
-src/pdf2md/_legacy/models_document.py      (moved from models/)
-src/pdf2md/_legacy/pipeline_convert.py     (moved from pipeline/)
-src/pdf2md/utils/                          (delete after moving)
-src/pdf2md/adapters/                       (delete after moving)
-src/pdf2md/renderers/                      (delete after moving)
-src/pdf2md/models/__init__.py              (modify: remove document.py imports)
-src/pdf2md/models/document.py              (delete after copy to _legacy)
-src/pdf2md/pipeline/convert.py             (delete after copy to _legacy)
-src/pdf2md/cli/main.py                     (modify: remove convert_pdf import)
+src/pdf2md/**/*.py (excluding _legacy/)
 ```
 
 Implementation requirements:
 
-1. Create `src/pdf2md/_legacy/__init__.py` with:
+1. Add return type annotations to all functions missing them. The known
+   gaps are approximately 40 functions across these subpackages:
+
+   - `consensus/` (factory, grouping, reporting, scoring, io)
+   - `export/` (reporting, io, docling)
+   - `linking/` (extract, reporting, io, builder)
+   - `conventions/` (determine_convention, alignment)
+   - `models/` (priors, semantic_document)
+   - `cli/` (main)
+   - `backends/` (runner)
+   - `calibration/` (metrics, io, vocabulary)
+   - `testing/` (fixtures, mock_backend_ir)
+   - `local/` (entity_proposal_validation)
+
+2. Use concrete return types wherever possible:
 
    ```python
-   """Superseded modules preserved for backward compatibility.
-
-   These modules are from earlier development phases. The active pipeline
-   uses modules under consensus/, connectors/, calibration/, linking/,
-   and export/. These legacy modules will be removed in a future version.
-   """
+   def build_consensus_ir(...) -> ConsensusRunResult:
+   def group_page_candidates(...) -> list[CandidateGroup]:
+   def build_consensus_report(...) -> dict[str, Any]:
+   def _load_json(path: Path) -> Any:
    ```
 
-2. Create `src/pdf2md/_legacy/README.md`:
+3. For functions returning `None`, annotate explicitly: `-> None`.
 
-   ```markdown
-   # Legacy Modules
+4. For private functions, add annotations for consistency but do not
+   spend time on complex generic types for trivial helpers.
 
-   These modules are superseded by the current staged pipeline:
-
-   | Legacy module          | Replaced by                        |
-   |------------------------|------------------------------------|
-   | consensus_report.py    | consensus/factory.py + consensus/reporting.py |
-   | semantic_linker.py     | linking/builder.py + linking/extract.py |
-   | media_materializer.py  | export/io.py                       |
-   | semantic_document_builder.py | export/docling.py             |
-   | docling_adapter.py     | export/docling.py + export/io.py   |
-   | adapters_base.py       | connectors/common.py               |
-   | backends_base.py       | backends/runner.py                 |
-   | renderers_markdown.py  | export/markdown.py                 |
-   | models_document.py     | models/ir.py (PageExtractionIR, ConsensusIR) |
-   | pipeline_convert.py    | pipeline/orchestrator.py (Plan 18) |
-
-   These modules and their tests will be removed after all dependent
-   tests are migrated.
-   ```
-
-3. Move each file with `git mv`. For files that change names (e.g.
-   `adapters/base.py` → `_legacy/adapters_base.py`), use `git mv` then
-   rename, or `cp` + `git rm` + `git add`.
-
-4. Adjust internal imports within moved modules if they reference each
-   other. For example, `adapters/base.py` imports
-   `from pdf2md.models import Document` — update to
-   `from pdf2md._legacy.models_document import Document`.
-
-5. Update `src/pdf2md/models/__init__.py`:
-   - Remove `from .document import BBox, Block, Document, Flag, Page, SourceRef`
-   - Remove those names from `__all__`
-   - Keep all other imports (ir, entities, priors, linked, export) unchanged
-
-6. Update `src/pdf2md/cli/main.py`:
-   - Remove `from pdf2md.pipeline.convert import convert_pdf`
-   - Update the `convert` command to not reference `convert_pdf`
-   - If Plan 18 is not yet merged, make the convert command print
-     "Pipeline orchestrator not implemented yet. See Plan 18." instead
-     of referencing the old placeholder.
-
-7. Delete now-empty directories: `utils/`, `adapters/`, `renderers/`.
-
-8. Move `tests/temp_tests/` to `tests/_legacy_temp/`:
-   ```bash
-   git mv tests/temp_tests tests/_legacy_temp
-   ```
+5. Ensure `from __future__ import annotations` is present at the top of
+   every modified file.
 
 Automated tests required:
+
+```bash
+conda run -n pdf2md python -c "
+import ast, pathlib, sys
+unannotated = []
+for p in pathlib.Path('src/pdf2md').rglob('*.py'):
+    if '_legacy' in str(p) or '__pycache__' in str(p):
+        continue
+    tree = ast.parse(p.read_text())
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            if node.returns is None and not node.name.startswith('__'):
+                unannotated.append(f'{p}:{node.lineno}:{node.name}')
+if unannotated:
+    print(f'{len(unannotated)} functions without return annotations:')
+    for u in sorted(unannotated)[:20]: print(f'  {u}')
+    if len(unannotated) > 20: print(f'  ... and {len(unannotated)-20} more')
+    sys.exit(1)
+print('All functions have return annotations.')
+"
+```
+
+Also run the full test suite to verify no behaviour was changed:
 
 ```bash
 conda run -n pdf2md pytest tests/ -q --ignore=tests/_legacy_temp -x
 ```
 
-All tests NOT in `_legacy_temp` must pass. This verifies that moving modules
-didn't break active pipeline tests.
-
-Expected output:
-`src/pdf2md/utils/`, `src/pdf2md/adapters/`, `src/pdf2md/renderers/` no
-longer exist. `src/pdf2md/_legacy/` contains the moved modules.
-
-Completion evidence:
-`git mv` output, test results, import verification.
-
 Human verification required:
 no
 
 ---
 
-### Task A5 — Update legacy-dependent test imports
+### Task A4 — Function docstrings for public API
 
 Title:
-Repoint test imports from old paths to _legacy paths
+Add Google-style docstrings to all public functions and classes
 
 Goal:
-Update all test files that import from `pdf2md.utils`, `pdf2md.adapters`,
-`pdf2md.renderers`, or `pdf2md.models.document` to import from
-`pdf2md._legacy` instead.
+Every public function, method, and class in active modules has a docstring
+with summary, Args, Returns, and Raises sections as applicable.
 
 Files allowed:
 
 ```text
-tests/test_consensus_report.py
-tests/test_media_materializer.py
-tests/test_docling_adapter.py
-tests/test_semantic_linker.py
-tests/test_semantic_document_builder.py
-tests/test_groundtruth_regressions.py
-tests/test_groundtruth_e2e.py
-tests/test_mock_backend_schema.py
-tests/test_models_and_rendering.py
-tests/_legacy_temp/conftest.py
-tests/_legacy_temp/test_ashcroft_pipeline_contract.py
-tests/_legacy_temp/test_docling_adapter_edge_cases.py
+src/pdf2md/**/*.py (excluding _legacy/)
 ```
 
 Implementation requirements:
 
-1. In each test file, replace import paths:
-   - `from pdf2md.utils import X` → `from pdf2md._legacy import X`
-     (adjust submodule paths as needed)
-   - `from pdf2md.utils.consensus_report import X` →
-     `from pdf2md._legacy.consensus_report import X`
-   - `from pdf2md.models import Block, Document, Page` →
-     `from pdf2md._legacy.models_document import Block, Document, Page`
-   - `from pdf2md.renderers.markdown import render_markdown` →
-     `from pdf2md._legacy.renderers_markdown import render_markdown`
-   - `from pdf2md.adapters.base import Adapter` →
-     `from pdf2md._legacy.adapters_base import Adapter`
+1. Add docstrings following the style guide from Task A1.
 
-2. For `tests/_legacy_temp/conftest.py`, update the `run_cli` calls that
-   use `-m pdf2md.utils.X` to use `-m pdf2md._legacy.X`. Ensure the
-   legacy modules have `if __name__ == "__main__"` blocks if they are
-   called as CLI scripts.
+2. Prioritise by subpackage in this order (highest-impact first):
 
-3. Add a `legacy` pytest marker to all affected test files:
+   a. `models/` — data model classes (ir.py, entities.py, priors.py,
+      linked.py, export.py). Document Attributes for dataclasses and
+      Pydantic models.
 
-   ```python
-   import pytest
-   pytestmark = pytest.mark.legacy
-   ```
+   b. `consensus/` — core pipeline logic (factory.py, grouping.py,
+      scoring.py, io.py, reporting.py). Document the scoring algorithm,
+      grouping logic, and I/O contracts.
 
-4. Register the marker in `pyproject.toml`:
+   c. `connectors/` — backend connector (common.py). Document the
+      raw-to-IR conversion and entity recognition.
 
-   ```toml
-   [tool.pytest.ini_options]
-   markers = [
-       "legacy: tests for superseded modules (will be removed)",
-   ]
-   ```
+   d. `calibration/` — calibration matching and metrics (matching.py,
+      metrics.py, io.py, vocabulary.py). Document the matching
+      algorithm and smoothed precision.
+
+   e. `linking/` — linked structure (builder.py, extract.py, io.py,
+      resolvers.py, reporting.py).
+
+   f. `export/` — Docling/RAG/Markdown export (docling.py, rag.py,
+      markdown.py, io.py, reporting.py).
+
+   g. `backends/` — runner.py, config.py.
+
+   h. `cli/` — main.py.
+
+   i. `local/`, `conventions/`, `testing/` — support modules.
+
+3. Private functions (`_` prefix) with >10 lines or non-obvious logic
+   get a one-line docstring. Trivial private helpers may be skipped.
+
+4. Do not add docstrings to `__init__`, `__repr__`, `__str__`,
+   `__eq__`, or other dunder methods unless their behaviour is
+   non-standard.
+
+5. Pydantic models: use class docstring with Attributes section.
+   Do not add per-field `#:` comments (they are redundant with Field
+   descriptions where present).
 
 Automated tests required:
 
 ```bash
-conda run -n pdf2md pytest tests/ -q -x
+conda run -n pdf2md python -c "
+import ast, pathlib, sys
+missing = []
+for p in pathlib.Path('src/pdf2md').rglob('*.py'):
+    if '_legacy' in str(p) or '__pycache__' in str(p):
+        continue
+    tree = ast.parse(p.read_text())
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            if node.name.startswith('_'):
+                continue
+            if not ast.get_docstring(node):
+                missing.append(f'{p}:{node.lineno}:{node.name}')
+        elif isinstance(node, ast.ClassDef):
+            if not ast.get_docstring(node):
+                missing.append(f'{p}:{node.lineno}:{node.name}')
+if missing:
+    print(f'{len(missing)} public symbols without docstrings:')
+    for m in sorted(missing)[:20]: print(f'  {m}')
+    if len(missing) > 20: print(f'  ... and {len(missing)-20} more')
+    sys.exit(1)
+print('All public symbols have docstrings.')
+"
 ```
-
-ALL tests (including legacy) must pass with updated imports.
 
 ```bash
-conda run -n pdf2md pytest tests/ -q -m "not legacy" -x
+conda run -n pdf2md pytest tests/ -q --ignore=tests/_legacy_temp -x
 ```
 
-Non-legacy tests must also pass independently.
+Human verification required:
+yes (see checkpoint H1)
 
-Expected output:
-All tests pass. Legacy tests are marked and filterable.
+---
 
-Completion evidence:
-Test output for both commands. Diff of import changes.
+### Task A5 — Ruff and mypy enforcement
+
+Title:
+Run ruff fix and resolve mypy errors on active codebase
+
+Goal:
+`ruff check` and `mypy` pass cleanly on all active modules.
+
+Files allowed:
+
+```text
+src/pdf2md/**/*.py (excluding _legacy/)
+pyproject.toml (minor config adjustments if needed)
+```
+
+Implementation requirements:
+
+1. Run ruff auto-fix:
+
+   ```bash
+   ruff check src/pdf2md/ --exclude src/pdf2md/_legacy/ --fix
+   ```
+
+2. Review and manually fix any remaining ruff errors that auto-fix
+   cannot resolve.
+
+3. Run mypy:
+
+   ```bash
+   mypy src/pdf2md/ --exclude _legacy
+   ```
+
+4. Fix type errors. Common expected issues:
+   - Missing return statements in branches.
+   - `dict` vs `dict[str, Any]` ambiguities.
+   - Pydantic model_dump/model_validate signatures.
+   - `Any` in function signatures where concrete types are possible.
+
+5. If a mypy error requires significant refactoring to fix, add a
+   `# type: ignore[error-code]` with a comment explaining why, and
+   document it in run_log.md. Do not refactor code in this plan.
+
+6. Verify ruff and mypy pass cleanly:
+
+   ```bash
+   ruff check src/pdf2md/ --exclude src/pdf2md/_legacy/
+   mypy src/pdf2md/ --exclude _legacy
+   ```
+
+   Both must exit with code 0.
+
+Automated tests required:
+
+```bash
+conda run -n pdf2md ruff check src/pdf2md/ --exclude src/pdf2md/_legacy/
+conda run -n pdf2md mypy src/pdf2md/ --exclude _legacy
+conda run -n pdf2md pytest tests/ -q --ignore=tests/_legacy_temp -x
+```
 
 Human verification required:
 yes (see checkpoint H2)
-
----
-
-### Task A6 — Add tooling configuration
-
-Title:
-Add ruff and mypy baseline config to pyproject.toml
-
-Goal:
-Establish linter and type checker configuration so future code follows
-consistent standards.
-
-Files allowed:
-
-```text
-pyproject.toml
-```
-
-Implementation requirements:
-
-1. Add ruff configuration:
-
-   ```toml
-   [tool.ruff]
-   target-version = "py311"
-   line-length = 120
-
-   [tool.ruff.lint]
-   select = [
-       "E",      # pycodestyle errors
-       "W",      # pycodestyle warnings
-       "F",      # pyflakes
-       "I",      # isort
-       "UP",     # pyupgrade
-       "B",      # flake8-bugbear
-       "SIM",    # flake8-simplify
-       "RUF",    # ruff-specific
-   ]
-   ignore = [
-       "E501",   # line too long (handled by formatter)
-       "B008",   # do not perform function calls in argument defaults (typer pattern)
-   ]
-
-   [tool.ruff.lint.isort]
-   known-first-party = ["pdf2md"]
-   ```
-
-2. Add mypy configuration:
-
-   ```toml
-   [tool.mypy]
-   python_version = "3.11"
-   warn_return_any = true
-   warn_unused_configs = true
-   ignore_missing_imports = true
-   exclude = [
-       "src/pdf2md/_legacy/",
-       "tests/_legacy_temp/",
-       "docs/archive/",
-   ]
-   ```
-
-3. Add optional dev dependencies:
-
-   ```toml
-   [project.optional-dependencies]
-   dev = [
-       "ruff>=0.4",
-       "mypy>=1.10",
-       "pytest>=8",
-   ]
-   ```
-
-4. Do NOT run ruff fix or mypy on the entire codebase in this plan.
-   The configuration is baseline only. Fixing lint issues is Additional Plan 3.
-
-Automated tests required:
-
-```bash
-conda run -n pdf2md python -c "import tomllib; tomllib.load(open('pyproject.toml','rb'))"
-```
-
-Verify pyproject.toml is valid TOML.
-
-Expected output:
-`pyproject.toml` has ruff, mypy, and dev deps configured.
-
-Completion evidence:
-Diff of pyproject.toml.
-
-Human verification required:
-no
 
 ---
 
@@ -793,57 +657,57 @@ no
 ### Checkpoint H1
 
 Title:
-Verify .venv-mineru is untracked and .gitignore is correct
+Verify docstring quality on a sample of modules
 
 Purpose:
-Confirm that the virtual environment is no longer tracked, the files still
-exist on disk, and .gitignore prevents re-addition.
+Confirm that docstrings are accurate, follow the style guide, and add
+value rather than being auto-generated boilerplate.
 
 Required environment:
 pdf2md
 
 Preconditions:
-Task A1 is complete. Changes are staged but not yet committed.
+Tasks A1–A4 are complete.
 
 Commands:
 
 ```bash
-git ls-files .venv-mineru/ | wc -l
-test -d .venv-mineru && echo "exists on disk" || echo "MISSING"
-echo ".venv-test-ignore" > .venv-test-ignore
-git check-ignore .venv-test-ignore
-rm .venv-test-ignore
+conda run -n pdf2md python -c "import pdf2md.consensus.scoring; help(pdf2md.consensus.scoring.score_candidate_group)"
+conda run -n pdf2md python -c "import pdf2md.connectors.common; help(pdf2md.connectors.common.connect_raw_dir)"
+conda run -n pdf2md python -c "import pdf2md.calibration.matching; help(pdf2md.calibration.matching.match_blocks)"
 ```
 
 Verification procedure:
 
-1. `git ls-files .venv-mineru/ | wc -l` must return 0.
-2. `.venv-mineru/` must still exist on disk.
-3. `.venv-test-ignore` must be ignored by git (verifying the pattern works).
-4. Review `.gitignore` additions for completeness.
+1. Run each `help()` command. Read the displayed docstring.
+2. Verify the docstring accurately describes what the function does.
+3. Verify Args, Returns, and Raises sections are present and correct.
+4. Verify the docstring is not generic boilerplate (e.g. "This function
+   does what it says" is not acceptable).
+5. Open `docs/docstring_style_guide.md` and verify the examples match
+   the actual code.
 
 Pass criteria:
 
 ```text
-Zero tracked files under .venv-mineru/.
-Directory exists on disk.
-.gitignore correctly matches .venv* patterns.
+Each sampled function has a substantive docstring.
+Args section lists all parameters with descriptions.
+Returns section describes the return value.
+Docstrings match the style guide.
 ```
 
 Fail criteria:
 
 ```text
-Any files still tracked under .venv-mineru/.
-Directory was deleted from disk.
-.gitignore pattern doesn't match test file.
+Any sampled function has a missing or boilerplate docstring.
+Args section is incomplete or inaccurate.
+Style guide examples don't match actual code.
 ```
 
 Evidence to record:
 
 ```text
-Output of git ls-files count.
-Output of disk existence check.
-Output of git check-ignore.
+Paste help() output for each sampled function.
 ```
 
 ---
@@ -851,148 +715,56 @@ Output of git check-ignore.
 ### Checkpoint H2
 
 Title:
-Verify all tests pass after import migration
+Verify ruff and mypy pass cleanly
 
 Purpose:
-Confirm that legacy tests still pass with updated import paths and that
-non-legacy tests are unaffected.
+Confirm zero lint and type errors on active source code.
 
 Required environment:
-pdf2md
+pdf2md (with ruff and mypy installed)
 
 Preconditions:
-Tasks A1–A5 are complete.
+Task A5 is complete.
 
 Commands:
 
 ```bash
-conda run -n pdf2md pytest tests/ -q -x 2>&1 | tail -20
-conda run -n pdf2md pytest tests/ -q -m "not legacy" -x 2>&1 | tail -20
-conda run -n pdf2md pytest tests/ -q -m "legacy" -x 2>&1 | tail -20
+conda run -n pdf2md pip install ruff mypy --break-system-packages 2>/dev/null
+conda run -n pdf2md ruff check src/pdf2md/ --exclude src/pdf2md/_legacy/
+conda run -n pdf2md mypy src/pdf2md/ --exclude _legacy
+conda run -n pdf2md pytest tests/ -q --ignore=tests/_legacy_temp -x
 ```
 
 Verification procedure:
 
-1. Run all tests. Record pass/fail counts.
-2. Run non-legacy tests only. Verify all pass.
-3. Run legacy tests only. Verify all pass.
-4. Verify that `src/pdf2md/utils/` does not exist.
-5. Verify that `src/pdf2md/adapters/` does not exist.
-6. Verify that `src/pdf2md/renderers/` does not exist.
-7. Verify that `src/pdf2md/_legacy/` exists and contains the moved modules.
-8. Verify that root directory no longer contains legacy scripts.
+1. Run ruff. Verify exit code 0 and no errors.
+2. Run mypy. Verify exit code 0 and no errors (or only documented
+   `type: ignore` with justification).
+3. Run pytest. Verify all active tests pass.
 
 Pass criteria:
 
 ```text
-All tests pass.
-Legacy marker correctly filters tests.
-Deleted directories are gone.
-_legacy/ contains expected modules.
-Root is clean.
+ruff exits 0 with no errors.
+mypy exits 0 with no errors (or documented ignores only).
+All active tests pass.
 ```
 
 Fail criteria:
 
 ```text
-Any test fails.
-Legacy marker is not registered.
-Deleted directories still exist.
-Active pipeline modules were modified.
+ruff reports errors.
+mypy reports errors without justification.
+Any active test fails.
 ```
 
 Evidence to record:
 
 ```text
-Test output (all, non-legacy, legacy).
-ls src/pdf2md/ (top-level directories).
-ls of repository root.
-```
-
----
-
-### Checkpoint H3
-
-Title:
-Verify repository root presentation
-
-Purpose:
-Confirm the repository looks clean and professional on GitHub.
-
-Required environment:
-Any (visual inspection of file listing)
-
-Commands:
-
-```bash
-ls -la $(git ls-files | sed 's|/.*||' | sort -u)
-```
-
-Verification procedure:
-
-1. Review root-level file listing. It should contain only:
-
-   ```text
-   .codex
-   .github/
-   .gitignore
-   .python-version
-   backend/
-   CLA.md
-   configs/
-   CONTRIBUTING.md
-   current_plan.md
-   docs/
-   groundtruth/
-   history.md
-   LICENSE
-   next_plan.md
-   NOTICE
-   pdf2md.backends.example.toml
-   pdf2md.consensus.example.toml
-   PLAN_TEMPLATE.md
-   plans/
-   project.md
-   pyproject.toml
-   README.md
-   ROADMAP.md
-   run_log.md
-   src/
-   tests/
-   tools/
-   ```
-
-2. Verify the following are GONE from root:
-   - `compare_pre_docling_groundtruth.py`
-   - `latex_to_pre_docling_groundtruth.py`
-   - `generate_latex_docling_groundtruth.py`
-   - `validate_latex_docling_groundtruth.py`
-   - `run_latex_docling_backends.sh`
-   - `plan5.md`, `patch.plan`, `patch.plan8.md`
-   - `README_latex_docling_groundtruth.md`
-   - `schema_examples/`
-   - `.current/`
-   - `pdf2md/`
-   - `scripts/`
-
-Pass criteria:
-
-```text
-Root contains only the expected files listed above.
-No legacy scripts or orphan directories remain.
-```
-
-Fail criteria:
-
-```text
-Any legacy file remains at root.
-Any expected file is missing.
-```
-
-Evidence to record:
-
-```text
-Output of ls showing root contents.
+Paste ruff output (should be empty or "All checks passed").
+Paste mypy output.
+Paste pytest summary line.
+Count of type: ignore comments added (if any).
 ```
 
 ---
@@ -1002,75 +774,47 @@ Output of ls showing root contents.
 Agent automated test matrix:
 
 ```bash
-conda run -n pdf2md pytest tests/ -q -x
-conda run -n pdf2md pytest tests/ -q -m "not legacy" -x
-conda run -n pdf2md pytest tests/ -q -m "legacy" -x
+conda run -n pdf2md pytest tests/ -q --ignore=tests/_legacy_temp -x
+conda run -n pdf2md ruff check src/pdf2md/ --exclude src/pdf2md/_legacy/
+conda run -n pdf2md mypy src/pdf2md/ --exclude _legacy
+# AST-based docstring/annotation checks (from Tasks A2, A3, A4)
 ```
 
 Failure classes:
 
 repository_defect:
-An import was broken by the move, a file was deleted that was still needed,
-or the _legacy package is not importable.
+A docstring is inaccurate, a type annotation is wrong, or a runtime
+behaviour change was introduced.
 
-test_expectation_wrong:
-A test expectation references an old path that was not updated.
+lint_error:
+Ruff or mypy reports an error that was not resolved.
 
-import_path_error:
-A moved module has internal imports that were not updated.
-
-human_procedure_error:
-The human ran the wrong command.
+test_regression:
+A test that previously passed now fails due to changes in this plan.
 
 Failure handling:
 
 If failure_class is repository_defect:
-The agent must fix the broken import or restore the file.
+Fix the docstring or annotation.
 
-If failure_class is import_path_error:
-The agent must update the internal import in the _legacy module.
+If failure_class is lint_error:
+Fix the lint issue or add a documented suppression.
+
+If failure_class is test_regression:
+Revert the change that caused the regression. This plan must not change
+runtime behaviour.
 
 ---
 
 ## 9. Checkpoints, push policy, and hand-off
-
-Checkpoint C0: Plan ready
-
-```text
-status is active
-file whitelist is complete
-all delete/move operations are listed
-```
-
-Checkpoint C1: Agent implementation complete
-
-```text
-all tasks attempted
-all automated tests run
-no forbidden files modified
-status set to human_verification_required
-```
-
-Checkpoint C2: Human verification complete
-
-```text
-all checkpoints passed
-status set to human_verified
-```
 
 Push and PR policy:
 
 ```text
 The agent may push the branch and open a draft PR.
 The agent must not merge to main.
-The PR diff should show ~17,800+ file deletions (mostly .venv-mineru).
+The PR diff should be documentation and annotation only — no logic changes.
 ```
-
-Hand-off after human verification:
-
-1. Archive as plans/archive/additional-plan-2-repository-sanitisation.md.
-2. Append milestone to history.md.
-3. Promote next_plan.md.
 
 ---
 
@@ -1079,19 +823,21 @@ Hand-off after human verification:
 Agent report template:
 
 ```text
-Plan: Additional Plan 2
+Plan: Additional Plan 3
 Status:
 Branch:
 Commit or PR:
-Files deleted:
-Files moved:
 Files modified:
-Forbidden files touched:
-Tracked file count before:
-Tracked file count after:
-Tests run (all):
-Tests run (non-legacy):
-Tests run (legacy):
+Modules with new docstrings:
+Functions with new return annotations:
+Functions with new docstrings:
+Classes with new docstrings:
+Ruff errors before:
+Ruff errors after:
+Mypy errors before:
+Mypy errors after:
+type: ignore comments added:
+Tests run:
 Tests passed:
 Tests failed:
 Blockers:
@@ -1100,20 +846,17 @@ Blockers:
 Reviewer checklist:
 
 1. Did the agent modify only whitelisted files?
-2. Did the agent avoid all forbidden files?
-3. Is .venv-mineru/ untracked but still on disk?
-4. Are all dead root files deleted?
-5. Are legacy scripts in docs/archive/?
-6. Is src/pdf2md/_legacy/ correctly structured?
-7. Are legacy test imports updated?
-8. Is the legacy pytest marker registered?
-9. Do all tests pass?
-10. Is pyproject.toml valid TOML?
-11. Does ruff config target Python 3.11?
-12. Is the repository root clean?
-13. Are active pipeline modules untouched?
-14. Is models/__init__.py updated (document.py imports removed)?
-15. Is cli/main.py updated (convert_pdf import removed)?
+2. Are `_legacy/` modules untouched?
+3. Are all changes documentation/annotation only (no logic changes)?
+4. Do all active tests pass?
+5. Does ruff pass with zero errors?
+6. Does mypy pass with zero errors (or justified ignores)?
+7. Are docstrings substantive (not boilerplate)?
+8. Do docstrings follow Google-style format?
+9. Are return type annotations concrete (not `Any` where avoidable)?
+10. Is `from __future__ import annotations` present in all modified files?
+11. Does the style guide match the implemented conventions?
+12. Were sampled functions verified manually?
 
 Status history:
 
@@ -1124,86 +867,47 @@ date — status — actor — note
 Example:
 
 ```text
-2026-05-24 — draft — human — Additional Plan 2 created for repository sanitisation
+2026-05-24 — draft — human — Additional Plan 3 created for PEP compliance
 ```
 
 ---
 
 ## 11. Design notes
 
-### Why not delete legacy modules outright?
+### Why Google-style docstrings?
 
-Nine test files (1,283 lines total) import from `pdf2md.utils`, and some of
-those tests verify behaviour of the old consensus report, semantic linker, and
-docling adapter that may still be useful as regression baselines. Deleting the
-modules would break these tests immediately.
+Three common docstring formats exist: Sphinx/reST, NumPy, and Google.
 
-Moving to `_legacy/` preserves test coverage while making the deprecation
-explicit. Additional Plan 3 can decide whether to migrate the test coverage to the
-current pipeline modules or remove it entirely.
+- **Sphinx/reST** (`:param x: ...`) is verbose and hard to read without
+  rendering. It is the oldest convention.
+- **NumPy** (`Parameters\n----------`) is designed for scientific libraries
+  with many parameters. It is vertically expensive for short functions.
+- **Google** (`Args:\n    x: ...`) is compact, readable as plain text,
+  and supported by Sphinx (via napoleon), mkdocs, and all major IDEs.
 
-### Why not rewrite git history?
+The project's existing code is compact and direct. Google-style matches
+that aesthetic. The choice is consistent with PEP 257's recommendation
+that docstrings be "useful" rather than "complete" — Google-style
+encourages concise parameter descriptions rather than full-sentence
+elaborations.
 
-Removing `.venv-mineru/` from tracking (`git rm --cached`) prevents new clones
-from downloading the files on checkout. However, the binary blobs remain in
-git history, inflating `git clone` size.
+### PEP compliance summary
 
-Rewriting history (with `git filter-repo` or BFG Repo-Cleaner) is a
-destructive operation that invalidates all existing clones, forks, and open
-PRs. It should be done as a manual one-time operation after this plan is
-merged, documented here for reference:
+| PEP  | Status | Scope in this plan |
+|------|--------|--------------------|
+| 8    | Style  | Enforced via ruff (E, W rules) |
+| 257  | Docstrings | Module, class, and function docstrings |
+| 484  | Type hints | Return annotations, parameter types |
+| 585  | Generics | `list[X]` not `List[X]` (via `__future__`) |
+| 604  | Unions | `X \| Y` not `Union[X, Y]` (via `__future__`) |
+| 727  | Withdrawn | Not applicable |
 
-```bash
-# After merge, on a fresh clone:
-pip install git-filter-repo
-git filter-repo --path .venv-mineru/ --invert-paths
-git push --force --all
-git push --force --tags
-```
+### What this plan does NOT change
 
-This is explicitly out of scope for the agent.
-
-### .gitignore additions rationale
-
-The current `.gitignore` is minimal. The additions cover:
-
-- Virtual environments (`.venv*/`, `venv*/`) — prevents any env from being
-  tracked again.
-- IDE files (`.idea/`, `.vscode/`) — common development artefacts.
-- OS files (`.DS_Store`, `Thumbs.db`) — cross-platform noise.
-- Distribution packaging (`dist/`, `build/`, `*.egg-info/`) — standard
-  Python packaging artefacts.
-- Coverage reports (`htmlcov/`, `.coverage`) — CI artefacts.
-
-### Root file inventory after cleanup
-
-```text
-.codex                          — agent config
-.github/                        — PR template
-.gitignore                      — updated
-.python-version                 — Python version pin
-agent.md                        — agent governance protocol
-backend/                        — backend wrappers
-CLA.md                          — contributor licence
-configs/                        — OCR convention configs
-CONTRIBUTING.md                 — contribution guide
-current_plan.md                 — active plan
-docs/                           — documentation + archive
-groundtruth/                    — ground-truth corpus
-history.md                      — completed milestones
-LICENSE                         — AGPL-3.0
-next_plan.md                    — next plan placeholder
-NOTICE                          — copyright notice
-pdf2md.backends.example.toml    — example backend config
-pdf2md.consensus.example.toml   — example consensus config
-PLAN_TEMPLATE.md                — plan format template
-plans/                          — all plans
-project.md                      — architecture description
-pyproject.toml                  — package config + tooling
-README.md                       — public entry point
-ROADMAP.md                      — product roadmap
-run_log.md                      — agent run log
-src/                            — main package
-tests/                          — test suite
-tools/                          — CLI tools for pipeline stages
-```
+- No function logic.
+- No function signatures (except adding `-> ReturnType`).
+- No import restructuring (beyond what ruff isort does).
+- No test changes.
+- No new tests.
+- No dependency additions (ruff/mypy are dev-only).
+- No changes to `_legacy/`, `backend/`, `tools/`, or `groundtruth/`.

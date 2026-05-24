@@ -7,13 +7,39 @@ from statistics import median
 from typing import Any
 
 from pdf2md.consensus.grouping import BlockCandidate, CandidateGroup, bbox_iou, compatible_kinds, token_overlap
-from pdf2md.models.entities import EntityProposalDocument, EntityType
+from pdf2md.models.entities import EntityProposal, EntityProposalDocument, EntityType
 from pdf2md.models.ir import BlockKind, ConflictKind, SelectionMode
 from pdf2md.models.priors import CalibrationPriorDocument, CalibrationTarget, lookup_confidence
 
 
 @dataclass(frozen=True)
 class ConsensusScoringSettings:
+    """Weights and thresholds for consensus candidate scoring.
+
+    The defaults reserve 55% of the weight for calibrated priors
+    (backend + entity) so that backends with low calibrated confidence
+    do not automatically win single-backend groups (see the inline
+    weight rationale below).
+
+    Attributes:
+        text_weight: Weight for token-overlap score.
+        bbox_weight: Weight for bounding-box IoU score.
+        order_weight: Weight for reading-order proximity.
+        kind_weight: Weight for block-kind agreement with the group
+            majority.
+        backend_prior_weight: Weight for the per-block-kind backend
+            prior.
+        entity_prior_weight: Weight for the strongest entity-level
+            prior anchored on the candidate.
+        unresolved_margin: Score gap below which two top candidates are
+            treated as a tie and the group is marked UNRESOLVED.
+        min_agreement_score: Minimum total score required to accept a
+            candidate; otherwise the group falls back to FALLBACK or
+            UNRESOLVED.
+        default_prior_confidence: Default prior confidence used when no
+            calibration entry is available.
+    """
+
     # Weights rebalanced so calibrated priors carry 55% (was 30%). With the
     # old 0.35/0.15/0.10/0.10/0.20/0.10 split the single-backend score floor
     # was 0.625 (text_score=1.0, bbox_score=0.5, order_score=1.0,
@@ -37,6 +63,20 @@ class ConsensusScoringSettings:
 
 @dataclass(frozen=True)
 class CandidateScore:
+    """Score breakdown for a single candidate within a group.
+
+    Attributes:
+        candidate: The BlockCandidate being scored.
+        score: Final weighted score in [0, 1].
+        text_score: Best token-overlap with any peer candidate.
+        bbox_score: Mean bbox IoU against peer candidates.
+        order_score: Reading-order proximity to the group median.
+        kind_score: Agreement with the group's majority block kind.
+        backend_prior: Per-block-kind backend prior.
+        entity_prior: Strongest entity-level prior for the candidate.
+        metadata: Auxiliary metadata such as the inferred block kind.
+    """
+
     candidate: BlockCandidate
     score: float
     text_score: float
@@ -50,6 +90,22 @@ class CandidateScore:
 
 @dataclass(frozen=True)
 class GroupScore:
+    """Outcome of scoring a CandidateGroup.
+
+    Attributes:
+        group: The scored CandidateGroup.
+        candidate_scores: Per-candidate score breakdowns, sorted by
+            descending score.
+        selected: The winning CandidateScore, or None if the group is
+            UNRESOLVED.
+        agreement_score: Score of the top candidate.
+        selection_mode: How the winner was chosen (AGREED,
+            SINGLE_SOURCE, FALLBACK, or UNRESOLVED).
+        conflict_kind: Conflict classification when the group is
+            UNRESOLVED, else None.
+        metadata: Auxiliary metadata about the scoring run.
+    """
+
     group: CandidateGroup
     candidate_scores: tuple[CandidateScore, ...]
     selected: CandidateScore | None
@@ -75,7 +131,9 @@ def _enum_value(value: Any) -> str:
     return value.value if hasattr(value, "value") else str(value)
 
 
-def _entities_for_candidate(candidate: BlockCandidate, entity_document: EntityProposalDocument | None):
+def _entities_for_candidate(
+    candidate: BlockCandidate, entity_document: EntityProposalDocument | None
+) -> list[EntityProposal]:
     if entity_document is None:
         return []
     ids = set(candidate.entity_ids)
@@ -95,6 +153,24 @@ def infer_block_kind_from_entities(
     prior: CalibrationPriorDocument | None,
     default_confidence: float,
 ) -> tuple[BlockKind, float, dict[str, Any]]:
+    """Refine a candidate's block kind using entity-level evidence.
+
+    Compares the raw block kind's prior confidence to the priors of any
+    entities anchored on the block. Promotes to the entity-implied kind
+    only when the gain exceeds 0.10, to avoid noisy flips.
+
+    Args:
+        candidate: The candidate whose kind may be revised.
+        entity_document: Backend's entity proposals (may be None).
+        prior: Backend's calibration prior (may be None).
+        default_confidence: Confidence to use when no prior entry
+            exists.
+
+    Returns:
+        ``(kind, confidence, metadata)`` where ``metadata`` carries
+        ``kind_source``, the raw kind, and (when promoted) the
+        triggering entity_type.
+    """
     raw_kind = candidate.block.kind
     raw_prior = _confidence(prior, CalibrationTarget.BLOCK_KIND, _enum_value(raw_kind), default_confidence)
     best_kind = raw_kind
@@ -130,8 +206,8 @@ def _text_score(candidate: BlockCandidate, group: CandidateGroup) -> float:
 
 
 def _bbox_score(candidate: BlockCandidate, group: CandidateGroup) -> float:
-    values = [bbox_iou(candidate.block.bbox, other.block.bbox) for other in group.candidates if other.block.id != candidate.block.id]
-    values = [value for value in values if value is not None]
+    raw_values = [bbox_iou(candidate.block.bbox, other.block.bbox) for other in group.candidates if other.block.id != candidate.block.id]
+    values: list[float] = [value for value in raw_values if value is not None]
     if not values:
         return 0.5
     return sum(values) / len(values)
@@ -185,6 +261,25 @@ def score_candidate_group(
     entities_by_backend: dict[str, EntityProposalDocument],
     settings: ConsensusScoringSettings = ConsensusScoringSettings(),
 ) -> GroupScore:
+    """Score candidates in a group and select the consensus winner.
+
+    Computes a weighted score for each candidate using text overlap,
+    bbox IoU, reading order, block-kind agreement, backend calibration
+    prior, and entity-level prior. Picks the highest-scoring candidate
+    or marks the group as UNRESOLVED when the margin to the runner-up
+    is within :attr:`ConsensusScoringSettings.unresolved_margin`.
+
+    Args:
+        group: The candidate group to score.
+        priors_by_backend: Calibration prior documents keyed by backend.
+        entities_by_backend: Entity proposal documents keyed by backend.
+        settings: Scoring weights and thresholds.
+
+    Returns:
+        A GroupScore with the selected candidate, agreement score,
+        selection mode, per-candidate breakdown, and (if unresolved)
+        the inferred conflict kind.
+    """
     scores: list[CandidateScore] = []
     for candidate in group.candidates:
         prior = priors_by_backend.get(candidate.backend)

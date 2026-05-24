@@ -8,7 +8,7 @@ from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
-SCHEMA_VERSION = "1.0.0"
+SCHEMA_VERSION: Literal["1.0.0"] = "1.0.0"
 
 EXTRACTION_ID_PATTERN = re.compile(r"^[a-z0-9_-]+:[A-Za-z0-9_.-]+:p\d+:b\d+$")
 CONSENSUS_ID_PATTERN = re.compile(r"^con:[A-Za-z0-9_.-]+:p\d+:b\d+$")
@@ -63,13 +63,15 @@ class ConflictKind(str, Enum):
 
 
 class _IRBaseModel(BaseModel):
+    """Private Pydantic base for IR (intermediate-representation) models."""
+
     model_config = ConfigDict(extra="forbid", frozen=False, populate_by_name=True, use_enum_values=True)
 
 
 class BBox(_IRBaseModel):
     """Bounding box with explicit coordinate-origin semantics."""
 
-    l: float
+    l: float  # noqa: E741  — JSON contract field name; rename would break serialization
     t: float
     r: float
     b: float
@@ -312,25 +314,25 @@ def conflict_id(document_id: str, index: int) -> str:
 
 
 __all__ = [
-    "SCHEMA_VERSION",
-    "EXTRACTION_ID_PATTERN",
-    "CONSENSUS_ID_PATTERN",
     "CONFLICT_ID_PATTERN",
-    "CoordOrigin",
-    "BlockKind",
-    "SelectionMode",
-    "ConflictKind",
+    "CONSENSUS_ID_PATTERN",
+    "EXTRACTION_ID_PATTERN",
+    "SCHEMA_VERSION",
     "BBox",
-    "Span",
-    "PageSize",
+    "BackendManifest",
+    "BlockKind",
+    "Conflict",
+    "ConflictKind",
+    "ConsensusBlock",
+    "ConsensusIR",
+    "ConsensusPage",
+    "CoordOrigin",
     "ExtractionBlock",
     "PageExtractionIR",
-    "Conflict",
-    "ConsensusBlock",
-    "ConsensusPage",
-    "BackendManifest",
-    "ConsensusIR",
-    "extraction_id",
-    "consensus_id",
+    "PageSize",
+    "SelectionMode",
+    "Span",
     "conflict_id",
+    "consensus_id",
+    "extraction_id",
 ]

@@ -18,7 +18,7 @@ from __future__ import annotations
 import json
 import re
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -51,7 +51,7 @@ class ManifestEntry:
 
 
 def _utc_now() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def _sanitize_id_component(value: str) -> str:
@@ -264,11 +264,11 @@ def update_global_index(
 
 
 __all__ = [
-    "MANIFEST_SCHEMA_VERSION",
-    "NOT_RUN",
     "INSTALLED",
-    "MISSING",
     "MANIFEST_ONLY",
+    "MANIFEST_SCHEMA_VERSION",
+    "MISSING",
+    "NOT_RUN",
     "ManifestEntry",
     "generate_dataset_manifest",
     "update_global_index",

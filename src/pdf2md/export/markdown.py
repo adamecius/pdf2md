@@ -10,6 +10,16 @@ from pdf2md.models.linked import LinkedNode, LinkedNodeType, LinkedStructure
 
 @dataclass(frozen=True)
 class MarkdownExportSettings:
+    """Settings controlling the markdown preview projection.
+
+    Attributes:
+        include_page_numbers: Emit page-number nodes in the preview.
+        include_headers_footers: Emit header/footer nodes in the preview.
+        include_unresolved_warnings: Emit HTML comments and warnings for
+            unresolved nodes; when false unresolved content is dropped
+            without a marker.
+    """
+
     include_page_numbers: bool = False
     include_headers_footers: bool = False
     include_unresolved_warnings: bool = True
@@ -24,6 +34,23 @@ def _text(node: LinkedNode) -> str:
 
 
 def build_markdown_preview(*, linked: LinkedStructure, settings: MarkdownExportSettings = MarkdownExportSettings()) -> tuple[str, list[str]]:
+    """Render a markdown preview of a LinkedStructure for human review.
+
+    Walks nodes in reading order and maps each LinkedNodeType to an
+    appropriate markdown form: headings, list items, math fences, table
+    and figure placeholders, captions and footnotes. Page numbers and
+    header/footer chrome are excluded by default.
+
+    Args:
+        linked: Linked structure to render.
+        settings: Inclusion knobs for chrome and unresolved markers.
+
+    Returns:
+        A tuple ``(markdown, warnings)`` where ``markdown`` ends with a
+        trailing newline and ``warnings`` lists per-node issues observed
+        during rendering.
+    """
+
     parts: list[str] = []
     warnings: list[str] = []
     for node in sorted(linked.nodes, key=lambda n: (n.order, n.id)):

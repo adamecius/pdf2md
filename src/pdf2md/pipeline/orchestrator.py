@@ -18,11 +18,11 @@ import importlib
 import json
 import logging
 import shutil
-import traceback
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any, cast
 
 from pdf2md.backends.runner import run_configured_backends
 from pdf2md.config import get_enabled_backends
@@ -62,7 +62,21 @@ ALL_STAGE_NAMES: tuple[str, ...] = (
 
 @dataclass
 class PipelineSettings:
-    """Configuration for a single ``run_pipeline`` invocation."""
+    """Configuration for a single ``run_pipeline`` invocation.
+
+    Attributes:
+        config: Backend configuration dictionary used by the runner.
+        priors_dir: Optional directory containing calibration prior JSON
+            files to copy into the run's ``priors/`` subtree.
+        force: When true, delete an existing ``out_dir`` before running.
+        dry_run: When true, print the plan and return without writing.
+        timeout: Per-backend subprocess timeout in seconds.
+        keep_going: When true, continue downstream stages even after
+            individual stage failures.
+        skip_calibration: Skip the calibration copy stage.
+        skip_export: Skip the export stage.
+        verbose: Enable verbose stage logging.
+    """
 
     config: dict
     priors_dir: Path | None = None
@@ -77,7 +91,18 @@ class PipelineSettings:
 
 @dataclass
 class StageStatus:
-    """Per-stage status entry written into ``pipeline_manifest.json``."""
+    """Per-stage status entry written into ``pipeline_manifest.json``.
+
+    Attributes:
+        name: Stage identifier (one of ``ALL_STAGE_NAMES``).
+        status: ``success``, ``failed``, ``skipped`` or ``not_started``.
+        started_at: ISO-8601 UTC timestamp at stage start.
+        finished_at: ISO-8601 UTC timestamp at stage finish.
+        duration_seconds: Wall-clock stage duration.
+        output_dir: Filesystem path of the stage's output directory.
+        warnings: Stage-level warning messages.
+        error: Failure message, when ``status == "failed"``.
+    """
 
     name: str
     status: str = "not_started"  # success | failed | skipped | not_started
@@ -89,6 +114,7 @@ class StageStatus:
     error: str | None = None
 
     def to_dict(self) -> dict:
+        """Return a JSON-serialisable representation of this stage entry."""
         payload = {
             "name": self.name,
             "status": self.status,
@@ -105,6 +131,22 @@ class StageStatus:
 
 @dataclass
 class PipelineResult:
+    """Result of a single ``run_pipeline`` invocation.
+
+    Attributes:
+        overall_status: ``success``, ``partial``, ``failed`` or
+            ``not_started`` (dry run).
+        stages: StageStatus entries in canonical stage order.
+        manifest_path: Path of the written ``pipeline_manifest.json``.
+        consensus_ir_path: Path of ``consensus_ir.json`` when consensus
+            succeeded, otherwise None.
+        docling_path: Path of the Docling JSON when export succeeded,
+            otherwise None.
+        markdown_path: Path of the markdown preview when export
+            succeeded, otherwise None.
+        warnings: Run-level warning messages.
+    """
+
     overall_status: str  # "success" | "partial" | "failed"
     stages: list[StageStatus]
     manifest_path: Path
@@ -132,11 +174,11 @@ def _resolve_connector_callable(backend: str) -> Callable[..., Any] | None:
 
     try:
         module = importlib.import_module(f"backend.{backend}.connector")
-    except Exception:  # noqa: BLE001 — connector is optional
+    except Exception:
         return None
     connect = getattr(module, "connect", None)
     if callable(connect):
-        return connect
+        return cast("Callable[..., Any]", connect)
     return None
 
 
@@ -150,7 +192,7 @@ def _backends_with_raw_success(layout: RunLayout, requested: list[str]) -> list[
             continue
         try:
             data = json.loads(status_path.read_text(encoding="utf-8"))
-        except Exception:  # noqa: BLE001
+        except Exception:
             continue
         if data.get("success") is True:
             succeeded.append(name)
@@ -210,7 +252,7 @@ def _run_stage_backends(
             timeout_override=settings.timeout,
             keep_going=settings.keep_going,
         )
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         stage.status = "failed"
         stage.error = f"{type(exc).__name__}: {exc}"
         stage.warnings.append("backend_runner_exception")
@@ -281,7 +323,7 @@ def _run_stage_connector(
                 f"{backend}:{w}" for w in getattr(result, "warnings", []) or []
             )
             connected.append(backend)
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:
             errors.append(f"{backend}: {type(exc).__name__}: {exc}")
             logger.exception("connector failed for %s", backend)
 
@@ -393,7 +435,7 @@ def _run_stage_consensus(
         )
         stage.warnings.extend(result.warnings)
         write_consensus_outputs(result=result, out_dir=layout.consensus_dir)
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         stage.status = "failed"
         stage.error = f"{type(exc).__name__}: {exc}"
         logger.exception("consensus failed")
@@ -443,7 +485,7 @@ def _run_stage_linking(
         )
         stage.warnings.extend(result.warnings)
         write_linker_outputs(result=result, out_dir=layout.linked_dir)
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         stage.status = "failed"
         stage.error = f"{type(exc).__name__}: {exc}"
         logger.exception("linking failed")
@@ -492,7 +534,7 @@ def _run_stage_export(
         )
         stage.warnings.extend(result.warnings)
         write_export_outputs(result=result, out_dir=layout.export_dir)
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         stage.status = "failed"
         stage.error = f"{type(exc).__name__}: {exc}"
         logger.exception("export failed")
@@ -610,7 +652,7 @@ def run_pipeline(
     if input_pdf.exists() and input_pdf.is_file():
         try:
             shutil.copy2(input_pdf, layout.input_dir / input_pdf.name)
-        except Exception as exc:  # noqa: BLE001 — copy is best-effort
+        except Exception as exc:
             logger.warning("failed to copy input PDF: %s", exc)
 
     warnings: list[str] = []
@@ -766,11 +808,11 @@ def run_pipeline(
 
 
 __all__ = [
-    "PipelineSettings",
-    "StageStatus",
-    "PipelineResult",
-    "run_pipeline",
+    "ALL_STAGE_NAMES",
     "PIPELINE_MANIFEST_SCHEMA_NAME",
     "PIPELINE_MANIFEST_SCHEMA_VERSION",
-    "ALL_STAGE_NAMES",
+    "PipelineResult",
+    "PipelineSettings",
+    "StageStatus",
+    "run_pipeline",
 ]

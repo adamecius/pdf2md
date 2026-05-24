@@ -12,6 +12,16 @@ from pdf2md.models.ir import BBox, BlockKind, ExtractionBlock, PageExtractionIR,
 
 @dataclass(frozen=True)
 class BlockCandidate:
+    """One backend's extraction block proposed for consensus.
+
+    Attributes:
+        backend: Backend that produced the block.
+        page_no: 1-based page number on which the block appears.
+        block: The underlying ExtractionBlock.
+        page_size: Page dimensions used for bbox normalisation.
+        entity_ids: IDs of entities that anchor on this block.
+    """
+
     backend: str
     page_no: int
     block: ExtractionBlock
@@ -21,6 +31,19 @@ class BlockCandidate:
 
 @dataclass(frozen=True)
 class CandidateGroup:
+    """A page-local cluster of candidate blocks matched across backends.
+
+    Attributes:
+        id: Stable group identifier of the form ``grp:p<page>:<idx>``.
+        page_no: Page on which all candidates appear.
+        candidates: Candidates assigned to the group, sorted for
+            determinism.
+        reason: Reason the group was formed (e.g.
+            ``same_kind_exact_text``, ``bbox_text_overlap``, or
+            ``single``).
+        metadata: Auxiliary metadata such as ``last_match_reason``.
+    """
+
     id: str
     page_no: int
     candidates: tuple[BlockCandidate, ...]
@@ -42,6 +65,14 @@ _COMPATIBLE_KIND_PAIRS = {
 
 
 def normalise_text(text: str | None) -> str:
+    """Lowercase, strip, and collapse whitespace in ``text``.
+
+    Args:
+        text: Input string or None.
+
+    Returns:
+        The normalised string, or an empty string if ``text`` is None.
+    """
     return re.sub(r"\s+", " ", (text or "").strip().lower())
 
 
@@ -50,6 +81,16 @@ def _tokens(text: str | None) -> set[str]:
 
 
 def token_overlap(a: str | None, b: str | None) -> float:
+    """Compute the Jaccard overlap of word tokens between two strings.
+
+    Args:
+        a: First string (or None).
+        b: Second string (or None).
+
+    Returns:
+        Jaccard similarity in [0, 1]. Two empty inputs return 1.0; one
+        empty input returns 0.0.
+    """
     ta = _tokens(a)
     tb = _tokens(b)
     if not ta and not tb:
@@ -60,6 +101,19 @@ def token_overlap(a: str | None, b: str | None) -> float:
 
 
 def bbox_iou(a: BBox | None, b: BBox | None) -> float | None:
+    """Compute the intersection-over-union of two bounding boxes.
+
+    Handles both ``topleft`` and ``bottomleft`` coordinate origins, but
+    only when both boxes share the same origin.
+
+    Args:
+        a: First bounding box, or None.
+        b: Second bounding box, or None.
+
+    Returns:
+        IoU in [0, 1], or None if either box is missing or the
+        coordinate origins differ.
+    """
     if a is None or b is None or a.coord_origin != b.coord_origin:
         return None
     left = max(a.l, b.l)
@@ -84,6 +138,20 @@ def bbox_iou(a: BBox | None, b: BBox | None) -> float | None:
 
 
 def compatible_kinds(a: BlockKind, b: BlockKind) -> bool:
+    """Return True if two BlockKinds may match in the same group.
+
+    Equal kinds always compatible; otherwise the unordered pair must
+    appear in the curated ``_COMPATIBLE_KIND_PAIRS`` allowlist (used to
+    let typed kinds match against PARAGRAPH when a backend lacks a
+    specific kind detector).
+
+    Args:
+        a: First block kind.
+        b: Second block kind.
+
+    Returns:
+        True if the kinds are compatible for grouping.
+    """
     return a == b or frozenset((a, b)) in _COMPATIBLE_KIND_PAIRS
 
 
@@ -119,6 +187,23 @@ def group_page_candidates(
     text_threshold: float = 0.75,
     bbox_threshold: float = 0.50,
 ) -> list[CandidateGroup]:
+    """Cluster candidates from a single page into matching groups.
+
+    Walks candidates in deterministic order and joins each to the first
+    existing group that holds a matching peer (per
+    :func:`_match_reason`) without inducing a same-backend conflict.
+    Unmatched candidates start a new group.
+
+    Args:
+        page_no: Page number being grouped.
+        candidates: All candidates from all backends on this page.
+        text_threshold: Minimum token-overlap for "same-kind" or
+            "compatible-kind" matches.
+        bbox_threshold: Minimum bbox IoU for "bbox + text" matches.
+
+    Returns:
+        Ordered list of CandidateGroup, one per cluster.
+    """
     groups: list[CandidateGroup] = []
     sorted_candidates = sorted(
         [c for c in candidates if c.page_no == page_no],
@@ -130,11 +215,11 @@ def group_page_candidates(
         for index, group in enumerate(groups):
             if _same_backend_conflict(candidate, group):
                 continue
-            reasons = [
+            raw_reasons = [
                 _match_reason(candidate, other, text_threshold, bbox_threshold)
                 for other in group.candidates
             ]
-            reasons = [reason for reason in reasons if reason]
+            reasons: list[str] = [r for r in raw_reasons if r is not None]
             if reasons:
                 matched_index = index
                 matched_reason = reasons[0]
@@ -154,7 +239,7 @@ def group_page_candidates(
             groups[matched_index] = CandidateGroup(
                 id=group.id,
                 page_no=group.page_no,
-                candidates=tuple(sorted(group.candidates + (candidate,), key=lambda c: (c.block.order, c.backend, c.block.id))),
+                candidates=tuple(sorted((*group.candidates, candidate), key=lambda c: (c.block.order, c.backend, c.block.id))),
                 reason=matched_reason if group.reason == "single" else group.reason,
                 metadata={**group.metadata, "last_match_reason": matched_reason},
             )
@@ -176,6 +261,22 @@ def group_document_candidates(
     pages_by_backend: dict[str, list[PageExtractionIR]],
     entities_by_backend: dict[str, EntityProposalDocument],
 ) -> list[CandidateGroup]:
+    """Group all candidate blocks of a document, page by page.
+
+    Builds BlockCandidate instances for every backend block (annotated
+    with any entity IDs that anchor on it), groups them page-locally via
+    :func:`group_page_candidates`, and re-assigns globally stable group
+    IDs.
+
+    Args:
+        pages_by_backend: Per-backend page IR keyed by backend name.
+        entities_by_backend: Per-backend entity documents keyed by
+            backend name, used to attach entity_ids to candidates.
+
+    Returns:
+        All candidate groups across the document, in page order with
+        deterministic group IDs.
+    """
     candidates_by_page: dict[int, list[BlockCandidate]] = {}
     for backend, pages in sorted(pages_by_backend.items()):
         entity_map = _entity_ids_by_block(entities_by_backend.get(backend))

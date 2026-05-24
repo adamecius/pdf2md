@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
 from pdf2md.consensus.factory import ConsensusRunResult
 from pdf2md.consensus.reporting import build_consensus_summary
@@ -19,6 +20,18 @@ from pdf2md.models.priors import (
 
 @dataclass(frozen=True)
 class ConsensusInput:
+    """Locator for consensus inputs on disk.
+
+    Attributes:
+        document_id: Identifier for the document being assembled.
+        connector_root: Directory containing per-backend connector
+            outputs.
+        priors_root: Directory containing per-backend prior JSON files,
+            or None to use the factory/uninformative fallback chain.
+        backends: Backend names to load; empty tuple means autodiscover
+            from ``connector_root``.
+    """
+
     document_id: str
     connector_root: Path
     priors_root: Path | None
@@ -27,13 +40,25 @@ class ConsensusInput:
 
 @dataclass(frozen=True)
 class ConsensusLoadResult:
+    """Materialised consensus inputs loaded from disk.
+
+    Attributes:
+        pages_by_backend: Per-backend page IR keyed by backend name.
+        entities_by_backend: Per-backend entity documents keyed by
+            backend name.
+        priors_by_backend: Per-backend calibration priors after the
+            disk/factory/uninformative fallback chain.
+        warnings: Warnings accumulated during loading and prior
+            resolution.
+    """
+
     pages_by_backend: dict[str, list[PageExtractionIR]]
     entities_by_backend: dict[str, EntityProposalDocument]
     priors_by_backend: dict[str, CalibrationPriorDocument]
     warnings: list[str]
 
 
-def _load_json(path: Path):
+def _load_json(path: Path) -> Any:
     return json.loads(path.read_text())
 
 
@@ -74,7 +99,7 @@ def _resolve_prior_with_fallback(
             try:
                 priors_by_backend[backend] = CalibrationPriorDocument.model_validate(_load_json(prior_path))
                 return
-            except Exception as exc:  # noqa: BLE001
+            except Exception as exc:
                 _warn_or_raise(strict, warnings, f"invalid_prior:{backend}", exc)
                 # fall through to factory / uninformative
     factory = load_factory_prior(backend)
@@ -94,6 +119,32 @@ def load_consensus_inputs(
     priors_root: Path | None = None,
     strict: bool = False,
 ) -> ConsensusLoadResult:
+    """Load page IR, entities, and priors for a document's backends.
+
+    Discovers backends under ``connector_root`` (or uses the explicit
+    ``backends`` list) and loads each backend's pages, entities, and
+    calibration prior. Priors follow the Plan 19 three-level fallback
+    chain (user prior on disk → factory prior → uninformative).
+
+    Args:
+        connector_root: Directory containing per-backend connector
+            outputs.
+        document_id: Document identifier (currently informational —
+            recorded in warnings).
+        backends: Explicit backend list, or None to autodiscover.
+        priors_root: Directory containing user-supplied prior JSON
+            files, or None to skip directly to the factory fallback.
+        strict: If True, raise on invalid pages/entities/priors instead
+            of warning.
+
+    Returns:
+        A ConsensusLoadResult holding the loaded artefacts and any
+        warnings.
+
+    Raises:
+        Exception: In ``strict`` mode, propagates the underlying
+            validation/JSON error from invalid input files.
+    """
     warnings: list[str] = []
     pages_by_backend: dict[str, list[PageExtractionIR]] = {}
     entities_by_backend: dict[str, EntityProposalDocument] = {}
@@ -111,7 +162,7 @@ def load_consensus_inputs(
         for page_path in sorted(pages_dir.glob("*.json")):
             try:
                 pages.append(PageExtractionIR.model_validate(_load_json(page_path)))
-            except Exception as exc:  # noqa: BLE001 - strict mode re-raises exact input failure
+            except Exception as exc:
                 _warn_or_raise(strict, warnings, f"invalid_page:{backend}:{page_path.name}", exc)
         if pages:
             pages_by_backend[backend] = pages
@@ -121,7 +172,7 @@ def load_consensus_inputs(
         if entities_path.exists():
             try:
                 entities_by_backend[backend] = EntityProposalDocument.model_validate(_load_json(entities_path))
-            except Exception as exc:  # noqa: BLE001
+            except Exception as exc:
                 _warn_or_raise(strict, warnings, f"invalid_entities:{backend}", exc)
         else:
             warnings.append(f"entities_missing:{backend}")
@@ -145,6 +196,16 @@ def load_consensus_inputs(
 
 
 def write_consensus_outputs(*, result: ConsensusRunResult, out_dir: Path) -> None:
+    """Write consensus artefacts to ``out_dir``.
+
+    Emits ``consensus_ir.json``, ``consensus_summary.txt``, and
+    ``reports/consensus_report.json``. The written ConsensusIR is
+    re-parsed at the end as an integrity check.
+
+    Args:
+        result: The ConsensusRunResult to serialise.
+        out_dir: Output directory (created if needed).
+    """
     reports_dir = out_dir / "reports"
     reports_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "consensus_ir.json").write_text(result.consensus.model_dump_json(indent=2))

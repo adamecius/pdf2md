@@ -12,6 +12,20 @@ from pdf2md.models.linked import LinkedNode, LinkedNodeType, LinkedRelation, Lin
 
 @dataclass(frozen=True)
 class RagExportSettings:
+    """Settings controlling structure-aware RAG chunk generation.
+
+    Attributes:
+        max_chars: Soft upper bound for chunk text length; longer chunks
+            are split with overlap.
+        overlap_chars: Character overlap kept between successive splits
+            of a long chunk.
+        include_captions_with_targets: Attach figure/table captions to
+            the same chunk as their target rather than emitting them as
+            standalone chunks.
+        include_references: Emit chunks for reference items and the
+            reference section.
+    """
+
     max_chars: int = 1800
     overlap_chars: int = 150
     include_captions_with_targets: bool = True
@@ -101,6 +115,24 @@ def _split_text(text: str, max_chars: int, overlap_chars: int) -> list[str]:
 
 
 def build_rag_chunks(*, linked: LinkedStructure, settings: RagExportSettings = RagExportSettings()) -> RagChunkDocument:
+    """Build structure-aware RAG chunks from a LinkedStructure.
+
+    Walks nodes in reading order and accumulates narrative paragraphs
+    into mixed chunks while emitting standalone chunks for titles,
+    figures, tables, equations, footnotes and references. Captions are
+    folded into their target chunk when ``include_captions_with_targets``
+    is set. Overlong chunks are split with overlap and the affected ids
+    are recorded as ``rag_chunk_split`` warnings.
+
+    Args:
+        linked: Linked structure to chunk.
+        settings: Chunk-size and inclusion settings.
+
+    Returns:
+        A RagChunkDocument with the produced chunks, warnings, and
+        provenance metadata.
+    """
+
     nodes = sorted(linked.nodes, key=lambda n: (n.order, n.id))
     by_id = {node.id: node for node in nodes}
     caption_for: dict[str, list[LinkedNode]] = {}
@@ -115,6 +147,7 @@ def build_rag_chunks(*, linked: LinkedStructure, settings: RagExportSettings = R
     buffer_texts: list[str] = []
 
     def flush_buffer() -> None:
+        """Emit chunks for the currently buffered nodes and reset the buffer."""
         nonlocal index, buffer_nodes, buffer_texts
         if not buffer_nodes:
             return

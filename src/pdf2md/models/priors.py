@@ -7,15 +7,17 @@ from enum import Enum
 from importlib import resources
 from typing import Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from pdf2md.models.entities import EntityType, RelationType
 from pdf2md.models.ir import BlockKind
 
-PRIOR_SCHEMA_VERSION = "1.0.0"
+PRIOR_SCHEMA_VERSION: Literal["1.0.0"] = "1.0.0"
 
 
 class CalibrationTarget(str, Enum):
+    """Targets that calibration metrics can be computed against."""
+
     BLOCK_KIND = "block_kind"
     ENTITY_TYPE = "entity_type"
     RELATION_TYPE = "relation_type"
@@ -23,6 +25,8 @@ class CalibrationTarget(str, Enum):
 
 
 class CalibrationStatus(str, Enum):
+    """Per-metric calibration status."""
+
     CALIBRATED = "calibrated"
     UNDERPOWERED = "underpowered"
     NO_SAMPLES = "no_samples"
@@ -30,22 +34,49 @@ class CalibrationStatus(str, Enum):
 
 
 class MatchOutcome(str, Enum):
+    """Outcome of matching a backend prediction against truth."""
+
     TRUE_POSITIVE = "true_positive"
     FALSE_POSITIVE = "false_positive"
     FALSE_NEGATIVE = "false_negative"
 
 
 class _PriorBaseModel(BaseModel):
+    """Private Pydantic base for calibration-prior models."""
+
     model_config = ConfigDict(extra="forbid", frozen=False, populate_by_name=True, use_enum_values=True)
 
 
 class CalibrationCounts(_PriorBaseModel):
+    """Match-outcome counts underlying a calibration metric.
+
+    Attributes:
+        true_positive: Number of true-positive matches.
+        false_positive: Number of false-positive matches.
+        false_negative: Number of false-negative matches.
+    """
+
     true_positive: int = Field(ge=0)
     false_positive: int = Field(ge=0)
     false_negative: int = Field(ge=0)
 
 
 class CalibrationMetric(_PriorBaseModel):
+    """One calibrated metric for a (target, key) pair.
+
+    Attributes:
+        target: Calibration target the metric applies to.
+        key: Key identifying the slice within the target (e.g. block kind name).
+        counts: Underlying true/false-positive/negative counts.
+        precision: Precision in [0, 1].
+        recall: Recall in [0, 1].
+        f1: F1 score in [0, 1].
+        support: Total number of samples (sum of counts).
+        calibrated_confidence: Smoothed confidence in [0, 1].
+        status: Calibration status (calibrated, uninformative, ...).
+        metadata: Free-form metadata bag.
+    """
+
     target: CalibrationTarget
     key: str = Field(min_length=1)
     counts: CalibrationCounts
@@ -58,7 +89,7 @@ class CalibrationMetric(_PriorBaseModel):
     metadata: dict[str, Any] = Field(default_factory=dict)
 
     @model_validator(mode="after")
-    def _validate_support_and_status(self) -> "CalibrationMetric":
+    def _validate_support_and_status(self) -> CalibrationMetric:
         expected_support = self.counts.true_positive + self.counts.false_positive + self.counts.false_negative
         if self.support != expected_support:
             raise ValueError("support must equal true_positive + false_positive + false_negative")
@@ -76,6 +107,30 @@ class CalibrationMetric(_PriorBaseModel):
 
 
 class CalibrationPriorDocument(_PriorBaseModel):
+    """Calibrated per-backend confidence priors.
+
+    Produced by the calibration stage from CalibrationTruthDocuments and
+    backend extractions; consumed by the consensus scorer and the linker
+    to weight backend evidence.
+
+    Attributes:
+        schema_name: Fixed marker for the JSON schema.
+        schema_version: Schema version string.
+        backend: Backend identifier the priors apply to.
+        backend_version: Optional backend version tag.
+        generated_from: Source artefact paths the priors were derived from.
+        min_samples: Minimum support required to mark a metric calibrated.
+        smoothing_alpha: Beta-distribution alpha smoothing prior.
+        smoothing_beta: Beta-distribution beta smoothing prior.
+        default_confidence: Fallback confidence when no metric applies.
+        block_kind_priors: Per-BlockKind metrics.
+        entity_type_priors: Per-EntityType metrics.
+        relation_type_priors: Per-RelationType metrics.
+        calibration_key_priors: Per-calibration-key metrics.
+        warnings: Calibration-stage warnings.
+        metadata: Free-form metadata bag.
+    """
+
     schema_name: Literal["pdf2md.CalibrationPriorDocument"] = "pdf2md.CalibrationPriorDocument"
     schema_version: Literal["1.0.0"] = PRIOR_SCHEMA_VERSION
     backend: str = Field(min_length=1)
@@ -93,7 +148,7 @@ class CalibrationPriorDocument(_PriorBaseModel):
     metadata: dict[str, Any] = Field(default_factory=dict)
 
     @model_validator(mode="after")
-    def _validate_metric_lists(self) -> "CalibrationPriorDocument":
+    def _validate_metric_lists(self) -> CalibrationPriorDocument:
         for metrics in (
             self.block_kind_priors,
             self.entity_type_priors,
@@ -107,6 +162,16 @@ class CalibrationPriorDocument(_PriorBaseModel):
 
 
 class TruthEntity(_PriorBaseModel):
+    """One ground-truth entity used to calibrate backend priors.
+
+    Attributes:
+        id: Stable truth-entity identifier.
+        entity_type: Entity-type taxonomy value.
+        canonical_text: Optional canonical textual form.
+        page_no: One-based page number, if page-local.
+        metadata: Free-form metadata bag.
+    """
+
     id: str = Field(min_length=1)
     entity_type: EntityType
     canonical_text: str | None = None
@@ -115,6 +180,16 @@ class TruthEntity(_PriorBaseModel):
 
 
 class TruthRelation(_PriorBaseModel):
+    """One ground-truth relation between two truth entities.
+
+    Attributes:
+        id: Stable truth-relation identifier.
+        relation_type: Relation-type taxonomy value.
+        source_truth_id: TruthEntity id of the source endpoint.
+        target_truth_id: TruthEntity id of the target endpoint.
+        metadata: Free-form metadata bag.
+    """
+
     id: str = Field(min_length=1)
     relation_type: RelationType
     source_truth_id: str = Field(min_length=1)
@@ -123,6 +198,16 @@ class TruthRelation(_PriorBaseModel):
 
 
 class TruthBlock(_PriorBaseModel):
+    """One ground-truth block used to calibrate backend priors.
+
+    Attributes:
+        id: Stable truth-block identifier.
+        block_kind: BlockKind taxonomy value.
+        text: Optional canonical block text.
+        page_no: One-based page number the block belongs to.
+        metadata: Free-form metadata bag.
+    """
+
     id: str = Field(min_length=1)
     block_kind: BlockKind
     text: str | None = None
@@ -131,6 +216,21 @@ class TruthBlock(_PriorBaseModel):
 
 
 class CalibrationTruthDocument(_PriorBaseModel):
+    """Per-document bundle of ground-truth blocks, entities, and relations.
+
+    Consumed by the calibration stage as the reference against which
+    backend extractions are scored.
+
+    Attributes:
+        schema_name: Fixed marker for the JSON schema.
+        schema_version: Schema version string.
+        document_id: Identifier of the source document.
+        blocks: TruthBlock entries with unique ids.
+        entities: TruthEntity entries with unique ids.
+        relations: TruthRelation entries with unique ids.
+        metadata: Free-form metadata bag.
+    """
+
     schema_name: Literal["pdf2md.CalibrationTruthDocument"] = "pdf2md.CalibrationTruthDocument"
     schema_version: Literal["1.0.0"] = PRIOR_SCHEMA_VERSION
     document_id: str = Field(min_length=1)
@@ -140,7 +240,7 @@ class CalibrationTruthDocument(_PriorBaseModel):
     metadata: dict[str, Any] = Field(default_factory=dict)
 
     @model_validator(mode="after")
-    def _validate_truth_document(self) -> "CalibrationTruthDocument":
+    def _validate_truth_document(self) -> CalibrationTruthDocument:
         block_ids = [block.id for block in self.blocks]
         if len(block_ids) != len(set(block_ids)):
             raise ValueError("truth block ids must be unique")
@@ -164,6 +264,8 @@ def _target_value(target: CalibrationTarget | str) -> str:
 
 
 def prior_key(target: CalibrationTarget | str, key: str) -> str:
+    """Build the canonical `<target>:<key>` lookup string for a prior."""
+
     return f"{_target_value(target)}:{key}"
 
 
@@ -183,6 +285,18 @@ def _metrics_for_target(prior: CalibrationPriorDocument, target: CalibrationTarg
 def lookup_prior(
     prior: CalibrationPriorDocument, target: CalibrationTarget | str, key: str
 ) -> CalibrationMetric | None:
+    """Return the calibration metric for `(target, key)`, or None if absent.
+
+    Args:
+        prior: Calibration prior document to search.
+        target: Calibration target selecting which metric list to scan.
+        key: Slice key within the target.
+
+    Returns:
+        The matching CalibrationMetric, or None if no metric is registered
+        for the given target/key pair.
+    """
+
     for metric in _metrics_for_target(prior, target):
         if metric.key == key:
             return metric
@@ -190,6 +304,21 @@ def lookup_prior(
 
 
 def lookup_confidence(prior: CalibrationPriorDocument, target: CalibrationTarget | str, key: str) -> float:
+    """Return the calibrated confidence for `(target, key)`.
+
+    Falls back to ``prior.default_confidence`` when no metric is registered
+    for the given target/key pair.
+
+    Args:
+        prior: Calibration prior document to query.
+        target: Calibration target selecting which metric list to scan.
+        key: Slice key within the target.
+
+    Returns:
+        The metric's ``calibrated_confidence``, or the document's default
+        confidence if no metric matches.
+    """
+
     metric = lookup_prior(prior, target, key)
     if metric is None:
         return prior.default_confidence
@@ -278,25 +407,25 @@ def load_factory_prior(backend: str) -> CalibrationPriorDocument | None:
         return None
     try:
         return CalibrationPriorDocument.model_validate(payload)
-    except Exception:  # noqa: BLE001
+    except Exception:
         return None
 
 
 __all__ = [
     "PRIOR_SCHEMA_VERSION",
-    "CalibrationTarget",
-    "CalibrationStatus",
-    "MatchOutcome",
     "CalibrationCounts",
     "CalibrationMetric",
     "CalibrationPriorDocument",
+    "CalibrationStatus",
+    "CalibrationTarget",
+    "CalibrationTruthDocument",
+    "MatchOutcome",
+    "TruthBlock",
     "TruthEntity",
     "TruthRelation",
-    "TruthBlock",
-    "CalibrationTruthDocument",
-    "prior_key",
-    "lookup_prior",
-    "lookup_confidence",
     "build_uninformative_prior",
     "load_factory_prior",
+    "lookup_confidence",
+    "lookup_prior",
+    "prior_key",
 ]

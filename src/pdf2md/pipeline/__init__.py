@@ -15,57 +15,53 @@ through the existing backend runner.
 from __future__ import annotations
 
 from pdf2md.pipeline.artifacts import (
-    OneDocumentPaths,
     CorpusDocumentPaths,
-    one_document_paths,
+    OneDocumentPaths,
     corpus_document_paths,
+    one_document_paths,
 )
 from pdf2md.pipeline.io import (
+    write_corpus_evaluation,
     write_pipeline_manifest,
     write_stage_status,
-    write_corpus_evaluation,
 )
 from pdf2md.pipeline.reporting import (
-    build_pipeline_summary,
     build_corpus_summary,
+    build_pipeline_summary,
     classify_mvp_readiness,
 )
 from pdf2md.pipeline.runner import (
+    CorpusEvaluation,
     DocumentRecord,
+    DocumentResult,
     MvpReadiness,
     PipelineManifest,
-    CorpusEvaluation,
+    StageName,
     StageRecord,
     StageStatus,
-    DocumentResult,
-    StageName,
     run_corpus,
     run_one_document,
 )
 
 __all__ = [
-    # paths
-    "OneDocumentPaths",
     "CorpusDocumentPaths",
-    "one_document_paths",
-    "corpus_document_paths",
-    # io
-    "write_pipeline_manifest",
-    "write_stage_status",
-    "write_corpus_evaluation",
-    # reporting
-    "build_pipeline_summary",
-    "build_corpus_summary",
-    "classify_mvp_readiness",
-    # runner
-    "DocumentRecord",
-    "MvpReadiness",
-    "PipelineManifest",
     "CorpusEvaluation",
+    "DocumentRecord",
+    "DocumentResult",
+    "MvpReadiness",
+    "OneDocumentPaths",
+    "PipelineManifest",
+    "StageName",
     "StageRecord",
     "StageStatus",
-    "DocumentResult",
-    "StageName",
+    "build_corpus_summary",
+    "build_pipeline_summary",
+    "classify_mvp_readiness",
+    "corpus_document_paths",
+    "one_document_paths",
     "run_corpus",
     "run_one_document",
+    "write_corpus_evaluation",
+    "write_pipeline_manifest",
+    "write_stage_status",
 ]

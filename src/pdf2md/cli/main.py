@@ -1,3 +1,12 @@
+"""Typer-based command-line entry point for the `pdf2md` package.
+
+Exposes the top-level subcommands: pipeline orchestration (`convert`,
+`run-pipeline`), backend orchestration (`run-backends`), and the
+external-dataset commands (`datasets ...`). Each subcommand is a thin
+wrapper that loads configuration and delegates to the corresponding
+pipeline/orchestrator module.
+"""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -39,7 +48,7 @@ def convert(
         cfg = load_backend_config(config)
     except (FileNotFoundError, ValueError) as exc:
         typer.echo(str(exc), err=True)
-        raise typer.Exit(code=1)
+        raise typer.Exit(code=1) from exc
 
     settings = PipelineSettings(
         config=cfg,
@@ -57,7 +66,7 @@ def convert(
         result = run_pipeline(pdf_path, resolved_out_dir, settings)
     except (FileNotFoundError, ValueError) as exc:
         typer.echo(str(exc), err=True)
-        raise typer.Exit(code=1)
+        raise typer.Exit(code=1) from exc
 
     if not dry_run and result.manifest_path.exists():
         try:
@@ -102,7 +111,7 @@ def run_backends(
         )
     except (FileNotFoundError, ValueError) as exc:
         typer.echo(str(exc), err=True)
-        raise typer.Exit(code=1)
+        raise typer.Exit(code=1) from exc
 
     raise typer.Exit(code=rc)
 

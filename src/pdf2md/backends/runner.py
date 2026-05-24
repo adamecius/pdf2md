@@ -1,3 +1,11 @@
+"""Backend runner: invoke configured OCR backends as subprocesses.
+
+Reads `pdf2md.backends.toml`, dispatches each enabled backend in its own
+conda environment, captures stdout/stderr, and writes a per-document
+manifest with timing and exit status. Output normalisation is delegated
+to the connector layer downstream.
+"""
+
 from __future__ import annotations
 
 import json
@@ -14,6 +22,20 @@ _SAFE_NAME_RE = re.compile(r"^[A-Za-z0-9._-]+$")
 
 
 def validate_safe_run_name(name: str) -> str:
+    """Validate that a string is safe for use as a run directory name.
+
+    Args:
+        name: Candidate directory name (typically a PDF stem or
+            ``--run-name`` override).
+
+    Returns:
+        The validated name unchanged.
+
+    Raises:
+        ValueError: If the name is empty, ``.``/``..``, longer than 120
+            characters, or contains characters outside
+            ``[A-Za-z0-9._-]``.
+    """
     if not name or name in {".", ".."} or len(name) > 120 or not _SAFE_NAME_RE.match(name):
         raise ValueError(
             f'Cannot derive a safe run directory from input filename: "{name}"\n'
@@ -24,10 +46,45 @@ def validate_safe_run_name(name: str) -> str:
 
 
 def derive_run_name(input_pdf: Path, override: str | None) -> str:
+    """Derive and validate the run directory name for an input PDF.
+
+    Uses ``override`` if provided, otherwise falls back to the PDF stem.
+
+    Args:
+        input_pdf: Path to the input PDF (only the stem is consulted).
+        override: Optional ``--run-name`` override.
+
+    Returns:
+        A validated safe run-directory name.
+
+    Raises:
+        ValueError: If the resulting name fails safety validation.
+    """
     return validate_safe_run_name(override if override is not None else input_pdf.stem)
 
 
 def plan_backend_command(repo_root: Path, backend_name: str, backend_cfg: dict, input_pdf_abs: Path, raw_dir: Path) -> list[str]:
+    """Build the ``conda run`` argv list for invoking a backend wrapper.
+
+    Translates the backend's TOML config (``args``, ``extra_args``) into
+    CLI flags accepted by the wrapper script.
+
+    Args:
+        repo_root: Repository root used as the subprocess working
+            directory.
+        backend_name: Backend identifier (e.g. ``paddleocr``); accepted
+            for symmetry with the manifest but not embedded in the
+            command.
+        backend_cfg: Parsed TOML entry for the backend
+            (``env_name``, ``script``, ``args``, ``extra_args``).
+        input_pdf_abs: Absolute path to the input PDF that the wrapper
+            will read.
+        raw_dir: Output directory the wrapper writes ``output.md`` and
+            ``manifest.json`` into.
+
+    Returns:
+        Command argv suitable for passing to :func:`subprocess.run`.
+    """
     cmd = [
         "conda",
         "run",
@@ -71,6 +128,37 @@ def run_configured_backends(
     timeout_override: int | None = None,
     keep_going: bool = False,
 ) -> int:
+    """Run every enabled backend on ``input_pdf`` and write a run manifest.
+
+    Creates ``<work_dir>/<run_name>/`` with per-backend ``raw/<backend>/``
+    subfolders that hold each backend's ``output.md``, ``manifest.json``,
+    ``status.json``, and captured stdout/stderr logs.
+
+    Args:
+        input_pdf: PDF to process. Must exist and have a ``.pdf``
+            extension.
+        config: Parsed ``pdf2md.backends.toml`` document (``settings`` +
+            ``backends`` tables).
+        repo_root: Repository root used as cwd for ``conda run``
+            subprocesses.
+        work_dir_override: Override for ``settings.work_dir``.
+        run_name_override: Override for the derived run directory name.
+        force: If True, remove an existing run directory before
+            starting.
+        dry_run: If True, write only ``command.json``/``status.json``
+            stubs and skip subprocess execution.
+        timeout_override: Override for ``settings.default_timeout_seconds``.
+        keep_going: If True, continue running remaining backends after a
+            failure even when ``settings.stop_on_failure`` is true.
+
+    Returns:
+        ``0`` if every backend succeeded (or all were dry-run); ``1`` if
+        any backend exited non-zero.
+
+    Raises:
+        ValueError: If the input is invalid, no backends are enabled, or
+            the run directory already exists without ``force``.
+    """
     if not input_pdf.exists():
         raise ValueError(f"Input PDF does not exist: {input_pdf}")
     if not input_pdf.is_file():
@@ -119,7 +207,7 @@ def run_configured_backends(
         command_payload = {
             "backend": backend_name,
             "command": command,
-            "env": {k: "***" for k in backend_cfg.get("env", {}).keys()},
+            "env": {k: "***" for k in backend_cfg.get("env", {})},
         }
         (backend_dir / "command.json").write_text(json.dumps(command_payload, indent=2), encoding="utf-8")
 

@@ -15,16 +15,17 @@ inflates false positives/negatives on the most common corpus categories.
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from collections.abc import Mapping
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Literal, Mapping
+from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
 from pdf2md.models.ir import BlockKind
 
-VOCABULARY_SCHEMA_VERSION = "1.0.0"
-TOOL_NAME = "vocabulary_alignment_check"
+VOCABULARY_SCHEMA_VERSION: Literal["1.0.0"] = "1.0.0"
+TOOL_NAME: Literal["vocabulary_alignment_check"] = "vocabulary_alignment_check"
 
 # Canonical Docling label -> BlockKind mapping. Lookup is case-insensitive on
 # the docling label key. Add only labels that the repository BlockKind enum
@@ -64,6 +65,8 @@ CANONICAL_BLOCK_KIND_VALUES: frozenset[str] = frozenset(b.value for b in BlockKi
 
 
 class _VocabBaseModel(BaseModel):
+    """Private base for vocabulary-alignment Pydantic models (extra=forbid)."""
+
     model_config = ConfigDict(extra="forbid")
 
 
@@ -92,7 +95,7 @@ class BlockKindVocabularyAlignmentReport(_VocabBaseModel):
 
 
 def _utc_now() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def normalize_docling_label(label: str | None) -> str | None:
@@ -332,16 +335,16 @@ def write_vocabulary_alignment_report(
 
 
 __all__ = [
-    "VOCABULARY_SCHEMA_VERSION",
-    "TOOL_NAME",
+    "CANONICAL_BLOCK_KIND_VALUES",
     "DOCLING_LABEL_TO_BLOCK_KIND",
     "MANDATORY_DOCLING_LABELS",
-    "CANONICAL_BLOCK_KIND_VALUES",
+    "TOOL_NAME",
+    "VOCABULARY_SCHEMA_VERSION",
     "BlockKindVocabularyAlignmentReport",
-    "normalize_docling_label",
-    "normalise_truth_payload",
-    "scan_truth_root_labels",
     "build_vocabulary_alignment_report",
     "build_vocabulary_alignment_summary",
+    "normalise_truth_payload",
+    "normalize_docling_label",
+    "scan_truth_root_labels",
     "write_vocabulary_alignment_report",
 ]

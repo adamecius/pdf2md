@@ -19,6 +19,21 @@ T = TypeVar("T", bound=BaseModel)
 
 @dataclass(frozen=True)
 class LinkerLoadResult:
+    """Inputs gathered from disk for a single semantic linker run.
+
+    Attributes:
+        consensus: Parsed consensus IR for the document.
+        consensus_report: Parsed consensus report payload, or None when
+            absent or invalid in non-strict mode.
+        entities_by_backend: Entity proposal documents keyed by backend name.
+        priors_by_backend: Calibration prior documents keyed by backend name.
+        source_entity_documents: Source file paths of the loaded entity
+            documents, for traceability.
+        source_prior_documents: Source file paths of the loaded prior
+            documents, for traceability.
+        warnings: Stable warning codes from the load pass.
+    """
+
     consensus: ConsensusIR
     consensus_report: dict[str, Any] | None
     entities_by_backend: dict[str, EntityProposalDocument]
@@ -53,6 +68,29 @@ def load_linker_inputs(
     priors_root: Path | None = None,
     strict: bool = False,
 ) -> LinkerLoadResult:
+    """Load the consensus IR plus per-backend entities and priors from disk.
+
+    Entity files are discovered as ``<root>/*.json`` or
+    ``<root>/<backend>/entities.json``. Prior files are loaded from
+    ``<priors_root>/*.json``. Missing optional roots, missing per-backend
+    files, and validation failures are recorded as stable warning codes;
+    strict mode promotes the first such issue to an exception.
+
+    Args:
+        consensus_ir_path: Path to the consensus IR JSON.
+        consensus_report_path: Optional path to the consensus report JSON.
+        entities_root: Optional directory containing per-backend entity JSONs.
+        priors_root: Optional directory containing per-backend prior JSONs.
+        strict: When True, raise on input problems instead of recording them.
+
+    Returns:
+        A ``LinkerLoadResult`` containing the parsed inputs, source paths,
+        and any accumulated warnings.
+
+    Raises:
+        ValueError: If the consensus IR is invalid, or in strict mode for any
+            other input problem.
+    """
     warnings: list[str] = []
     try:
         consensus = _read_model(consensus_ir_path, ConsensusIR)
@@ -118,6 +156,17 @@ def load_linker_inputs(
 
 
 def write_linker_outputs(*, result: LinkerRunResult, out_dir: Path) -> None:
+    """Write the linked structure JSON and linking report to ``out_dir``.
+
+    Creates ``out_dir/linked_structure.json`` and
+    ``out_dir/reports/linking_report.json``. Directories are created if they
+    do not exist.
+
+    Args:
+        result: Linker run output to serialise.
+        out_dir: Output root that will contain the linked structure file and
+            a ``reports/`` subdirectory.
+    """
     reports_dir = out_dir / "reports"
     reports_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "linked_structure.json").write_text(result.linked.model_dump_json(indent=2), encoding="utf-8")

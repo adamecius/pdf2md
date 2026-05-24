@@ -14,17 +14,12 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Optional
 
 import typer
 
-from pdf2md.datasets import downloader as _downloader_mod
-from pdf2md.datasets import manifest as _manifest_mod
 from pdf2md.datasets.downloader import DownloadResult, download_dataset
 from pdf2md.datasets.manifest import (
     INSTALLED,
-    MANIFEST_ONLY,
-    MISSING,
     generate_dataset_manifest,
     update_global_index,
 )
@@ -54,7 +49,7 @@ def _read_index(index_path: Path) -> dict:
     if not index_path.is_file():
         return {"datasets": []}
     try:
-        return json.loads(index_path.read_text(encoding="utf-8"))
+        return dict(json.loads(index_path.read_text(encoding="utf-8")))
     except (OSError, json.JSONDecodeError):
         return {"datasets": []}
 
@@ -100,7 +95,7 @@ def _run_install_one(
     *,
     name: str,
     output: Path,
-    ref: Optional[str],
+    ref: str | None,
     force: bool,
     dry_run: bool,
     manifest_only: bool,
@@ -133,7 +128,7 @@ def _run_install_one(
         )
         return 0
 
-    resolved_commit: Optional[str] = None
+    resolved_commit: str | None = None
     if manifest_only:
         # Skip clone; we just regenerate manifests from existing upstream/.
         if not (dataset_dir / "upstream").is_dir():
@@ -147,7 +142,7 @@ def _run_install_one(
                 dataset_dir=dataset_dir,
                 name_or_alias=entry.id,
             )
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:
             typer.echo(f"manifest generation failed: {exc}", err=True)
             return 1
         update_global_index(
@@ -177,7 +172,7 @@ def _run_install_one(
             ref=result.ref_used,
             resolved_commit=resolved_commit,
         )
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         typer.echo(f"manifest generation failed: {exc}", err=True)
         return 1
 
@@ -197,7 +192,7 @@ def _run_install_one(
 def install_command(
     name: str = typer.Argument(..., help="Dataset id, alias, or 'all'."),
     output: Path = typer.Option(DATASETS_DEFAULT_OUTPUT, "--output"),
-    ref: Optional[str] = typer.Option(None, "--ref", help="Override the default git ref."),
+    ref: str | None = typer.Option(None, "--ref", help="Override the default git ref."),
     force: bool = typer.Option(False, "--force", help="Replace an existing dataset directory."),
     dry_run: bool = typer.Option(False, "--dry-run"),
     manifest_only: bool = typer.Option(
@@ -207,10 +202,10 @@ def install_command(
     compile_: bool = typer.Option(
         False, "--compile", help="Reserved. Compilation lives in a future plan.",
     ),
-    limit: Optional[int] = typer.Option(
+    limit: int | None = typer.Option(
         None, "--limit", help="Reserved. Will cap root files compiled in a future plan.",
     ),
-    engine: Optional[str] = typer.Option(
+    engine: str | None = typer.Option(
         None, "--engine", help="Reserved. Selects LaTeX engine in a future plan.",
     ),
 ) -> None:

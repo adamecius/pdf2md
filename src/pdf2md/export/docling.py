@@ -38,7 +38,7 @@ def _resolve_docling_schema_version() -> str:
                 field = doc_cls.model_fields.get("version")
                 if field is not None and field.default is not None:
                     return str(field.default)
-    except Exception:  # noqa: BLE001 - any failure -> safe fallback
+    except Exception:
         pass
     return "1.10.0"
 
@@ -48,6 +48,16 @@ _DOCLING_SCHEMA_VERSION_DEFAULT: str = _resolve_docling_schema_version()
 
 @dataclass(frozen=True)
 class DoclingExportSettings:
+    """Settings controlling the Docling export projection.
+
+    Attributes:
+        schema_name: Value written to the top-level ``schema_name`` field.
+        schema_version: Docling schema version recorded on the document.
+        include_unresolved: Emit nodes whose status is ``unresolved`` when
+            true; drop them silently when false.
+        coord_origin: Coordinate origin convention recorded with bboxes.
+    """
+
     schema_name: str = "DoclingDocument"
     schema_version: str = _DOCLING_SCHEMA_VERSION_DEFAULT
     include_unresolved: bool = True
@@ -56,6 +66,13 @@ class DoclingExportSettings:
 
 @dataclass(frozen=True)
 class DoclingExportResult:
+    """Result of a Docling export build.
+
+    Attributes:
+        document: The Docling document as a JSON-serialisable dictionary.
+        warnings: Warnings raised while projecting the LinkedStructure.
+    """
+
     document: dict[str, Any]
     warnings: list[str]
 
@@ -189,6 +206,26 @@ def build_docling_document(
     settings: DoclingExportSettings = DoclingExportSettings(),
     source_pdf: Path | str | None = None,
 ) -> DoclingExportResult:
+    """Project a LinkedStructure into a Docling-compatible document dict.
+
+    Walks ``linked.nodes`` in reading order, maps each node to the
+    appropriate Docling container (``texts``, ``tables``, ``pictures`` or
+    ``groups``), attaches provenance and metadata, and resolves relations
+    into Docling parent/child references. Unknown block kinds are routed
+    to ``texts`` with a ``block_kind_unmapped`` warning.
+
+    Args:
+        linked: Linked structure to project.
+        consensus: Optional consensus IR used to backfill bbox/page
+            provenance when nodes carry only consensus block references.
+        settings: Schema-name and inclusion settings.
+        source_pdf: Original PDF path; used to populate ``origin``.
+
+    Returns:
+        A DoclingExportResult containing the document dict and the
+        warning list (schema, provenance and validation warnings).
+    """
+
     warnings: list[str] = []
     nodes = sorted(linked.nodes, key=lambda n: (n.order, n.id))
     emitted_nodes = [n for n in nodes if settings.include_unresolved or _value(n.status) != "unresolved"]
@@ -243,7 +280,7 @@ def build_docling_document(
             # docling-core groups do not require (and reject) the legacy
             # pdf2md group labels like "section"/"list"/"references".
             # Drop the label key entirely when the mapping says None.
-            group_label = _GROUP_LABELS.get(ntype, None)
+            group_label = _GROUP_LABELS.get(ntype)
             item.update({"name": _text(node), "children": []})
             if group_label is not None:
                 item["label"] = group_label
@@ -278,10 +315,10 @@ def build_docling_document(
         tgt = node_ref.get(relation.target_node_id)
         payload = relation.model_dump(mode="json")
         if rtype in {LinkedRelationType.CONTAINS, LinkedRelationType.PARENT_OF} and src and tgt:
-            parent, child = (src, tgt) if rtype == LinkedRelationType.CONTAINS else (src, tgt)
-            item = by_ref.get(parent)
-            if item is not None and "children" in item and child not in item["children"]:
-                item["children"].append(child)
+            parent, child = src, tgt
+            parent_item = by_ref.get(parent)
+            if parent_item is not None and "children" in parent_item and child not in parent_item["children"]:
+                parent_item["children"].append(child)
                 parent_by_child[child] = parent
         elif rtype == LinkedRelationType.CAPTION_OF and src and tgt:
             target = by_ref.get(tgt)
@@ -300,15 +337,15 @@ def build_docling_document(
                 metadata.setdefault("links", []).append(payload)
                 metadata.setdefault("footnote_anchors", []).append(src)
         elif src:
-            item = by_ref.get(src)
-            if item is not None:
-                item.setdefault("metadata", {}).setdefault("links", []).append(payload)
+            src_item = by_ref.get(src)
+            if src_item is not None:
+                src_item.setdefault("metadata", {}).setdefault("links", []).append(payload)
 
     for node in emitted_nodes:
-        ref = node_ref.get(node.id)
-        if not ref or ref == "#/body" or ref in parent_by_child:
+        node_ref_value = node_ref.get(node.id)
+        if not node_ref_value or node_ref_value == "#/body" or node_ref_value in parent_by_child:
             continue
-        document["body"]["children"].append(ref)
+        document["body"]["children"].append(node_ref_value)
 
     warnings.extend(validate_docling_like_document(document))
     document["metadata"]["warnings"] = warnings
@@ -324,6 +361,19 @@ def _items_by_ref(document: dict[str, Any]) -> dict[str, dict[str, Any]]:
 
 
 def validate_docling_like_document(document: dict[str, Any]) -> list[str]:
+    """Run lightweight structural checks on a Docling-like document.
+
+    Verifies that required top-level keys are present, ``self_ref`` values
+    are unique, child references resolve, page references are known and
+    pdf2md metadata is attached.
+
+    Args:
+        document: The Docling document dictionary to validate.
+
+    Returns:
+        A list of warning strings (empty when the document is valid).
+    """
+
     warnings: list[str] = []
     required = ["schema_name", "version", "name", "origin", "body", "groups", "texts", "tables", "pictures", "pages", "key_value_items", "form_items", "metadata"]
     for key in required:
@@ -358,10 +408,21 @@ def validate_docling_like_document(document: dict[str, Any]) -> list[str]:
 
 
 def try_validate_with_docling_core(document: dict[str, Any]) -> tuple[bool, str | None]:
+    """Attempt validation through ``docling_core.types.doc.DoclingDocument``.
+
+    Args:
+        document: The Docling document dictionary to validate.
+
+    Returns:
+        A tuple ``(ok, reason)`` where ``ok`` is ``True`` only when
+        docling_core is installed and accepts the document; ``reason``
+        carries a short marker string explaining the outcome.
+    """
+
     if util.find_spec("docling_core") is None:
         return False, "docling_core_unavailable"
     module = import_module("docling_core.types.doc.document")
-    docling_document = getattr(module, "DoclingDocument")
+    docling_document = module.DoclingDocument
     try:
         docling_document.model_validate(document)
     except Exception as exc:

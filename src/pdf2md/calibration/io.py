@@ -15,6 +15,17 @@ from pdf2md.models.priors import CalibrationPriorDocument, CalibrationTruthDocum
 
 @dataclass(frozen=True)
 class CalibrationDocumentInput:
+    """Filesystem locations of a single calibration document's truth and predictions.
+
+    Attributes:
+        document_id: Stable identifier for the document (typically the
+            directory name).
+        truth_path: Path to the ``truth.json`` file with ground-truth blocks,
+            entities, and relations.
+        prediction_roots: Mapping from backend name to the prediction directory
+            that contains ``entities.json`` and a ``pages/`` subdirectory.
+    """
+
     document_id: str
     truth_path: Path
     prediction_roots: dict[str, Path]
@@ -22,6 +33,17 @@ class CalibrationDocumentInput:
 
 @dataclass(frozen=True)
 class CalibrationLoadResult:
+    """Loaded truth and per-backend predictions for one calibration document.
+
+    Attributes:
+        truth: Parsed truth document, or None if it was missing or invalid in
+            non-strict mode.
+        pages_by_backend: Per-backend list of page-level extraction IRs.
+        entities_by_backend: Per-backend entity proposal documents.
+        warnings: Non-fatal load problems (missing files, invalid JSON,
+            validation failures) reported with stable string codes.
+    """
+
     truth: CalibrationTruthDocument | None
     pages_by_backend: dict[str, list[PageExtractionIR]]
     entities_by_backend: dict[str, EntityProposalDocument]
@@ -35,6 +57,25 @@ def _candidate_backend_dirs(root: Path) -> dict[str, Path]:
 
 
 def discover_calibration_inputs(*, root: Path, backends: list[str] | None = None) -> list[CalibrationDocumentInput]:
+    """Discover calibration documents under a root directory.
+
+    Supports three layouts:
+
+    - ``root`` directly contains ``truth.json`` (single-document layout).
+    - ``root`` is a ``*_predictions`` directory paired with a sibling
+      ``*_truth`` directory.
+    - ``root`` contains one subdirectory per document, each with a
+      ``truth.json``.
+
+    Args:
+        root: Directory to scan for calibration documents.
+        backends: Optional whitelist of backend names; when set, prediction
+            directories whose names are not listed are filtered out.
+
+    Returns:
+        One ``CalibrationDocumentInput`` per discovered document. The list is
+        empty if no truth files are found.
+    """
     root = Path(root)
     allowed = set(backends or [])
     if (root / "truth.json").exists():
@@ -118,6 +159,25 @@ def load_calibration_truth_document(
 
 
 def load_calibration_document(*, item: CalibrationDocumentInput, strict: bool = False) -> CalibrationLoadResult:
+    """Load the truth and all per-backend predictions for one calibration document.
+
+    Reads the truth JSON (with vocabulary normalisation) and, for each backend
+    listed in ``item.prediction_roots``, the entity proposal document and every
+    ``pages/*.json`` extraction IR.
+
+    Args:
+        item: The discovered document input describing where to read from.
+        strict: If True, propagate the first I/O or validation error. If
+            False, record stable warning codes and continue loading the rest.
+
+    Returns:
+        A ``CalibrationLoadResult`` with the truth, per-backend pages and
+        entities, and a list of non-fatal warnings.
+
+    Raises:
+        FileNotFoundError: In strict mode, if the truth file or any expected
+            prediction file/directory is missing.
+    """
     warnings: list[str] = []
     truth: CalibrationTruthDocument | None = None
     if not item.truth_path.exists():
@@ -161,6 +221,18 @@ def load_calibration_document(*, item: CalibrationDocumentInput, strict: bool = 
 
 
 def read_backend_version(prediction_root: Path) -> str | None:
+    """Return the backend version recorded in a prediction root's manifest.
+
+    Reads ``manifest.json`` and returns the ``backend_version`` field, falling
+    back to ``version``.
+
+    Args:
+        prediction_root: Directory expected to contain ``manifest.json``.
+
+    Returns:
+        The version string, or None if the manifest is missing, unparsable, or
+        does not carry a version field.
+    """
     manifest_path = prediction_root / "manifest.json"
     if not manifest_path.exists():
         return None
@@ -173,6 +245,18 @@ def read_backend_version(prediction_root: Path) -> str | None:
 
 
 def write_prior_outputs(*, priors: list[CalibrationPriorDocument], report: dict[str, Any], out_dir: Path) -> None:
+    """Write calibration prior documents and the aggregate report to disk.
+
+    Creates ``priors/<backend>.json`` for each prior and
+    ``reports/calibration_report.json`` for the aggregate report. Directories
+    are created if they do not exist.
+
+    Args:
+        priors: One calibration prior document per backend.
+        report: Aggregate calibration report payload to serialise as JSON.
+        out_dir: Output root that will contain ``priors/`` and ``reports/``
+            subdirectories.
+    """
     priors_dir = Path(out_dir) / "priors"
     reports_dir = Path(out_dir) / "reports"
     priors_dir.mkdir(parents=True, exist_ok=True)

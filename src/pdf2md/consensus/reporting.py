@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from typing import Any, Iterable
+from collections.abc import Iterable
+from typing import Any
 
 from pdf2md.models.ir import ConsensusIR, SelectionMode
-
 
 INSPECTION_STATUSES: tuple[str, ...] = (
     "appears_better_than_backends",
