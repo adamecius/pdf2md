@@ -8,6 +8,30 @@ The goal is not simply to extract text. The goal is to reconstruct the document 
 
 ---
 
+## Documentation
+
+The operator manual lives under [`docs/`](docs/) and follows the
+[Diataxis](https://diataxis.fr/) structure:
+
+- [`docs/getting-started.md`](docs/getting-started.md) — install and
+  run your first conversion (5 minutes after backend setup).
+- [`docs/tutorials/`](docs/tutorials/) — guided walkthroughs:
+  [01 setup](docs/tutorials/01-setup-backends.md) ·
+  [02 first conversion](docs/tutorials/02-first-conversion.md) ·
+  [03 calibrate priors](docs/tutorials/03-calibrate-priors-on-corpus.md) ·
+  [04 batch + multi-backend](docs/tutorials/04-batch-processing.md).
+- [`docs/how-to/`](docs/how-to/) — task-oriented recipes (datasets,
+  factory priors, troubleshooting).
+- [`docs/reference/`](docs/reference/) — contracts and CLI surfaces
+  (calibration, datasets registry, export formats).
+- [`docs/explanation/`](docs/explanation/) — design rationale and
+  pipeline stages.
+
+`project.md` and `ROADMAP.md` remain canonical for the architecture
+and roadmap respectively.
+
+---
+
 ## 1. Project goal
 
 `pdf2md` processes different classes of complete PDF documents:
@@ -491,13 +515,11 @@ Concrete TODOs queued for future plans (not yet drafted):
 
 ```text
 - consensus-calibration-and-real-example workflow
-    Draft a plan that gives runnable operator instructions for:
-      (a) running consensus calibration against the compiled
-          groundtruth corpus to derive backend confidence priors
-          (tools/calibrate_priors.py against fixtures produced by
-          tools/compile_latex_groundth.py);
-      (b) using the pdf2md convert CLI (Plan 18) on real PDFs end
-          to end with the derived priors.
+    Resolved by the docs-as-manual reorganisation:
+    see docs/tutorials/03-calibrate-priors-on-corpus.md (calibration
+    against the LaTeX corpus) and docs/tutorials/02-first-conversion.md +
+    docs/tutorials/04-batch-processing.md (using the runner on real
+    PDFs with calibrated priors).
 
 - docling-strict-validation hardening (Plan 17 A8 follow-up)
     Strip pdf2md-only extras from docling pictures/tables, uppercase

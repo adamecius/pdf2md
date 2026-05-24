@@ -1,12 +1,17 @@
-# External ground-truth datasets
+# External datasets registry
 
-This document describes the opt-in workflow for downloading, positioning,
-and manifesting external LaTeX corpora used by `pdf2md` for backend
+Reference for the opt-in workflow that downloads, positions, and
+manifests external LaTeX corpora used by `pdf2md` for backend
 evaluation and consensus calibration.
 
-External datasets are **not vendored**: they must be downloaded by the
-user. They are kept strictly separate from the canonical synthetic
-fixtures under `groundtruth/corpus/latex/`.
+External datasets are **not vendored**: the operator downloads them.
+They are kept strictly separate from the canonical synthetic fixtures
+under `groundtruth/corpus/latex/`.
+
+For the *task-oriented* recipe ("how do I install a dataset"), see
+[`../how-to/install-external-datasets.md`](../how-to/install-external-datasets.md).
+This file is the durable reference for the registry schema, the
+installed-on-disk layout, and the CLI surface.
 
 ---
 
@@ -18,18 +23,18 @@ fixtures under `groundtruth/corpus/latex/`.
 | `groundtruth/external/` | Third-party LaTeX corpora downloaded with `pdf2md datasets install` | **Opt-in, not in version control** | Additional Plan 1 (this doc); future Plan 18 compilation |
 | `groundtruth/manifest/external_datasets.json` | Global index of installed external datasets | Generated; git-ignored | Operator/CLI introspection |
 
-The synthetic corpus tests specific LaTeX features in isolation. External
-datasets provide complementary coverage — many small isolated examples,
-or one realistic multi-file project — but they are **not automatically
-canonical approved fixtures**. They are candidates for compilation and
-ingestion in a follow-up plan.
+The synthetic corpus tests specific LaTeX features in isolation.
+External datasets provide complementary coverage — many small isolated
+examples, or one realistic multi-file project — but they are **not
+automatically canonical approved fixtures**. They are candidates for
+compilation and ingestion in a follow-up plan.
 
 ---
 
 ## Supported datasets
 
 The registry currently ships three entries (see
-`src/pdf2md/datasets/registry.py`):
+[`src/pdf2md/datasets/registry.py`](../../src/pdf2md/datasets/registry.py)):
 
 ### `tlc3-examples` (alias: `tlc3`)
 
@@ -176,9 +181,9 @@ The downloader is skipped entirely; only the manifest writers run.
 
 ---
 
-## What is explicitly out of scope here
+## What is explicitly out of scope
 
-- **Compilation.** This plan does **not** compile any of the
+- **Compilation.** This subsystem does **not** compile any of the
   downloaded LaTeX. `compile_status` stays `not_run` and the
   `--compile`, `--limit`, and `--engine` flags print a "Not implemented
   in Additional Plan 1" message and exit cleanly. Compilation lives in
@@ -219,4 +224,4 @@ src/pdf2md/datasets/
 
 The CLI is wired into the main app via
 `app.add_typer(datasets_app, name="datasets")` in
-`src/pdf2md/cli/main.py`.
+[`src/pdf2md/cli/main.py`](../../src/pdf2md/cli/main.py).
