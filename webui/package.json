@@ -11,8 +11,11 @@
     "node": ">=18"
   },
   "scripts": {
+    "stage-data": "node scripts/stage-data.mjs",
     "dev": "npm --workspace validator run dev",
-    "build": "npm --workspace shared run build && npm --workspace validator run build",
+    "build": "npm --workspace shared run build && npm run stage-data && npm --workspace validator run build",
+    "build:pages": "npm --workspace shared run build && npm run stage-data && VITE_BASE=/pdf2md/ npm --workspace validator run build && cp validator/dist/index.html validator/dist/404.html",
+    "preview": "npm --workspace validator run preview",
     "typecheck": "npm --workspace shared run typecheck && npm --workspace validator run typecheck"
   }
 }

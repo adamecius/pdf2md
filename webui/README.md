@@ -105,34 +105,98 @@ tag to the source list in
 
 ## Build for sharing
 
+The `build` script first runs `stage-data` (copies the repo artefacts
+the SPA reads at runtime into `validator/public/api/` and writes
+`_index.json` manifests for each directory), then runs Vite's static
+build.
+
 ```bash
 cd webui
-npm run build
-# validator/dist/ is the static bundle
+npm run build                      # validator/dist/ is the static bundle
+npm run preview                    # serve dist/ at http://localhost:4173/
 ```
 
-The bundle expects `/api/*` to be served alongside it. The simplest
-deploy is `npx serve validator/dist` next to a static snapshot of the
-ground-truth / paper-run JSONs.
+The resulting `dist/` is fully self-contained — `dist/api/` carries
+the JSON the SPA fetches at runtime, so the deploy needs **no backend**
+of any kind.
+
+What ships in the static bundle (see `webui/scripts/stage-data.mjs` for
+the source-of-truth filter list):
+
+| Path                                       | Source                                            |
+|--------------------------------------------|---------------------------------------------------|
+| `api/groundtruth/corpus/latex/<doc>/*.json`| ground-truth `.docling.json` + meta               |
+| `api/src/pdf2md/data/factory_priors/*.json`| factory priors (paddleocr / mineru / deepseek)    |
+| `api/**/_index.json`                       | per-directory manifests (replace dynamic listing) |
+
+What does **not** ship in the static bundle (intentionally):
+
+- `.tmp/papers_run/` — operator-local pipeline runs.
+- Compiled PDFs from `groundtruth/corpus/latex/<doc>/*.pdf` — not in git.
+  The PDF panel degrades gracefully ("PDF failed to load").
+- External corpora under `groundtruth/external/` — opt-in, not in git.
 
 ---
 
-## What the validator covers (Phase 1)
+## Deploy to GitHub Pages
 
-- **/compare/:docId** — four-panel view:
+A GitHub Actions workflow is wired up at
+[`.github/workflows/deploy-validator.yml`](../.github/workflows/deploy-validator.yml).
+
+It:
+
+1. Triggers on pushes to `main` that touch `webui/**`,
+   `groundtruth/corpus/latex/**`,
+   `src/pdf2md/data/factory_priors/**`, or the workflow file itself.
+2. Runs `npm run build:pages` (stages data + `vite build` with
+   `VITE_BASE=/<repo>/`).
+3. Uploads `webui/validator/dist/` as a Pages artifact.
+4. Deploys it to the `github-pages` environment.
+
+### One-time GitHub setup
+
+1. Go to **Settings → Pages** on the repo on GitHub.
+2. Under **Source**, select **GitHub Actions** (not "Deploy from a branch").
+3. Push the workflow file (this PR does that). The next push to `main`
+   that touches a watched path will publish to
+   `https://<owner>.github.io/<repo>/`.
+4. Trigger a first deploy manually via the **Actions** tab →
+   "Deploy validator to GitHub Pages" → **Run workflow**.
+
+### Local dry-run
+
+To verify the production bundle before pushing:
+
+```bash
+cd webui
+VITE_BASE=/pdf2md/ npm run build:pages
+npm run preview                    # http://localhost:4173/pdf2md/
+```
+
+The preview server respects the base path, so the URL matches what
+GitHub Pages will serve.
+
+---
+
+## What the validator covers
+
+Three routes live in the SPA today:
+
+- **`/compare/:docId`** — four-panel view:
   1. PDF (pdf.js) with bbox overlays per block
   2. Ground-truth Docling tree
   3. Consensus IR tree
   4. Per-backend tabs (paddleocr / deepseek / mineru)
-- Block hover → cross-panel highlight
-- Status badges flagging `prior_factory:` vs `prior_uninformative:`
-- Direct link to the underlying JSON for debugging
-
-Phase 2 (separate PR) adds:
-
-- **/diff/:docId** — three-way diff with PASS/FAIL stamps for
-  human-verification checkpoints H3 / H4 / H5.
-- **/priors** — calibration prior viewer.
+  Block hover propagates a cross-panel highlight.
+- **`/priors`** — calibration prior viewer. Reads the factory priors
+  shipped at `src/pdf2md/data/factory_priors/<backend>.json` and shows
+  per-BlockKind / EntityType / RelationType / calibration-key metrics
+  (precision, recall, F1, calibrated confidence, status).
+- **`/checkpoints`** — H1–H6 human-verification reference. Each
+  checkpoint lists what it asserts, the exact command to run it, the
+  source file the assertion lives in, and current status. The UI does
+  not execute commands — keeping the static-bundle (no-server) promise
+  intact.
 
 ---
 

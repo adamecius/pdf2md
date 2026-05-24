@@ -1,0 +1,72 @@
+name: Deploy validator to GitHub Pages
+
+# Builds webui/validator as a static SPA, stages the read-only repo
+# artefacts (groundtruth corpus + factory priors) into validator/public/api/,
+# and publishes the resulting dist/ to GitHub Pages.
+#
+# The validator is purely client-side — there is no server component. The
+# `stage-data` script copies the JSONs the SPA fetches at runtime and
+# generates `_index.json` manifests so the static host can answer
+# directory-listing requests.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "webui/**"
+      - "groundtruth/corpus/latex/**"
+      - "src/pdf2md/data/factory_priors/**"
+      - ".github/workflows/deploy-validator.yml"
+  workflow_dispatch:
+
+# A single concurrent deploy at a time — newer runs cancel older ones.
+concurrency:
+  group: pages-validator
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: webui/package-lock.json
+
+      - name: Install workspace deps
+        working-directory: webui
+        run: npm ci || npm install
+
+      - name: Build for GitHub Pages
+        working-directory: webui
+        env:
+          VITE_BASE: /${{ github.event.repository.name }}/
+        # `build:pages` stages the repo artefacts into validator/public/api/
+        # and runs `vite build` with the correct base path.
+        run: npm run build:pages
+
+      - name: Upload dist artefact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: webui/validator/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
