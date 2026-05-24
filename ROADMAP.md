@@ -8,6 +8,15 @@ The target system converts complete sequential PDF documents into Docling-compat
 
 The project is not a simple OCR wrapper. It is a multi-backend evidence system. Each backend contributes partial evidence. The system compares, weights, links, validates, and exports that evidence into a semantic document representation.
 
+Beyond the structural Docling output, the project's target scope
+includes a planned **semantic layer** (CrossReferenceGraph sidecar) and
+an **interactive visualization** as a user-facing deliverable.
+Together these form a three-layer architecture: extraction → structural
+(DoclingDocument) → semantic (CrossReferenceGraph). The semantic and
+visualization layers are tracked under Plans 004-008 and sit on top of
+the existing extraction+structural MVP path (Plans 8-16); see
+"Implementation Plans" below for the full sequence.
+
 The ground-truth corpus is central. LaTeX, LuaLaTeX/tagged-PDF artefacts, and LaTeXML XML are used to build source-known documents. These documents are used to measure backend success and failure, then calibrate feature-specific backend confidence.
 
 ---
@@ -124,9 +133,12 @@ Backend trust should be feature-specific, not global. A backend may be strong fo
 | 2 | Extraction and normalisation | 60% | 85% | Substantial progress, but not proven across all PDF classes |
 | 3 | Consensus and ensemble logic | 55% | 85% | Page mechanics ahead of calibration-weighted intelligence |
 | 4 | Semantic reconstruction and export | 55% | 85% | LinkedStructure and export scaffolding present, real-document validation pending |
+| 4b | Semantic cross-reference layer (planned) | 0% | post-MVP | CrossReferenceGraph sidecar; tracked under Plans 005-006 |
 | 5 | Evaluation, confidence, and iteration loop | 40% | 80% | Concept strong, operational loop still emerging |
+| 5b | Semantic ground truth and evaluation (planned) | 0% | post-MVP | LaTeXML-derived semantic GT; tracked under Plan 007 |
 | 6 | Functional application and CLI/API | 28% | 80% | Staged tools exist, single-command program not mature |
 | 7 | Production readiness | 8% | post-MVP | Barely started |
+| 7b | Visualization and web deliverable (planned) | 0% | post-MVP | Interactive cross-reference graph; tracked under Plan 008 |
 
 Overall practical estimate: 55%.
 
@@ -337,6 +349,41 @@ export reports explain warnings and confidence
 Markdown preview and RAG chunks preserve provenance and structure
 ```
 
+Planned extension — Phase 4b: Semantic cross-reference layer
+
+Current estimate: 0% (not started; tracked under Plans 005-006).
+
+Goal:
+
+Add a `CrossReferenceGraph` sidecar alongside the canonical
+DoclingDocument JSON. The sidecar captures cross-references (figure,
+table, equation, theorem, citation, footnote markers), resolved JSON
+pointers to target items, and semantic entities (theorem, definition,
+proof, corollary). This is additive to LinkedStructure, not a
+replacement.
+
+Scope:
+
+```text
+CrossReferenceGraph schema (RefMarker, RefEdge, SemanticEntity)
+three semantic backends: GROBID (TEI), DeepSeek-VL2 (VLM), regex/heuristic
+unified SemanticBackend interface mirroring the extraction-backend layout
+deterministic resolver: marker text → DoclingDocument JSON pointer
+ensemble + Bayesian semantic router driven by profiler signals
+  (reference_density, has_bibliography, footnote_density, …)
+sidecar persisted as cross_references.json
+```
+
+Exit criteria:
+
+```text
+DoclingDocument + cross_references.json produced from the same CLI run
+markers and edges include backend provenance and confidence
+resolver classifies edges as exact / fuzzy / grobid_tei / unresolved
+all three semantic backends share the same SemanticBackend interface
+no hardcoded paper-vs-book routing — every semantic backend is a candidate
+```
+
 ---
 
 ## Phase 5: Evaluation, Confidence, and Iteration Loop
@@ -379,6 +426,38 @@ each backend has feature-specific confidence values
 confidence values are generated from corpus evaluation
 consensus uses calibration priors
 reports show why one backend was trusted over another for a feature
+```
+
+Planned extension — Phase 5b: Semantic ground truth and evaluation
+
+Current estimate: 0% (not started; tracked under Plan 007).
+
+Goal:
+
+Extend the LaTeX-derived ground-truth corpus to cover the semantic
+layer, and add an evaluation harness that benchmarks the three
+semantic backends against ground-truth `CrossReferenceGraph` documents.
+
+Scope:
+
+```text
+LaTeXML pipeline: .tex → TEI XML → ground-truth CrossReferenceGraph
+controlled corpus exercising figure/table/equation/citation/footnote refs,
+  cross-chapter refs, and labelled theorems/definitions/proofs
+metrics: marker precision / recall / F1 (overall and per RefType)
+         resolution accuracy per RefType
+         entity precision / recall / F1
+benchmark runner producing per-document × per-backend tables
+worked example: PDF → extraction → semantic → evaluation, end-to-end
+```
+
+Exit criteria:
+
+```text
+LaTeXML produces resolved cross_references.json with confidence 1.0
+≥4 controlled documents covering diverse reference patterns
+evaluation harness produces machine-readable comparison tables
+backend differentiation is observable in the benchmark output
 ```
 
 ---
@@ -472,6 +551,36 @@ large documents are handled without fragile manual steps
 backend failures are recoverable and well reported
 ```
 
+Planned extension — Phase 7b: Visualization and web deliverable
+
+Current estimate: 0% (not started; tracked under Plan 008).
+
+Goal:
+
+Ship an interactive visualization of the CrossReferenceGraph as a
+**user-facing deliverable** (not just internal tooling), alongside the
+existing Docling structural visualization.
+
+Scope:
+
+```text
+D3 / Cytoscape interactive graph view of CrossReferenceGraph
+  nodes by element type, edges by RefType, cross-page edges distinct
+PDF.js + SVG page overlay with marker badges and target lines
+evaluation dashboard: backend × RefType F1 heatmap
+CLI: pdf2md export-graph, pdf2md serve --port N --data-dir out/
+side-by-side structural (Docling) and semantic (graph) views
+```
+
+Exit criteria:
+
+```text
+graph export produces valid D3-compatible JSON from a CrossReferenceGraph
+local web viewer renders cross-page graphs and page overlays
+unresolved references are visually flagged
+demo runs with example data from the Plan 007 corpus
+```
+
 ---
 
 ## Definition of MVP
@@ -516,6 +625,18 @@ The final MVP path is:
 Plan 8  -> Plan 9  -> Plan 10 -> Plan 11 -> Plan 12
         -> Plan 13 -> Plan 14 -> Plan 15 -> Plan 16
 ```
+
+The post-MVP semantic + visualization layer is delivered through
+Plans 004-008 (planned, not yet executed):
+
+```text
+Plan 004_0 -> Plan 005_0 -> Plan 006_0 -> Plan 007_0 -> Plan 008_0
+```
+
+Plans 004-008 assume the extraction + structural MVP (Plans 8-16) is
+stable. Plan 004_0 (this plan) aligns documentation; Plans 005-008
+install semantic backends, integrate the CrossReferenceGraph, build
+the LaTeXML ground-truth pipeline, and ship the visualization.
 
 ### Plan 8: Local Ground-Truth Corpus Validation plus Documentation Consistency
 
@@ -816,6 +937,142 @@ stable versioned reports
 contribution documentation
 user-facing troubleshooting
 backend environment recipes
+```
+
+---
+
+---
+
+## Plans 004-008: Semantic Layer and Visualization (Planned, Post-MVP)
+
+The semantic + visualization chain sits on top of the extraction +
+structural MVP. Plan 004_0 is documentation alignment; Plans 005-008
+deliver the implementation.
+
+### Plan 004_0: Project Documentation Alignment
+
+Roadmap phase:
+Phase 0 (documentation alignment for the expanded scope).
+
+Type:
+Documentation-only.
+
+Purpose:
+Bring `project.md`, `ROADMAP.md`, and `README.md` into alignment with
+the three-layer architecture (extraction + structural + semantic) and
+the visualization deliverable, before any semantic-layer code is written.
+
+Exit criteria:
+
+```text
+project.md describes the three-layer architecture, semantic backends, and
+  semantic routing without contradicting existing extraction-layer prose
+ROADMAP.md gains Phase 4b (semantic), Phase 5b (semantic eval), and
+  Phase 7b (visualization) as planned extensions
+README.md describes the expanded scope and the Plans 004-008 sequence
+terminology is consistent (extraction vs semantic backend; structural vs
+  semantic layer; DoclingDocument vs Docling JSON)
+all new planned work is explicitly marked as "planned"
+```
+
+### Plan 005_0: Semantic Backends — Installation and Smoke Tests
+
+Roadmap phase:
+Phase 4b.
+
+Type:
+Backend bring-up, parallel (independent backends).
+
+Purpose:
+Install GROBID (Docker), DeepSeek-VL2 (isolated conda env), and a
+regex/heuristic backend under `backend/semantic/<name>/`. Each must run
+independently with no pipeline coupling.
+
+Exit criteria:
+
+```text
+GROBID Docker container accepts a PDF and returns TEI XML with refs
+DeepSeek-VL2 loads in pdf2md-deepseek-vl2 and processes one page image
+regex backend detects ≥3 pattern types from sample text
+each backend has a README with install instructions and a standalone smoke test
+no imports from src/pdf2md/ — semantic backends are isolated at this stage
+```
+
+### Plan 006_0: Semantic Layer Integration and Label Extension
+
+Roadmap phase:
+Phase 4b.
+
+Type:
+Sequential core.
+
+Purpose:
+Integrate the three semantic backends into the `pdf2md` pipeline.
+Define the `CrossReferenceGraph` schema. Add semantic profiler signals
+and a Bayesian semantic router. Wire each backend into a unified
+`SemanticBackend` interface.
+
+Exit criteria:
+
+```text
+CrossReferenceGraph schema defined and JSON-serializable
+profiler computes semantic signals (reference_density, has_bibliography, …)
+each semantic backend wrapped in the SemanticBackend interface
+deterministic resolver matches markers to DoclingDocument JSON pointers
+  (exact + fuzzy + grobid_tei + unresolved)
+CLI produces cross_references.json alongside DoclingDocument
+ensemble mode runs multiple backends and merges results
+no hardcoded paper-vs-book routing — every backend is a candidate
+```
+
+### Plan 007_0: Ground Truth, Evaluation, and Worked Example
+
+Roadmap phase:
+Phase 5b.
+
+Type:
+Sequential after Plan 006.
+
+Purpose:
+Build the LaTeXML-based ground-truth pipeline, an evaluation harness
+that benchmarks semantic backends, and a worked example that runs the
+full pipeline (extraction → structural → semantic → evaluation).
+
+Exit criteria:
+
+```text
+≥4 controlled .tex documents covering diverse cross-reference patterns
+LaTeXML → TEI → CrossReferenceGraph parser produces valid GT with
+  confidence 1.0 and resolved targets
+metrics computed per RefType per backend (precision / recall / F1,
+  resolution accuracy, entity P/R/F1)
+benchmark runner produces machine-readable comparison tables
+worked example under examples/semantic_cross_references/ runs end-to-end
+```
+
+### Plan 008_0: Visualization and Web Integration
+
+Roadmap phase:
+Phase 7b.
+
+Type:
+Sequential after Plan 007.
+
+Purpose:
+Ship the interactive visualization as a user-facing deliverable. The
+visualization is the primary user-visible outcome of the semantic
+layer.
+
+Exit criteria:
+
+```text
+graph export produces valid D3 / Cytoscape JSON from a CrossReferenceGraph
+interactive graph viewer renders nodes, edges, and cross-page relationships
+PDF.js + SVG page overlay shows markers and target lines
+evaluation dashboard renders backend × RefType F1 heatmap
+CLI: pdf2md export-graph and pdf2md serve --port N --data-dir out/
+structural (Docling) and semantic (graph) views accessible together
+unresolved references are visually flagged
 ```
 
 ---

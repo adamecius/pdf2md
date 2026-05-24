@@ -47,10 +47,19 @@ Complete sequential PDF (any class: scanned, born-digital, mixed, LaTeX, tagged)
   -> validation, reports, RAG chunks, Markdown preview
 ```
 
-There is no PDF-type classifier or input-routing stage. Every document
-is rasterised and run through the same visual-OCR backend ensemble; the
-consensus stage is responsible for picking the most reliable feature
-extraction per block kind, not the input-classification stage.
+There is no PDF-type classifier or input-routing stage for the
+*extraction* layer. Every document is rasterised and run through the
+same visual-OCR backend ensemble; the consensus stage is responsible
+for picking the most reliable feature extraction per block kind, not
+an input-classification stage.
+
+A profiler/router *does* exist (planned, Plans 004-006) for the
+*semantic* layer: cheap deterministic signals computed from the
+DoclingDocument (reference density, has bibliography, footnote
+density, chapter depth) feed a Bayesian router that decides which
+semantic backend(s) to run. Extraction routing remains
+backend-ensemble + consensus; semantic routing is profiler-driven.
+See §10 for the planned three-layer architecture.
 
 The semantic stage is fed by several orthogonal sources:
 
@@ -84,6 +93,12 @@ The strongest ground-truth documents are built from:
 The LaTeX source is the primary semantic source of truth. The compiled PDF supplies the rendered document. Tagged PDF and LaTeXML XML provide additional structural evidence. The generated semantic and Docling contracts provide machine-checkable targets.
 
 From this corpus, the project derives expected blocks, labels, references, relations, captions, footnotes, equations, tables, and document structure.
+
+Planned (Plan 007): a parallel LaTeXML pipeline produces ground-truth
+`CrossReferenceGraph` sidecars directly from `.tex` sources. LaTeXML
+preserves every `\ref`, `\cite`, `\footnote`, and `\label` as resolved
+TEI XML anchors with confidence 1.0, so the same corpus that calibrates
+extraction also calibrates the semantic layer described in §10.
 
 The corpus is intentionally diverse: numbered and unnumbered equations, inline and display mathematics, multi-column layouts, tables of varying complexity, footnotes, bibliographies, multi-page constructs, repeated references, captions in different positions, and mixed text/image regions.
 
@@ -222,3 +237,126 @@ The final target is a semantic Docling output of a complete scientific or techni
 - the resulting Docling can round-trip to a faithful Markdown or structured representation suitable for ingestion by downstream knowledge systems.
 
 The system is judged not on any individual backend's output, but on the robustness of the post-consensus, ground-truth-calibrated reconstruction.
+
+---
+
+## 10. Planned: semantic cross-reference layer and visualization
+
+Status: planned (Plans 004-008). Not yet implemented. The sections
+above describe what exists today; this section describes the
+forward-looking three-layer scope that the documentation, plans, and
+roadmap are now aligned around.
+
+### 10.1 Three-layer architecture
+
+The project's target scope is three layers:
+
+```text
+Layer 1 — Extraction   (existing, mostly implemented)
+                         visual-OCR ensemble → PageExtractionIR → ConsensusIR
+
+Layer 2 — Structural   (existing, canonical export)
+                         LinkedStructure → DoclingDocument JSON
+
+Layer 3 — Semantic     (planned, additive sidecar)
+                         CrossReferenceGraph alongside DoclingDocument
+                                 ↓
+                         Visualization (planned, user-facing)
+```
+
+The semantic layer does **not** replace the structural layer. It is a
+sidecar JSON (`cross_references.json`) that lives next to the canonical
+DoclingDocument JSON and adds cross-reference, citation, footnote, and
+semantic-entity (theorem/definition/proof) information that the
+structural layer does not encode.
+
+### 10.2 Semantic backends (planned)
+
+The semantic layer uses the same backend-ensemble principle as
+extraction: every semantic backend is evidence, none is truth. Three
+backends are planned:
+
+```text
+GROBID            — Docker service; TEI XML; strong on scholarly references
+DeepSeek-VL2      — local VLM (isolated conda env); structured JSON from page images
+regex / heuristic — stdlib; deterministic pattern matching for known marker styles
+```
+
+These are isolated under `backend/semantic/<name>/` mirroring the
+extraction-backend layout. Each exposes a uniform
+`SemanticBackend.extract(doc, pdf_path, output_dir) -> CrossReferenceGraph`
+interface.
+
+### 10.3 Semantic routing (planned)
+
+Routing for semantic backends uses a profiler over the DoclingDocument:
+
+```text
+has_bibliography           bool
+bibliography_style         "numbered" | "author-year" | "footnote"
+reference_density          markers per page (regex-detected)
+has_toc                    bool
+chapter_count              int
+footnote_density           per page
+```
+
+The router uses these signals plus historical per-backend benchmark
+scores to choose an ordered list of semantic strategies (initially
+always run all backends and ensemble; over time, Bayesian selection).
+No hardcoded "article vs book" routing — same evidence-weighted
+principle as the extraction stage.
+
+### 10.4 CrossReferenceGraph (planned schema)
+
+A sidecar emitted alongside DoclingDocument:
+
+```text
+CrossReferenceGraph
+  doc_hash              links the sidecar to a specific DoclingDocument
+  markers               list[RefMarker]      surface text + char span + RefType + backend
+  edges                 list[RefEdge]        marker → target JSON pointer + resolution method
+  entities              list[SemanticEntity] item_ref + entity_type (theorem/definition/proof/…)
+  backend_versions      dict[str, str]
+```
+
+The existing LinkedStructure relations (`caption belongs to figure`,
+`footnote marker links to footnote body`, `reference mention links to
+bibliography item` — §8 above) remain structural. The semantic layer
+formalises them as resolved JSON-pointer edges and adds non-structural
+relations (theorem labels, equation refs, cross-chapter `\ref`,
+bibliography back-references) that LinkedStructure does not encode.
+
+### 10.5 Visualization (planned, user-facing deliverable)
+
+Plan 008 adds an interactive visualization as a **user deliverable**,
+not just an internal inspection tool:
+
+```text
+Cross-reference graph      D3 / Cytoscape — nodes by element type,
+                           edges by RefType, cross-page edges
+                           visually distinct
+Page overlay               PDF.js + SVG — bounding boxes, marker
+                           badges, lines to targets
+Evaluation dashboard       backend × RefType F1 heatmap from the
+                           LaTeXML-derived ground-truth benchmark
+```
+
+Two views are accessible together: the existing Docling structural
+view (bounding boxes, reading order) and the new semantic view
+(cross-reference graph). The same web interface hosts both.
+
+### 10.6 Semantic evaluation (planned)
+
+Semantic backends are benchmarked against the LaTeXML-derived
+CrossReferenceGraph ground truth from §4. Metrics include marker
+precision/recall/F1 (overall and per RefType), resolution accuracy
+per RefType, and entity precision/recall. The benchmark output feeds
+back into the semantic router as historical performance data.
+
+### 10.7 Sequencing
+
+The semantic + visualization layers sit on top of the existing
+extraction + structural MVP. Plans 8-16 deliver the extraction +
+structural MVP (still the primary path; see ROADMAP.md). Plans 004-008
+extend the system with the semantic + visualization layers and assume
+the extraction + structural layers are stable.
