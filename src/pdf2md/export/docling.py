@@ -38,7 +38,7 @@ def _resolve_docling_schema_version() -> str:
                 field = doc_cls.model_fields.get("version")
                 if field is not None and field.default is not None:
                     return str(field.default)
-    except Exception:  # noqa: BLE001 - any failure -> safe fallback
+    except Exception:
         pass
     return "1.10.0"
 
@@ -280,7 +280,7 @@ def build_docling_document(
             # docling-core groups do not require (and reject) the legacy
             # pdf2md group labels like "section"/"list"/"references".
             # Drop the label key entirely when the mapping says None.
-            group_label = _GROUP_LABELS.get(ntype, None)
+            group_label = _GROUP_LABELS.get(ntype)
             item.update({"name": _text(node), "children": []})
             if group_label is not None:
                 item["label"] = group_label
@@ -315,10 +315,10 @@ def build_docling_document(
         tgt = node_ref.get(relation.target_node_id)
         payload = relation.model_dump(mode="json")
         if rtype in {LinkedRelationType.CONTAINS, LinkedRelationType.PARENT_OF} and src and tgt:
-            parent, child = (src, tgt) if rtype == LinkedRelationType.CONTAINS else (src, tgt)
-            item = by_ref.get(parent)
-            if item is not None and "children" in item and child not in item["children"]:
-                item["children"].append(child)
+            parent, child = src, tgt
+            parent_item = by_ref.get(parent)
+            if parent_item is not None and "children" in parent_item and child not in parent_item["children"]:
+                parent_item["children"].append(child)
                 parent_by_child[child] = parent
         elif rtype == LinkedRelationType.CAPTION_OF and src and tgt:
             target = by_ref.get(tgt)
@@ -337,15 +337,15 @@ def build_docling_document(
                 metadata.setdefault("links", []).append(payload)
                 metadata.setdefault("footnote_anchors", []).append(src)
         elif src:
-            item = by_ref.get(src)
-            if item is not None:
-                item.setdefault("metadata", {}).setdefault("links", []).append(payload)
+            src_item = by_ref.get(src)
+            if src_item is not None:
+                src_item.setdefault("metadata", {}).setdefault("links", []).append(payload)
 
     for node in emitted_nodes:
-        ref = node_ref.get(node.id)
-        if not ref or ref == "#/body" or ref in parent_by_child:
+        node_ref_value = node_ref.get(node.id)
+        if not node_ref_value or node_ref_value == "#/body" or node_ref_value in parent_by_child:
             continue
-        document["body"]["children"].append(ref)
+        document["body"]["children"].append(node_ref_value)
 
     warnings.extend(validate_docling_like_document(document))
     document["metadata"]["warnings"] = warnings
@@ -422,7 +422,7 @@ def try_validate_with_docling_core(document: dict[str, Any]) -> tuple[bool, str 
     if util.find_spec("docling_core") is None:
         return False, "docling_core_unavailable"
     module = import_module("docling_core.types.doc.document")
-    docling_document = getattr(module, "DoclingDocument")
+    docling_document = module.DoclingDocument
     try:
         docling_document.model_validate(document)
     except Exception as exc:

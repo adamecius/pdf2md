@@ -207,7 +207,7 @@ def run_configured_backends(
         command_payload = {
             "backend": backend_name,
             "command": command,
-            "env": {k: "***" for k in backend_cfg.get("env", {}).keys()},
+            "env": {k: "***" for k in backend_cfg.get("env", {})},
         }
         (backend_dir / "command.json").write_text(json.dumps(command_payload, indent=2), encoding="utf-8")
 

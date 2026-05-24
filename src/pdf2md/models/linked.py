@@ -11,7 +11,7 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator, model_valida
 from pdf2md.models.entities import ENTITY_ID_PATTERN
 from pdf2md.models.ir import CONFLICT_ID_PATTERN, CONSENSUS_ID_PATTERN
 
-LINKED_SCHEMA_VERSION = "1.0.0"
+LINKED_SCHEMA_VERSION: Literal["1.0.0"] = "1.0.0"
 LINKED_NODE_ID_PATTERN = re.compile(r"^node:[A-Za-z0-9_.-]+:\d+$")
 LINKED_RELATION_ID_PATTERN = re.compile(r"^lrel:[A-Za-z0-9_.-]+:\d+$")
 LINKED_CONFLICT_ID_PATTERN = re.compile(r"^lconf:[A-Za-z0-9_.-]+:\d+$")
@@ -89,6 +89,8 @@ class LinkEvidenceKind(str, Enum):
 
 
 class _LinkedBaseModel(BaseModel):
+    """Private Pydantic base for LinkedStructure models."""
+
     model_config = ConfigDict(extra="forbid", frozen=False, populate_by_name=True, use_enum_values=True)
 
 
@@ -207,7 +209,7 @@ class LinkedRelation(_LinkedBaseModel):
         return value
 
     @model_validator(mode="after")
-    def _validate_distinct_endpoints(self) -> "LinkedRelation":
+    def _validate_distinct_endpoints(self) -> LinkedRelation:
         if self.source_node_id == self.target_node_id:
             raise ValueError("relation endpoints must differ")
         return self
@@ -304,7 +306,7 @@ class LinkedStructure(_LinkedBaseModel):
     metadata: dict[str, Any] = Field(default_factory=dict)
 
     @model_validator(mode="after")
-    def _validate_graph(self) -> "LinkedStructure":
+    def _validate_graph(self) -> LinkedStructure:
         node_ids = [node.id for node in self.nodes]
         if len(node_ids) != len(set(node_ids)):
             raise ValueError("node ids must be unique")
@@ -346,20 +348,20 @@ def linked_conflict_id(document_id: str, index: int) -> str:
 
 
 __all__ = [
-    "LINKED_SCHEMA_VERSION",
+    "LINKED_CONFLICT_ID_PATTERN",
     "LINKED_NODE_ID_PATTERN",
     "LINKED_RELATION_ID_PATTERN",
-    "LINKED_CONFLICT_ID_PATTERN",
-    "LinkedNodeType",
-    "LinkedRelationType",
-    "LinkStatus",
-    "LinkEvidenceKind",
+    "LINKED_SCHEMA_VERSION",
     "LinkEvidence",
-    "LinkedNode",
-    "LinkedRelation",
+    "LinkEvidenceKind",
+    "LinkStatus",
     "LinkedConflict",
+    "LinkedNode",
+    "LinkedNodeType",
+    "LinkedRelation",
+    "LinkedRelationType",
     "LinkedStructure",
+    "linked_conflict_id",
     "linked_node_id",
     "linked_relation_id",
-    "linked_conflict_id",
 ]

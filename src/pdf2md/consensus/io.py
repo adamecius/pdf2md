@@ -99,7 +99,7 @@ def _resolve_prior_with_fallback(
             try:
                 priors_by_backend[backend] = CalibrationPriorDocument.model_validate(_load_json(prior_path))
                 return
-            except Exception as exc:  # noqa: BLE001
+            except Exception as exc:
                 _warn_or_raise(strict, warnings, f"invalid_prior:{backend}", exc)
                 # fall through to factory / uninformative
     factory = load_factory_prior(backend)
@@ -162,7 +162,7 @@ def load_consensus_inputs(
         for page_path in sorted(pages_dir.glob("*.json")):
             try:
                 pages.append(PageExtractionIR.model_validate(_load_json(page_path)))
-            except Exception as exc:  # noqa: BLE001 - strict mode re-raises exact input failure
+            except Exception as exc:
                 _warn_or_raise(strict, warnings, f"invalid_page:{backend}:{page_path.name}", exc)
         if pages:
             pages_by_backend[backend] = pages
@@ -172,7 +172,7 @@ def load_consensus_inputs(
         if entities_path.exists():
             try:
                 entities_by_backend[backend] = EntityProposalDocument.model_validate(_load_json(entities_path))
-            except Exception as exc:  # noqa: BLE001
+            except Exception as exc:
                 _warn_or_raise(strict, warnings, f"invalid_entities:{backend}", exc)
         else:
             warnings.append(f"entities_missing:{backend}")

@@ -42,7 +42,7 @@ def new_semantic_document(
         "source_consensus_report": source_consensus_report,
         "source_semantic_links": source_semantic_links,
         "source_media_manifest": source_media_manifest,
-        "created_at": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "created_at": dt.datetime.now(dt.UTC).isoformat(),
         "pages": [],
         "blocks": [],
         "relations": [],

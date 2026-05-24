@@ -147,6 +147,7 @@ def build_rag_chunks(*, linked: LinkedStructure, settings: RagExportSettings = R
     buffer_texts: list[str] = []
 
     def flush_buffer() -> None:
+        """Emit chunks for the currently buffered nodes and reset the buffer."""
         nonlocal index, buffer_nodes, buffer_texts
         if not buffer_nodes:
             return

@@ -12,18 +12,19 @@ from __future__ import annotations
 
 import json
 import re
-from datetime import datetime, timezone
+from collections.abc import Callable, Mapping
+from datetime import UTC, datetime
 from enum import Enum
 from pathlib import Path
-from typing import Any, Callable, Literal, Mapping
+from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
 
 from pdf2md.connectors.common import BackendConnectorConfig, ConnectorResult, connect_raw_dir
 from pdf2md.models.ir import BlockKind, PageExtractionIR
 
-CONNECTOR_VALIDATION_SCHEMA_VERSION = "1.0.0"
-TOOL_NAME = "validate_connectors_page_ir"
+CONNECTOR_VALIDATION_SCHEMA_VERSION: Literal["1.0.0"] = "1.0.0"
+TOOL_NAME: Literal["validate_connectors_page_ir"] = "validate_connectors_page_ir"
 DEFAULT_PREFERRED_GATE_MINIMUM = 2
 DEFAULT_DOCUMENT_ID = "plan10_doc"
 PLAN9_SUCCESS_STATUS = "success"
@@ -64,6 +65,8 @@ _NEXT_ACTIONS: dict[ConnectorValidationStatus, str] = {
 
 
 class _ConnectorBaseModel(BaseModel):
+    """Private Pydantic base for connector-validation models."""
+
     model_config = ConfigDict(extra="forbid", use_enum_values=True)
 
 
@@ -156,7 +159,7 @@ def _count_status(results: list[Any], status: ConnectorValidationStatus) -> int:
 
 
 def _utc_now() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def _is_noise_text(text: str) -> bool:
@@ -176,9 +179,7 @@ def _is_noise_text(text: str) -> bool:
     # Pure pythonic traceback or stack-frame markers
     if stripped.startswith("Traceback (most recent call last)"):
         return True
-    if re.match(r'^\s*File "[^"]+", line \d+', stripped):
-        return True
-    return False
+    return bool(re.match(r'^\s*File "[^"]+", line \d+', stripped))
 
 
 def _semantic_quality_passed(pages: list[PageExtractionIR]) -> tuple[bool, list[str]]:
@@ -253,7 +254,7 @@ def _revalidate_pages(pages_dump: list[Mapping[str, Any]]) -> tuple[bool, str | 
             PageExtractionIR.model_validate(page_dump)
         except ValidationError as exc:
             return False, f"page {index}: {exc}"
-        except Exception as exc:  # noqa: BLE001 - any failure here is a schema failure
+        except Exception as exc:
             return False, f"page {index}: {exc}"
     return True, None
 
@@ -376,7 +377,7 @@ def validate_one_backend(
             document_id=document_id,
             config=config,
         )
-    except Exception as exc:  # noqa: BLE001 - any connector exception is a crash
+    except Exception as exc:
         return _result(
             backend_name=backend_name,
             status=ConnectorValidationStatus.CONNECTOR_CRASH,
@@ -393,7 +394,7 @@ def validate_one_backend(
     # connectors that return PageExtractionIR-like data which fails schema validation.
     try:
         pages_dump = [p.model_dump() for p in pages]
-    except Exception as exc:  # noqa: BLE001 - schema dump failure is schema_failed
+    except Exception as exc:
         return _result(
             backend_name=backend_name,
             status=ConnectorValidationStatus.SCHEMA_FAILED,
@@ -600,7 +601,7 @@ def build_connector_validation_report(
         results.append(result)
 
     preferred_passed, minimum_passed = _gates(results, preferred_gate_minimum)
-    gate_mode = "preferred"
+    gate_mode: Literal["preferred", "reduced"] = "preferred"
     human_reduced_gate_required = False
     if not preferred_passed and minimum_passed and allow_reduced_gate:
         gate_mode = "reduced"
@@ -736,15 +737,15 @@ def write_connector_validation_report(
 
 __all__ = [
     "CONNECTOR_VALIDATION_SCHEMA_VERSION",
-    "TOOL_NAME",
-    "DEFAULT_PREFERRED_GATE_MINIMUM",
     "DEFAULT_DOCUMENT_ID",
+    "DEFAULT_PREFERRED_GATE_MINIMUM",
     "PLAN9_SUCCESS_STATUS",
-    "ConnectorValidationStatus",
-    "ConnectorValidationResult",
+    "TOOL_NAME",
     "ConnectorValidationReport",
-    "validate_one_backend",
+    "ConnectorValidationResult",
+    "ConnectorValidationStatus",
     "build_connector_validation_report",
     "build_connector_validation_summary",
+    "validate_one_backend",
     "write_connector_validation_report",
 ]

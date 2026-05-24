@@ -18,11 +18,11 @@ import importlib
 import json
 import logging
 import shutil
-import traceback
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any, cast
 
 from pdf2md.backends.runner import run_configured_backends
 from pdf2md.config import get_enabled_backends
@@ -174,11 +174,11 @@ def _resolve_connector_callable(backend: str) -> Callable[..., Any] | None:
 
     try:
         module = importlib.import_module(f"backend.{backend}.connector")
-    except Exception:  # noqa: BLE001 — connector is optional
+    except Exception:
         return None
     connect = getattr(module, "connect", None)
     if callable(connect):
-        return connect
+        return cast("Callable[..., Any]", connect)
     return None
 
 
@@ -192,7 +192,7 @@ def _backends_with_raw_success(layout: RunLayout, requested: list[str]) -> list[
             continue
         try:
             data = json.loads(status_path.read_text(encoding="utf-8"))
-        except Exception:  # noqa: BLE001
+        except Exception:
             continue
         if data.get("success") is True:
             succeeded.append(name)
@@ -252,7 +252,7 @@ def _run_stage_backends(
             timeout_override=settings.timeout,
             keep_going=settings.keep_going,
         )
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         stage.status = "failed"
         stage.error = f"{type(exc).__name__}: {exc}"
         stage.warnings.append("backend_runner_exception")
@@ -323,7 +323,7 @@ def _run_stage_connector(
                 f"{backend}:{w}" for w in getattr(result, "warnings", []) or []
             )
             connected.append(backend)
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:
             errors.append(f"{backend}: {type(exc).__name__}: {exc}")
             logger.exception("connector failed for %s", backend)
 
@@ -435,7 +435,7 @@ def _run_stage_consensus(
         )
         stage.warnings.extend(result.warnings)
         write_consensus_outputs(result=result, out_dir=layout.consensus_dir)
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         stage.status = "failed"
         stage.error = f"{type(exc).__name__}: {exc}"
         logger.exception("consensus failed")
@@ -485,7 +485,7 @@ def _run_stage_linking(
         )
         stage.warnings.extend(result.warnings)
         write_linker_outputs(result=result, out_dir=layout.linked_dir)
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         stage.status = "failed"
         stage.error = f"{type(exc).__name__}: {exc}"
         logger.exception("linking failed")
@@ -534,7 +534,7 @@ def _run_stage_export(
         )
         stage.warnings.extend(result.warnings)
         write_export_outputs(result=result, out_dir=layout.export_dir)
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         stage.status = "failed"
         stage.error = f"{type(exc).__name__}: {exc}"
         logger.exception("export failed")
@@ -652,7 +652,7 @@ def run_pipeline(
     if input_pdf.exists() and input_pdf.is_file():
         try:
             shutil.copy2(input_pdf, layout.input_dir / input_pdf.name)
-        except Exception as exc:  # noqa: BLE001 — copy is best-effort
+        except Exception as exc:
             logger.warning("failed to copy input PDF: %s", exc)
 
     warnings: list[str] = []
@@ -808,11 +808,11 @@ def run_pipeline(
 
 
 __all__ = [
-    "PipelineSettings",
-    "StageStatus",
-    "PipelineResult",
-    "run_pipeline",
+    "ALL_STAGE_NAMES",
     "PIPELINE_MANIFEST_SCHEMA_NAME",
     "PIPELINE_MANIFEST_SCHEMA_VERSION",
-    "ALL_STAGE_NAMES",
+    "PipelineResult",
+    "PipelineSettings",
+    "StageStatus",
+    "run_pipeline",
 ]

@@ -14,15 +14,15 @@ from __future__ import annotations
 
 import json
 import tomllib
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from enum import Enum
 from pathlib import Path
 from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
-LOCAL_GROUNDTRUTH_SCHEMA_VERSION = "1.0.0"
-TOOL_NAME = "local_groundtruth_validate"
+LOCAL_GROUNDTRUTH_SCHEMA_VERSION: Literal["1.0.0"] = "1.0.0"
+TOOL_NAME: Literal["local_groundtruth_validate"] = "local_groundtruth_validate"
 DEFAULT_CORPUS_ROOT = Path("groundtruth/corpus/latex")
 
 REQUIRED_ARTEFACTS: tuple[str, ...] = ("tex", "meta_toml", "docling_json")
@@ -50,6 +50,8 @@ class DocumentStatus(str, Enum):
 
 
 class _GroundtruthBaseModel(BaseModel):
+    """Private Pydantic base for ground-truth validation models."""
+
     model_config = ConfigDict(extra="forbid")
 
 
@@ -175,10 +177,7 @@ class GroundtruthValidationReport(_GroundtruthBaseModel):
 
 
 def _document_status_value(document: Any) -> str:
-    if isinstance(document, dict):
-        status = document.get("status")
-    else:
-        status = getattr(document, "status", None)
+    status = document.get("status") if isinstance(document, dict) else getattr(document, "status", None)
     if isinstance(status, DocumentStatus):
         return status.value
     return str(status)
@@ -336,7 +335,7 @@ def build_validation_report(
     current UTC time is used.
     """
 
-    timestamp = generated_at or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    timestamp = generated_at or datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
     corpus_root_str = str(corpus_root)
     warnings: list[str] = []
     metadata: dict[str, Any] = {
@@ -435,23 +434,23 @@ def write_validation_report(*, report: GroundtruthValidationReport, out_dir: Pat
 def report_to_json_dict(report: GroundtruthValidationReport) -> dict[str, Any]:
     """Return a JSON-compatible report dictionary."""
 
-    return json.loads(report.model_dump_json())
+    return dict(json.loads(report.model_dump_json()))
 
 
 __all__ = [
-    "LOCAL_GROUNDTRUTH_SCHEMA_VERSION",
-    "TOOL_NAME",
     "DEFAULT_CORPUS_ROOT",
-    "REQUIRED_ARTEFACTS",
+    "LOCAL_GROUNDTRUTH_SCHEMA_VERSION",
     "OPTIONAL_ARTEFACTS",
-    "DocumentStatus",
+    "REQUIRED_ARTEFACTS",
+    "TOOL_NAME",
     "ArtefactPresence",
+    "DocumentStatus",
     "DocumentValidationEntry",
     "GroundtruthValidationReport",
-    "discover_corpus_documents",
-    "inspect_document",
     "build_validation_report",
     "build_validation_summary",
-    "write_validation_report",
+    "discover_corpus_documents",
+    "inspect_document",
     "report_to_json_dict",
+    "write_validation_report",
 ]

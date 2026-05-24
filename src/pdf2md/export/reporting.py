@@ -3,12 +3,18 @@
 from __future__ import annotations
 
 import hashlib
+from collections.abc import Iterable
 from pathlib import Path
 from statistics import mean
-from typing import Any, Iterable
+from typing import Any
 
-from pdf2md.models.export import ExportArtefact, ExportArtefactType, ExportManifestDocument, ExportStatus, RagChunkDocument
-
+from pdf2md.models.export import (
+    ExportArtefact,
+    ExportArtefactType,
+    ExportManifestDocument,
+    ExportStatus,
+    RagChunkDocument,
+)
 
 INSPECTION_STATUSES: tuple[str, ...] = (
     "exported",
@@ -188,8 +194,8 @@ def artefact(path: str, artefact_type: ExportArtefactType, warnings: list[str] |
 
 __all__ = [
     "INSPECTION_STATUSES",
-    "sha256_file",
+    "artefact",
     "build_export_report",
     "build_manifest",
-    "artefact",
+    "sha256_file",
 ]

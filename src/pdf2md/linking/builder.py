@@ -11,14 +11,14 @@ from pdf2md.linking.resolvers import run_all_resolvers
 from pdf2md.models.entities import EntityProposalDocument
 from pdf2md.models.ir import ConsensusIR
 from pdf2md.models.linked import (
-    LinkEvidence,
-    LinkEvidenceKind,
     LinkedConflict,
     LinkedNode,
     LinkedNodeType,
     LinkedRelation,
     LinkedRelationType,
     LinkedStructure,
+    LinkEvidence,
+    LinkEvidenceKind,
     LinkStatus,
     linked_conflict_id,
     linked_node_id,

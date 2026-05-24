@@ -206,8 +206,8 @@ def _text_score(candidate: BlockCandidate, group: CandidateGroup) -> float:
 
 
 def _bbox_score(candidate: BlockCandidate, group: CandidateGroup) -> float:
-    values = [bbox_iou(candidate.block.bbox, other.block.bbox) for other in group.candidates if other.block.id != candidate.block.id]
-    values = [value for value in values if value is not None]
+    raw_values = [bbox_iou(candidate.block.bbox, other.block.bbox) for other in group.candidates if other.block.id != candidate.block.id]
+    values: list[float] = [value for value in raw_values if value is not None]
     if not values:
         return 0.5
     return sum(values) / len(values)

@@ -12,13 +12,14 @@ no network calls.
 
 from __future__ import annotations
 
+import contextlib
 import os
 import shutil
 import subprocess
 import tempfile
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Callable
 
 from pdf2md.datasets.registry import DatasetEntry, DatasetStatus, get_dataset
 
@@ -80,7 +81,7 @@ def _apply_keep_filter(clone_dir: Path, dataset: DatasetEntry) -> None:
         keep_resolved.add((clone_dir / ".git").resolve())
 
         for entry in sorted(clone_dir.iterdir()):
-            if entry.resolved() if hasattr(entry, "resolved") else entry.resolve() not in keep_resolved:  # noqa: SIM103
+            if entry.resolved() if hasattr(entry, "resolved") else entry.resolve() not in keep_resolved:
                 _remove(entry)
 
     for path in dataset.exclude_paths:
@@ -93,10 +94,8 @@ def _remove(path: Path) -> None:
     if path.is_dir() and not path.is_symlink():
         shutil.rmtree(path)
     else:
-        try:
+        with contextlib.suppress(FileNotFoundError):
             path.unlink()
-        except FileNotFoundError:
-            pass
 
 
 def _resolve_commit(clone_dir: Path, git_runner: GitRunner) -> str | None:

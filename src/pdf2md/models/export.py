@@ -8,7 +8,7 @@ from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
-EXPORT_SCHEMA_VERSION = "1.0.0"
+EXPORT_SCHEMA_VERSION: Literal["1.0.0"] = "1.0.0"
 SHA256_PATTERN = re.compile(r"^[0-9a-f]{64}$")
 RAG_CHUNK_ID_PATTERN = re.compile(r"^chunk:[A-Za-z0-9_.-]+:\d+$")
 
@@ -49,6 +49,8 @@ class RagChunkType(str, Enum):
 
 
 class _ExportBaseModel(BaseModel):
+    """Private Pydantic base for export-layer models."""
+
     model_config = ConfigDict(extra="forbid", frozen=False, populate_by_name=True, use_enum_values=True)
 
 
@@ -109,7 +111,7 @@ class ExportManifestDocument(_ExportBaseModel):
     metadata: dict[str, Any] = Field(default_factory=dict)
 
     @model_validator(mode="after")
-    def _validate_unique_paths(self) -> "ExportManifestDocument":
+    def _validate_unique_paths(self) -> ExportManifestDocument:
         paths = [artefact.path for artefact in self.artefacts]
         if len(paths) != len(set(paths)):
             raise ValueError("artefact paths must be unique")
@@ -155,7 +157,7 @@ class RagChunk(_ExportBaseModel):
         return value
 
     @model_validator(mode="after")
-    def _validate_page_range(self) -> "RagChunk":
+    def _validate_page_range(self) -> RagChunk:
         if self.page_start is not None and self.page_end is not None and self.page_end < self.page_start:
             raise ValueError("page_end must be greater than or equal to page_start")
         return self
@@ -181,7 +183,7 @@ class RagChunkDocument(_ExportBaseModel):
     metadata: dict[str, Any] = Field(default_factory=dict)
 
     @model_validator(mode="after")
-    def _validate_unique_chunk_ids(self) -> "RagChunkDocument":
+    def _validate_unique_chunk_ids(self) -> RagChunkDocument:
         ids = [chunk.id for chunk in self.chunks]
         if len(ids) != len(set(ids)):
             raise ValueError("chunk ids must be unique")
@@ -196,14 +198,14 @@ def rag_chunk_id(document_id: str, index: int) -> str:
 
 __all__ = [
     "EXPORT_SCHEMA_VERSION",
-    "SHA256_PATTERN",
     "RAG_CHUNK_ID_PATTERN",
-    "ExportArtefactType",
-    "ExportStatus",
-    "RagChunkType",
+    "SHA256_PATTERN",
     "ExportArtefact",
+    "ExportArtefactType",
     "ExportManifestDocument",
+    "ExportStatus",
     "RagChunk",
     "RagChunkDocument",
+    "RagChunkType",
     "rag_chunk_id",
 ]

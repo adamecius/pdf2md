@@ -7,9 +7,8 @@ conda environment.
 
 from __future__ import annotations
 
-from pathlib import Path
 import tomllib
-
+from pathlib import Path
 
 REQUIRED_BACKEND_KEYS = {"enabled", "runner", "env_name", "script"}
 

@@ -6,6 +6,7 @@ against a known-good source.
 """
 
 from __future__ import annotations
+
 import json
 from pathlib import Path
 from typing import Any
@@ -107,6 +108,18 @@ def _contracts(doc_id: str) -> tuple[dict[str, Any], dict[str, Any]]:
 
 
 def generate_batch_002(output_root: Path) -> None:
+    """Materialise the batch_002 LaTeX fixtures under ``output_root``.
+
+    For each fixture in ``BATCH_002_FIXTURES``, writes the ``.tex`` source
+    and three groundtruth JSON files (``source_groundtruth_ir.json``,
+    ``expected_semantic_contract.json``,
+    ``expected_detectable_contract.json``) into
+    ``<output_root>/batch_002/<doc_id>/``.
+
+    Args:
+        output_root: Destination root directory; created if missing.
+    """
+
     root = Path(output_root) / 'batch_002'
     for doc_id, tex in BATCH_002_FIXTURES.items():
         d = root / doc_id

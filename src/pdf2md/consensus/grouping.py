@@ -215,11 +215,11 @@ def group_page_candidates(
         for index, group in enumerate(groups):
             if _same_backend_conflict(candidate, group):
                 continue
-            reasons = [
+            raw_reasons = [
                 _match_reason(candidate, other, text_threshold, bbox_threshold)
                 for other in group.candidates
             ]
-            reasons = [reason for reason in reasons if reason]
+            reasons: list[str] = [r for r in raw_reasons if r is not None]
             if reasons:
                 matched_index = index
                 matched_reason = reasons[0]
@@ -239,7 +239,7 @@ def group_page_candidates(
             groups[matched_index] = CandidateGroup(
                 id=group.id,
                 page_no=group.page_no,
-                candidates=tuple(sorted(group.candidates + (candidate,), key=lambda c: (c.block.order, c.backend, c.block.id))),
+                candidates=tuple(sorted((*group.candidates, candidate), key=lambda c: (c.block.order, c.backend, c.block.id))),
                 reason=matched_reason if group.reason == "single" else group.reason,
                 metadata={**group.metadata, "last_match_reason": matched_reason},
             )

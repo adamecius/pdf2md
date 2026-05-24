@@ -14,7 +14,7 @@ from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
-LOCAL_PREFLIGHT_SCHEMA_VERSION = "1.0.0"
+LOCAL_PREFLIGHT_SCHEMA_VERSION: Literal["1.0.0"] = "1.0.0"
 MAIN_CONDA_ENV = "pdf2md"
 SNIPPET_LIMIT = 1000
 
@@ -36,6 +36,8 @@ class CheckSeverity(str, Enum):
 
 
 class _PreflightBaseModel(BaseModel):
+    """Private Pydantic base for preflight models (extra=forbid)."""
+
     model_config = ConfigDict(extra="forbid")
 
 
@@ -189,10 +191,7 @@ def _missing_failure_class(severity: CheckSeverity) -> str:
 def _snippet(value: Any) -> str | None:
     if value is None:
         return None
-    if isinstance(value, bytes):
-        text = value.decode("utf-8", errors="replace")
-    else:
-        text = str(value)
+    text = value.decode("utf-8", errors="replace") if isinstance(value, bytes) else str(value)
     return text[:SNIPPET_LIMIT]
 
 
@@ -464,7 +463,7 @@ def check_python_import(*, module: str, severity: CheckSeverity) -> PreflightChe
 
     try:
         importlib.import_module(module)
-    except Exception as exc:  # noqa: BLE001 - importability is the signal
+    except Exception as exc:
         return PreflightCheck(
             id=f"python_import.{_sanitize_id_fragment(module)}",
             label=f"{module} import",
@@ -849,14 +848,14 @@ def _build_summary(report: PreflightReport) -> str:
 def report_to_json_dict(report: PreflightReport) -> dict[str, Any]:
     """Return a JSON-compatible report dictionary."""
 
-    return json.loads(report.model_dump_json())
+    return dict(json.loads(report.model_dump_json()))
 
 
 __all__ = [
     "LOCAL_PREFLIGHT_SCHEMA_VERSION",
     "MAIN_CONDA_ENV",
-    "CheckStatus",
     "CheckSeverity",
+    "CheckStatus",
     "PreflightCheck",
     "PreflightReport",
     "PreflightSettings",

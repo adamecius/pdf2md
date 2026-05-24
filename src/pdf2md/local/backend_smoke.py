@@ -13,9 +13,10 @@ decides whether smoke outputs are sufficient for connector normalisation.
 
 from __future__ import annotations
 
+import contextlib
 import json
 import subprocess
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from enum import Enum
 from pathlib import Path
 from typing import Any, Literal
@@ -25,8 +26,8 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 from pdf2md.backends.runner import derive_run_name, run_configured_backends
 from pdf2md.config import get_enabled_backends, load_backend_config
 
-BACKEND_SMOKE_SCHEMA_VERSION = "1.0.0"
-TOOL_NAME = "backend_smoke"
+BACKEND_SMOKE_SCHEMA_VERSION: Literal["1.0.0"] = "1.0.0"
+TOOL_NAME: Literal["backend_smoke"] = "backend_smoke"
 DEFAULT_CORPUS_ROOT = Path("groundtruth/corpus/latex")
 DEFAULT_GATE_MINIMUM = 2
 DEFAULT_TIMEOUT_SECONDS = 300
@@ -136,6 +137,8 @@ _FAILURE_REASONS: dict[BackendSmokeStatus, str] = {
 
 
 class _SmokeBaseModel(BaseModel):
+    """Private Pydantic base for backend-smoke models."""
+
     model_config = ConfigDict(extra="forbid")
 
 
@@ -268,10 +271,7 @@ class BackendSmokeReport(_SmokeBaseModel):
 
 
 def _status_value(result: Any) -> str:
-    if isinstance(result, dict):
-        status = result.get("status")
-    else:
-        status = getattr(result, "status", None)
+    status = result.get("status") if isinstance(result, dict) else getattr(result, "status", None)
     if isinstance(status, BackendSmokeStatus):
         return status.value
     return str(status)
@@ -290,7 +290,7 @@ def _snippet(text: str | None) -> str:
 
 
 def _utc_now() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def classify_backend_status(
@@ -465,10 +465,8 @@ def _collect_run_artifacts(work_dir: Path, input_pdf: Path, enabled: dict) -> di
         command: list[str] | str | None = None
         command_path = backend_dir / "command.json"
         if command_path.is_file():
-            try:
+            with contextlib.suppress(OSError, json.JSONDecodeError):
                 command = json.loads(command_path.read_text(encoding="utf-8")).get("command")
-            except (OSError, json.JSONDecodeError):
-                pass
         found = [
             pattern
             for pattern in EXPECTED_OUTPUT_PATTERNS
@@ -529,7 +527,7 @@ def build_backend_smoke_report(
         try:
             config = load_backend_config(resolved_config)
             metadata["config_status"] = "loaded"
-        except Exception as exc:  # noqa: BLE001 - any load error degrades to not_configured
+        except Exception as exc:
             config = None
             metadata["config_status"] = "invalid"
             warnings.append(f"backend configuration could not be loaded: {exc}")
@@ -555,7 +553,7 @@ def build_backend_smoke_report(
         except subprocess.TimeoutExpired as exc:
             run_timed_out = True
             warnings.append(f"backend run timed out after {timeout_seconds}s: {exc}")
-        except Exception as exc:  # noqa: BLE001 - runner failure must not abort the report
+        except Exception as exc:
             warnings.append(f"backend runner raised an error: {exc}")
         run_artifacts = _collect_run_artifacts(work_dir, input_pdf, enabled)
     elif enabled:
@@ -702,19 +700,19 @@ def write_backend_smoke_report(*, report: BackendSmokeReport, out_dir: Path) -> 
 
 __all__ = [
     "BACKEND_SMOKE_SCHEMA_VERSION",
-    "TOOL_NAME",
     "DEFAULT_CORPUS_ROOT",
     "DEFAULT_GATE_MINIMUM",
     "DEFAULT_TIMEOUT_SECONDS",
     "EXPECTED_OUTPUT_PATTERNS",
-    "BackendSmokeStatus",
-    "BackendSmokeResult",
+    "TOOL_NAME",
     "BackendSmokeReport",
-    "classify_backend_status",
-    "next_action_for",
-    "build_backend_result",
+    "BackendSmokeResult",
+    "BackendSmokeStatus",
     "assemble_smoke_report",
+    "build_backend_result",
     "build_backend_smoke_report",
     "build_backend_smoke_summary",
+    "classify_backend_status",
+    "next_action_for",
     "write_backend_smoke_report",
 ]

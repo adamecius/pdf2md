@@ -7,7 +7,12 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from pdf2md.export.docling import DoclingExportSettings, build_docling_document, try_validate_with_docling_core, validate_docling_like_document
+from pdf2md.export.docling import (
+    DoclingExportSettings,
+    build_docling_document,
+    try_validate_with_docling_core,
+    validate_docling_like_document,
+)
 from pdf2md.export.markdown import MarkdownExportSettings, build_markdown_preview
 from pdf2md.export.rag import RagExportSettings, build_rag_chunks
 from pdf2md.export.reporting import artefact, build_export_report, build_manifest, sha256_file
@@ -141,9 +146,7 @@ def build_export_run(
     structural = validate_docling_like_document(docling_result.document)
     warnings.extend(w for w in structural if w not in warnings)
     ok, reason = try_validate_with_docling_core(docling_result.document)
-    if not ok and reason:
-        warnings.append(reason)
-    elif reason:
+    if (not ok and reason) or reason:
         warnings.append(reason)
     if strict and structural:
         raise ValueError("Docling validation failed: " + ", ".join(structural))

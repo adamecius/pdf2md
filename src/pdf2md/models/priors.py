@@ -7,12 +7,12 @@ from enum import Enum
 from importlib import resources
 from typing import Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from pdf2md.models.entities import EntityType, RelationType
 from pdf2md.models.ir import BlockKind
 
-PRIOR_SCHEMA_VERSION = "1.0.0"
+PRIOR_SCHEMA_VERSION: Literal["1.0.0"] = "1.0.0"
 
 
 class CalibrationTarget(str, Enum):
@@ -42,6 +42,8 @@ class MatchOutcome(str, Enum):
 
 
 class _PriorBaseModel(BaseModel):
+    """Private Pydantic base for calibration-prior models."""
+
     model_config = ConfigDict(extra="forbid", frozen=False, populate_by_name=True, use_enum_values=True)
 
 
@@ -87,7 +89,7 @@ class CalibrationMetric(_PriorBaseModel):
     metadata: dict[str, Any] = Field(default_factory=dict)
 
     @model_validator(mode="after")
-    def _validate_support_and_status(self) -> "CalibrationMetric":
+    def _validate_support_and_status(self) -> CalibrationMetric:
         expected_support = self.counts.true_positive + self.counts.false_positive + self.counts.false_negative
         if self.support != expected_support:
             raise ValueError("support must equal true_positive + false_positive + false_negative")
@@ -146,7 +148,7 @@ class CalibrationPriorDocument(_PriorBaseModel):
     metadata: dict[str, Any] = Field(default_factory=dict)
 
     @model_validator(mode="after")
-    def _validate_metric_lists(self) -> "CalibrationPriorDocument":
+    def _validate_metric_lists(self) -> CalibrationPriorDocument:
         for metrics in (
             self.block_kind_priors,
             self.entity_type_priors,
@@ -238,7 +240,7 @@ class CalibrationTruthDocument(_PriorBaseModel):
     metadata: dict[str, Any] = Field(default_factory=dict)
 
     @model_validator(mode="after")
-    def _validate_truth_document(self) -> "CalibrationTruthDocument":
+    def _validate_truth_document(self) -> CalibrationTruthDocument:
         block_ids = [block.id for block in self.blocks]
         if len(block_ids) != len(set(block_ids)):
             raise ValueError("truth block ids must be unique")
@@ -405,25 +407,25 @@ def load_factory_prior(backend: str) -> CalibrationPriorDocument | None:
         return None
     try:
         return CalibrationPriorDocument.model_validate(payload)
-    except Exception:  # noqa: BLE001
+    except Exception:
         return None
 
 
 __all__ = [
     "PRIOR_SCHEMA_VERSION",
-    "CalibrationTarget",
-    "CalibrationStatus",
-    "MatchOutcome",
     "CalibrationCounts",
     "CalibrationMetric",
     "CalibrationPriorDocument",
+    "CalibrationStatus",
+    "CalibrationTarget",
+    "CalibrationTruthDocument",
+    "MatchOutcome",
+    "TruthBlock",
     "TruthEntity",
     "TruthRelation",
-    "TruthBlock",
-    "CalibrationTruthDocument",
-    "prior_key",
-    "lookup_prior",
-    "lookup_confidence",
     "build_uninformative_prior",
     "load_factory_prior",
+    "lookup_confidence",
+    "lookup_prior",
+    "prior_key",
 ]

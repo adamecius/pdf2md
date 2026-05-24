@@ -1,6 +1,6 @@
 """OCR convention extraction and per-backend block normalisation."""
 
-from .latex_groundtruth import extract_groundtruth_objects, equation_body_key
+from .latex_groundtruth import equation_body_key, extract_groundtruth_objects
 from .normalizer import normalise_blocks
 
-__all__ = ["extract_groundtruth_objects", "equation_body_key", "normalise_blocks"]
+__all__ = ["equation_body_key", "extract_groundtruth_objects", "normalise_blocks"]

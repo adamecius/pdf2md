@@ -8,9 +8,9 @@ from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
-from pdf2md.models.ir import BBox, EXTRACTION_ID_PATTERN
+from pdf2md.models.ir import EXTRACTION_ID_PATTERN, BBox
 
-ENTITY_SCHEMA_VERSION = "1.0.0"
+ENTITY_SCHEMA_VERSION: Literal["1.0.0"] = "1.0.0"
 ENTITY_ID_PATTERN = re.compile(r"^ent:[a-z0-9_-]+:[A-Za-z0-9_.-]+:[a-z_]+:\d+$")
 RELATION_ID_PATTERN = re.compile(r"^rel:[a-z0-9_-]+:[A-Za-z0-9_.-]+:\d+$")
 
@@ -72,6 +72,8 @@ class ConfidenceSource(str, Enum):
 
 
 class _EntityBaseModel(BaseModel):
+    """Private Pydantic base for entity-proposal models."""
+
     model_config = ConfigDict(extra="forbid", frozen=False, populate_by_name=True, use_enum_values=True)
 
 
@@ -194,7 +196,7 @@ class RelationProposal(_EntityBaseModel):
         return value
 
     @model_validator(mode="after")
-    def _validate_distinct_endpoints(self) -> "RelationProposal":
+    def _validate_distinct_endpoints(self) -> RelationProposal:
         if self.source_entity_id == self.target_entity_id:
             raise ValueError("relation source and target must differ")
         return self
@@ -231,7 +233,7 @@ class EntityProposalDocument(_EntityBaseModel):
     metadata: dict[str, Any] = Field(default_factory=dict)
 
     @model_validator(mode="after")
-    def _validate_document(self) -> "EntityProposalDocument":
+    def _validate_document(self) -> EntityProposalDocument:
         entity_ids = [entity.id for entity in self.entities]
         if len(entity_ids) != len(set(entity_ids)):
             raise ValueError("entity ids must be unique")
@@ -261,17 +263,17 @@ def relation_id(backend: str, document_id: str, index: int) -> str:
 
 
 __all__ = [
-    "ENTITY_SCHEMA_VERSION",
     "ENTITY_ID_PATTERN",
+    "ENTITY_SCHEMA_VERSION",
     "RELATION_ID_PATTERN",
-    "EntityType",
-    "RelationType",
-    "EvidenceKind",
     "ConfidenceSource",
     "EntityEvidence",
     "EntityProposal",
-    "RelationProposal",
     "EntityProposalDocument",
+    "EntityType",
+    "EvidenceKind",
+    "RelationProposal",
+    "RelationType",
     "entity_id",
     "relation_id",
 ]

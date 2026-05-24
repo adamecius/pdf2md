@@ -5,13 +5,14 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
-from pdf2md.consensus.grouping import CandidateGroup, group_document_candidates
+from pdf2md.consensus.grouping import group_document_candidates
 from pdf2md.consensus.reporting import build_consensus_report
 from pdf2md.consensus.scoring import ConsensusScoringSettings, GroupScore, score_candidate_group
 from pdf2md.models.entities import EntityProposalDocument
 from pdf2md.models.ir import (
     BackendManifest,
     Conflict,
+    ConflictKind,
     ConsensusBlock,
     ConsensusIR,
     ConsensusPage,
@@ -76,7 +77,7 @@ def _make_conflict(document_id: str, index: int, score: GroupScore) -> Conflict:
     candidate_ids = [candidate.block.id for candidate in score.group.candidates]
     return Conflict(
         id=conflict_id(document_id, index),
-        kind=score.conflict_kind or "presence_conflict",
+        kind=score.conflict_kind or ConflictKind.PRESENCE_CONFLICT,
         page_no=score.group.page_no,
         candidate_ids=candidate_ids,
         description=f"Unresolved consensus group {score.group.id}",

@@ -11,7 +11,6 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-
 # ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------
@@ -127,7 +126,7 @@ class OneDocumentPaths:
         """Export manifest path under the export tree."""
         return self.out_dir / EXPORT_MANIFEST
 
-    def ensure(self) -> "OneDocumentPaths":
+    def ensure(self) -> OneDocumentPaths:
         """Create ``out_dir`` and ``work_dir`` on disk and return self."""
         for d in (self.out_dir, self.work_dir):
             Path(d).mkdir(parents=True, exist_ok=True)
@@ -202,7 +201,7 @@ class CorpusDocumentPaths:
         """Export manifest path under this document's export tree."""
         return self.document_root / EXPORT_MANIFEST
 
-    def ensure(self) -> "CorpusDocumentPaths":
+    def ensure(self) -> CorpusDocumentPaths:
         """Create ``document_root`` and ``work_dir`` on disk and return self."""
         for d in (self.document_root, self.work_dir):
             Path(d).mkdir(parents=True, exist_ok=True)
@@ -321,7 +320,7 @@ class RunLayout:
         """Path of the per-run ``pipeline_summary.txt``."""
         return self.run_dir / ARTEFACT_PIPELINE_SUMMARY
 
-    def create_dirs(self) -> "RunLayout":
+    def create_dirs(self) -> RunLayout:
         """Materialise the top-level run subdirectories and return self."""
         for directory in (
             self.run_dir,
@@ -338,19 +337,19 @@ class RunLayout:
 
 
 __all__ = [
+    "ARTEFACT_CORPUS_EVAL",
+    "ARTEFACT_CORPUS_SUMMARY",
     "ARTEFACT_PIPELINE_MANIFEST",
     "ARTEFACT_PIPELINE_SUMMARY",
     "ARTEFACT_STAGE_STATUS",
-    "ARTEFACT_CORPUS_EVAL",
-    "ARTEFACT_CORPUS_SUMMARY",
     "EXPORT_DOCLING",
-    "EXPORT_RAG",
-    "EXPORT_MARKDOWN",
-    "EXPORT_REPORT",
     "EXPORT_MANIFEST",
-    "OneDocumentPaths",
+    "EXPORT_MARKDOWN",
+    "EXPORT_RAG",
+    "EXPORT_REPORT",
     "CorpusDocumentPaths",
+    "OneDocumentPaths",
     "RunLayout",
-    "one_document_paths",
     "corpus_document_paths",
+    "one_document_paths",
 ]

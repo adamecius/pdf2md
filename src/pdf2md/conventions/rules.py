@@ -1,11 +1,20 @@
 """Default convention rules and a matcher for applying them to blocks."""
 
 from __future__ import annotations
+
 import re
+
 from .schemas import Rule
 
 
 def default_rules() -> list[Rule]:
+    """Return the built-in convention rule set.
+
+    The rules cover the OCR conventions empirically observed across the
+    supported backends: caption/figure/footnote/equation/table
+    normalisation, equation-label extraction, and per-backend
+    geometry/merge hints. Used when no rules TOML is supplied.
+    """
     return [
         Rule("caption.figure_or_table_prefix", "*", "*", r"^\s*(Figure|Fig\.|Table)\s+\d+(\.\d+)?\s*[:.]?", normalised_type="caption"),
         Rule("figure.placeholder_fig_near_caption", "*", "*", r"^\s*FIG\s*$", normalised_type="picture", requires_near_caption_regex=r"^\s*(Figure|Fig\.)\s+\d+"),
@@ -22,6 +31,23 @@ def default_rules() -> list[Rule]:
 
 
 def rule_matches(rule: Rule, backend: str, object_type: str, text: str, y_norm: float | None = None) -> re.Match[str] | None:
+    """Test whether ``rule`` matches a block.
+
+    Applies the rule's backend/object-type filters, the optional
+    ``y_norm_min`` page-position gate, and finally the text regex.
+
+    Args:
+        rule: Candidate rule.
+        backend: Backend that produced the block (filters per-backend
+            rules).
+        object_type: Block type as reported by the backend.
+        text: Block text.
+        y_norm: Normalised y-coordinate of the block (0-1000) for
+            position-gated rules; may be None.
+
+    Returns:
+        The regex match object if all filters pass, else None.
+    """
     if rule.backend not in {"*", backend}:
         return None
     if rule.object_type not in {"*", object_type}:

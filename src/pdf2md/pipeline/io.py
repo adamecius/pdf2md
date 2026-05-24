@@ -9,7 +9,7 @@ if TYPE_CHECKING:
     from pdf2md.pipeline.runner import CorpusEvaluation, DocumentRecord, PipelineManifest
 
 
-def write_pipeline_manifest(*, manifest: "PipelineManifest", target: Path, summary_target: Path | None = None) -> Path:
+def write_pipeline_manifest(*, manifest: PipelineManifest, target: Path, summary_target: Path | None = None) -> Path:
     """Write the pipeline manifest JSON and the human-readable summary."""
 
     from pdf2md.pipeline.reporting import build_pipeline_summary
@@ -24,7 +24,7 @@ def write_pipeline_manifest(*, manifest: "PipelineManifest", target: Path, summa
     return target
 
 
-def write_stage_status(*, document: "DocumentRecord", target: Path) -> Path:
+def write_stage_status(*, document: DocumentRecord, target: Path) -> Path:
     """Write the per-document stage status JSON."""
 
     target = Path(target)
@@ -35,7 +35,7 @@ def write_stage_status(*, document: "DocumentRecord", target: Path) -> Path:
 
 def write_corpus_evaluation(
     *,
-    evaluation: "CorpusEvaluation",
+    evaluation: CorpusEvaluation,
     target: Path,
     summary_target: Path | None = None,
 ) -> Path:
@@ -54,7 +54,7 @@ def write_corpus_evaluation(
 
 
 __all__ = [
+    "write_corpus_evaluation",
     "write_pipeline_manifest",
     "write_stage_status",
-    "write_corpus_evaluation",
 ]

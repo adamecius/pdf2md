@@ -8,9 +8,9 @@ latex-cookbook, and a placeholder for arxiv-curated.
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from collections.abc import Iterable
+from dataclasses import dataclass
 from enum import Enum
-from typing import Iterable
 
 
 class DatasetStatus(str, Enum):
@@ -135,8 +135,7 @@ def list_datasets() -> list[DatasetEntry]:
 def _all_names() -> Iterable[str]:
     for entry in _REGISTRY:
         yield entry.id
-        for alias in entry.aliases:
-            yield alias
+        yield from entry.aliases
 
 
 def get_dataset(id_or_alias: str) -> DatasetEntry:

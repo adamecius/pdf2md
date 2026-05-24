@@ -1,11 +1,22 @@
 """Emit JSON and (optional) Markdown reports for convention determination."""
 
 from __future__ import annotations
+
 import json
 from pathlib import Path
 
 
 def write_report(output_dir: Path, report: dict, emit_markdown: bool = False) -> None:
+    """Write the convention-determination JSON report (and optional Markdown).
+
+    Args:
+        output_dir: Directory to write ``conventions_report.json`` (and
+            ``examples.md`` when ``emit_markdown`` is True) into. Created
+            if missing.
+        report: Report payload as produced by ``determine_convention``.
+        emit_markdown: When True, also emit a human-readable
+            ``examples.md`` summarising before/after text per backend.
+    """
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "conventions_report.json").write_text(json.dumps(report, indent=2))
     if emit_markdown:

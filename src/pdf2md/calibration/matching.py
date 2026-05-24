@@ -8,7 +8,7 @@ from typing import Any
 
 from pdf2md.models.entities import EntityProposal, EntityProposalDocument
 from pdf2md.models.ir import ExtractionBlock, PageExtractionIR
-from pdf2md.models.priors import CalibrationTarget, CalibrationTruthDocument, MatchOutcome, TruthEntity
+from pdf2md.models.priors import CalibrationTarget, CalibrationTruthDocument, MatchOutcome, TruthEntity, TruthRelation
 
 
 @dataclass(frozen=True)
@@ -264,24 +264,24 @@ def match_relations(*, backend: str, predictions: EntityProposalDocument, truth:
     """
     entity_mapping = _entity_match_map(predictions, truth)
     records: list[MatchRecord] = []
-    truth_by_key = {
+    truth_by_key: dict[tuple[str, str | None, str | None], TruthRelation] = {
         (_value(rel.relation_type), rel.source_truth_id, rel.target_truth_id): rel for rel in truth.relations
     }
     used_truth: set[str] = set()
     for relation in predictions.relations:
         source_truth = entity_mapping.get(relation.source_entity_id)
         target_truth = entity_mapping.get(relation.target_entity_id)
-        key_tuple = (_value(relation.relation_type), source_truth, target_truth)
+        key_tuple: tuple[str, str | None, str | None] = (_value(relation.relation_type), source_truth, target_truth)
         truth_relation = truth_by_key.get(key_tuple)
         if truth_relation is None or truth_relation.id in used_truth:
-            metadata = {}
+            metadata: dict[str, str] = {}
             if source_truth is None or target_truth is None:
                 metadata["warning"] = "relation_matching_without_entity_matches"
             records.append(MatchRecord(CalibrationTarget.RELATION_TYPE, _value(relation.relation_type), backend, relation.id, None, MatchOutcome.FALSE_POSITIVE, relation.confidence, metadata))
         else:
             used_truth.add(truth_relation.id)
             records.append(MatchRecord(CalibrationTarget.RELATION_TYPE, _value(relation.relation_type), backend, relation.id, truth_relation.id, MatchOutcome.TRUE_POSITIVE, relation.confidence, {}))
-    for relation in truth.relations:
-        if relation.id not in used_truth:
-            records.append(MatchRecord(CalibrationTarget.RELATION_TYPE, _value(relation.relation_type), backend, None, relation.id, MatchOutcome.FALSE_NEGATIVE, None, {}))
+    for truth_rel in truth.relations:
+        if truth_rel.id not in used_truth:
+            records.append(MatchRecord(CalibrationTarget.RELATION_TYPE, _value(truth_rel.relation_type), backend, None, truth_rel.id, MatchOutcome.FALSE_NEGATIVE, None, {}))
     return records

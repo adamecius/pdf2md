@@ -4,11 +4,13 @@ from __future__ import annotations
 
 import re
 from collections import defaultdict
+from collections.abc import Iterable
 from dataclasses import dataclass, field
-from typing import Any, Iterable
+from itertools import pairwise
+from typing import Any
 
 from pdf2md.linking.extract import LinkCandidate, normalise_text
-from pdf2md.models.linked import LinkEvidence, LinkEvidenceKind, LinkedNodeType, LinkedRelationType, LinkStatus
+from pdf2md.models.linked import LinkedNodeType, LinkedRelationType, LinkEvidence, LinkEvidenceKind, LinkStatus
 
 
 @dataclass(frozen=True)
@@ -226,7 +228,7 @@ def resolve_page_number_sequence(candidates: list[LinkCandidate]) -> ResolverRes
     nums = [c for c in _sorted(candidates) if c.node_type == LinkedNodeType.PAGE_NUMBER and _number_value(c.text) is not None]
     links: list[ResolvedLink] = []
     warnings: list[str] = []
-    for a, b in zip(nums, nums[1:]):
+    for a, b in pairwise(nums):
         av, bv = _number_value(a.text), _number_value(b.text)
         assert av is not None and bv is not None
         is_front_matter_switch = _is_roman_number(a.text) and _clean_number_text(b.text).isdigit() and b.page_no == a.page_no + 1
@@ -264,7 +266,7 @@ def resolve_repeating_headers_footers(candidates: list[LinkCandidate]) -> Resolv
             if c.node_type == node_type and text and _number_value(text) is None:
                 groups[text].append(c)
         for group in groups.values():
-            for a, b in zip(_sorted(group), _sorted(group)[1:]):
+            for a, b in pairwise(_sorted(group)):
                 links.append(_link(rel_type, a, b, 0.82, LinkEvidenceKind.TEXT_PATTERN, "repeating header/footer"))
     return ResolverResult(tuple(links), ())
 
@@ -311,12 +313,14 @@ def resolve_captions(candidates: list[LinkCandidate]) -> ResolverResult:
     return ResolverResult(tuple(links), tuple(warnings))
 
 
-def _markers(text: str) -> set[str]:
-    return set(re.findall(r"\[(\d+)\]|\b(\d+)\.", text)) | {(m, "") for m in re.findall(r"(?<!\d)(\d)(?!\d)", text)}
+def _markers(text: str) -> list[tuple[str, str]]:
+    pairs: list[tuple[str, str]] = list(re.findall(r"\[(\d+)\]|\b(\d+)\.", text))
+    pairs.extend((m, "") for m in re.findall(r"(?<!\d)(\d)(?!\d)", text))
+    return pairs
 
 
 def _flat_markers(text: str) -> set[str]:
-    out = set()
+    out: set[str] = set()
     for a, b in _markers(text):
         out.add(a or b)
     return out
@@ -381,7 +385,7 @@ def resolve_equation_sequence(candidates: list[LinkCandidate]) -> ResolverResult
     eqs = [c for c in _sorted(candidates) if c.node_type == LinkedNodeType.EQUATION]
     links: list[ResolvedLink] = []
     warnings: list[str] = []
-    for a, b in zip(eqs, eqs[1:]):
+    for a, b in pairwise(eqs):
         av, bv = _eq_no(a), _eq_no(b)
         if av is not None and bv is not None and bv != av + 1:
             warnings.append(f"equation_sequence_gap:{a.consensus_block_id}")
@@ -432,7 +436,7 @@ def resolve_figure_table_sequence(candidates: list[LinkCandidate]) -> ResolverRe
         (LinkedNodeType.TABLE, LinkedRelationType.TABLE_SEQUENCE_NEXT, "table_sequence_gap"),
     ):
         nodes = [c for c in _sorted(candidates) if c.node_type == nt]
-        for a, b in zip(nodes, nodes[1:]):
+        for a, b in pairwise(nodes):
             av, bv = _object_no(a, caption_lookup), _object_no(b, caption_lookup)
             if av is not None and bv is not None and bv != av + 1:
                 warnings.append(f"{warning_prefix}:{a.consensus_block_id}")
@@ -472,7 +476,7 @@ def resolve_references(candidates: list[LinkCandidate]) -> ResolverResult:
     items = [c for c in _sorted(candidates) if c.node_type == LinkedNodeType.REFERENCE_ITEM]
     if not ref_sections and items:
         warnings.append("reference_section_missing")
-    for a, b in zip(items, items[1:]):
+    for a, b in pairwise(items):
         links.append(_link(LinkedRelationType.REFERENCE_SEQUENCE_NEXT, a, b, 0.82, LinkEvidenceKind.REFERENCE_PATTERN, "reference item sequence"))
     by_marker: dict[str, list[LinkCandidate]] = defaultdict(list)
     by_author_year: dict[tuple[str, str], list[LinkCandidate]] = defaultdict(list)
@@ -480,7 +484,6 @@ def resolve_references(candidates: list[LinkCandidate]) -> ResolverResult:
         marker = re.match(r"\s*\[(\d+)\]", item.text)
         if marker:
             by_marker[marker.group(1)].append(item)
-        lowered = item.text.casefold()
         years = re.findall(r"(?:19|20)\d{2}", item.text)
         first_author = re.match(r"\s*(?:\[\d+\]\s*)?([A-Z][A-Za-z-]+)", item.text)
         if first_author:

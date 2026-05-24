@@ -14,12 +14,12 @@ CLI for command-line use. Tests inject mock stage callables via the
 
 from __future__ import annotations
 
-import json
-from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from collections.abc import Callable
+from dataclasses import dataclass
+from datetime import UTC, datetime
 from enum import Enum
 from pathlib import Path
-from typing import Any, Callable, Iterable, Literal
+from typing import Any, Literal, cast
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -30,7 +30,7 @@ from pdf2md.pipeline.artifacts import (
     one_document_paths,
 )
 
-PIPELINE_SCHEMA_VERSION = "1.0.0"
+PIPELINE_SCHEMA_VERSION: Literal["1.0.0"] = "1.0.0"
 
 
 # ---------------------------------------------------------------------------
@@ -97,6 +97,8 @@ class MvpReadiness(str, Enum):
 
 
 class _PipelineBaseModel(BaseModel):
+    """Private Pydantic base for pipeline-runner manifest models."""
+
     model_config = ConfigDict(extra="forbid", use_enum_values=True)
 
 
@@ -253,11 +255,11 @@ StageCallable = Callable[..., dict[str, Any]]
 
 
 def _utc_now() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def _now_monotonic() -> float:
-    return datetime.now(timezone.utc).timestamp()
+    return datetime.now(UTC).timestamp()
 
 
 def _new_record(name: StageName) -> StageRecord:
@@ -273,8 +275,8 @@ def _finalize(rec: StageRecord, started_at: float, payload: dict[str, Any]) -> S
     rec_dict = rec.model_dump()
     rec_dict.update(
         {
-            "started_at": datetime.fromtimestamp(started_at, tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-            "finished_at": datetime.fromtimestamp(finished_at, tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "started_at": datetime.fromtimestamp(started_at, tz=UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "finished_at": datetime.fromtimestamp(finished_at, tz=UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "duration_seconds": round(finished_at - started_at, 3),
             "status": payload.get("status", StageStatus.SUCCEEDED.value),
             "skipped_reason": payload.get("skipped_reason"),
@@ -428,7 +430,7 @@ def _default_connector_canonical_stage(
                 config=cfg,
                 out_dir=out_dir,
             )
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:
             warnings.append(f"connector_canonical_failed:{backend}:{type(exc).__name__}:{exc}")
             continue
         canonical_dir = out_dir / backend
@@ -524,7 +526,7 @@ def _default_entity_validation_stage(
     if no_entities_only:
         return {
             "status": StageStatus.SUCCEEDED.value,
-            "warnings": warnings + ["entity_validation_no_entities_only"],
+            "warnings": [*warnings, "entity_validation_no_entities_only"],
             "artefacts": artefacts,
             "metadata": {
                 "backends_validated": int(report.backends_validated),
@@ -727,6 +729,8 @@ def _default_export_stage(
 
 @dataclass(frozen=True)
 class _StageOverrides:
+    """Private dataclass: optional per-stage override callables for tests."""
+
     backend_smoke: StageCallable | None = None
     connector_canonical: StageCallable | None = None
     connector_validation: StageCallable | None = None
@@ -771,7 +775,6 @@ def _run_stages_for_document(
     )
 
     raw_dirs_by_backend: dict[str, Path] = {}
-    selected_after_smoke: list[str] = []
     canonical_dirs_by_backend: dict[str, Path] = {}
     consensus_ir_path: Path | None = None
     consensus_report_path: Path | None = None
@@ -799,7 +802,7 @@ def _run_stages_for_document(
                 timeout_seconds=timeout_seconds,
                 strict=strict,
             )
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:
             payload = {
                 "status": StageStatus.FAILED.value,
                 "failure_class": "backend_smoke_crash",
@@ -807,8 +810,7 @@ def _run_stages_for_document(
                 "warnings": [],
             }
     stages[rec_idx] = _finalize(rec, t0, payload)
-    raw_dirs_by_backend = payload.get("raw_dirs_by_backend", {})
-    selected_after_smoke = payload.get("selected_backends", list(backends or []))
+    raw_dirs_by_backend = cast("dict[str, Path]", payload.get("raw_dirs_by_backend", {}))
     document.eligible_backends = list(raw_dirs_by_backend.keys())
 
     if stages[rec_idx].status in (StageStatus.SKIPPED.value, StageStatus.FAILED.value, StageStatus.BLOCKED.value) or not raw_dirs_by_backend:
@@ -831,14 +833,14 @@ def _run_stages_for_document(
             raw_dirs_by_backend=raw_dirs_by_backend,
             out_dir=paths.connector_canonical_dir,
         )
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         payload = {
             "status": StageStatus.FAILED.value,
             "failure_class": "connector_canonical_crash",
             "failure_detail": f"{type(exc).__name__}: {exc}",
         }
     stages[rec_idx] = _finalize(rec, t0, payload)
-    canonical_dirs_by_backend = payload.get("canonical_dirs_by_backend", {})
+    canonical_dirs_by_backend = cast("dict[str, Path]", payload.get("canonical_dirs_by_backend", {}))
 
     if not canonical_dirs_by_backend or stages[rec_idx].status == StageStatus.FAILED.value:
         for i in range(rec_idx + 1, len(stages)):
@@ -855,7 +857,7 @@ def _run_stages_for_document(
             backends_dirs=raw_dirs_by_backend,
             out_dir=paths.connector_validation_dir,
         )
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         payload = {
             "status": StageStatus.FAILED.value,
             "failure_class": "connector_validation_crash",
@@ -871,7 +873,7 @@ def _run_stages_for_document(
             backends_dirs=canonical_dirs_by_backend,
             out_dir=paths.entity_validation_dir,
         )
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         payload = {
             "status": StageStatus.FAILED.value,
             "failure_class": "entity_validation_crash",
@@ -889,7 +891,7 @@ def _run_stages_for_document(
             backends=list(canonical_dirs_by_backend.keys()),
             out_dir=paths.consensus_dir,
         )
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         payload = {
             "status": StageStatus.FAILED.value,
             "failure_class": "consensus_crash",
@@ -917,7 +919,7 @@ def _run_stages_for_document(
             entities_root=paths.connector_canonical_dir,
             out_dir=paths.linked_dir,
         )
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         payload = {
             "status": StageStatus.FAILED.value,
             "failure_class": "linking_crash",
@@ -946,7 +948,7 @@ def _run_stages_for_document(
             document_id=document_id,
             source_pdf=str(input_pdf) if input_pdf else None,
         )
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         payload = {
             "status": StageStatus.FAILED.value,
             "failure_class": "export_crash",
@@ -1114,7 +1116,6 @@ def run_corpus(
     stage_bottlenecks: dict[str, int] = {s.value: 0 for s in STAGE_ORDER}
     backend_eligibility: dict[str, int] = {}
     export_avail: dict[str, bool] = {}
-    confidences: list[float] = []
     for d in documents:
         export_status = next(
             (
@@ -1164,16 +1165,16 @@ def run_corpus(
 
 __all__ = [
     "PIPELINE_SCHEMA_VERSION",
-    "StageName",
     "STAGE_ORDER",
-    "StageStatus",
+    "CorpusEvaluation",
+    "DocumentRecord",
     "DocumentResult",
     "MvpReadiness",
-    "StageRecord",
-    "DocumentRecord",
     "PipelineManifest",
-    "CorpusEvaluation",
-    "run_one_document",
-    "run_corpus",
+    "StageName",
+    "StageRecord",
+    "StageStatus",
     "_StageOverrides",
+    "run_corpus",
+    "run_one_document",
 ]
