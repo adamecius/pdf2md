@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>pdf2md semantic graph viewer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <strong>pdf2md semantic graph</strong>
+    <label class="file-picker">
+      <input type="file" id="graph-file" accept="application/json" />
+      Load graph.json
+    </label>
+    <span id="status">No graph loaded.</span>
+  </header>
+  <svg id="chart"></svg>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="viewer.js"></script>
+</body>
+</html>

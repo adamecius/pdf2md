@@ -12,28 +12,24 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
     - blockers: []
     - status: in_progress | ready_for_review | halted
 
-## PR #1 — 2026-05-24T21:35:00Z — mode: agent — Plan 007_0
-- branch: plan-007-0-semantic-eval
+## PR #1 — 2026-05-24T22:00:00Z — mode: agent — Plan 008_0
+- branch: plan-008-0-semantic-viewer
 - tasks_attempted:
-    - T1 (LaTeXML ground-truth parser): files_touched=[src/pdf2md/semantic/groundtruth.py, src/pdf2md/semantic/__init__.py], tests_pass=[tests/test_semantic_groundtruth.py — 6 passed; one of them validates that the labelref ``LABEL:fig:box-diagram`` resolves to the surface form ``Figure 1`` from the anchor's autoref tag], tests_fail_env=[], tests_fail_real=[]. Note: source plan §2 spoke of "TEI XML", but latexml 0.8.6 actually emits its native ``http://dlmf.nist.gov/LaTeXML`` XML, not TEI. The parser handles that namespace directly and reuses the figure/table/equation/section/footnote/bibitem mapping inline so the standalone ``backend/semantic/grobid/tei_parser.py`` import is not required at parse time.
-    - T2 (evaluation harness): files_touched=[src/pdf2md/semantic/evaluation.py], tests_pass=[tests/test_semantic_evaluation.py — 8 passed: returns SemanticEvalResult; marker precision/recall/F1 match expected fixture values 0.75/0.75/0.75; marker_f1_by_type breaks down to bibliography=1.0, section=0.0, figure=0.8; resolution_accuracy = 2/3 on the matched-pair fixture; entity_precision/recall/F1 = 1.0; perfect-match yields P=R=F1=1; empty extraction yields 0; result_to_csv_row exposes the expected columns], tests_fail_env=[], tests_fail_real=[]
-    - T3 (benchmark CLI): files_touched=[tools/run_semantic_benchmark.py], tests_pass=[tests/test_run_semantic_benchmark_cli.py — 5 passed: full end-to-end on the linked_sections_figures fixture produces results.json + results.csv + per-doc gt_cross_references.json; --gt-dir missing → exit 2; unknown --backends → exit 2; empty corpus → exit 2; missing latexml binary → exit 3 with env_not_ready], tests_fail_env=[], tests_fail_real=[]
-    - T4 (fixtures): files_touched=[tests/data/semantic_fixtures/eval_truth.json, tests/data/semantic_fixtures/eval_extracted.json], tests_pass=[loaded by T2 evaluation tests], tests_fail_env=[], tests_fail_real=[]
-    - T5 (acceptance H1 — automated): files_touched=[], tests_pass=[`conda run -n pdf2md python tools/run_semantic_benchmark.py --gt-dir groundtruth/corpus/latex/linked_sections_figures --backends regex --out-dir /tmp/semantic_bench_h1` → exit 0; results.json + results.csv exist with ≥1 data row; gt_cross_references.json has 4 markers (figure / equation / section / footnote); regex backend produced 0 markers — expected with the crude detexer (real PDF rendering deferred to Plan 008 per plan §1 scope reduction)], tests_fail_env=[], tests_fail_real=[]
+    - T1 (graph exporter): files_touched=[src/pdf2md/semantic/graph_export.py, src/pdf2md/semantic/__init__.py], tests_pass=[tests/test_graph_export.py — 8 passed: empty payload; markerless graph synthesises unresolved edges + marker nodes; resolved edge links to target node; marker extra metadata (source_ref/char_offset/backend) included on marker nodes; extra_entities surface as nodes; backend_versions pass through metadata; to_dict has the 5 documented top-level keys; repeated marker text + same source_ref at different offsets produces two distinct marker nodes], tests_fail_env=[], tests_fail_real=[]
+    - T2 (export CLI): files_touched=[tools/export_cross_ref_graph.py], tests_pass=[tests/test_export_cross_ref_graph_cli.py — 5 passed: writes graph.json with the 5 top-level keys; --inline-viewer writes self-contained HTML with <script id="graph-data"> tag + D3 v7 CDN reference + the doc_hash from the source graph inlined verbatim; rejects missing --xref (exit 2); rejects malformed JSON (exit 2); the static viewer index.html exists, is syntactically valid HTML, and references viewer.js + style.css + the D3 v7 CDN], tests_fail_env=[], tests_fail_real=[]
+    - T3 (static viewer): files_touched=[webui/cross_ref/index.html, webui/cross_ref/viewer.js, webui/cross_ref/style.css, webui/cross_ref/README.md], tests_pass=[verified by the static-viewer text-check test in tests/test_export_cross_ref_graph_cli.py + manual smoke: the `--inline-viewer` output is byte-identical to the same template loaded via index.html]. The viewer auto-loads ``graph.json`` from its directory when served over HTTP (skipped under file:// since fetch() is blocked there); under file:// the inline-viewer mode is the supported path.
+    - T4 (acceptance H1 — automated dry-run): files_touched=[], tests_pass=[`conda run -n pdf2md python tools/build_cross_references.py --backend regex --text tests/data/semantic_fixtures/sample_text.txt --out-dir /tmp/h1_export` → exit 0; `conda run -n pdf2md python tools/export_cross_ref_graph.py --xref /tmp/h1_export/cross_references.json --output /tmp/h1_export/graph.json --inline-viewer /tmp/h1_export/viewer.html` → exit 0, 19 nodes / 18 edges, viewer.html + graph.json written, top-level keys present], tests_fail_env=[browser rendering — agent cannot launch a browser; deferred to H1 human step], tests_fail_real=[]
 - automated_test_commands:
-    - `conda run -n pdf2md pytest tests/test_semantic_groundtruth.py tests/test_semantic_evaluation.py tests/test_run_semantic_benchmark_cli.py -q` → 19 passed
-    - `conda run -n pdf2md pytest tests/ -q --ignore=tests/_legacy_temp -x` → 989 passed, 212 skipped, 16 xfailed, 0 failed (Plan 006 baseline 970 → +19, no regressions)
-    - `conda run -n pdf2md python tools/run_semantic_benchmark.py --gt-dir groundtruth/corpus/latex/linked_sections_figures --backends regex --out-dir /tmp/semantic_bench_h1` → exit 0, 1 doc × 1 backend = 1 result row; GT has 4 markers
+    - `conda run -n pdf2md pytest tests/test_graph_export.py tests/test_export_cross_ref_graph_cli.py -q` → 13 passed
+    - `conda run -n pdf2md pytest tests/ -q --ignore=tests/_legacy_temp -x` → 1002 passed, 212 skipped, 16 xfailed, 0 failed (Plan 007 baseline 989 → +13, no regressions)
 - isolation_check:
-    - The GT parser is a stdlib-only + `pdf2md.models.cross_ref` module. It does not import from `src/pdf2md/{pipeline,cli,connectors,calibration,consensus,linking,export}/` or from `backend/`.
-    - The evaluation harness depends only on `pdf2md.models.cross_ref`.
-    - The benchmark CLI imports from `pdf2md.semantic` (Plan 006 adapters + Plan 007 new modules); no torch/transformers from the main env (`grep -rn "^import torch\|^import transformers" src/pdf2md/semantic/` → no matches).
+    - `graph_export.py` depends only on `pdf2md.models.cross_ref` (pydantic models). No imports of `backend/`, `webui/validator/`, `webui/shared/`, or any other Plan 005-007 module beyond models. No torch/transformers/Node.
+    - The static viewer loads D3 v7 from `https://cdn.jsdelivr.net/npm/d3@7` at runtime; no `package.json`/`package-lock.json` added to the repo and no npm install run in agent mode.
 - runner_contract_compliance:
-    - `generate_ground_truth(tex_path, output_dir, *, latexml_bin, timeout_s, source_ref)` matches the §2 signature and returns a `CrossReferenceGraph`.
-    - `evaluate_semantic(extracted, ground_truth, *, document_id, backend)` returns a fully-populated `SemanticEvalResult` dataclass.
-    - `tools/run_semantic_benchmark.py` exit codes 0/2/3 match the §4 specification (no exit-1 path because zero-marker output is informational, not an error — surfaces as warnings on stderr).
+    - `export_graph(xref, *, document_id=None, extra_entities=None) -> GraphExport` and `GraphExport.to_dict() -> dict` match the §2 signatures.
+    - `tools/export_cross_ref_graph.py` exit codes 0 (success) / 2 (bad input) match the §3 specification; the unused `1` exit code is intentionally absent (Plan 008_0 does not have a "ran but produced nothing meaningful" failure mode — the marker-only graph is the normal Plan 006 default and yields a valid renderable payload via synthetic unresolved edges).
 - dependencies_added: []
-- external_tools_used: [latexml]   # already installed at /usr/bin/latexml; no installer commands run; read-only subprocess
+- external_tools_used: []
 - forbidden_files_touched: []
 - environment_modifying_commands: []
 - blockers: []
