@@ -20,10 +20,10 @@ import importlib.util
 import sys
 import types
 from pathlib import Path
+from typing import cast
 
 from pdf2md.models.cross_ref import CrossReferenceGraph
 from pdf2md.semantic.base import SemanticBackend
-
 
 BACKEND_NAME = "grobid"
 BACKEND_VERSION = "0.1.0"
@@ -81,12 +81,21 @@ class GrobidSemanticBackend(SemanticBackend):
         self._connector_mod: types.ModuleType | None = None
 
     def name(self) -> str:
+        """Return the canonical backend identifier (``"grobid"``)."""
         return BACKEND_NAME
 
     def version(self) -> str:
+        """Return the pinned backend version string."""
         return BACKEND_VERSION
 
     def is_available(self) -> bool:
+        """Return whether GROBID is reachable at the configured endpoint.
+
+        Checks both that the standalone connector module exists on disk
+        AND that the GROBID server answers ``/api/isalive``. The
+        endpoint check is wrapped in a broad ``except`` because
+        connection failures and DNS errors all surface here.
+        """
         if not (_backend_root() / "connector.py").is_file():
             return False
         try:
@@ -104,6 +113,24 @@ class GrobidSemanticBackend(SemanticBackend):
         text: str | None,
         output_dir: Path,
     ) -> CrossReferenceGraph:
+        """Run GROBID's ``processFulltextDocument`` and parse the TEI.
+
+        Args:
+            pdf_path: Source PDF — required. ``text`` is unused because
+                GROBID consumes PDF bytes natively.
+            text: Ignored.
+            output_dir: Directory where the standalone connector writes
+                ``grobid_tei.xml`` and ``cross_references.json``.
+
+        Returns:
+            The :class:`CrossReferenceGraph` produced from the TEI
+            response.
+
+        Raises:
+            ValueError: When ``pdf_path`` is missing or not a file.
+            RuntimeError: When the standalone connector returns an
+                ``env_not_ready:`` warning (GROBID daemon unreachable).
+        """
         del text  # the GROBID backend works on the PDF directly
         if pdf_path is None or not pdf_path.is_file():
             raise ValueError(
@@ -126,7 +153,9 @@ class GrobidSemanticBackend(SemanticBackend):
         for warning in result.warnings:
             if warning.startswith("env_not_ready:"):
                 raise RuntimeError(warning)
-        return result.graph
+        # importlib-loaded module → mypy sees Any; cast back to the
+        # public schema type.
+        return cast(CrossReferenceGraph, result.graph)
 
     def _connector(self) -> types.ModuleType:
         if self._connector_mod is None:

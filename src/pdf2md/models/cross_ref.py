@@ -17,7 +17,6 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
-
 CROSS_REF_SCHEMA_VERSION: Literal["1.0.0"] = "1.0.0"
 
 
@@ -119,7 +118,7 @@ class RefEdge(_CrossRefBaseModel):
         return value
 
     @model_validator(mode="after")
-    def _validate_consistency(self) -> "RefEdge":
+    def _validate_consistency(self) -> RefEdge:
         if self.resolved and self.target_ref is None:
             raise ValueError("resolved=True requires a non-None target_ref")
         if not self.resolved and self.resolution_method != "unresolved":

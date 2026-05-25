@@ -27,10 +27,9 @@ Designed to be **book-friendly**:
 
 from __future__ import annotations
 
+from pdf2md.models.cross_ref import RefType
 from pdf2md.models.entities import EntityProposal, EntityProposalDocument, EntityType
 from pdf2md.semantic.resolver import ResolverCandidate
-from pdf2md.models.cross_ref import RefType
-
 
 # Map OCR entity types to semantic RefTypes. Captions are special-cased
 # (the EntityProposal's ``caption_kind`` metadata decides FIGURE vs
@@ -136,16 +135,17 @@ def _candidate_for(proposal: EntityProposal) -> ResolverCandidate | None:
     )
 
     if entity_type_str == EntityType.CAPTION.value:
-        result = _figure_or_table_label(proposal)
-        if result is None:
+        caption_result = _figure_or_table_label(proposal)
+        if caption_result is None:
             return None
-        ref_type, label = result
-        return ResolverCandidate(target_ref=proposal.id, entity_type=ref_type, label=label)
+        cap_ref_type, cap_label = caption_result
+        return ResolverCandidate(target_ref=proposal.id, entity_type=cap_ref_type, label=cap_label)
 
-    ref_type = _ENTITY_TYPE_TO_REF_TYPE.get(entity_type_str)
-    if ref_type is None:
+    looked_up = _ENTITY_TYPE_TO_REF_TYPE.get(entity_type_str)
+    if looked_up is None:
         return None
-
+    ref_type: RefType = looked_up
+    label: str | None
     if ref_type in (RefType.CHAPTER, RefType.SECTION):
         label = _section_or_chapter_label(proposal, ref_type)
     elif ref_type is RefType.EQUATION:
