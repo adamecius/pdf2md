@@ -1720,14 +1720,19 @@
       "label": "ent:deepseek:2401.12345:reference_item:195"
     },
     {
-      "id": "_unresolved",
-      "type": "unresolved",
-      "label": "(unresolved)"
+      "id": "ent:deepseek:2401.12345:equation:22",
+      "type": "equation",
+      "label": "ent:deepseek:2401.12345:equation:22"
     },
     {
       "id": "ent:deepseek:2401.12345:reference_item:196",
       "type": "bibliography",
       "label": "ent:deepseek:2401.12345:reference_item:196"
+    },
+    {
+      "id": "ent:deepseek:2401.12345:equation:23",
+      "type": "equation",
+      "label": "ent:deepseek:2401.12345:equation:23"
     },
     {
       "id": "ent:deepseek:2401.12345:reference_item:197",
@@ -1740,6 +1745,11 @@
       "label": "ent:deepseek:2401.12345:reference_item:199"
     },
     {
+      "id": "_unresolved",
+      "type": "unresolved",
+      "label": "(unresolved)"
+    },
+    {
       "id": "ent:deepseek:2401.12345:reference_item:202",
       "type": "bibliography",
       "label": "ent:deepseek:2401.12345:reference_item:202"
@@ -1750,6 +1760,11 @@
       "label": "ent:deepseek:2401.12345:reference_item:205"
     },
     {
+      "id": "ent:deepseek:2401.12345:equation:21",
+      "type": "equation",
+      "label": "ent:deepseek:2401.12345:equation:21"
+    },
+    {
       "id": "ent:deepseek:2401.12345:reference_item:210",
       "type": "bibliography",
       "label": "ent:deepseek:2401.12345:reference_item:210"
@@ -1758,6 +1773,16 @@
       "id": "ent:deepseek:2401.12345:reference_item:211",
       "type": "bibliography",
       "label": "ent:deepseek:2401.12345:reference_item:211"
+    },
+    {
+      "id": "ent:deepseek:2401.12345:equation:13",
+      "type": "equation",
+      "label": "ent:deepseek:2401.12345:equation:13"
+    },
+    {
+      "id": "ent:deepseek:2401.12345:equation:112",
+      "type": "equation",
+      "label": "ent:deepseek:2401.12345:equation:112"
     },
     {
       "id": "ent:deepseek:2401.12345:caption:151",
@@ -1966,10 +1991,10 @@
     },
     {
       "source": "marker:9:#/document:Eq. (11)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:2401.12345:equation:22",
       "marker_type": "equation",
       "label": "Eq. (11)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:10:#/document:[20]",
@@ -1980,10 +2005,10 @@
     },
     {
       "source": "marker:11:#/document:Eq. (12)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:2401.12345:equation:23",
       "marker_type": "equation",
       "label": "Eq. (12)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:12:#/document:[21]",
@@ -2127,10 +2152,10 @@
     },
     {
       "source": "marker:32:#/document:Eq. (11)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:2401.12345:equation:22",
       "marker_type": "equation",
       "label": "Eq. (11)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:33:#/document:Definition 3",
@@ -2218,10 +2243,10 @@
     },
     {
       "source": "marker:45:#/document:Eq. (10)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:2401.12345:equation:21",
       "marker_type": "equation",
       "label": "Eq. (10)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:46:#/document:Example 2",
@@ -2239,10 +2264,10 @@
     },
     {
       "source": "marker:48:#/document:Eq. (12)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:2401.12345:equation:23",
       "marker_type": "equation",
       "label": "Eq. (12)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:49:#/document:Example 3",
@@ -2414,10 +2439,10 @@
     },
     {
       "source": "marker:73:#/document:Eq. (4)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:2401.12345:equation:13",
       "marker_type": "equation",
       "label": "Eq. (4)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:74:#/document:(15.110)",
@@ -2477,10 +2502,10 @@
     },
     {
       "source": "marker:82:#/document:Eq. (70)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:2401.12345:equation:112",
       "marker_type": "equation",
       "label": "Eq. (70)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:83:#/document:[0, 0]",
@@ -2969,8 +2994,8 @@
   "metadata": {
     "doc_hash": "sha256:bad03db1791be9cd52d706ee8dd166bb3a710afa94c077d3308b7e8b023db106",
     "total_markers": 152,
-    "resolved_count": 83,
-    "unresolved_count": 69,
+    "resolved_count": 90,
+    "unresolved_count": 62,
     "backend_versions": {
       "regex": "0.1.0"
     }

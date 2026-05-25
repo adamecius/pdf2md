@@ -145,3 +145,64 @@ def test_does_not_split_isolated_bracket_citation_in_prose() -> None:
     # ends up inside it. We don't promote a one-off [N] line to a new
     # block because there's no second [N] nearby.
     assert _bib_block_count(md) == 0
+
+
+# ---------------------------------------------------------------------------
+# Equation-number extraction — handles DeepSeek's
+# ``\[ math \quad (N) \]`` shape (the (N) sits inside the LaTeX
+# delimiters before \]) and the LaTeX ``\tag{N}`` form.
+# ---------------------------------------------------------------------------
+def test_equation_number_extracted_when_paren_inside_delimiters() -> None:
+    """The trailing ``(N)`` sits inside ``\\[ ... \\]`` before the
+    closing bracket — DeepSeek's most common shape on ex02."""
+    md = "\\[ \\phi(x) = \\sum_{i=1}^{L} \\omega_i \\quad (1) \\]"
+    from pdf2md.connectors.common import markdown_to_pages, recognize_entities
+    pages = markdown_to_pages(md, backend="deepseek", backend_version=None,
+                              document_id="d", raw_ref="r", warnings=[])
+    doc = recognize_entities(pages, backend="deepseek", backend_version=None,
+                             document_id="d", warnings=[])
+    eqs = [e for e in doc.entities
+           if (e.entity_type.value if hasattr(e.entity_type, "value") else e.entity_type) == "equation"]
+    assert len(eqs) == 1
+    assert eqs[0].metadata.get("equation_number") == "1"
+
+
+def test_equation_number_extracted_from_latex_tag_command() -> None:
+    """``\\tag{N}`` form — used by some authored equations."""
+    md = "\\[ x + y = z \\tag{11} \\]"
+    from pdf2md.connectors.common import markdown_to_pages, recognize_entities
+    pages = markdown_to_pages(md, backend="deepseek", backend_version=None,
+                              document_id="d", raw_ref="r", warnings=[])
+    doc = recognize_entities(pages, backend="deepseek", backend_version=None,
+                             document_id="d", warnings=[])
+    eqs = [e for e in doc.entities
+           if (e.entity_type.value if hasattr(e.entity_type, "value") else e.entity_type) == "equation"]
+    assert eqs and eqs[0].metadata.get("equation_number") == "11"
+
+
+def test_equation_number_supports_dotted_form() -> None:
+    """Chapter-relative numbering ``(15.110)`` stays intact."""
+    md = "\\[ E = mc^2 \\quad (15.110) \\]"
+    from pdf2md.connectors.common import markdown_to_pages, recognize_entities
+    pages = markdown_to_pages(md, backend="deepseek", backend_version=None,
+                              document_id="d", raw_ref="r", warnings=[])
+    doc = recognize_entities(pages, backend="deepseek", backend_version=None,
+                             document_id="d", warnings=[])
+    eqs = [e for e in doc.entities
+           if (e.entity_type.value if hasattr(e.entity_type, "value") else e.entity_type) == "equation"]
+    assert eqs and eqs[0].metadata.get("equation_number") == "15.110"
+
+
+def test_equation_falls_back_to_next_block_when_inside_match_fails() -> None:
+    """Earlier behaviour preserved: if neither inline nor tag form
+    fires, the standalone ``(N)`` paragraph in the next block still
+    attributes its number."""
+    md = "\\[ E = mc^2 \\]\n\n(7)"
+    from pdf2md.connectors.common import markdown_to_pages, recognize_entities
+    pages = markdown_to_pages(md, backend="deepseek", backend_version=None,
+                              document_id="d", raw_ref="r", warnings=[])
+    doc = recognize_entities(pages, backend="deepseek", backend_version=None,
+                             document_id="d", warnings=[])
+    eqs = [e for e in doc.entities
+           if (e.entity_type.value if hasattr(e.entity_type, "value") else e.entity_type) == "equation"]
+    assert eqs and eqs[0].metadata.get("equation_number") == "7"

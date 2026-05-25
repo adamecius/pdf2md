@@ -1034,6 +1034,24 @@ def recognize_entities(
                 or re.search(r"\([0-9]+(?:\.[0-9]+)*\)\s*$", plain)
             ):
                 num = (re.search(r"\(([0-9]+(?:\.[0-9]+)*)\)\s*$", plain) or [None, None])[1]
+                if num is None and block.kind == BlockKind.FORMULA:
+                    # DeepSeek emits ``\[ math \quad (N) \]`` — the
+                    # ``(N)`` sits inside the LaTeX delimiters before
+                    # the closing ``\]``. Look for the rightmost
+                    # ``(N)`` in the block, optionally followed by
+                    # ``\]`` / whitespace / end-of-text.
+                    inner = re.search(
+                        r"\(([0-9]+(?:\.[0-9]+)*)\)\s*\\?\]?\s*$",
+                        plain,
+                    )
+                    if inner:
+                        num = inner.group(1)
+                    # LaTeX `\tag{N}` form — emitted by some VLM /
+                    # docling outputs of authored equations.
+                    if num is None:
+                        tag_m = re.search(r"\\tag\{([0-9]+(?:\.[0-9]+)*)\}", plain)
+                        if tag_m:
+                            num = tag_m.group(1)
                 # FORMULA blocks without trailing (N): peek at the next
                 # block on the same page. If it BEGINS with a "(N)" or
                 # is just "(N)" alone, attribute that number here.

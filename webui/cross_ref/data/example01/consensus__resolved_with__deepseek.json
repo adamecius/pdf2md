@@ -2789,9 +2789,9 @@
       "label": "ent:deepseek:1410.8140:footnote:34"
     },
     {
-      "id": "_unresolved",
-      "type": "unresolved",
-      "label": "(unresolved)"
+      "id": "ent:deepseek:1410.8140:equation:2",
+      "type": "equation",
+      "label": "ent:deepseek:1410.8140:equation:2"
     },
     {
       "id": "ent:deepseek:1410.8140:footnote:51",
@@ -2964,6 +2964,16 @@
       "label": "ent:deepseek:1410.8140:footnote:67"
     },
     {
+      "id": "ent:deepseek:1410.8140:equation:73",
+      "type": "equation",
+      "label": "ent:deepseek:1410.8140:equation:73"
+    },
+    {
+      "id": "ent:deepseek:1410.8140:equation:76",
+      "type": "equation",
+      "label": "ent:deepseek:1410.8140:equation:76"
+    },
+    {
       "id": "ent:deepseek:1410.8140:caption:89",
       "type": "figure",
       "label": "ent:deepseek:1410.8140:caption:89"
@@ -2972,6 +2982,66 @@
       "id": "ent:deepseek:1410.8140:caption:92",
       "type": "figure",
       "label": "ent:deepseek:1410.8140:caption:92"
+    },
+    {
+      "id": "ent:deepseek:1410.8140:equation:81",
+      "type": "equation",
+      "label": "ent:deepseek:1410.8140:equation:81"
+    },
+    {
+      "id": "ent:deepseek:1410.8140:equation:77",
+      "type": "equation",
+      "label": "ent:deepseek:1410.8140:equation:77"
+    },
+    {
+      "id": "ent:deepseek:1410.8140:equation:78",
+      "type": "equation",
+      "label": "ent:deepseek:1410.8140:equation:78"
+    },
+    {
+      "id": "ent:deepseek:1410.8140:equation:79",
+      "type": "equation",
+      "label": "ent:deepseek:1410.8140:equation:79"
+    },
+    {
+      "id": "ent:deepseek:1410.8140:equation:80",
+      "type": "equation",
+      "label": "ent:deepseek:1410.8140:equation:80"
+    },
+    {
+      "id": "ent:deepseek:1410.8140:equation:82",
+      "type": "equation",
+      "label": "ent:deepseek:1410.8140:equation:82"
+    },
+    {
+      "id": "ent:deepseek:1410.8140:equation:83",
+      "type": "equation",
+      "label": "ent:deepseek:1410.8140:equation:83"
+    },
+    {
+      "id": "ent:deepseek:1410.8140:equation:84",
+      "type": "equation",
+      "label": "ent:deepseek:1410.8140:equation:84"
+    },
+    {
+      "id": "ent:deepseek:1410.8140:equation:85",
+      "type": "equation",
+      "label": "ent:deepseek:1410.8140:equation:85"
+    },
+    {
+      "id": "ent:deepseek:1410.8140:equation:86",
+      "type": "equation",
+      "label": "ent:deepseek:1410.8140:equation:86"
+    },
+    {
+      "id": "ent:deepseek:1410.8140:equation:87",
+      "type": "equation",
+      "label": "ent:deepseek:1410.8140:equation:87"
+    },
+    {
+      "id": "_unresolved",
+      "type": "unresolved",
+      "label": "(unresolved)"
     }
   ],
   "edges": [
@@ -3131,10 +3201,10 @@
     },
     {
       "source": "marker:22:#/document:eq. (1)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:2",
       "marker_type": "equation",
       "label": "eq. (1)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:23:#/document:[16, 28]",
@@ -3712,10 +3782,10 @@
     },
     {
       "source": "marker:105:#/document:equation (11)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:73",
       "marker_type": "equation",
       "label": "equation (11)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:106:#/document:[1, 6, 7]",
@@ -3733,10 +3803,10 @@
     },
     {
       "source": "marker:108:#/document:Eq. (14)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:76",
       "marker_type": "equation",
       "label": "Eq. (14)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:109:#/document:[9, 10]",
@@ -4076,10 +4146,10 @@
     },
     {
       "source": "marker:157:#/document:1",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:2",
       "marker_type": "equation",
       "label": "1",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:158:#/document:[16,",
@@ -4286,10 +4356,10 @@
     },
     {
       "source": "marker:187:#/document:11",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:73",
       "marker_type": "equation",
       "label": "11",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:188:#/document:6,",
@@ -4314,10 +4384,10 @@
     },
     {
       "source": "marker:191:#/document:14",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:76",
       "marker_type": "equation",
       "label": "14",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:192:#/document:[9,",
@@ -4342,10 +4412,10 @@
     },
     {
       "source": "marker:195:#/document:19",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:81",
       "marker_type": "equation",
       "label": "19",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:196:#/document:(11)",
@@ -4370,52 +4440,52 @@
     },
     {
       "source": "marker:199:#/document/pages/7:Eq. (15)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:77",
       "marker_type": "equation",
       "label": "Eq. (15)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:200:#/document/pages/7:Eq. (16)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:78",
       "marker_type": "equation",
       "label": "Eq. (16)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:201:#/document/pages/7:Eq. (17)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:79",
       "marker_type": "equation",
       "label": "Eq. (17)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:202:#/document/pages/7:Eq. (18)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:80",
       "marker_type": "equation",
       "label": "Eq. (18)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:203:#/document/pages/7:Eq. (19)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:81",
       "marker_type": "equation",
       "label": "Eq. (19)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:204:#/document/pages/7:Eq. (20)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:82",
       "marker_type": "equation",
       "label": "Eq. (20)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:205:#/document/pages/7:Eq. (21)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:83",
       "marker_type": "equation",
       "label": "Eq. (21)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:206:#/document/pages/8:FIG. 4",
@@ -4426,31 +4496,31 @@
     },
     {
       "source": "marker:207:#/document/pages/8:Eq. (22)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:84",
       "marker_type": "equation",
       "label": "Eq. (22)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:208:#/document/pages/8:Eq. (23)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:85",
       "marker_type": "equation",
       "label": "Eq. (23)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:209:#/document/pages/8:Eq. (24)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:86",
       "marker_type": "equation",
       "label": "Eq. (24)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:210:#/document/pages/8:Eq. (25)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:87",
       "marker_type": "equation",
       "label": "Eq. (25)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:211:#/document/pages/9:FIG. 5. (a) \u27e8d\u03c3xy(E)\u27e9 as a function of R for \u03c6/\u03c60 \u2248 1 \u00d7 10\u22122, M = 3200, kBT = 0 and N = 2 \u00d7 400 \u00d7 400 sites.",
@@ -4468,10 +4538,10 @@
     },
     {
       "source": "marker:213:#/document/pages/10:Eq. (1)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:2",
       "marker_type": "equation",
       "label": "Eq. (1)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:214:#/document/pages/10:[1]",
@@ -4491,8 +4561,8 @@
   "metadata": {
     "doc_hash": "sha256:14e470cf2425286b3a04cde73e2ee7274d010a31726a1e5ce5703f1012d0f4bb",
     "total_markers": 216,
-    "resolved_count": 196,
-    "unresolved_count": 20,
+    "resolved_count": 215,
+    "unresolved_count": 1,
     "backend_versions": {
       "regex": "0.1.0",
       "grobid": "0.1.0",

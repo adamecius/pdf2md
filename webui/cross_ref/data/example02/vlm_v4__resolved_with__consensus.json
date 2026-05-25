@@ -657,19 +657,24 @@
       "label": "(unresolved)"
     },
     {
-      "id": "ent:consensus:example02:caption:78",
-      "type": "figure",
-      "label": "ent:consensus:example02:caption:78"
+      "id": "ent:consensus:example02:equation:20",
+      "type": "equation",
+      "label": "ent:consensus:example02:equation:20"
     },
     {
-      "id": "ent:consensus:example02:section:31",
+      "id": "ent:consensus:example02:caption:158",
+      "type": "figure",
+      "label": "ent:consensus:example02:caption:158"
+    },
+    {
+      "id": "ent:consensus:example02:section:110",
       "type": "section",
-      "label": "ent:consensus:example02:section:31"
+      "label": "ent:consensus:example02:section:110"
     },
     {
-      "id": "ent:consensus:example02:caption:26",
+      "id": "ent:consensus:example02:caption:98",
       "type": "figure",
-      "label": "ent:consensus:example02:caption:26"
+      "label": "ent:consensus:example02:caption:98"
     }
   ],
   "edges": [
@@ -689,14 +694,14 @@
     },
     {
       "source": "marker:2:#/document/pages/1:Eq. (11)",
-      "target": "_unresolved",
+      "target": "ent:consensus:example02:equation:20",
       "marker_type": "equation",
       "label": "Eq. (11)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:3:#/document/pages/1:FIG. 3",
-      "target": "ent:consensus:example02:caption:78",
+      "target": "ent:consensus:example02:caption:158",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true
@@ -766,7 +771,7 @@
     },
     {
       "source": "marker:13:#/document/pages/3:Section 3",
-      "target": "ent:consensus:example02:section:31",
+      "target": "ent:consensus:example02:section:110",
       "marker_type": "section",
       "label": "Section 3",
       "resolved": true
@@ -948,7 +953,7 @@
     },
     {
       "source": "marker:39:#/document/pages/11:FIG. 3",
-      "target": "ent:consensus:example02:caption:78",
+      "target": "ent:consensus:example02:caption:158",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true
@@ -1025,7 +1030,7 @@
     },
     {
       "source": "marker:50:#/document/pages/14:Fig. 1",
-      "target": "ent:consensus:example02:caption:26",
+      "target": "ent:consensus:example02:caption:98",
       "marker_type": "figure",
       "label": "Fig. 1",
       "resolved": true
@@ -1090,8 +1095,8 @@
   "metadata": {
     "doc_hash": "sha256:d6b7aff259de7c133b09b958fb1782ddf21da627c354b777b48e056beb2a57fb",
     "total_markers": 59,
-    "resolved_count": 4,
-    "unresolved_count": 55,
+    "resolved_count": 5,
+    "unresolved_count": 54,
     "backend_versions": {
       "vlm": "deepseek-ai/deepseek-vl2-small"
     }
