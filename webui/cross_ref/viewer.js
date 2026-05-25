@@ -12,6 +12,7 @@ const els = {
   example: $('#picker-example'),
   semantic: $('#picker-semantic'),
   ocr: $('#picker-ocr'),
+  docClass: $('#doc-class'),
   status: $('#status'),
   chart: d3.select('#chart'),
   tabs: document.querySelectorAll('.tab'),
@@ -99,6 +100,25 @@ async function reload() {
     return;
   }
 
+  // Document-class badge (Plan 7). The class lives in the entities
+  // file metadata, not the graph itself. Skip the fetch when no OCR
+  // is selected — without an OCR the badge has no source.
+  if (ocr) {
+    try {
+      const er = await fetch(`data/${ex}/entities_${ocr}.json${_cb}`);
+      if (er.ok) {
+        const ents = await er.json();
+        renderDocClassBadge(ents.metadata || {});
+      } else {
+        renderDocClassBadge({});
+      }
+    } catch {
+      renderDocClassBadge({});
+    }
+  } else {
+    renderDocClassBadge({});
+  }
+
   renderGraph(graph);
   renderStats(graph, { example: ex, semantic: sem, ocr });
   renderStructure(docling);
@@ -113,6 +133,28 @@ async function reload() {
 }
 
 function setStatus(text) { els.status.textContent = text; }
+
+
+function renderDocClassBadge(meta) {
+  if (!els.docClass) return;
+  const cls = meta.document_class;
+  if (!cls) {
+    els.docClass.textContent = '';
+    els.docClass.className = 'doc-class';
+    return;
+  }
+  const conf = meta.document_class_confidence;
+  const pct = (typeof conf === 'number') ? `  ${(conf * 100).toFixed(0)}%` : '';
+  els.docClass.textContent = `doc · ${cls}${pct}`;
+  els.docClass.className = `doc-class ${cls}`;
+  const feat = meta.document_class_features;
+  if (feat) {
+    els.docClass.title = `Plan 7 classifier — ${cls} (conf ${conf?.toFixed(2)})\n` +
+      `pages=${feat.page_count} chapters=${feat.chapter_count} ` +
+      `references=${feat.reference_section_count} index=${feat.index_section_count} ` +
+      `glossary=${feat.glossary_section_count}`;
+  }
+}
 
 // ---------------------------------------------------------------------------
 // Graph rendering

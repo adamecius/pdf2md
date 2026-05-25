@@ -28,6 +28,11 @@
       "id": "vlm_v4",
       "label": "DeepSeek-VL2 (v4 prompt)",
       "notes": "Vision-language model; works on page images. v4 prompt drops math types from the default."
+    },
+    {
+      "id": "consensus",
+      "label": "consensus (regex ∪ grobid ∪ vlm_v4)",
+      "notes": "Best-of-confidence merge of all three semantic backends via merge_graphs. The Plan 7 mixer down-weights GROBID on book-class inputs so regex/VLM win more tie-breaks."
     }
   ],
   "ocr_backends": [
