@@ -1,0 +1,15 @@
+name: pdf2md-deepseek-vl2
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+
+# All heavy deps (torch / torchvision / transformers / xformers / timm /
+# the deepseek-vl2 source package) are installed by setup.py, with the
+# correct CUDA index URL and the constraints file that pins
+# torch==2.0.1 cu118 + transformers==4.38.2 (the upstream-tested combo).
+#
+# This file intentionally mirrors backend/deepseek/environment.yml:
+# minimal conda env, with setup.py doing the CUDA-aware install.

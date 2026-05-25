@@ -20,7 +20,20 @@ from typing import Any
 
 import torch  # type: ignore[import-not-found]
 from PIL import Image  # type: ignore[import-not-found]
-from transformers import AutoModelForCausalLM, AutoProcessor  # type: ignore[import-not-found]
+
+# Use the upstream DeepSeek-VL2 classes directly. The `deepseek_vl_v2`
+# architecture is NOT registered in transformers' AutoModel registry —
+# `AutoModelForCausalLM.from_pretrained(..., trust_remote_code=True)`
+# fails with "Transformers does not recognize this architecture" because
+# the registration lookup happens before the remote code can run. The
+# upstream `deepseek_vl2` python package (installed by setup.py) provides
+# `DeepseekVLV2ForCausalLM` + `DeepseekVLV2Processor` as the canonical
+# load classes — this is exactly the pattern documented in the
+# DeepSeek-VL2 README.
+from deepseek_vl2.models import (  # type: ignore[import-not-found]
+    DeepseekVLV2ForCausalLM,
+    DeepseekVLV2Processor,
+)
 
 import prompt_templates
 
@@ -84,11 +97,10 @@ def load_model(settings: VlmSettings) -> tuple[Any, Any]:
     Returns:
         ``(model, processor)`` — both already on the target device.
     """
-    processor = AutoProcessor.from_pretrained(settings.model_id, trust_remote_code=True)
-    model = AutoModelForCausalLM.from_pretrained(
+    processor = DeepseekVLV2Processor.from_pretrained(settings.model_id)
+    model = DeepseekVLV2ForCausalLM.from_pretrained(
         settings.model_id,
         torch_dtype=settings.dtype,
-        trust_remote_code=True,
     )
     model = model.to(settings.device).eval()
     return model, processor
@@ -119,24 +131,36 @@ def extract_markers(
     image = Image.open(image_path).convert("RGB")
     messages = prompt_templates.build_messages()
 
-    inputs = processor(
+    # DeepSeek-VL2 has a non-standard inference flow (see
+    # deepseek_vl2/serve/inference.py and the upstream README):
+    #   1. processor(conversations=..., images=..., force_batchify=True)
+    #      returns a `BatchCollateOutput` dataclass, NOT a dict.
+    #   2. The dataclass has a `.to(device, dtype=...)` method that moves
+    #      images + input_ids together.
+    #   3. The model's `prepare_inputs_embeds(**prepare_inputs)` builds
+    #      the multi-modal embedding from the image and text tokens.
+    #   4. `model.language.generate(inputs_embeds=...)` runs the LLM.
+    prepare_inputs = processor(
         conversations=messages,
         images=[image],
-        return_tensors="pt",
-    )
-    inputs = {k: v.to(settings.device) if hasattr(v, "to") else v for k, v in inputs.items()}
+        force_batchify=True,
+    ).to(settings.device, dtype=settings.dtype)
 
     with torch.no_grad():
-        gen = model.generate(
-            **inputs,
+        inputs_embeds = model.prepare_inputs_embeds(**prepare_inputs)
+        gen = model.language.generate(
+            inputs_embeds=inputs_embeds,
+            attention_mask=prepare_inputs.attention_mask,
+            pad_token_id=processor.tokenizer.eos_token_id,
+            bos_token_id=processor.tokenizer.bos_token_id,
+            eos_token_id=processor.tokenizer.eos_token_id,
             max_new_tokens=settings.max_new_tokens,
             do_sample=settings.temperature > 0.0,
             temperature=max(settings.temperature, 1e-5),
+            use_cache=True,
         )
 
-    decoded = processor.batch_decode(gen, skip_special_tokens=True)[0]
-    raw = decoded[len(processor.batch_decode(inputs.get("input_ids", []), skip_special_tokens=True)[0]):] \
-        if "input_ids" in inputs else decoded
+    raw = processor.tokenizer.decode(gen[0].cpu().tolist(), skip_special_tokens=True)
 
     json_str = _strip_to_json(raw)
     try:

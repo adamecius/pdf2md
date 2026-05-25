@@ -89,9 +89,18 @@ def test_cli_vlm_returns_env_not_ready_without_conda_env(tmp_path: Path) -> None
             str(tmp_path),
         ]
     )
-    # Same logic as the GROBID test: in this sandbox the env is absent,
-    # but a future sandbox with the VLM env installed should also pass.
-    assert result.returncode in (0, 3), result.stderr
+    # The contract here is "no exit-2 bad-args case" — the args parse
+    # cleanly, the backend dispatches, and we either:
+    #   exit 0 — VLM env present + image was somehow valid (unlikely with the
+    #            corrupt 16-byte stub PNG above, but harmless if it happens),
+    #   exit 1 — VLM env present + the model load + inference crashes on the
+    #            stub PNG (the realistic outcome on a host where the user
+    #            has installed pdf2md-deepseek-vl2),
+    #   exit 3 — VLM env absent + the gating path catches it (the realistic
+    #            outcome on a clean host).
+    # Anything other than 0/1/3 (in particular: 2 from argparse) would be a
+    # CLI contract regression.
+    assert result.returncode in (0, 1, 3), result.stderr
     if result.returncode == 3:
         assert "env_not_ready" in result.stderr
 
