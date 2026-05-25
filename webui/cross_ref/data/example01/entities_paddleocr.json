@@ -937,7 +937,7 @@
     },
     {
       "id": "ent:paddleocr:1410.8140:footnote:31",
-      "entity_type": "footnote",
+      "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[5] R. N. Silver, H. Roeder, A. F. Voter and J. D. Kress, Journal of Computational Physics 124, 115-130 (1996).\n6A.Weisse and H. Fehske, Lect.Notes Phys. 739, 545577 (2008).",
       "page_no": 1,
@@ -959,15 +959,16 @@
           "metadata": {}
         }
       ],
-      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "calibration_key": "paddleocr:reference_item:implicit_bibliography_detector",
       "metadata": {
-        "detector": "footnote_detector",
-        "marker": "5"
+        "detector": "implicit_bibliography_detector",
+        "marker": "5",
+        "previous_detector": "footnote_detector"
       }
     },
     {
       "id": "ent:paddleocr:1410.8140:footnote:32",
-      "entity_type": "footnote",
+      "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[7] D. Jackson, American Mathematical Society Colloquium Publications D. Jackson, XI providence R. I. (1930).\n[8] D.A. Drabold and O.F. Sankey, Phys. Rev. Lett. 70 3631(1993).",
       "page_no": 1,
@@ -989,15 +990,16 @@
           "metadata": {}
         }
       ],
-      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "calibration_key": "paddleocr:reference_item:implicit_bibliography_detector",
       "metadata": {
-        "detector": "footnote_detector",
-        "marker": "7"
+        "detector": "implicit_bibliography_detector",
+        "marker": "7",
+        "previous_detector": "footnote_detector"
       }
     },
     {
       "id": "ent:paddleocr:1410.8140:footnote:33",
-      "entity_type": "footnote",
+      "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[9] Silver, R.N., and H. Rder Int. J. Mod. Phys. C 5 935 (1994).",
       "page_no": 1,
@@ -1019,15 +1021,16 @@
           "metadata": {}
         }
       ],
-      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "calibration_key": "paddleocr:reference_item:implicit_bibliography_detector",
       "metadata": {
-        "detector": "footnote_detector",
-        "marker": "9"
+        "detector": "implicit_bibliography_detector",
+        "marker": "9",
+        "previous_detector": "footnote_detector"
       }
     },
     {
       "id": "ent:paddleocr:1410.8140:footnote:34",
-      "entity_type": "footnote",
+      "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[10] Toshiaki Iitaka and Toshikazu Ebisuzakis,Phys. Rev. E 69 057701 (2004).",
       "page_no": 1,
@@ -1049,15 +1052,16 @@
           "metadata": {}
         }
       ],
-      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "calibration_key": "paddleocr:reference_item:implicit_bibliography_detector",
       "metadata": {
-        "detector": "footnote_detector",
-        "marker": "10"
+        "detector": "implicit_bibliography_detector",
+        "marker": "10",
+        "previous_detector": "footnote_detector"
       }
     },
     {
       "id": "ent:paddleocr:1410.8140:footnote:35",
-      "entity_type": "footnote",
+      "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[11] A. Bastin, C. Lewiner, O. Betbeder-Matibet et P. Nozieres, J. Phys, Chem. Solids 32 1-1824 (1971).\n[12] Cuda Perfomance Report, September 2014.",
       "page_no": 1,
@@ -1079,10 +1083,42 @@
           "metadata": {}
         }
       ],
-      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "calibration_key": "paddleocr:reference_item:implicit_bibliography_detector",
       "metadata": {
-        "detector": "footnote_detector",
-        "marker": "11"
+        "detector": "implicit_bibliography_detector",
+        "marker": "11",
+        "previous_detector": "footnote_detector"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:reference_section:36",
+      "entity_type": "reference_section",
+      "subtype": null,
+      "canonical_text": "[5] R. N. Silver, H. Roeder, A. F. Voter and J. D. Kress, Journal of Computational Physics 124, 115-130 (1996).\n6A.Weisse and H. Fehske, Lect.Notes Phys. 739, 545577 (2008).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b102"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "position",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b102",
+          "raw_ref": "output.md",
+          "text": "[5] R. N. Silver, H. Roeder, A. F. Voter and J. D. Kress, Journal of Computational Physics 124, 115-130 (1996).\n6A.Weisse and H. Fehske, Lect.Notes Phys. 739, 545577 (2008).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "implicit_bibliography_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_section:implicit_bibliography_detector",
+      "metadata": {
+        "detector": "implicit_bibliography_detector",
+        "trigger": "tail_run_of_numbered_paragraphs",
+        "run_size": 5
       }
     }
   ],
@@ -1901,6 +1937,78 @@
       ],
       "metadata": {
         "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:35",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:35",
+      "target_entity_id": "ent:paddleocr:1410.8140:reference_section:36",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b106",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:36",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:33",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:34",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b104",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:37",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:34",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:35",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b105",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
       }
     }
   ],

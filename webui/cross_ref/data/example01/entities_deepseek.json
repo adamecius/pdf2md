@@ -2883,7 +2883,7 @@
     },
     {
       "id": "ent:deepseek:1410.8140:footnote:96",
-      "entity_type": "footnote",
+      "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[1] Alexander Weisse, Gerhard Wellein, Andreas Alvermann and Holger Fehske, Rev. Mod. Phys. 78, 275 (2006).",
       "page_no": 9,
@@ -2905,15 +2905,16 @@
           "metadata": {}
         }
       ],
-      "calibration_key": "deepseek:footnote:footnote_detector",
+      "calibration_key": "deepseek:reference_item:implicit_bibliography_detector",
       "metadata": {
-        "detector": "footnote_detector",
-        "marker": "1"
+        "detector": "implicit_bibliography_detector",
+        "marker": "1",
+        "previous_detector": "footnote_detector"
       }
     },
     {
       "id": "ent:deepseek:1410.8140:footnote:97",
-      "entity_type": "footnote",
+      "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[2] L. Covaci, F. M. Peeters and M. Berciu, Phys. Rev. Lett. 105, 167006 (2010).",
       "page_no": 9,
@@ -2935,15 +2936,16 @@
           "metadata": {}
         }
       ],
-      "calibration_key": "deepseek:footnote:footnote_detector",
+      "calibration_key": "deepseek:reference_item:implicit_bibliography_detector",
       "metadata": {
-        "detector": "footnote_detector",
-        "marker": "2"
+        "detector": "implicit_bibliography_detector",
+        "marker": "2",
+        "previous_detector": "footnote_detector"
       }
     },
     {
       "id": "ent:deepseek:1410.8140:footnote:98",
-      "entity_type": "footnote",
+      "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[3] Holger Fehske, Jens Schleede, Gerald Schubert, Gerhard Wellein, Vladimir S. Filinov, Alan R. Bishop, Phys. Lett. A 373, 2182 (2009).",
       "page_no": 9,
@@ -2965,15 +2967,16 @@
           "metadata": {}
         }
       ],
-      "calibration_key": "deepseek:footnote:footnote_detector",
+      "calibration_key": "deepseek:reference_item:implicit_bibliography_detector",
       "metadata": {
-        "detector": "footnote_detector",
-        "marker": "3"
+        "detector": "implicit_bibliography_detector",
+        "marker": "3",
+        "previous_detector": "footnote_detector"
       }
     },
     {
       "id": "ent:deepseek:1410.8140:footnote:99",
-      "entity_type": "footnote",
+      "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[4] J. B. Wang and T. T. Scholz, Phys. Rev. A 5, 57 (1998).",
       "page_no": 9,
@@ -2995,15 +2998,16 @@
           "metadata": {}
         }
       ],
-      "calibration_key": "deepseek:footnote:footnote_detector",
+      "calibration_key": "deepseek:reference_item:implicit_bibliography_detector",
       "metadata": {
-        "detector": "footnote_detector",
-        "marker": "4"
+        "detector": "implicit_bibliography_detector",
+        "marker": "4",
+        "previous_detector": "footnote_detector"
       }
     },
     {
       "id": "ent:deepseek:1410.8140:footnote:100",
-      "entity_type": "footnote",
+      "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[5] R. N. Silver, H. Roeder, A. F. Voter and J. D. Kress, Journal of Computational Physics 124, 115-130 (1996).",
       "page_no": 9,
@@ -3025,15 +3029,16 @@
           "metadata": {}
         }
       ],
-      "calibration_key": "deepseek:footnote:footnote_detector",
+      "calibration_key": "deepseek:reference_item:implicit_bibliography_detector",
       "metadata": {
-        "detector": "footnote_detector",
-        "marker": "5"
+        "detector": "implicit_bibliography_detector",
+        "marker": "5",
+        "previous_detector": "footnote_detector"
       }
     },
     {
       "id": "ent:deepseek:1410.8140:footnote:101",
-      "entity_type": "footnote",
+      "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[6] A. Weisse and H. Fehske, Lect. Notes Phys. 739, 545577 (2008).",
       "page_no": 9,
@@ -3055,15 +3060,16 @@
           "metadata": {}
         }
       ],
-      "calibration_key": "deepseek:footnote:footnote_detector",
+      "calibration_key": "deepseek:reference_item:implicit_bibliography_detector",
       "metadata": {
-        "detector": "footnote_detector",
-        "marker": "6"
+        "detector": "implicit_bibliography_detector",
+        "marker": "6",
+        "previous_detector": "footnote_detector"
       }
     },
     {
       "id": "ent:deepseek:1410.8140:footnote:102",
-      "entity_type": "footnote",
+      "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[7] D. Jackson, American Mathematical Society Colloquium Publications D. Jackson, XI providence R. I. (1930).",
       "page_no": 10,
@@ -3085,15 +3091,16 @@
           "metadata": {}
         }
       ],
-      "calibration_key": "deepseek:footnote:footnote_detector",
+      "calibration_key": "deepseek:reference_item:implicit_bibliography_detector",
       "metadata": {
-        "detector": "footnote_detector",
-        "marker": "7"
+        "detector": "implicit_bibliography_detector",
+        "marker": "7",
+        "previous_detector": "footnote_detector"
       }
     },
     {
       "id": "ent:deepseek:1410.8140:footnote:103",
-      "entity_type": "footnote",
+      "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[8] D. A. Drabold and O. F. Sankey, Phys. Rev. Lett. 70 3631(1993).",
       "page_no": 10,
@@ -3115,15 +3122,16 @@
           "metadata": {}
         }
       ],
-      "calibration_key": "deepseek:footnote:footnote_detector",
+      "calibration_key": "deepseek:reference_item:implicit_bibliography_detector",
       "metadata": {
-        "detector": "footnote_detector",
-        "marker": "8"
+        "detector": "implicit_bibliography_detector",
+        "marker": "8",
+        "previous_detector": "footnote_detector"
       }
     },
     {
       "id": "ent:deepseek:1410.8140:footnote:104",
-      "entity_type": "footnote",
+      "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[9] Silver, R. N., and H. Rder Int. J. Mod. Phys. C 5 935 (1994).",
       "page_no": 10,
@@ -3145,15 +3153,16 @@
           "metadata": {}
         }
       ],
-      "calibration_key": "deepseek:footnote:footnote_detector",
+      "calibration_key": "deepseek:reference_item:implicit_bibliography_detector",
       "metadata": {
-        "detector": "footnote_detector",
-        "marker": "9"
+        "detector": "implicit_bibliography_detector",
+        "marker": "9",
+        "previous_detector": "footnote_detector"
       }
     },
     {
       "id": "ent:deepseek:1410.8140:footnote:105",
-      "entity_type": "footnote",
+      "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[10] Toshiaki Iitaka and Toshikazu Ebisuzakis, Phys. Rev. E 69 057701 (2004).",
       "page_no": 10,
@@ -3175,15 +3184,16 @@
           "metadata": {}
         }
       ],
-      "calibration_key": "deepseek:footnote:footnote_detector",
+      "calibration_key": "deepseek:reference_item:implicit_bibliography_detector",
       "metadata": {
-        "detector": "footnote_detector",
-        "marker": "10"
+        "detector": "implicit_bibliography_detector",
+        "marker": "10",
+        "previous_detector": "footnote_detector"
       }
     },
     {
       "id": "ent:deepseek:1410.8140:footnote:106",
-      "entity_type": "footnote",
+      "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[11] A. Bastin, C. Lewiner, O. Betbeder-Matibet et P. Nozieres, J. Phys, Chem. Solids 32 1-1824 (1971).",
       "page_no": 10,
@@ -3205,15 +3215,16 @@
           "metadata": {}
         }
       ],
-      "calibration_key": "deepseek:footnote:footnote_detector",
+      "calibration_key": "deepseek:reference_item:implicit_bibliography_detector",
       "metadata": {
-        "detector": "footnote_detector",
-        "marker": "11"
+        "detector": "implicit_bibliography_detector",
+        "marker": "11",
+        "previous_detector": "footnote_detector"
       }
     },
     {
       "id": "ent:deepseek:1410.8140:footnote:107",
-      "entity_type": "footnote",
+      "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[12] Cuda Performance Report, September 2014.",
       "page_no": 10,
@@ -3235,10 +3246,42 @@
           "metadata": {}
         }
       ],
-      "calibration_key": "deepseek:footnote:footnote_detector",
+      "calibration_key": "deepseek:reference_item:implicit_bibliography_detector",
       "metadata": {
-        "detector": "footnote_detector",
-        "marker": "12"
+        "detector": "implicit_bibliography_detector",
+        "marker": "12",
+        "previous_detector": "footnote_detector"
+      }
+    },
+    {
+      "id": "ent:deepseek:1410.8140:reference_section:108",
+      "entity_type": "reference_section",
+      "subtype": null,
+      "canonical_text": "[1] Alexander Weisse, Gerhard Wellein, Andreas Alvermann and Holger Fehske, Rev. Mod. Phys. 78, 275 (2006).",
+      "page_no": 9,
+      "block_ids": [
+        "deepseek:1410.8140:p9:b7"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "position",
+          "page_no": 9,
+          "source_block_id": "deepseek:1410.8140:p9:b7",
+          "raw_ref": "output.md",
+          "text": "[1] Alexander Weisse, Gerhard Wellein, Andreas Alvermann and Holger Fehske, Rev. Mod. Phys. 78, 275 (2006).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "implicit_bibliography_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "deepseek:reference_section:implicit_bibliography_detector",
+      "metadata": {
+        "detector": "implicit_bibliography_detector",
+        "trigger": "tail_run_of_numbered_paragraphs",
+        "run_size": 12
       }
     }
   ],
@@ -5598,6 +5641,30 @@
     {
       "id": "rel:deepseek:1410.8140:99",
       "relation_type": "near",
+      "source_entity_id": "ent:deepseek:1410.8140:footnote:101",
+      "target_entity_id": "ent:deepseek:1410.8140:reference_section:108",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 9,
+          "source_block_id": "deepseek:1410.8140:p9:b12",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:deepseek:1410.8140:100",
+      "relation_type": "near",
       "source_entity_id": "ent:deepseek:1410.8140:footnote:102",
       "target_entity_id": "ent:deepseek:1410.8140:footnote:103",
       "confidence": 0.25,
@@ -5620,7 +5687,7 @@
       }
     },
     {
-      "id": "rel:deepseek:1410.8140:100",
+      "id": "rel:deepseek:1410.8140:101",
       "relation_type": "near",
       "source_entity_id": "ent:deepseek:1410.8140:footnote:103",
       "target_entity_id": "ent:deepseek:1410.8140:footnote:104",
@@ -5644,7 +5711,7 @@
       }
     },
     {
-      "id": "rel:deepseek:1410.8140:101",
+      "id": "rel:deepseek:1410.8140:102",
       "relation_type": "near",
       "source_entity_id": "ent:deepseek:1410.8140:footnote:104",
       "target_entity_id": "ent:deepseek:1410.8140:footnote:105",
@@ -5668,7 +5735,7 @@
       }
     },
     {
-      "id": "rel:deepseek:1410.8140:102",
+      "id": "rel:deepseek:1410.8140:103",
       "relation_type": "near",
       "source_entity_id": "ent:deepseek:1410.8140:footnote:105",
       "target_entity_id": "ent:deepseek:1410.8140:footnote:106",
@@ -5692,7 +5759,7 @@
       }
     },
     {
-      "id": "rel:deepseek:1410.8140:103",
+      "id": "rel:deepseek:1410.8140:104",
       "relation_type": "near",
       "source_entity_id": "ent:deepseek:1410.8140:footnote:106",
       "target_entity_id": "ent:deepseek:1410.8140:footnote:107",
@@ -5716,7 +5783,7 @@
       }
     },
     {
-      "id": "rel:deepseek:1410.8140:104",
+      "id": "rel:deepseek:1410.8140:105",
       "relation_type": "sequence_next",
       "source_entity_id": "ent:deepseek:1410.8140:caption:8",
       "target_entity_id": "ent:deepseek:1410.8140:caption:13",
@@ -5740,7 +5807,7 @@
       }
     },
     {
-      "id": "rel:deepseek:1410.8140:105",
+      "id": "rel:deepseek:1410.8140:106",
       "relation_type": "sequence_next",
       "source_entity_id": "ent:deepseek:1410.8140:caption:13",
       "target_entity_id": "ent:deepseek:1410.8140:caption:19",
@@ -5764,7 +5831,7 @@
       }
     },
     {
-      "id": "rel:deepseek:1410.8140:106",
+      "id": "rel:deepseek:1410.8140:107",
       "relation_type": "sequence_next",
       "source_entity_id": "ent:deepseek:1410.8140:caption:19",
       "target_entity_id": "ent:deepseek:1410.8140:caption:91",
@@ -5788,7 +5855,7 @@
       }
     },
     {
-      "id": "rel:deepseek:1410.8140:107",
+      "id": "rel:deepseek:1410.8140:108",
       "relation_type": "sequence_next",
       "source_entity_id": "ent:deepseek:1410.8140:caption:91",
       "target_entity_id": "ent:deepseek:1410.8140:caption:94",
@@ -5799,6 +5866,270 @@
           "kind": "document_context",
           "page_no": 8,
           "source_block_id": "deepseek:1410.8140:p8:b10",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:deepseek:1410.8140:109",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:deepseek:1410.8140:footnote:96",
+      "target_entity_id": "ent:deepseek:1410.8140:footnote:97",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 9,
+          "source_block_id": "deepseek:1410.8140:p9:b7",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:deepseek:1410.8140:110",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:deepseek:1410.8140:footnote:97",
+      "target_entity_id": "ent:deepseek:1410.8140:footnote:98",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 9,
+          "source_block_id": "deepseek:1410.8140:p9:b8",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:deepseek:1410.8140:111",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:deepseek:1410.8140:footnote:98",
+      "target_entity_id": "ent:deepseek:1410.8140:footnote:99",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 9,
+          "source_block_id": "deepseek:1410.8140:p9:b9",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:deepseek:1410.8140:112",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:deepseek:1410.8140:footnote:99",
+      "target_entity_id": "ent:deepseek:1410.8140:footnote:100",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 9,
+          "source_block_id": "deepseek:1410.8140:p9:b10",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:deepseek:1410.8140:113",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:deepseek:1410.8140:footnote:100",
+      "target_entity_id": "ent:deepseek:1410.8140:footnote:101",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 9,
+          "source_block_id": "deepseek:1410.8140:p9:b11",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:deepseek:1410.8140:114",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:deepseek:1410.8140:footnote:101",
+      "target_entity_id": "ent:deepseek:1410.8140:footnote:102",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 9,
+          "source_block_id": "deepseek:1410.8140:p9:b12",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:deepseek:1410.8140:115",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:deepseek:1410.8140:footnote:102",
+      "target_entity_id": "ent:deepseek:1410.8140:footnote:103",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 10,
+          "source_block_id": "deepseek:1410.8140:p10:b0",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:deepseek:1410.8140:116",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:deepseek:1410.8140:footnote:103",
+      "target_entity_id": "ent:deepseek:1410.8140:footnote:104",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 10,
+          "source_block_id": "deepseek:1410.8140:p10:b1",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:deepseek:1410.8140:117",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:deepseek:1410.8140:footnote:104",
+      "target_entity_id": "ent:deepseek:1410.8140:footnote:105",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 10,
+          "source_block_id": "deepseek:1410.8140:p10:b2",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:deepseek:1410.8140:118",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:deepseek:1410.8140:footnote:105",
+      "target_entity_id": "ent:deepseek:1410.8140:footnote:106",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 10,
+          "source_block_id": "deepseek:1410.8140:p10:b3",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:deepseek:1410.8140:119",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:deepseek:1410.8140:footnote:106",
+      "target_entity_id": "ent:deepseek:1410.8140:footnote:107",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 10,
+          "source_block_id": "deepseek:1410.8140:p10:b4",
           "raw_ref": null,
           "text": null,
           "bbox": null,
