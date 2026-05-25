@@ -42,6 +42,34 @@ class ConnectorResult:
     warnings: list[str]
 
 
+# Avoid a top-level import cycle: the semantic-layer schema lives under
+# `pdf2md.models.cross_ref` and is only used by `SemanticConnectorResult`
+# below — we re-export the name via a TYPE_CHECKING-guarded forward
+# reference so existing `from pdf2md.connectors.common import ...`
+# call-sites keep working.
+from pdf2md.models.cross_ref import CrossReferenceGraph as _CrossReferenceGraph
+
+
+@dataclass(frozen=True)
+class SemanticConnectorResult:
+    """Output of a single semantic-backend connector run.
+
+    Parallels :class:`ConnectorResult` for the semantic layer. The
+    return-type shape is intentionally different from the OCR
+    `ConnectorResult` because the two layers cover different domains
+    (extraction IR vs. cross-reference graph), but the ``warnings``
+    field is identical so downstream code can handle both uniformly.
+
+    Attributes:
+        graph: The cross-reference graph the backend produced.
+        warnings: Connector warnings (env_not_ready notes, model fell
+            back to CPU, parse-error fallback to empty graph, etc.).
+    """
+
+    graph: _CrossReferenceGraph
+    warnings: list[str]
+
+
 @dataclass(frozen=True)
 class BackendConnectorConfig:
     """Connector configuration for a single backend.
