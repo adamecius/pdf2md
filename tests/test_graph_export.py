@@ -149,3 +149,131 @@ def test_export_unique_marker_nodes_for_repeated_text() -> None:
         n for n in result.nodes if n.get("type") == RefType.FIGURE.value
     ]
     assert len(figure_marker_nodes) == 2
+
+
+# ---------------------------------------------------------------------------
+# Schema 1.1 — hierarchy export (document → page → entity backbone).
+# ---------------------------------------------------------------------------
+from pdf2md.models.entities import (
+    ConfidenceSource,
+    EntityEvidence,
+    EntityProposal,
+    EntityProposalDocument,
+    EntityType,
+    EvidenceKind,
+    entity_id,
+)
+
+
+def _ent(backend: str, doc: str, et: EntityType, idx: int, *, page_no: int):
+    return EntityProposal(
+        id=entity_id(backend, doc, et, idx),
+        entity_type=et,
+        subtype=None,
+        canonical_text="",
+        page_no=page_no,
+        block_ids=[],
+        confidence=0.5,
+        confidence_source=ConfidenceSource.HEURISTIC,
+        evidence=[EntityEvidence(
+            kind=EvidenceKind.BLOCK_TEXT, page_no=page_no, source_block_id=None,
+            raw_ref="r", text="", bbox=None, weight=1.0, reason="d", metadata={},
+        )],
+        calibration_key=f"{backend}:{et.value}:detector",
+        metadata={"detector": "detector"},
+    )
+
+
+def _proposals(entities) -> EntityProposalDocument:
+    return EntityProposalDocument(
+        document_id="d", backend="mineru", backend_version=None,
+        page_count=10, entities=entities, relations=[], warnings=[], metadata={},
+    )
+
+
+def test_hierarchy_omitted_when_proposals_missing() -> None:
+    """Schema 1.0 backwards-compat: no document/page nodes, no edge_kind."""
+    graph = CrossReferenceGraph(doc_hash="sha256:noh")
+    export = export_graph(graph)
+    types = {n["type"] for n in export.nodes}
+    assert "document" not in types
+    assert "page" not in types
+    assert export.metadata["has_hierarchy"] is False
+
+
+def test_hierarchy_emits_document_and_page_nodes() -> None:
+    entities = [
+        _ent("mineru", "d", EntityType.FIGURE, 1, page_no=2),
+        _ent("mineru", "d", EntityType.FIGURE, 2, page_no=5),
+    ]
+    proposals = _proposals(entities)
+    sem_entities = [
+        SemanticEntity(item_ref=entities[0].id, entity_type=RefType.FIGURE,
+                       label="Figure 1", confidence=1.0, backend="grobid"),
+        SemanticEntity(item_ref=entities[1].id, entity_type=RefType.FIGURE,
+                       label="Figure 2", confidence=1.0, backend="grobid"),
+    ]
+    graph = CrossReferenceGraph(doc_hash="sha256:h", entities=sem_entities)
+    export = export_graph(graph, document_id="d", proposals=proposals)
+
+    types = {n["type"] for n in export.nodes}
+    assert "document" in types
+    assert "page" in types
+    pages = sorted(int(n["page_no"]) for n in export.nodes if n["type"] == "page")
+    assert pages == [2, 5]
+    assert export.metadata["has_hierarchy"] is True
+
+
+def test_hierarchy_emits_containment_edges_document_page_entity() -> None:
+    entities = [_ent("mineru", "d", EntityType.FIGURE, 1, page_no=3)]
+    graph = CrossReferenceGraph(
+        doc_hash="sha256:c",
+        entities=[SemanticEntity(
+            item_ref=entities[0].id, entity_type=RefType.FIGURE,
+            label="Figure 1", confidence=1.0, backend="grobid",
+        )],
+    )
+    export = export_graph(graph, document_id="d", proposals=_proposals(entities))
+    contains = [e for e in export.edges if e.get("edge_kind") == "contains"]
+    sources = {e["source"] for e in contains}
+    targets = {e["target"] for e in contains}
+    assert "document:d" in sources
+    # The figure entity's containment edge should target the entity id.
+    assert entities[0].id in targets
+
+
+def test_reference_items_attach_to_bibliography_section_not_page() -> None:
+    """The user-visible 'bibliography looks orphan' fix — REFERENCE_ITEM
+    entities cluster under a bibliography section, not their physical
+    page."""
+    ref1 = _ent("mineru", "d", EntityType.REFERENCE_ITEM, 1, page_no=8)
+    ref2 = _ent("mineru", "d", EntityType.REFERENCE_ITEM, 2, page_no=8)
+    proposals = _proposals([ref1, ref2])
+    graph = CrossReferenceGraph(
+        doc_hash="sha256:bib",
+        entities=[
+            SemanticEntity(item_ref=ref1.id, entity_type=RefType.BIBLIOGRAPHY,
+                           label="[1]", confidence=1.0, backend="grobid"),
+            SemanticEntity(item_ref=ref2.id, entity_type=RefType.BIBLIOGRAPHY,
+                           label="[2]", confidence=1.0, backend="grobid"),
+        ],
+    )
+    export = export_graph(graph, document_id="d", proposals=proposals)
+    section_nodes = [n for n in export.nodes if n["type"] == "bibliography_section"]
+    assert len(section_nodes) == 1
+    section_id = section_nodes[0]["id"]
+    # The contains edges from the section node should reach both refs.
+    contains = [e for e in export.edges if e.get("edge_kind") == "contains" and e["source"] == section_id]
+    assert {e["target"] for e in contains} == {ref1.id, ref2.id}
+
+
+def test_cross_reference_edges_get_edge_kind_field() -> None:
+    marker = _make_marker("Figure 1", RefType.FIGURE)
+    graph = CrossReferenceGraph(
+        doc_hash="sha256:e", markers=[marker],
+        edges=[RefEdge(marker=marker, target_ref="ent:mineru:d:figure:1",
+                       resolved=True, resolution_method="exact")],
+    )
+    export = export_graph(graph, document_id="d")
+    xref_edges = [e for e in export.edges if e.get("edge_kind") == "cross_reference"]
+    assert len(xref_edges) >= 1

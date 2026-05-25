@@ -103,16 +103,20 @@ main {
 .legend-key { display: inline-flex; align-items: center; gap: 0.3rem; }
 .legend-key.resolved::before {
   content: ""; display: inline-block; width: 18px; height: 2px;
-  background: #1f8a4c; vertical-align: middle;
+  background: #2ca02c; vertical-align: middle;
 }
 .legend-key.unresolved::before {
   content: ""; display: inline-block; width: 18px; height: 0;
-  border-top: 2px dashed #c0392b; vertical-align: middle;
+  border-top: 2px solid #d62728; vertical-align: middle;
+}
+.legend-key.contains::before {
+  content: ""; display: inline-block; width: 18px; height: 0;
+  border-top: 1px solid #cbd2d8; vertical-align: middle;
 }
 
-.link { stroke: #999; stroke-opacity: 0.6; }
-.link.resolved { stroke: #1f8a4c; stroke-opacity: 0.85; }
-.link.unresolved { stroke: #c0392b; stroke-dasharray: 4 3; stroke-opacity: 0.55; }
+.link.xref.resolved { stroke: #2ca02c; }
+.link.xref.unresolved { stroke: #d62728; stroke-dasharray: 5 3; }
+.link.contains { stroke: #cbd2d8; }
 
 .node circle { stroke: #fff; stroke-width: 1.5px; }
 .node text { font-size: 10px; pointer-events: none; fill: #333; }
