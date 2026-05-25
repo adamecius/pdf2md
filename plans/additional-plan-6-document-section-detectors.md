@@ -44,8 +44,12 @@ upgrade, mineru/paddleocr block-fusion fix, duplicate-bib promotion.
 Required previous plan status:
 PR #124 merged.
 
-Next plan after completion:
-Additional Plan 7 — OCR-side IR enrichment (bbox + font metadata).
+Next plans after completion:
+* Additional Plan 7 — Document-class classifier (article / book / document)
+  so the semantic-layer detectors can adapt to the source. Filed because
+  GROBID is article-trained and does not natively handle books.
+* Additional Plan 8 — OCR-side IR enrichment (bbox + font metadata) for
+  bottom-of-page / small-font footnote enforcement.
 
 Branch name:
 additional-plan-6-document-section-detectors
@@ -149,32 +153,65 @@ class EntityType(str, Enum):
 ### 3.3 New cross-link relations
 
 The existing `RelationType.TOC_POINTS_TO` already models "this entry
-points at that page / section." Reuse it for both:
+points at that page / section." Reuse it for:
 
-* `INDEX_ENTRY` → matching `SECTION` / `CHAPTER` (by page number).
-* `TOC_ENTRY` → matching `SECTION` / `CHAPTER` (already partially modeled;
-  this plan formalises it).
+* `INDEX_ENTRY` → matching `SECTION` / `CHAPTER`. **Emit BOTH** kinds of
+  match when both exist:
+  * Page-number match — for every page number in `index_pages`, find
+    the SECTION / CHAPTER whose `page_no` equals that page; emit one
+    edge per match.
+  * Heading-text match — if the index term itself matches a chapter or
+    section heading (case-insensitive substring against the heading's
+    `canonical_text`), emit an additional edge to that section. This
+    catches index entries like `Hall effect, 5, 17, 42` where there's
+    also a `# Hall effect` chapter heading elsewhere in the document.
+
+  Each edge carries `metadata.match_strategy` set to `page` or
+  `heading_text` so consumers can distinguish.
+
+* `TOC_ENTRY` → matching `SECTION` / `CHAPTER` by page number (this is
+  already partially modeled by the existing detector; this plan
+  formalises it and ensures the relation is emitted).
 
 For glossary entries:
 
-* `GLOSSARY_ENTRY` → first body mention of the term, via a new relation
-  `RelationType.GLOSSARY_DEFINES = "glossary_defines"` (pointing from
-  glossary entry to a body block where the term first appears).
+* `GLOSSARY_ENTRY` → body blocks on the pages *explicitly listed in the
+  glossary entry itself*, via a new relation
+  `RelationType.GLOSSARY_DEFINES = "glossary_defines"`. The glossary
+  entry text is expected to carry a page-list (mirroring index entries),
+  e.g. `Conductivity, 12, 47-49` or `Berry phase ... 8-10`. We link
+  ONLY to body content on those pages — no substring scanning of the
+  body for term occurrences, since (a) it produces noisy matches on
+  author names / partial words, and (b) glossaries typically list the
+  defining pages explicitly.
 
-The body-mention resolution is best-effort case-insensitive substring
-match. If multiple candidates exist, pick the *earliest* by `(page_no,
-block.order)`.
+  If multiple body blocks live on a listed page, emit one edge per
+  block on that page; downstream consumers can deduplicate by section
+  membership.
+
+  If the glossary entry has no page list (definition-only glossary,
+  e.g. `Conductivity — the property of a material...`), emit a
+  GLOSSARY_ENTRY entity but NO `GLOSSARY_DEFINES` edges. The detector
+  records `metadata.has_page_list = False` so audits can see this case.
 
 ### 3.4 Semantic-layer integration
 
-`src/pdf2md/semantic/resolver.py` adds an `_try_index` strategy mirroring
-`_try_bibliography`:
+The semantic-layer resolver (`src/pdf2md/semantic/resolver.py`) is
+**not** touched in this plan.
 
-* An index-style marker (e.g. a body block referring to a glossary term)
-  is matched against `GLOSSARY_ENTRY` candidates by term identity.
-* (Index markers and glossary markers are not yet emitted by any semantic
-  backend; this plan only adds the resolver path. Backend support is a
-  follow-up.)
+The rationale: index/glossary entities are emitted on the connector
+side and cross-linked there; the semantic-backend layer (GROBID, regex,
+DeepSeek-VL2) doesn't emit index / glossary markers in any document
+fixture we currently bench against. Adding resolver strategies for
+markers nobody produces would be premature.
+
+Document-class awareness — picking different semantic backends or
+detector configurations based on whether the source is an article, a
+book, or a generic document — is handled by **Additional Plan 7**.
+That plan will, among other things, decide whether to fire the
+index/glossary detectors at all for article-shaped inputs (where
+they shouldn't appear), and whether to enable book-specific semantic
+extraction paths.
 
 ### 3.5 Webui
 
@@ -212,10 +249,31 @@ block.order)`.
      containing "Hall".
 
 2. End-to-end test on a synthetic book-style fixture:
-   * Body with `# Chapter 1`, `# Chapter 2`, `# Chapter 3`.
-   * Tail `# Index` with entries `Chapter 1, 1; Chapter 2, 5; Chapter 3, 9`.
-   * Assert: 3 INDEX_ENTRY entities, 3 TOC_POINTS_TO relations pointing at
-     the matching chapter entities.
+   * Body with `# Hall effect` on page 5, `# Berry phase` on page 12.
+   * Tail `# Index` with entries:
+     * `Hall effect, 5, 17, 42`
+     * `Berry phase, 12`
+   * Assert: 2 INDEX_ENTRY entities, and TOC_POINTS_TO edges from:
+     * `Hall effect` entry → SECTION on page 5 (page match, also
+       heading-text match — two edges, both flagged with the right
+       `match_strategy`).
+     * `Berry phase` entry → SECTION on page 12 (page + heading match
+       collapse to two edges with different `match_strategy`).
+   * Verify each edge's `metadata.match_strategy` is one of
+     `{"page", "heading_text"}`.
+
+3. End-to-end test on a synthetic glossary fixture:
+   * Body with content on pages 1, 3, 7.
+   * `# Glossary` section with entries:
+     * `Conductivity, 3, 7`
+     * `Hall — physicist (no page reference)`
+   * Assert:
+     * 2 GLOSSARY_ENTRY entities.
+     * `Conductivity` entry emits GLOSSARY_DEFINES edges to body blocks
+       on pages 3 and 7 only (NOT page 1, NOT any other body content
+       containing the substring "conductivity").
+     * `Hall` entry emits NO GLOSSARY_DEFINES edges, and its metadata
+       has `has_page_list=False`.
 
 3. Full regression suite green (current: 1069 passed, 216 skipped, 16
    xfailed).
@@ -257,14 +315,20 @@ block.order)`.
 
 ---
 
-## 8. Open questions
+## 8. Open questions — resolved
 
-1. Should `INDEX_ENTRY` cross-link by page number (current proposal) or by
-   chapter/section heading text match (more robust but harder)?
-2. Should `GLOSSARY_ENTRY` link to ALL body mentions or just the first?
-   First is cheaper; all is more useful for navigation.
-3. Should the semantic-layer resolver also emit `INDEX_MARKER` / `GLOSSARY_MARKER`
-   `RefType` values, or is the entity-side detection enough for now?
+The three open questions from the initial draft have been answered by
+the human reviewer:
 
-These are tagged for human-reviewer decision before implementation
-begins.
+1. **INDEX_ENTRY cross-link strategy** — emit BOTH page-number and
+   heading-text-match edges (one per match). More edges is better;
+   downstream consumers can filter by `match_strategy` if they only
+   want one kind.
+
+2. **GLOSSARY_ENTRY linking** — link only to the pages explicitly
+   listed in the glossary entry itself; do NOT scan the body for
+   substring matches.
+
+3. **Semantic-layer resolver extension** — deferred to Additional
+   Plan 7 (document-class classifier). This plan stays connector-side
+   only.
