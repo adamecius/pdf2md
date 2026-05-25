@@ -2,19 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>pdf2md semantic graph viewer</title>
+  <title>pdf2md — semantic + docling viewer</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <strong>pdf2md semantic graph</strong>
-    <label class="file-picker">
-      <input type="file" id="graph-file" accept="application/json" />
-      Load graph.json
+    <strong>pdf2md viewer</strong>
+
+    <label>Example
+      <select id="picker-example"></select>
     </label>
-    <span id="status">No graph loaded.</span>
+
+    <label>Semantic backend
+      <select id="picker-semantic"></select>
+    </label>
+
+    <label>OCR candidates
+      <select id="picker-ocr">
+        <option value="">none (markers only)</option>
+      </select>
+    </label>
+
+    <span id="status" class="status">Loading…</span>
   </header>
-  <svg id="chart"></svg>
+
+  <main>
+    <section id="pane-graph">
+      <h2>Cross-reference graph</h2>
+      <svg id="chart"></svg>
+      <p class="legend">
+        <span class="legend-key resolved">resolved edge</span>
+        <span class="legend-key unresolved">unresolved edge</span>
+      </p>
+    </section>
+
+    <section id="pane-side">
+      <div class="tabs">
+        <button class="tab active" data-tab="stats">Stats</button>
+        <button class="tab" data-tab="structure">Docling structure</button>
+        <button class="tab" data-tab="markers">Markers</button>
+      </div>
+      <div id="tab-stats" class="tab-pane active"></div>
+      <div id="tab-structure" class="tab-pane"></div>
+      <div id="tab-markers" class="tab-pane"></div>
+    </section>
+  </main>
+
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
   <script src="viewer.js"></script>
 </body>

@@ -1,41 +1,127 @@
 /*
- * Plan 008_0 — vanilla-JS static viewer for the CrossReferenceGraph.
+ * pdf2md viewer — semantic CrossReferenceGraph + docling structure side-by-side.
  *
- * Loads a D3 force-directed layout from a graph.json payload produced
- * by tools/export_cross_ref_graph.py. The page works both:
- *   - via a <input type="file"> picker (default), and
- *   - by loading "graph.json" automatically when served from a static
- *     HTTP server (open() is not available via file://).
- *
- * No build step, no React, no npm. D3 v7 is loaded from a CDN by
- * index.html.
+ * Picks: example × semantic backend × OCR candidate source.
+ * Loads precomputed JSON artifacts under ./data/<example>/ — see
+ * the bench scripts under tools/ for how those are produced.
  */
 
-const status = document.getElementById('status');
-const fileInput = document.getElementById('graph-file');
-const svg = d3.select('#chart');
+const $ = (sel) => document.querySelector(sel);
+
+const els = {
+  example: $('#picker-example'),
+  semantic: $('#picker-semantic'),
+  ocr: $('#picker-ocr'),
+  status: $('#status'),
+  chart: d3.select('#chart'),
+  tabs: document.querySelectorAll('.tab'),
+  tabStats: $('#tab-stats'),
+  tabStructure: $('#tab-structure'),
+  tabMarkers: $('#tab-markers'),
+};
+
+let manifest = null;
+let docling = null;        // cached per example so we don't refetch
+let lastExample = null;
 let simulation = null;
 
-function setStatus(text) {
-  status.textContent = text;
+// ---------------------------------------------------------------------------
+// Bootstrap
+// ---------------------------------------------------------------------------
+async function loadManifest() {
+  const resp = await fetch('data/manifest.json');
+  if (!resp.ok) throw new Error(`manifest load failed: ${resp.status}`);
+  manifest = await resp.json();
+  populatePickers();
 }
 
-function clearChart() {
-  svg.selectAll('*').remove();
-  if (simulation) {
-    simulation.stop();
-    simulation = null;
+function populatePickers() {
+  els.example.innerHTML = manifest.examples
+    .map(e => `<option value="${e.id}">${e.label}</option>`).join('');
+  els.semantic.innerHTML = manifest.semantic_backends
+    .map(b => `<option value="${b.id}">${b.label}</option>`).join('');
+  // The ocr select already has a "none" option in index.html.
+  els.ocr.innerHTML =
+    '<option value="">none (markers only, no OCR bridge)</option>' +
+    manifest.ocr_backends.map(b => `<option value="${b.id}">${b.label}</option>`).join('');
+
+  // Sensible defaults: example01 + vlm_v4 + deepseek.
+  els.example.value = 'example01';
+  els.semantic.value = 'vlm_v4';
+  els.ocr.value = 'deepseek';
+
+  [els.example, els.semantic, els.ocr].forEach(el => el.addEventListener('change', reload));
+  els.tabs.forEach(t => t.addEventListener('click', () => activateTab(t.dataset.tab)));
+
+  reload();
+}
+
+function activateTab(name) {
+  els.tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.getElementById(`tab-${name}`).classList.add('active');
+}
+
+// ---------------------------------------------------------------------------
+// Loading
+// ---------------------------------------------------------------------------
+async function reload() {
+  const ex = els.example.value;
+  const sem = els.semantic.value;
+  const ocr = els.ocr.value;
+  setStatus('Loading…');
+
+  // Cache the docling JSON per example.
+  if (ex !== lastExample) {
+    try {
+      const resp = await fetch(`data/${ex}/docling.json`);
+      docling = resp.ok ? await resp.json() : null;
+    } catch {
+      docling = null;
+    }
+    lastExample = ex;
   }
+
+  const graphFile = ocr
+    ? `data/${ex}/${sem}__resolved_with__${ocr}.json`
+    : `data/${ex}/${sem}.json`;
+  let graph;
+  try {
+    const resp = await fetch(graphFile);
+    if (!resp.ok) throw new Error(`${resp.status} ${resp.statusText}`);
+    graph = await resp.json();
+  } catch (err) {
+    setStatus(`error loading ${graphFile}: ${err.message}`);
+    return;
+  }
+
+  renderGraph(graph);
+  renderStats(graph, { example: ex, semantic: sem, ocr });
+  renderStructure(docling);
+  renderMarkers(graph);
+
+  const r = graph.metadata.resolved_count || 0;
+  const u = graph.metadata.unresolved_count || 0;
+  setStatus(
+    `${graph.nodes.length} nodes · ${graph.edges.length} edges ` +
+    `(${r} resolved, ${u} unresolved)`,
+  );
 }
 
+function setStatus(text) { els.status.textContent = text; }
+
+// ---------------------------------------------------------------------------
+// Graph rendering
+// ---------------------------------------------------------------------------
 function renderGraph(data) {
-  clearChart();
-  const width = window.innerWidth;
-  const height = window.innerHeight - 60;
-  svg.attr('viewBox', [0, 0, width, height]);
+  els.chart.selectAll('*').remove();
+  if (simulation) { simulation.stop(); simulation = null; }
+
+  const width = els.chart.node().clientWidth || 800;
+  const height = els.chart.node().clientHeight || 600;
+  els.chart.attr('viewBox', [0, 0, width, height]);
 
   const color = d3.scaleOrdinal(d3.schemeTableau10);
-
   const links = data.edges.map(d => Object.assign({}, d));
   const nodes = data.nodes.map(d => Object.assign({}, d));
 
@@ -44,83 +130,149 @@ function renderGraph(data) {
     .force('charge', d3.forceManyBody().strength(-150))
     .force('center', d3.forceCenter(width / 2, height / 2));
 
-  const link = svg.append('g').attr('stroke-opacity', 0.6)
-    .selectAll('line')
-    .data(links)
-    .join('line')
-    .attr('class', d => 'link' + (d.resolved ? '' : ' unresolved'))
+  const link = els.chart.append('g')
+    .selectAll('line').data(links).join('line')
+    .attr('class', d => 'link ' + (d.resolved ? 'resolved' : 'unresolved'))
     .attr('stroke-width', 1.2);
 
-  const node = svg.append('g')
-    .selectAll('g')
-    .data(nodes)
-    .join('g')
+  const node = els.chart.append('g').selectAll('g').data(nodes).join('g')
     .attr('class', 'node')
     .call(drag(simulation));
 
   node.append('circle')
     .attr('r', d => d.type === 'unresolved' ? 10 : 6)
     .attr('fill', d => color(d.type));
-
   node.append('title').text(d => `${d.type}: ${d.label}`);
   node.append('text').attr('dx', 8).attr('dy', 3).text(d => d.label);
 
   simulation.on('tick', () => {
-    link
-      .attr('x1', d => d.source.x).attr('y1', d => d.source.y)
-      .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+    link.attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+        .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
     node.attr('transform', d => `translate(${d.x},${d.y})`);
   });
-
-  setStatus(
-    ` — ${data.nodes.length} nodes, ${data.edges.length} edges ` +
-    `(resolved: ${data.metadata.resolved_count}, ` +
-    `unresolved: ${data.metadata.unresolved_count})`,
-  );
 }
 
 function drag(sim) {
-  function dragstarted(event) {
-    if (!event.active) sim.alphaTarget(0.3).restart();
-    event.subject.fx = event.subject.x;
-    event.subject.fy = event.subject.y;
-  }
-  function dragged(event) {
-    event.subject.fx = event.x;
-    event.subject.fy = event.y;
-  }
-  function dragended(event) {
-    if (!event.active) sim.alphaTarget(0);
-    event.subject.fx = null;
-    event.subject.fy = null;
-  }
-  return d3.drag().on('start', dragstarted).on('drag', dragged).on('end', dragended);
+  return d3.drag()
+    .on('start', e => { if (!e.active) sim.alphaTarget(0.3).restart(); e.subject.fx = e.subject.x; e.subject.fy = e.subject.y; })
+    .on('drag', e => { e.subject.fx = e.x; e.subject.fy = e.y; })
+    .on('end',  e => { if (!e.active) sim.alphaTarget(0); e.subject.fx = null; e.subject.fy = null; });
 }
 
-fileInput.addEventListener('change', async () => {
-  const file = fileInput.files && fileInput.files[0];
-  if (!file) return;
-  try {
-    const text = await file.text();
-    const data = JSON.parse(text);
-    renderGraph(data);
-  } catch (err) {
-    setStatus(`Error loading ${file.name}: ${err.message}`);
+// ---------------------------------------------------------------------------
+// Stats pane
+// ---------------------------------------------------------------------------
+function renderStats(graph, ctx) {
+  const md = graph.metadata || {};
+  const counts = {};
+  for (const e of graph.edges) {
+    const t = e.marker_type || 'unknown';
+    counts[t] = (counts[t] || 0) + 1;
   }
-});
+  const r = md.resolved_count || 0;
+  const u = md.unresolved_count || 0;
+  const total = r + u;
+  const rate = total > 0 ? (100 * r / total).toFixed(1) : '0.0';
 
-// When served from a static HTTP server (e.g. `python -m http.server`),
-// auto-load `graph.json` from the same directory if present.
-(async function tryAutoload() {
-  if (window.location.protocol === 'file:') {
+  const rows = [
+    ['example', ctx.example],
+    ['semantic backend', ctx.semantic],
+    ['ocr candidates', ctx.ocr || '(none)'],
+    ['markers', graph.edges.length],
+    ['resolved', `${r} (${rate}%)`],
+    ['unresolved', `${u}`],
+    ['doc_hash', md.doc_hash || '—'],
+    ['backend_versions', JSON.stringify(md.backend_versions || {})],
+  ];
+
+  const countRows = Object.entries(counts)
+    .sort((a, b) => b[1] - a[1])
+    .map(([k, v]) => `<tr><td>${k}</td><td class="num">${v}</td></tr>`).join('');
+
+  els.tabStats.innerHTML = `
+    ${rows.map(([k, v]) => `<div class="stat-row"><span class="stat-key">${k}</span><span class="stat-val">${v}</span></div>`).join('')}
+    <table class="counts-table">
+      <thead><tr><th>marker_type</th><th class="num">count</th></tr></thead>
+      <tbody>${countRows}</tbody>
+    </table>
+  `;
+}
+
+// ---------------------------------------------------------------------------
+// Docling structure pane
+// ---------------------------------------------------------------------------
+function renderStructure(doc) {
+  if (!doc) {
+    els.tabStructure.innerHTML = '<p style="color:#999">No docling.json for this example.</p>';
     return;
   }
-  try {
-    const resp = await fetch('graph.json');
-    if (!resp.ok) return;
-    const data = await resp.json();
-    renderGraph(data);
-  } catch (err) {
-    // Silent: no graph.json next to the page is the normal first-load case.
+
+  // The DoclingDocument layout has texts/pictures/tables collections plus
+  // (in some schema versions) a structure tree. We walk the body recursively
+  // when present, otherwise we list texts grouped by page.
+  const lines = [];
+  const texts = doc.texts || [];
+  const pictures = doc.pictures || [];
+  const tables = doc.tables || [];
+
+  const byPage = new Map();
+  const pageOf = (item) => {
+    const prov = (item.prov || [])[0];
+    return prov ? prov.page_no || prov.page : null;
+  };
+
+  for (const t of texts) {
+    const page = pageOf(t) ?? '?';
+    if (!byPage.has(page)) byPage.set(page, []);
+    byPage.get(page).push({ kind: 'text', label: t.label || 'text', value: (t.text || '').slice(0, 120) });
   }
-})();
+  for (const p of pictures) {
+    const page = pageOf(p) ?? '?';
+    if (!byPage.has(page)) byPage.set(page, []);
+    byPage.get(page).push({ kind: 'figure', label: 'picture', value: (p.captions && p.captions[0]?.cref) || '' });
+  }
+  for (const t of tables) {
+    const page = pageOf(t) ?? '?';
+    if (!byPage.has(page)) byPage.set(page, []);
+    byPage.get(page).push({ kind: 'table', label: 'table', value: '' });
+  }
+
+  const pages = [...byPage.keys()].sort((a, b) => Number(a) - Number(b));
+  for (const page of pages) {
+    lines.push(`<div class="struct-page">page ${page}</div>`);
+    for (const item of byPage.get(page).slice(0, 60)) {
+      const cls = item.label === 'section_header' ? 'heading' : item.kind;
+      const txt = `${item.label}: ${item.value || ''}`.replace(/</g, '&lt;');
+      lines.push(`<div class="struct-item ${cls}">${txt}</div>`);
+    }
+    if (byPage.get(page).length > 60) {
+      lines.push(`<div class="struct-item">… ${byPage.get(page).length - 60} more</div>`);
+    }
+  }
+
+  els.tabStructure.innerHTML =
+    `<div class="structure-tree">${lines.join('') || '<em>empty docling document</em>'}</div>`;
+}
+
+// ---------------------------------------------------------------------------
+// Markers pane
+// ---------------------------------------------------------------------------
+function renderMarkers(graph) {
+  const rows = graph.edges.slice(0, 200).map(e => {
+    const cls = e.resolved ? 'resolved' : 'unresolved';
+    const target = e.target ? ` → ${e.target.replace(/^.+:/, '')}` : '';
+    const safe = (e.label || '').replace(/</g, '&lt;');
+    return `<div class="marker-row ${cls}">
+      <span class="marker-type">${e.marker_type}</span>
+      <span class="marker-text">${safe}${target}</span>
+    </div>`;
+  }).join('');
+  const overflow = graph.edges.length > 200
+    ? `<p style="color:#999">… ${graph.edges.length - 200} more (truncated)</p>` : '';
+  els.tabMarkers.innerHTML = rows + overflow;
+}
+
+// ---------------------------------------------------------------------------
+// Boot
+// ---------------------------------------------------------------------------
+loadManifest().catch(err => setStatus(`error: ${err.message}`));
