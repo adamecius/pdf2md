@@ -1,328 +1,198 @@
 {
-  "document_id": "example01/vlm_v4",
-  "edges": [
+  "schema_version": "1.0.0",
+  "doc_hash": "sha256:4ceb9e2b4a5ffbd2d6e0714f5f4e5317d458830f4c23da9dd9d4a344a8583b79",
+  "markers": [
     {
-      "label": "Eq. (15)",
+      "source_ref": "#/document/pages/7",
+      "marker_text": "Eq. (15)",
       "marker_type": "equation",
-      "resolved": false,
-      "source": "marker:0:#/document/pages/7:Eq. (15)",
-      "target": "_unresolved"
+      "char_offset": [
+        0,
+        8
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "label": "Eq. (16)",
+      "source_ref": "#/document/pages/7",
+      "marker_text": "Eq. (16)",
       "marker_type": "equation",
-      "resolved": false,
-      "source": "marker:1:#/document/pages/7:Eq. (16)",
-      "target": "_unresolved"
+      "char_offset": [
+        0,
+        8
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "label": "Eq. (17)",
+      "source_ref": "#/document/pages/7",
+      "marker_text": "Eq. (17)",
       "marker_type": "equation",
-      "resolved": false,
-      "source": "marker:2:#/document/pages/7:Eq. (17)",
-      "target": "_unresolved"
+      "char_offset": [
+        0,
+        8
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "label": "Eq. (18)",
+      "source_ref": "#/document/pages/7",
+      "marker_text": "Eq. (18)",
       "marker_type": "equation",
-      "resolved": false,
-      "source": "marker:3:#/document/pages/7:Eq. (18)",
-      "target": "_unresolved"
+      "char_offset": [
+        0,
+        8
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "label": "Eq. (19)",
+      "source_ref": "#/document/pages/7",
+      "marker_text": "Eq. (19)",
       "marker_type": "equation",
-      "resolved": false,
-      "source": "marker:4:#/document/pages/7:Eq. (19)",
-      "target": "_unresolved"
+      "char_offset": [
+        0,
+        8
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "label": "Eq. (20)",
+      "source_ref": "#/document/pages/7",
+      "marker_text": "Eq. (20)",
       "marker_type": "equation",
-      "resolved": false,
-      "source": "marker:5:#/document/pages/7:Eq. (20)",
-      "target": "_unresolved"
+      "char_offset": [
+        0,
+        8
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "label": "Eq. (21)",
+      "source_ref": "#/document/pages/7",
+      "marker_text": "Eq. (21)",
       "marker_type": "equation",
-      "resolved": false,
-      "source": "marker:6:#/document/pages/7:Eq. (21)",
-      "target": "_unresolved"
+      "char_offset": [
+        0,
+        8
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "label": "FIG. 4",
+      "source_ref": "#/document/pages/8",
+      "marker_text": "FIG. 4",
       "marker_type": "figure",
-      "resolved": false,
-      "source": "marker:7:#/document/pages/8:FIG. 4",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Eq. (22)",
-      "marker_type": "equation",
-      "resolved": false,
-      "source": "marker:8:#/document/pages/8:Eq. (22)",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Eq. (23)",
-      "marker_type": "equation",
-      "resolved": false,
-      "source": "marker:9:#/document/pages/8:Eq. (23)",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Eq. (24)",
-      "marker_type": "equation",
-      "resolved": false,
-      "source": "marker:10:#/document/pages/8:Eq. (24)",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Eq. (25)",
-      "marker_type": "equation",
-      "resolved": false,
-      "source": "marker:11:#/document/pages/8:Eq. (25)",
-      "target": "_unresolved"
-    },
-    {
-      "label": "FIG. 5. (a) \u27e8d\u03c3xy(E)\u27e9 as a function of R for \u03c6/\u03c60 \u2248 1 \u00d7 10\u22122, M = 3200, kBT = 0 and N = 2 \u00d7 400 \u00d7 400 sites.",
-      "marker_type": "figure",
-      "resolved": false,
-      "source": "marker:12:#/document/pages/9:FIG. 5. (a) \u27e8d\u03c3xy(E)\u27e9 as a function of R for \u03c6/\u03c60 \u2248 1 \u00d7 10\u22122, M = 3200, kBT = 0 and N = 2 \u00d7 400 \u00d7 400 sites.",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Figure 1",
-      "marker_type": "figure",
-      "resolved": false,
-      "source": "marker:13:#/document/pages/10:Figure 1",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Eq. (1)",
-      "marker_type": "equation",
-      "resolved": false,
-      "source": "marker:14:#/document/pages/10:Eq. (1)",
-      "target": "_unresolved"
-    },
-    {
-      "label": "[1]",
-      "marker_type": "bibliography",
-      "resolved": false,
-      "source": "marker:15:#/document/pages/10:[1]",
-      "target": "_unresolved"
-    },
-    {
-      "label": "footnote 1",
-      "marker_type": "footnote",
-      "resolved": false,
-      "source": "marker:16:#/document/pages/10:footnote 1",
-      "target": "_unresolved"
-    }
-  ],
-  "metadata": {
-    "backend_versions": {
-      "vlm": "deepseek-ai/deepseek-vl2-small"
-    },
-    "doc_hash": "sha256:4ceb9e2b4a5ffbd2d6e0714f5f4e5317d458830f4c23da9dd9d4a344a8583b79",
-    "resolved_count": 0,
-    "total_markers": 17,
-    "unresolved_count": 17
-  },
-  "nodes": [
-    {
-      "backend": "vlm",
-      "char_offset": [
-        0,
-        8
-      ],
-      "id": "marker:0:#/document/pages/7:Eq. (15)",
-      "label": "Eq. (15)",
-      "source_ref": "#/document/pages/7",
-      "type": "equation"
-    },
-    {
-      "backend": "vlm",
-      "char_offset": [
-        0,
-        8
-      ],
-      "id": "marker:1:#/document/pages/7:Eq. (16)",
-      "label": "Eq. (16)",
-      "source_ref": "#/document/pages/7",
-      "type": "equation"
-    },
-    {
-      "backend": "vlm",
-      "char_offset": [
-        0,
-        8
-      ],
-      "id": "marker:2:#/document/pages/7:Eq. (17)",
-      "label": "Eq. (17)",
-      "source_ref": "#/document/pages/7",
-      "type": "equation"
-    },
-    {
-      "backend": "vlm",
-      "char_offset": [
-        0,
-        8
-      ],
-      "id": "marker:3:#/document/pages/7:Eq. (18)",
-      "label": "Eq. (18)",
-      "source_ref": "#/document/pages/7",
-      "type": "equation"
-    },
-    {
-      "backend": "vlm",
-      "char_offset": [
-        0,
-        8
-      ],
-      "id": "marker:4:#/document/pages/7:Eq. (19)",
-      "label": "Eq. (19)",
-      "source_ref": "#/document/pages/7",
-      "type": "equation"
-    },
-    {
-      "backend": "vlm",
-      "char_offset": [
-        0,
-        8
-      ],
-      "id": "marker:5:#/document/pages/7:Eq. (20)",
-      "label": "Eq. (20)",
-      "source_ref": "#/document/pages/7",
-      "type": "equation"
-    },
-    {
-      "backend": "vlm",
-      "char_offset": [
-        0,
-        8
-      ],
-      "id": "marker:6:#/document/pages/7:Eq. (21)",
-      "label": "Eq. (21)",
-      "source_ref": "#/document/pages/7",
-      "type": "equation"
-    },
-    {
-      "backend": "vlm",
       "char_offset": [
         0,
         6
       ],
-      "id": "marker:7:#/document/pages/8:FIG. 4",
-      "label": "FIG. 4",
-      "source_ref": "#/document/pages/8",
-      "type": "figure"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/8",
+      "marker_text": "Eq. (22)",
+      "marker_type": "equation",
       "char_offset": [
         0,
         8
       ],
-      "id": "marker:8:#/document/pages/8:Eq. (22)",
-      "label": "Eq. (22)",
-      "source_ref": "#/document/pages/8",
-      "type": "equation"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/8",
+      "marker_text": "Eq. (23)",
+      "marker_type": "equation",
       "char_offset": [
         0,
         8
       ],
-      "id": "marker:9:#/document/pages/8:Eq. (23)",
-      "label": "Eq. (23)",
-      "source_ref": "#/document/pages/8",
-      "type": "equation"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/8",
+      "marker_text": "Eq. (24)",
+      "marker_type": "equation",
       "char_offset": [
         0,
         8
       ],
-      "id": "marker:10:#/document/pages/8:Eq. (24)",
-      "label": "Eq. (24)",
-      "source_ref": "#/document/pages/8",
-      "type": "equation"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/8",
+      "marker_text": "Eq. (25)",
+      "marker_type": "equation",
       "char_offset": [
         0,
         8
       ],
-      "id": "marker:11:#/document/pages/8:Eq. (25)",
-      "label": "Eq. (25)",
-      "source_ref": "#/document/pages/8",
-      "type": "equation"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/9",
+      "marker_text": "FIG. 5. (a) ⟨dσxy(E)⟩ as a function of R for φ/φ0 ≈ 1 × 10−2, M = 3200, kBT = 0 and N = 2 × 400 × 400 sites.",
+      "marker_type": "figure",
       "char_offset": [
         0,
         108
       ],
-      "id": "marker:12:#/document/pages/9:FIG. 5. (a) \u27e8d\u03c3xy(E)\u27e9 as a function of R for \u03c6/\u03c60 \u2248 1 \u00d7 10\u22122, M = 3200, kBT = 0 and N = 2 \u00d7 400 \u00d7 400 sites.",
-      "label": "FIG. 5. (a) \u27e8d\u03c3xy(E)\u27e9 as a function of R for \u03c6/\u03c60 \u2248 1 \u00d7 10\u22122, M = 3200, kBT = 0 and N = 2 \u00d7 400 \u00d7 400 sites.",
-      "source_ref": "#/document/pages/9",
-      "type": "figure"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/10",
+      "marker_text": "Figure 1",
+      "marker_type": "figure",
       "char_offset": [
         0,
         8
       ],
-      "id": "marker:13:#/document/pages/10:Figure 1",
-      "label": "Figure 1",
-      "source_ref": "#/document/pages/10",
-      "type": "figure"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/10",
+      "marker_text": "Eq. (1)",
+      "marker_type": "equation",
       "char_offset": [
         0,
         7
       ],
-      "id": "marker:14:#/document/pages/10:Eq. (1)",
-      "label": "Eq. (1)",
-      "source_ref": "#/document/pages/10",
-      "type": "equation"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/10",
+      "marker_text": "[1]",
+      "marker_type": "bibliography",
       "char_offset": [
         0,
         3
       ],
-      "id": "marker:15:#/document/pages/10:[1]",
-      "label": "[1]",
-      "source_ref": "#/document/pages/10",
-      "type": "bibliography"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/10",
+      "marker_text": "footnote 1",
+      "marker_type": "footnote",
       "char_offset": [
         0,
         10
       ],
-      "id": "marker:16:#/document/pages/10:footnote 1",
-      "label": "footnote 1",
-      "source_ref": "#/document/pages/10",
-      "type": "footnote"
-    },
-    {
-      "id": "_unresolved",
-      "label": "(unresolved)",
-      "type": "unresolved"
+      "confidence": 0.8,
+      "backend": "vlm"
     }
   ],
-  "schema_version": "1.0.0"
+  "edges": [],
+  "entities": [],
+  "backend_versions": {
+    "vlm": "deepseek-ai/deepseek-vl2-small"
+  }
 }

@@ -195,14 +195,14 @@
       "label": "(unresolved)"
     },
     {
-      "id": "ent:deepseek:1410.8140:caption:91",
+      "id": "ent:deepseek:1410.8140:caption:89",
       "type": "figure",
-      "label": "ent:deepseek:1410.8140:caption:91"
+      "label": "ent:deepseek:1410.8140:caption:89"
     },
     {
-      "id": "ent:deepseek:1410.8140:caption:94",
+      "id": "ent:deepseek:1410.8140:caption:92",
       "type": "figure",
-      "label": "ent:deepseek:1410.8140:caption:94"
+      "label": "ent:deepseek:1410.8140:caption:92"
     },
     {
       "id": "ent:deepseek:1410.8140:caption:8",
@@ -211,8 +211,13 @@
     },
     {
       "id": "ent:deepseek:1410.8140:footnote:20",
-      "type": "footnote",
+      "type": "bibliography",
       "label": "ent:deepseek:1410.8140:footnote:20"
+    },
+    {
+      "id": "ent:deepseek:1410.8140:footnote:94",
+      "type": "footnote",
+      "label": "ent:deepseek:1410.8140:footnote:94"
     }
   ],
   "edges": [
@@ -267,7 +272,7 @@
     },
     {
       "source": "marker:7:#/document/pages/8:FIG. 4",
-      "target": "ent:deepseek:1410.8140:caption:91",
+      "target": "ent:deepseek:1410.8140:caption:89",
       "marker_type": "figure",
       "label": "FIG. 4",
       "resolved": true
@@ -302,7 +307,7 @@
     },
     {
       "source": "marker:12:#/document/pages/9:FIG. 5. (a) \u27e8d\u03c3xy(E)\u27e9 as a function of R for \u03c6/\u03c60 \u2248 1 \u00d7 10\u22122, M = 3200, kBT = 0 and N = 2 \u00d7 400 \u00d7 400 sites.",
-      "target": "ent:deepseek:1410.8140:caption:94",
+      "target": "ent:deepseek:1410.8140:caption:92",
       "marker_type": "figure",
       "label": "FIG. 5. (a) \u27e8d\u03c3xy(E)\u27e9 as a function of R for \u03c6/\u03c60 \u2248 1 \u00d7 10\u22122, M = 3200, kBT = 0 and N = 2 \u00d7 400 \u00d7 400 sites.",
       "resolved": true
@@ -323,14 +328,14 @@
     },
     {
       "source": "marker:15:#/document/pages/10:[1]",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:footnote:20",
       "marker_type": "bibliography",
       "label": "[1]",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:16:#/document/pages/10:footnote 1",
-      "target": "ent:deepseek:1410.8140:footnote:20",
+      "target": "ent:deepseek:1410.8140:footnote:94",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true
@@ -339,8 +344,8 @@
   "metadata": {
     "doc_hash": "sha256:4ceb9e2b4a5ffbd2d6e0714f5f4e5317d458830f4c23da9dd9d4a344a8583b79",
     "total_markers": 17,
-    "resolved_count": 4,
-    "unresolved_count": 13,
+    "resolved_count": 5,
+    "unresolved_count": 12,
     "backend_versions": {
       "vlm": "deepseek-ai/deepseek-vl2-small"
     }

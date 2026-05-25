@@ -1,1084 +1,660 @@
 {
-  "document_id": "example02/vlm_v4",
-  "edges": [
+  "schema_version": "1.0.0",
+  "doc_hash": "sha256:d6b7aff259de7c133b09b958fb1782ddf21da627c354b777b48e056beb2a57fb",
+  "markers": [
     {
-      "label": "1",
+      "source_ref": "#/document/pages/1",
+      "marker_text": "1",
       "marker_type": "chapter",
-      "resolved": false,
-      "source": "marker:0:#/document/pages/1:1",
-      "target": "_unresolved"
-    },
-    {
-      "label": "1.1",
-      "marker_type": "section",
-      "resolved": false,
-      "source": "marker:1:#/document/pages/1:1.1",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Eq. (11)",
-      "marker_type": "equation",
-      "resolved": false,
-      "source": "marker:2:#/document/pages/1:Eq. (11)",
-      "target": "_unresolved"
-    },
-    {
-      "label": "FIG. 3",
-      "marker_type": "figure",
-      "resolved": false,
-      "source": "marker:3:#/document/pages/1:FIG. 3",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Theorem 2",
-      "marker_type": "theorem",
-      "resolved": false,
-      "source": "marker:4:#/document/pages/2:Theorem 2",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Theorem 3",
-      "marker_type": "theorem",
-      "resolved": false,
-      "source": "marker:5:#/document/pages/2:Theorem 3",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Corollary 3",
-      "marker_type": "corollary",
-      "resolved": false,
-      "source": "marker:6:#/document/pages/2:Corollary 3",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Corollary 5",
-      "marker_type": "corollary",
-      "resolved": false,
-      "source": "marker:7:#/document/pages/2:Corollary 5",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Example 4",
-      "marker_type": "example",
-      "resolved": false,
-      "source": "marker:8:#/document/pages/2:Example 4",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Example 5",
-      "marker_type": "example",
-      "resolved": false,
-      "source": "marker:9:#/document/pages/2:Example 5",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Chapter 5",
-      "marker_type": "chapter",
-      "resolved": false,
-      "source": "marker:10:#/document/pages/3:Chapter 5",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Eq. (5.4)",
-      "marker_type": "equation",
-      "resolved": false,
-      "source": "marker:11:#/document/pages/3:Eq. (5.4)",
-      "target": "_unresolved"
-    },
-    {
-      "label": "footnote 1",
-      "marker_type": "footnote",
-      "resolved": false,
-      "source": "marker:12:#/document/pages/3:footnote 1",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Section 3",
-      "marker_type": "section",
-      "resolved": false,
-      "source": "marker:13:#/document/pages/3:Section 3",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Theorem 1",
-      "marker_type": "theorem",
-      "resolved": false,
-      "source": "marker:14:#/document/pages/3:Theorem 1",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Definition 1",
-      "marker_type": "definition",
-      "resolved": false,
-      "source": "marker:15:#/document/pages/3:Definition 1",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Proof 1",
-      "marker_type": "proof",
-      "resolved": false,
-      "source": "marker:16:#/document/pages/3:Proof 1",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Corollary 1",
-      "marker_type": "corollary",
-      "resolved": false,
-      "source": "marker:17:#/document/pages/3:Corollary 1",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Example 1",
-      "marker_type": "example",
-      "resolved": false,
-      "source": "marker:18:#/document/pages/3:Example 1",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Theorem 1",
-      "marker_type": "theorem",
-      "resolved": false,
-      "source": "marker:19:#/document/pages/5:Theorem 1",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Definition 1",
-      "marker_type": "definition",
-      "resolved": false,
-      "source": "marker:20:#/document/pages/5:Definition 1",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Proof",
-      "marker_type": "proof",
-      "resolved": false,
-      "source": "marker:21:#/document/pages/5:Proof",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Corollary 1",
-      "marker_type": "corollary",
-      "resolved": false,
-      "source": "marker:22:#/document/pages/5:Corollary 1",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Example N",
-      "marker_type": "example",
-      "resolved": false,
-      "source": "marker:23:#/document/pages/5:Example N",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Theorem 1",
-      "marker_type": "theorem",
-      "resolved": false,
-      "source": "marker:24:#/document/pages/6:Theorem 1",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Definition 5",
-      "marker_type": "definition",
-      "resolved": false,
-      "source": "marker:25:#/document/pages/6:Definition 5",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Proof of Theorem 1",
-      "marker_type": "proof",
-      "resolved": false,
-      "source": "marker:26:#/document/pages/6:Proof of Theorem 1",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Corollary 1",
-      "marker_type": "corollary",
-      "resolved": false,
-      "source": "marker:27:#/document/pages/6:Corollary 1",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Example 1",
-      "marker_type": "example",
-      "resolved": false,
-      "source": "marker:28:#/document/pages/6:Example 1",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Example 2",
-      "marker_type": "example",
-      "resolved": false,
-      "source": "marker:29:#/document/pages/6:Example 2",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Theorem 2",
-      "marker_type": "theorem",
-      "resolved": false,
-      "source": "marker:30:#/document/pages/8:Theorem 2",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Proof",
-      "marker_type": "proof",
-      "resolved": false,
-      "source": "marker:31:#/document/pages/8:Proof",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Corollary",
-      "marker_type": "corollary",
-      "resolved": false,
-      "source": "marker:32:#/document/pages/8:Corollary",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Example",
-      "marker_type": "example",
-      "resolved": false,
-      "source": "marker:33:#/document/pages/8:Example",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Theorem 3 (Kernel Ridge Regression and Kernel Tikhonov Regularization)",
-      "marker_type": "theorem",
-      "resolved": false,
-      "source": "marker:34:#/document/pages/10:Theorem 3 (Kernel Ridge Regression and Kernel Tikhonov Regularization)",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Theorem 5 (Data Augmentation for Kernel Regression)",
-      "marker_type": "theorem",
-      "resolved": false,
-      "source": "marker:35:#/document/pages/10:Theorem 5 (Data Augmentation for Kernel Regression)",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Corollary 4",
-      "marker_type": "corollary",
-      "resolved": false,
-      "source": "marker:36:#/document/pages/10:Corollary 4",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Corollary 5",
-      "marker_type": "corollary",
-      "resolved": false,
-      "source": "marker:37:#/document/pages/10:Corollary 5",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Example 5 (Kernelized Eigenvalue Thresholding)",
-      "marker_type": "example",
-      "resolved": false,
-      "source": "marker:38:#/document/pages/10:Example 5 (Kernelized Eigenvalue Thresholding)",
-      "target": "_unresolved"
-    },
-    {
-      "label": "FIG. 3",
-      "marker_type": "figure",
-      "resolved": false,
-      "source": "marker:39:#/document/pages/11:FIG. 3",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Table I",
-      "marker_type": "table",
-      "resolved": false,
-      "source": "marker:40:#/document/pages/11:Table I",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Eq. (5.4)",
-      "marker_type": "equation",
-      "resolved": false,
-      "source": "marker:41:#/document/pages/11:Eq. (5.4)",
-      "target": "_unresolved"
-    },
-    {
-      "label": "footnote 1",
-      "marker_type": "footnote",
-      "resolved": false,
-      "source": "marker:42:#/document/pages/11:footnote 1",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Section VI. Experiments",
-      "marker_type": "section",
-      "resolved": false,
-      "source": "marker:43:#/document/pages/11:Section VI. Experiments",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Chapter VII (Conclusions)",
-      "marker_type": "chapter",
-      "resolved": false,
-      "source": "marker:44:#/document/pages/11:Chapter VII (Conclusions)",
-      "target": "_unresolved"
-    },
-    {
-      "label": "TABLE II",
-      "marker_type": "table",
-      "resolved": false,
-      "source": "marker:45:#/document/pages/12:TABLE II",
-      "target": "_unresolved"
-    },
-    {
-      "label": "TABLE III",
-      "marker_type": "table",
-      "resolved": false,
-      "source": "marker:46:#/document/pages/12:TABLE III",
-      "target": "_unresolved"
-    },
-    {
-      "label": "TABLE IV",
-      "marker_type": "table",
-      "resolved": false,
-      "source": "marker:47:#/document/pages/12:TABLE IV",
-      "target": "_unresolved"
-    },
-    {
-      "label": "TABLE V",
-      "marker_type": "table",
-      "resolved": false,
-      "source": "marker:48:#/document/pages/12:TABLE V",
-      "target": "_unresolved"
-    },
-    {
-      "label": "TABLE VI",
-      "marker_type": "table",
-      "resolved": false,
-      "source": "marker:49:#/document/pages/12:TABLE VI",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Fig. 1",
-      "marker_type": "figure",
-      "resolved": false,
-      "source": "marker:50:#/document/pages/14:Fig. 1",
-      "target": "_unresolved"
-    },
-    {
-      "label": "footnote 1",
-      "marker_type": "footnote",
-      "resolved": false,
-      "source": "marker:51:#/document/pages/14:footnote 1",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Eq. (5.4)",
-      "marker_type": "equation",
-      "resolved": false,
-      "source": "marker:52:#/document/pages/14:Eq. (5.4)",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Additional Discussions on Distributionally Robust Estimation",
-      "marker_type": "section",
-      "resolved": false,
-      "source": "marker:53:#/document/pages/14:Additional Discussions on Distributionally Robust Estimation",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Appendix D",
-      "marker_type": "chapter",
-      "resolved": false,
-      "source": "marker:54:#/document/pages/14:Appendix D",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Proof of Lemma N",
-      "marker_type": "theorem",
-      "resolved": false,
-      "source": "marker:55:#/document/pages/15:Proof of Lemma N",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Proof of Theorem N",
-      "marker_type": "theorem",
-      "resolved": false,
-      "source": "marker:56:#/document/pages/15:Proof of Theorem N",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Corollary N",
-      "marker_type": "corollary",
-      "resolved": false,
-      "source": "marker:57:#/document/pages/15:Corollary N",
-      "target": "_unresolved"
-    },
-    {
-      "label": "Example N",
-      "marker_type": "example",
-      "resolved": false,
-      "source": "marker:58:#/document/pages/15:Example N",
-      "target": "_unresolved"
-    }
-  ],
-  "metadata": {
-    "backend_versions": {
-      "vlm": "deepseek-ai/deepseek-vl2-small"
-    },
-    "doc_hash": "sha256:d6b7aff259de7c133b09b958fb1782ddf21da627c354b777b48e056beb2a57fb",
-    "resolved_count": 0,
-    "total_markers": 59,
-    "unresolved_count": 59
-  },
-  "nodes": [
-    {
-      "backend": "vlm",
       "char_offset": [
         0,
         1
       ],
-      "id": "marker:0:#/document/pages/1:1",
-      "label": "1",
-      "source_ref": "#/document/pages/1",
-      "type": "chapter"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/1",
+      "marker_text": "1.1",
+      "marker_type": "section",
       "char_offset": [
         0,
         3
       ],
-      "id": "marker:1:#/document/pages/1:1.1",
-      "label": "1.1",
-      "source_ref": "#/document/pages/1",
-      "type": "section"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/1",
+      "marker_text": "Eq. (11)",
+      "marker_type": "equation",
       "char_offset": [
         0,
         8
       ],
-      "id": "marker:2:#/document/pages/1:Eq. (11)",
-      "label": "Eq. (11)",
-      "source_ref": "#/document/pages/1",
-      "type": "equation"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/1",
+      "marker_text": "FIG. 3",
+      "marker_type": "figure",
       "char_offset": [
         0,
         6
       ],
-      "id": "marker:3:#/document/pages/1:FIG. 3",
-      "label": "FIG. 3",
-      "source_ref": "#/document/pages/1",
-      "type": "figure"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/2",
+      "marker_text": "Theorem 2",
+      "marker_type": "theorem",
       "char_offset": [
         0,
         9
       ],
-      "id": "marker:4:#/document/pages/2:Theorem 2",
-      "label": "Theorem 2",
-      "source_ref": "#/document/pages/2",
-      "type": "theorem"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/2",
+      "marker_text": "Theorem 3",
+      "marker_type": "theorem",
       "char_offset": [
         0,
         9
       ],
-      "id": "marker:5:#/document/pages/2:Theorem 3",
-      "label": "Theorem 3",
-      "source_ref": "#/document/pages/2",
-      "type": "theorem"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/2",
+      "marker_text": "Corollary 3",
+      "marker_type": "corollary",
       "char_offset": [
         0,
         11
       ],
-      "id": "marker:6:#/document/pages/2:Corollary 3",
-      "label": "Corollary 3",
-      "source_ref": "#/document/pages/2",
-      "type": "corollary"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/2",
+      "marker_text": "Corollary 5",
+      "marker_type": "corollary",
       "char_offset": [
         0,
         11
       ],
-      "id": "marker:7:#/document/pages/2:Corollary 5",
-      "label": "Corollary 5",
-      "source_ref": "#/document/pages/2",
-      "type": "corollary"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/2",
+      "marker_text": "Example 4",
+      "marker_type": "example",
       "char_offset": [
         0,
         9
       ],
-      "id": "marker:8:#/document/pages/2:Example 4",
-      "label": "Example 4",
-      "source_ref": "#/document/pages/2",
-      "type": "example"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/2",
+      "marker_text": "Example 5",
+      "marker_type": "example",
       "char_offset": [
         0,
         9
       ],
-      "id": "marker:9:#/document/pages/2:Example 5",
-      "label": "Example 5",
-      "source_ref": "#/document/pages/2",
-      "type": "example"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
-      "char_offset": [
-        0,
-        9
-      ],
-      "id": "marker:10:#/document/pages/3:Chapter 5",
-      "label": "Chapter 5",
       "source_ref": "#/document/pages/3",
-      "type": "chapter"
-    },
-    {
-      "backend": "vlm",
+      "marker_text": "Chapter 5",
+      "marker_type": "chapter",
       "char_offset": [
         0,
         9
       ],
-      "id": "marker:11:#/document/pages/3:Eq. (5.4)",
-      "label": "Eq. (5.4)",
-      "source_ref": "#/document/pages/3",
-      "type": "equation"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/3",
+      "marker_text": "Eq. (5.4)",
+      "marker_type": "equation",
+      "char_offset": [
+        0,
+        9
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
+    },
+    {
+      "source_ref": "#/document/pages/3",
+      "marker_text": "footnote 1",
+      "marker_type": "footnote",
       "char_offset": [
         0,
         10
       ],
-      "id": "marker:12:#/document/pages/3:footnote 1",
-      "label": "footnote 1",
-      "source_ref": "#/document/pages/3",
-      "type": "footnote"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/3",
+      "marker_text": "Section 3",
+      "marker_type": "section",
       "char_offset": [
         0,
         9
       ],
-      "id": "marker:13:#/document/pages/3:Section 3",
-      "label": "Section 3",
-      "source_ref": "#/document/pages/3",
-      "type": "section"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/3",
+      "marker_text": "Theorem 1",
+      "marker_type": "theorem",
       "char_offset": [
         0,
         9
       ],
-      "id": "marker:14:#/document/pages/3:Theorem 1",
-      "label": "Theorem 1",
-      "source_ref": "#/document/pages/3",
-      "type": "theorem"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/3",
+      "marker_text": "Definition 1",
+      "marker_type": "definition",
       "char_offset": [
         0,
         12
       ],
-      "id": "marker:15:#/document/pages/3:Definition 1",
-      "label": "Definition 1",
-      "source_ref": "#/document/pages/3",
-      "type": "definition"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/3",
+      "marker_text": "Proof 1",
+      "marker_type": "proof",
       "char_offset": [
         0,
         7
       ],
-      "id": "marker:16:#/document/pages/3:Proof 1",
-      "label": "Proof 1",
-      "source_ref": "#/document/pages/3",
-      "type": "proof"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/3",
+      "marker_text": "Corollary 1",
+      "marker_type": "corollary",
       "char_offset": [
         0,
         11
       ],
-      "id": "marker:17:#/document/pages/3:Corollary 1",
-      "label": "Corollary 1",
-      "source_ref": "#/document/pages/3",
-      "type": "corollary"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/3",
+      "marker_text": "Example 1",
+      "marker_type": "example",
       "char_offset": [
         0,
         9
       ],
-      "id": "marker:18:#/document/pages/3:Example 1",
-      "label": "Example 1",
-      "source_ref": "#/document/pages/3",
-      "type": "example"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
-      "char_offset": [
-        0,
-        9
-      ],
-      "id": "marker:19:#/document/pages/5:Theorem 1",
-      "label": "Theorem 1",
       "source_ref": "#/document/pages/5",
-      "type": "theorem"
+      "marker_text": "Theorem 1",
+      "marker_type": "theorem",
+      "char_offset": [
+        0,
+        9
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/5",
+      "marker_text": "Definition 1",
+      "marker_type": "definition",
       "char_offset": [
         0,
         12
       ],
-      "id": "marker:20:#/document/pages/5:Definition 1",
-      "label": "Definition 1",
-      "source_ref": "#/document/pages/5",
-      "type": "definition"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/5",
+      "marker_text": "Proof",
+      "marker_type": "proof",
       "char_offset": [
         0,
         5
       ],
-      "id": "marker:21:#/document/pages/5:Proof",
-      "label": "Proof",
-      "source_ref": "#/document/pages/5",
-      "type": "proof"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/5",
+      "marker_text": "Corollary 1",
+      "marker_type": "corollary",
       "char_offset": [
         0,
         11
       ],
-      "id": "marker:22:#/document/pages/5:Corollary 1",
-      "label": "Corollary 1",
-      "source_ref": "#/document/pages/5",
-      "type": "corollary"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/5",
+      "marker_text": "Example N",
+      "marker_type": "example",
       "char_offset": [
         0,
         9
       ],
-      "id": "marker:23:#/document/pages/5:Example N",
-      "label": "Example N",
-      "source_ref": "#/document/pages/5",
-      "type": "example"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
-      "char_offset": [
-        0,
-        9
-      ],
-      "id": "marker:24:#/document/pages/6:Theorem 1",
-      "label": "Theorem 1",
       "source_ref": "#/document/pages/6",
-      "type": "theorem"
+      "marker_text": "Theorem 1",
+      "marker_type": "theorem",
+      "char_offset": [
+        0,
+        9
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/6",
+      "marker_text": "Definition 5",
+      "marker_type": "definition",
       "char_offset": [
         0,
         12
       ],
-      "id": "marker:25:#/document/pages/6:Definition 5",
-      "label": "Definition 5",
-      "source_ref": "#/document/pages/6",
-      "type": "definition"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/6",
+      "marker_text": "Proof of Theorem 1",
+      "marker_type": "proof",
       "char_offset": [
         0,
         18
       ],
-      "id": "marker:26:#/document/pages/6:Proof of Theorem 1",
-      "label": "Proof of Theorem 1",
-      "source_ref": "#/document/pages/6",
-      "type": "proof"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/6",
+      "marker_text": "Corollary 1",
+      "marker_type": "corollary",
       "char_offset": [
         0,
         11
       ],
-      "id": "marker:27:#/document/pages/6:Corollary 1",
-      "label": "Corollary 1",
-      "source_ref": "#/document/pages/6",
-      "type": "corollary"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/6",
+      "marker_text": "Example 1",
+      "marker_type": "example",
       "char_offset": [
         0,
         9
       ],
-      "id": "marker:28:#/document/pages/6:Example 1",
-      "label": "Example 1",
-      "source_ref": "#/document/pages/6",
-      "type": "example"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/6",
+      "marker_text": "Example 2",
+      "marker_type": "example",
       "char_offset": [
         0,
         9
       ],
-      "id": "marker:29:#/document/pages/6:Example 2",
-      "label": "Example 2",
-      "source_ref": "#/document/pages/6",
-      "type": "example"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
-      "char_offset": [
-        0,
-        9
-      ],
-      "id": "marker:30:#/document/pages/8:Theorem 2",
-      "label": "Theorem 2",
       "source_ref": "#/document/pages/8",
-      "type": "theorem"
+      "marker_text": "Theorem 2",
+      "marker_type": "theorem",
+      "char_offset": [
+        0,
+        9
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/8",
+      "marker_text": "Proof",
+      "marker_type": "proof",
       "char_offset": [
         0,
         5
       ],
-      "id": "marker:31:#/document/pages/8:Proof",
-      "label": "Proof",
-      "source_ref": "#/document/pages/8",
-      "type": "proof"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/8",
+      "marker_text": "Corollary",
+      "marker_type": "corollary",
       "char_offset": [
         0,
         9
       ],
-      "id": "marker:32:#/document/pages/8:Corollary",
-      "label": "Corollary",
-      "source_ref": "#/document/pages/8",
-      "type": "corollary"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/8",
+      "marker_text": "Example",
+      "marker_type": "example",
       "char_offset": [
         0,
         7
       ],
-      "id": "marker:33:#/document/pages/8:Example",
-      "label": "Example",
-      "source_ref": "#/document/pages/8",
-      "type": "example"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/10",
+      "marker_text": "Theorem 3 (Kernel Ridge Regression and Kernel Tikhonov Regularization)",
+      "marker_type": "theorem",
       "char_offset": [
         0,
         70
       ],
-      "id": "marker:34:#/document/pages/10:Theorem 3 (Kernel Ridge Regression and Kernel Tikhonov Regularization)",
-      "label": "Theorem 3 (Kernel Ridge Regression and Kernel Tikhonov Regularization)",
-      "source_ref": "#/document/pages/10",
-      "type": "theorem"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/10",
+      "marker_text": "Theorem 5 (Data Augmentation for Kernel Regression)",
+      "marker_type": "theorem",
       "char_offset": [
         0,
         51
       ],
-      "id": "marker:35:#/document/pages/10:Theorem 5 (Data Augmentation for Kernel Regression)",
-      "label": "Theorem 5 (Data Augmentation for Kernel Regression)",
-      "source_ref": "#/document/pages/10",
-      "type": "theorem"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/10",
+      "marker_text": "Corollary 4",
+      "marker_type": "corollary",
       "char_offset": [
         0,
         11
       ],
-      "id": "marker:36:#/document/pages/10:Corollary 4",
-      "label": "Corollary 4",
-      "source_ref": "#/document/pages/10",
-      "type": "corollary"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/10",
+      "marker_text": "Corollary 5",
+      "marker_type": "corollary",
       "char_offset": [
         0,
         11
       ],
-      "id": "marker:37:#/document/pages/10:Corollary 5",
-      "label": "Corollary 5",
-      "source_ref": "#/document/pages/10",
-      "type": "corollary"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/10",
+      "marker_text": "Example 5 (Kernelized Eigenvalue Thresholding)",
+      "marker_type": "example",
       "char_offset": [
         0,
         46
       ],
-      "id": "marker:38:#/document/pages/10:Example 5 (Kernelized Eigenvalue Thresholding)",
-      "label": "Example 5 (Kernelized Eigenvalue Thresholding)",
-      "source_ref": "#/document/pages/10",
-      "type": "example"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/11",
+      "marker_text": "FIG. 3",
+      "marker_type": "figure",
       "char_offset": [
         0,
         6
       ],
-      "id": "marker:39:#/document/pages/11:FIG. 3",
-      "label": "FIG. 3",
-      "source_ref": "#/document/pages/11",
-      "type": "figure"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/11",
+      "marker_text": "Table I",
+      "marker_type": "table",
       "char_offset": [
         0,
         7
       ],
-      "id": "marker:40:#/document/pages/11:Table I",
-      "label": "Table I",
-      "source_ref": "#/document/pages/11",
-      "type": "table"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/11",
+      "marker_text": "Eq. (5.4)",
+      "marker_type": "equation",
       "char_offset": [
         0,
         9
       ],
-      "id": "marker:41:#/document/pages/11:Eq. (5.4)",
-      "label": "Eq. (5.4)",
-      "source_ref": "#/document/pages/11",
-      "type": "equation"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/11",
+      "marker_text": "footnote 1",
+      "marker_type": "footnote",
       "char_offset": [
         0,
         10
       ],
-      "id": "marker:42:#/document/pages/11:footnote 1",
-      "label": "footnote 1",
-      "source_ref": "#/document/pages/11",
-      "type": "footnote"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/11",
+      "marker_text": "Section VI. Experiments",
+      "marker_type": "section",
       "char_offset": [
         0,
         23
       ],
-      "id": "marker:43:#/document/pages/11:Section VI. Experiments",
-      "label": "Section VI. Experiments",
-      "source_ref": "#/document/pages/11",
-      "type": "section"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/11",
+      "marker_text": "Chapter VII (Conclusions)",
+      "marker_type": "chapter",
       "char_offset": [
         0,
         25
       ],
-      "id": "marker:44:#/document/pages/11:Chapter VII (Conclusions)",
-      "label": "Chapter VII (Conclusions)",
-      "source_ref": "#/document/pages/11",
-      "type": "chapter"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/12",
+      "marker_text": "TABLE II",
+      "marker_type": "table",
       "char_offset": [
         0,
         8
       ],
-      "id": "marker:45:#/document/pages/12:TABLE II",
-      "label": "TABLE II",
-      "source_ref": "#/document/pages/12",
-      "type": "table"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/12",
+      "marker_text": "TABLE III",
+      "marker_type": "table",
       "char_offset": [
         0,
         9
       ],
-      "id": "marker:46:#/document/pages/12:TABLE III",
-      "label": "TABLE III",
-      "source_ref": "#/document/pages/12",
-      "type": "table"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/12",
+      "marker_text": "TABLE IV",
+      "marker_type": "table",
       "char_offset": [
         0,
         8
       ],
-      "id": "marker:47:#/document/pages/12:TABLE IV",
-      "label": "TABLE IV",
-      "source_ref": "#/document/pages/12",
-      "type": "table"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/12",
+      "marker_text": "TABLE V",
+      "marker_type": "table",
       "char_offset": [
         0,
         7
       ],
-      "id": "marker:48:#/document/pages/12:TABLE V",
-      "label": "TABLE V",
-      "source_ref": "#/document/pages/12",
-      "type": "table"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/12",
+      "marker_text": "TABLE VI",
+      "marker_type": "table",
       "char_offset": [
         0,
         8
       ],
-      "id": "marker:49:#/document/pages/12:TABLE VI",
-      "label": "TABLE VI",
-      "source_ref": "#/document/pages/12",
-      "type": "table"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/14",
+      "marker_text": "Fig. 1",
+      "marker_type": "figure",
       "char_offset": [
         0,
         6
       ],
-      "id": "marker:50:#/document/pages/14:Fig. 1",
-      "label": "Fig. 1",
-      "source_ref": "#/document/pages/14",
-      "type": "figure"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/14",
+      "marker_text": "footnote 1",
+      "marker_type": "footnote",
       "char_offset": [
         0,
         10
       ],
-      "id": "marker:51:#/document/pages/14:footnote 1",
-      "label": "footnote 1",
-      "source_ref": "#/document/pages/14",
-      "type": "footnote"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/14",
+      "marker_text": "Eq. (5.4)",
+      "marker_type": "equation",
       "char_offset": [
         0,
         9
       ],
-      "id": "marker:52:#/document/pages/14:Eq. (5.4)",
-      "label": "Eq. (5.4)",
-      "source_ref": "#/document/pages/14",
-      "type": "equation"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/14",
+      "marker_text": "Additional Discussions on Distributionally Robust Estimation",
+      "marker_type": "section",
       "char_offset": [
         0,
         60
       ],
-      "id": "marker:53:#/document/pages/14:Additional Discussions on Distributionally Robust Estimation",
-      "label": "Additional Discussions on Distributionally Robust Estimation",
-      "source_ref": "#/document/pages/14",
-      "type": "section"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/14",
+      "marker_text": "Appendix D",
+      "marker_type": "chapter",
       "char_offset": [
         0,
         10
       ],
-      "id": "marker:54:#/document/pages/14:Appendix D",
-      "label": "Appendix D",
-      "source_ref": "#/document/pages/14",
-      "type": "chapter"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/15",
+      "marker_text": "Proof of Lemma N",
+      "marker_type": "theorem",
       "char_offset": [
         0,
         16
       ],
-      "id": "marker:55:#/document/pages/15:Proof of Lemma N",
-      "label": "Proof of Lemma N",
-      "source_ref": "#/document/pages/15",
-      "type": "theorem"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/15",
+      "marker_text": "Proof of Theorem N",
+      "marker_type": "theorem",
       "char_offset": [
         0,
         18
       ],
-      "id": "marker:56:#/document/pages/15:Proof of Theorem N",
-      "label": "Proof of Theorem N",
-      "source_ref": "#/document/pages/15",
-      "type": "theorem"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/15",
+      "marker_text": "Corollary N",
+      "marker_type": "corollary",
       "char_offset": [
         0,
         11
       ],
-      "id": "marker:57:#/document/pages/15:Corollary N",
-      "label": "Corollary N",
-      "source_ref": "#/document/pages/15",
-      "type": "corollary"
+      "confidence": 0.8,
+      "backend": "vlm"
     },
     {
-      "backend": "vlm",
+      "source_ref": "#/document/pages/15",
+      "marker_text": "Example N",
+      "marker_type": "example",
       "char_offset": [
         0,
         9
       ],
-      "id": "marker:58:#/document/pages/15:Example N",
-      "label": "Example N",
-      "source_ref": "#/document/pages/15",
-      "type": "example"
-    },
-    {
-      "id": "_unresolved",
-      "label": "(unresolved)",
-      "type": "unresolved"
+      "confidence": 0.8,
+      "backend": "vlm"
     }
   ],
-  "schema_version": "1.0.0"
+  "edges": [],
+  "entities": [],
+  "backend_versions": {
+    "vlm": "deepseek-ai/deepseek-vl2-small"
+  }
 }
