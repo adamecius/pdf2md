@@ -1,0 +1,22 @@
+# DeepSeek-VL2 working set — pinned to the upstream-tested combination.
+#
+# torch + torchvision + transformers come from setup.py via the
+# --index-url and the constraints file (see deepseek-vl2-constraints.txt
+# generated under ${CONDA_PREFIX}/share/deepseek-vl2/).
+#
+# This file lists only the "leaf" deps. The deepseek-vl2 source package
+# itself is installed by setup.py with --no-deps because its pyproject
+# pyproject.toml over-pins torch==2.0.1 and transformers==4.38.2 (the
+# same versions we want anyway — setup.py applies them via the
+# constraints file instead of letting the source pkg's resolver run).
+accelerate>=0.27,<0.30
+sentencepiece
+einops
+timm>=0.9.16
+xformers>=0.0.21,<0.0.22
+attrdict
+pillow>=10.0
+# NumPy 2.x breaks torch==2.0.1's `tensor_numpy.cpp` ABI; the image
+# processor fails at runtime with "RuntimeError: Numpy is not available"
+# even though the package loads. Pin <2 to match the cu118 wheel.
+numpy>=1.24,<2

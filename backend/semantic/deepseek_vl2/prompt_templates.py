@@ -49,9 +49,15 @@ markers, return {{"markers": []}}.
 def build_messages(page_image_token: str = "<image>") -> list[dict]:
     """Return a chat-formatted message list for DeepSeek-VL2.
 
-    The exact image-token convention depends on the DeepSeek-VL2
-    processor; we pass it through as a literal substring that the
-    caller's processor will replace with the encoded image.
+    The DeepSeek-VL2 processor expects a list of ``{role, content}``
+    dicts where:
+
+    - The ``user`` turn carries the page image token (``<image>`` by
+      default) and the natural-language prompt.
+    - The conversation MUST end with an empty ``assistant`` turn — the
+      processor uses that to mark where the generated reply starts and
+      strips the trailing EOS token in inference mode. Without it, the
+      processor raises ``AssertionError: input_ids[-1] == self.eos_id``.
 
     Args:
         page_image_token: The processor's expected image placeholder.
@@ -59,7 +65,7 @@ def build_messages(page_image_token: str = "<image>") -> list[dict]:
 
     Returns:
         A list of ``{"role", "content"}`` dicts suitable for the
-        ``transformers`` chat template.
+        DeepSeek-VL2 processor's ``__call__(conversations=...)`` path.
     """
     return [
         {"role": "system", "content": SYSTEM_PROMPT},
@@ -67,4 +73,8 @@ def build_messages(page_image_token: str = "<image>") -> list[dict]:
             "role": "user",
             "content": f"{page_image_token}\n\n{USER_PROMPT_TEMPLATE}",
         },
+        # Empty assistant turn — required by DeepseekVLV2Processor in
+        # inference mode. The processor appends an EOS to this turn and
+        # strips it; the model's generated text takes its place.
+        {"role": "assistant", "content": ""},
     ]

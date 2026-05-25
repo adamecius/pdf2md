@@ -50,27 +50,50 @@ def _conda_available() -> bool:
 
 def _conda_env_exists(env_name: str) -> bool:
     """Return True iff ``conda env list`` mentions ``env_name``."""
+    return _conda_env_python(env_name) is not None
+
+
+def _conda_env_python(env_name: str) -> Path | None:
+    """Return the absolute path to ``<env_name>``'s ``bin/python``.
+
+    Used in preference to ``conda run -n`` because the latter is
+    unreliable on some hosts — observed on the dev machine where
+    ``conda run -n pdf2md-deepseek-vl2 python -c 'import sys;
+    print(sys.executable)'`` reports the *outer* shell's Python, not
+    the env's. Calling the env's python binary directly avoids the
+    ambiguity entirely.
+    """
     if not _conda_available():
-        return False
+        return None
     try:
         result = subprocess.run(
-            ["conda", "env", "list"],
+            ["conda", "env", "list", "--json"],
             check=False,
             capture_output=True,
             text=True,
             timeout=30,
         )
     except (subprocess.SubprocessError, OSError):
-        return False
+        return None
     if result.returncode != 0:
-        return False
-    for line in result.stdout.splitlines():
-        if line.startswith("#") or not line.strip():
+        return None
+    try:
+        import json as _json
+        envs = _json.loads(result.stdout).get("envs", [])
+    except (ValueError, KeyError):
+        return None
+    for env_path in envs:
+        path = Path(env_path)
+        if path.name != env_name:
             continue
-        token = line.split()[0]
-        if token == env_name:
-            return True
-    return False
+        py = path / "bin" / "python"
+        if py.is_file():
+            return py
+        # Windows fallback (uncommon on the dev host but keep it cheap).
+        py_win = path / "Scripts" / "python.exe"
+        if py_win.is_file():
+            return py_win
+    return None
 
 
 def _hash_image(image_path: Path) -> str:
@@ -175,13 +198,16 @@ class VlmSemanticBackend(SemanticBackend):
             )
 
         output_dir.mkdir(parents=True, exist_ok=True)
+        env_python = _conda_env_python(self._env_name)
+        if env_python is None:
+            raise RuntimeError(
+                f"VLM backend not available: conda env {self._env_name!r} "
+                "exists but its python binary could not be located",
+            )
+        # Invoke the env's python directly — see _conda_env_python's
+        # docstring for why we avoid `conda run -n`.
         cmd = [
-            "conda",
-            "run",
-            "-n",
-            self._env_name,
-            "--no-capture-output",
-            "python",
+            str(env_python),
             str(_smoke_test_path()),
             "--image",
             str(pdf_path),

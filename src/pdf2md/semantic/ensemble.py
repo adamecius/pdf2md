@@ -127,7 +127,15 @@ def run_ensemble(
         if not backend.is_available():
             continue
         sub_dir = output_dir / backend.name()
-        graph = backend.extract(pdf_path=pdf_path, text=text, output_dir=sub_dir)
+        try:
+            graph = backend.extract(pdf_path=pdf_path, text=text, output_dir=sub_dir)
+        except ValueError:
+            # Skip backends whose required input is missing for this
+            # invocation (e.g. VLM with no image, regex with no text).
+            # These are *input-shape* mismatches, not real failures —
+            # the ensemble's job is to opportunistically run whatever
+            # backends can act on the given inputs.
+            continue
         per_backend.append(graph)
 
     if not per_backend:

@@ -1,0 +1,5 @@
+# GROBID is a Java service — there are no PyPI dependencies installed
+# into the `pdf2md-grobid` env. The HTTP client used by smoke_test.py
+# and the Plan 006 adapter (`src/pdf2md/semantic/grobid_adapter.py`)
+# is `requests`, which is already present in the main `pdf2md` env via
+# docling — it is *not* installed in `pdf2md-grobid`.
