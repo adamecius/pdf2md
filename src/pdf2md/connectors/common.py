@@ -537,6 +537,23 @@ def recognize_entities(
             if block.kind == BlockKind.TABLE:
                 add(EntityType.TABLE, block, 0.82, "figure_table_detector")
     entities.extend(_header_footer_entities(pages, backend, document_id, idx))
+
+    # Post-pass: detect an *implicit* bibliography — a contiguous tail
+    # run of "[N] author..." paragraphs that the main loop misclassified
+    # as FOOTNOTE because no "References" / "Bibliography" heading
+    # appeared above them. Common on arXiv physics + CS preprints that
+    # drop the heading. Re-tags the affected entities in place and emits
+    # a synthetic REFERENCE_SECTION anchored on the first one.
+    next_idx = _detect_implicit_bibliography(
+        entities=entities,
+        pages=pages,
+        backend=backend,
+        document_id=document_id,
+        next_id_index=idx + 1,
+    )
+    if next_idx is not None:
+        idx = next_idx
+
     relations = _relations(entities, backend, document_id)
     return EntityProposalDocument(
         document_id=document_id,
@@ -548,6 +565,184 @@ def recognize_entities(
         warnings=warnings,
         metadata={"connector": "markdown_fallback"},
     )
+
+
+# Minimum size of a tail run of "[N] author..." paragraphs to be
+# treated as an implicit bibliography. 3 is conservative — every
+# real bibliography easily exceeds this, while incidental footnote
+# clusters (which max out at ~1-2 per page in practice) don't.
+IMPLICIT_BIBLIOGRAPHY_MIN_RUN = 3
+
+# How far back in the document we look for the tail run. 0.30 means
+# the LAST 30 % of pages. Bibliographies always live at the document
+# tail; restricting the search prevents false positives from any
+# mid-document numbered-list cluster (e.g. a numbered theorem list).
+IMPLICIT_BIBLIOGRAPHY_TAIL_FRACTION = 0.30
+
+
+def _detect_implicit_bibliography(
+    *,
+    entities: list[EntityProposal],
+    pages: list[PageExtractionIR],
+    backend: str,
+    document_id: str,
+    next_id_index: int,
+) -> int | None:
+    """Re-tag a tail run of FOOTNOTE entities as REFERENCE_ITEM.
+
+    Many arXiv preprints and conference PDFs ship a bibliography that
+    begins with ``[1] Author, ...`` and has **no** "References" or
+    "Bibliography" heading above it. The single-pass detector in
+    :func:`recognize_entities` only flips ``refs_started`` on an
+    explicit heading, so these papers' bib entries get tagged as
+    :class:`EntityType.FOOTNOTE`. The semantic-layer bridge then maps
+    them to :class:`RefType.FOOTNOTE`, leaving every ``[N]``
+    bibliography marker emitted by GROBID / regex / VLM with no
+    candidate to resolve against.
+
+    This post-pass looks at the **tail** of the document for a
+    contiguous run of footnote entities whose markers are mostly
+    bracketed numerals (``[1]``, ``[2]``, …). When found:
+
+    1. Re-tag each entity in the run from FOOTNOTE → REFERENCE_ITEM.
+    2. Update the detector and calibration_key on each so audits
+       record the source of the change.
+    3. Emit a new synthetic REFERENCE_SECTION anchored on the first
+       entity's block (with detector
+       ``"implicit_bibliography_detector"``).
+
+    Args:
+        entities: All entities so far, in detection order. Mutated in
+            place; new REFERENCE_SECTION (if any) is appended.
+        pages: The page IR — used to figure out which entities live in
+            the document tail.
+        backend: Backend id for entity_id minting.
+        document_id: Document id for entity_id minting.
+        next_id_index: The next free idx to use when minting the new
+            REFERENCE_SECTION entity.
+
+    Returns:
+        The updated idx after any new entity has been emitted, or
+        ``None`` if no implicit bibliography was found (idx unchanged).
+    """
+    if not pages or not entities:
+        return None
+
+    # Walk entities to find a candidate tail run. "Tail" = appearing
+    # on the last X% of pages. We require ≥3 contiguous FOOTNOTE
+    # entities and at least 80% of their markers in bracketed-number
+    # form to avoid false positives from footnote clusters.
+    n_pages = len(pages)
+    tail_start_page = max(1, int(n_pages * (1 - IMPLICIT_BIBLIOGRAPHY_TAIL_FRACTION)))
+
+    bracket_re = re.compile(r"^\[\d+\]$")
+
+    # Find runs of consecutive footnote entities in the tail. The
+    # entity list is in DETECTION order, which matches block order
+    # because the main loop iterates pages × blocks. Two consecutive
+    # FOOTNOTE entities in this list are consecutive in the doc.
+    runs: list[tuple[int, int]] = []  # (start_idx_in_entities, end_idx_inclusive)
+    i = 0
+    while i < len(entities):
+        ent = entities[i]
+        if (
+            _entity_type_value(ent) == EntityType.FOOTNOTE.value
+            and ent.metadata.get("detector") == "footnote_detector"
+            and (ent.page_no or 0) >= tail_start_page
+        ):
+            j = i
+            while (
+                j + 1 < len(entities)
+                and _entity_type_value(entities[j + 1]) == EntityType.FOOTNOTE.value
+                and entities[j + 1].metadata.get("detector") == "footnote_detector"
+                and (entities[j + 1].page_no or 0) >= tail_start_page
+            ):
+                j += 1
+            if j - i + 1 >= IMPLICIT_BIBLIOGRAPHY_MIN_RUN:
+                runs.append((i, j))
+            i = j + 1
+        else:
+            i += 1
+
+    if not runs:
+        return None
+
+    # Pick the LAST qualifying run — bibliographies live at the very tail.
+    start, end = runs[-1]
+    run = entities[start : end + 1]
+
+    bracketed = sum(1 for e in run if bracket_re.match(f"[{e.metadata.get('marker', '')}]"))
+    # Each entity stores its marker WITHOUT brackets (e.g. "1"), so we
+    # also accept the raw "[1]" form for safety.
+    if bracketed / len(run) < 0.8:
+        return None
+
+    # Re-tag in place.
+    for ent in run:
+        # Pydantic v2 models are mutable by default unless frozen.
+        ent.entity_type = EntityType.REFERENCE_ITEM
+        ent.metadata = {
+            **ent.metadata,
+            "detector": "implicit_bibliography_detector",
+            "previous_detector": "footnote_detector",
+        }
+        ent.calibration_key = f"{backend}:{EntityType.REFERENCE_ITEM.value}:implicit_bibliography_detector"
+
+    # Emit a synthetic REFERENCE_SECTION anchored on the first entity's
+    # block — gives downstream consumers the standard "where does the
+    # bibliography start" signal even though no heading was detected.
+    first = run[0]
+    first_block_id = first.block_ids[0] if first.block_ids else None
+    # Find the block from pages by id (we kept block_ids in detection order).
+    anchor_block: ExtractionBlock | None = None
+    for page in pages:
+        for b in page.blocks:
+            if b.id == first_block_id:
+                anchor_block = b
+                break
+        if anchor_block is not None:
+            break
+    if anchor_block is None:
+        return next_id_index  # ran but couldn't anchor; entities still re-tagged
+
+    md = {
+        "detector": "implicit_bibliography_detector",
+        "trigger": "tail_run_of_numbered_paragraphs",
+        "run_size": len(run),
+    }
+    evidence = EntityEvidence(
+        kind=EvidenceKind.POSITION,
+        page_no=anchor_block.page_no,
+        source_block_id=anchor_block.id,
+        raw_ref=anchor_block.raw_ref,
+        text=anchor_block.text,
+        bbox=anchor_block.bbox,
+        weight=1.0,
+        reason="implicit_bibliography_detector",
+        metadata={},
+    )
+    entities.append(
+        EntityProposal(
+            id=entity_id(backend, document_id, EntityType.REFERENCE_SECTION, next_id_index),
+            entity_type=EntityType.REFERENCE_SECTION,
+            subtype=None,
+            canonical_text=_strip_heading(anchor_block.text),
+            page_no=anchor_block.page_no,
+            block_ids=[anchor_block.id],
+            confidence=0.70,  # lower than the explicit-heading detector (0.88)
+            confidence_source=ConfidenceSource.HEURISTIC,
+            evidence=[evidence],
+            calibration_key=f"{backend}:{EntityType.REFERENCE_SECTION.value}:implicit_bibliography_detector",
+            metadata=md,
+        )
+    )
+    return next_id_index + 1
+
+
+def _entity_type_value(ent: EntityProposal) -> str:
+    """Return the entity_type as a plain string regardless of pydantic mode."""
+    et = ent.entity_type
+    return et.value if hasattr(et, "value") else str(et)
 
 
 def _relations(entities: list[EntityProposal], backend: str, document_id: str) -> list[RelationProposal]:
