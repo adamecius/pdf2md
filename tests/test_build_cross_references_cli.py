@@ -152,3 +152,106 @@ def test_cli_ensemble_runs_available_backends_only(tmp_path: Path) -> None:
     # The regex backend is the only one guaranteed available in CI.
     assert "regex" in payload["backend_versions"]
     assert len(payload["markers"]) >= 1
+
+
+def test_cli_ocr_entities_flag_attaches_resolved_edges(tmp_path: Path) -> None:
+    """End-to-end: regex backend produces markers, --ocr-entities feeds
+    a hand-crafted EntityProposalDocument as the candidate pool, and the
+    CLI writes a graph with resolved RefEdges attached."""
+    if not SAMPLE_TEXT.is_file():
+        pytest.skip(f"missing fixture: {SAMPLE_TEXT}")
+
+    # Build a minimal EntityProposalDocument with a Figure 3 candidate
+    # via the public Python API and serialise it next to the CLI input.
+    import sys as _sys
+    _sys.path.insert(0, str(REPO_ROOT / "src"))
+    from pdf2md.models.entities import (
+        EntityProposalDocument,
+        EntityProposal,
+        EntityType,
+        ConfidenceSource,
+        EntityEvidence,
+        EvidenceKind,
+        entity_id,
+    )
+    from pdf2md.models.ir import extraction_id
+
+    block_id = extraction_id("mineru", "doc", 1, 1)
+    proposal = EntityProposal(
+        id=entity_id("mineru", "doc", EntityType.CAPTION, 1),
+        entity_type=EntityType.CAPTION,
+        subtype=None,
+        canonical_text="Figure 3. The bands.",
+        page_no=1,
+        block_ids=[block_id],
+        confidence=0.8,
+        confidence_source=ConfidenceSource.HEURISTIC,
+        evidence=[
+            EntityEvidence(
+                kind=EvidenceKind.BLOCK_TEXT,
+                page_no=1,
+                source_block_id=block_id,
+                raw_ref=None,
+                text="Figure 3. The bands.",
+                weight=1.0,
+                reason="caption_detector",
+                metadata={},
+            )
+        ],
+        calibration_key="k",
+        metadata={"caption_kind": "figure", "caption_number": "3"},
+    )
+    doc = EntityProposalDocument(
+        document_id="doc",
+        backend="mineru",
+        backend_version=None,
+        page_count=1,
+        entities=[proposal],
+        relations=[],
+        warnings=[],
+    )
+    entities_path = tmp_path / "entities.json"
+    entities_path.write_text(doc.model_dump_json(), encoding="utf-8")
+
+    out_dir = tmp_path / "out"
+    result = _run(
+        [
+            "--backend",
+            "regex",
+            "--text",
+            str(SAMPLE_TEXT),
+            "--out-dir",
+            str(out_dir),
+            "--ocr-entities",
+            str(entities_path),
+        ]
+    )
+    assert result.returncode == 0, result.stderr
+    assert "resolver:" in result.stderr  # the resolution-summary log line
+    payload = json.loads((out_dir / "cross_references.json").read_text(encoding="utf-8"))
+    # Regex detects "Figure 3" in the sample text; the OCR candidate
+    # for "Figure 3" should produce at least one resolved edge with
+    # target_ref pointing at the proposal's id.
+    edges = payload["edges"]
+    assert any(
+        e["resolved"] and e["target_ref"] == proposal.id for e in edges
+    ), f"expected a resolved edge to {proposal.id}, got: {edges}"
+
+
+def test_cli_ocr_entities_missing_file_returns_exit_2(tmp_path: Path) -> None:
+    if not SAMPLE_TEXT.is_file():
+        pytest.skip(f"missing fixture: {SAMPLE_TEXT}")
+    result = _run(
+        [
+            "--backend",
+            "regex",
+            "--text",
+            str(SAMPLE_TEXT),
+            "--out-dir",
+            str(tmp_path / "out"),
+            "--ocr-entities",
+            str(tmp_path / "does_not_exist.json"),
+        ]
+    )
+    assert result.returncode == 2
+    assert "--ocr-entities not found" in result.stderr

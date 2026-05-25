@@ -41,11 +41,14 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from pdf2md.models.cross_ref import CrossReferenceGraph  # noqa: E402
+from pdf2md.models.entities import EntityProposalDocument  # noqa: E402
 from pdf2md.semantic import (  # noqa: E402
     GrobidSemanticBackend,
     RegexSemanticBackend,
     SemanticBackend,
     VlmSemanticBackend,
+    entities_to_candidates,
+    resolve_markers,
     run_ensemble,
 )
 
@@ -111,6 +114,18 @@ def main(argv: list[str] | None = None) -> int:
         help="Pre-extracted plain-text file (required for regex unless --pdf is .txt)",
     )
     parser.add_argument("--out-dir", required=True, type=Path)
+    parser.add_argument(
+        "--ocr-entities",
+        type=Path,
+        default=None,
+        help=(
+            "Optional path to an EntityProposalDocument JSON (the "
+            "`entities.json` written by an OCR connector). When given, "
+            "the markers detected by the semantic backend(s) are "
+            "resolved against the OCR-detected entities and the "
+            "resulting RefEdges are attached to the output graph."
+        ),
+    )
     parser.add_argument("--verbose", action="store_true")
     args = parser.parse_args(argv)
 
@@ -119,6 +134,9 @@ def main(argv: list[str] | None = None) -> int:
         return 2
     if args.text is not None and not args.text.is_file():
         print(f"error: --text not found: {args.text}", file=sys.stderr)
+        return 2
+    if args.ocr_entities is not None and not args.ocr_entities.is_file():
+        print(f"error: --ocr-entities not found: {args.ocr_entities}", file=sys.stderr)
         return 2
 
     text_payload: str | None = None
@@ -162,6 +180,20 @@ def main(argv: list[str] | None = None) -> int:
             pdf_path=args.pdf,
             text=text_payload,
             output_dir=args.out_dir,
+        )
+
+    if args.ocr_entities is not None:
+        proposals = EntityProposalDocument.model_validate_json(
+            args.ocr_entities.read_text(encoding="utf-8"),
+        )
+        candidates = entities_to_candidates(proposals)
+        edges = resolve_markers(graph.markers, candidates)
+        graph = graph.model_copy(update={"edges": list(graph.edges) + edges})
+        resolved = sum(1 for e in edges if e.resolved)
+        print(
+            f"resolver: {len(edges)} marker(s) attempted, {resolved} resolved "
+            f"against {len(candidates)} OCR candidate(s)",
+            file=sys.stderr,
         )
 
     out_path = _write_graph(graph, args.out_dir)

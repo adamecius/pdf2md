@@ -9,6 +9,7 @@ under ``webui/cross_ref/`` consumes.
 """
 
 from pdf2md.semantic.base import SemanticBackend
+from pdf2md.semantic.candidates import entities_to_candidates
 from pdf2md.semantic.ensemble import run_ensemble
 from pdf2md.semantic.evaluation import (
     SemanticEvalResult,
@@ -38,6 +39,7 @@ __all__ = [
     "SemanticBackend",
     "SemanticEvalResult",
     "VlmSemanticBackend",
+    "entities_to_candidates",
     "evaluate_semantic",
     "export_graph",
     "generate_ground_truth",

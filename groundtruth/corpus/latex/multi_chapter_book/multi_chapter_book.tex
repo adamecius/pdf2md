@@ -1,0 +1,74 @@
+% Multi-chapter book fixture for the semantic resolver.
+%
+% Exercises long-book conventions that the article-shaped fixtures don't:
+%   - explicit \chapter{...} commands (with hyperref labels)
+%   - chapter-relative figure / equation numbering ("Figure 1.1", "Eq. (2.1)")
+%   - footnotes on multiple pages
+%   - a single bibliography at the end
+%   - cross-references that span chapters
+%
+% Compiles with `pdflatex multi_chapter_book.tex` (book class). LaTeXML
+% can also process this without issue — `tools/run_semantic_benchmark.py`
+% feeds the .tex through LaTeXML for ground-truth marker extraction.
+
+\documentclass{book}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\title{A Small Book on Markers}
+\author{pdf2md test suite}
+\date{}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{Foundations}\label{ch:foundations}
+
+This chapter introduces the basic vocabulary that the rest of the book
+builds on. It also has a footnote\footnote{Footnotes are numbered
+per-chapter in the book class.}.
+
+\section{Notation}\label{sec:notation}
+We use bold-face for vectors and italics for scalars.
+
+\section{An equation}\label{sec:eq}
+The opening identity is
+\begin{equation}\label{eq:opening}
+e^{i\pi} + 1 = 0
+\end{equation}
+which appears again in \autoref{ch:applications}.
+
+\chapter{Applications}\label{ch:applications}
+
+This chapter applies the foundation from \autoref{ch:foundations} to
+two examples\footnote{The first applied example was independently
+shown by Smith~\cite{smith2020}.}.
+
+\section{First example}\label{sec:first}
+By \autoref{eq:opening} the simplest case reduces to the identity.
+
+\begin{figure}[h]
+\centering
+\fbox{\rule{0pt}{0.8in}\rule{1.5in}{0pt}}
+\caption{A boxed placeholder.}\label{fig:box}
+\end{figure}
+
+\section{Second example}\label{sec:second}
+\autoref{fig:box} shows the placeholder. Compare with the discussion
+in \autoref{sec:notation}.
+
+\begin{equation}\label{eq:closing}
+\sum_{n=1}^{N} n = \frac{N(N+1)}{2}
+\end{equation}
+
+\chapter{References}\label{ch:references}
+
+This is intentionally short — the bibliography is below.
+
+\begin{thebibliography}{9}
+\bibitem{smith2020} J.~Smith, \emph{Examples Worth Looking At}, 2020.
+\bibitem{doe2021} J.~Doe, \emph{More Examples}, 2021.
+\end{thebibliography}
+
+\end{document}
