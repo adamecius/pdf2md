@@ -38,6 +38,7 @@
   "ocr_backends": [
     { "id": "deepseek", "label": "deepseek (highest entity coverage)" },
     { "id": "mineru",   "label": "mineru (medium coverage)" },
-    { "id": "paddleocr","label": "paddleocr (lightweight)" }
+    { "id": "paddleocr","label": "paddleocr (lightweight)" },
+    { "id": "consensus","label": "consensus (deepseek ∪ mineru ∪ paddleocr)" }
   ]
 }

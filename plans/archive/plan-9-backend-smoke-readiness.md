@@ -1,7 +1,7 @@
 # Plan 9 — Real Backend Smoke Readiness
 
 Status:
-draft
+finished
 
 Allowed status values:
 draft

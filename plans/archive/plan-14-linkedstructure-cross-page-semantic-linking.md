@@ -1,7 +1,7 @@
 # Plan 14 — LinkedStructure and Cross-Page Semantic Linking
 
 Status:
-draft
+finished
 
 Allowed status values:
 draft

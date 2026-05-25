@@ -1,7 +1,7 @@
 # Plan 16 — End-to-End Runner and MVP Corpus Evaluation
 
 Status:
-draft
+finished
 
 Allowed status values:
 draft
