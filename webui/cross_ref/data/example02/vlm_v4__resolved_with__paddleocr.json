@@ -657,9 +657,9 @@
       "label": "(unresolved)"
     },
     {
-      "id": "ent:paddleocr:example02:section:153",
+      "id": "ent:paddleocr:2401.12345:section:156",
       "type": "section",
-      "label": "ent:paddleocr:example02:section:153"
+      "label": "ent:paddleocr:2401.12345:section:156"
     }
   ],
   "edges": [
@@ -756,7 +756,7 @@
     },
     {
       "source": "marker:13:#/document/pages/3:Section 3",
-      "target": "ent:paddleocr:example02:section:153",
+      "target": "ent:paddleocr:2401.12345:section:156",
       "marker_type": "section",
       "label": "Section 3",
       "resolved": true

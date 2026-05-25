@@ -396,6 +396,167 @@ def _separate_bracket_bib_entries(page_text: str) -> str:
     return "\n".join(out)
 
 
+# Plan 17 A5 — inline image extraction.
+# Matches a single `<img ... src="...">` (self-closing or non-) and
+# captures the src URL. The full tag, optionally wrapped in
+# `<div>...</div>`, is what gets lifted out.
+_INLINE_IMG_RE = re.compile(
+    r"(?:<div\b[^>]*>\s*)?"                  # optional wrapping <div>
+    r"<img\b[^>]*?\bsrc\s*=\s*(?P<q>[\"'])(?P<src>[^\"']+)(?P=q)[^>]*?/?>"
+    r"(?:\s*</div>)?",                       # optional closing </div>
+    flags=re.IGNORECASE,
+)
+# A block that consists ENTIRELY of one lifted `<img>` HTML fragment
+# — the marker `_separate_inline_images` writes so the block-creation
+# loop can re-route it to a FIGURE block with the right metadata.
+_IMG_BLOCK_RE = re.compile(
+    r"^\s*<img\b[^>]*?\bsrc\s*=\s*[\"'](?P<src>[^\"']+)[\"'][^>]*?/?>\s*$",
+    flags=re.IGNORECASE,
+)
+
+
+# Plan 17 A4 — footnote post-processing patterns.
+# Inline `\footnote{...}` LaTeX residual. The body inside the braces
+# is what becomes a separate FOOTNOTE block; the host paragraph keeps
+# a clean anchor in its place.
+_LATEX_FOOTNOTE_RE = re.compile(
+    r"\\footnote\s*\{(?P<body>[^{}]*(?:\{[^{}]*\}[^{}]*)*)\}",
+)
+# Numbered footnote line that looks like "1. some body" or "[1] body"
+# sitting alone in a block at the bottom of the page. Conservative: a
+# block whose entire content matches this pattern is rewritten as
+# a FOOTNOTE only when it sits in the bottom third of the page's
+# block list.
+_NUMBERED_FOOTNOTE_LINE_RE = re.compile(r"^\s*(?P<marker>\d+)\s*[. ]\s+(?P<body>\S.*)$", re.S)
+
+
+def _extract_footnote_blocks(
+    blocks: list[ExtractionBlock],
+    *,
+    backend: str,
+    document_id: str,
+    page_no: int,
+    raw_ref: str | None,
+) -> list[ExtractionBlock]:
+    """Pull footnote content out of paragraph blocks into FOOTNOTE blocks.
+
+    Two patterns handled:
+
+    1. **LaTeX residual** — ``\\footnote{...}`` inside a paragraph.
+       The braced body becomes its own FOOTNOTE block; the host
+       paragraph keeps a clean ``[^N]`` marker in place of the macro.
+    2. **Bottom-of-page numbered footnotes** — a paragraph in the
+       bottom third of the page whose entire content matches
+       ``N. ...`` and that lives after at least one non-trivial
+       paragraph. These get retagged FOOTNOTE in place (no host
+       paragraph to clean).
+
+    Returns the (possibly extended) block list with stable monotonic
+    ``order`` values.
+    """
+    if not blocks:
+        return blocks
+    out: list[ExtractionBlock] = []
+    next_marker = 1
+    n_blocks = len(blocks)
+    bottom_start = max(1, (2 * n_blocks) // 3)
+    for idx, block in enumerate(blocks):
+        text = block.text or ""
+        # (1) LaTeX `\footnote{...}` residual inside any block kind.
+        if "\\footnote" in text and (matches := list(_LATEX_FOOTNOTE_RE.finditer(text))):
+            new_text = text
+            new_footnotes: list[tuple[str, str]] = []  # (marker, body)
+            for m in matches:
+                marker = str(next_marker)
+                next_marker += 1
+                new_footnotes.append((marker, m.group("body").strip()))
+                new_text = new_text.replace(m.group(0), f"[^{marker}]", 1)
+            out.append(
+                block.model_copy(
+                    update={
+                        "text": new_text,
+                        "metadata": {
+                            **(block.metadata or {}),
+                            "footnote_anchors": [m for m, _ in new_footnotes],
+                        },
+                    }
+                )
+            )
+            for marker, body in new_footnotes:
+                out.append(
+                    ExtractionBlock(
+                        id=extraction_id(backend, document_id, page_no, len(out)),
+                        backend=backend,
+                        page_no=page_no,
+                        kind=BlockKind.FOOTNOTE,
+                        order=len(out),
+                        text=body,
+                        raw_ref=raw_ref,
+                        metadata={
+                            "footnote_marker": marker,
+                            "footnote_host_block_id": block.id,
+                            "footnote_source": "latex_command",
+                        },
+                    )
+                )
+            continue
+        # (2) Bottom-of-page numbered footnote line. Operates on
+        # PARAGRAPH and LIST_ITEM blocks — PaddleOCR's `1. body` style
+        # footnotes get classified as LIST_ITEM by the upstream
+        # markdown classifier, but at the bottom of the page they are
+        # almost always footnotes, not list items.
+        if (
+            block.kind in {BlockKind.PARAGRAPH, BlockKind.LIST_ITEM}
+            and idx >= bottom_start
+            and (fm := _NUMBERED_FOOTNOTE_LINE_RE.match(text.strip()))
+        ):
+            # Require at least one preceding non-trivial paragraph on
+            # the page so we don't retag the very first line.
+            has_prior_paragraph = any(
+                b.kind == BlockKind.PARAGRAPH and len((b.text or "").strip()) > 30
+                for b in blocks[:idx]
+            )
+            if has_prior_paragraph:
+                out.append(
+                    block.model_copy(
+                        update={
+                            "kind": BlockKind.FOOTNOTE,
+                            "metadata": {
+                                **(block.metadata or {}),
+                                "footnote_marker": fm.group("marker"),
+                                "footnote_source": "bottom_of_page_number",
+                            },
+                        }
+                    )
+                )
+                continue
+        out.append(block)
+    # Re-mint ids + order so the sequence stays contiguous after
+    # any insertions / kind changes.
+    return [
+        block.model_copy(
+            update={
+                "id": extraction_id(backend, document_id, page_no, new_order),
+                "order": new_order,
+            }
+        )
+        for new_order, block in enumerate(out)
+    ]
+
+
+def _separate_inline_images(page_text: str) -> str:
+    """Lift each inline ``<img src=...>`` (or ``<div><img/></div>``) into
+    its own block by surrounding it with blank lines.
+
+    The block-creation loop afterwards reads any line that is purely
+    ``<img src="..."/>`` as a standalone figure (see :data:`_IMG_BLOCK_RE`).
+    Wrapped ``<div>`` containers and any leading whitespace are stripped.
+    """
+    def _repl(m: re.Match[str]) -> str:
+        return f"\n\n<img src=\"{m.group('src')}\"/>\n\n"
+    return _INLINE_IMG_RE.sub(_repl, page_text)
+
+
 def markdown_to_pages(
     text: str, *, backend: str, backend_version: str | None, document_id: str, raw_ref: str | None, warnings: list[str]
 ) -> list[PageExtractionIR]:
@@ -435,22 +596,59 @@ def markdown_to_pages(
     pages: list[PageExtractionIR] = []
     for page_no, page_text in enumerate(chunks, start=1):
         page_text = _separate_bracket_bib_entries(page_text)
+        # Plan 17 A5 — pull inline `<img>` HTML out of paragraph
+        # text into standalone FIGURE blocks. Done before block
+        # splitting so each image lands as its own paragraph (and
+        # therefore its own block via the existing blank-line split).
+        page_text = _separate_inline_images(page_text)
         blocks = []
-        for order, chunk in enumerate([c.strip() for c in re.split(r"\n\s*\n", page_text) if c.strip()]):
+        order_counter = 0
+        for chunk in [c.strip() for c in re.split(r"\n\s*\n", page_text) if c.strip()]:
+            # Detect image-only blocks emitted by _separate_inline_images.
+            img_match = _IMG_BLOCK_RE.match(chunk)
+            if img_match:
+                blocks.append(
+                    ExtractionBlock(
+                        id=extraction_id(backend, document_id, page_no, order_counter),
+                        backend=backend,
+                        page_no=page_no,
+                        kind=BlockKind.FIGURE,
+                        order=order_counter,
+                        text=chunk,
+                        raw_ref=raw_ref,
+                        metadata={
+                            "image_src": img_match.group("src"),
+                            "image_origin": "inline_html",
+                        },
+                    )
+                )
+                order_counter += 1
+                continue
             cleaned, ref_tag = _strip_deepseek_tags(chunk)
             kind, metadata = classify_block(cleaned, ref_tag=ref_tag)
             blocks.append(
                 ExtractionBlock(
-                    id=extraction_id(backend, document_id, page_no, order),
+                    id=extraction_id(backend, document_id, page_no, order_counter),
                     backend=backend,
                     page_no=page_no,
                     kind=kind,
-                    order=order,
+                    order=order_counter,
                     text=cleaned,
                     raw_ref=raw_ref,
                     metadata=metadata,
                 )
             )
+            order_counter += 1
+        # Plan 17 A4 — footnote post-processing. Operates on the
+        # constructed block list so it can both inspect block order
+        # and emit new FOOTNOTE blocks.
+        blocks = _extract_footnote_blocks(
+            blocks,
+            backend=backend,
+            document_id=document_id,
+            page_no=page_no,
+            raw_ref=raw_ref,
+        )
         pages.append(
             PageExtractionIR(
                 document_id=document_id,
@@ -496,12 +694,42 @@ def classify_block(text: str, *, ref_tag: str | None = None) -> tuple[BlockKind,
                 elif ref_tag == "sub_title":
                     metadata["markdown_heading_level"] = 2
             return mapped, metadata
-    first = text.strip().splitlines()[0].strip() if text.strip() else ""
+    text_stripped = text.strip()
+    lines = text_stripped.splitlines() if text_stripped else []
+    first = lines[0].strip() if lines else ""
+
+    # Markdown `#` headings — existing behaviour.
     if m := re.match(r"^(#{1,6})\s+(.+)$", first):
-        return BlockKind.HEADING, {"markdown_heading_level": len(m.group(1))}
-    if re.search(r"^\\\[.*\\\]$", text.strip(), re.S) or re.search(r"\$\$.*\$\$", text.strip(), re.S):
+        return BlockKind.HEADING, {
+            "markdown_heading_level": len(m.group(1)),
+            "heading_source": "markdown_hash",
+        }
+    # HTML `<h1>...</h6>` headings (Plan 17 A3) — PaddleOCR
+    # PP-StructureV3 emits headings as `<h1>Title</h1>` blocks.
+    if m := re.match(r"^\s*<h([1-6])\b[^>]*>(.*?)</h\1>\s*$", text_stripped, re.I | re.S):
+        return BlockKind.HEADING, {
+            "markdown_heading_level": int(m.group(1)),
+            "heading_source": "html_tag",
+        }
+    # LaTeX residual headings (Plan 17 A3) — `\section{...}` /
+    # `\subsection{...}` / `\subsubsection{...}` / `\chapter{...}`.
+    if m := re.match(r"^\\(chapter|section|subsection|subsubsection|paragraph|subparagraph)\b\*?\s*\{(.+?)\}", first):
+        kw = m.group(1).lower()
+        level = {
+            "chapter": 1,
+            "section": 1,
+            "subsection": 2,
+            "subsubsection": 3,
+            "paragraph": 4,
+            "subparagraph": 5,
+        }[kw]
+        return BlockKind.HEADING, {
+            "markdown_heading_level": level,
+            "heading_source": "latex_command",
+        }
+    if re.search(r"^\\\[.*\\\]$", text_stripped, re.S) or re.search(r"\$\$.*\$\$", text_stripped, re.S):
         return BlockKind.FORMULA, {}
-    if re.search(r"<table\b.*?</table>", text.strip(), re.I | re.S):
+    if re.search(r"<table\b.*?</table>", text_stripped, re.I | re.S):
         return BlockKind.TABLE, {}
     if re.match(r"!\[[^\]]*\]\([^)]+\)", first):
         return BlockKind.FIGURE, {}
@@ -509,7 +737,34 @@ def classify_block(text: str, *, ref_tag: str | None = None) -> tuple[BlockKind,
         return BlockKind.CAPTION, {}
     if re.match(r"^([-*+]\s+|\d+[.)]\s+)", first):
         return BlockKind.LIST_ITEM, {}
+    # Formatting-heuristic heading (Plan 17 A3) — a SHORT single line
+    # that's mostly upper-case or title-case, with no trailing
+    # punctuation, sitting alone as its own block. Conservative
+    # thresholds because false positives here mis-tag body lines:
+    #   * single line only (block has 1 line of content)
+    #   * 2..12 words
+    #   * no trailing colon / period / comma / semicolon
+    #   * either ALL CAPS or every non-stopword word starts uppercase
+    if len(lines) == 1 and 6 <= len(first) <= 80 and not re.search(r"[.,:;!?]$", first):
+        words = first.split()
+        if 2 <= len(words) <= 12:
+            letters = [c for c in first if c.isalpha()]
+            upper_ratio = (sum(1 for c in letters if c.isupper()) / len(letters)) if letters else 0
+            title_case = all(w[0].isupper() or w.lower() in _HEADING_STOPWORDS for w in words if w)
+            if upper_ratio >= 0.85 or title_case:
+                return BlockKind.HEADING, {
+                    "markdown_heading_level": 2,
+                    "heading_source": "formatting_heuristic",
+                }
     return BlockKind.PARAGRAPH, {}
+
+
+# Title-case heading detection ignores these (they may be lower-case
+# inside a heading like "On the Theory of Groups").
+_HEADING_STOPWORDS: frozenset[str] = frozenset({
+    "a", "an", "and", "as", "at", "but", "by", "de", "for", "from", "in",
+    "of", "on", "or", "the", "to", "via", "vs", "with",
+})
 
 
 def recognize_entities(
