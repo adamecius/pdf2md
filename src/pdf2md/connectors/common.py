@@ -42,6 +42,34 @@ class ConnectorResult:
     warnings: list[str]
 
 
+# Avoid a top-level import cycle: the semantic-layer schema lives under
+# `pdf2md.models.cross_ref` and is only used by `SemanticConnectorResult`
+# below — we re-export the name via a TYPE_CHECKING-guarded forward
+# reference so existing `from pdf2md.connectors.common import ...`
+# call-sites keep working.
+from pdf2md.models.cross_ref import CrossReferenceGraph as _CrossReferenceGraph
+
+
+@dataclass(frozen=True)
+class SemanticConnectorResult:
+    """Output of a single semantic-backend connector run.
+
+    Parallels :class:`ConnectorResult` for the semantic layer. The
+    return-type shape is intentionally different from the OCR
+    `ConnectorResult` because the two layers cover different domains
+    (extraction IR vs. cross-reference graph), but the ``warnings``
+    field is identical so downstream code can handle both uniformly.
+
+    Attributes:
+        graph: The cross-reference graph the backend produced.
+        warnings: Connector warnings (env_not_ready notes, model fell
+            back to CPU, parse-error fallback to empty graph, etc.).
+    """
+
+    graph: _CrossReferenceGraph
+    warnings: list[str]
+
+
 @dataclass(frozen=True)
 class BackendConnectorConfig:
     """Connector configuration for a single backend.
@@ -414,16 +442,50 @@ def recognize_entities(
             plain = _strip_heading(text)
             lower = plain.lower()
             if block.kind == BlockKind.HEADING:
+                heading_level = block.metadata.get("markdown_heading_level")
+                numbering = _numbering(plain)
                 add(
                     EntityType.SECTION,
                     block,
                     0.75,
                     "heading_section_detector",
                     metadata={
-                        "heading_level": block.metadata.get("markdown_heading_level"),
-                        "numbering": _numbering(plain),
+                        "heading_level": heading_level,
+                        "numbering": numbering,
                     },
                 )
+                # Chapter detection — fires on either:
+                #   (a) explicit "Chapter N" prefix (matches \chapter{...} in
+                #       LaTeX books and most non-LaTeX book conventions), or
+                #   (b) an H1-level heading with a leading top-level number
+                #       (e.g. "1 Overview", "5 Conclusions") on documents
+                #       that use H1 for chapters.
+                # We emit CHAPTER *in addition to* SECTION so existing
+                # consumers that look for SECTION on every heading keep
+                # working; semantic-layer resolvers that want chapter
+                # anchors can filter on entity_type=CHAPTER.
+                chapter_match = re.match(r"^chapter\s+([ivxlcdm0-9]+(?:\.\d+)*)\b", lower)
+                is_h1_top_level = (
+                    heading_level == 1
+                    and numbering is not None
+                    and "." not in numbering
+                )
+                if chapter_match or is_h1_top_level:
+                    chapter_number = (
+                        chapter_match.group(1) if chapter_match else numbering
+                    )
+                    add(
+                        EntityType.CHAPTER,
+                        block,
+                        0.80 if chapter_match else 0.65,
+                        "chapter_detector",
+                        metadata={
+                            "chapter_number": chapter_number,
+                            "heading_level": heading_level,
+                            "numbering": numbering,
+                            "match": "keyword" if chapter_match else "h1_top_level",
+                        },
+                    )
                 if lower in {"references", "bibliography", "works cited"}:
                     refs_started = True
                     add(EntityType.REFERENCE_SECTION, block, 0.88, "reference_section_detector")
@@ -458,7 +520,10 @@ def recognize_entities(
                     metadata={"equation_number": num, "sequence_key": f"equation:{num}" if num else None},
                 )
             if block.kind == BlockKind.CAPTION:
-                cm = re.match(r"^(Figure|Fig\.|Table)\s+(\d+)", plain, re.I)
+                # Preserve chapter-relative numbering ("Figure 3.2" stays
+                # "3.2" — losing it to "3" makes the semantic-layer
+                # resolver mis-target on long books).
+                cm = re.match(r"^(Figure|Fig\.|Table)\s+(\d+(?:\.\d+)*)", plain, re.I)
                 kind = "table" if cm and cm.group(1).lower().startswith("table") else "figure"
                 add(
                     EntityType.CAPTION,

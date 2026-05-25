@@ -30,7 +30,7 @@ def relation(**kwargs):
 
 class TestEntityEnums:
     def test_entity_type_values_match_specification(self):
-        assert {e.value for e in EntityType} == {"document_title","section","toc_entry","page_number","header","footer","footnote","equation","figure","table","caption","reference_section","reference_item","bibliography_marker","unknown"}
+        assert {e.value for e in EntityType} == {"document_title","chapter","section","toc_entry","page_number","header","footer","footnote","equation","figure","table","caption","reference_section","reference_item","bibliography_marker","unknown"}
     def test_relation_type_values_match_specification(self):
         assert {e.value for e in RelationType} == {"caption_of","footnote_anchor_for","toc_points_to","reference_mention_of","same_entity_as","near","sequence_next","candidate_for"}
     def test_evidence_kind_values_match_specification(self):

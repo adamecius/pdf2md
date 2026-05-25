@@ -19,6 +19,7 @@ class EntityType(str, Enum):
     """Canonical entity-type taxonomy for document-level entity proposals."""
 
     DOCUMENT_TITLE = "document_title"
+    CHAPTER = "chapter"
     SECTION = "section"
     TOC_ENTRY = "toc_entry"
     PAGE_NUMBER = "page_number"

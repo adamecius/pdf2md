@@ -3,9 +3,9 @@
 DeepSeek-VL2 requires PyTorch + transformers + accelerate, which live
 only inside the isolated ``pdf2md-deepseek-vl2`` conda env (per
 Plan 005_0). The adapter therefore invokes
-``backend/semantic/deepseek_vl2/smoke_test.py`` via subprocess and parses
-the resulting JSON, mirroring the pattern used by ``pipeline.runner`` for
-extraction backends.
+``backend/semantic/deepseek_vl2/connector.py`` via subprocess —
+mirroring the OCR-backend ``connect()`` convention and the
+``pipeline.runner`` pattern for extraction backends.
 
 The adapter does NOT import ``torch`` or ``transformers`` from the main
 ``pdf2md`` env, by design.
@@ -13,20 +13,12 @@ The adapter does NOT import ``torch`` or ``transformers`` from the main
 
 from __future__ import annotations
 
-import hashlib
-import json
 import shutil
 import subprocess
 import sys
 from pathlib import Path
-from typing import Any
 
-from pdf2md.models.cross_ref import (
-    CROSS_REF_SCHEMA_VERSION,
-    CrossReferenceGraph,
-    RefMarker,
-    RefType,
-)
+from pdf2md.models.cross_ref import CrossReferenceGraph
 from pdf2md.semantic.base import SemanticBackend
 
 
@@ -42,6 +34,10 @@ def _backend_root() -> Path:
 
 def _smoke_test_path() -> Path:
     return _backend_root() / "smoke_test.py"
+
+
+def _connector_path() -> Path:
+    return _backend_root() / "connector.py"
 
 
 def _conda_available() -> bool:
@@ -96,58 +92,13 @@ def _conda_env_python(env_name: str) -> Path | None:
     return None
 
 
-def _hash_image(image_path: Path) -> str:
-    sha = hashlib.sha256()
-    with image_path.open("rb") as fh:
-        for chunk in iter(lambda: fh.read(1024 * 1024), b""):
-            sha.update(chunk)
-    return "sha256:" + sha.hexdigest()
-
-
-def _marker_dict_to_model(
-    raw: dict[str, Any],
-    source_ref: str,
-) -> RefMarker | None:
-    """Convert a raw marker dict from the VLM into a :class:`RefMarker`.
-
-    The VLM emits JSON with keys ``marker_type``, ``marker_text``, and
-    optionally ``page_no`` / ``char_offset``. Missing offsets fall back
-    to ``(0, len(marker_text))``.
-    """
-    try:
-        marker_type = RefType(raw.get("marker_type", ""))
-    except ValueError:
-        return None
-    marker_text = str(raw.get("marker_text") or "").strip()
-    if not marker_text:
-        return None
-    raw_offset = raw.get("char_offset")
-    if isinstance(raw_offset, (list, tuple)) and len(raw_offset) == 2:
-        offset = (int(raw_offset[0]), int(raw_offset[1]))
-    else:
-        offset = (0, len(marker_text))
-    confidence_raw = raw.get("confidence", 0.8)
-    try:
-        confidence = float(confidence_raw)
-    except (TypeError, ValueError):
-        confidence = 0.8
-    confidence = max(0.0, min(1.0, confidence))
-    return RefMarker(
-        source_ref=source_ref,
-        marker_text=marker_text,
-        marker_type=marker_type,
-        char_offset=offset,
-        confidence=confidence,
-        backend=BACKEND_NAME,
-    )
-
-
 class VlmSemanticBackend(SemanticBackend):
     """Subprocess adapter for the DeepSeek-VL2 backend.
 
-    Runs the standalone smoke_test.py via
-    ``conda run -n pdf2md-deepseek-vl2 python ...``. The adapter does not
-    create or modify the conda env; it only consumes it.
+    Shells out to ``backend/semantic/deepseek_vl2/connector.py`` (the
+    Plan-005-2 connector, same convention as the OCR backends) inside
+    the ``pdf2md-deepseek-vl2`` conda env. The adapter does not create
+    or modify the conda env; it only consumes it.
     """
 
     def __init__(
@@ -175,7 +126,7 @@ class VlmSemanticBackend(SemanticBackend):
         return BACKEND_VERSION
 
     def is_available(self) -> bool:
-        if not _smoke_test_path().is_file():
+        if not _connector_path().is_file():
             return False
         return _conda_env_exists(self._env_name)
 
@@ -194,7 +145,7 @@ class VlmSemanticBackend(SemanticBackend):
         if not self.is_available():
             raise RuntimeError(
                 f"VLM backend not available: conda env {self._env_name!r} "
-                "or backend/semantic/deepseek_vl2/smoke_test.py is missing"
+                "or backend/semantic/deepseek_vl2/connector.py is missing"
             )
 
         output_dir.mkdir(parents=True, exist_ok=True)
@@ -204,15 +155,30 @@ class VlmSemanticBackend(SemanticBackend):
                 f"VLM backend not available: conda env {self._env_name!r} "
                 "exists but its python binary could not be located",
             )
-        # Invoke the env's python directly — see _conda_env_python's
-        # docstring for why we avoid `conda run -n`.
+        # Shell out to the backend's `connector.py` (NOT smoke_test.py).
+        # The connector is the single source of truth and matches the
+        # OCR-backend convention (`backend/<name>/connector.py`).
+        # `connector.py --raw-dir <dir> --document-id <id> --out-dir
+        # <out> --image <path>` writes the graph to `<out>/vlm/
+        # cross_references.json` and exits 0 on success, 1 on real
+        # failure, 2 on bad input, 3 on env_not_ready.
+        #
+        # The connector requires `pdf2md` on its sys.path so it can
+        # import `pdf2md.connectors.common` and `pdf2md.models.cross_ref`.
+        # The connector itself prepends `<repo>/src` via a sys.path
+        # insert at the top of the file, so no PYTHONPATH wrangling
+        # needed here.
         cmd = [
             str(env_python),
-            str(_smoke_test_path()),
-            "--image",
-            str(pdf_path),
+            str(_connector_path()),
+            "--raw-dir",
+            str(pdf_path.parent),
+            "--document-id",
+            pdf_path.stem,
             "--out-dir",
             str(output_dir),
+            "--image",
+            str(pdf_path),
         ]
         try:
             result = subprocess.run(
@@ -229,34 +195,17 @@ class VlmSemanticBackend(SemanticBackend):
 
         if result.returncode != 0:
             raise RuntimeError(
-                f"VLM subprocess exited with {result.returncode}: "
+                f"VLM connector exited with {result.returncode}: "
                 f"stderr={result.stderr.strip()[:500]}"
             )
 
-        smoke_json = output_dir / "vlm_smoke_result.json"
-        if not smoke_json.is_file():
+        graph_json = output_dir / BACKEND_NAME / "cross_references.json"
+        if not graph_json.is_file():
             raise RuntimeError(
-                f"VLM subprocess succeeded but did not write {smoke_json}"
+                f"VLM connector succeeded but did not write {graph_json}"
             )
-        smoke = json.loads(smoke_json.read_text(encoding="utf-8"))
-
-        markers: list[RefMarker] = []
-        for raw in smoke.get("markers", []) or []:
-            if not isinstance(raw, dict):
-                continue
-            marker = _marker_dict_to_model(raw, self._source_ref)
-            if marker is not None:
-                markers.append(marker)
-
-        return CrossReferenceGraph(
-            schema_version=CROSS_REF_SCHEMA_VERSION,
-            doc_hash=_hash_image(pdf_path),
-            markers=markers,
-            edges=[],
-            entities=[],
-            backend_versions={
-                BACKEND_NAME: str(smoke.get("backend_version") or BACKEND_VERSION),
-            },
+        return CrossReferenceGraph.model_validate_json(
+            graph_json.read_text(encoding="utf-8"),
         )
 
 

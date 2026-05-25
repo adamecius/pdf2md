@@ -1,0 +1,6 @@
+source_path = "groundtruth/corpus/latex/multi_chapter_book/multi_chapter_book.tex"
+document_id = "multi_chapter_book"
+documentclass = "book"
+expected_features = ["chapters", "equations", "figures", "footnotes", "references", "bibliography", "cross_chapter_refs"]
+expected_counts = { chapters = 3, sections = 4, figures = 1, tables = 0, equations = 2, footnotes = 2 }
+notes = "Multi-chapter book exercising chapter-relative numbering, cross-chapter \\autoref, and a per-chapter footnote counter."

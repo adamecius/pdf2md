@@ -1,31 +1,27 @@
-"""In-process adapter for the standalone GROBID semantic backend.
+"""In-process adapter for the GROBID semantic backend.
 
-Wraps ``backend/semantic/grobid/{grobid_client,tei_parser}.py`` and
-converts the parsed TEI markers and bibliography entries into a
-:class:`CrossReferenceGraph`.
+Thin wrapper around ``backend/semantic/grobid/connector.py``. The
+connector is the single source of truth and follows the same
+convention as the OCR backends (``backend/<name>/connector.py``):
 
-Runtime preconditions (GROBID service reachable on the configured port)
-are checked by :meth:`GrobidSemanticBackend.is_available`. The adapter
-does not start or stop the Docker container — that is operator-managed
-per Plan 005_0.
+    BACKEND, BACKEND_VERSION constants,
+    connect(raw_dir, document_id, out_dir=None, *, …) -> SemanticConnectorResult,
+    main(argv=None) -> int.
+
+This adapter does the minimum needed to expose that surface as the
+:class:`SemanticBackend` ABC the Plan 006 ensemble runner expects.
+The Docker container is operator-managed; the adapter only consumes
+it via HTTP, exactly like the standalone smoke test.
 """
 
 from __future__ import annotations
 
-import hashlib
 import importlib.util
 import sys
 import types
 from pathlib import Path
-from typing import Any
 
-from pdf2md.models.cross_ref import (
-    CROSS_REF_SCHEMA_VERSION,
-    CrossReferenceGraph,
-    RefMarker,
-    RefType,
-    SemanticEntity,
-)
+from pdf2md.models.cross_ref import CrossReferenceGraph
 from pdf2md.semantic.base import SemanticBackend
 
 
@@ -38,80 +34,32 @@ def _backend_root() -> Path:
     return here.parents[3] / "backend" / "semantic" / "grobid"
 
 
-def _load_module(filename: str, module_alias: str) -> types.ModuleType:
-    path = _backend_root() / filename
-    if not path.is_file():
+def _load_connector_module() -> types.ModuleType:
+    """Load ``backend/semantic/grobid/connector.py`` by file path."""
+    connector_path = _backend_root() / "connector.py"
+    if not connector_path.is_file():
         raise RuntimeError(
-            f"GROBID backend module not found at {path}; "
+            f"GROBID connector not found at {connector_path}; "
             "the standalone backend/semantic/grobid/ tree was removed or moved"
         )
-    spec = importlib.util.spec_from_file_location(module_alias, path)
+    spec = importlib.util.spec_from_file_location(
+        "pdf2md._semantic_grobid_connector", connector_path
+    )
     if spec is None or spec.loader is None:
-        raise RuntimeError(f"could not build import spec for {path}")
+        raise RuntimeError(f"could not build import spec for {connector_path}")
     module = importlib.util.module_from_spec(spec)
-    sys.modules[module_alias] = module
+    sys.modules[spec.name] = module
     spec.loader.exec_module(module)
     return module
-
-
-def _safe_offset(text: str, marker_text: str) -> tuple[int, int]:
-    """Return a ``(start, end)`` offset for ``marker_text`` inside ``text``.
-
-    GROBID does not report character offsets on its TEI ``<ref>``
-    elements, so we approximate by scanning the marker text. For markers
-    not found in the supplied text we return ``(0, len(marker_text))`` —
-    the offset is informational, not load-bearing for the schema.
-    """
-    if not marker_text:
-        return (0, 0)
-    idx = text.find(marker_text)
-    if idx < 0:
-        return (0, len(marker_text))
-    return (idx, idx + len(marker_text))
-
-
-def _hit_to_marker(hit: Any, source_ref: str, body_text: str) -> RefMarker | None:
-    try:
-        marker_type = RefType(hit.marker_type)
-    except ValueError:
-        return None
-    return RefMarker(
-        source_ref=source_ref,
-        marker_text=hit.marker_text,
-        marker_type=marker_type,
-        char_offset=_safe_offset(body_text, hit.marker_text),
-        confidence=1.0,
-        backend=BACKEND_NAME,
-    )
-
-
-def _bib_entry_to_entity(entry: Any) -> SemanticEntity | None:
-    label = entry.raw_text.strip() or None
-    item_ref = f"#/bibliography/{entry.ref_id}" if entry.ref_id else None
-    if item_ref is None:
-        return None
-    return SemanticEntity(
-        item_ref=item_ref,
-        entity_type=RefType.BIBLIOGRAPHY,
-        label=label,
-        confidence=1.0,
-        backend=BACKEND_NAME,
-    )
-
-
-def _doc_hash_from_pdf(pdf_path: Path) -> str:
-    sha = hashlib.sha256()
-    with pdf_path.open("rb") as fh:
-        for chunk in iter(lambda: fh.read(1024 * 1024), b""):
-            sha.update(chunk)
-    return "sha256:" + sha.hexdigest()
 
 
 class GrobidSemanticBackend(SemanticBackend):
     """In-process GROBID backend adapter.
 
-    Talks to a locally running GROBID service over HTTP. The Docker
-    container is operator-managed; the adapter only consumes it.
+    Delegates to ``backend/semantic/grobid/connector.py::connect``.
+    The connector itself talks to a locally-running GROBID service
+    over HTTP; the Docker container (or any other host of the GROBID
+    service) is operator-managed.
     """
 
     def __init__(
@@ -130,8 +78,7 @@ class GrobidSemanticBackend(SemanticBackend):
         self._host = host
         self._port = port
         self._source_ref = source_ref
-        self._client_mod: types.ModuleType | None = None
-        self._parser_mod: types.ModuleType | None = None
+        self._connector_mod: types.ModuleType | None = None
 
     def name(self) -> str:
         return BACKEND_NAME
@@ -140,12 +87,14 @@ class GrobidSemanticBackend(SemanticBackend):
         return BACKEND_VERSION
 
     def is_available(self) -> bool:
-        if not (_backend_root() / "grobid_client.py").is_file():
+        if not (_backend_root() / "connector.py").is_file():
             return False
         try:
-            client = self._client()
-            endpoint = client.GrobidEndpoint(host=self._host, port=self._port)
-            return bool(client.is_alive(endpoint))
+            connector = self._connector()
+            endpoint = connector.grobid_client.GrobidEndpoint(
+                host=self._host, port=self._port
+            )
+            return bool(connector.grobid_client.is_alive(endpoint))
         except Exception:
             return False
 
@@ -161,52 +110,25 @@ class GrobidSemanticBackend(SemanticBackend):
                 "GrobidSemanticBackend.extract requires an existing pdf_path"
             )
 
-        client = self._client()
-        parser = self._parser()
-        endpoint = client.GrobidEndpoint(host=self._host, port=self._port)
-        if not client.is_alive(endpoint):
-            raise RuntimeError(
-                f"GROBID service at {endpoint.base_url} is not reachable"
-            )
-
-        tei_xml = client.process_fulltext_document(pdf_path, endpoint)
-        parsed = parser.parse_tei(tei_xml)
-
-        output_dir.mkdir(parents=True, exist_ok=True)
-        (output_dir / "grobid_tei.xml").write_text(tei_xml, encoding="utf-8")
-
-        body_text = " ".join(hit.marker_text for hit in parsed.markers)
-        markers: list[RefMarker] = []
-        for hit in parsed.markers:
-            marker = _hit_to_marker(hit, self._source_ref, body_text)
-            if marker is not None:
-                markers.append(marker)
-
-        entities: list[SemanticEntity] = []
-        for entry in parsed.bib_entries:
-            entity = _bib_entry_to_entity(entry)
-            if entity is not None:
-                entities.append(entity)
-
-        return CrossReferenceGraph(
-            schema_version=CROSS_REF_SCHEMA_VERSION,
-            doc_hash=_doc_hash_from_pdf(pdf_path),
-            markers=markers,
-            edges=[],
-            entities=entities,
-            backend_versions={BACKEND_NAME: BACKEND_VERSION},
+        connector = self._connector()
+        result = connector.connect(
+            raw_dir=pdf_path.parent,
+            document_id=pdf_path.stem,
+            out_dir=output_dir,
+            pdf_path=pdf_path,
+            host=self._host,
+            port=self._port,
+            source_ref=self._source_ref,
         )
+        # The connector returns an empty graph + env_not_ready warning
+        # when GROBID is unreachable; bubble that up as RuntimeError to
+        # match the prior adapter contract.
+        for warning in result.warnings:
+            if warning.startswith("env_not_ready:"):
+                raise RuntimeError(warning)
+        return result.graph
 
-    def _client(self) -> types.ModuleType:
-        if self._client_mod is None:
-            self._client_mod = _load_module(
-                "grobid_client.py", "pdf2md._semantic_grobid_client"
-            )
-        return self._client_mod
-
-    def _parser(self) -> types.ModuleType:
-        if self._parser_mod is None:
-            self._parser_mod = _load_module(
-                "tei_parser.py", "pdf2md._semantic_grobid_tei_parser"
-            )
-        return self._parser_mod
+    def _connector(self) -> types.ModuleType:
+        if self._connector_mod is None:
+            self._connector_mod = _load_connector_module()
+        return self._connector_mod

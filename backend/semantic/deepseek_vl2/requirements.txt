@@ -20,3 +20,8 @@ pillow>=10.0
 # processor fails at runtime with "RuntimeError: Numpy is not available"
 # even though the package loads. Pin <2 to match the cu118 wheel.
 numpy>=1.24,<2
+# Required by backend/semantic/deepseek_vl2/connector.py which imports
+# pdf2md.models.cross_ref to construct CrossReferenceGraph payloads.
+# Plan 005_0's standalone smoke_test.py does not need pydantic, but the
+# Plan 006 / connector-layer integration does.
+pydantic>=2.6
