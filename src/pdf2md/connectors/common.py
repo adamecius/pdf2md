@@ -253,6 +253,81 @@ def _strip_deepseek_tags(chunk: str) -> tuple[str, str | None]:
     return cleaned.strip(), tag
 
 
+_BIB_LINE_RE = re.compile(r"^\[\d+\]\s+\S")
+
+
+def _separate_bracket_bib_entries(page_text: str) -> str:
+    """Insert blank lines between adjacent ``[N] ...`` bibliography entries.
+
+    Several OCR backends (mineru, paddleocr) emit bibliographies as a
+    block of consecutive lines:
+
+        [1] Author, Title, Journal, Year.
+        [2] Another, Title, Journal, Year.
+        ...
+
+    The block-splitter below uses blank lines as paragraph boundaries,
+    so the whole bib ends up as a single paragraph. The downstream
+    footnote / reference-item detector then only matches the first
+    ``[N]`` line, leaving the remaining 50+ entries invisible. Inserting
+    a blank line between adjacent bib entries puts one entry per block
+    instead.
+
+    Heuristic — only act inside a *bib run* (a stretch of lines that has
+    already produced at least one ``[N]\\s+\\S`` line and hasn't been
+    broken by a blank line). This catches:
+
+    * canonical ``[1] ... \\n [2] ...`` adjacency, and
+    * wrapped entries (``[31] long title that wraps\\n more wrap\\n
+      [32] ...``) — the second ``[N]`` line gets separated even though
+      the immediately preceding line is the wrap of the previous entry.
+
+    Lines that don't start with ``[N]`` between bib entries are kept
+    inside the preceding entry's block (wraps).
+    Single ``[N]`` lines outside a bib run (e.g. ``[2] is also true``
+    as a one-off sentence in body text) are NOT split — only the second
+    and subsequent ``[N]`` lines within a non-blank-separated stretch
+    are.
+    """
+    lines = page_text.splitlines(keepends=False)
+    n = len(lines)
+    out: list[str] = []
+    in_bib_run = False
+    for i, line in enumerate(lines):
+        if _BIB_LINE_RE.match(line):
+            if in_bib_run and out and out[-1] != "":
+                out.append("")
+            in_bib_run = True
+            out.append(line)
+        elif not line.strip():
+            # Blank line. Only EXIT the bib run if no further ``[N]``
+            # entry shows up within the next ~3 non-blank lines. This
+            # tolerates OCR backends that wedge a blank between the
+            # hyphen-break and continuation of a single bib entry
+            # (``...Ul-\\n\\nrich Schollwock...``).
+            ahead_bib = False
+            seen_nonblank = 0
+            for j in range(i + 1, n):
+                lj = lines[j]
+                if not lj.strip():
+                    continue
+                seen_nonblank += 1
+                if _BIB_LINE_RE.match(lj):
+                    ahead_bib = True
+                    break
+                if seen_nonblank >= 3:
+                    break
+            if not ahead_bib:
+                in_bib_run = False
+            out.append(line)
+        else:
+            # Non-blank, non-``[N]`` line — likely a wrap of the
+            # previous bib entry; keep ``in_bib_run`` so the next
+            # ``[N]`` still gets separated.
+            out.append(line)
+    return "\n".join(out)
+
+
 def markdown_to_pages(
     text: str, *, backend: str, backend_version: str | None, document_id: str, raw_ref: str | None, warnings: list[str]
 ) -> list[PageExtractionIR]:
@@ -291,6 +366,7 @@ def markdown_to_pages(
     chunks = [c for c in chunks if c.strip()]
     pages: list[PageExtractionIR] = []
     for page_no, page_text in enumerate(chunks, start=1):
+        page_text = _separate_bracket_bib_entries(page_text)
         blocks = []
         for order, chunk in enumerate([c.strip() for c in re.split(r"\n\s*\n", page_text) if c.strip()]):
             cleaned, ref_tag = _strip_deepseek_tags(chunk)
@@ -685,11 +761,13 @@ def _detect_implicit_bibliography(
     if not runs:
         return None
 
-    # Score each run by how "bibliography-shaped" it is — i.e. how
-    # close to a perfect ascending integer sequence its markers form.
-    # The winner is the LONGEST run with sufficient ascending fraction.
-    best: tuple[int, int] | None = None
-    best_len = 0
+    # Keep every run whose markers form an ascending integer sequence
+    # above the threshold. OCR backends occasionally capture the same
+    # bibliography twice (page-1 dual-column + page-2 single-column
+    # extracts of the same References block), producing two separate
+    # ascending runs. Promoting only the longest leaves the duplicate
+    # copy as FOOTNOTE, hiding 12+ valid candidates from the resolver.
+    qualifying: list[tuple[int, int]] = []
     for start, end in runs:
         run = entities[start : end + 1]
         try:
@@ -703,33 +781,29 @@ def _detect_implicit_bibliography(
         if ascending_pairs_max == 0:
             continue
         ascending_fraction = ascending / ascending_pairs_max
-        if (
-            ascending_fraction >= IMPLICIT_BIBLIOGRAPHY_MIN_ASCENDING_FRACTION
-            and len(run) > best_len
-        ):
-            best = (start, end)
-            best_len = len(run)
+        if ascending_fraction >= IMPLICIT_BIBLIOGRAPHY_MIN_ASCENDING_FRACTION:
+            qualifying.append((start, end))
 
-    if best is None:
+    if not qualifying:
         return None
 
-    start, end = best
-    run = entities[start : end + 1]
+    # Re-tag every entity in every qualifying run.
+    for start, end in qualifying:
+        for ent in entities[start : end + 1]:
+            # Pydantic v2 models are mutable by default unless frozen.
+            ent.entity_type = EntityType.REFERENCE_ITEM
+            ent.metadata = {
+                **ent.metadata,
+                "detector": "implicit_bibliography_detector",
+                "previous_detector": "footnote_detector",
+            }
+            ent.calibration_key = f"{backend}:{EntityType.REFERENCE_ITEM.value}:implicit_bibliography_detector"
 
-    # Re-tag in place.
-    for ent in run:
-        # Pydantic v2 models are mutable by default unless frozen.
-        ent.entity_type = EntityType.REFERENCE_ITEM
-        ent.metadata = {
-            **ent.metadata,
-            "detector": "implicit_bibliography_detector",
-            "previous_detector": "footnote_detector",
-        }
-        ent.calibration_key = f"{backend}:{EntityType.REFERENCE_ITEM.value}:implicit_bibliography_detector"
-
-    # Emit a synthetic REFERENCE_SECTION anchored on the first entity's
-    # block — gives downstream consumers the standard "where does the
-    # bibliography start" signal even though no heading was detected.
+    # Anchor the synthetic REFERENCE_SECTION on the LONGEST qualifying
+    # run's first entity — there's one canonical bibliography section
+    # even when the OCR captured it twice.
+    longest_run = max(qualifying, key=lambda r: r[1] - r[0])
+    run = entities[longest_run[0] : longest_run[1] + 1]
     first = run[0]
     first_block_id = first.block_ids[0] if first.block_ids else None
     # Find the block from pages by id (we kept block_ids in detection order).
@@ -748,6 +822,7 @@ def _detect_implicit_bibliography(
         "detector": "implicit_bibliography_detector",
         "trigger": "tail_run_of_numbered_paragraphs",
         "run_size": len(run),
+        "qualifying_runs": len(qualifying),
     }
     evidence = EntityEvidence(
         kind=EvidenceKind.POSITION,

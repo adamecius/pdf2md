@@ -1442,6 +1442,41 @@
       "id": "_unresolved",
       "type": "unresolved",
       "label": "(unresolved)"
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:61",
+      "type": "bibliography",
+      "label": "ent:paddleocr:1410.8140:footnote:61"
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:62",
+      "type": "bibliography",
+      "label": "ent:paddleocr:1410.8140:footnote:62"
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:63",
+      "type": "bibliography",
+      "label": "ent:paddleocr:1410.8140:footnote:63"
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:64",
+      "type": "bibliography",
+      "label": "ent:paddleocr:1410.8140:footnote:64"
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:65",
+      "type": "bibliography",
+      "label": "ent:paddleocr:1410.8140:footnote:65"
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:66",
+      "type": "bibliography",
+      "label": "ent:paddleocr:1410.8140:footnote:66"
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:67",
+      "type": "bibliography",
+      "label": "ent:paddleocr:1410.8140:footnote:67"
     }
   ],
   "edges": [
@@ -1468,10 +1503,10 @@
     },
     {
       "source": "marker:3:#/document:[5]",
-      "target": "_unresolved",
+      "target": "ent:paddleocr:1410.8140:footnote:61",
       "marker_type": "bibliography",
       "label": "[5]",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:4:#/document:[6,",
@@ -1482,45 +1517,45 @@
     },
     {
       "source": "marker:81:#/document:7]",
-      "target": "_unresolved",
+      "target": "ent:paddleocr:1410.8140:footnote:62",
       "marker_type": "bibliography",
       "label": "7]",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:6:#/document:[8]",
-      "target": "_unresolved",
+      "target": "ent:paddleocr:1410.8140:footnote:63",
       "marker_type": "bibliography",
       "label": "[8]",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:7:#/document:[9]",
-      "target": "_unresolved",
+      "target": "ent:paddleocr:1410.8140:footnote:64",
       "marker_type": "bibliography",
       "label": "[9]",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:8:#/document:[10]",
-      "target": "_unresolved",
+      "target": "ent:paddleocr:1410.8140:footnote:65",
       "marker_type": "bibliography",
       "label": "[10]",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:88:#/document:[11]",
-      "target": "_unresolved",
+      "target": "ent:paddleocr:1410.8140:footnote:66",
       "marker_type": "bibliography",
       "label": "[11]",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:10:#/document:[12,",
-      "target": "_unresolved",
+      "target": "ent:paddleocr:1410.8140:footnote:67",
       "marker_type": "bibliography",
       "label": "[12,",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:11:#/document:13]",
@@ -1979,17 +2014,17 @@
     },
     {
       "source": "marker:76:#/document:5]",
-      "target": "_unresolved",
+      "target": "ent:paddleocr:1410.8140:footnote:61",
       "marker_type": "bibliography",
       "label": "5]",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:89:#/document:(10)",
-      "target": "_unresolved",
+      "target": "ent:paddleocr:1410.8140:footnote:65",
       "marker_type": "bibliography",
       "label": "(10)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:78:#/document:11",
@@ -2014,10 +2049,10 @@
     },
     {
       "source": "marker:81:#/document:7]",
-      "target": "_unresolved",
+      "target": "ent:paddleocr:1410.8140:footnote:62",
       "marker_type": "bibliography",
       "label": "7]",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:82:#/document:[1,",
@@ -2028,17 +2063,17 @@
     },
     {
       "source": "marker:83:#/document:8,",
-      "target": "_unresolved",
+      "target": "ent:paddleocr:1410.8140:footnote:63",
       "marker_type": "bibliography",
       "label": "8,",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:84:#/document:9]",
-      "target": "_unresolved",
+      "target": "ent:paddleocr:1410.8140:footnote:64",
       "marker_type": "bibliography",
       "label": "9]",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:85:#/document:14",
@@ -2049,31 +2084,31 @@
     },
     {
       "source": "marker:86:#/document:[9,",
-      "target": "_unresolved",
+      "target": "ent:paddleocr:1410.8140:footnote:64",
       "marker_type": "bibliography",
       "label": "[9,",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:87:#/document:10]",
-      "target": "_unresolved",
+      "target": "ent:paddleocr:1410.8140:footnote:65",
       "marker_type": "bibliography",
       "label": "10]",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:88:#/document:[11]",
-      "target": "_unresolved",
+      "target": "ent:paddleocr:1410.8140:footnote:66",
       "marker_type": "bibliography",
       "label": "[11]",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:89:#/document:(10)",
-      "target": "_unresolved",
+      "target": "ent:paddleocr:1410.8140:footnote:65",
       "marker_type": "bibliography",
       "label": "(10)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:90:#/document:(16)",
@@ -2091,10 +2126,10 @@
     },
     {
       "source": "marker:92:#/document:(11)",
-      "target": "_unresolved",
+      "target": "ent:paddleocr:1410.8140:footnote:66",
       "marker_type": "bibliography",
       "label": "(11)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:93:#/document:(22)",
@@ -2126,10 +2161,10 @@
     },
     {
       "source": "marker:97:#/document:[12]",
-      "target": "_unresolved",
+      "target": "ent:paddleocr:1410.8140:footnote:67",
       "marker_type": "bibliography",
       "label": "[12]",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:98:#/document:[38]",
@@ -2373,8 +2408,8 @@
   "metadata": {
     "doc_hash": "sha256:617923f5e52a638b125c0edd7f3606032e7b29d12d07c63ba0a02ab77fea999f",
     "total_markers": 101,
-    "resolved_count": 0,
-    "unresolved_count": 132,
+    "resolved_count": 18,
+    "unresolved_count": 114,
     "backend_versions": {
       "grobid": "0.1.0"
     }
