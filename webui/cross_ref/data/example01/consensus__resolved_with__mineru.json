@@ -486,7 +486,15 @@
         541,
         544
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
+    },
+    {
+      "id": "section:markers:example01/consensus+mineru",
+      "type": "markers_section",
+      "label": "Markers",
+      "parent_id": "document:example01/consensus+mineru",
+      "back_matter_kind": "markers"
     },
     {
       "id": "marker:1:#/document:[2]",
@@ -497,7 +505,8 @@
         1303,
         1306
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:2:#/document:[3]",
@@ -508,7 +517,8 @@
         1359,
         1362
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:3:#/document:[4]",
@@ -519,7 +529,8 @@
         1499,
         1502
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:4:#/document:[5]",
@@ -530,7 +541,8 @@
         1638,
         1641
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:5:#/document:[6, 7]",
@@ -541,7 +553,8 @@
         1747,
         1753
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:6:#/document:[8]",
@@ -552,7 +565,8 @@
         1837,
         1840
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:7:#/document:[9]",
@@ -563,7 +577,8 @@
         1941,
         1944
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:8:#/document:[10]",
@@ -574,7 +589,8 @@
         2067,
         2071
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:9:#/document:[11]",
@@ -585,7 +601,8 @@
         2237,
         2241
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:10:#/document:[12, 13]",
@@ -596,7 +613,8 @@
         2634,
         2642
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:11:#/document:[14]",
@@ -607,7 +625,8 @@
         2681,
         2685
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:12:#/document:[1]",
@@ -618,7 +637,8 @@
         3014,
         3017
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:13:#/document:[16]",
@@ -629,7 +649,8 @@
         3129,
         3133
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:14:#/document:[14, 21]",
@@ -640,7 +661,8 @@
         3279,
         3287
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:15:#/document:[25]",
@@ -651,7 +673,8 @@
         3985,
         3989
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:16:#/document:[1]",
@@ -662,7 +685,8 @@
         4779,
         4782
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:17:#/document:[1]",
@@ -673,7 +697,8 @@
         5612,
         5615
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:18:#/document:[26]",
@@ -684,7 +709,8 @@
         5681,
         5685
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:19:#/document:[26]",
@@ -695,7 +721,8 @@
         5888,
         5892
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:20:#/document:[27]",
@@ -706,7 +733,8 @@
         6026,
         6030
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:21:#/document:[15]",
@@ -717,7 +745,8 @@
         6160,
         6164
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:22:#/document:eq. (1)",
@@ -728,7 +757,8 @@
         6390,
         6397
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:23:#/document:[16, 28]",
@@ -739,7 +769,8 @@
         6467,
         6475
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:24:#/document:[32]",
@@ -750,7 +781,8 @@
         6806,
         6810
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:25:#/document:[34]",
@@ -761,7 +793,8 @@
         9700,
         9704
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:26:#/document:[20, 29]",
@@ -772,7 +805,8 @@
         9890,
         9898
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:27:#/document:[35, 36]",
@@ -783,7 +817,8 @@
         10202,
         10210
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:28:#/document:Fig. 1",
@@ -794,7 +829,8 @@
         12662,
         12668
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:29:#/document:Figure\n\n1",
@@ -805,7 +841,8 @@
         12861,
         12870
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:30:#/document:Fig. 1",
@@ -816,7 +853,8 @@
         13360,
         13366
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:31:#/document:[37]",
@@ -827,7 +865,8 @@
         13515,
         13519
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:32:#/document:Fig. 1",
@@ -838,7 +877,8 @@
         13597,
         13603
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:33:#/document:Fig. 2",
@@ -849,7 +889,8 @@
         13807,
         13813
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:34:#/document:[29]",
@@ -860,7 +901,8 @@
         13988,
         13992
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:35:#/document:Fig. 2",
@@ -871,7 +913,8 @@
         14287,
         14293
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:36:#/document:[14, 24]",
@@ -882,7 +925,8 @@
         14386,
         14394
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:37:#/document:FIG. 1",
@@ -893,7 +937,8 @@
         15127,
         15133
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:38:#/document:FIG. 2",
@@ -904,7 +949,8 @@
         15939,
         15945
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:39:#/document:Fig. 2",
@@ -915,7 +961,8 @@
         16489,
         16495
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:40:#/document:[33]",
@@ -926,7 +973,8 @@
         16828,
         16832
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:41:#/document:[16]",
@@ -937,7 +985,8 @@
         16899,
         16903
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:42:#/document:Fig. 2",
@@ -948,7 +997,8 @@
         17026,
         17032
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:43:#/document:Fig. 2",
@@ -959,7 +1009,8 @@
         17098,
         17104
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:44:#/document:[38]",
@@ -970,7 +1021,8 @@
         17685,
         17689
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:45:#/document:[25]",
@@ -981,7 +1033,8 @@
         17726,
         17730
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:46:#/document:[25]",
@@ -992,7 +1045,8 @@
         18855,
         18859
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:47:#/document:[38]",
@@ -1003,7 +1057,8 @@
         19336,
         19340
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:48:#/document:FIG. 3",
@@ -1014,7 +1069,8 @@
         21227,
         21233
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:49:#/document:Fig. 3",
@@ -1025,7 +1081,8 @@
         22427,
         22433
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:50:#/document:[39, 40]",
@@ -1036,7 +1093,8 @@
         22854,
         22862
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:51:#/document:[41]",
@@ -1047,7 +1105,8 @@
         25566,
         25570
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:52:#/document:[1]",
@@ -1058,7 +1117,8 @@
         26095,
         26098
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:53:#/document:[2]",
@@ -1069,7 +1129,8 @@
         26202,
         26205
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:54:#/document:[3]",
@@ -1080,7 +1141,8 @@
         26248,
         26251
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:55:#/document:[4]",
@@ -1091,7 +1153,8 @@
         26352,
         26355
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:56:#/document:[5]",
@@ -1102,7 +1165,8 @@
         26431,
         26434
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:57:#/document:[6]",
@@ -1113,7 +1177,8 @@
         26505,
         26508
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:58:#/document:[7]",
@@ -1124,7 +1189,8 @@
         26555,
         26558
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:59:#/document:[8]",
@@ -1135,7 +1201,8 @@
         26603,
         26606
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:60:#/document:[9]",
@@ -1146,7 +1213,8 @@
         26670,
         26673
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:61:#/document:[10]",
@@ -1157,7 +1225,8 @@
         26795,
         26799
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:62:#/document:[11]",
@@ -1168,7 +1237,8 @@
         26898,
         26902
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:63:#/document:[12]",
@@ -1179,7 +1249,8 @@
         26969,
         26973
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:64:#/document:[13]",
@@ -1190,7 +1261,8 @@
         27048,
         27052
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:65:#/document:[14]",
@@ -1201,7 +1273,8 @@
         27112,
         27116
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:66:#/document:[15]",
@@ -1212,7 +1285,8 @@
         27190,
         27194
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:67:#/document:[16]",
@@ -1223,7 +1297,8 @@
         27257,
         27261
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:68:#/document:[17]",
@@ -1234,7 +1309,8 @@
         27344,
         27348
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:69:#/document:[18]",
@@ -1245,7 +1321,8 @@
         27392,
         27396
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:70:#/document:[19]",
@@ -1256,7 +1333,8 @@
         27475,
         27479
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:71:#/document:[20]",
@@ -1267,7 +1345,8 @@
         27617,
         27621
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:72:#/document:[21]",
@@ -1278,7 +1357,8 @@
         27715,
         27719
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:73:#/document:[22]",
@@ -1289,7 +1369,8 @@
         27797,
         27801
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:74:#/document:[23]",
@@ -1300,7 +1381,8 @@
         27916,
         27920
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:75:#/document:[24]",
@@ -1311,7 +1393,8 @@
         28036,
         28040
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:76:#/document:[25]",
@@ -1322,7 +1405,8 @@
         28166,
         28170
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:77:#/document:[26]",
@@ -1333,7 +1417,8 @@
         28226,
         28230
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:78:#/document:[27]",
@@ -1344,7 +1429,8 @@
         28293,
         28297
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:79:#/document:[28]",
@@ -1355,7 +1441,8 @@
         28377,
         28381
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:80:#/document:[29]",
@@ -1366,7 +1453,8 @@
         28487,
         28491
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:81:#/document:[30]",
@@ -1377,7 +1465,8 @@
         28567,
         28571
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:82:#/document:[31]",
@@ -1388,7 +1477,8 @@
         28671,
         28675
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:83:#/document:[32]",
@@ -1399,7 +1489,8 @@
         28787,
         28791
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:84:#/document:[33]",
@@ -1410,7 +1501,8 @@
         28942,
         28946
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:85:#/document:[42- 48]",
@@ -1421,7 +1513,8 @@
         29001,
         29009
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:86:#/document:[34]",
@@ -1432,7 +1525,8 @@
         29013,
         29017
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:87:#/document:[35]",
@@ -1443,7 +1537,8 @@
         29130,
         29134
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:88:#/document:[36]",
@@ -1454,7 +1549,8 @@
         29212,
         29216
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:89:#/document:[37]",
@@ -1465,7 +1561,8 @@
         29289,
         29293
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:90:#/document:[38]",
@@ -1476,7 +1573,8 @@
         29444,
         29448
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:91:#/document:[39]",
@@ -1487,7 +1585,8 @@
         29495,
         29499
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:92:#/document:[40]",
@@ -1498,7 +1597,8 @@
         29594,
         29598
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:93:#/document:[41]",
@@ -1509,7 +1609,8 @@
         29699,
         29703
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:94:#/document:[42]",
@@ -1520,7 +1621,8 @@
         29946,
         29950
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:95:#/document:[43]",
@@ -1531,7 +1633,8 @@
         30087,
         30091
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:96:#/document:[44]",
@@ -1542,7 +1645,8 @@
         30155,
         30159
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:97:#/document:[45]",
@@ -1553,7 +1657,8 @@
         30226,
         30230
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:98:#/document:[46]",
@@ -1564,7 +1669,8 @@
         30340,
         30344
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:99:#/document:[47]",
@@ -1575,7 +1681,8 @@
         30412,
         30416
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:100:#/document:[48]",
@@ -1586,7 +1693,8 @@
         30482,
         30486
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:101:#/document:[1]",
@@ -1597,7 +1705,8 @@
         32184,
         32187
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:102:#/document:[2]",
@@ -1608,7 +1717,8 @@
         33279,
         33282
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:103:#/document:[3, 4]",
@@ -1619,7 +1729,8 @@
         33309,
         33315
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:104:#/document:[ 1 , 5 ]",
@@ -1630,7 +1741,8 @@
         33507,
         33516
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:105:#/document:equation (11)",
@@ -1641,7 +1753,8 @@
         34187,
         34200
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:106:#/document:[1, 6, 7]",
@@ -1652,7 +1765,8 @@
         34931,
         34940
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:107:#/document:[1, 8, 9]",
@@ -1663,7 +1777,8 @@
         35352,
         35361
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:108:#/document:Eq. (14)",
@@ -1674,7 +1789,8 @@
         36589,
         36597
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:109:#/document:[9, 10]",
@@ -1685,7 +1801,8 @@
         36840,
         36847
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:110:#/document:[11]",
@@ -1696,7 +1813,8 @@
         37045,
         37049
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:111:#/document:[1]",
@@ -1707,7 +1825,8 @@
         42544,
         42547
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:112:#/document:FIG. 4",
@@ -1718,7 +1837,8 @@
         43100,
         43106
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:113:#/document:figure 1",
@@ -1729,7 +1849,8 @@
         43437,
         43445
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:114:#/document:figure 2",
@@ -1740,7 +1861,8 @@
         44806,
         44814
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:115:#/document:FIG. 5",
@@ -1751,7 +1873,8 @@
         45545,
         45551
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:116:#/document:[12]",
@@ -1762,7 +1885,8 @@
         47669,
         47673
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:117:#/document:[1]",
@@ -1773,7 +1897,8 @@
         47676,
         47679
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:118:#/document:[2]",
@@ -1784,7 +1909,8 @@
         47787,
         47790
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:119:#/document:[3]",
@@ -1795,7 +1921,8 @@
         47872,
         47875
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:120:#/document:[4]",
@@ -1806,7 +1933,8 @@
         48012,
         48015
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:121:#/document:[5]",
@@ -1817,7 +1945,8 @@
         48076,
         48079
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:122:#/document:[6]",
@@ -1828,7 +1957,8 @@
         48191,
         48194
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:123:#/document:[7]",
@@ -1839,7 +1969,8 @@
         48259,
         48262
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:124:#/document:[8]",
@@ -1850,7 +1981,8 @@
         48372,
         48375
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:125:#/document:[9]",
@@ -1861,7 +1993,8 @@
         48443,
         48446
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:126:#/document:[10]",
@@ -1872,7 +2005,8 @@
         48512,
         48516
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:127:#/document:[11]",
@@ -1883,7 +2017,8 @@
         48592,
         48596
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:128:#/document:[12]",
@@ -1894,7 +2029,8 @@
         48699,
         48703
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:129:#/document:[2]",
@@ -1905,7 +2041,8 @@
         0,
         3
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:130:#/document:[3]",
@@ -1916,7 +2053,8 @@
         4,
         7
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:131:#/document:[4]",
@@ -1927,7 +2065,8 @@
         8,
         11
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:132:#/document:[5]",
@@ -1938,7 +2077,8 @@
         12,
         15
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:133:#/document:[6,",
@@ -1949,7 +2089,8 @@
         16,
         19
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:134:#/document:7]",
@@ -1960,7 +2101,8 @@
         20,
         22
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:135:#/document:[8]",
@@ -1971,7 +2113,8 @@
         23,
         26
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:136:#/document:[9]",
@@ -1982,7 +2125,8 @@
         27,
         30
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:137:#/document:[10]",
@@ -1993,7 +2137,8 @@
         31,
         35
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:138:#/document:[11]",
@@ -2004,7 +2149,8 @@
         36,
         40
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:139:#/document:[12,",
@@ -2015,7 +2161,8 @@
         41,
         45
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:140:#/document:13]",
@@ -2026,7 +2173,8 @@
         46,
         49
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:141:#/document:[14]",
@@ -2037,7 +2185,8 @@
         50,
         54
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:142:#/document:[1]",
@@ -2048,7 +2197,8 @@
         55,
         58
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:143:#/document:[16]",
@@ -2059,7 +2209,8 @@
         59,
         63
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:144:#/document:[17]",
@@ -2070,7 +2221,8 @@
         64,
         68
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:145:#/document:[18]",
@@ -2081,7 +2233,8 @@
         69,
         73
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:146:#/document:[19]",
@@ -2092,7 +2245,8 @@
         74,
         78
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:147:#/document:[20]",
@@ -2103,7 +2257,8 @@
         79,
         83
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:148:#/document:[14,",
@@ -2114,7 +2269,8 @@
         84,
         88
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:149:#/document:21]",
@@ -2125,7 +2281,8 @@
         89,
         92
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:150:#/document:[22]",
@@ -2136,7 +2293,8 @@
         98,
         102
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:151:#/document:[23]",
@@ -2147,7 +2305,8 @@
         103,
         107
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:152:#/document:[24]",
@@ -2158,7 +2317,8 @@
         108,
         112
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:153:#/document:[25]",
@@ -2169,7 +2329,8 @@
         113,
         117
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:154:#/document:[26]",
@@ -2180,7 +2341,8 @@
         126,
         130
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:155:#/document:[27]",
@@ -2191,7 +2353,8 @@
         136,
         140
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:156:#/document:[15]",
@@ -2202,7 +2365,8 @@
         141,
         145
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:157:#/document:1",
@@ -2213,7 +2377,8 @@
         32,
         33
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:158:#/document:[16,",
@@ -2224,7 +2389,8 @@
         148,
         152
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:159:#/document:28]",
@@ -2235,7 +2401,8 @@
         153,
         156
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:160:#/document:[29]",
@@ -2246,7 +2413,8 @@
         162,
         166
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:161:#/document:[30]",
@@ -2257,7 +2425,8 @@
         167,
         171
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:162:#/document:[31]",
@@ -2268,7 +2437,8 @@
         172,
         176
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:163:#/document:[32]",
@@ -2279,7 +2449,8 @@
         177,
         181
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:164:#/document:[33]",
@@ -2290,7 +2461,8 @@
         182,
         186
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:165:#/document:(19)",
@@ -2301,7 +2473,8 @@
         196,
         200
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:166:#/document:[34]",
@@ -2312,7 +2485,8 @@
         201,
         205
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:167:#/document:[20,",
@@ -2323,7 +2497,8 @@
         206,
         210
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:168:#/document:29]",
@@ -2334,7 +2509,8 @@
         163,
         166
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:169:#/document:[35,",
@@ -2345,7 +2521,8 @@
         215,
         219
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:170:#/document:36]",
@@ -2356,7 +2533,8 @@
         220,
         223
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:171:#/document:1 (b)",
@@ -2367,7 +2545,8 @@
         224,
         229
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:172:#/document:1 (c",
@@ -2378,7 +2557,8 @@
         232,
         236
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:173:#/document:[37]",
@@ -2389,7 +2569,8 @@
         237,
         241
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:174:#/document:2",
@@ -2400,7 +2581,8 @@
         1,
         2
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:175:#/document:24]",
@@ -2411,7 +2593,8 @@
         109,
         112
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:176:#/document:2 (c",
@@ -2422,7 +2605,8 @@
         274,
         278
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:177:#/document:[38]",
@@ -2433,7 +2617,8 @@
         281,
         285
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:178:#/document:3",
@@ -2444,7 +2629,8 @@
         5,
         6
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:179:#/document:[39,",
@@ -2455,7 +2641,8 @@
         303,
         307
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:180:#/document:40]",
@@ -2466,7 +2653,8 @@
         308,
         311
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:181:#/document:[41]",
@@ -2477,7 +2665,8 @@
         312,
         316
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:182:#/document:[3,",
@@ -2488,7 +2677,8 @@
         321,
         324
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:183:#/document:4]",
@@ -2499,7 +2689,8 @@
         9,
         11
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:184:#/document:[1,",
@@ -2510,7 +2701,8 @@
         328,
         331
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:185:#/document:5]",
@@ -2521,7 +2713,8 @@
         13,
         15
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:186:#/document:(10)",
@@ -2532,7 +2725,8 @@
         335,
         339
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:187:#/document:11",
@@ -2543,7 +2737,8 @@
         37,
         39
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:188:#/document:6,",
@@ -2554,7 +2749,8 @@
         17,
         19
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:189:#/document:8,",
@@ -2565,7 +2761,8 @@
         357,
         359
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:190:#/document:9]",
@@ -2576,7 +2773,8 @@
         28,
         30
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:191:#/document:14",
@@ -2587,7 +2785,8 @@
         51,
         53
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:192:#/document:[9,",
@@ -2598,7 +2797,8 @@
         366,
         369
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:193:#/document:10]",
@@ -2609,7 +2809,8 @@
         32,
         35
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:194:#/document:(16)",
@@ -2620,7 +2821,8 @@
         384,
         388
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:195:#/document:19",
@@ -2631,7 +2833,8 @@
         75,
         77
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:196:#/document:(11)",
@@ -2642,7 +2845,8 @@
         392,
         396
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:197:#/document:(22)",
@@ -2653,7 +2857,8 @@
         397,
         401
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:198:#/document:[12]",
@@ -2664,7 +2869,8 @@
         410,
         414
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:199:#/document/pages/7:Eq. (15)",
@@ -2675,7 +2881,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:200:#/document/pages/7:Eq. (16)",
@@ -2686,7 +2894,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:201:#/document/pages/7:Eq. (17)",
@@ -2697,7 +2907,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:202:#/document/pages/7:Eq. (18)",
@@ -2708,7 +2920,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:203:#/document/pages/7:Eq. (19)",
@@ -2719,7 +2933,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:204:#/document/pages/7:Eq. (20)",
@@ -2730,7 +2946,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:205:#/document/pages/7:Eq. (21)",
@@ -2741,7 +2959,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:206:#/document/pages/8:FIG. 4",
@@ -2752,7 +2972,9 @@
         0,
         6
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:207:#/document/pages/8:Eq. (22)",
@@ -2763,7 +2985,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:208:#/document/pages/8:Eq. (23)",
@@ -2774,7 +2998,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:209:#/document/pages/8:Eq. (24)",
@@ -2785,7 +3011,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:210:#/document/pages/8:Eq. (25)",
@@ -2796,7 +3024,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:211:#/document/pages/9:FIG. 5. (a) \u27e8d\u03c3xy(E)\u27e9 as a function of R for \u03c6/\u03c60 \u2248 1 \u00d7 10\u22122, M = 3200, kBT = 0 and N = 2 \u00d7 400 \u00d7 400 sites.",
@@ -2807,7 +3037,9 @@
         0,
         108
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 9,
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:212:#/document/pages/10:Figure 1",
@@ -2818,7 +3050,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:213:#/document/pages/10:Eq. (1)",
@@ -2829,7 +3063,9 @@
         0,
         7
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:214:#/document/pages/10:[1]",
@@ -2840,7 +3076,9 @@
         0,
         3
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "marker:215:#/document/pages/10:footnote 1",
@@ -2851,7 +3089,9 @@
         0,
         10
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "section:markers:example01/consensus+mineru"
     },
     {
       "id": "ent:mineru:1410.8140:footnote:19",
@@ -5351,6 +5591,1308 @@
     {
       "source": "document:example01/consensus+mineru",
       "target": "#/bibliography/b64",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/consensus+mineru",
+      "target": "section:markers:example01/consensus+mineru",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:0:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:1:#/document:[2]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:2:#/document:[3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:3:#/document:[4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:4:#/document:[5]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:5:#/document:[6, 7]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:6:#/document:[8]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:7:#/document:[9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:8:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:9:#/document:[11]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:10:#/document:[12, 13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:11:#/document:[14]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:12:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:13:#/document:[16]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:14:#/document:[14, 21]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:15:#/document:[25]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:16:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:17:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:18:#/document:[26]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:19:#/document:[26]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:20:#/document:[27]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:21:#/document:[15]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:22:#/document:eq. (1)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:23:#/document:[16, 28]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:24:#/document:[32]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:25:#/document:[34]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:26:#/document:[20, 29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:27:#/document:[35, 36]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:28:#/document:Fig. 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:29:#/document:Figure\n\n1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:30:#/document:Fig. 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:31:#/document:[37]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:32:#/document:Fig. 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:33:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:34:#/document:[29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:35:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:36:#/document:[14, 24]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:37:#/document:FIG. 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:38:#/document:FIG. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:39:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:40:#/document:[33]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:41:#/document:[16]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:42:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:43:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:44:#/document:[38]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:45:#/document:[25]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:46:#/document:[25]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:47:#/document:[38]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:48:#/document:FIG. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:49:#/document:Fig. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:50:#/document:[39, 40]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:51:#/document:[41]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:52:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:53:#/document:[2]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:54:#/document:[3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:55:#/document:[4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:56:#/document:[5]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:57:#/document:[6]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:58:#/document:[7]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:59:#/document:[8]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:60:#/document:[9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:61:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:62:#/document:[11]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:63:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:64:#/document:[13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:65:#/document:[14]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:66:#/document:[15]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:67:#/document:[16]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:68:#/document:[17]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:69:#/document:[18]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:70:#/document:[19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:71:#/document:[20]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:72:#/document:[21]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:73:#/document:[22]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:74:#/document:[23]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:75:#/document:[24]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:76:#/document:[25]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:77:#/document:[26]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:78:#/document:[27]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:79:#/document:[28]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:80:#/document:[29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:81:#/document:[30]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:82:#/document:[31]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:83:#/document:[32]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:84:#/document:[33]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:85:#/document:[42- 48]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:86:#/document:[34]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:87:#/document:[35]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:88:#/document:[36]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:89:#/document:[37]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:90:#/document:[38]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:91:#/document:[39]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:92:#/document:[40]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:93:#/document:[41]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:94:#/document:[42]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:95:#/document:[43]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:96:#/document:[44]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:97:#/document:[45]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:98:#/document:[46]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:99:#/document:[47]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:100:#/document:[48]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:101:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:102:#/document:[2]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:103:#/document:[3, 4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:104:#/document:[ 1 , 5 ]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:105:#/document:equation (11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:106:#/document:[1, 6, 7]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:107:#/document:[1, 8, 9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:108:#/document:Eq. (14)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:109:#/document:[9, 10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:110:#/document:[11]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:111:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:112:#/document:FIG. 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:113:#/document:figure 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:114:#/document:figure 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:115:#/document:FIG. 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:116:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:117:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:118:#/document:[2]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:119:#/document:[3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:120:#/document:[4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:121:#/document:[5]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:122:#/document:[6]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:123:#/document:[7]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:124:#/document:[8]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:125:#/document:[9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:126:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:127:#/document:[11]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:128:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:129:#/document:[2]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:130:#/document:[3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:131:#/document:[4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:132:#/document:[5]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:133:#/document:[6,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:134:#/document:7]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:135:#/document:[8]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:136:#/document:[9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:137:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:138:#/document:[11]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:139:#/document:[12,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:140:#/document:13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:141:#/document:[14]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:142:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:143:#/document:[16]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:144:#/document:[17]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:145:#/document:[18]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:146:#/document:[19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:147:#/document:[20]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:148:#/document:[14,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:149:#/document:21]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:150:#/document:[22]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:151:#/document:[23]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:152:#/document:[24]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:153:#/document:[25]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:154:#/document:[26]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:155:#/document:[27]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:156:#/document:[15]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:157:#/document:1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:158:#/document:[16,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:159:#/document:28]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:160:#/document:[29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:161:#/document:[30]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:162:#/document:[31]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:163:#/document:[32]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:164:#/document:[33]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:165:#/document:(19)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:166:#/document:[34]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:167:#/document:[20,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:168:#/document:29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:169:#/document:[35,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:170:#/document:36]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:171:#/document:1 (b)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:172:#/document:1 (c",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:173:#/document:[37]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:174:#/document:2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:175:#/document:24]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:176:#/document:2 (c",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:177:#/document:[38]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:178:#/document:3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:179:#/document:[39,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:180:#/document:40]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:181:#/document:[41]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:182:#/document:[3,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:183:#/document:4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:184:#/document:[1,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:185:#/document:5]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:186:#/document:(10)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:187:#/document:11",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:188:#/document:6,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:189:#/document:8,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:190:#/document:9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:191:#/document:14",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:192:#/document:[9,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:193:#/document:10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:194:#/document:(16)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:195:#/document:19",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:196:#/document:(11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:197:#/document:(22)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:198:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:199:#/document/pages/7:Eq. (15)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:200:#/document/pages/7:Eq. (16)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:201:#/document/pages/7:Eq. (17)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:202:#/document/pages/7:Eq. (18)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:203:#/document/pages/7:Eq. (19)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:204:#/document/pages/7:Eq. (20)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:205:#/document/pages/7:Eq. (21)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:206:#/document/pages/8:FIG. 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:207:#/document/pages/8:Eq. (22)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:208:#/document/pages/8:Eq. (23)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:209:#/document/pages/8:Eq. (24)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:210:#/document/pages/8:Eq. (25)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:211:#/document/pages/9:FIG. 5. (a) \u27e8d\u03c3xy(E)\u27e9 as a function of R for \u03c6/\u03c60 \u2248 1 \u00d7 10\u22122, M = 3200, kBT = 0 and N = 2 \u00d7 400 \u00d7 400 sites.",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:212:#/document/pages/10:Figure 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:213:#/document/pages/10:Eq. (1)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:214:#/document/pages/10:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/consensus+mineru",
+      "target": "marker:215:#/document/pages/10:footnote 1",
       "edge_kind": "contains",
       "label": ""
     },

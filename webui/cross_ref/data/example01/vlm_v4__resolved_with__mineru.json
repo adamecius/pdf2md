@@ -31,7 +31,16 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "section:markers:example01/vlm_v4+mineru"
+    },
+    {
+      "id": "section:markers:example01/vlm_v4+mineru",
+      "type": "markers_section",
+      "label": "Markers",
+      "parent_id": "document:example01/vlm_v4+mineru",
+      "back_matter_kind": "markers"
     },
     {
       "id": "marker:1:#/document/pages/7:Eq. (16)",
@@ -42,7 +51,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "section:markers:example01/vlm_v4+mineru"
     },
     {
       "id": "marker:2:#/document/pages/7:Eq. (17)",
@@ -53,7 +64,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "section:markers:example01/vlm_v4+mineru"
     },
     {
       "id": "marker:3:#/document/pages/7:Eq. (18)",
@@ -64,7 +77,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "section:markers:example01/vlm_v4+mineru"
     },
     {
       "id": "marker:4:#/document/pages/7:Eq. (19)",
@@ -75,7 +90,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "section:markers:example01/vlm_v4+mineru"
     },
     {
       "id": "marker:5:#/document/pages/7:Eq. (20)",
@@ -86,7 +103,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "section:markers:example01/vlm_v4+mineru"
     },
     {
       "id": "marker:6:#/document/pages/7:Eq. (21)",
@@ -97,7 +116,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "section:markers:example01/vlm_v4+mineru"
     },
     {
       "id": "marker:7:#/document/pages/8:FIG. 4",
@@ -108,7 +129,9 @@
         0,
         6
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "section:markers:example01/vlm_v4+mineru"
     },
     {
       "id": "marker:8:#/document/pages/8:Eq. (22)",
@@ -119,7 +142,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "section:markers:example01/vlm_v4+mineru"
     },
     {
       "id": "marker:9:#/document/pages/8:Eq. (23)",
@@ -130,7 +155,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "section:markers:example01/vlm_v4+mineru"
     },
     {
       "id": "marker:10:#/document/pages/8:Eq. (24)",
@@ -141,7 +168,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "section:markers:example01/vlm_v4+mineru"
     },
     {
       "id": "marker:11:#/document/pages/8:Eq. (25)",
@@ -152,7 +181,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "section:markers:example01/vlm_v4+mineru"
     },
     {
       "id": "marker:12:#/document/pages/9:FIG. 5. (a) \u27e8d\u03c3xy(E)\u27e9 as a function of R for \u03c6/\u03c60 \u2248 1 \u00d7 10\u22122, M = 3200, kBT = 0 and N = 2 \u00d7 400 \u00d7 400 sites.",
@@ -163,7 +194,9 @@
         0,
         108
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 9,
+      "parent_id": "section:markers:example01/vlm_v4+mineru"
     },
     {
       "id": "marker:13:#/document/pages/10:Figure 1",
@@ -174,7 +207,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "section:markers:example01/vlm_v4+mineru"
     },
     {
       "id": "marker:14:#/document/pages/10:Eq. (1)",
@@ -185,7 +220,9 @@
         0,
         7
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "section:markers:example01/vlm_v4+mineru"
     },
     {
       "id": "marker:15:#/document/pages/10:[1]",
@@ -196,7 +233,9 @@
         0,
         3
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "section:markers:example01/vlm_v4+mineru"
     },
     {
       "id": "marker:16:#/document/pages/10:footnote 1",
@@ -207,7 +246,9 @@
         0,
         10
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "section:markers:example01/vlm_v4+mineru"
     },
     {
       "id": "_unresolved",
@@ -389,6 +430,114 @@
     {
       "source": "document:example01/vlm_v4+mineru",
       "target": "section:bibliography:example01/vlm_v4+mineru",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/vlm_v4+mineru",
+      "target": "section:markers:example01/vlm_v4+mineru",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/vlm_v4+mineru",
+      "target": "marker:0:#/document/pages/7:Eq. (15)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/vlm_v4+mineru",
+      "target": "marker:1:#/document/pages/7:Eq. (16)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/vlm_v4+mineru",
+      "target": "marker:2:#/document/pages/7:Eq. (17)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/vlm_v4+mineru",
+      "target": "marker:3:#/document/pages/7:Eq. (18)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/vlm_v4+mineru",
+      "target": "marker:4:#/document/pages/7:Eq. (19)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/vlm_v4+mineru",
+      "target": "marker:5:#/document/pages/7:Eq. (20)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/vlm_v4+mineru",
+      "target": "marker:6:#/document/pages/7:Eq. (21)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/vlm_v4+mineru",
+      "target": "marker:7:#/document/pages/8:FIG. 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/vlm_v4+mineru",
+      "target": "marker:8:#/document/pages/8:Eq. (22)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/vlm_v4+mineru",
+      "target": "marker:9:#/document/pages/8:Eq. (23)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/vlm_v4+mineru",
+      "target": "marker:10:#/document/pages/8:Eq. (24)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/vlm_v4+mineru",
+      "target": "marker:11:#/document/pages/8:Eq. (25)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/vlm_v4+mineru",
+      "target": "marker:12:#/document/pages/9:FIG. 5. (a) \u27e8d\u03c3xy(E)\u27e9 as a function of R for \u03c6/\u03c60 \u2248 1 \u00d7 10\u22122, M = 3200, kBT = 0 and N = 2 \u00d7 400 \u00d7 400 sites.",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/vlm_v4+mineru",
+      "target": "marker:13:#/document/pages/10:Figure 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/vlm_v4+mineru",
+      "target": "marker:14:#/document/pages/10:Eq. (1)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/vlm_v4+mineru",
+      "target": "marker:15:#/document/pages/10:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/vlm_v4+mineru",
+      "target": "marker:16:#/document/pages/10:footnote 1",
       "edge_kind": "contains",
       "label": ""
     },

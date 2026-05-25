@@ -94,7 +94,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "page:example01/vlm_v4+deepseek:7"
     },
     {
       "id": "marker:1:#/document/pages/7:Eq. (16)",
@@ -105,7 +107,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "page:example01/vlm_v4+deepseek:7"
     },
     {
       "id": "marker:2:#/document/pages/7:Eq. (17)",
@@ -116,7 +120,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "page:example01/vlm_v4+deepseek:7"
     },
     {
       "id": "marker:3:#/document/pages/7:Eq. (18)",
@@ -127,7 +133,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "page:example01/vlm_v4+deepseek:7"
     },
     {
       "id": "marker:4:#/document/pages/7:Eq. (19)",
@@ -138,7 +146,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "page:example01/vlm_v4+deepseek:7"
     },
     {
       "id": "marker:5:#/document/pages/7:Eq. (20)",
@@ -149,7 +159,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "page:example01/vlm_v4+deepseek:7"
     },
     {
       "id": "marker:6:#/document/pages/7:Eq. (21)",
@@ -160,7 +172,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "page:example01/vlm_v4+deepseek:7"
     },
     {
       "id": "marker:7:#/document/pages/8:FIG. 4",
@@ -171,7 +185,9 @@
         0,
         6
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "page:example01/vlm_v4+deepseek:8"
     },
     {
       "id": "marker:8:#/document/pages/8:Eq. (22)",
@@ -182,7 +198,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "page:example01/vlm_v4+deepseek:8"
     },
     {
       "id": "marker:9:#/document/pages/8:Eq. (23)",
@@ -193,7 +211,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "page:example01/vlm_v4+deepseek:8"
     },
     {
       "id": "marker:10:#/document/pages/8:Eq. (24)",
@@ -204,7 +224,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "page:example01/vlm_v4+deepseek:8"
     },
     {
       "id": "marker:11:#/document/pages/8:Eq. (25)",
@@ -215,7 +237,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "page:example01/vlm_v4+deepseek:8"
     },
     {
       "id": "marker:12:#/document/pages/9:FIG. 5. (a) \u27e8d\u03c3xy(E)\u27e9 as a function of R for \u03c6/\u03c60 \u2248 1 \u00d7 10\u22122, M = 3200, kBT = 0 and N = 2 \u00d7 400 \u00d7 400 sites.",
@@ -226,7 +250,9 @@
         0,
         108
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 9,
+      "parent_id": "page:example01/vlm_v4+deepseek:9"
     },
     {
       "id": "marker:13:#/document/pages/10:Figure 1",
@@ -237,7 +263,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "page:example01/vlm_v4+deepseek:10"
     },
     {
       "id": "marker:14:#/document/pages/10:Eq. (1)",
@@ -248,7 +276,9 @@
         0,
         7
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "page:example01/vlm_v4+deepseek:10"
     },
     {
       "id": "marker:15:#/document/pages/10:[1]",
@@ -259,7 +289,9 @@
         0,
         3
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "page:example01/vlm_v4+deepseek:10"
     },
     {
       "id": "marker:16:#/document/pages/10:footnote 1",
@@ -270,7 +302,9 @@
         0,
         10
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "page:example01/vlm_v4+deepseek:10"
     },
     {
       "id": "ent:deepseek:1410.8140:equation:77",
@@ -540,9 +574,21 @@
       "label": ""
     },
     {
+      "source": "page:example01/vlm_v4+deepseek:1",
+      "target": "page:example01/vlm_v4+deepseek:2",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example01/vlm_v4+deepseek",
       "target": "page:example01/vlm_v4+deepseek:3",
       "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:2",
+      "target": "page:example01/vlm_v4+deepseek:3",
+      "edge_kind": "page_sequence",
       "label": ""
     },
     {
@@ -552,9 +598,21 @@
       "label": ""
     },
     {
+      "source": "page:example01/vlm_v4+deepseek:3",
+      "target": "page:example01/vlm_v4+deepseek:4",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example01/vlm_v4+deepseek",
       "target": "page:example01/vlm_v4+deepseek:5",
       "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:4",
+      "target": "page:example01/vlm_v4+deepseek:5",
+      "edge_kind": "page_sequence",
       "label": ""
     },
     {
@@ -564,9 +622,21 @@
       "label": ""
     },
     {
+      "source": "page:example01/vlm_v4+deepseek:5",
+      "target": "page:example01/vlm_v4+deepseek:6",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example01/vlm_v4+deepseek",
       "target": "page:example01/vlm_v4+deepseek:7",
       "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:6",
+      "target": "page:example01/vlm_v4+deepseek:7",
+      "edge_kind": "page_sequence",
       "label": ""
     },
     {
@@ -576,9 +646,21 @@
       "label": ""
     },
     {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "page:example01/vlm_v4+deepseek:8",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example01/vlm_v4+deepseek",
       "target": "page:example01/vlm_v4+deepseek:9",
       "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:8",
+      "target": "page:example01/vlm_v4+deepseek:9",
+      "edge_kind": "page_sequence",
       "label": ""
     },
     {
@@ -588,8 +670,116 @@
       "label": ""
     },
     {
+      "source": "page:example01/vlm_v4+deepseek:9",
+      "target": "page:example01/vlm_v4+deepseek:10",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example01/vlm_v4+deepseek",
       "target": "section:bibliography:example01/vlm_v4+deepseek",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "marker:0:#/document/pages/7:Eq. (15)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "marker:1:#/document/pages/7:Eq. (16)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "marker:2:#/document/pages/7:Eq. (17)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "marker:3:#/document/pages/7:Eq. (18)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "marker:4:#/document/pages/7:Eq. (19)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "marker:5:#/document/pages/7:Eq. (20)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "marker:6:#/document/pages/7:Eq. (21)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:8",
+      "target": "marker:7:#/document/pages/8:FIG. 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:8",
+      "target": "marker:8:#/document/pages/8:Eq. (22)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:8",
+      "target": "marker:9:#/document/pages/8:Eq. (23)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:8",
+      "target": "marker:10:#/document/pages/8:Eq. (24)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:8",
+      "target": "marker:11:#/document/pages/8:Eq. (25)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:9",
+      "target": "marker:12:#/document/pages/9:FIG. 5. (a) \u27e8d\u03c3xy(E)\u27e9 as a function of R for \u03c6/\u03c60 \u2248 1 \u00d7 10\u22122, M = 3200, kBT = 0 and N = 2 \u00d7 400 \u00d7 400 sites.",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:10",
+      "target": "marker:13:#/document/pages/10:Figure 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:10",
+      "target": "marker:14:#/document/pages/10:Eq. (1)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:10",
+      "target": "marker:15:#/document/pages/10:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:10",
+      "target": "marker:16:#/document/pages/10:footnote 1",
       "edge_kind": "contains",
       "label": ""
     },

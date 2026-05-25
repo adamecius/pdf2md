@@ -277,3 +277,110 @@ def test_cross_reference_edges_get_edge_kind_field() -> None:
     export = export_graph(graph, document_id="d")
     xref_edges = [e for e in export.edges if e.get("edge_kind") == "cross_reference"]
     assert len(xref_edges) >= 1
+
+
+# ---------------------------------------------------------------------------
+# Schema 1.1 — page-sequence edges + marker attribution.
+# ---------------------------------------------------------------------------
+def test_page_sequence_edges_chain_adjacent_pages() -> None:
+    """Pages 1, 2, 3 should produce 2 page_sequence edges
+    (1 → 2, 2 → 3) in addition to the contains edges."""
+    entities = [
+        _ent("mineru", "d", EntityType.FIGURE, 1, page_no=1),
+        _ent("mineru", "d", EntityType.FIGURE, 2, page_no=2),
+        _ent("mineru", "d", EntityType.FIGURE, 3, page_no=3),
+    ]
+    graph = CrossReferenceGraph(
+        doc_hash="sha256:seq",
+        entities=[
+            SemanticEntity(item_ref=e.id, entity_type=RefType.FIGURE,
+                           label=f"Figure {i+1}", confidence=1.0, backend="grobid")
+            for i, e in enumerate(entities)
+        ],
+    )
+    export = export_graph(graph, document_id="d", proposals=_proposals(entities))
+    seq_edges = [e for e in export.edges if e.get("edge_kind") == "page_sequence"]
+    assert len(seq_edges) == 2
+    # Chain runs in ascending page order.
+    sources = [e["source"] for e in seq_edges]
+    targets = [e["target"] for e in seq_edges]
+    assert sources[0].endswith(":1") and targets[0].endswith(":2")
+    assert sources[1].endswith(":2") and targets[1].endswith(":3")
+
+
+def test_page_sequence_skips_missing_pages_cleanly() -> None:
+    """Pages 1, 3 (no page 2) still get a single edge 1 → 3 — the
+    spine stays a single chain even with gaps in OCR page coverage."""
+    entities = [
+        _ent("mineru", "d", EntityType.FIGURE, 1, page_no=1),
+        _ent("mineru", "d", EntityType.FIGURE, 2, page_no=3),
+    ]
+    graph = CrossReferenceGraph(
+        doc_hash="sha256:skip",
+        entities=[
+            SemanticEntity(item_ref=e.id, entity_type=RefType.FIGURE,
+                           label=f"Figure {i+1}", confidence=1.0, backend="grobid")
+            for i, e in enumerate(entities)
+        ],
+    )
+    export = export_graph(graph, document_id="d", proposals=_proposals(entities))
+    seq_edges = [e for e in export.edges if e.get("edge_kind") == "page_sequence"]
+    assert len(seq_edges) == 1
+
+
+def test_vlm_marker_attached_to_source_page() -> None:
+    """A marker with source_ref ``#/document/pages/N`` clusters
+    under the matching page node, not under the markers section."""
+    entities = [_ent("mineru", "d", EntityType.FIGURE, 1, page_no=7)]
+    marker = _make_marker(
+        "Figure 1", RefType.FIGURE,
+        source_ref="#/document/pages/7", offset=(0, 8), backend="vlm",
+    )
+    graph = CrossReferenceGraph(
+        doc_hash="sha256:vlm", markers=[marker],
+        entities=[SemanticEntity(item_ref=entities[0].id, entity_type=RefType.FIGURE,
+                                 label="Figure 1", confidence=1.0, backend="vlm")],
+    )
+    export = export_graph(graph, document_id="d", proposals=_proposals(entities))
+    marker_nodes = [n for n in export.nodes if n.get("source_ref") == "#/document/pages/7"]
+    assert len(marker_nodes) == 1
+    assert marker_nodes[0]["page_no"] == 7
+    assert "page:d:7" in marker_nodes[0]["parent_id"]
+
+
+def test_regex_marker_falls_back_to_markers_section() -> None:
+    """A marker with source_ref ``#/document`` (no page) clusters
+    under the synthetic ``markers_section`` instead of floating
+    unattached."""
+    entities = [_ent("mineru", "d", EntityType.FIGURE, 1, page_no=1)]
+    marker = _make_marker(
+        "Figure 1", RefType.FIGURE,
+        source_ref="#/document", offset=(0, 8), backend="regex",
+    )
+    graph = CrossReferenceGraph(
+        doc_hash="sha256:reg", markers=[marker],
+        entities=[SemanticEntity(item_ref=entities[0].id, entity_type=RefType.FIGURE,
+                                 label="Figure 1", confidence=1.0, backend="regex")],
+    )
+    export = export_graph(graph, document_id="d", proposals=_proposals(entities))
+    marker_node = next(n for n in export.nodes if n.get("source_ref") == "#/document")
+    assert marker_node.get("page_no") is None
+    section_node = next(n for n in export.nodes if n["type"] == "markers_section")
+    assert marker_node["parent_id"] == section_node["id"]
+
+
+def test_markers_section_not_minted_when_all_markers_have_pages() -> None:
+    """All-VLM input → every marker attaches to a real page → the
+    markers section is NOT emitted (avoid clutter on clean inputs)."""
+    entities = [_ent("mineru", "d", EntityType.FIGURE, 1, page_no=5)]
+    marker = _make_marker(
+        "Figure 1", RefType.FIGURE,
+        source_ref="#/document/pages/5", offset=(0, 8), backend="vlm",
+    )
+    graph = CrossReferenceGraph(
+        doc_hash="sha256:nomks", markers=[marker],
+        entities=[SemanticEntity(item_ref=entities[0].id, entity_type=RefType.FIGURE,
+                                 label="Figure 1", confidence=1.0, backend="vlm")],
+    )
+    export = export_graph(graph, document_id="d", proposals=_proposals(entities))
+    assert not any(n["type"] == "markers_section" for n in export.nodes)

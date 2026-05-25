@@ -143,7 +143,15 @@
         2378,
         2381
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
+    },
+    {
+      "id": "section:markers:example02/regex+consensus",
+      "type": "markers_section",
+      "label": "Markers",
+      "parent_id": "document:example02/regex+consensus",
+      "back_matter_kind": "markers"
     },
     {
       "id": "marker:1:#/document:[3]",
@@ -154,7 +162,8 @@
         2382,
         2385
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:2:#/document:[4]",
@@ -165,7 +174,8 @@
         2798,
         2801
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:3:#/document:[9]",
@@ -176,7 +186,8 @@
         2802,
         2805
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:4:#/document:[10]",
@@ -187,7 +198,8 @@
         4220,
         4224
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:5:#/document:[12]",
@@ -198,7 +210,8 @@
         4225,
         4229
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:6:#/document:[13]",
@@ -209,7 +222,8 @@
         4401,
         4405
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:7:#/document:[18]",
@@ -220,7 +234,8 @@
         4407,
         4411
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:8:#/document:[19]",
@@ -231,7 +246,8 @@
         4507,
         4511
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:9:#/document:Eq. (11)",
@@ -242,7 +258,8 @@
         4518,
         4526
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:10:#/document:[20]",
@@ -253,7 +270,8 @@
         4567,
         4571
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:11:#/document:Eq. (12)",
@@ -264,7 +282,8 @@
         4578,
         4586
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:12:#/document:[21]",
@@ -275,7 +294,8 @@
         4897,
         4901
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:13:#/document:[23]",
@@ -286,7 +306,8 @@
         4902,
         4906
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:14:#/document:[13]",
@@ -297,7 +318,8 @@
         6222,
         6226
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:15:#/document:[18]",
@@ -308,7 +330,8 @@
         6227,
         6231
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:16:#/document:Corollary 1",
@@ -319,7 +342,8 @@
         8706,
         8717
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:17:#/document:[10]",
@@ -330,7 +354,8 @@
         14498,
         14502
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:18:#/document:[12]",
@@ -341,7 +366,8 @@
         14504,
         14508
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:19:#/document:[26]",
@@ -352,7 +378,8 @@
         15629,
         15633
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:20:#/document:Theorem 1",
@@ -363,7 +390,8 @@
         34839,
         34848
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:21:#/document:Definition 1",
@@ -374,7 +402,8 @@
         35659,
         35671
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:22:#/document:Definition 1",
@@ -385,7 +414,8 @@
         36155,
         36167
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:23:#/document:Definition 2",
@@ -396,7 +426,8 @@
         36707,
         36719
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:24:#/document:Definition 3",
@@ -407,7 +438,8 @@
         37795,
         37807
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:25:#/document:Definition 4",
@@ -418,7 +450,8 @@
         40122,
         40134
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:26:#/document:[29]",
@@ -429,7 +462,8 @@
         40174,
         40178
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:27:#/document:Corollary 1",
@@ -440,7 +474,8 @@
         40716,
         40727
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:28:#/document:Theorem 1",
@@ -451,7 +486,8 @@
         40732,
         40741
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:29:#/document:Definition 1",
@@ -462,7 +498,8 @@
         40960,
         40972
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:30:#/document:Definition 2",
@@ -473,7 +510,8 @@
         41781,
         41793
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:31:#/document:[19]",
@@ -484,7 +522,8 @@
         42405,
         42409
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:32:#/document:Eq. (11)",
@@ -495,7 +534,8 @@
         42416,
         42424
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:33:#/document:Definition 3",
@@ -506,7 +546,8 @@
         42497,
         42509
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:34:#/document:Definition 4",
@@ -517,7 +558,8 @@
         43068,
         43080
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:35:#/document:Corollary 1",
@@ -528,7 +570,8 @@
         43739,
         43750
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:36:#/document:Definition 5",
@@ -539,7 +582,8 @@
         43981,
         43993
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:37:#/document:Theorem 1",
@@ -550,7 +594,8 @@
         45006,
         45015
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:38:#/document:Corollary 1",
@@ -561,7 +606,8 @@
         45037,
         45048
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:39:#/document:Corollary 1",
@@ -572,7 +618,8 @@
         45930,
         45941
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:40:#/document:Definition 4",
@@ -583,7 +630,8 @@
         46413,
         46425
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:41:#/document:Definition 6",
@@ -594,7 +642,8 @@
         46450,
         46462
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:42:#/document:Corollary 1",
@@ -605,7 +654,8 @@
         49884,
         49895
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:43:#/document:Example 1",
@@ -616,7 +666,8 @@
         50111,
         50120
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:44:#/document:Theorem 1",
@@ -627,7 +678,8 @@
         51281,
         51290
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:45:#/document:Eq. (10)",
@@ -638,7 +690,8 @@
         51701,
         51709
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:46:#/document:Example 2",
@@ -649,7 +702,8 @@
         52123,
         52132
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:47:#/document:[20]",
@@ -660,7 +714,8 @@
         53086,
         53090
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:48:#/document:Eq. (12)",
@@ -671,7 +726,8 @@
         53097,
         53105
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:49:#/document:Example 3",
@@ -682,7 +738,8 @@
         53111,
         53120
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:50:#/document:Corollary 1",
@@ -693,7 +750,8 @@
         55726,
         55737
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:51:#/document:Definition 5",
@@ -704,7 +762,8 @@
         55807,
         55819
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:52:#/document:Theorem 2",
@@ -715,7 +774,8 @@
         55929,
         55938
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:53:#/document:Theorem 1",
@@ -726,7 +786,8 @@
         57707,
         57716
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:54:#/document:Theorem 1",
@@ -737,7 +798,8 @@
         58495,
         58504
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:55:#/document:Theorem 2",
@@ -748,7 +810,8 @@
         58557,
         58566
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:56:#/document:Theorem 2",
@@ -759,7 +822,8 @@
         58780,
         58789
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:57:#/document:Corollary 2",
@@ -770,7 +834,8 @@
         59551,
         59562
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:58:#/document:Theorem 2",
@@ -781,7 +846,8 @@
         60465,
         60474
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:59:#/document:Theorem 2",
@@ -792,7 +858,8 @@
         60492,
         60501
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:60:#/document:[34]",
@@ -803,7 +870,8 @@
         60722,
         60726
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:61:#/document:[35]",
@@ -814,7 +882,8 @@
         60738,
         60742
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:62:#/document:Corollary 3",
@@ -825,7 +894,8 @@
         60757,
         60768
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:63:#/document:Corollary 3",
@@ -836,7 +906,8 @@
         63038,
         63049
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:64:#/document:Example 4",
@@ -847,7 +918,8 @@
         83851,
         83860
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:65:#/document:Example 5",
@@ -858,7 +930,8 @@
         85353,
         85362
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:66:#/document:Example 2",
@@ -869,7 +942,8 @@
         85477,
         85486
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:67:#/document:Example 4",
@@ -880,7 +954,8 @@
         85646,
         85655
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:68:#/document:Theorem 3",
@@ -891,7 +966,8 @@
         85733,
         85742
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:69:#/document:Example 4",
@@ -902,7 +978,8 @@
         87520,
         87529
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:70:#/document:Theorem 2",
@@ -913,7 +990,8 @@
         87535,
         87544
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:71:#/document:Theorem 3",
@@ -924,7 +1002,8 @@
         87629,
         87638
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:72:#/document:Theorem 3",
@@ -935,7 +1014,8 @@
         87746,
         87755
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:73:#/document:Eq. (4)",
@@ -946,7 +1026,8 @@
         87808,
         87815
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:74:#/document:(15.110)",
@@ -957,7 +1038,8 @@
         87828,
         87836
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:75:#/document:(15.113)",
@@ -968,7 +1050,8 @@
         87841,
         87849
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:76:#/document:Corollary 2",
@@ -979,7 +1062,8 @@
         88235,
         88246
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:77:#/document:Corollary 4",
@@ -990,7 +1074,8 @@
         88307,
         88318
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:78:#/document:Corollary 2",
@@ -1001,7 +1086,8 @@
         88945,
         88956
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:79:#/document:Corollary 3",
@@ -1012,7 +1098,8 @@
         89065,
         89076
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:80:#/document:Corollary 5",
@@ -1023,7 +1110,8 @@
         89117,
         89128
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:81:#/document:Theorem 3",
@@ -1034,7 +1122,8 @@
         89217,
         89226
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:82:#/document:Eq. (70)",
@@ -1045,7 +1134,8 @@
         94382,
         94390
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:83:#/document:[0, 0]",
@@ -1056,7 +1146,8 @@
         96253,
         96259
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:84:#/document:Corollary 1",
@@ -1067,7 +1158,8 @@
         97889,
         97900
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:85:#/document:Example 4",
@@ -1078,7 +1170,8 @@
         97905,
         97914
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:86:#/document:[10]",
@@ -1089,7 +1182,8 @@
         98086,
         98090
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:87:#/document:[12]",
@@ -1100,7 +1194,8 @@
         98092,
         98096
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:88:#/document:[10]",
@@ -1111,7 +1206,8 @@
         106648,
         106652
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:89:#/document:[12]",
@@ -1122,7 +1218,8 @@
         106654,
         106658
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:90:#/document:Fig. 1",
@@ -1133,7 +1230,8 @@
         120992,
         120998
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:91:#/document:Fig. 1",
@@ -1144,7 +1242,8 @@
         121312,
         121318
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:92:#/document:[37]",
@@ -1155,7 +1254,8 @@
         126686,
         126690
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:93:#/document:[38]",
@@ -1166,7 +1266,8 @@
         126692,
         126696
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:94:#/document:[39]",
@@ -1177,7 +1278,8 @@
         128579,
         128583
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:95:#/document:[40]",
@@ -1188,7 +1290,8 @@
         128585,
         128589
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:96:#/document:[32]",
@@ -1199,7 +1302,8 @@
         128801,
         128805
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:97:#/document:Corollary 1",
@@ -1210,7 +1314,8 @@
         129201,
         129212
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:98:#/document:Example 4",
@@ -1221,7 +1326,8 @@
         129227,
         129236
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:99:#/document:PROOF OF LEMMA 1",
@@ -1232,7 +1338,8 @@
         129906,
         129922
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:100:#/document:Corollary 3.3",
@@ -1243,7 +1350,8 @@
         130616,
         130629
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:101:#/document:PROOF OF THEOREM 1",
@@ -1254,7 +1362,8 @@
         131530,
         131548
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:102:#/document:[1]",
@@ -1265,7 +1374,8 @@
         136583,
         136586
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:103:#/document:[2]",
@@ -1276,7 +1386,8 @@
         136702,
         136705
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:104:#/document:[3]",
@@ -1287,7 +1398,8 @@
         136860,
         136863
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:105:#/document:[4]",
@@ -1298,7 +1410,8 @@
         137101,
         137104
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:106:#/document:[5]",
@@ -1309,7 +1422,8 @@
         137261,
         137264
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:107:#/document:[6]",
@@ -1320,7 +1434,8 @@
         137468,
         137471
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:108:#/document:[7]",
@@ -1331,7 +1446,8 @@
         137697,
         137700
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:109:#/document:[8]",
@@ -1342,7 +1458,8 @@
         137908,
         137911
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:110:#/document:[9]",
@@ -1353,7 +1470,8 @@
         138071,
         138074
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:111:#/document:[10]",
@@ -1364,7 +1482,8 @@
         138247,
         138251
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:112:#/document:[11]",
@@ -1375,7 +1494,8 @@
         138438,
         138442
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:113:#/document:[12]",
@@ -1386,7 +1506,8 @@
         138597,
         138601
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:114:#/document:[13]",
@@ -1397,7 +1518,8 @@
         138760,
         138764
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:115:#/document:[14]",
@@ -1408,7 +1530,8 @@
         138919,
         138923
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:116:#/document:[15]",
@@ -1419,7 +1542,8 @@
         139063,
         139067
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:117:#/document:[16]",
@@ -1430,7 +1554,8 @@
         139296,
         139300
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:118:#/document:[17]",
@@ -1441,7 +1566,8 @@
         139472,
         139476
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:119:#/document:[18]",
@@ -1452,7 +1578,8 @@
         139798,
         139802
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:120:#/document:[19]",
@@ -1463,7 +1590,8 @@
         140009,
         140013
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:121:#/document:[20]",
@@ -1474,7 +1602,8 @@
         140167,
         140171
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:122:#/document:[21]",
@@ -1485,7 +1614,8 @@
         140378,
         140382
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:123:#/document:[22]",
@@ -1496,7 +1626,8 @@
         140597,
         140601
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:124:#/document:[23]",
@@ -1507,7 +1638,8 @@
         140857,
         140861
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:125:#/document:[24]",
@@ -1518,7 +1650,8 @@
         141055,
         141059
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:126:#/document:[25]",
@@ -1529,7 +1662,8 @@
         141141,
         141145
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:127:#/document:[26]",
@@ -1540,7 +1674,8 @@
         141256,
         141260
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:128:#/document:[27]",
@@ -1551,7 +1686,8 @@
         141410,
         141414
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:129:#/document:[28]",
@@ -1562,7 +1698,8 @@
         141585,
         141589
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:130:#/document:[29]",
@@ -1573,7 +1710,8 @@
         141761,
         141765
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:131:#/document:[30]",
@@ -1584,7 +1722,8 @@
         141952,
         141956
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:132:#/document:[31]",
@@ -1595,7 +1734,8 @@
         142074,
         142078
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:133:#/document:[32]",
@@ -1606,7 +1746,8 @@
         142297,
         142301
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:134:#/document:[33]",
@@ -1617,7 +1758,8 @@
         142566,
         142570
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:135:#/document:[34]",
@@ -1628,7 +1770,8 @@
         142755,
         142759
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:136:#/document:[35]",
@@ -1639,7 +1782,8 @@
         142890,
         142894
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:137:#/document:[36]",
@@ -1650,7 +1794,8 @@
         143152,
         143156
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:138:#/document:[37]",
@@ -1661,7 +1806,8 @@
         143435,
         143439
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:139:#/document:[38]",
@@ -1672,7 +1818,8 @@
         143591,
         143595
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:140:#/document:[39]",
@@ -1683,7 +1830,8 @@
         143788,
         143792
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:141:#/document:[40]",
@@ -1694,7 +1842,8 @@
         143958,
         143962
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:142:#/document:[41]",
@@ -1705,7 +1854,8 @@
         144066,
         144070
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:143:#/document:Fig. 2",
@@ -1716,7 +1866,8 @@
         148026,
         148032
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:144:#/document:Fig. 2",
@@ -1727,7 +1878,8 @@
         148681,
         148687
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:145:#/document:Fig. 2",
@@ -1738,7 +1890,8 @@
         149012,
         149018
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:146:#/document:Fig. 2",
@@ -1749,7 +1902,8 @@
         149711,
         149717
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:147:#/document:Fig. 2",
@@ -1760,7 +1914,8 @@
         150109,
         150115
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:148:#/document:Fig. 3",
@@ -1771,7 +1926,8 @@
         151093,
         151099
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:149:#/document:Fig. 2",
@@ -1782,7 +1938,8 @@
         151150,
         151156
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:150:#/document:Fig. 3",
@@ -1793,7 +1950,8 @@
         151178,
         151184
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "marker:151:#/document:Fig. 3",
@@ -1804,7 +1962,8 @@
         152153,
         152159
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+consensus"
     },
     {
       "id": "ent:consensus:example02:reference_item:114",
@@ -3385,9 +3544,21 @@
       "label": ""
     },
     {
+      "source": "page:example02/regex+consensus:1",
+      "target": "page:example02/regex+consensus:2",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example02/regex+consensus",
       "target": "page:example02/regex+consensus:3",
       "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:2",
+      "target": "page:example02/regex+consensus:3",
+      "edge_kind": "page_sequence",
       "label": ""
     },
     {
@@ -3397,9 +3568,21 @@
       "label": ""
     },
     {
+      "source": "page:example02/regex+consensus:3",
+      "target": "page:example02/regex+consensus:4",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example02/regex+consensus",
       "target": "page:example02/regex+consensus:5",
       "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:4",
+      "target": "page:example02/regex+consensus:5",
+      "edge_kind": "page_sequence",
       "label": ""
     },
     {
@@ -3409,9 +3592,21 @@
       "label": ""
     },
     {
+      "source": "page:example02/regex+consensus:5",
+      "target": "page:example02/regex+consensus:6",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example02/regex+consensus",
       "target": "page:example02/regex+consensus:7",
       "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:6",
+      "target": "page:example02/regex+consensus:7",
+      "edge_kind": "page_sequence",
       "label": ""
     },
     {
@@ -3421,9 +3616,21 @@
       "label": ""
     },
     {
+      "source": "page:example02/regex+consensus:7",
+      "target": "page:example02/regex+consensus:8",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example02/regex+consensus",
       "target": "page:example02/regex+consensus:9",
       "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:8",
+      "target": "page:example02/regex+consensus:9",
+      "edge_kind": "page_sequence",
       "label": ""
     },
     {
@@ -3433,9 +3640,21 @@
       "label": ""
     },
     {
+      "source": "page:example02/regex+consensus:9",
+      "target": "page:example02/regex+consensus:10",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example02/regex+consensus",
       "target": "page:example02/regex+consensus:11",
       "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:10",
+      "target": "page:example02/regex+consensus:11",
+      "edge_kind": "page_sequence",
       "label": ""
     },
     {
@@ -3445,9 +3664,21 @@
       "label": ""
     },
     {
+      "source": "page:example02/regex+consensus:11",
+      "target": "page:example02/regex+consensus:12",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example02/regex+consensus",
       "target": "page:example02/regex+consensus:13",
       "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:12",
+      "target": "page:example02/regex+consensus:13",
+      "edge_kind": "page_sequence",
       "label": ""
     },
     {
@@ -3457,9 +3688,21 @@
       "label": ""
     },
     {
+      "source": "page:example02/regex+consensus:13",
+      "target": "page:example02/regex+consensus:14",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example02/regex+consensus",
       "target": "page:example02/regex+consensus:15",
       "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:14",
+      "target": "page:example02/regex+consensus:15",
+      "edge_kind": "page_sequence",
       "label": ""
     },
     {
@@ -3469,14 +3712,944 @@
       "label": ""
     },
     {
+      "source": "page:example02/regex+consensus:15",
+      "target": "page:example02/regex+consensus:16",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example02/regex+consensus",
       "target": "page:example02/regex+consensus:17",
       "edge_kind": "contains",
       "label": ""
     },
     {
+      "source": "page:example02/regex+consensus:16",
+      "target": "page:example02/regex+consensus:17",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example02/regex+consensus",
       "target": "section:bibliography:example02/regex+consensus",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+consensus",
+      "target": "section:markers:example02/regex+consensus",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:0:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:1:#/document:[3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:2:#/document:[4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:3:#/document:[9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:4:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:5:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:6:#/document:[13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:7:#/document:[18]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:8:#/document:[19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:9:#/document:Eq. (11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:10:#/document:[20]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:11:#/document:Eq. (12)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:12:#/document:[21]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:13:#/document:[23]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:14:#/document:[13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:15:#/document:[18]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:16:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:17:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:18:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:19:#/document:[26]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:20:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:21:#/document:Definition 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:22:#/document:Definition 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:23:#/document:Definition 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:24:#/document:Definition 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:25:#/document:Definition 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:26:#/document:[29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:27:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:28:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:29:#/document:Definition 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:30:#/document:Definition 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:31:#/document:[19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:32:#/document:Eq. (11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:33:#/document:Definition 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:34:#/document:Definition 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:35:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:36:#/document:Definition 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:37:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:38:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:39:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:40:#/document:Definition 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:41:#/document:Definition 6",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:42:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:43:#/document:Example 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:44:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:45:#/document:Eq. (10)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:46:#/document:Example 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:47:#/document:[20]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:48:#/document:Eq. (12)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:49:#/document:Example 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:50:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:51:#/document:Definition 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:52:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:53:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:54:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:55:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:56:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:57:#/document:Corollary 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:58:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:59:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:60:#/document:[34]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:61:#/document:[35]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:62:#/document:Corollary 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:63:#/document:Corollary 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:64:#/document:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:65:#/document:Example 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:66:#/document:Example 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:67:#/document:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:68:#/document:Theorem 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:69:#/document:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:70:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:71:#/document:Theorem 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:72:#/document:Theorem 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:73:#/document:Eq. (4)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:74:#/document:(15.110)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:75:#/document:(15.113)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:76:#/document:Corollary 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:77:#/document:Corollary 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:78:#/document:Corollary 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:79:#/document:Corollary 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:80:#/document:Corollary 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:81:#/document:Theorem 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:82:#/document:Eq. (70)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:83:#/document:[0, 0]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:84:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:85:#/document:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:86:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:87:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:88:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:89:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:90:#/document:Fig. 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:91:#/document:Fig. 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:92:#/document:[37]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:93:#/document:[38]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:94:#/document:[39]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:95:#/document:[40]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:96:#/document:[32]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:97:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:98:#/document:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:99:#/document:PROOF OF LEMMA 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:100:#/document:Corollary 3.3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:101:#/document:PROOF OF THEOREM 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:102:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:103:#/document:[2]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:104:#/document:[3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:105:#/document:[4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:106:#/document:[5]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:107:#/document:[6]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:108:#/document:[7]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:109:#/document:[8]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:110:#/document:[9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:111:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:112:#/document:[11]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:113:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:114:#/document:[13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:115:#/document:[14]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:116:#/document:[15]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:117:#/document:[16]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:118:#/document:[17]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:119:#/document:[18]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:120:#/document:[19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:121:#/document:[20]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:122:#/document:[21]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:123:#/document:[22]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:124:#/document:[23]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:125:#/document:[24]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:126:#/document:[25]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:127:#/document:[26]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:128:#/document:[27]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:129:#/document:[28]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:130:#/document:[29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:131:#/document:[30]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:132:#/document:[31]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:133:#/document:[32]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:134:#/document:[33]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:135:#/document:[34]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:136:#/document:[35]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:137:#/document:[36]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:138:#/document:[37]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:139:#/document:[38]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:140:#/document:[39]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:141:#/document:[40]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:142:#/document:[41]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:143:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:144:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:145:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:146:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:147:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:148:#/document:Fig. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:149:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:150:#/document:Fig. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+consensus",
+      "target": "marker:151:#/document:Fig. 3",
       "edge_kind": "contains",
       "label": ""
     },
