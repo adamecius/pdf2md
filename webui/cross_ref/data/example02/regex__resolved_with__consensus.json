@@ -1,7 +1,139 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "document_id": "example02/regex+consensus",
   "nodes": [
+    {
+      "id": "document:example02/regex+consensus",
+      "type": "document",
+      "label": "example02/regex+consensus",
+      "page_count": 17
+    },
+    {
+      "id": "page:example02/regex+consensus:1",
+      "type": "page",
+      "label": "Page 1",
+      "page_no": 1,
+      "parent_id": "document:example02/regex+consensus"
+    },
+    {
+      "id": "page:example02/regex+consensus:2",
+      "type": "page",
+      "label": "Page 2",
+      "page_no": 2,
+      "parent_id": "document:example02/regex+consensus"
+    },
+    {
+      "id": "page:example02/regex+consensus:3",
+      "type": "page",
+      "label": "Page 3",
+      "page_no": 3,
+      "parent_id": "document:example02/regex+consensus"
+    },
+    {
+      "id": "page:example02/regex+consensus:4",
+      "type": "page",
+      "label": "Page 4",
+      "page_no": 4,
+      "parent_id": "document:example02/regex+consensus"
+    },
+    {
+      "id": "page:example02/regex+consensus:5",
+      "type": "page",
+      "label": "Page 5",
+      "page_no": 5,
+      "parent_id": "document:example02/regex+consensus"
+    },
+    {
+      "id": "page:example02/regex+consensus:6",
+      "type": "page",
+      "label": "Page 6",
+      "page_no": 6,
+      "parent_id": "document:example02/regex+consensus"
+    },
+    {
+      "id": "page:example02/regex+consensus:7",
+      "type": "page",
+      "label": "Page 7",
+      "page_no": 7,
+      "parent_id": "document:example02/regex+consensus"
+    },
+    {
+      "id": "page:example02/regex+consensus:8",
+      "type": "page",
+      "label": "Page 8",
+      "page_no": 8,
+      "parent_id": "document:example02/regex+consensus"
+    },
+    {
+      "id": "page:example02/regex+consensus:9",
+      "type": "page",
+      "label": "Page 9",
+      "page_no": 9,
+      "parent_id": "document:example02/regex+consensus"
+    },
+    {
+      "id": "page:example02/regex+consensus:10",
+      "type": "page",
+      "label": "Page 10",
+      "page_no": 10,
+      "parent_id": "document:example02/regex+consensus"
+    },
+    {
+      "id": "page:example02/regex+consensus:11",
+      "type": "page",
+      "label": "Page 11",
+      "page_no": 11,
+      "parent_id": "document:example02/regex+consensus"
+    },
+    {
+      "id": "page:example02/regex+consensus:12",
+      "type": "page",
+      "label": "Page 12",
+      "page_no": 12,
+      "parent_id": "document:example02/regex+consensus"
+    },
+    {
+      "id": "page:example02/regex+consensus:13",
+      "type": "page",
+      "label": "Page 13",
+      "page_no": 13,
+      "parent_id": "document:example02/regex+consensus"
+    },
+    {
+      "id": "page:example02/regex+consensus:14",
+      "type": "page",
+      "label": "Page 14",
+      "page_no": 14,
+      "parent_id": "document:example02/regex+consensus"
+    },
+    {
+      "id": "page:example02/regex+consensus:15",
+      "type": "page",
+      "label": "Page 15",
+      "page_no": 15,
+      "parent_id": "document:example02/regex+consensus"
+    },
+    {
+      "id": "page:example02/regex+consensus:16",
+      "type": "page",
+      "label": "Page 16",
+      "page_no": 16,
+      "parent_id": "document:example02/regex+consensus"
+    },
+    {
+      "id": "page:example02/regex+consensus:17",
+      "type": "page",
+      "label": "Page 17",
+      "page_no": 17,
+      "parent_id": "document:example02/regex+consensus"
+    },
+    {
+      "id": "section:bibliography:example02/regex+consensus",
+      "type": "bibliography_section",
+      "label": "Bibliography",
+      "parent_id": "document:example02/regex+consensus",
+      "back_matter_kind": "bibliography"
+    },
     {
       "id": "marker:0:#/document:[1]",
       "type": "bibliography",
@@ -1677,72 +1809,100 @@
     {
       "id": "ent:consensus:example02:reference_item:114",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:114"
+      "label": "ent:consensus:example02:reference_item:114",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 15
     },
     {
       "id": "ent:consensus:example02:reference_item:116",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:116"
+      "label": "ent:consensus:example02:reference_item:116",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 15
     },
     {
       "id": "ent:consensus:example02:reference_item:117",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:117"
+      "label": "ent:consensus:example02:reference_item:117",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 15
     },
     {
       "id": "ent:consensus:example02:reference_item:122",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:122"
+      "label": "ent:consensus:example02:reference_item:122",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 15
     },
     {
       "id": "ent:consensus:example02:reference_item:123",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:123"
+      "label": "ent:consensus:example02:reference_item:123",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 15
     },
     {
       "id": "ent:consensus:example02:reference_item:125",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:125"
+      "label": "ent:consensus:example02:reference_item:125",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 15
     },
     {
       "id": "ent:consensus:example02:reference_item:126",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:126"
+      "label": "ent:consensus:example02:reference_item:126",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:131",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:131"
+      "label": "ent:consensus:example02:reference_item:131",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:132",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:132"
+      "label": "ent:consensus:example02:reference_item:132",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:equation:20",
       "type": "equation",
-      "label": "ent:consensus:example02:equation:20"
+      "label": "ent:consensus:example02:equation:20",
+      "parent_id": "page:example02/regex+consensus:3",
+      "page_no": 3
     },
     {
       "id": "ent:consensus:example02:reference_item:133",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:133"
+      "label": "ent:consensus:example02:reference_item:133",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:equation:21",
       "type": "equation",
-      "label": "ent:consensus:example02:equation:21"
+      "label": "ent:consensus:example02:equation:21",
+      "parent_id": "page:example02/regex+consensus:3",
+      "page_no": 3
     },
     {
       "id": "ent:consensus:example02:reference_item:134",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:134"
+      "label": "ent:consensus:example02:reference_item:134",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:136",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:136"
+      "label": "ent:consensus:example02:reference_item:136",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "_unresolved",
@@ -1752,177 +1912,247 @@
     {
       "id": "ent:consensus:example02:reference_item:139",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:139"
+      "label": "ent:consensus:example02:reference_item:139",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:142",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:142"
+      "label": "ent:consensus:example02:reference_item:142",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:equation:19",
       "type": "equation",
-      "label": "ent:consensus:example02:equation:19"
+      "label": "ent:consensus:example02:equation:19",
+      "parent_id": "page:example02/regex+consensus:3",
+      "page_no": 3
     },
     {
       "id": "ent:consensus:example02:reference_item:147",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:147"
+      "label": "ent:consensus:example02:reference_item:147",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:148",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:148"
+      "label": "ent:consensus:example02:reference_item:148",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:equation:11",
       "type": "equation",
-      "label": "ent:consensus:example02:equation:11"
+      "label": "ent:consensus:example02:equation:11",
+      "parent_id": "page:example02/regex+consensus:3",
+      "page_no": 3
     },
     {
       "id": "ent:consensus:example02:equation:84",
       "type": "equation",
-      "label": "ent:consensus:example02:equation:84"
+      "label": "ent:consensus:example02:equation:84",
+      "parent_id": "page:example02/regex+consensus:10",
+      "page_no": 10
     },
     {
       "id": "ent:consensus:example02:caption:98",
       "type": "figure",
-      "label": "ent:consensus:example02:caption:98"
+      "label": "ent:consensus:example02:caption:98",
+      "parent_id": "page:example02/regex+consensus:14",
+      "page_no": 14
     },
     {
       "id": "ent:consensus:example02:reference_item:150",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:150"
+      "label": "ent:consensus:example02:reference_item:150",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:151",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:151"
+      "label": "ent:consensus:example02:reference_item:151",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:152",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:152"
+      "label": "ent:consensus:example02:reference_item:152",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:153",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:153"
+      "label": "ent:consensus:example02:reference_item:153",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:145",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:145"
+      "label": "ent:consensus:example02:reference_item:145",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:115",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:115"
+      "label": "ent:consensus:example02:reference_item:115",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 15
     },
     {
       "id": "ent:consensus:example02:reference_item:118",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:118"
+      "label": "ent:consensus:example02:reference_item:118",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 15
     },
     {
       "id": "ent:consensus:example02:reference_item:119",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:119"
+      "label": "ent:consensus:example02:reference_item:119",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 15
     },
     {
       "id": "ent:consensus:example02:reference_item:120",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:120"
+      "label": "ent:consensus:example02:reference_item:120",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 15
     },
     {
       "id": "ent:consensus:example02:reference_item:121",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:121"
+      "label": "ent:consensus:example02:reference_item:121",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 15
     },
     {
       "id": "ent:consensus:example02:reference_item:124",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:124"
+      "label": "ent:consensus:example02:reference_item:124",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 15
     },
     {
       "id": "ent:consensus:example02:reference_item:127",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:127"
+      "label": "ent:consensus:example02:reference_item:127",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:128",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:128"
+      "label": "ent:consensus:example02:reference_item:128",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:129",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:129"
+      "label": "ent:consensus:example02:reference_item:129",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:130",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:130"
+      "label": "ent:consensus:example02:reference_item:130",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:135",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:135"
+      "label": "ent:consensus:example02:reference_item:135",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:137",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:137"
+      "label": "ent:consensus:example02:reference_item:137",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:138",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:138"
+      "label": "ent:consensus:example02:reference_item:138",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:140",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:140"
+      "label": "ent:consensus:example02:reference_item:140",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:141",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:141"
+      "label": "ent:consensus:example02:reference_item:141",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:143",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:143"
+      "label": "ent:consensus:example02:reference_item:143",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:144",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:144"
+      "label": "ent:consensus:example02:reference_item:144",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:146",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:146"
+      "label": "ent:consensus:example02:reference_item:146",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:149",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:149"
+      "label": "ent:consensus:example02:reference_item:149",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:reference_item:154",
       "type": "bibliography",
-      "label": "ent:consensus:example02:reference_item:154"
+      "label": "ent:consensus:example02:reference_item:154",
+      "parent_id": "section:bibliography:example02/regex+consensus",
+      "page_no": 16
     },
     {
       "id": "ent:consensus:example02:caption:157",
       "type": "figure",
-      "label": "ent:consensus:example02:caption:157"
+      "label": "ent:consensus:example02:caption:157",
+      "parent_id": "page:example02/regex+consensus:17",
+      "page_no": 17
     },
     {
       "id": "ent:consensus:example02:caption:158",
       "type": "figure",
-      "label": "ent:consensus:example02:caption:158"
+      "label": "ent:consensus:example02:caption:158",
+      "parent_id": "page:example02/regex+consensus:17",
+      "page_no": 17
     }
   ],
   "edges": [
@@ -1931,1064 +2161,1864 @@
       "target": "ent:consensus:example02:reference_item:114",
       "marker_type": "bibliography",
       "label": "[1]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:1:#/document:[3]",
       "target": "ent:consensus:example02:reference_item:116",
       "marker_type": "bibliography",
       "label": "[3]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:2:#/document:[4]",
       "target": "ent:consensus:example02:reference_item:117",
       "marker_type": "bibliography",
       "label": "[4]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:3:#/document:[9]",
       "target": "ent:consensus:example02:reference_item:122",
       "marker_type": "bibliography",
       "label": "[9]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:4:#/document:[10]",
       "target": "ent:consensus:example02:reference_item:123",
       "marker_type": "bibliography",
       "label": "[10]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:5:#/document:[12]",
       "target": "ent:consensus:example02:reference_item:125",
       "marker_type": "bibliography",
       "label": "[12]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:6:#/document:[13]",
       "target": "ent:consensus:example02:reference_item:126",
       "marker_type": "bibliography",
       "label": "[13]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:7:#/document:[18]",
       "target": "ent:consensus:example02:reference_item:131",
       "marker_type": "bibliography",
       "label": "[18]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:8:#/document:[19]",
       "target": "ent:consensus:example02:reference_item:132",
       "marker_type": "bibliography",
       "label": "[19]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:9:#/document:Eq. (11)",
       "target": "ent:consensus:example02:equation:20",
       "marker_type": "equation",
       "label": "Eq. (11)",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:10:#/document:[20]",
       "target": "ent:consensus:example02:reference_item:133",
       "marker_type": "bibliography",
       "label": "[20]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:11:#/document:Eq. (12)",
       "target": "ent:consensus:example02:equation:21",
       "marker_type": "equation",
       "label": "Eq. (12)",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:12:#/document:[21]",
       "target": "ent:consensus:example02:reference_item:134",
       "marker_type": "bibliography",
       "label": "[21]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:13:#/document:[23]",
       "target": "ent:consensus:example02:reference_item:136",
       "marker_type": "bibliography",
       "label": "[23]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:14:#/document:[13]",
       "target": "ent:consensus:example02:reference_item:126",
       "marker_type": "bibliography",
       "label": "[13]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:15:#/document:[18]",
       "target": "ent:consensus:example02:reference_item:131",
       "marker_type": "bibliography",
       "label": "[18]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:16:#/document:Corollary 1",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:17:#/document:[10]",
       "target": "ent:consensus:example02:reference_item:123",
       "marker_type": "bibliography",
       "label": "[10]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:18:#/document:[12]",
       "target": "ent:consensus:example02:reference_item:125",
       "marker_type": "bibliography",
       "label": "[12]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:19:#/document:[26]",
       "target": "ent:consensus:example02:reference_item:139",
       "marker_type": "bibliography",
       "label": "[26]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:20:#/document:Theorem 1",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:21:#/document:Definition 1",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:22:#/document:Definition 1",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:23:#/document:Definition 2",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:24:#/document:Definition 3",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:25:#/document:Definition 4",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 4",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:26:#/document:[29]",
       "target": "ent:consensus:example02:reference_item:142",
       "marker_type": "bibliography",
       "label": "[29]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:27:#/document:Corollary 1",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:28:#/document:Theorem 1",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:29:#/document:Definition 1",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:30:#/document:Definition 2",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:31:#/document:[19]",
       "target": "ent:consensus:example02:reference_item:132",
       "marker_type": "bibliography",
       "label": "[19]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:32:#/document:Eq. (11)",
       "target": "ent:consensus:example02:equation:20",
       "marker_type": "equation",
       "label": "Eq. (11)",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:33:#/document:Definition 3",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:34:#/document:Definition 4",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 4",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:35:#/document:Corollary 1",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:36:#/document:Definition 5",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 5",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:37:#/document:Theorem 1",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:38:#/document:Corollary 1",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:39:#/document:Corollary 1",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:40:#/document:Definition 4",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 4",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:41:#/document:Definition 6",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 6",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:42:#/document:Corollary 1",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:43:#/document:Example 1",
       "target": "_unresolved",
       "marker_type": "example",
       "label": "Example 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:44:#/document:Theorem 1",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:45:#/document:Eq. (10)",
       "target": "ent:consensus:example02:equation:19",
       "marker_type": "equation",
       "label": "Eq. (10)",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:46:#/document:Example 2",
       "target": "_unresolved",
       "marker_type": "example",
       "label": "Example 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:47:#/document:[20]",
       "target": "ent:consensus:example02:reference_item:133",
       "marker_type": "bibliography",
       "label": "[20]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:48:#/document:Eq. (12)",
       "target": "ent:consensus:example02:equation:21",
       "marker_type": "equation",
       "label": "Eq. (12)",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:49:#/document:Example 3",
       "target": "_unresolved",
       "marker_type": "example",
       "label": "Example 3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:50:#/document:Corollary 1",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:51:#/document:Definition 5",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 5",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:52:#/document:Theorem 2",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:53:#/document:Theorem 1",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:54:#/document:Theorem 1",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:55:#/document:Theorem 2",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:56:#/document:Theorem 2",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:57:#/document:Corollary 2",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:58:#/document:Theorem 2",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:59:#/document:Theorem 2",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:60:#/document:[34]",
       "target": "ent:consensus:example02:reference_item:147",
       "marker_type": "bibliography",
       "label": "[34]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:61:#/document:[35]",
       "target": "ent:consensus:example02:reference_item:148",
       "marker_type": "bibliography",
       "label": "[35]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:62:#/document:Corollary 3",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:63:#/document:Corollary 3",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:64:#/document:Example 4",
       "target": "_unresolved",
       "marker_type": "example",
       "label": "Example 4",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:65:#/document:Example 5",
       "target": "_unresolved",
       "marker_type": "example",
       "label": "Example 5",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:66:#/document:Example 2",
       "target": "_unresolved",
       "marker_type": "example",
       "label": "Example 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:67:#/document:Example 4",
       "target": "_unresolved",
       "marker_type": "example",
       "label": "Example 4",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:68:#/document:Theorem 3",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:69:#/document:Example 4",
       "target": "_unresolved",
       "marker_type": "example",
       "label": "Example 4",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:70:#/document:Theorem 2",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:71:#/document:Theorem 3",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:72:#/document:Theorem 3",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:73:#/document:Eq. (4)",
       "target": "ent:consensus:example02:equation:11",
       "marker_type": "equation",
       "label": "Eq. (4)",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:74:#/document:(15.110)",
       "target": "_unresolved",
       "marker_type": "equation",
       "label": "(15.110)",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:75:#/document:(15.113)",
       "target": "_unresolved",
       "marker_type": "equation",
       "label": "(15.113)",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:76:#/document:Corollary 2",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:77:#/document:Corollary 4",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 4",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:78:#/document:Corollary 2",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:79:#/document:Corollary 3",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:80:#/document:Corollary 5",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 5",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:81:#/document:Theorem 3",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:82:#/document:Eq. (70)",
       "target": "ent:consensus:example02:equation:84",
       "marker_type": "equation",
       "label": "Eq. (70)",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:83:#/document:[0, 0]",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[0, 0]",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:84:#/document:Corollary 1",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:85:#/document:Example 4",
       "target": "_unresolved",
       "marker_type": "example",
       "label": "Example 4",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:86:#/document:[10]",
       "target": "ent:consensus:example02:reference_item:123",
       "marker_type": "bibliography",
       "label": "[10]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:87:#/document:[12]",
       "target": "ent:consensus:example02:reference_item:125",
       "marker_type": "bibliography",
       "label": "[12]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:88:#/document:[10]",
       "target": "ent:consensus:example02:reference_item:123",
       "marker_type": "bibliography",
       "label": "[10]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:89:#/document:[12]",
       "target": "ent:consensus:example02:reference_item:125",
       "marker_type": "bibliography",
       "label": "[12]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:90:#/document:Fig. 1",
       "target": "ent:consensus:example02:caption:98",
       "marker_type": "figure",
       "label": "Fig. 1",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:91:#/document:Fig. 1",
       "target": "ent:consensus:example02:caption:98",
       "marker_type": "figure",
       "label": "Fig. 1",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:92:#/document:[37]",
       "target": "ent:consensus:example02:reference_item:150",
       "marker_type": "bibliography",
       "label": "[37]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:93:#/document:[38]",
       "target": "ent:consensus:example02:reference_item:151",
       "marker_type": "bibliography",
       "label": "[38]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:94:#/document:[39]",
       "target": "ent:consensus:example02:reference_item:152",
       "marker_type": "bibliography",
       "label": "[39]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:95:#/document:[40]",
       "target": "ent:consensus:example02:reference_item:153",
       "marker_type": "bibliography",
       "label": "[40]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:96:#/document:[32]",
       "target": "ent:consensus:example02:reference_item:145",
       "marker_type": "bibliography",
       "label": "[32]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:97:#/document:Corollary 1",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:98:#/document:Example 4",
       "target": "_unresolved",
       "marker_type": "example",
       "label": "Example 4",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:99:#/document:PROOF OF LEMMA 1",
       "target": "_unresolved",
       "marker_type": "proof",
       "label": "PROOF OF LEMMA 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:100:#/document:Corollary 3.3",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 3.3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:101:#/document:PROOF OF THEOREM 1",
       "target": "_unresolved",
       "marker_type": "proof",
       "label": "PROOF OF THEOREM 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:102:#/document:[1]",
       "target": "ent:consensus:example02:reference_item:114",
       "marker_type": "bibliography",
       "label": "[1]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:103:#/document:[2]",
       "target": "ent:consensus:example02:reference_item:115",
       "marker_type": "bibliography",
       "label": "[2]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:104:#/document:[3]",
       "target": "ent:consensus:example02:reference_item:116",
       "marker_type": "bibliography",
       "label": "[3]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:105:#/document:[4]",
       "target": "ent:consensus:example02:reference_item:117",
       "marker_type": "bibliography",
       "label": "[4]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:106:#/document:[5]",
       "target": "ent:consensus:example02:reference_item:118",
       "marker_type": "bibliography",
       "label": "[5]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:107:#/document:[6]",
       "target": "ent:consensus:example02:reference_item:119",
       "marker_type": "bibliography",
       "label": "[6]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:108:#/document:[7]",
       "target": "ent:consensus:example02:reference_item:120",
       "marker_type": "bibliography",
       "label": "[7]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:109:#/document:[8]",
       "target": "ent:consensus:example02:reference_item:121",
       "marker_type": "bibliography",
       "label": "[8]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:110:#/document:[9]",
       "target": "ent:consensus:example02:reference_item:122",
       "marker_type": "bibliography",
       "label": "[9]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:111:#/document:[10]",
       "target": "ent:consensus:example02:reference_item:123",
       "marker_type": "bibliography",
       "label": "[10]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:112:#/document:[11]",
       "target": "ent:consensus:example02:reference_item:124",
       "marker_type": "bibliography",
       "label": "[11]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:113:#/document:[12]",
       "target": "ent:consensus:example02:reference_item:125",
       "marker_type": "bibliography",
       "label": "[12]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:114:#/document:[13]",
       "target": "ent:consensus:example02:reference_item:126",
       "marker_type": "bibliography",
       "label": "[13]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:115:#/document:[14]",
       "target": "ent:consensus:example02:reference_item:127",
       "marker_type": "bibliography",
       "label": "[14]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:116:#/document:[15]",
       "target": "ent:consensus:example02:reference_item:128",
       "marker_type": "bibliography",
       "label": "[15]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:117:#/document:[16]",
       "target": "ent:consensus:example02:reference_item:129",
       "marker_type": "bibliography",
       "label": "[16]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:118:#/document:[17]",
       "target": "ent:consensus:example02:reference_item:130",
       "marker_type": "bibliography",
       "label": "[17]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:119:#/document:[18]",
       "target": "ent:consensus:example02:reference_item:131",
       "marker_type": "bibliography",
       "label": "[18]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:120:#/document:[19]",
       "target": "ent:consensus:example02:reference_item:132",
       "marker_type": "bibliography",
       "label": "[19]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:121:#/document:[20]",
       "target": "ent:consensus:example02:reference_item:133",
       "marker_type": "bibliography",
       "label": "[20]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:122:#/document:[21]",
       "target": "ent:consensus:example02:reference_item:134",
       "marker_type": "bibliography",
       "label": "[21]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:123:#/document:[22]",
       "target": "ent:consensus:example02:reference_item:135",
       "marker_type": "bibliography",
       "label": "[22]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:124:#/document:[23]",
       "target": "ent:consensus:example02:reference_item:136",
       "marker_type": "bibliography",
       "label": "[23]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:125:#/document:[24]",
       "target": "ent:consensus:example02:reference_item:137",
       "marker_type": "bibliography",
       "label": "[24]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:126:#/document:[25]",
       "target": "ent:consensus:example02:reference_item:138",
       "marker_type": "bibliography",
       "label": "[25]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:127:#/document:[26]",
       "target": "ent:consensus:example02:reference_item:139",
       "marker_type": "bibliography",
       "label": "[26]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:128:#/document:[27]",
       "target": "ent:consensus:example02:reference_item:140",
       "marker_type": "bibliography",
       "label": "[27]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:129:#/document:[28]",
       "target": "ent:consensus:example02:reference_item:141",
       "marker_type": "bibliography",
       "label": "[28]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:130:#/document:[29]",
       "target": "ent:consensus:example02:reference_item:142",
       "marker_type": "bibliography",
       "label": "[29]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:131:#/document:[30]",
       "target": "ent:consensus:example02:reference_item:143",
       "marker_type": "bibliography",
       "label": "[30]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:132:#/document:[31]",
       "target": "ent:consensus:example02:reference_item:144",
       "marker_type": "bibliography",
       "label": "[31]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:133:#/document:[32]",
       "target": "ent:consensus:example02:reference_item:145",
       "marker_type": "bibliography",
       "label": "[32]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:134:#/document:[33]",
       "target": "ent:consensus:example02:reference_item:146",
       "marker_type": "bibliography",
       "label": "[33]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:135:#/document:[34]",
       "target": "ent:consensus:example02:reference_item:147",
       "marker_type": "bibliography",
       "label": "[34]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:136:#/document:[35]",
       "target": "ent:consensus:example02:reference_item:148",
       "marker_type": "bibliography",
       "label": "[35]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:137:#/document:[36]",
       "target": "ent:consensus:example02:reference_item:149",
       "marker_type": "bibliography",
       "label": "[36]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:138:#/document:[37]",
       "target": "ent:consensus:example02:reference_item:150",
       "marker_type": "bibliography",
       "label": "[37]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:139:#/document:[38]",
       "target": "ent:consensus:example02:reference_item:151",
       "marker_type": "bibliography",
       "label": "[38]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:140:#/document:[39]",
       "target": "ent:consensus:example02:reference_item:152",
       "marker_type": "bibliography",
       "label": "[39]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:141:#/document:[40]",
       "target": "ent:consensus:example02:reference_item:153",
       "marker_type": "bibliography",
       "label": "[40]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:142:#/document:[41]",
       "target": "ent:consensus:example02:reference_item:154",
       "marker_type": "bibliography",
       "label": "[41]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:143:#/document:Fig. 2",
       "target": "ent:consensus:example02:caption:157",
       "marker_type": "figure",
       "label": "Fig. 2",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:144:#/document:Fig. 2",
       "target": "ent:consensus:example02:caption:157",
       "marker_type": "figure",
       "label": "Fig. 2",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:145:#/document:Fig. 2",
       "target": "ent:consensus:example02:caption:157",
       "marker_type": "figure",
       "label": "Fig. 2",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:146:#/document:Fig. 2",
       "target": "ent:consensus:example02:caption:157",
       "marker_type": "figure",
       "label": "Fig. 2",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:147:#/document:Fig. 2",
       "target": "ent:consensus:example02:caption:157",
       "marker_type": "figure",
       "label": "Fig. 2",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:148:#/document:Fig. 3",
       "target": "ent:consensus:example02:caption:158",
       "marker_type": "figure",
       "label": "Fig. 3",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:149:#/document:Fig. 2",
       "target": "ent:consensus:example02:caption:157",
       "marker_type": "figure",
       "label": "Fig. 2",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:150:#/document:Fig. 3",
       "target": "ent:consensus:example02:caption:158",
       "marker_type": "figure",
       "label": "Fig. 3",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:151:#/document:Fig. 3",
       "target": "ent:consensus:example02:caption:158",
       "marker_type": "figure",
       "label": "Fig. 3",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "document:example02/regex+consensus",
+      "target": "page:example02/regex+consensus:1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+consensus",
+      "target": "page:example02/regex+consensus:2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+consensus",
+      "target": "page:example02/regex+consensus:3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+consensus",
+      "target": "page:example02/regex+consensus:4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+consensus",
+      "target": "page:example02/regex+consensus:5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+consensus",
+      "target": "page:example02/regex+consensus:6",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+consensus",
+      "target": "page:example02/regex+consensus:7",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+consensus",
+      "target": "page:example02/regex+consensus:8",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+consensus",
+      "target": "page:example02/regex+consensus:9",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+consensus",
+      "target": "page:example02/regex+consensus:10",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+consensus",
+      "target": "page:example02/regex+consensus:11",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+consensus",
+      "target": "page:example02/regex+consensus:12",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+consensus",
+      "target": "page:example02/regex+consensus:13",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+consensus",
+      "target": "page:example02/regex+consensus:14",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+consensus",
+      "target": "page:example02/regex+consensus:15",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+consensus",
+      "target": "page:example02/regex+consensus:16",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+consensus",
+      "target": "page:example02/regex+consensus:17",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+consensus",
+      "target": "section:bibliography:example02/regex+consensus",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:114",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:116",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:117",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:122",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:123",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:125",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:126",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:131",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:132",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:3",
+      "target": "ent:consensus:example02:equation:20",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:133",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:3",
+      "target": "ent:consensus:example02:equation:21",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:134",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:136",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:126",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:131",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:123",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:125",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:139",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:142",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:132",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:3",
+      "target": "ent:consensus:example02:equation:20",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:3",
+      "target": "ent:consensus:example02:equation:19",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:133",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:3",
+      "target": "ent:consensus:example02:equation:21",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:147",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:148",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:3",
+      "target": "ent:consensus:example02:equation:11",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:10",
+      "target": "ent:consensus:example02:equation:84",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:123",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:125",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:123",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:125",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:14",
+      "target": "ent:consensus:example02:caption:98",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:14",
+      "target": "ent:consensus:example02:caption:98",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:150",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:151",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:152",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:153",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:145",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:114",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:115",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:116",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:117",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:118",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:119",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:120",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:121",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:122",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:123",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:124",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:125",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:126",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:127",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:128",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:129",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:130",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:131",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:132",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:133",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:134",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:135",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:136",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:137",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:138",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:139",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:140",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:141",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:142",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:143",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:144",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:145",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:146",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:147",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:148",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:149",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:150",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:151",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:152",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:153",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+consensus",
+      "target": "ent:consensus:example02:reference_item:154",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:17",
+      "target": "ent:consensus:example02:caption:157",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:17",
+      "target": "ent:consensus:example02:caption:157",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:17",
+      "target": "ent:consensus:example02:caption:157",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:17",
+      "target": "ent:consensus:example02:caption:157",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:17",
+      "target": "ent:consensus:example02:caption:157",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:17",
+      "target": "ent:consensus:example02:caption:158",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:17",
+      "target": "ent:consensus:example02:caption:157",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:17",
+      "target": "ent:consensus:example02:caption:158",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+consensus:17",
+      "target": "ent:consensus:example02:caption:158",
+      "edge_kind": "contains",
+      "label": ""
     }
   ],
   "metadata": {
@@ -2998,6 +4028,7 @@
     "unresolved_count": 62,
     "backend_versions": {
       "regex": "0.1.0"
-    }
+    },
+    "has_hierarchy": true
   }
 }
