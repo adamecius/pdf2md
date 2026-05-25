@@ -15,34 +15,48 @@ SYSTEM_PROMPT = (
     "You are a careful annotator of scientific document pages. "
     "Detect cross-reference markers in the page image and return ONLY a "
     "JSON object that matches the requested schema. Do not write any "
-    "prose outside the JSON."
+    "prose outside the JSON. NEVER invent markers that are not literally "
+    "visible on the page — if the page has no markers of a given type, "
+    "do not emit any of that type."
 )
 
 
-USER_PROMPT_TEMPLATE = """Look at this scientific document page and identify every cross-reference marker.
+# The marker-type descriptions are intentionally **abstract** — small
+# VLMs (this includes deepseek-vl2-small) have a strong tendency to
+# echo concrete `e.g.` examples back into the output regardless of what
+# the page actually contains. Earlier versions of this prompt listed
+# example strings like "Figure 3", "Eq. (3.2)", "[15]" and the model
+# returned exactly those strings for every page it processed. The fix
+# is to describe the SHAPE without offering surface strings the model
+# could copy.
+USER_PROMPT_TEMPLATE = """Look at the page image. Find every visible cross-reference marker — a literal piece of text that points to a numbered or labelled element of the document. Read the actual text on the page; do not guess.
 
-Marker types you may emit:
-- "figure"        e.g. "Figure 3", "Fig. 2"
-- "table"         e.g. "Table 1"
-- "equation"      e.g. "Eq. (3.2)", "(7)"
-- "bibliography"  e.g. "[15]", "(Smith, 2020)"
-- "footnote"      e.g. "footnote 3", superscript numerals
-- "theorem"       e.g. "Theorem 3.2"
-- "definition"    e.g. "Definition 1.1"
-- "proof"         e.g. "Proof of Theorem 3.2"
-- "section"       e.g. "Section 4", "Sec. 2.3"
-- "chapter"       e.g. "Chapter 5"
+Allowed marker_type values:
+
+- "figure"        a reference to a figure (any "Figure N" / "Fig. N" form)
+- "table"         a reference to a table
+- "equation"      a reference to an equation by number, including bare parenthesised numbers like the equation-number printed next to the equation
+- "bibliography"  a citation key: either bracketed numbers, or author-year, or superscript citation
+- "footnote"      a footnote marker (small superscript number, dagger, etc.)
+- "theorem"       a reference to a theorem
+- "definition"    a reference to a definition
+- "proof"         a reference to a specific proof
+- "section"       a reference to a section
+- "chapter"       a reference to a chapter
 
 Return JSON with this exact shape:
 
 {{
   "markers": [
-    {{"marker_type": "<one of the above>", "marker_text": "<exact surface text>"}}
+    {{"marker_type": "<one of the above>", "marker_text": "<the exact surface text as it appears on the page>"}}
   ]
 }}
 
-Do not invent markers that are not visible on the page. If you see no
-markers, return {{"markers": []}}.
+Rules:
+- Only include markers whose surface text is literally present on the page.
+- Use the surface text VERBATIM, including capitalisation, punctuation, and brackets ("FIG. 3", "[2]", "(11)" — not "Figure 3" or "15").
+- If a marker type has no occurrence on this page, do not emit any entry of that type.
+- If the page has no markers at all, return {{"markers": []}}.
 """
 
 
