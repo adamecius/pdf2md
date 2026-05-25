@@ -657,19 +657,19 @@
       "label": "(unresolved)"
     },
     {
-      "id": "ent:mineru:2401.12345:figure:44",
+      "id": "ent:mineru:example02:figure:44",
       "type": "figure",
-      "label": "ent:mineru:2401.12345:figure:44"
+      "label": "ent:mineru:example02:figure:44"
     },
     {
-      "id": "ent:mineru:2401.12345:section:197",
+      "id": "ent:mineru:example02:section:197",
       "type": "section",
-      "label": "ent:mineru:2401.12345:section:197"
+      "label": "ent:mineru:example02:section:197"
     },
     {
-      "id": "ent:mineru:2401.12345:caption:179",
+      "id": "ent:mineru:example02:caption:179",
       "type": "figure",
-      "label": "ent:mineru:2401.12345:caption:179"
+      "label": "ent:mineru:example02:caption:179"
     }
   ],
   "edges": [
@@ -696,7 +696,7 @@
     },
     {
       "source": "marker:3:#/document/pages/1:FIG. 3",
-      "target": "ent:mineru:2401.12345:figure:44",
+      "target": "ent:mineru:example02:figure:44",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true
@@ -766,7 +766,7 @@
     },
     {
       "source": "marker:13:#/document/pages/3:Section 3",
-      "target": "ent:mineru:2401.12345:section:197",
+      "target": "ent:mineru:example02:section:197",
       "marker_type": "section",
       "label": "Section 3",
       "resolved": true
@@ -948,7 +948,7 @@
     },
     {
       "source": "marker:39:#/document/pages/11:FIG. 3",
-      "target": "ent:mineru:2401.12345:figure:44",
+      "target": "ent:mineru:example02:figure:44",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true
@@ -1025,7 +1025,7 @@
     },
     {
       "source": "marker:50:#/document/pages/14:Fig. 1",
-      "target": "ent:mineru:2401.12345:caption:179",
+      "target": "ent:mineru:example02:caption:179",
       "marker_type": "figure",
       "label": "Fig. 1",
       "resolved": true

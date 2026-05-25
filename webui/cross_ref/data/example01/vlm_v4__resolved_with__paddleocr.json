@@ -195,9 +195,9 @@
       "label": "(unresolved)"
     },
     {
-      "id": "ent:paddleocr:1410.8140:footnote:7",
+      "id": "ent:paddleocr:example01:footnote:7",
       "type": "footnote",
-      "label": "ent:paddleocr:1410.8140:footnote:7"
+      "label": "ent:paddleocr:example01:footnote:7"
     }
   ],
   "edges": [
@@ -315,7 +315,7 @@
     },
     {
       "source": "marker:16:#/document/pages/10:footnote 1",
-      "target": "ent:paddleocr:1410.8140:footnote:7",
+      "target": "ent:paddleocr:example01:footnote:7",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true

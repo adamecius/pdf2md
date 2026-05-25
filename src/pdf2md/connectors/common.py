@@ -48,6 +48,9 @@ class ConnectorResult:
 # reference so existing `from pdf2md.connectors.common import ...`
 # call-sites keep working.
 from pdf2md.models.cross_ref import CrossReferenceGraph as _CrossReferenceGraph
+from pdf2md.semantic.document_class import (
+    classify_document as _classify_document,
+)
 
 
 @dataclass(frozen=True)
@@ -827,6 +830,27 @@ def recognize_entities(
         idx = next_idx
 
     relations = _relations(entities, backend, document_id)
+
+    # Document-class classification (Plan 7) — runs after every other
+    # detector so it sees the full entity set, including the Plan 6
+    # Index / Glossary sections and the implicit-bibliography
+    # promotions. The result is written to metadata so downstream
+    # stages (ensemble mixer, semantic backends) can adapt without
+    # re-deriving the classification.
+    classification = _classify_document(
+        EntityProposalDocument(
+            document_id=document_id,
+            backend=backend,
+            backend_version=backend_version,
+            page_count=len(pages),
+            entities=entities,
+            relations=relations,
+            warnings=warnings,
+            metadata={},
+        ),
+        pages,
+    )
+
     return EntityProposalDocument(
         document_id=document_id,
         backend=backend,
@@ -835,7 +859,12 @@ def recognize_entities(
         entities=entities,
         relations=relations,
         warnings=warnings,
-        metadata={"connector": "markdown_fallback"},
+        metadata={
+            "connector": "markdown_fallback",
+            "document_class": classification.document_class.value,
+            "document_class_confidence": classification.confidence,
+            "document_class_features": classification.features,
+        },
     )
 
 

@@ -18,12 +18,23 @@ Use the dropdowns at the top to pick:
 
 - **Example** — `example01` (1410.8140, physics, no References heading)
   or `example02` (2401.12345, math/CS paper with theorems).
-- **Semantic backend** — `regex` / `grobid` / `vlm_v4`. Each detects
-  cross-reference markers in a different way.
+- **Semantic backend** — `regex` / `grobid` / `vlm_v4` / `consensus`.
+  Each detects cross-reference markers in a different way. The
+  `consensus` option is a best-of-confidence merge of all three
+  backends via `merge_graphs`, with the Plan 7 mixer down-weighting
+  GROBID on book-class inputs.
 - **OCR candidates** — pick an OCR backend (`deepseek` / `mineru` /
   `paddleocr`) to enable the OCR → resolver bridge. Resolved edges
   show as solid green lines, unresolved as dashed red. Pick "none"
-  for the raw marker view.
+  for the raw marker view. There is **not yet a `consensus` OCR
+  option**; an OCR-side weighted-consensus implementation is Plan 13
+  territory.
+
+The top-right corner shows a **document-class badge** (Plan 7) when
+an OCR is selected — `article` (blue), `book` (orange), or
+`document` (grey). Hovering reveals the raw features (page count,
+chapter count, reference / index / glossary section counts) that
+drove the decision.
 
 The right side panel has three tabs:
 

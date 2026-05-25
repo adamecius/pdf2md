@@ -195,24 +195,24 @@
       "label": "(unresolved)"
     },
     {
-      "id": "ent:mineru:1410.8140:caption:87",
+      "id": "ent:mineru:example01:caption:87",
       "type": "figure",
-      "label": "ent:mineru:1410.8140:caption:87"
+      "label": "ent:mineru:example01:caption:87"
     },
     {
-      "id": "ent:mineru:1410.8140:caption:90",
+      "id": "ent:mineru:example01:caption:90",
       "type": "figure",
-      "label": "ent:mineru:1410.8140:caption:90"
+      "label": "ent:mineru:example01:caption:90"
     },
     {
-      "id": "ent:mineru:1410.8140:caption:10",
+      "id": "ent:mineru:example01:caption:10",
       "type": "figure",
-      "label": "ent:mineru:1410.8140:caption:10"
+      "label": "ent:mineru:example01:caption:10"
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:18",
+      "id": "ent:mineru:example01:footnote:18",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:18"
+      "label": "ent:mineru:example01:footnote:18"
     }
   ],
   "edges": [
@@ -267,7 +267,7 @@
     },
     {
       "source": "marker:7:#/document/pages/8:FIG. 4",
-      "target": "ent:mineru:1410.8140:caption:87",
+      "target": "ent:mineru:example01:caption:87",
       "marker_type": "figure",
       "label": "FIG. 4",
       "resolved": true
@@ -302,14 +302,14 @@
     },
     {
       "source": "marker:12:#/document/pages/9:FIG. 5. (a) \u27e8d\u03c3xy(E)\u27e9 as a function of R for \u03c6/\u03c60 \u2248 1 \u00d7 10\u22122, M = 3200, kBT = 0 and N = 2 \u00d7 400 \u00d7 400 sites.",
-      "target": "ent:mineru:1410.8140:caption:90",
+      "target": "ent:mineru:example01:caption:90",
       "marker_type": "figure",
       "label": "FIG. 5. (a) \u27e8d\u03c3xy(E)\u27e9 as a function of R for \u03c6/\u03c60 \u2248 1 \u00d7 10\u22122, M = 3200, kBT = 0 and N = 2 \u00d7 400 \u00d7 400 sites.",
       "resolved": true
     },
     {
       "source": "marker:13:#/document/pages/10:Figure 1",
-      "target": "ent:mineru:1410.8140:caption:10",
+      "target": "ent:mineru:example01:caption:10",
       "marker_type": "figure",
       "label": "Figure 1",
       "resolved": true
@@ -323,7 +323,7 @@
     },
     {
       "source": "marker:15:#/document/pages/10:[1]",
-      "target": "ent:mineru:1410.8140:footnote:18",
+      "target": "ent:mineru:example01:footnote:18",
       "marker_type": "bibliography",
       "label": "[1]",
       "resolved": true
