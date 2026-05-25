@@ -33,6 +33,10 @@ class EntityType(str, Enum):
     REFERENCE_SECTION = "reference_section"
     REFERENCE_ITEM = "reference_item"
     BIBLIOGRAPHY_MARKER = "bibliography_marker"
+    INDEX_SECTION = "index_section"
+    INDEX_ENTRY = "index_entry"
+    GLOSSARY_SECTION = "glossary_section"
+    GLOSSARY_ENTRY = "glossary_entry"
     UNKNOWN = "unknown"
 
 
@@ -43,6 +47,7 @@ class RelationType(str, Enum):
     FOOTNOTE_ANCHOR_FOR = "footnote_anchor_for"
     TOC_POINTS_TO = "toc_points_to"
     REFERENCE_MENTION_OF = "reference_mention_of"
+    GLOSSARY_DEFINES = "glossary_defines"
     SAME_ENTITY_AS = "same_entity_as"
     NEAR = "near"
     SEQUENCE_NEXT = "sequence_next"

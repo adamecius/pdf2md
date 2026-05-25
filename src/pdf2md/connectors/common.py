@@ -256,6 +256,71 @@ def _strip_deepseek_tags(chunk: str) -> tuple[str, str | None]:
 _BIB_LINE_RE = re.compile(r"^\[\d+\]\s+\S")
 
 
+# Heading words that open a back-matter Index section. Lowercased.
+_INDEX_HEADING_WORDS: frozenset[str] = frozenset({
+    "index",
+    "subject index",
+    "name index",
+    "author index",
+})
+
+# Heading words that open a back-matter Glossary section. Lowercased.
+_GLOSSARY_HEADING_WORDS: frozenset[str] = frozenset({
+    "glossary",
+    "terms",
+    "vocabulary",
+    "glossary of terms",
+})
+
+# An index entry: ``Term, 5, 17–19, 42`` — term text followed by a
+# comma-separated list of page numbers / page ranges. Page ranges accept
+# ASCII ``-``, en-dash ``–``, em-dash ``—``. The term is everything
+# before the first numeric page reference; we anchor on the comma that
+# separates term from page list.
+_INDEX_ENTRY_RE = re.compile(
+    r"""^
+    (?P<term>[^,\n]+?(?:\s*,\s*[^,\d\n]+)*)   # term (allows sub-clauses)
+    \s*[,:]\s*                                # separator
+    (?P<pages>\d+(?:\s*[-–—]\s*\d+)?
+              (?:\s*,\s*\d+(?:\s*[-–—]\s*\d+)?)*)  # page list
+    \s*$""",
+    re.VERBOSE,
+)
+
+# A glossary entry — same shape as an index entry when the entry carries
+# explicit page references, e.g. ``Conductivity, 3, 7``. Definition-only
+# glossary entries (``Conductivity — property of a material...``) are
+# captured by a looser pattern and emitted without page links.
+_GLOSSARY_DEF_RE = re.compile(
+    r"""^
+    (?:\*\*(?P<term_bold>[^*\n]+)\*\*|(?P<term>[A-Za-z][A-Za-z0-9 _'\-]+?))
+    \s*[:—–-]\s*
+    (?P<definition>\S.+)
+    $""",
+    re.VERBOSE,
+)
+
+
+def _parse_index_pages(pages_text: str) -> list[int]:
+    """Parse ``"5, 17-19, 42"`` into ``[5, 17, 18, 19, 42]``."""
+    out: list[int] = []
+    for chunk in pages_text.split(","):
+        chunk = chunk.strip()
+        if not chunk:
+            continue
+        m = re.match(r"^(\d+)\s*[-–—]\s*(\d+)$", chunk)
+        if m:
+            a, b = int(m.group(1)), int(m.group(2))
+            if a <= b:
+                out.extend(range(a, b + 1))
+            else:
+                out.append(a)
+                out.append(b)
+        elif chunk.isdigit():
+            out.append(int(chunk))
+    return out
+
+
 def _separate_bracket_bib_entries(page_text: str) -> str:
     """Insert blank lines between adjacent ``[N] ...`` bibliography entries.
 
@@ -479,8 +544,17 @@ def recognize_entities(
         subtype: str | None = None,
         metadata: dict[str, Any] | None = None,
         evidence_kind: EvidenceKind = EvidenceKind.BLOCK_TEXT,
+        canonical_text: str | None = None,
     ) -> EntityProposal:
-        """Append a new EntityProposal anchored on ``block`` and return it."""
+        """Append a new EntityProposal anchored on ``block`` and return it.
+
+        ``canonical_text`` may be supplied to override the entity's
+        canonical text (default: ``_strip_heading(block.text)``). Use
+        this when one block contains multiple list-shaped entries —
+        e.g. an index paragraph holding ``Hall, 5\\nBerry, 12`` — and
+        each entry should carry its own line text rather than the full
+        block.
+        """
         nonlocal idx
         idx += 1
         md = {"detector": detector, **(metadata or {})}
@@ -499,7 +573,7 @@ def recognize_entities(
             id=entity_id(backend, document_id, entity_type, idx),
             entity_type=entity_type,
             subtype=subtype,
-            canonical_text=_strip_heading(block.text),
+            canonical_text=canonical_text if canonical_text is not None else _strip_heading(block.text),
             page_no=block.page_no,
             block_ids=[block.id],
             confidence=confidence,
@@ -512,6 +586,12 @@ def recognize_entities(
         return ent
 
     refs_started = False
+    index_started = False
+    glossary_started = False
+    # Track the heading level that activated each back-matter section so
+    # we can close it cleanly when a same-or-higher-level heading appears.
+    index_heading_level: int | None = None
+    glossary_heading_level: int | None = None
     for page in pages:
         for pos, block in enumerate(page.blocks):
             text = block.text.strip()
@@ -520,6 +600,15 @@ def recognize_entities(
             if block.kind == BlockKind.HEADING:
                 heading_level = block.metadata.get("markdown_heading_level")
                 numbering = _numbering(plain)
+                # Close back-matter sections when a same-or-higher-level
+                # heading appears (mirrors how a new top-level heading
+                # ends a Bibliography in practice).
+                if index_started and heading_level is not None and index_heading_level is not None and heading_level <= index_heading_level and lower not in _INDEX_HEADING_WORDS:
+                    index_started = False
+                    index_heading_level = None
+                if glossary_started and heading_level is not None and glossary_heading_level is not None and heading_level <= glossary_heading_level and lower not in _GLOSSARY_HEADING_WORDS:
+                    glossary_started = False
+                    glossary_heading_level = None
                 add(
                     EntityType.SECTION,
                     block,
@@ -565,14 +654,102 @@ def recognize_entities(
                 if lower in {"references", "bibliography", "works cited"}:
                     refs_started = True
                     add(EntityType.REFERENCE_SECTION, block, 0.88, "reference_section_detector")
-            if m := re.match(r"^(.+?)\s+\.{3,}\s+(\d+)\s*$", plain):
-                add(
-                    EntityType.TOC_ENTRY,
-                    block,
-                    0.74,
-                    "toc_entry_detector",
-                    metadata={"target_page_candidate": int(m.group(2)), "target_title_candidate": m.group(1).strip()},
-                )
+                if lower in _INDEX_HEADING_WORDS:
+                    index_started = True
+                    index_heading_level = heading_level
+                    add(EntityType.INDEX_SECTION, block, 0.88, "index_section_detector")
+                if lower in _GLOSSARY_HEADING_WORDS:
+                    glossary_started = True
+                    glossary_heading_level = heading_level
+                    add(EntityType.GLOSSARY_SECTION, block, 0.88, "glossary_section_detector")
+            # TOC entries — iterate per line so multi-entry TOC blocks
+            # (which arrive fused on most OCR backends) each emit their
+            # own TOC_ENTRY anchored on the parent block.
+            for toc_line in plain.splitlines():
+                tl = toc_line.strip()
+                if not tl:
+                    continue
+                if m := re.match(r"^(.+?)\s+\.{3,}\s+(\d+)\s*$", tl):
+                    add(
+                        EntityType.TOC_ENTRY,
+                        block,
+                        0.74,
+                        "toc_entry_detector",
+                        metadata={
+                            "target_page_candidate": int(m.group(2)),
+                            "target_title_candidate": m.group(1).strip(),
+                        },
+                        canonical_text=tl,
+                    )
+            # Index entries — iterate per line for the same reason.
+            if index_started and block.kind == BlockKind.PARAGRAPH and plain:
+                for line in plain.splitlines():
+                    line_s = line.strip()
+                    if not line_s:
+                        continue
+                    idx_m = _INDEX_ENTRY_RE.match(line_s)
+                    if not idx_m:
+                        continue
+                    pages_list = _parse_index_pages(idx_m.group("pages"))
+                    if not pages_list:
+                        continue
+                    add(
+                        EntityType.INDEX_ENTRY,
+                        block,
+                        0.72,
+                        "index_entry_detector",
+                        metadata={
+                            "index_term": idx_m.group("term").strip(),
+                            "index_pages": pages_list,
+                        },
+                        canonical_text=line_s,
+                    )
+            # Glossary entries — same per-line iteration. Two shapes
+            # accepted, tried in order per line; only ONE emits per
+            # line:
+            #   (a) ``Term, 5, 17-19`` — index-style with explicit pages.
+            #   (b) ``Term: definition...`` / ``**Term** — definition...``
+            #       — definition-only entry, no page list.
+            if glossary_started and block.kind == BlockKind.PARAGRAPH and plain:
+                for line in plain.splitlines():
+                    line_s = line.strip()
+                    if not line_s:
+                        continue
+                    emitted_glossary = False
+                    if (idx_m := _INDEX_ENTRY_RE.match(line_s)) is not None:
+                        pages_list = _parse_index_pages(idx_m.group("pages"))
+                        if pages_list:
+                            add(
+                                EntityType.GLOSSARY_ENTRY,
+                                block,
+                                0.72,
+                                "glossary_entry_detector",
+                                metadata={
+                                    "glossary_term": idx_m.group("term").strip(),
+                                    "glossary_pages": pages_list,
+                                    "has_page_list": True,
+                                },
+                                canonical_text=line_s,
+                            )
+                            emitted_glossary = True
+                    if not emitted_glossary:
+                        def_m = _GLOSSARY_DEF_RE.match(line_s)
+                        if def_m:
+                            term = (def_m.group("term_bold") or def_m.group("term") or "").strip()
+                            definition = def_m.group("definition").strip()
+                            if term and definition:
+                                add(
+                                    EntityType.GLOSSARY_ENTRY,
+                                    block,
+                                    0.65,
+                                    "glossary_entry_detector",
+                                    metadata={
+                                        "glossary_term": term,
+                                        "glossary_definition": definition,
+                                        "has_page_list": False,
+                                    },
+                                    canonical_text=line_s,
+                                )
             if re.fullmatch(r"\d+|[ivxlcdm]+", lower) and (pos == 0 or pos == len(page.blocks) - 1):
                 add(EntityType.PAGE_NUMBER, block, 0.68, "page_number_detector", evidence_kind=EvidenceKind.POSITION)
             if m := re.match(r"^(?:\[(\d+)\]|(\d+)\.|([¹²³]))\s+.+", plain):
@@ -887,11 +1064,19 @@ def _relations(entities: list[EntityProposal], backend: str, document_id: str) -
                 _rel(backend, document_id, len(relations) + 1, RelationType.NEAR, ent, nxt, 0.25, "adjacent entities")
             )
     sections = [e for e in entities if e.entity_type == EntityType.SECTION]
+    chapters = [e for e in entities if e.entity_type == EntityType.CHAPTER]
+    section_like = sections + chapters
+    sections_by_page: dict[int, list[EntityProposal]] = {}
+    for sec in section_like:
+        if sec.page_no is not None:
+            sections_by_page.setdefault(sec.page_no, []).append(sec)
     for toc in [e for e in entities if e.entity_type == EntityType.TOC_ENTRY]:
-        target = str(toc.metadata.get("target_title_candidate", "")).lower()
+        # Title-text match (existing behaviour).
+        target_title = str(toc.metadata.get("target_title_candidate", "")).lower()
+        matched_by_title = False
         for sec in sections:
             title = str(sec.canonical_text or "").lower()
-            if title and (title in target or target in title or _tokens_overlap(title, target)):
+            if title and (title in target_title or target_title in title or _tokens_overlap(title, target_title)):
                 relations.append(
                     _rel(
                         backend,
@@ -902,9 +1087,124 @@ def _relations(entities: list[EntityProposal], backend: str, document_id: str) -
                         sec,
                         0.50,
                         "toc title matches section",
+                        extra_metadata={"match_strategy": "heading_text"},
                     )
                 )
+                matched_by_title = True
                 break
+        # Page-number match (formalised in Plan 6). Independent of title
+        # match — we want both edges when both apply, since a downstream
+        # consumer can filter by match_strategy.
+        target_page = toc.metadata.get("target_page_candidate")
+        if isinstance(target_page, int):
+            for sec in sections_by_page.get(target_page, []):
+                # Skip if the same edge already came in via the title path.
+                if matched_by_title and any(
+                    r.source_entity_id == toc.id and r.target_entity_id == sec.id
+                    for r in relations
+                ):
+                    continue
+                relations.append(
+                    _rel(
+                        backend,
+                        document_id,
+                        len(relations) + 1,
+                        RelationType.TOC_POINTS_TO,
+                        toc,
+                        sec,
+                        0.55,
+                        "toc target page matches section page",
+                        extra_metadata={"match_strategy": "page"},
+                    )
+                )
+
+    # Index entries — emit one TOC_POINTS_TO edge per (page-match) AND
+    # per (heading-text-match). Per Plan 6, "more relations is better"
+    # so we don't dedupe between the two strategies — each carries a
+    # distinct match_strategy tag.
+    for idx_entry in [e for e in entities if e.entity_type == EntityType.INDEX_ENTRY]:
+        term = str(idx_entry.metadata.get("index_term", "")).lower().strip()
+        # Page-number match.
+        for page_no in idx_entry.metadata.get("index_pages", []) or []:
+            for sec in sections_by_page.get(int(page_no), []):
+                relations.append(
+                    _rel(
+                        backend,
+                        document_id,
+                        len(relations) + 1,
+                        RelationType.TOC_POINTS_TO,
+                        idx_entry,
+                        sec,
+                        0.60,
+                        "index entry page matches section page",
+                        extra_metadata={
+                            "match_strategy": "page",
+                            "index_target_page": int(page_no),
+                        },
+                    )
+                )
+        # Heading-text match — case-insensitive substring in either
+        # direction. Catches ``Hall effect, 5, 17`` → ``# Hall effect``.
+        if term:
+            for sec in section_like:
+                title = str(sec.canonical_text or "").lower().strip()
+                if title and (title in term or term in title):
+                    relations.append(
+                        _rel(
+                            backend,
+                            document_id,
+                            len(relations) + 1,
+                            RelationType.TOC_POINTS_TO,
+                            idx_entry,
+                            sec,
+                            0.55,
+                            "index term matches section title",
+                            extra_metadata={
+                                "match_strategy": "heading_text",
+                                "index_term": term,
+                            },
+                        )
+                    )
+
+    # Glossary entries — emit one GLOSSARY_DEFINES edge per (body block
+    # on a page explicitly listed in the entry). No substring scan of
+    # the body for term occurrences (Plan 6 §3.3).
+    for gl_entry in [e for e in entities if e.entity_type == EntityType.GLOSSARY_ENTRY]:
+        if not gl_entry.metadata.get("has_page_list"):
+            continue
+        for page_no in gl_entry.metadata.get("glossary_pages", []) or []:
+            for body_block in by_page.get(int(page_no), []):
+                # Skip linking to back-matter / structural entities.
+                if body_block.entity_type in {
+                    EntityType.GLOSSARY_ENTRY,
+                    EntityType.GLOSSARY_SECTION,
+                    EntityType.INDEX_ENTRY,
+                    EntityType.INDEX_SECTION,
+                    EntityType.REFERENCE_ITEM,
+                    EntityType.REFERENCE_SECTION,
+                    EntityType.PAGE_NUMBER,
+                    EntityType.HEADER,
+                    EntityType.FOOTER,
+                    EntityType.TOC_ENTRY,
+                }:
+                    continue
+                relations.append(
+                    _rel(
+                        backend,
+                        document_id,
+                        len(relations) + 1,
+                        RelationType.GLOSSARY_DEFINES,
+                        gl_entry,
+                        body_block,
+                        0.55,
+                        "glossary entry references this page",
+                        extra_metadata={
+                            "glossary_target_page": int(page_no),
+                            "glossary_term": gl_entry.metadata.get("glossary_term"),
+                        },
+                    )
+                )
+
     sequence_groups = [
         [e for e in entities if e.entity_type == EntityType.EQUATION],
         [e for e in entities if e.entity_type == EntityType.CAPTION and e.metadata.get("caption_kind") == "figure"],
@@ -944,6 +1244,7 @@ def _rel(
     target: EntityProposal,
     confidence: float,
     reason: str,
+    extra_metadata: dict[str, Any] | None = None,
 ) -> RelationProposal:
     ev = EntityEvidence(
         kind=EvidenceKind.DOCUMENT_CONTEXT,
@@ -956,6 +1257,9 @@ def _rel(
         reason=reason,
         metadata={},
     )
+    md: dict[str, Any] = {"detector": f"{rtype.value}_detector"}
+    if extra_metadata:
+        md.update(extra_metadata)
     return RelationProposal(
         id=relation_id(backend, document_id, index),
         relation_type=rtype,
@@ -964,7 +1268,7 @@ def _rel(
         confidence=confidence,
         confidence_source=ConfidenceSource.HEURISTIC,
         evidence=[ev],
-        metadata={"detector": f"{rtype.value}_detector"},
+        metadata=md,
     )
 
 
