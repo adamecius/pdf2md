@@ -81,7 +81,7 @@ def test_implicit_detector_retags_tail_footnotes_to_reference_items() -> None:
 
 def test_implicit_detector_emits_synthetic_reference_section() -> None:
     body = ["# Body", "x"] * 5
-    refs = ["[1] r1", "[2] r2", "[3] r3", "[4] r4"]
+    refs = ["[1] r1", "[2] r2", "[3] r3", "[4] r4", "[5] r5"]
     md = _spread_over_pages(body + refs, pages=4)
     doc = _ents(md)
     ref_sections = [
@@ -92,7 +92,7 @@ def test_implicit_detector_emits_synthetic_reference_section() -> None:
     s = ref_sections[0]
     assert s.metadata.get("detector") == "implicit_bibliography_detector"
     assert s.metadata.get("trigger") == "tail_run_of_numbered_paragraphs"
-    assert s.metadata.get("run_size") == 4
+    assert s.metadata.get("run_size") == 5
 
 
 def test_implicit_detector_does_not_fire_when_explicit_heading_present() -> None:
@@ -124,33 +124,63 @@ def test_implicit_detector_does_not_fire_when_explicit_heading_present() -> None
 
 
 def test_implicit_detector_ignores_short_runs() -> None:
-    """A 2-item tail run is below the minimum threshold (3) and the
+    """A 4-item run is below the minimum threshold (5) and the
     detector should leave the entities classified as FOOTNOTE."""
     body = ["# Body", "x"] * 5
-    refs = ["[1] r1", "[2] r2"]
+    refs = ["[1] r1", "[2] r2", "[3] r3", "[4] r4"]
     md = _spread_over_pages(body + refs, pages=4)
     doc = _ents(md)
     types = [
         (e.entity_type.value if hasattr(e.entity_type, "value") else e.entity_type)
         for e in doc.entities
     ]
-    # The two `[N]` lines stay as FOOTNOTE (no run-of-3 tail).
+    # The four `[N]` lines stay as FOOTNOTE (run-of-4 < min-of-5).
     assert types.count("reference_item") == 0
-    assert types.count("footnote") == 2
+    assert types.count("footnote") == 4
 
 
-def test_implicit_detector_ignores_runs_in_document_body() -> None:
-    """A long `[N]` run that lives in the FIRST half of the document
-    is unlikely to be a bibliography — typically it's a footnote
-    cluster or a numbered list. The detector restricts itself to the
-    tail (last 30%)."""
-    refs_in_body = ["[1] r1", "[2] r2", "[3] r3", "[4] r4", "[5] r5"]
-    bulk_tail = ["body text"] * 30
-    md = _spread_over_pages(refs_in_body + bulk_tail, pages=10)
+def test_implicit_detector_ignores_non_bracket_numbered_lists() -> None:
+    """A numbered body list with ``1.`` / ``2.`` / ``3.`` form is NOT a
+    bibliography. The detector requires the bracket form ``[N]``."""
+    body = ["# Body", "Some text."]
+    # `1.`-style numbered list (e.g. step-by-step instructions) — the
+    # footnote_detector picks them up as FOOTNOTE but we should NOT
+    # treat them as bibliography.
+    numbered_list = [
+        "1. First step here.",
+        "2. Second step here.",
+        "3. Third step here.",
+        "4. Fourth step here.",
+        "5. Fifth step here.",
+        "6. Sixth step here.",
+    ]
+    md = _spread_over_pages(body + numbered_list, pages=2)
     doc = _ents(md)
-    # No REFERENCE_ITEM emissions because the refs aren't in the tail.
     ref_items = [
         e for e in doc.entities
         if (e.entity_type.value if hasattr(e.entity_type, "value") else e.entity_type) == "reference_item"
     ]
     assert ref_items == []
+
+
+def test_implicit_detector_fires_on_long_run_anywhere_in_document() -> None:
+    """A long ascending bracket-numbered run is unambiguously a
+    bibliography wherever it lives. example01 (1410.8140.pdf)
+    surfaces this: the OCR doesn't emit page breaks so all 48 bib
+    entries end up on a synthetic mid-document "page 5", which a
+    tail-only heuristic would miss."""
+    refs_in_middle = [f"[{n}] entry {n}" for n in range(1, 11)]  # 10 entries
+    bulk_tail = ["body text"] * 30
+    md = _spread_over_pages(refs_in_middle + bulk_tail, pages=10)
+    doc = _ents(md)
+    ref_items = [
+        e for e in doc.entities
+        if (e.entity_type.value if hasattr(e.entity_type, "value") else e.entity_type) == "reference_item"
+    ]
+    assert len(ref_items) == 10
+    # And the synthetic REFERENCE_SECTION too.
+    ref_sections = [
+        e for e in doc.entities
+        if (e.entity_type.value if hasattr(e.entity_type, "value") else e.entity_type) == "reference_section"
+    ]
+    assert any(s.metadata.get("detector") == "implicit_bibliography_detector" for s in ref_sections)

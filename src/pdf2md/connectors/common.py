@@ -510,8 +510,27 @@ def recognize_entities(
                 )
             elif refs_started and block.kind == BlockKind.PARAGRAPH and plain:
                 add(EntityType.REFERENCE_ITEM, block, 0.62, "reference_item_detector")
-            if block.kind == BlockKind.FORMULA or re.search(r"\([0-9]+(?:\.[0-9]+)*\)\s*$", plain):
+            # Equation detection. Two failure modes the old version had:
+            #   1) Bibliography entries like "[14] Smith, ... 2020." end
+            #      with "(2020)" and got mis-tagged as equations.
+            #   2) Real `\[ ... \]` math blocks rarely contain their
+            #      printed equation number — that lives in the next
+            #      block (often as a standalone "(11)" paragraph).
+            # Guard against (1) and look at the next block for (2).
+            is_bib_entry = bool(re.match(r"^\[\s*\d+\s*\]\s+\S", plain))
+            if not is_bib_entry and (
+                block.kind == BlockKind.FORMULA
+                or re.search(r"\([0-9]+(?:\.[0-9]+)*\)\s*$", plain)
+            ):
                 num = (re.search(r"\(([0-9]+(?:\.[0-9]+)*)\)\s*$", plain) or [None, None])[1]
+                # FORMULA blocks without trailing (N): peek at the next
+                # block on the same page. If it BEGINS with a "(N)" or
+                # is just "(N)" alone, attribute that number here.
+                if num is None and block.kind == BlockKind.FORMULA and pos + 1 < len(page.blocks):
+                    next_plain = _strip_heading(page.blocks[pos + 1].text).strip()
+                    nm = re.match(r"^\(?([0-9]+(?:\.[0-9]+)*)\)?(?:\s|$)", next_plain)
+                    if nm:
+                        num = nm.group(1)
                 add(
                     EntityType.EQUATION,
                     block,
@@ -567,17 +586,16 @@ def recognize_entities(
     )
 
 
-# Minimum size of a tail run of "[N] author..." paragraphs to be
-# treated as an implicit bibliography. 3 is conservative — every
-# real bibliography easily exceeds this, while incidental footnote
-# clusters (which max out at ~1-2 per page in practice) don't.
-IMPLICIT_BIBLIOGRAPHY_MIN_RUN = 3
+# Minimum size of a contiguous run of "[N]" paragraphs to be treated
+# as an implicit bibliography. 5 strikes a balance: bibliographies are
+# almost always ≥5 entries, while an incidental short footnote cluster
+# in body text stays under the threshold.
+IMPLICIT_BIBLIOGRAPHY_MIN_RUN = 5
 
-# How far back in the document we look for the tail run. 0.30 means
-# the LAST 30 % of pages. Bibliographies always live at the document
-# tail; restricting the search prevents false positives from any
-# mid-document numbered-list cluster (e.g. a numbered theorem list).
-IMPLICIT_BIBLIOGRAPHY_TAIL_FRACTION = 0.30
+# How much of the longest ascending sequence must be sequential to
+# count as a bibliography (e.g. 1,2,3,4,5 → 1.0; 1,2,4,5,7 → 0.66).
+# Real bibliographies are typically near-perfect ascending integers.
+IMPLICIT_BIBLIOGRAPHY_MIN_ASCENDING_FRACTION = 0.80
 
 
 def _detect_implicit_bibliography(
@@ -588,7 +606,7 @@ def _detect_implicit_bibliography(
     document_id: str,
     next_id_index: int,
 ) -> int | None:
-    """Re-tag a tail run of FOOTNOTE entities as REFERENCE_ITEM.
+    """Re-tag the longest ascending sequential run of FOOTNOTE entities as REFERENCE_ITEM.
 
     Many arXiv preprints and conference PDFs ship a bibliography that
     begins with ``[1] Author, ...`` and has **no** "References" or
@@ -600,22 +618,28 @@ def _detect_implicit_bibliography(
     bibliography marker emitted by GROBID / regex / VLM with no
     candidate to resolve against.
 
-    This post-pass looks at the **tail** of the document for a
-    contiguous run of footnote entities whose markers are mostly
-    bracketed numerals (``[1]``, ``[2]``, …). When found:
+    This post-pass identifies the bibliography by its **shape**: a
+    contiguous run of FOOTNOTE entities whose markers form an
+    ascending integer sequence (1, 2, 3, …). Real bibliographies are
+    long and near-perfectly sequential; legitimate footnote clusters
+    in body text rarely run more than 2–3 deep and don't reset to 1.
 
-    1. Re-tag each entity in the run from FOOTNOTE → REFERENCE_ITEM.
-    2. Update the detector and calibration_key on each so audits
-       record the source of the change.
-    3. Emit a new synthetic REFERENCE_SECTION anchored on the first
-       entity's block (with detector
-       ``"implicit_bibliography_detector"``).
+    The previous "last 30 % of pages" heuristic was too restrictive —
+    on documents where the OCR doesn't emit page breaks, all entities
+    live on one synthesized page, and a bibliography on page 5 of 10
+    would be invisible to a tail-only check.
+
+    Steps when a qualifying run is found:
+
+    1. Re-tag each entity in the run from FOOTNOTE → REFERENCE_ITEM
+       (with audit-trail metadata).
+    2. Emit a synthetic REFERENCE_SECTION anchored on the first entity.
 
     Args:
         entities: All entities so far, in detection order. Mutated in
             place; new REFERENCE_SECTION (if any) is appended.
-        pages: The page IR — used to figure out which entities live in
-            the document tail.
+        pages: The page IR — kept for anchoring the synthetic
+            REFERENCE_SECTION on a real block.
         backend: Backend id for entity_id minting.
         document_id: Document id for entity_id minting.
         next_id_index: The next free idx to use when minting the new
@@ -623,40 +647,34 @@ def _detect_implicit_bibliography(
 
     Returns:
         The updated idx after any new entity has been emitted, or
-        ``None`` if no implicit bibliography was found (idx unchanged).
+        ``None`` if no implicit bibliography was found.
     """
     if not pages or not entities:
         return None
 
-    # Walk entities to find a candidate tail run. "Tail" = appearing
-    # on the last X% of pages. We require ≥3 contiguous FOOTNOTE
-    # entities and at least 80% of their markers in bracketed-number
-    # form to avoid false positives from footnote clusters.
-    n_pages = len(pages)
-    tail_start_page = max(1, int(n_pages * (1 - IMPLICIT_BIBLIOGRAPHY_TAIL_FRACTION)))
+    def _is_bracket_footnote(ent: EntityProposal) -> bool:
+        """A FOOTNOTE entity whose source text starts with ``[``.
 
-    bracket_re = re.compile(r"^\[\d+\]$")
+        Body numbered lists use ``1.`` form; bibliographies use ``[1]``.
+        Restricting to the bracket form keeps the detector specific to
+        the bibliography shape.
+        """
+        if _entity_type_value(ent) != EntityType.FOOTNOTE.value:
+            return False
+        if ent.metadata.get("detector") != "footnote_detector":
+            return False
+        text = (ent.canonical_text or "").lstrip()
+        return text.startswith("[")
 
-    # Find runs of consecutive footnote entities in the tail. The
-    # entity list is in DETECTION order, which matches block order
-    # because the main loop iterates pages × blocks. Two consecutive
-    # FOOTNOTE entities in this list are consecutive in the doc.
-    runs: list[tuple[int, int]] = []  # (start_idx_in_entities, end_idx_inclusive)
+    # Walk entities, find every maximal run of consecutive bracket-form
+    # FOOTNOTE entities. Entities are in detection order so consecutive
+    # in the list = consecutive in the document.
+    runs: list[tuple[int, int]] = []
     i = 0
     while i < len(entities):
-        ent = entities[i]
-        if (
-            _entity_type_value(ent) == EntityType.FOOTNOTE.value
-            and ent.metadata.get("detector") == "footnote_detector"
-            and (ent.page_no or 0) >= tail_start_page
-        ):
+        if _is_bracket_footnote(entities[i]):
             j = i
-            while (
-                j + 1 < len(entities)
-                and _entity_type_value(entities[j + 1]) == EntityType.FOOTNOTE.value
-                and entities[j + 1].metadata.get("detector") == "footnote_detector"
-                and (entities[j + 1].page_no or 0) >= tail_start_page
-            ):
+            while j + 1 < len(entities) and _is_bracket_footnote(entities[j + 1]):
                 j += 1
             if j - i + 1 >= IMPLICIT_BIBLIOGRAPHY_MIN_RUN:
                 runs.append((i, j))
@@ -667,15 +685,36 @@ def _detect_implicit_bibliography(
     if not runs:
         return None
 
-    # Pick the LAST qualifying run — bibliographies live at the very tail.
-    start, end = runs[-1]
-    run = entities[start : end + 1]
+    # Score each run by how "bibliography-shaped" it is — i.e. how
+    # close to a perfect ascending integer sequence its markers form.
+    # The winner is the LONGEST run with sufficient ascending fraction.
+    best: tuple[int, int] | None = None
+    best_len = 0
+    for start, end in runs:
+        run = entities[start : end + 1]
+        try:
+            nums = [int(e.metadata.get("marker", "")) for e in run]
+        except (TypeError, ValueError):
+            continue
+        if not nums:
+            continue
+        ascending = sum(1 for a, b in zip(nums, nums[1:]) if b == a + 1)
+        ascending_pairs_max = len(nums) - 1
+        if ascending_pairs_max == 0:
+            continue
+        ascending_fraction = ascending / ascending_pairs_max
+        if (
+            ascending_fraction >= IMPLICIT_BIBLIOGRAPHY_MIN_ASCENDING_FRACTION
+            and len(run) > best_len
+        ):
+            best = (start, end)
+            best_len = len(run)
 
-    bracketed = sum(1 for e in run if bracket_re.match(f"[{e.metadata.get('marker', '')}]"))
-    # Each entity stores its marker WITHOUT brackets (e.g. "1"), so we
-    # also accept the raw "[1]" form for safety.
-    if bracketed / len(run) < 0.8:
+    if best is None:
         return None
+
+    start, end = best
+    run = entities[start : end + 1]
 
     # Re-tag in place.
     for ent in run:

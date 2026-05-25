@@ -63,6 +63,15 @@ _BIB_AUTHOR_YEAR_RE = re.compile(
     r"(?:\s*,)?\s+\d{4}[a-z]?\s*\)$"   # year, optional disambiguator
 )
 
+# Broken-bracket forms that show up when GROBID splits a multi-citation
+# like ``[14, 21]`` across two ``<ref>`` elements (``[14,`` + ``21]``) are
+# handled by the default-keep clause in :func:`_classify_bibr` — they
+# fail the canonical regexes, don't match any reroute keyword, don't
+# match the drop patterns, and so fall through to bibliography. The
+# resolver's :func:`pdf2md.semantic.resolver._bibliography_number`
+# accepts these via a loosened number extractor so each broken half
+# still resolves to its bib entry independently.
+
 # When a bibr marker fails the bib regexes, try these keyword-based
 # patterns to re-route to a more specific marker_type. The patterns
 # require a *keyword* (Eq., Theorem, Corollary, …) — bare numbers or

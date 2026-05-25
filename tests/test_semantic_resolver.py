@@ -105,3 +105,73 @@ def test_resolver_does_not_cross_entity_types() -> None:
     candidates = [ResolverCandidate("#/refs/3", RefType.BIBLIOGRAPHY, "3")]
     edges = resolve_markers([_marker("Figure 3", RefType.FIGURE)], candidates)
     assert edges[0].resolved is False
+
+
+# ---------------------------------------------------------------------------
+# Broken-bracket bibliography: GROBID splits "[14, 21]" into ``[14,`` and
+# ``21]`` as separate ``<ref>`` elements. Each half should still resolve.
+# ---------------------------------------------------------------------------
+def test_broken_open_bracket_bib_resolves() -> None:
+    candidates = [
+        ResolverCandidate("#/refs/14", RefType.BIBLIOGRAPHY, "14"),
+        ResolverCandidate("#/refs/21", RefType.BIBLIOGRAPHY, "21"),
+    ]
+    edges = resolve_markers([_marker("[14,", RefType.BIBLIOGRAPHY)], candidates)
+    assert edges[0].resolved is True
+    assert edges[0].target_ref == "#/refs/14"
+
+
+def test_broken_close_bracket_bib_resolves() -> None:
+    candidates = [
+        ResolverCandidate("#/refs/14", RefType.BIBLIOGRAPHY, "14"),
+        ResolverCandidate("#/refs/21", RefType.BIBLIOGRAPHY, "21"),
+    ]
+    edges = resolve_markers([_marker("21]", RefType.BIBLIOGRAPHY)], candidates)
+    assert edges[0].resolved is True
+    assert edges[0].target_ref == "#/refs/21"
+
+
+def test_broken_close_bracket_no_open_bib_resolves() -> None:
+    """``13]`` — bracket lost on the opening side."""
+    candidates = [ResolverCandidate("#/refs/13", RefType.BIBLIOGRAPHY, "13")]
+    edges = resolve_markers([_marker("13]", RefType.BIBLIOGRAPHY)], candidates)
+    assert edges[0].resolved is True
+    assert edges[0].target_ref == "#/refs/13"
+
+
+# ---------------------------------------------------------------------------
+# Equation resolver — number-based matching mirroring _try_bibliography.
+# ---------------------------------------------------------------------------
+def test_equation_match_by_number() -> None:
+    candidates = [
+        ResolverCandidate("#/eq/11", RefType.EQUATION, "(11)"),
+        ResolverCandidate("#/eq/15", RefType.EQUATION, "(15)"),
+    ]
+    edges = resolve_markers([_marker("Eq. (11)", RefType.EQUATION)], candidates)
+    assert edges[0].resolved is True
+    assert edges[0].target_ref == "#/eq/11"
+
+
+def test_equation_match_bare_number_marker() -> None:
+    """Markers like ``"14"`` (GROBID's bare-number form for equation
+    refs) should still resolve via number identity."""
+    candidates = [ResolverCandidate("#/eq/14", RefType.EQUATION, "(14)")]
+    edges = resolve_markers([_marker("14", RefType.EQUATION)], candidates)
+    assert edges[0].resolved is True
+    assert edges[0].target_ref == "#/eq/14"
+
+
+def test_equation_match_dotted_number() -> None:
+    """Chapter-relative equation numbers ``(15.110)`` stay intact."""
+    candidates = [ResolverCandidate("#/eq/15.110", RefType.EQUATION, "(15.110)")]
+    edges = resolve_markers(
+        [_marker("Eq. (15.110)", RefType.EQUATION)], candidates,
+    )
+    assert edges[0].resolved is True
+    assert edges[0].target_ref == "#/eq/15.110"
+
+
+def test_equation_unresolved_when_no_matching_number() -> None:
+    candidates = [ResolverCandidate("#/eq/11", RefType.EQUATION, "(11)")]
+    edges = resolve_markers([_marker("Eq. (99)", RefType.EQUATION)], candidates)
+    assert edges[0].resolved is False
