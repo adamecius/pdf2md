@@ -1,0 +1,38 @@
+{
+  "examples": [
+    {
+      "id": "example01",
+      "label": "example01 — Hall conductivity (1410.8140)",
+      "kind": "physics",
+      "notes": "Physics paper, no \"References\" heading, equations numbered (N)."
+    },
+    {
+      "id": "example02",
+      "label": "example02 — Math/CS paper (2401.12345)",
+      "kind": "math",
+      "notes": "Math/CS paper with theorems, definitions, corollaries; bibliography with [N] markers."
+    }
+  ],
+  "semantic_backends": [
+    {
+      "id": "regex",
+      "label": "regex (stdlib, fast)",
+      "notes": "Deterministic regex on extracted text; high recall on figure/equation/bibliography."
+    },
+    {
+      "id": "grobid",
+      "label": "GROBID (Java service)",
+      "notes": "ML-based citation parser; best for scholarly articles with proper bibliography."
+    },
+    {
+      "id": "vlm_v4",
+      "label": "DeepSeek-VL2 (v4 prompt)",
+      "notes": "Vision-language model; works on page images. v4 prompt drops math types from the default."
+    }
+  ],
+  "ocr_backends": [
+    { "id": "deepseek", "label": "deepseek (highest entity coverage)" },
+    { "id": "mineru",   "label": "mineru (medium coverage)" },
+    { "id": "paddleocr","label": "paddleocr (lightweight)" }
+  ]
+}

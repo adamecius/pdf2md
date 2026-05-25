@@ -1,0 +1,2651 @@
+{
+  "schema_name": "pdf2md.EntityProposalDocument",
+  "schema_version": "1.0.0",
+  "document_id": "1410.8140",
+  "backend": "mineru",
+  "backend_version": null,
+  "page_count": 1,
+  "entities": [
+    {
+      "id": "ent:mineru:1410.8140:section:1",
+      "entity_type": "section",
+      "subtype": null,
+      "canonical_text": "Real-space calculation of the conductivity tensor for disordered topological matter",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b0"
+      ],
+      "confidence": 0.75,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b0",
+          "raw_ref": "output.md",
+          "text": "# Real-space calculation of the conductivity tensor for disordered topological matter",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "heading_section_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:section:heading_section_detector",
+      "metadata": {
+        "detector": "heading_section_detector",
+        "heading_level": 1,
+        "numbering": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:2",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\tilde {\\sigma} _ {\\alpha \\beta} (\\mu , T) = \\frac {i e ^ {2} \\hbar}{\\Omega} \\int_ {- \\infty} ^ {\\infty} d \\varepsilon f (\\varepsilon) (1)\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b13"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b13",
+          "raw_ref": "output.md",
+          "text": "$$\n\\tilde {\\sigma} _ {\\alpha \\beta} (\\mu , T) = \\frac {i e ^ {2} \\hbar}{\\Omega} \\int_ {- \\infty} ^ {\\infty} d \\varepsilon f (\\varepsilon) (1)\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:3",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\times \\mathrm{Tr} \\left\\langle v _ {\\alpha} \\delta (\\varepsilon - H) v _ {\\beta} \\frac {d G ^ {+} (\\varepsilon)}{d \\varepsilon} - v _ {\\alpha} \\frac {d G ^ {-} (\\varepsilon)}{d \\varepsilon} v _ {\\beta} \\delta (\\varepsilon - H) \\right\\rangle ,\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b14"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b14",
+          "raw_ref": "output.md",
+          "text": "$$\n\\times \\mathrm{Tr} \\left\\langle v _ {\\alpha} \\delta (\\varepsilon - H) v _ {\\beta} \\frac {d G ^ {+} (\\varepsilon)}{d \\varepsilon} - v _ {\\alpha} \\frac {d G ^ {-} (\\varepsilon)}{d \\varepsilon} v _ {\\beta} \\delta (\\varepsilon - H) \\right\\rangle ,\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:4",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\delta (\\tilde {\\varepsilon} - \\tilde {H}) = \\frac {2}{\\pi \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {M} g _ {m} \\frac {T _ {m} (\\tilde {\\varepsilon})}{\\delta_ {m , 0} + 1} T _ {m} (\\tilde {H}), \\tag {2}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b18"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b18",
+          "raw_ref": "output.md",
+          "text": "$$\n\\delta (\\tilde {\\varepsilon} - \\tilde {H}) = \\frac {2}{\\pi \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {M} g _ {m} \\frac {T _ {m} (\\tilde {\\varepsilon})}{\\delta_ {m , 0} + 1} T _ {m} (\\tilde {H}), \\tag {2}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:5",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\nG ^ {\\pm} (\\tilde {\\varepsilon}, \\tilde {H}) = \\mp \\frac {2 i}{\\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {M} g _ {m} \\frac {\\mathrm{e} ^ {\\pm i m \\arccos (\\tilde {\\varepsilon})}}{\\delta_ {m , 0} + 1} T _ {m} (\\tilde {H}). (3)\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b19"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b19",
+          "raw_ref": "output.md",
+          "text": "$$\nG ^ {\\pm} (\\tilde {\\varepsilon}, \\tilde {H}) = \\mp \\frac {2 i}{\\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {M} g _ {m} \\frac {\\mathrm{e} ^ {\\pm i m \\arccos (\\tilde {\\varepsilon})}}{\\delta_ {m , 0} + 1} T _ {m} (\\tilde {H}). (3)\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:6",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\sigma_ {\\alpha \\beta} (\\mu , T) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\frac {4}{\\Delta E ^ {2}} \\int_ {- 1} ^ {1} d \\tilde {\\varepsilon} \\frac {f (\\tilde {\\varepsilon})}{(1 - \\tilde {\\varepsilon} ^ {2}) ^ {2}} \\sum_ {m, n} \\Gamma_ {n m} (\\tilde {\\varepsilon}) \\mu_ {n m} ^ {\\alpha \\beta} \\tag {4}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b22"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b22",
+          "raw_ref": "output.md",
+          "text": "$$\n\\sigma_ {\\alpha \\beta} (\\mu , T) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\frac {4}{\\Delta E ^ {2}} \\int_ {- 1} ^ {1} d \\tilde {\\varepsilon} \\frac {f (\\tilde {\\varepsilon})}{(1 - \\tilde {\\varepsilon} ^ {2}) ^ {2}} \\sum_ {m, n} \\Gamma_ {n m} (\\tilde {\\varepsilon}) \\mu_ {n m} ^ {\\alpha \\beta} \\tag {4}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:7",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\Gamma_ {m n} (\\tilde {\\varepsilon}) \\equiv [ (\\tilde {\\varepsilon} - i n \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}) \\mathrm{e} ^ {i n \\arccos (\\tilde {\\varepsilon})} T _ {m} (\\tilde {\\varepsilon}) \\tag {5}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b25"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b25",
+          "raw_ref": "output.md",
+          "text": "$$\n\\Gamma_ {m n} (\\tilde {\\varepsilon}) \\equiv [ (\\tilde {\\varepsilon} - i n \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}) \\mathrm{e} ^ {i n \\arccos (\\tilde {\\varepsilon})} T _ {m} (\\tilde {\\varepsilon}) \\tag {5}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:8",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n+ (\\tilde {\\varepsilon} + i m \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}) \\mathrm{e} ^ {- i m \\arccos (\\tilde {\\varepsilon})} T _ {n} (\\tilde {\\varepsilon}) ].\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b26"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b26",
+          "raw_ref": "output.md",
+          "text": "$$\n+ (\\tilde {\\varepsilon} + i m \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}) \\mathrm{e} ^ {- i m \\arccos (\\tilde {\\varepsilon})} T _ {n} (\\tilde {\\varepsilon}) ].\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:figure:9",
+      "entity_type": "figure",
+      "subtype": null,
+      "canonical_text": "![](images/474cc0bad41d00dd5e5ef586a0eb7adfa0227898b02b396eac018848b441703e.jpg)",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b31"
+      ],
+      "confidence": 0.82,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b31",
+          "raw_ref": "output.md",
+          "text": "![](images/474cc0bad41d00dd5e5ef586a0eb7adfa0227898b02b396eac018848b441703e.jpg)",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "figure_table_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:figure:figure_table_detector",
+      "metadata": {
+        "detector": "figure_table_detector"
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:caption:10",
+      "entity_type": "caption",
+      "subtype": null,
+      "canonical_text": "FIG. 1. (a) $\\sigma _ { x x }$ (solid line) and $\\sigma _ { x y }$ (dashed line) for $k _ { B } T = 0$ (black) and $k _ { B } T / t = 0 . 0 0 4$ (red). (b) Electronic density of states $\\mathrm { ( c ) } ~ \\sigma _ { x x }$ away from the Dirac point where Shubnikov-de Haas oscillations can be observed for $k _ { B } T / t = 0 . 0 0 2$ (black) , $k _ { B } T / t = 0 . 0 0 4$ (red), $k _ { B } T / t = 0 . 0 0 8$ (blue) . The parameters in panels $\\mathrm { { ( a ) - ( c ) } }$ are $\\phi / \\phi _ { 0 }$ ≈ $1 \\times 1 0 ^ { - 3 }$ , $S R = 2 0 0$ , $M = 6 1 4 4$ and $N = 2 \\times$ 128 × 1024 sites where we use a rectangular geometry to minimize the magnetic flux per unit cell in a system with periodic boundary conditions.",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b34"
+      ],
+      "confidence": 0.78,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b34",
+          "raw_ref": "output.md",
+          "text": "FIG. 1. (a) $\\sigma _ { x x }$ (solid line) and $\\sigma _ { x y }$ (dashed line) for $k _ { B } T = 0$ (black) and $k _ { B } T / t = 0 . 0 0 4$ (red). (b) Electronic density of states $\\mathrm { ( c ) } ~ \\sigma _ { x x }$ away from the Dirac point where Shubnikov-de Haas oscillations can be observed for $k _ { B } T / t = 0 . 0 0 2$ (black) , $k _ { B } T / t = 0 . 0 0 4$ (red), $k _ { B } T / t = 0 . 0 0 8$ (blue) . The parameters in panels $\\mathrm { { ( a ) - ( c ) } }$ are $\\phi / \\phi _ { 0 }$ ≈ $1 \\times 1 0 ^ { - 3 }$ , $S R = 2 0 0$ , $M = 6 1 4 4$ and $N = 2 \\times$ 128 × 1024 sites where we use a rectangular geometry to minimize the magnetic flux per unit cell in a system with periodic boundary conditions.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "caption_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:caption:caption_detector",
+      "metadata": {
+        "detector": "caption_detector",
+        "caption_kind": "figure",
+        "caption_number": "1"
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:figure:11",
+      "entity_type": "figure",
+      "subtype": null,
+      "canonical_text": "![](images/84dfefd29e307c5cf1ad6b7987e6551ad84d2b4ae8144676536f061a2917dbf6.jpg)  \nFIG. 2. Analysis of the dependency on the number of random vectors and disorder realizations SR and moments M: (a) $\\sigma _ { x x }$ and (b) $\\sigma _ { x y }$ for $S R = 2 0 0$ and $M = 2 0 4 8$ (blue), 4096 (red) and 6144 (black). (c) $\\sigma _ { x x }$ and (d) $\\sigma _ { x y }$ for $M = 6 1 4 4$ and SR = 25 (blue), 50 (red) and 200 (black). In panels $\\mathrm { ( a ) - ( d ) }$ , $\\phi / \\phi _ { 0 } = 5 \\times 1 0 ^ { - 3 }$ , and $N = 2 \\times 1 2 8 \\times$ 1024 sites",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b35"
+      ],
+      "confidence": 0.82,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b35",
+          "raw_ref": "output.md",
+          "text": "![](images/84dfefd29e307c5cf1ad6b7987e6551ad84d2b4ae8144676536f061a2917dbf6.jpg)  \nFIG. 2. Analysis of the dependency on the number of random vectors and disorder realizations SR and moments M: (a) $\\sigma _ { x x }$ and (b) $\\sigma _ { x y }$ for $S R = 2 0 0$ and $M = 2 0 4 8$ (blue), 4096 (red) and 6144 (black). (c) $\\sigma _ { x x }$ and (d) $\\sigma _ { x y }$ for $M = 6 1 4 4$ and SR = 25 (blue), 50 (red) and 200 (black). In panels $\\mathrm { ( a ) - ( d ) }$ , $\\phi / \\phi _ { 0 } = 5 \\times 1 0 ^ { - 3 }$ , and $N = 2 \\times 1 2 8 \\times$ 1024 sites",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "figure_table_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:figure:figure_table_detector",
+      "metadata": {
+        "detector": "figure_table_detector"
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:12",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\mathcal {H} = - t \\sum_ {\\langle i, j \\rangle} c _ {i} ^ {\\dagger} c _ {j} + t _ {2} \\sum_ {\\langle \\langle i, j \\rangle \\rangle} e ^ {i \\phi_ {i j}} c _ {i} ^ {\\dagger} c _ {j} \\pm \\frac {\\Delta_ {A B}}{2} \\sum_ {i \\in A / B} c _ {i} ^ {\\dagger} c _ {i}, \\tag {6}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b39"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b39",
+          "raw_ref": "output.md",
+          "text": "$$\n\\mathcal {H} = - t \\sum_ {\\langle i, j \\rangle} c _ {i} ^ {\\dagger} c _ {j} + t _ {2} \\sum_ {\\langle \\langle i, j \\rangle \\rangle} e ^ {i \\phi_ {i j}} c _ {i} ^ {\\dagger} c _ {j} \\pm \\frac {\\Delta_ {A B}}{2} \\sum_ {i \\in A / B} c _ {i} ^ {\\dagger} c _ {i}, \\tag {6}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:figure:13",
+      "entity_type": "figure",
+      "subtype": null,
+      "canonical_text": "![](images/7c3acecdfd7ea28f4e69fc5076f8f7132e8752f102c5fef26d2f66955c666175.jpg)",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b41"
+      ],
+      "confidence": 0.82,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b41",
+          "raw_ref": "output.md",
+          "text": "![](images/7c3acecdfd7ea28f4e69fc5076f8f7132e8752f102c5fef26d2f66955c666175.jpg)",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "figure_table_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:figure:figure_table_detector",
+      "metadata": {
+        "detector": "figure_table_detector"
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:figure:14",
+      "entity_type": "figure",
+      "subtype": null,
+      "canonical_text": "![](images/47f54e2a5263f1ec28b1a0cbeb0b41c5757815c29984fc7f034d92e4532f1e4b.jpg)",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b44"
+      ],
+      "confidence": 0.82,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b44",
+          "raw_ref": "output.md",
+          "text": "![](images/47f54e2a5263f1ec28b1a0cbeb0b41c5757815c29984fc7f034d92e4532f1e4b.jpg)",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "figure_table_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:figure:figure_table_detector",
+      "metadata": {
+        "detector": "figure_table_detector"
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:figure:15",
+      "entity_type": "figure",
+      "subtype": null,
+      "canonical_text": "![](images/9612d0498911319ed28991e158183fa4e821a20bf0a435a421944b1542fccf37.jpg)",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b47"
+      ],
+      "confidence": 0.82,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b47",
+          "raw_ref": "output.md",
+          "text": "![](images/9612d0498911319ed28991e158183fa4e821a20bf0a435a421944b1542fccf37.jpg)",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "figure_table_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:figure:figure_table_detector",
+      "metadata": {
+        "detector": "figure_table_detector"
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:figure:16",
+      "entity_type": "figure",
+      "subtype": null,
+      "canonical_text": "![](images/eaac45363054d93e963713617de3f5f17db2e68a0f9dcb3bcbea62ef0f9ddb3c.jpg)",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b50"
+      ],
+      "confidence": 0.82,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b50",
+          "raw_ref": "output.md",
+          "text": "![](images/eaac45363054d93e963713617de3f5f17db2e68a0f9dcb3bcbea62ef0f9ddb3c.jpg)",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "figure_table_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:figure:figure_table_detector",
+      "metadata": {
+        "detector": "figure_table_detector"
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:caption:17",
+      "entity_type": "caption",
+      "subtype": null,
+      "canonical_text": "FIG. 3. $\\rho _ { x x }$ (solid line) and $\\rho _ { x y }$ (dashed line) for HM with (a) $\\Delta _ { T } = 0 . 1 t , \\Delta _ { A B } = 0$ and $\\gamma = 0 .$ .2t for $k _ { B } T = 0$ (black) and $k _ { B } T = 0 . 1 6 t$ (red); (b) $\\Delta _ { T } = 0 . 1 t , \\Delta _ { A B } = 0$ and $k _ { B } T = 0$ for $\\gamma = 0$ .4t(black) and $\\gamma = 1 . 8 t$ (red); (c) $\\Delta _ { T } = 0 . 5 t$ , $\\Delta _ { A B } =$ 0.4t and $k _ { B } T = 0$ for $\\gamma = 0 . 2 t$ (black) and $\\gamma = 1 . 8 t$ (red). The green arrow indicates the increase of the topological region with disorder. The system sizes in panels $D = 2 \\times L \\times L$ with $L = 5 1 2$ (a), $L = 2 5 6$ (b-c) and $S R > 2 0 0$ . Panel (d) illustrates the different gap sizes at K and $K ^ { \\prime }$ for $\\Delta _ { A B } \\neq 0 .$ .",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b53"
+      ],
+      "confidence": 0.78,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b53",
+          "raw_ref": "output.md",
+          "text": "FIG. 3. $\\rho _ { x x }$ (solid line) and $\\rho _ { x y }$ (dashed line) for HM with (a) $\\Delta _ { T } = 0 . 1 t , \\Delta _ { A B } = 0$ and $\\gamma = 0 .$ .2t for $k _ { B } T = 0$ (black) and $k _ { B } T = 0 . 1 6 t$ (red); (b) $\\Delta _ { T } = 0 . 1 t , \\Delta _ { A B } = 0$ and $k _ { B } T = 0$ for $\\gamma = 0$ .4t(black) and $\\gamma = 1 . 8 t$ (red); (c) $\\Delta _ { T } = 0 . 5 t$ , $\\Delta _ { A B } =$ 0.4t and $k _ { B } T = 0$ for $\\gamma = 0 . 2 t$ (black) and $\\gamma = 1 . 8 t$ (red). The green arrow indicates the increase of the topological region with disorder. The system sizes in panels $D = 2 \\times L \\times L$ with $L = 5 1 2$ (a), $L = 2 5 6$ (b-c) and $S R > 2 0 0$ . Panel (d) illustrates the different gap sizes at K and $K ^ { \\prime }$ for $\\Delta _ { A B } \\neq 0 .$ .",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "caption_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:caption:caption_detector",
+      "metadata": {
+        "detector": "caption_detector",
+        "caption_kind": "figure",
+        "caption_number": "3"
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:footnote:18",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[1] A. Bastin, C. Lewinner, O. Betbeder-Matibet and P. Nozieres, J. Phys. Chem. Solids 32, 1811 (1971).   \n[2] E. H. Hall, Am. J. Math 2, 287 (1879).   \n[3] N. Nagaosa, J. Sinova, S. Onoda, A. H. MacDonald and N. P. Ong, Rev. Mod. Phys. 82, 1539 (2010).   \n[4] T. Jungwirth, J. Wunderlich and K. Olejnik, Nature Mat. 11, 382 (2012).   \n[5] K. Klitzing, G. Dorda, M. Pepper, Phys. Rev. Lett. 45, 494 (1980).   \n[6] C.-Z.Chang et al. ,Science 340,167 (2013).   \n[7] M.K¨onig et al., Science 318, 766(2007).   \n[8] M. Z. Hasan and C. L. Kane, Rev. Mod. Phys. 82 3045 (2010).   \n[9] R. Kubo, J. Phys. Soc. Japan 12, 570 (1957); R. Kubo, A. Yokota, and S. Nakajima, J. Phys. Soc. Japan 12,1203 (1957).   \n[10] D.J. Thouless, M. Kohmoto, M. P. Nightingale and M. den Nijs, Phys. Rev. Lett. 49, 405 (1982).   \n[11] Yisong Zheng and Tsuneya Ando, Phys. Rev. B 65, 245420 (2002).   \n[12] D. N. Sheng, L. Sheng, and Z. Y. Weng, Phys. Rev. B 73, 233406 (2006).   \n[13] Yu Xue and Emil Prodan, Phys. Rev. B 86, 155445 (2012).   \n[14] Frank Ortmann and Stephan Roche, Phys. Rev. Lett. 110, 086602 (2013).   \n[15] D. A. Greenwood, Proc. Phys. Soc. (London) 71, 585 (1958).   \n[16] A. Weisse, G. Wellein, A. Alvermann, H. Fehske, Rev. Mod. Phys. 78, 275(2006).   \n[17] S. Roche, Phys. Rev. B 59, 2284 (1999).   \n[18] S. Yuan, H. De Raedt, and M.I. Katsnelson, Phys. Rev. B 82, 115448 (2010).   \n[19] Aires Ferreira, J. Viana-Gomes, Johan Nilsson, E. R. Mucciolo, N. M. R. Peres, and A. H. Castro Neto, Phys. Rev. B 83, 165402 (2011).   \n[20] Z. Fan, A. Uppstu, T. Siro, and A. Harju, Computer Physics Communications 185, 28 (2014).   \n[21] T. L. van den Berg, L. Raymond, A. Verga, Phys. Rev. B 84, 245210 (2011).   \n[22] A. H. Castro Neto, F. Guinea, N. M. R. Peres, K. S. Novoselov, and A. K. Geim, Rev. Mod. Phys. 81, 109 (2009).   \n[23] S. Das Sarma, Shaffique Adam, E. H. Hwang, Enrico Rossi, Rev. Mod. Phys. 83, 407 (2011) and references therein.   \n[24] S. Gattenlohner, W.-R. Hannes, P. M. Ostrovsky, I. V. Gornyi, A. D. Mirlin, M. Titov, Phys. Rev. Lett. 112, 026802 (2014)   \n[25] F. D. M. Haldane, Phys. Rev. Lett. 61, 2015 (1988).   \n[26] A. Crepieux, and P. Bruno, Phys. Rev. B 64, 094434 (2001).   \n[27] P. Streda, J. Phys. C: Solid State Phys. 15, L717 (1982); 15, L1299 (1982).   \n[28] R.N. Silvera, H. Roederb, A.F. Votera, J.D. Kressb, Journal of Computational Physics 124, 115 (1996).   \n[29] L. Covaci, F.M. Peeters, M. Berciu, Phys. Rev. Lett. 105, 167006 (2010)   \n[30] M. Ganahl, P. Thunstrom, F. Verstraete, K. Held, H. G. Evertz, Phys. Rev. B. 90, 045144 (2014).   \n[31] F. A. Wolf, Ian P. McCulloch, Olivier Parcollet, and Ul-",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b58"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b58",
+          "raw_ref": "output.md",
+          "text": "[1] A. Bastin, C. Lewinner, O. Betbeder-Matibet and P. Nozieres, J. Phys. Chem. Solids 32, 1811 (1971).   \n[2] E. H. Hall, Am. J. Math 2, 287 (1879).   \n[3] N. Nagaosa, J. Sinova, S. Onoda, A. H. MacDonald and N. P. Ong, Rev. Mod. Phys. 82, 1539 (2010).   \n[4] T. Jungwirth, J. Wunderlich and K. Olejnik, Nature Mat. 11, 382 (2012).   \n[5] K. Klitzing, G. Dorda, M. Pepper, Phys. Rev. Lett. 45, 494 (1980).   \n[6] C.-Z.Chang et al. ,Science 340,167 (2013).   \n[7] M.K¨onig et al., Science 318, 766(2007).   \n[8] M. Z. Hasan and C. L. Kane, Rev. Mod. Phys. 82 3045 (2010).   \n[9] R. Kubo, J. Phys. Soc. Japan 12, 570 (1957); R. Kubo, A. Yokota, and S. Nakajima, J. Phys. Soc. Japan 12,1203 (1957).   \n[10] D.J. Thouless, M. Kohmoto, M. P. Nightingale and M. den Nijs, Phys. Rev. Lett. 49, 405 (1982).   \n[11] Yisong Zheng and Tsuneya Ando, Phys. Rev. B 65, 245420 (2002).   \n[12] D. N. Sheng, L. Sheng, and Z. Y. Weng, Phys. Rev. B 73, 233406 (2006).   \n[13] Yu Xue and Emil Prodan, Phys. Rev. B 86, 155445 (2012).   \n[14] Frank Ortmann and Stephan Roche, Phys. Rev. Lett. 110, 086602 (2013).   \n[15] D. A. Greenwood, Proc. Phys. Soc. (London) 71, 585 (1958).   \n[16] A. Weisse, G. Wellein, A. Alvermann, H. Fehske, Rev. Mod. Phys. 78, 275(2006).   \n[17] S. Roche, Phys. Rev. B 59, 2284 (1999).   \n[18] S. Yuan, H. De Raedt, and M.I. Katsnelson, Phys. Rev. B 82, 115448 (2010).   \n[19] Aires Ferreira, J. Viana-Gomes, Johan Nilsson, E. R. Mucciolo, N. M. R. Peres, and A. H. Castro Neto, Phys. Rev. B 83, 165402 (2011).   \n[20] Z. Fan, A. Uppstu, T. Siro, and A. Harju, Computer Physics Communications 185, 28 (2014).   \n[21] T. L. van den Berg, L. Raymond, A. Verga, Phys. Rev. B 84, 245210 (2011).   \n[22] A. H. Castro Neto, F. Guinea, N. M. R. Peres, K. S. Novoselov, and A. K. Geim, Rev. Mod. Phys. 81, 109 (2009).   \n[23] S. Das Sarma, Shaffique Adam, E. H. Hwang, Enrico Rossi, Rev. Mod. Phys. 83, 407 (2011) and references therein.   \n[24] S. Gattenlohner, W.-R. Hannes, P. M. Ostrovsky, I. V. Gornyi, A. D. Mirlin, M. Titov, Phys. Rev. Lett. 112, 026802 (2014)   \n[25] F. D. M. Haldane, Phys. Rev. Lett. 61, 2015 (1988).   \n[26] A. Crepieux, and P. Bruno, Phys. Rev. B 64, 094434 (2001).   \n[27] P. Streda, J. Phys. C: Solid State Phys. 15, L717 (1982); 15, L1299 (1982).   \n[28] R.N. Silvera, H. Roederb, A.F. Votera, J.D. Kressb, Journal of Computational Physics 124, 115 (1996).   \n[29] L. Covaci, F.M. Peeters, M. Berciu, Phys. Rev. Lett. 105, 167006 (2010)   \n[30] M. Ganahl, P. Thunstrom, F. Verstraete, K. Held, H. G. Evertz, Phys. Rev. B. 90, 045144 (2014).   \n[31] F. A. Wolf, Ian P. McCulloch, Olivier Parcollet, and Ul-",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "1"
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:19",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\nT _ {m} (x) \\equiv \\cos (m \\mathrm{arcos} (x)), \\quad T _ {m + 1} (x)\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b62"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b62",
+          "raw_ref": "output.md",
+          "text": "$$\nT _ {m} (x) \\equiv \\cos (m \\mathrm{arcos} (x)), \\quad T _ {m + 1} (x)\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:20",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\tilde {H} = \\frac {2}{\\Delta E} \\left(H - \\frac {E ^ {+} + E ^ {-}}{2}\\right), \\quad \\tilde {\\varepsilon} = \\frac {2}{\\Delta E} \\left(\\varepsilon - \\frac {E ^ {+} + E ^ {-}}{2}\\right), \\tag {7}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b64"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b64",
+          "raw_ref": "output.md",
+          "text": "$$\n\\tilde {H} = \\frac {2}{\\Delta E} \\left(H - \\frac {E ^ {+} + E ^ {-}}{2}\\right), \\quad \\tilde {\\varepsilon} = \\frac {2}{\\Delta E} \\left(\\varepsilon - \\frac {E ^ {+} + E ^ {-}}{2}\\right), \\tag {7}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:21",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\tilde {\\Lambda} (\\tilde {\\varepsilon}, \\tilde {H}) = \\sum_ {k} \\tilde {\\Lambda} (\\tilde {\\varepsilon}, \\tilde {E} _ {k}) | \\tilde {E} _ {k} \\rangle \\left\\langle \\tilde {E} _ {k} \\right|, \\tag {8}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b66"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b66",
+          "raw_ref": "output.md",
+          "text": "$$\n\\tilde {\\Lambda} (\\tilde {\\varepsilon}, \\tilde {H}) = \\sum_ {k} \\tilde {\\Lambda} (\\tilde {\\varepsilon}, \\tilde {E} _ {k}) | \\tilde {E} _ {k} \\rangle \\left\\langle \\tilde {E} _ {k} \\right|, \\tag {8}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:22",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\tilde {\\Lambda} (\\tilde {\\varepsilon}, \\tilde {E} _ {k}) = \\frac {2}{\\pi} \\sum_ {m = 0} ^ {\\infty} \\Gamma_ {m} (\\tilde {\\varepsilon}) T _ {m} (\\tilde {E} _ {k}), \\quad \\Gamma_ {m} (\\tilde {\\varepsilon}) = \\frac {1}{\\delta_ {m , 0} + 1} \\int_ {- 1} ^ {1} \\frac {\\tilde {\\Lambda} (\\tilde {\\varepsilon} , \\tilde {E} _ {k}) T _ {m} (\\tilde {E} _ {k})}{\\sqrt {1 - \\tilde {E} _ {k} ^ {2}}} d \\tilde {E} _ {k}, \\tag {9}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b68"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b68",
+          "raw_ref": "output.md",
+          "text": "$$\n\\tilde {\\Lambda} (\\tilde {\\varepsilon}, \\tilde {E} _ {k}) = \\frac {2}{\\pi} \\sum_ {m = 0} ^ {\\infty} \\Gamma_ {m} (\\tilde {\\varepsilon}) T _ {m} (\\tilde {E} _ {k}), \\quad \\Gamma_ {m} (\\tilde {\\varepsilon}) = \\frac {1}{\\delta_ {m , 0} + 1} \\int_ {- 1} ^ {1} \\frac {\\tilde {\\Lambda} (\\tilde {\\varepsilon} , \\tilde {E} _ {k}) T _ {m} (\\tilde {E} _ {k})}{\\sqrt {1 - \\tilde {E} _ {k} ^ {2}}} d \\tilde {E} _ {k}, \\tag {9}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:23",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\tilde {\\Lambda} (\\tilde {\\varepsilon}, \\tilde {H}) = \\frac {2}{\\pi} \\sum_ {m = 0} ^ {\\infty} \\Gamma_ {m} (\\tilde {\\varepsilon}) T _ {m} (\\tilde {H}), \\tag {10}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b70"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b70",
+          "raw_ref": "output.md",
+          "text": "$$\n\\tilde {\\Lambda} (\\tilde {\\varepsilon}, \\tilde {H}) = \\frac {2}{\\pi} \\sum_ {m = 0} ^ {\\infty} \\Gamma_ {m} (\\tilde {\\varepsilon}) T _ {m} (\\tilde {H}), \\tag {10}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:24",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\tilde {\\rho} (\\tilde {\\varepsilon}) = \\frac {2}{\\pi \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {\\infty} \\Gamma_ {m} (\\tilde {\\varepsilon}) \\mu_ {m}, \\tag {11}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b72"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b72",
+          "raw_ref": "output.md",
+          "text": "$$\n\\tilde {\\rho} (\\tilde {\\varepsilon}) = \\frac {2}{\\pi \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {\\infty} \\Gamma_ {m} (\\tilde {\\varepsilon}) \\mu_ {m}, \\tag {11}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:25",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\ng _ {m} ^ {J} = \\frac {(M - m + 1) \\cos \\frac {\\pi m}{M + 1} + \\sin \\frac {\\pi m}{M + 1} \\cot \\frac {\\pi}{M + 1}}{M + 1}, \\tag {12}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b74"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b74",
+          "raw_ref": "output.md",
+          "text": "$$\ng _ {m} ^ {J} = \\frac {(M - m + 1) \\cos \\frac {\\pi m}{M + 1} + \\sin \\frac {\\pi m}{M + 1} \\cot \\frac {\\pi}{M + 1}}{M + 1}, \\tag {12}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:26",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n| r \\rangle \\equiv (\\xi_ {1} ^ {r}, \\dots , \\xi_ {N} ^ {r}), \\quad r = 1, \\dots , R, \\tag {13}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b76"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b76",
+          "raw_ref": "output.md",
+          "text": "$$\n| r \\rangle \\equiv (\\xi_ {1} ^ {r}, \\dots , \\xi_ {N} ^ {r}), \\quad r = 1, \\dots , R, \\tag {13}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:27",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\langle \\langle \\xi_ {i} ^ {r} \\rangle \\rangle = 0, \\quad \\left\\langle \\left\\langle \\xi_ {i} ^ {r *} \\xi_ {j} ^ {r ^ {\\prime}} \\right\\rangle \\right\\rangle = \\delta_ {r, r ^ {\\prime}} \\delta_ {i, j}, \\tag {14}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b78"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b78",
+          "raw_ref": "output.md",
+          "text": "$$\n\\langle \\langle \\xi_ {i} ^ {r} \\rangle \\rangle = 0, \\quad \\left\\langle \\left\\langle \\xi_ {i} ^ {r *} \\xi_ {j} ^ {r ^ {\\prime}} \\right\\rangle \\right\\rangle = \\delta_ {r, r ^ {\\prime}} \\delta_ {i, j}, \\tag {14}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:28",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\mathrm{Tr} \\left[ T _ {m} (\\tilde {H}) \\right] \\approx \\frac {1}{R} \\sum_ {r = 1} ^ {R} \\langle r |   T _ {m} (\\tilde {H})   | r \\rangle  . \\tag {15}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b80"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b80",
+          "raw_ref": "output.md",
+          "text": "$$\n\\mathrm{Tr} \\left[ T _ {m} (\\tilde {H}) \\right] \\approx \\frac {1}{R} \\sum_ {r = 1} ^ {R} \\langle r |   T _ {m} (\\tilde {H})   | r \\rangle  . \\tag {15}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:29",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\sigma_ {\\alpha \\beta} (\\mu) = \\frac {i e ^ {2} \\hbar}{\\Omega} \\int_ {E ^ {-}} ^ {E ^ {+}} d \\varepsilon f (\\varepsilon) \\mathrm{Tr} \\left\\langle v _ {\\alpha} \\delta (\\varepsilon - H) v _ {\\beta} \\frac {d G ^ {+} (\\varepsilon , H)}{d \\varepsilon} - v _ {\\alpha} \\frac {d G ^ {-} (\\varepsilon , H)}{d \\varepsilon} v _ {\\beta} \\delta (\\varepsilon - H) \\right\\rangle . \\tag {16}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b83"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b83",
+          "raw_ref": "output.md",
+          "text": "$$\n\\sigma_ {\\alpha \\beta} (\\mu) = \\frac {i e ^ {2} \\hbar}{\\Omega} \\int_ {E ^ {-}} ^ {E ^ {+}} d \\varepsilon f (\\varepsilon) \\mathrm{Tr} \\left\\langle v _ {\\alpha} \\delta (\\varepsilon - H) v _ {\\beta} \\frac {d G ^ {+} (\\varepsilon , H)}{d \\varepsilon} - v _ {\\alpha} \\frac {d G ^ {-} (\\varepsilon , H)}{d \\varepsilon} v _ {\\beta} \\delta (\\varepsilon - H) \\right\\rangle . \\tag {16}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:30",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\sigma_ {\\alpha \\beta} (\\mu) = \\left(\\frac {2}{E ^ {+} - E ^ {-}}\\right) ^ {2} \\frac {i e ^ {2} \\hbar}{\\Omega} \\int_ {- 1} ^ {1} d \\tilde {\\varepsilon} f (\\tilde {\\varepsilon}, \\tilde {\\mu}) \\mathrm{Tr} \\left\\langle v _ {\\alpha} \\delta (\\tilde {\\varepsilon} - \\tilde {H}) v _ {\\beta} \\frac {d G ^ {+} (\\tilde {\\varepsilon} , \\tilde {H})}{d \\tilde {\\varepsilon}} - v _ {\\alpha} \\frac {d G ^ {-} (\\tilde {\\varepsilon} , \\tilde {H})}{d \\tilde {\\varepsilon}} v _ {\\beta} \\delta (\\tilde {\\varepsilon} - \\tilde {H}) \\right\\rangle\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b85"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b85",
+          "raw_ref": "output.md",
+          "text": "$$\n\\sigma_ {\\alpha \\beta} (\\mu) = \\left(\\frac {2}{E ^ {+} - E ^ {-}}\\right) ^ {2} \\frac {i e ^ {2} \\hbar}{\\Omega} \\int_ {- 1} ^ {1} d \\tilde {\\varepsilon} f (\\tilde {\\varepsilon}, \\tilde {\\mu}) \\mathrm{Tr} \\left\\langle v _ {\\alpha} \\delta (\\tilde {\\varepsilon} - \\tilde {H}) v _ {\\beta} \\frac {d G ^ {+} (\\tilde {\\varepsilon} , \\tilde {H})}{d \\tilde {\\varepsilon}} - v _ {\\alpha} \\frac {d G ^ {-} (\\tilde {\\varepsilon} , \\tilde {H})}{d \\tilde {\\varepsilon}} v _ {\\beta} \\delta (\\tilde {\\varepsilon} - \\tilde {H}) \\right\\rangle\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:31",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\sigma_ {\\alpha \\beta} (\\mu) = \\left(\\frac {2}{E ^ {+} - E ^ {-}}\\right) ^ {2} \\tilde {\\sigma} _ {\\alpha \\beta} (\\tilde {\\mu}), \\tag {17}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b86"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b86",
+          "raw_ref": "output.md",
+          "text": "$$\n\\sigma_ {\\alpha \\beta} (\\mu) = \\left(\\frac {2}{E ^ {+} - E ^ {-}}\\right) ^ {2} \\tilde {\\sigma} _ {\\alpha \\beta} (\\tilde {\\mu}), \\tag {17}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:32",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\delta (\\tilde {\\varepsilon} - \\tilde {H}) = \\frac {2}{\\pi \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {\\infty} T _ {m} (\\tilde {\\varepsilon}) T _ {m} (\\tilde {H}), \\quad G ^ {\\pm} (\\tilde {\\varepsilon}, \\tilde {H}) = \\mp \\frac {2 i}{\\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {M} g _ {m} \\mathrm{e} ^ {\\pm i m \\arccos (\\tilde {\\varepsilon})} T _ {m} (\\tilde {H}). \\tag {18}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b88"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b88",
+          "raw_ref": "output.md",
+          "text": "$$\n\\delta (\\tilde {\\varepsilon} - \\tilde {H}) = \\frac {2}{\\pi \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {\\infty} T _ {m} (\\tilde {\\varepsilon}) T _ {m} (\\tilde {H}), \\quad G ^ {\\pm} (\\tilde {\\varepsilon}, \\tilde {H}) = \\mp \\frac {2 i}{\\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {M} g _ {m} \\mathrm{e} ^ {\\pm i m \\arccos (\\tilde {\\varepsilon})} T _ {m} (\\tilde {H}). \\tag {18}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:33",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\tilde {\\sigma} _ {\\alpha \\beta} (\\tilde {\\mu}) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\int_ {- 1} ^ {1} \\frac {d \\tilde {\\varepsilon} f (\\tilde {\\varepsilon})}{(1 - \\tilde {\\varepsilon} ^ {2}) ^ {2}} \\sum_ {m, n} \\mu_ {n m} ^ {\\alpha \\beta} \\Gamma_ {n m} (\\tilde {\\varepsilon}), \\tag {19}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b90"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b90",
+          "raw_ref": "output.md",
+          "text": "$$\n\\tilde {\\sigma} _ {\\alpha \\beta} (\\tilde {\\mu}) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\int_ {- 1} ^ {1} \\frac {d \\tilde {\\varepsilon} f (\\tilde {\\varepsilon})}{(1 - \\tilde {\\varepsilon} ^ {2}) ^ {2}} \\sum_ {m, n} \\mu_ {n m} ^ {\\alpha \\beta} \\Gamma_ {n m} (\\tilde {\\varepsilon}), \\tag {19}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:34",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\mu_ {m n} ^ {\\alpha \\beta} \\equiv \\frac {g _ {m} g _ {n}}{(1 + \\mu_ {n 0}) (1 + \\mu_ {m 0})} \\mathrm{Tr} \\left[ v _ {\\alpha} T _ {m} (\\tilde {H}) v _ {\\beta} T _ {n} (\\tilde {H}) \\right], \\tag {20}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b92"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b92",
+          "raw_ref": "output.md",
+          "text": "$$\n\\mu_ {m n} ^ {\\alpha \\beta} \\equiv \\frac {g _ {m} g _ {n}}{(1 + \\mu_ {n 0}) (1 + \\mu_ {m 0})} \\mathrm{Tr} \\left[ v _ {\\alpha} T _ {m} (\\tilde {H}) v _ {\\beta} T _ {n} (\\tilde {H}) \\right], \\tag {20}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:35",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\Gamma_ {m n} (\\tilde {\\varepsilon}) \\equiv \\left(\\varepsilon - i n \\sqrt {1 - \\varepsilon^ {2}}\\right) T _ {m} (\\varepsilon) e ^ {i n \\arccos (\\varepsilon)} + \\left(\\varepsilon + i m \\sqrt {1 - \\varepsilon^ {2}}\\right) T _ {n} (\\varepsilon) e ^ {- i m \\arccos (\\varepsilon)}, \\tag {21}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b94"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b94",
+          "raw_ref": "output.md",
+          "text": "$$\n\\Gamma_ {m n} (\\tilde {\\varepsilon}) \\equiv \\left(\\varepsilon - i n \\sqrt {1 - \\varepsilon^ {2}}\\right) T _ {m} (\\varepsilon) e ^ {i n \\arccos (\\varepsilon)} + \\left(\\varepsilon + i m \\sqrt {1 - \\varepsilon^ {2}}\\right) T _ {n} (\\varepsilon) e ^ {- i m \\arccos (\\varepsilon)}, \\tag {21}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:36",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n(\\mu_ {m n} ^ {\\alpha \\beta}) ^ {*} = \\mu_ {n m} ^ {\\alpha \\beta} = \\mu_ {m n} ^ {\\beta \\alpha} \\quad \\text { and } \\quad \\Gamma_ {m n} ^ {*} = \\Gamma_ {n m}, \\tag {22}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b96"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b96",
+          "raw_ref": "output.md",
+          "text": "$$\n(\\mu_ {m n} ^ {\\alpha \\beta}) ^ {*} = \\mu_ {n m} ^ {\\alpha \\beta} = \\mu_ {m n} ^ {\\beta \\alpha} \\quad \\text { and } \\quad \\Gamma_ {m n} ^ {*} = \\Gamma_ {n m}, \\tag {22}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:37",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\tilde {\\sigma} _ {\\alpha \\beta} (\\mu) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\int_ {- 1} ^ {1} \\frac {d \\tilde {\\varepsilon} f (\\tilde {\\varepsilon})}{(1 - \\tilde {\\varepsilon} ^ {2}) ^ {2}} \\sum_ {m, n \\leq m} \\operatorname{Re} \\left[ \\mu_ {n m} ^ {\\alpha , \\beta} \\Gamma_ {n m} (\\tilde {\\varepsilon}) \\right]. \\tag {23}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b98"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b98",
+          "raw_ref": "output.md",
+          "text": "$$\n\\tilde {\\sigma} _ {\\alpha \\beta} (\\mu) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\int_ {- 1} ^ {1} \\frac {d \\tilde {\\varepsilon} f (\\tilde {\\varepsilon})}{(1 - \\tilde {\\varepsilon} ^ {2}) ^ {2}} \\sum_ {m, n \\leq m} \\operatorname{Re} \\left[ \\mu_ {n m} ^ {\\alpha , \\beta} \\Gamma_ {n m} (\\tilde {\\varepsilon}) \\right]. \\tag {23}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:38",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\tilde {\\sigma} _ {\\alpha \\alpha} (\\tilde {\\mu}) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\sum_ {m, n \\leq m} \\mu_ {n m} ^ {\\alpha \\alpha} \\int_ {- \\alpha} ^ {\\alpha} \\frac {d \\tilde {\\varepsilon} f (\\tilde {\\varepsilon})}{(1 - \\tilde {\\varepsilon} ^ {2})} \\left(\\frac {d}{d \\tilde {\\varepsilon}} [ \\mathrm{T} _ {n} (\\tilde {\\varepsilon}) \\mathrm{T} _ {m} (\\tilde {\\varepsilon}) ] + 2 \\tilde {\\varepsilon} \\mathrm{T} _ {n} (\\tilde {\\varepsilon}) \\mathrm{T} _ {m} (\\tilde {\\varepsilon})\\right), \\tag {24}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b100"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b100",
+          "raw_ref": "output.md",
+          "text": "$$\n\\tilde {\\sigma} _ {\\alpha \\alpha} (\\tilde {\\mu}) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\sum_ {m, n \\leq m} \\mu_ {n m} ^ {\\alpha \\alpha} \\int_ {- \\alpha} ^ {\\alpha} \\frac {d \\tilde {\\varepsilon} f (\\tilde {\\varepsilon})}{(1 - \\tilde {\\varepsilon} ^ {2})} \\left(\\frac {d}{d \\tilde {\\varepsilon}} [ \\mathrm{T} _ {n} (\\tilde {\\varepsilon}) \\mathrm{T} _ {m} (\\tilde {\\varepsilon}) ] + 2 \\tilde {\\varepsilon} \\mathrm{T} _ {n} (\\tilde {\\varepsilon}) \\mathrm{T} _ {m} (\\tilde {\\varepsilon})\\right), \\tag {24}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:39",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\sigma_ {\\alpha \\alpha} (\\tilde {\\varepsilon} _ {F}) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\sum_ {m, n \\leq m} \\mu_ {n m} ^ {\\alpha \\alpha} T _ {n} (\\tilde {\\varepsilon} _ {F}) T _ {m} (\\tilde {\\varepsilon} _ {F}), \\tag {25}\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b102"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b102",
+          "raw_ref": "output.md",
+          "text": "$$\n\\sigma_ {\\alpha \\alpha} (\\tilde {\\varepsilon} _ {F}) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\sum_ {m, n \\leq m} \\mu_ {n m} ^ {\\alpha \\alpha} T _ {n} (\\tilde {\\varepsilon} _ {F}) T _ {m} (\\tilde {\\varepsilon} _ {F}), \\tag {25}\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:caption:40",
+      "entity_type": "caption",
+      "subtype": null,
+      "canonical_text": "FIG. 4. $\\sigma _ { x y }$ as a function of E for increasing values of M. $\\phi / \\phi _ { 0 } \\approx 1 \\times 1 0 ^ { - 2 }$ , $S R > 1 5 0 ,$ , $K _ { B } T = 0 . 0 0 5 t$ and $N = 2 \\times 4 0 0 \\times 4 0 0$ sites. Inset: $\\langle d \\sigma _ { x y } ( E ) \\rangle$ i as a function of M for the data shown in the main panel.",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b107"
+      ],
+      "confidence": 0.78,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b107",
+          "raw_ref": "output.md",
+          "text": "FIG. 4. $\\sigma _ { x y }$ as a function of E for increasing values of M. $\\phi / \\phi _ { 0 } \\approx 1 \\times 1 0 ^ { - 2 }$ , $S R > 1 5 0 ,$ , $K _ { B } T = 0 . 0 0 5 t$ and $N = 2 \\times 4 0 0 \\times 4 0 0$ sites. Inset: $\\langle d \\sigma _ { x y } ( E ) \\rangle$ i as a function of M for the data shown in the main panel.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "caption_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:caption:caption_detector",
+      "metadata": {
+        "detector": "caption_detector",
+        "caption_kind": "figure",
+        "caption_number": "4"
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:41",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\n\\langle d \\sigma_ {x y} (E) \\rangle = \\left\\langle \\left| \\frac {\\sigma_ {x y} ^ {M} (E) - \\sigma_ {x y} ^ {M ^ {\\prime}} (E)}{\\sigma_ {x y} ^ {M} (E)} \\right| \\right\\rangle_ {E},\n$$",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b109"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b109",
+          "raw_ref": "output.md",
+          "text": "$$\n\\langle d \\sigma_ {x y} (E) \\rangle = \\left\\langle \\left| \\frac {\\sigma_ {x y} ^ {M} (E) - \\sigma_ {x y} ^ {M ^ {\\prime}} (E)}{\\sigma_ {x y} ^ {M} (E)} \\right| \\right\\rangle_ {E},\n$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:figure:42",
+      "entity_type": "figure",
+      "subtype": null,
+      "canonical_text": "![](images/a24ecbb68fb3a0fa835a2e1ca51b0152291dbaf9d15a7cfffeb5c1d5f2264e38.jpg)",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b112"
+      ],
+      "confidence": 0.82,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b112",
+          "raw_ref": "output.md",
+          "text": "![](images/a24ecbb68fb3a0fa835a2e1ca51b0152291dbaf9d15a7cfffeb5c1d5f2264e38.jpg)",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "figure_table_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:figure:figure_table_detector",
+      "metadata": {
+        "detector": "figure_table_detector"
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:caption:43",
+      "entity_type": "caption",
+      "subtype": null,
+      "canonical_text": "FIG. 5. (a) $\\langle d \\sigma _ { x y } ( E ) \\rangle$ as a function of R for φ/φ0 ≈ $1 \\times 1 0 ^ { - 2 }$ , M = 3200, kBT = 0 and $N = 2 \\times 4 0 0 \\times 4 0 0$ sites.",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b115"
+      ],
+      "confidence": 0.78,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b115",
+          "raw_ref": "output.md",
+          "text": "FIG. 5. (a) $\\langle d \\sigma _ { x y } ( E ) \\rangle$ as a function of R for φ/φ0 ≈ $1 \\times 1 0 ^ { - 2 }$ , M = 3200, kBT = 0 and $N = 2 \\times 4 0 0 \\times 4 0 0$ sites.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "caption_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:caption:caption_detector",
+      "metadata": {
+        "detector": "caption_detector",
+        "caption_kind": "figure",
+        "caption_number": "5"
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:section:44",
+      "entity_type": "section",
+      "subtype": null,
+      "canonical_text": "GPU Computing",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b117"
+      ],
+      "confidence": 0.75,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b117",
+          "raw_ref": "output.md",
+          "text": "# GPU Computing",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "heading_section_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:section:heading_section_detector",
+      "metadata": {
+        "detector": "heading_section_detector",
+        "heading_level": 1,
+        "numbering": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:footnote:45",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[1] Alexander Weisse, Gerhard Wellein, Andreas Alvermann and Holger Fehske, Rev. Mod. Phys. 78, 275 (2006).   \n[2] L. Covaci, F. M. Peeters and M. Berciu , Phys. Rev. Lett. 105, 167006 (2010).   \n[3] Holger Fehske, Jens Schleede, Gerald Schubert, Gerhard Wellein, Vladimir S. Filinov, Alan R. Bishop, Phys. Lett. A 373, 2182 (2009).   \n[4] J. B. Wang and T. T. Scholz , Phys. Rev. A 5, 57 (1998).   \n[5] R. N. Silver, H. Roeder, A. F. Voter and J. D. Kress, Journal of Computational Physics 124, 115-130 (1996).   \n[6] A. Weisse and H. Fehske, Lect. Notes Phys. 739, 545577 (2008).",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b119"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b119",
+          "raw_ref": "output.md",
+          "text": "[1] Alexander Weisse, Gerhard Wellein, Andreas Alvermann and Holger Fehske, Rev. Mod. Phys. 78, 275 (2006).   \n[2] L. Covaci, F. M. Peeters and M. Berciu , Phys. Rev. Lett. 105, 167006 (2010).   \n[3] Holger Fehske, Jens Schleede, Gerald Schubert, Gerhard Wellein, Vladimir S. Filinov, Alan R. Bishop, Phys. Lett. A 373, 2182 (2009).   \n[4] J. B. Wang and T. T. Scholz , Phys. Rev. A 5, 57 (1998).   \n[5] R. N. Silver, H. Roeder, A. F. Voter and J. D. Kress, Journal of Computational Physics 124, 115-130 (1996).   \n[6] A. Weisse and H. Fehske, Lect. Notes Phys. 739, 545577 (2008).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "1"
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:footnote:46",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[7] D. Jackson, American Mathematical Society Colloquium Publications D. Jackson, XI providence R. I. (1930).   \n[8] D. A. Drabold and O. F. Sankey, Phys. Rev. Lett. 70 3631(1993).   \n[9] Silver, R. N., and H. Rder Int. J. Mod. Phys. C 5 935 (1994).   \n[10] Toshiaki Iitaka and Toshikazu Ebisuzakis,Phys. Rev. E 69 057701 (2004).   \n[11] A. Bastin, C. Lewiner, O. Betbeder-Matibet et P. Nozieres, J. Phys, Chem. Solids 32 1-1824 (1971).   \n[12] Cuda Perfomance Report, September 2014.",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b120"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b120",
+          "raw_ref": "output.md",
+          "text": "[7] D. Jackson, American Mathematical Society Colloquium Publications D. Jackson, XI providence R. I. (1930).   \n[8] D. A. Drabold and O. F. Sankey, Phys. Rev. Lett. 70 3631(1993).   \n[9] Silver, R. N., and H. Rder Int. J. Mod. Phys. C 5 935 (1994).   \n[10] Toshiaki Iitaka and Toshikazu Ebisuzakis,Phys. Rev. E 69 057701 (2004).   \n[11] A. Bastin, C. Lewiner, O. Betbeder-Matibet et P. Nozieres, J. Phys, Chem. Solids 32 1-1824 (1971).   \n[12] Cuda Perfomance Report, September 2014.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "7"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel:mineru:1410.8140:1",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:section:1",
+      "target_entity_id": "ent:mineru:1410.8140:equation:2",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b0",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:2",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:2",
+      "target_entity_id": "ent:mineru:1410.8140:equation:3",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b13",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:3",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:3",
+      "target_entity_id": "ent:mineru:1410.8140:equation:4",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b14",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:4",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:4",
+      "target_entity_id": "ent:mineru:1410.8140:equation:5",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b18",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:5",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:5",
+      "target_entity_id": "ent:mineru:1410.8140:equation:6",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b19",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:6",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:6",
+      "target_entity_id": "ent:mineru:1410.8140:equation:7",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b22",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:7",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:7",
+      "target_entity_id": "ent:mineru:1410.8140:equation:8",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b25",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:8",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:8",
+      "target_entity_id": "ent:mineru:1410.8140:figure:9",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b26",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:9",
+      "relation_type": "caption_of",
+      "source_entity_id": "ent:mineru:1410.8140:figure:9",
+      "target_entity_id": "ent:mineru:1410.8140:caption:10",
+      "confidence": 0.55,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b31",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent caption and media",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "caption_of_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:10",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:figure:9",
+      "target_entity_id": "ent:mineru:1410.8140:caption:10",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b31",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:11",
+      "relation_type": "caption_of",
+      "source_entity_id": "ent:mineru:1410.8140:caption:10",
+      "target_entity_id": "ent:mineru:1410.8140:figure:11",
+      "confidence": 0.55,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b34",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent caption and media",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "caption_of_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:12",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:caption:10",
+      "target_entity_id": "ent:mineru:1410.8140:figure:11",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b34",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:13",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:figure:11",
+      "target_entity_id": "ent:mineru:1410.8140:equation:12",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b35",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:14",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:12",
+      "target_entity_id": "ent:mineru:1410.8140:figure:13",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b39",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:15",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:figure:13",
+      "target_entity_id": "ent:mineru:1410.8140:figure:14",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b41",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:16",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:figure:14",
+      "target_entity_id": "ent:mineru:1410.8140:figure:15",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b44",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:17",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:figure:15",
+      "target_entity_id": "ent:mineru:1410.8140:figure:16",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b47",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:18",
+      "relation_type": "caption_of",
+      "source_entity_id": "ent:mineru:1410.8140:figure:16",
+      "target_entity_id": "ent:mineru:1410.8140:caption:17",
+      "confidence": 0.55,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b50",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent caption and media",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "caption_of_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:19",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:figure:16",
+      "target_entity_id": "ent:mineru:1410.8140:caption:17",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b50",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:20",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:caption:17",
+      "target_entity_id": "ent:mineru:1410.8140:footnote:18",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b53",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:21",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:footnote:18",
+      "target_entity_id": "ent:mineru:1410.8140:equation:19",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b58",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:22",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:19",
+      "target_entity_id": "ent:mineru:1410.8140:equation:20",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b62",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:23",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:20",
+      "target_entity_id": "ent:mineru:1410.8140:equation:21",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b64",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:24",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:21",
+      "target_entity_id": "ent:mineru:1410.8140:equation:22",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b66",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:25",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:22",
+      "target_entity_id": "ent:mineru:1410.8140:equation:23",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b68",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:26",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:23",
+      "target_entity_id": "ent:mineru:1410.8140:equation:24",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b70",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:27",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:24",
+      "target_entity_id": "ent:mineru:1410.8140:equation:25",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b72",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:28",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:25",
+      "target_entity_id": "ent:mineru:1410.8140:equation:26",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b74",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:29",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:26",
+      "target_entity_id": "ent:mineru:1410.8140:equation:27",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b76",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:30",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:27",
+      "target_entity_id": "ent:mineru:1410.8140:equation:28",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b78",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:31",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:28",
+      "target_entity_id": "ent:mineru:1410.8140:equation:29",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b80",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:32",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:29",
+      "target_entity_id": "ent:mineru:1410.8140:equation:30",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b83",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:33",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:30",
+      "target_entity_id": "ent:mineru:1410.8140:equation:31",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b85",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:34",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:31",
+      "target_entity_id": "ent:mineru:1410.8140:equation:32",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b86",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:35",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:32",
+      "target_entity_id": "ent:mineru:1410.8140:equation:33",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b88",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:36",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:33",
+      "target_entity_id": "ent:mineru:1410.8140:equation:34",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b90",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:37",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:34",
+      "target_entity_id": "ent:mineru:1410.8140:equation:35",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b92",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:38",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:35",
+      "target_entity_id": "ent:mineru:1410.8140:equation:36",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b94",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:39",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:36",
+      "target_entity_id": "ent:mineru:1410.8140:equation:37",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b96",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:40",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:37",
+      "target_entity_id": "ent:mineru:1410.8140:equation:38",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b98",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:41",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:38",
+      "target_entity_id": "ent:mineru:1410.8140:equation:39",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b100",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:42",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:39",
+      "target_entity_id": "ent:mineru:1410.8140:caption:40",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b102",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:43",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:caption:40",
+      "target_entity_id": "ent:mineru:1410.8140:equation:41",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b107",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:44",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:41",
+      "target_entity_id": "ent:mineru:1410.8140:figure:42",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b109",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:45",
+      "relation_type": "caption_of",
+      "source_entity_id": "ent:mineru:1410.8140:figure:42",
+      "target_entity_id": "ent:mineru:1410.8140:caption:43",
+      "confidence": 0.55,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b112",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent caption and media",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "caption_of_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:46",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:figure:42",
+      "target_entity_id": "ent:mineru:1410.8140:caption:43",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b112",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:47",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:caption:43",
+      "target_entity_id": "ent:mineru:1410.8140:section:44",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b115",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:48",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:section:44",
+      "target_entity_id": "ent:mineru:1410.8140:footnote:45",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b117",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:49",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:footnote:45",
+      "target_entity_id": "ent:mineru:1410.8140:footnote:46",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b119",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:50",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:mineru:1410.8140:caption:17",
+      "target_entity_id": "ent:mineru:1410.8140:caption:40",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b53",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:51",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:mineru:1410.8140:caption:40",
+      "target_entity_id": "ent:mineru:1410.8140:caption:43",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b107",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    }
+  ],
+  "warnings": [
+    "page_size_missing"
+  ],
+  "metadata": {
+    "connector": "markdown_fallback"
+  }
+}
