@@ -80,7 +80,13 @@ _PREFIX_PATTERNS: tuple[tuple[RefType, re.Pattern[str]], ...] = (
 )
 
 _NUMBER_RE = re.compile(r"\d+(?:\.\d+)*")
+# Canonical "[15]" form. Both brackets required, single number inside.
 _BIB_NUMBER_RE = re.compile(r"\[\s*(\d+)\s*]")
+# Broken-bracket forms emitted by GROBID when a multi-citation like
+# "[14, 21]" gets split into two `<ref>` elements: "[14," and "21]".
+# Each half resolves independently to its bib entry via the digit alone.
+_BIB_NUMBER_BROKEN_OPEN_RE = re.compile(r"^\[\s*(\d+)\b")     # "[14," / "[14"
+_BIB_NUMBER_BROKEN_CLOSE_RE = re.compile(r"^(\d+)\s*]\s*$")    # "21]" / "13]"
 
 
 def _normalise(text: str) -> str:
@@ -102,8 +108,24 @@ def _extract_number(text: str) -> str | None:
 
 
 def _bibliography_number(marker_text: str) -> str | None:
-    match = _BIB_NUMBER_RE.search(marker_text)
-    return match.group(1) if match else None
+    """Extract the leading citation number from a bibliography marker.
+
+    Accepts the canonical ``[15]`` form **and** the broken-bracket
+    forms that GROBID emits when it splits a multi-citation across
+    multiple ``<ref>`` elements (``[14,`` and ``21]`` from
+    ``[14, 21]``). Each half resolves independently to its bib entry.
+    """
+    text = marker_text.strip()
+    match = _BIB_NUMBER_RE.search(text)
+    if match:
+        return match.group(1)
+    match = _BIB_NUMBER_BROKEN_OPEN_RE.match(text)
+    if match:
+        return match.group(1)
+    match = _BIB_NUMBER_BROKEN_CLOSE_RE.match(text)
+    if match:
+        return match.group(1)
+    return None
 
 
 def _try_exact(
@@ -168,6 +190,32 @@ def _try_footnote(
     return None
 
 
+def _try_equation(
+    marker: RefMarker, candidates: list[ResolverCandidate]
+) -> ResolverCandidate | None:
+    """Match equation markers by number identity.
+
+    GROBID / regex / VLM emit equation markers in a variety of surface
+    forms: ``"Eq. (11)"``, ``"equation (15.110)"``, ``"(11)"``, or just
+    the bare number ``"11"``. The OCR-side candidate labels are
+    similarly varied: ``"(11)"``, ``"Eq. 11"``, ``"11"``. Number
+    identity is the only reliable signal — mirror what
+    :func:`_try_bibliography` does for ``[N]`` markers, but on the
+    bare-or-parenthesised number form used by equations.
+    """
+    if marker.marker_type != RefType.EQUATION:
+        return None
+    number = _extract_number(marker.marker_text)
+    if number is None:
+        return None
+    for cand in candidates:
+        if cand.entity_type != RefType.EQUATION:
+            continue
+        if _extract_number(cand.label) == number:
+            return cand
+    return None
+
+
 def resolve_markers(
     markers: list[RefMarker],
     candidates: list[ResolverCandidate] | list[SemanticEntity],
@@ -226,6 +274,15 @@ def _resolve_one(marker: RefMarker, pool: list[ResolverCandidate]) -> RefEdge:
         )
 
     hit = _try_bibliography(marker, pool)
+    if hit is not None:
+        return RefEdge(
+            marker=marker,
+            target_ref=hit.target_ref,
+            resolved=True,
+            resolution_method="exact",
+        )
+
+    hit = _try_equation(marker, pool)
     if hit is not None:
         return RefEdge(
             marker=marker,

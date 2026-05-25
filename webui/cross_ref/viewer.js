@@ -28,8 +28,12 @@ let simulation = null;
 // ---------------------------------------------------------------------------
 // Bootstrap
 // ---------------------------------------------------------------------------
+// Cache-buster appended to every data-file fetch so browsers don't hold
+// onto stale JSON after the data/ directory is regenerated.
+const _cb = `?v=${Date.now()}`;
+
 async function loadManifest() {
-  const resp = await fetch('data/manifest.json');
+  const resp = await fetch(`data/manifest.json${_cb}`);
   if (!resp.ok) throw new Error(`manifest load failed: ${resp.status}`);
   manifest = await resp.json();
   populatePickers();
@@ -74,7 +78,7 @@ async function reload() {
   // Cache the docling JSON per example.
   if (ex !== lastExample) {
     try {
-      const resp = await fetch(`data/${ex}/docling.json`);
+      const resp = await fetch(`data/${ex}/docling.json${_cb}`);
       docling = resp.ok ? await resp.json() : null;
     } catch {
       docling = null;
@@ -87,7 +91,7 @@ async function reload() {
     : `data/${ex}/${sem}.json`;
   let graph;
   try {
-    const resp = await fetch(graphFile);
+    const resp = await fetch(`${graphFile}${_cb}`);
     if (!resp.ok) throw new Error(`${resp.status} ${resp.statusText}`);
     graph = await resp.json();
   } catch (err) {
