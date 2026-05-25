@@ -213,11 +213,6 @@
       "id": "ent:deepseek:1410.8140:footnote:20",
       "type": "bibliography",
       "label": "ent:deepseek:1410.8140:footnote:20"
-    },
-    {
-      "id": "ent:deepseek:1410.8140:footnote:94",
-      "type": "footnote",
-      "label": "ent:deepseek:1410.8140:footnote:94"
     }
   ],
   "edges": [
@@ -335,17 +330,17 @@
     },
     {
       "source": "marker:16:#/document/pages/10:footnote 1",
-      "target": "ent:deepseek:1410.8140:footnote:94",
+      "target": "_unresolved",
       "marker_type": "footnote",
       "label": "footnote 1",
-      "resolved": true
+      "resolved": false
     }
   ],
   "metadata": {
     "doc_hash": "sha256:4ceb9e2b4a5ffbd2d6e0714f5f4e5317d458830f4c23da9dd9d4a344a8583b79",
     "total_markers": 17,
-    "resolved_count": 5,
-    "unresolved_count": 12,
+    "resolved_count": 4,
+    "unresolved_count": 13,
     "backend_versions": {
       "vlm": "deepseek-ai/deepseek-vl2-small"
     }

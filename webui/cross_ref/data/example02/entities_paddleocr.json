@@ -4894,7 +4894,7 @@
       "id": "ent:paddleocr:2401.12345:reference_item:159",
       "entity_type": "reference_item",
       "subtype": null,
-      "canonical_text": "[1] T. Lo,H. Leung, and J. Litva, \"Nonlinear beamforming,\" Electronics Letters,vol.4,no.27,pp.350–352,1991.\n[2] S. Yang and L. Hanzo, \"Fifty years of MIMO detection: The road to large-scale MIMOs,\" IEEE Commun. Surveys Tuts., vol. 17, no. 4, pp.\n1941–1988,2015\n[3] A. M. Elbir, K. V. Mishra, S. A. Vorobyov, and R. W. Heath, \"Twentyfive years of advances in beamforming: From convex and nonconvex optimization to learning techniques,\" IEEE Signal Processing Mag.,\nvol. 40,no. 4,pp.118–131, 2023.\n[4]S. Chen,S. Tan,L. Xu,and L. Hanzo,\"Adaptive minimum error-rate filtering design: A review,\" Signal Processing,vol. 88,no. 7,pp. 1671–\n1697, 2008.\n[5] S. Chen, A. Wolfgang, C. J. Harris, and L. Hanzo, \"Symmetric RBF classifier for nonlinear detection in multiple-antenna-aided systems,\"\nIEEE Trans. Neural Networks, vol. 19, no. 5, pp. 737–745, 2008.[6] A. Navia-Vazquez, M. Martinez-Ramon, L. E. Garcia-Munoz, and C. G.\nChristodoulou, \"Approximate kernel orthogonalization for antenna array processing,\" IEEE Trans. Antennas Propagat., vol. 58, no. 12, pp. 3942–\n3950, 2010.\n[7] M. Neinavaie, M. Derakhtian, and S. A. Vorobyov, \"Lossless dimension reduction for integer least squares with application to sphere decoding,\"\nIEEE Trans. Signal Processing,vol. 68,pp. 6547–6561, 2020.[8] J. Liao, J. Zhao, F. Gao, and G. Y. Li, \"Deep learning aided low complex breadth-first tree search for MIMO detection,\"IEEE Trans. Wireless Commun.,2023.\n[9]D.A. Awan,R.L.Cavalcante,M. Yukawa, and S.Stanczak, \"Robust online multiuser detection: A hybrid model-data driven approach,\" IEEE Trans. Signal Processing,2023.\n[10] H. Ye, G. Y. Li, and B.-H. Juang, \"Power of deep learning for channel estimation and signal detection in OFDM systems,\" IEEE Wireless Commun.Lett.,vol.7,no.1,pp.114–117,2017[11] H. He,C.-K.Wen,S.Jin,and G.Y.Li, \"Model-driven deep learing for MIMO detection,\" IEEE Trans. Signal Processing,vol. 68, pp. 1702–\n1715, 2020.\n[12] N. Van Huynh and G. Y. Li, \"Transfer learning for signal detection in wireless networks,,\"IEEE Wireless Commun. Lett., vol. 11, no. 11, pp 2325–2329,2022",
+      "canonical_text": "[1] T. Lo,H. Leung, and J. Litva, \"Nonlinear beamforming,\" Electronics Letters,vol.4,no.27,pp.350–352,1991.",
       "page_no": 1,
       "block_ids": [
         "paddleocr:2401.12345:p1:b448"
@@ -4907,7 +4907,7 @@
           "page_no": 1,
           "source_block_id": "paddleocr:2401.12345:p1:b448",
           "raw_ref": "output.md",
-          "text": "[1] T. Lo,H. Leung, and J. Litva, \"Nonlinear beamforming,\" Electronics Letters,vol.4,no.27,pp.350–352,1991.\n[2] S. Yang and L. Hanzo, \"Fifty years of MIMO detection: The road to large-scale MIMOs,\" IEEE Commun. Surveys Tuts., vol. 17, no. 4, pp.\n1941–1988,2015\n[3] A. M. Elbir, K. V. Mishra, S. A. Vorobyov, and R. W. Heath, \"Twentyfive years of advances in beamforming: From convex and nonconvex optimization to learning techniques,\" IEEE Signal Processing Mag.,\nvol. 40,no. 4,pp.118–131, 2023.\n[4]S. Chen,S. Tan,L. Xu,and L. Hanzo,\"Adaptive minimum error-rate filtering design: A review,\" Signal Processing,vol. 88,no. 7,pp. 1671–\n1697, 2008.\n[5] S. Chen, A. Wolfgang, C. J. Harris, and L. Hanzo, \"Symmetric RBF classifier for nonlinear detection in multiple-antenna-aided systems,\"\nIEEE Trans. Neural Networks, vol. 19, no. 5, pp. 737–745, 2008.[6] A. Navia-Vazquez, M. Martinez-Ramon, L. E. Garcia-Munoz, and C. G.\nChristodoulou, \"Approximate kernel orthogonalization for antenna array processing,\" IEEE Trans. Antennas Propagat., vol. 58, no. 12, pp. 3942–\n3950, 2010.\n[7] M. Neinavaie, M. Derakhtian, and S. A. Vorobyov, \"Lossless dimension reduction for integer least squares with application to sphere decoding,\"\nIEEE Trans. Signal Processing,vol. 68,pp. 6547–6561, 2020.[8] J. Liao, J. Zhao, F. Gao, and G. Y. Li, \"Deep learning aided low complex breadth-first tree search for MIMO detection,\"IEEE Trans. Wireless Commun.,2023.\n[9]D.A. Awan,R.L.Cavalcante,M. Yukawa, and S.Stanczak, \"Robust online multiuser detection: A hybrid model-data driven approach,\" IEEE Trans. Signal Processing,2023.\n[10] H. Ye, G. Y. Li, and B.-H. Juang, \"Power of deep learning for channel estimation and signal detection in OFDM systems,\" IEEE Wireless Commun.Lett.,vol.7,no.1,pp.114–117,2017[11] H. He,C.-K.Wen,S.Jin,and G.Y.Li, \"Model-driven deep learing for MIMO detection,\" IEEE Trans. Signal Processing,vol. 68, pp. 1702–\n1715, 2020.\n[12] N. Van Huynh and G. Y. Li, \"Transfer learning for signal detection in wireless networks,,\"IEEE Wireless Commun. Lett., vol. 11, no. 11, pp 2325–2329,2022",
+          "text": "[1] T. Lo,H. Leung, and J. Litva, \"Nonlinear beamforming,\" Electronics Letters,vol.4,no.27,pp.350–352,1991.",
           "bbox": null,
           "weight": 1.0,
           "reason": "reference_item_detector",
@@ -4924,7 +4924,7 @@
       "id": "ent:paddleocr:2401.12345:reference_item:160",
       "entity_type": "reference_item",
       "subtype": null,
-      "canonical_text": "[13]  J. Li, P. Stoica, and Z. Wang, \"On robust Capon beamforming and diagonal loading,\" IEEE Trans. Signal Processing,vol. 51,no. 7,pp.1702–1715, 2003.\n[14]R. G.Lorenz and S. P. Boyd, \"Robust minimum variance beamforming,\"\nIEEE Trans. Signal Processing,vol. 53,no.5,pp. 1684–1696, 2005.[15] X. Zhang, Y. Li, N. Ge, and J. Lu, \"Robust minimum variance beamforming under distributional uncertainty,,\" in 2015 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP).\nIEEE, 2015, pp. 2514–2518.\n[16] B. Li, Y. Rong, J. Sun, and K. L. Teo, \"A distributionally robust minimum variance beamformer design,\"  IEEE Signal Processing Lett.,\nvol. 25, no. 1,pp. 105–109, 2017.\n[17] Y. Huang, W. Yang, and S.A. Vorobyov, \"Robust adaptive beamforming maximizing the worst-case SINR over distributional uncertainty sets for random inc matrix and signal steering vector,\" in ICASSP 20222022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE,2022,pp. 4918–4922[18] Y. Huang, H. Fu, S.A. Vorobyov, and Z.-Q. Luo, \"Robust adaptive beamforming via worst-case SiNR maximization with nonconvex uncertainty sets,\"IEEE Trans. Signal Processing,vol. 71,pp. 218–232,\n2023.\n[19] H. Cox, R. Zeskind, and M. Owen, \"Robust adaptive beamforming,\"\nIEEE Trans. Acoust., Speech, Signal Processing, vol. 35, no. 10, pp.\n1365–1376, 1987.\n[20] K. Harmanci, J. Tabrikian, and J. L. Krolik, \"Relationships between adaptive minimum variance beamforming and optimal source localization,\"IEEE Trans. Signal Processing,vol. 48,no.1,pp. 1–12, 2000.[21] F. Liu, L. Zhou,C. Masouros,A. Li,W. Luo, and A. Petropulu,\"To ward dual-functional radar-communication systems: Optimal waveform design,\" IEEE Trans. Signal Processing,vol.66,no.16, pp.4264–4279,\n2018.\n[22] J. A. Zhang,F. Liu, C. Masouros, R. W. Heath, Z. Feng, L. Zheng,\nand A. Petropulu, \"An overview of signal processing techniquesfor joint communication and radar sensing,\" IEEE J. Select. Topics Signal Processing,vol. 15,no. 6,pp. 1295–1315, 2021.[23] Y. Xiong, F. Liu, Y. Cui, W. Yuan, T. X. Han, and G. Caire, \"On the fundamental tradeoff of integrated sensing and communications under Gaussian channels,\" IEEE Trans. Inform. Theory, 2023.[24] K. P. Murphy, Machine Learning: A Probabilistic Perspective. MIT Press, 2012.\n[25]C.M. Bishop and N.M.Nasrabadi, Pattern Recognition and Machine Learning.Springer,2006,vol.4,no.4.\n[26] G. Li and J. Ding, \"Towards understanding variation-constrained deep neural networks,\"IEEE Trans. Signal Processing,vol. 71,pp. 631–640.\n2023.\n[27]S. Shafieezadeh-Abadeh,D. Kuhn,and P. M.Esfahani,\"Regularization via mass transportation,\" Journal of Machine Learning Research, vol. 20,\nno. 103,pp.1–68, 2019.\n[28]M. Staib and S. Jegelka, \"Distributionally robust optimization and generalization in kernel methods,,\" Advances in Neural Information Processing Systems, vol. 32, 2019.\n[29]E.Delage and Y. Ye, \"Distributionallyrobust optimization undermoment uncertainty with application to data-driven problems,\" Operations Research, vol. 58,no.3,pp. 595–612, 2010.\n[30]S. Wang, \"Distributionally robuststate estimation for jump linear systems, IEEE Trans. Signal Processing, 2023.\n[31]J.Li,S.Lin,J.Blanchet,and V.A.Nguyen,\"Tikhonovregularization is optimal transport robust under martingale constraints,\" Advancesin Neural Information Processing Systems,vol. 35,pp. 17 677–17689,\n2022.\n[32] D. Kuhn, P. M. Esfahani, V. A. Nguyen, and S. Shafieezadeh-Abadeh,\n\"Wasserstein distributionally robust optimization: Theory and applications in machine learning,\" in Operations Research & Management Science in the Age of Analytics. Informs,2019,pp.130–166.[33]J. Blanchet, Y. Kang,and K.Murthy,\"Robust Wassersteinprofile inference and applications to machine learning,\" Journal of Applied Probability, vol. 56,no. 3,pp. 830–857, 2019.\n[34]C. Shorten and T. M. Khoshgoftaar,\"A survey on image data augmentation for deep learning,\" Journal of Big Data, vol. 6, 2019.[35]G. Saon,Z. Tüske,K. Audhkhasi, and B. Kingsbury,\"Sequence noise injected training for end-to-end speech recognition,\" in ICASSP 20192019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2019, pp. 6261–6265.[36] K. Vu, J. C. Snyder, L. Li, M. Rupp,B. F. Chen, T. Khelif, K.-R.\nMüller, and K. Burke, \"Understanding kernel ridge regression: Common behaviors from simple functions to density functionals,\" International Journal of Quantum Chemistry,vol. 115,no. 16,pp.1115–1128, 2015.",
+      "canonical_text": "[2] S. Yang and L. Hanzo, \"Fifty years of MIMO detection: The road to large-scale MIMOs,\" IEEE Commun. Surveys Tuts., vol. 17, no. 4, pp.\n1941–1988,2015",
       "page_no": 1,
       "block_ids": [
         "paddleocr:2401.12345:p1:b449"
@@ -4937,7 +4937,187 @@
           "page_no": 1,
           "source_block_id": "paddleocr:2401.12345:p1:b449",
           "raw_ref": "output.md",
-          "text": "[13]  J. Li, P. Stoica, and Z. Wang, \"On robust Capon beamforming and diagonal loading,\" IEEE Trans. Signal Processing,vol. 51,no. 7,pp.1702–1715, 2003.\n[14]R. G.Lorenz and S. P. Boyd, \"Robust minimum variance beamforming,\"\nIEEE Trans. Signal Processing,vol. 53,no.5,pp. 1684–1696, 2005.[15] X. Zhang, Y. Li, N. Ge, and J. Lu, \"Robust minimum variance beamforming under distributional uncertainty,,\" in 2015 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP).\nIEEE, 2015, pp. 2514–2518.\n[16] B. Li, Y. Rong, J. Sun, and K. L. Teo, \"A distributionally robust minimum variance beamformer design,\"  IEEE Signal Processing Lett.,\nvol. 25, no. 1,pp. 105–109, 2017.\n[17] Y. Huang, W. Yang, and S.A. Vorobyov, \"Robust adaptive beamforming maximizing the worst-case SINR over distributional uncertainty sets for random inc matrix and signal steering vector,\" in ICASSP 20222022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE,2022,pp. 4918–4922[18] Y. Huang, H. Fu, S.A. Vorobyov, and Z.-Q. Luo, \"Robust adaptive beamforming via worst-case SiNR maximization with nonconvex uncertainty sets,\"IEEE Trans. Signal Processing,vol. 71,pp. 218–232,\n2023.\n[19] H. Cox, R. Zeskind, and M. Owen, \"Robust adaptive beamforming,\"\nIEEE Trans. Acoust., Speech, Signal Processing, vol. 35, no. 10, pp.\n1365–1376, 1987.\n[20] K. Harmanci, J. Tabrikian, and J. L. Krolik, \"Relationships between adaptive minimum variance beamforming and optimal source localization,\"IEEE Trans. Signal Processing,vol. 48,no.1,pp. 1–12, 2000.[21] F. Liu, L. Zhou,C. Masouros,A. Li,W. Luo, and A. Petropulu,\"To ward dual-functional radar-communication systems: Optimal waveform design,\" IEEE Trans. Signal Processing,vol.66,no.16, pp.4264–4279,\n2018.\n[22] J. A. Zhang,F. Liu, C. Masouros, R. W. Heath, Z. Feng, L. Zheng,\nand A. Petropulu, \"An overview of signal processing techniquesfor joint communication and radar sensing,\" IEEE J. Select. Topics Signal Processing,vol. 15,no. 6,pp. 1295–1315, 2021.[23] Y. Xiong, F. Liu, Y. Cui, W. Yuan, T. X. Han, and G. Caire, \"On the fundamental tradeoff of integrated sensing and communications under Gaussian channels,\" IEEE Trans. Inform. Theory, 2023.[24] K. P. Murphy, Machine Learning: A Probabilistic Perspective. MIT Press, 2012.\n[25]C.M. Bishop and N.M.Nasrabadi, Pattern Recognition and Machine Learning.Springer,2006,vol.4,no.4.\n[26] G. Li and J. Ding, \"Towards understanding variation-constrained deep neural networks,\"IEEE Trans. Signal Processing,vol. 71,pp. 631–640.\n2023.\n[27]S. Shafieezadeh-Abadeh,D. Kuhn,and P. M.Esfahani,\"Regularization via mass transportation,\" Journal of Machine Learning Research, vol. 20,\nno. 103,pp.1–68, 2019.\n[28]M. Staib and S. Jegelka, \"Distributionally robust optimization and generalization in kernel methods,,\" Advances in Neural Information Processing Systems, vol. 32, 2019.\n[29]E.Delage and Y. Ye, \"Distributionallyrobust optimization undermoment uncertainty with application to data-driven problems,\" Operations Research, vol. 58,no.3,pp. 595–612, 2010.\n[30]S. Wang, \"Distributionally robuststate estimation for jump linear systems, IEEE Trans. Signal Processing, 2023.\n[31]J.Li,S.Lin,J.Blanchet,and V.A.Nguyen,\"Tikhonovregularization is optimal transport robust under martingale constraints,\" Advancesin Neural Information Processing Systems,vol. 35,pp. 17 677–17689,\n2022.\n[32] D. Kuhn, P. M. Esfahani, V. A. Nguyen, and S. Shafieezadeh-Abadeh,\n\"Wasserstein distributionally robust optimization: Theory and applications in machine learning,\" in Operations Research & Management Science in the Age of Analytics. Informs,2019,pp.130–166.[33]J. Blanchet, Y. Kang,and K.Murthy,\"Robust Wassersteinprofile inference and applications to machine learning,\" Journal of Applied Probability, vol. 56,no. 3,pp. 830–857, 2019.\n[34]C. Shorten and T. M. Khoshgoftaar,\"A survey on image data augmentation for deep learning,\" Journal of Big Data, vol. 6, 2019.[35]G. Saon,Z. Tüske,K. Audhkhasi, and B. Kingsbury,\"Sequence noise injected training for end-to-end speech recognition,\" in ICASSP 20192019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2019, pp. 6261–6265.[36] K. Vu, J. C. Snyder, L. Li, M. Rupp,B. F. Chen, T. Khelif, K.-R.\nMüller, and K. Burke, \"Understanding kernel ridge regression: Common behaviors from simple functions to density functionals,\" International Journal of Quantum Chemistry,vol. 115,no. 16,pp.1115–1128, 2015.",
+          "text": "[2] S. Yang and L. Hanzo, \"Fifty years of MIMO detection: The road to large-scale MIMOs,\" IEEE Commun. Surveys Tuts., vol. 17, no. 4, pp.\n1941–1988,2015",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "reference_item_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:reference_item_detector",
+      "metadata": {
+        "detector": "reference_item_detector",
+        "marker": "2"
+      }
+    },
+    {
+      "id": "ent:paddleocr:2401.12345:reference_item:161",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[3] A. M. Elbir, K. V. Mishra, S. A. Vorobyov, and R. W. Heath, \"Twentyfive years of advances in beamforming: From convex and nonconvex optimization to learning techniques,\" IEEE Signal Processing Mag.,\nvol. 40,no. 4,pp.118–131, 2023.\n[4]S. Chen,S. Tan,L. Xu,and L. Hanzo,\"Adaptive minimum error-rate filtering design: A review,\" Signal Processing,vol. 88,no. 7,pp. 1671–\n1697, 2008.",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:2401.12345:p1:b450"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b450",
+          "raw_ref": "output.md",
+          "text": "[3] A. M. Elbir, K. V. Mishra, S. A. Vorobyov, and R. W. Heath, \"Twentyfive years of advances in beamforming: From convex and nonconvex optimization to learning techniques,\" IEEE Signal Processing Mag.,\nvol. 40,no. 4,pp.118–131, 2023.\n[4]S. Chen,S. Tan,L. Xu,and L. Hanzo,\"Adaptive minimum error-rate filtering design: A review,\" Signal Processing,vol. 88,no. 7,pp. 1671–\n1697, 2008.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "reference_item_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:reference_item_detector",
+      "metadata": {
+        "detector": "reference_item_detector",
+        "marker": "3"
+      }
+    },
+    {
+      "id": "ent:paddleocr:2401.12345:reference_item:162",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[5] S. Chen, A. Wolfgang, C. J. Harris, and L. Hanzo, \"Symmetric RBF classifier for nonlinear detection in multiple-antenna-aided systems,\"\nIEEE Trans. Neural Networks, vol. 19, no. 5, pp. 737–745, 2008.[6] A. Navia-Vazquez, M. Martinez-Ramon, L. E. Garcia-Munoz, and C. G.\nChristodoulou, \"Approximate kernel orthogonalization for antenna array processing,\" IEEE Trans. Antennas Propagat., vol. 58, no. 12, pp. 3942–\n3950, 2010.",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:2401.12345:p1:b451"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b451",
+          "raw_ref": "output.md",
+          "text": "[5] S. Chen, A. Wolfgang, C. J. Harris, and L. Hanzo, \"Symmetric RBF classifier for nonlinear detection in multiple-antenna-aided systems,\"\nIEEE Trans. Neural Networks, vol. 19, no. 5, pp. 737–745, 2008.[6] A. Navia-Vazquez, M. Martinez-Ramon, L. E. Garcia-Munoz, and C. G.\nChristodoulou, \"Approximate kernel orthogonalization for antenna array processing,\" IEEE Trans. Antennas Propagat., vol. 58, no. 12, pp. 3942–\n3950, 2010.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "reference_item_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:reference_item_detector",
+      "metadata": {
+        "detector": "reference_item_detector",
+        "marker": "5"
+      }
+    },
+    {
+      "id": "ent:paddleocr:2401.12345:reference_item:163",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[7] M. Neinavaie, M. Derakhtian, and S. A. Vorobyov, \"Lossless dimension reduction for integer least squares with application to sphere decoding,\"\nIEEE Trans. Signal Processing,vol. 68,pp. 6547–6561, 2020.[8] J. Liao, J. Zhao, F. Gao, and G. Y. Li, \"Deep learning aided low complex breadth-first tree search for MIMO detection,\"IEEE Trans. Wireless Commun.,2023.\n[9]D.A. Awan,R.L.Cavalcante,M. Yukawa, and S.Stanczak, \"Robust online multiuser detection: A hybrid model-data driven approach,\" IEEE Trans. Signal Processing,2023.",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:2401.12345:p1:b452"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b452",
+          "raw_ref": "output.md",
+          "text": "[7] M. Neinavaie, M. Derakhtian, and S. A. Vorobyov, \"Lossless dimension reduction for integer least squares with application to sphere decoding,\"\nIEEE Trans. Signal Processing,vol. 68,pp. 6547–6561, 2020.[8] J. Liao, J. Zhao, F. Gao, and G. Y. Li, \"Deep learning aided low complex breadth-first tree search for MIMO detection,\"IEEE Trans. Wireless Commun.,2023.\n[9]D.A. Awan,R.L.Cavalcante,M. Yukawa, and S.Stanczak, \"Robust online multiuser detection: A hybrid model-data driven approach,\" IEEE Trans. Signal Processing,2023.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "reference_item_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:reference_item_detector",
+      "metadata": {
+        "detector": "reference_item_detector",
+        "marker": "7"
+      }
+    },
+    {
+      "id": "ent:paddleocr:2401.12345:reference_item:164",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[10] H. Ye, G. Y. Li, and B.-H. Juang, \"Power of deep learning for channel estimation and signal detection in OFDM systems,\" IEEE Wireless Commun.Lett.,vol.7,no.1,pp.114–117,2017[11] H. He,C.-K.Wen,S.Jin,and G.Y.Li, \"Model-driven deep learing for MIMO detection,\" IEEE Trans. Signal Processing,vol. 68, pp. 1702–\n1715, 2020.",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:2401.12345:p1:b453"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b453",
+          "raw_ref": "output.md",
+          "text": "[10] H. Ye, G. Y. Li, and B.-H. Juang, \"Power of deep learning for channel estimation and signal detection in OFDM systems,\" IEEE Wireless Commun.Lett.,vol.7,no.1,pp.114–117,2017[11] H. He,C.-K.Wen,S.Jin,and G.Y.Li, \"Model-driven deep learing for MIMO detection,\" IEEE Trans. Signal Processing,vol. 68, pp. 1702–\n1715, 2020.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "reference_item_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:reference_item_detector",
+      "metadata": {
+        "detector": "reference_item_detector",
+        "marker": "10"
+      }
+    },
+    {
+      "id": "ent:paddleocr:2401.12345:reference_item:165",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[12] N. Van Huynh and G. Y. Li, \"Transfer learning for signal detection in wireless networks,,\"IEEE Wireless Commun. Lett., vol. 11, no. 11, pp 2325–2329,2022",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:2401.12345:p1:b454"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b454",
+          "raw_ref": "output.md",
+          "text": "[12] N. Van Huynh and G. Y. Li, \"Transfer learning for signal detection in wireless networks,,\"IEEE Wireless Commun. Lett., vol. 11, no. 11, pp 2325–2329,2022",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "reference_item_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:reference_item_detector",
+      "metadata": {
+        "detector": "reference_item_detector",
+        "marker": "12"
+      }
+    },
+    {
+      "id": "ent:paddleocr:2401.12345:reference_item:166",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[13]  J. Li, P. Stoica, and Z. Wang, \"On robust Capon beamforming and diagonal loading,\" IEEE Trans. Signal Processing,vol. 51,no. 7,pp.1702–1715, 2003.\n[14]R. G.Lorenz and S. P. Boyd, \"Robust minimum variance beamforming,\"\nIEEE Trans. Signal Processing,vol. 53,no.5,pp. 1684–1696, 2005.[15] X. Zhang, Y. Li, N. Ge, and J. Lu, \"Robust minimum variance beamforming under distributional uncertainty,,\" in 2015 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP).\nIEEE, 2015, pp. 2514–2518.",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:2401.12345:p1:b455"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b455",
+          "raw_ref": "output.md",
+          "text": "[13]  J. Li, P. Stoica, and Z. Wang, \"On robust Capon beamforming and diagonal loading,\" IEEE Trans. Signal Processing,vol. 51,no. 7,pp.1702–1715, 2003.\n[14]R. G.Lorenz and S. P. Boyd, \"Robust minimum variance beamforming,\"\nIEEE Trans. Signal Processing,vol. 53,no.5,pp. 1684–1696, 2005.[15] X. Zhang, Y. Li, N. Ge, and J. Lu, \"Robust minimum variance beamforming under distributional uncertainty,,\" in 2015 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP).\nIEEE, 2015, pp. 2514–2518.",
           "bbox": null,
           "weight": 1.0,
           "reason": "reference_item_detector",
@@ -4951,13 +5131,13 @@
       }
     },
     {
-      "id": "ent:paddleocr:2401.12345:reference_item:161",
+      "id": "ent:paddleocr:2401.12345:reference_item:167",
       "entity_type": "reference_item",
       "subtype": null,
-      "canonical_text": "[37] X. Wang and H. V. Poor,\"Robust adaptive arrayfor wirelesscommunications,\" IEEE J. Select. Areas in Commun., vol. 16,no. 8, pp.1352–1366,1998.\n[38] V. Katkovnik, M.-S. Lee, and Y.-H. Kim, \"Performance study of the minimax robust phased array for wireless communications,\" IEEE Trans Wireless Commun.,vol. 54,no.4,pp. 608–613,2006.[39] H. Rahimian and S. Mehrotra, \"Frameworks and results in distributionally robust optimization,,\" Open Journal of Mathematical Optimization,\nvol. 3, pp. 1–85, 2022.\n[40] D. Kuhn, S. Shafiee, and W. Wiesemann, \"Distributionally robust optimization,,\" Acta Numerica, 2024.\n[41] M. Sion, \"On general minimax theorems.\" Pacific Journal of Mathematics,vol.8,no.1,pp.171–176, 1958.",
+      "canonical_text": "[16] B. Li, Y. Rong, J. Sun, and K. L. Teo, \"A distributionally robust minimum variance beamformer design,\"  IEEE Signal Processing Lett.,\nvol. 25, no. 1,pp. 105–109, 2017.",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:2401.12345:p1:b450"
+        "paddleocr:2401.12345:p1:b456"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -4965,9 +5145,219 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:2401.12345:p1:b450",
+          "source_block_id": "paddleocr:2401.12345:p1:b456",
           "raw_ref": "output.md",
-          "text": "[37] X. Wang and H. V. Poor,\"Robust adaptive arrayfor wirelesscommunications,\" IEEE J. Select. Areas in Commun., vol. 16,no. 8, pp.1352–1366,1998.\n[38] V. Katkovnik, M.-S. Lee, and Y.-H. Kim, \"Performance study of the minimax robust phased array for wireless communications,\" IEEE Trans Wireless Commun.,vol. 54,no.4,pp. 608–613,2006.[39] H. Rahimian and S. Mehrotra, \"Frameworks and results in distributionally robust optimization,,\" Open Journal of Mathematical Optimization,\nvol. 3, pp. 1–85, 2022.\n[40] D. Kuhn, S. Shafiee, and W. Wiesemann, \"Distributionally robust optimization,,\" Acta Numerica, 2024.\n[41] M. Sion, \"On general minimax theorems.\" Pacific Journal of Mathematics,vol.8,no.1,pp.171–176, 1958.",
+          "text": "[16] B. Li, Y. Rong, J. Sun, and K. L. Teo, \"A distributionally robust minimum variance beamformer design,\"  IEEE Signal Processing Lett.,\nvol. 25, no. 1,pp. 105–109, 2017.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "reference_item_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:reference_item_detector",
+      "metadata": {
+        "detector": "reference_item_detector",
+        "marker": "16"
+      }
+    },
+    {
+      "id": "ent:paddleocr:2401.12345:reference_item:168",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[17] Y. Huang, W. Yang, and S.A. Vorobyov, \"Robust adaptive beamforming maximizing the worst-case SINR over distributional uncertainty sets for random inc matrix and signal steering vector,\" in ICASSP 20222022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE,2022,pp. 4918–4922[18] Y. Huang, H. Fu, S.A. Vorobyov, and Z.-Q. Luo, \"Robust adaptive beamforming via worst-case SiNR maximization with nonconvex uncertainty sets,\"IEEE Trans. Signal Processing,vol. 71,pp. 218–232,\n2023.",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:2401.12345:p1:b457"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b457",
+          "raw_ref": "output.md",
+          "text": "[17] Y. Huang, W. Yang, and S.A. Vorobyov, \"Robust adaptive beamforming maximizing the worst-case SINR over distributional uncertainty sets for random inc matrix and signal steering vector,\" in ICASSP 20222022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE,2022,pp. 4918–4922[18] Y. Huang, H. Fu, S.A. Vorobyov, and Z.-Q. Luo, \"Robust adaptive beamforming via worst-case SiNR maximization with nonconvex uncertainty sets,\"IEEE Trans. Signal Processing,vol. 71,pp. 218–232,\n2023.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "reference_item_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:reference_item_detector",
+      "metadata": {
+        "detector": "reference_item_detector",
+        "marker": "17"
+      }
+    },
+    {
+      "id": "ent:paddleocr:2401.12345:reference_item:169",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[19] H. Cox, R. Zeskind, and M. Owen, \"Robust adaptive beamforming,\"\nIEEE Trans. Acoust., Speech, Signal Processing, vol. 35, no. 10, pp.\n1365–1376, 1987.",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:2401.12345:p1:b458"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b458",
+          "raw_ref": "output.md",
+          "text": "[19] H. Cox, R. Zeskind, and M. Owen, \"Robust adaptive beamforming,\"\nIEEE Trans. Acoust., Speech, Signal Processing, vol. 35, no. 10, pp.\n1365–1376, 1987.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "reference_item_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:reference_item_detector",
+      "metadata": {
+        "detector": "reference_item_detector",
+        "marker": "19"
+      }
+    },
+    {
+      "id": "ent:paddleocr:2401.12345:reference_item:170",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[20] K. Harmanci, J. Tabrikian, and J. L. Krolik, \"Relationships between adaptive minimum variance beamforming and optimal source localization,\"IEEE Trans. Signal Processing,vol. 48,no.1,pp. 1–12, 2000.[21] F. Liu, L. Zhou,C. Masouros,A. Li,W. Luo, and A. Petropulu,\"To ward dual-functional radar-communication systems: Optimal waveform design,\" IEEE Trans. Signal Processing,vol.66,no.16, pp.4264–4279,\n2018.",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:2401.12345:p1:b459"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b459",
+          "raw_ref": "output.md",
+          "text": "[20] K. Harmanci, J. Tabrikian, and J. L. Krolik, \"Relationships between adaptive minimum variance beamforming and optimal source localization,\"IEEE Trans. Signal Processing,vol. 48,no.1,pp. 1–12, 2000.[21] F. Liu, L. Zhou,C. Masouros,A. Li,W. Luo, and A. Petropulu,\"To ward dual-functional radar-communication systems: Optimal waveform design,\" IEEE Trans. Signal Processing,vol.66,no.16, pp.4264–4279,\n2018.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "reference_item_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:reference_item_detector",
+      "metadata": {
+        "detector": "reference_item_detector",
+        "marker": "20"
+      }
+    },
+    {
+      "id": "ent:paddleocr:2401.12345:reference_item:171",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[22] J. A. Zhang,F. Liu, C. Masouros, R. W. Heath, Z. Feng, L. Zheng,\nand A. Petropulu, \"An overview of signal processing techniquesfor joint communication and radar sensing,\" IEEE J. Select. Topics Signal Processing,vol. 15,no. 6,pp. 1295–1315, 2021.[23] Y. Xiong, F. Liu, Y. Cui, W. Yuan, T. X. Han, and G. Caire, \"On the fundamental tradeoff of integrated sensing and communications under Gaussian channels,\" IEEE Trans. Inform. Theory, 2023.[24] K. P. Murphy, Machine Learning: A Probabilistic Perspective. MIT Press, 2012.\n[25]C.M. Bishop and N.M.Nasrabadi, Pattern Recognition and Machine Learning.Springer,2006,vol.4,no.4.",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:2401.12345:p1:b460"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b460",
+          "raw_ref": "output.md",
+          "text": "[22] J. A. Zhang,F. Liu, C. Masouros, R. W. Heath, Z. Feng, L. Zheng,\nand A. Petropulu, \"An overview of signal processing techniquesfor joint communication and radar sensing,\" IEEE J. Select. Topics Signal Processing,vol. 15,no. 6,pp. 1295–1315, 2021.[23] Y. Xiong, F. Liu, Y. Cui, W. Yuan, T. X. Han, and G. Caire, \"On the fundamental tradeoff of integrated sensing and communications under Gaussian channels,\" IEEE Trans. Inform. Theory, 2023.[24] K. P. Murphy, Machine Learning: A Probabilistic Perspective. MIT Press, 2012.\n[25]C.M. Bishop and N.M.Nasrabadi, Pattern Recognition and Machine Learning.Springer,2006,vol.4,no.4.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "reference_item_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:reference_item_detector",
+      "metadata": {
+        "detector": "reference_item_detector",
+        "marker": "22"
+      }
+    },
+    {
+      "id": "ent:paddleocr:2401.12345:reference_item:172",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[26] G. Li and J. Ding, \"Towards understanding variation-constrained deep neural networks,\"IEEE Trans. Signal Processing,vol. 71,pp. 631–640.\n2023.\n[27]S. Shafieezadeh-Abadeh,D. Kuhn,and P. M.Esfahani,\"Regularization via mass transportation,\" Journal of Machine Learning Research, vol. 20,\nno. 103,pp.1–68, 2019.\n[28]M. Staib and S. Jegelka, \"Distributionally robust optimization and generalization in kernel methods,,\" Advances in Neural Information Processing Systems, vol. 32, 2019.\n[29]E.Delage and Y. Ye, \"Distributionallyrobust optimization undermoment uncertainty with application to data-driven problems,\" Operations Research, vol. 58,no.3,pp. 595–612, 2010.\n[30]S. Wang, \"Distributionally robuststate estimation for jump linear systems, IEEE Trans. Signal Processing, 2023.\n[31]J.Li,S.Lin,J.Blanchet,and V.A.Nguyen,\"Tikhonovregularization is optimal transport robust under martingale constraints,\" Advancesin Neural Information Processing Systems,vol. 35,pp. 17 677–17689,\n2022.",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:2401.12345:p1:b461"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b461",
+          "raw_ref": "output.md",
+          "text": "[26] G. Li and J. Ding, \"Towards understanding variation-constrained deep neural networks,\"IEEE Trans. Signal Processing,vol. 71,pp. 631–640.\n2023.\n[27]S. Shafieezadeh-Abadeh,D. Kuhn,and P. M.Esfahani,\"Regularization via mass transportation,\" Journal of Machine Learning Research, vol. 20,\nno. 103,pp.1–68, 2019.\n[28]M. Staib and S. Jegelka, \"Distributionally robust optimization and generalization in kernel methods,,\" Advances in Neural Information Processing Systems, vol. 32, 2019.\n[29]E.Delage and Y. Ye, \"Distributionallyrobust optimization undermoment uncertainty with application to data-driven problems,\" Operations Research, vol. 58,no.3,pp. 595–612, 2010.\n[30]S. Wang, \"Distributionally robuststate estimation for jump linear systems, IEEE Trans. Signal Processing, 2023.\n[31]J.Li,S.Lin,J.Blanchet,and V.A.Nguyen,\"Tikhonovregularization is optimal transport robust under martingale constraints,\" Advancesin Neural Information Processing Systems,vol. 35,pp. 17 677–17689,\n2022.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "reference_item_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:reference_item_detector",
+      "metadata": {
+        "detector": "reference_item_detector",
+        "marker": "26"
+      }
+    },
+    {
+      "id": "ent:paddleocr:2401.12345:reference_item:173",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[32] D. Kuhn, P. M. Esfahani, V. A. Nguyen, and S. Shafieezadeh-Abadeh,\n\"Wasserstein distributionally robust optimization: Theory and applications in machine learning,\" in Operations Research & Management Science in the Age of Analytics. Informs,2019,pp.130–166.[33]J. Blanchet, Y. Kang,and K.Murthy,\"Robust Wassersteinprofile inference and applications to machine learning,\" Journal of Applied Probability, vol. 56,no. 3,pp. 830–857, 2019.\n[34]C. Shorten and T. M. Khoshgoftaar,\"A survey on image data augmentation for deep learning,\" Journal of Big Data, vol. 6, 2019.[35]G. Saon,Z. Tüske,K. Audhkhasi, and B. Kingsbury,\"Sequence noise injected training for end-to-end speech recognition,\" in ICASSP 20192019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2019, pp. 6261–6265.[36] K. Vu, J. C. Snyder, L. Li, M. Rupp,B. F. Chen, T. Khelif, K.-R.\nMüller, and K. Burke, \"Understanding kernel ridge regression: Common behaviors from simple functions to density functionals,\" International Journal of Quantum Chemistry,vol. 115,no. 16,pp.1115–1128, 2015.",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:2401.12345:p1:b462"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b462",
+          "raw_ref": "output.md",
+          "text": "[32] D. Kuhn, P. M. Esfahani, V. A. Nguyen, and S. Shafieezadeh-Abadeh,\n\"Wasserstein distributionally robust optimization: Theory and applications in machine learning,\" in Operations Research & Management Science in the Age of Analytics. Informs,2019,pp.130–166.[33]J. Blanchet, Y. Kang,and K.Murthy,\"Robust Wassersteinprofile inference and applications to machine learning,\" Journal of Applied Probability, vol. 56,no. 3,pp. 830–857, 2019.\n[34]C. Shorten and T. M. Khoshgoftaar,\"A survey on image data augmentation for deep learning,\" Journal of Big Data, vol. 6, 2019.[35]G. Saon,Z. Tüske,K. Audhkhasi, and B. Kingsbury,\"Sequence noise injected training for end-to-end speech recognition,\" in ICASSP 20192019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2019, pp. 6261–6265.[36] K. Vu, J. C. Snyder, L. Li, M. Rupp,B. F. Chen, T. Khelif, K.-R.\nMüller, and K. Burke, \"Understanding kernel ridge regression: Common behaviors from simple functions to density functionals,\" International Journal of Quantum Chemistry,vol. 115,no. 16,pp.1115–1128, 2015.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "reference_item_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:reference_item_detector",
+      "metadata": {
+        "detector": "reference_item_detector",
+        "marker": "32"
+      }
+    },
+    {
+      "id": "ent:paddleocr:2401.12345:reference_item:174",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[37] X. Wang and H. V. Poor,\"Robust adaptive arrayfor wirelesscommunications,\" IEEE J. Select. Areas in Commun., vol. 16,no. 8, pp.1352–1366,1998.",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:2401.12345:p1:b463"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b463",
+          "raw_ref": "output.md",
+          "text": "[37] X. Wang and H. V. Poor,\"Robust adaptive arrayfor wirelesscommunications,\" IEEE J. Select. Areas in Commun., vol. 16,no. 8, pp.1352–1366,1998.",
           "bbox": null,
           "weight": 1.0,
           "reason": "reference_item_detector",
@@ -4981,13 +5371,103 @@
       }
     },
     {
-      "id": "ent:paddleocr:2401.12345:reference_item:162",
+      "id": "ent:paddleocr:2401.12345:reference_item:175",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[38] V. Katkovnik, M.-S. Lee, and Y.-H. Kim, \"Performance study of the minimax robust phased array for wireless communications,\" IEEE Trans Wireless Commun.,vol. 54,no.4,pp. 608–613,2006.[39] H. Rahimian and S. Mehrotra, \"Frameworks and results in distributionally robust optimization,,\" Open Journal of Mathematical Optimization,\nvol. 3, pp. 1–85, 2022.",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:2401.12345:p1:b464"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b464",
+          "raw_ref": "output.md",
+          "text": "[38] V. Katkovnik, M.-S. Lee, and Y.-H. Kim, \"Performance study of the minimax robust phased array for wireless communications,\" IEEE Trans Wireless Commun.,vol. 54,no.4,pp. 608–613,2006.[39] H. Rahimian and S. Mehrotra, \"Frameworks and results in distributionally robust optimization,,\" Open Journal of Mathematical Optimization,\nvol. 3, pp. 1–85, 2022.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "reference_item_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:reference_item_detector",
+      "metadata": {
+        "detector": "reference_item_detector",
+        "marker": "38"
+      }
+    },
+    {
+      "id": "ent:paddleocr:2401.12345:reference_item:176",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[40] D. Kuhn, S. Shafiee, and W. Wiesemann, \"Distributionally robust optimization,,\" Acta Numerica, 2024.",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:2401.12345:p1:b465"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b465",
+          "raw_ref": "output.md",
+          "text": "[40] D. Kuhn, S. Shafiee, and W. Wiesemann, \"Distributionally robust optimization,,\" Acta Numerica, 2024.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "reference_item_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:reference_item_detector",
+      "metadata": {
+        "detector": "reference_item_detector",
+        "marker": "40"
+      }
+    },
+    {
+      "id": "ent:paddleocr:2401.12345:reference_item:177",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[41] M. Sion, \"On general minimax theorems.\" Pacific Journal of Mathematics,vol.8,no.1,pp.171–176, 1958.",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:2401.12345:p1:b466"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b466",
+          "raw_ref": "output.md",
+          "text": "[41] M. Sion, \"On general minimax theorems.\" Pacific Journal of Mathematics,vol.8,no.1,pp.171–176, 1958.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "reference_item_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:reference_item_detector",
+      "metadata": {
+        "detector": "reference_item_detector",
+        "marker": "41"
+      }
+    },
+    {
+      "id": "ent:paddleocr:2401.12345:reference_item:178",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "ShixiongWang(Member, IEEE) received the B.Eng.degree in detection,guidance, and control technology, and the M.Eng. degree in systems and control engineering from the School of Electronics and Information, Northwestern Polytechnical University, China,in 2016 and 2018,respectively. He received his Ph.D.  degree from the Department of Industrial Systems Engineering and Management,National University of Singapore, Singapore, in 2022.",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:2401.12345:p1:b451"
+        "paddleocr:2401.12345:p1:b467"
       ],
       "confidence": 0.62,
       "confidence_source": "heuristic",
@@ -4995,7 +5475,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:2401.12345:p1:b451",
+          "source_block_id": "paddleocr:2401.12345:p1:b467",
           "raw_ref": "output.md",
           "text": "ShixiongWang(Member, IEEE) received the B.Eng.degree in detection,guidance, and control technology, and the M.Eng. degree in systems and control engineering from the School of Electronics and Information, Northwestern Polytechnical University, China,in 2016 and 2018,respectively. He received his Ph.D.  degree from the Department of Industrial Systems Engineering and Management,National University of Singapore, Singapore, in 2022.",
           "bbox": null,
@@ -5010,13 +5490,13 @@
       }
     },
     {
-      "id": "ent:paddleocr:2401.12345:reference_item:163",
+      "id": "ent:paddleocr:2401.12345:reference_item:179",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "<div style=\"text-align: center;\"><img src=\"imgs/img_in_image_box_632_453_756_614.jpg\" alt=\"Image\" width=\"10%\" /></div>",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:2401.12345:p1:b452"
+        "paddleocr:2401.12345:p1:b468"
       ],
       "confidence": 0.62,
       "confidence_source": "heuristic",
@@ -5024,7 +5504,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:2401.12345:p1:b452",
+          "source_block_id": "paddleocr:2401.12345:p1:b468",
           "raw_ref": "output.md",
           "text": "<div style=\"text-align: center;\"><img src=\"imgs/img_in_image_box_632_453_756_614.jpg\" alt=\"Image\" width=\"10%\" /></div>",
           "bbox": null,
@@ -5039,13 +5519,13 @@
       }
     },
     {
-      "id": "ent:paddleocr:2401.12345:reference_item:164",
+      "id": "ent:paddleocr:2401.12345:reference_item:180",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "He is currently a Postdoctoral Research Associate",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:2401.12345:p1:b453"
+        "paddleocr:2401.12345:p1:b469"
       ],
       "confidence": 0.62,
       "confidence_source": "heuristic",
@@ -5053,7 +5533,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:2401.12345:p1:b453",
+          "source_block_id": "paddleocr:2401.12345:p1:b469",
           "raw_ref": "output.md",
           "text": "He is currently a Postdoctoral Research Associate",
           "bbox": null,
@@ -5068,13 +5548,13 @@
       }
     },
     {
-      "id": "ent:paddleocr:2401.12345:reference_item:165",
+      "id": "ent:paddleocr:2401.12345:reference_item:181",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "with the Intelligent Transmission and Processing Laboratory, Imperial College London,London, United Kingdom,from May 2023.He was a Postdoctoral Research Fellow with the Institute of Data Science, National University of Singapore, Singapore, from March 2022 to March 2023.",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:2401.12345:p1:b454"
+        "paddleocr:2401.12345:p1:b470"
       ],
       "confidence": 0.62,
       "confidence_source": "heuristic",
@@ -5082,7 +5562,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:2401.12345:p1:b454",
+          "source_block_id": "paddleocr:2401.12345:p1:b470",
           "raw_ref": "output.md",
           "text": "with the Intelligent Transmission and Processing Laboratory, Imperial College London,London, United Kingdom,from May 2023.He was a Postdoctoral Research Fellow with the Institute of Data Science, National University of Singapore, Singapore, from March 2022 to March 2023.",
           "bbox": null,
@@ -5097,13 +5577,13 @@
       }
     },
     {
-      "id": "ent:paddleocr:2401.12345:reference_item:166",
+      "id": "ent:paddleocr:2401.12345:reference_item:182",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "His research interest includes statistics and optimization theories with applications in signal processing (especially optimal estimation theory), machine learning (especially generalization error theory), and control technology",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:2401.12345:p1:b455"
+        "paddleocr:2401.12345:p1:b471"
       ],
       "confidence": 0.62,
       "confidence_source": "heuristic",
@@ -5111,7 +5591,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:2401.12345:p1:b455",
+          "source_block_id": "paddleocr:2401.12345:p1:b471",
           "raw_ref": "output.md",
           "text": "His research interest includes statistics and optimization theories with applications in signal processing (especially optimal estimation theory), machine learning (especially generalization error theory), and control technology",
           "bbox": null,
@@ -5126,13 +5606,13 @@
       }
     },
     {
-      "id": "ent:paddleocr:2401.12345:reference_item:167",
+      "id": "ent:paddleocr:2401.12345:reference_item:183",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "<div style=\"text-align: center;\"><img src=\"imgs/img_in_image_box_624_840_764_1012.jpg\" alt=\"Image\" width=\"11%\" /></div>",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:2401.12345:p1:b456"
+        "paddleocr:2401.12345:p1:b472"
       ],
       "confidence": 0.62,
       "confidence_source": "heuristic",
@@ -5140,7 +5620,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:2401.12345:p1:b456",
+          "source_block_id": "paddleocr:2401.12345:p1:b472",
           "raw_ref": "output.md",
           "text": "<div style=\"text-align: center;\"><img src=\"imgs/img_in_image_box_624_840_764_1012.jpg\" alt=\"Image\" width=\"11%\" /></div>",
           "bbox": null,
@@ -5155,13 +5635,13 @@
       }
     },
     {
-      "id": "ent:paddleocr:2401.12345:reference_item:168",
+      "id": "ent:paddleocr:2401.12345:reference_item:184",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "Wei Dai (Member, IEEE)received the Ph.D. degree from the University of Colorado Boulder, Boulder.Colorado, in 2007. He is currently a Senior Lecturer (Associate Professor) in the Department of Electrical and Electronic Engineering, Imperial College London, London, UK. From 2007to 2011,he wasa Postdoctoral Research Associate with the University of Illinois Urbana-Champaign, Champaign, IL,USA.His research interests include electromagnetic sensing, biomedical imaging, wireless communications, and information theory.",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:2401.12345:p1:b457"
+        "paddleocr:2401.12345:p1:b473"
       ],
       "confidence": 0.62,
       "confidence_source": "heuristic",
@@ -5169,7 +5649,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:2401.12345:p1:b457",
+          "source_block_id": "paddleocr:2401.12345:p1:b473",
           "raw_ref": "output.md",
           "text": "Wei Dai (Member, IEEE)received the Ph.D. degree from the University of Colorado Boulder, Boulder.Colorado, in 2007. He is currently a Senior Lecturer (Associate Professor) in the Department of Electrical and Electronic Engineering, Imperial College London, London, UK. From 2007to 2011,he wasa Postdoctoral Research Associate with the University of Illinois Urbana-Champaign, Champaign, IL,USA.His research interests include electromagnetic sensing, biomedical imaging, wireless communications, and information theory.",
           "bbox": null,
@@ -5184,13 +5664,13 @@
       }
     },
     {
-      "id": "ent:paddleocr:2401.12345:reference_item:169",
+      "id": "ent:paddleocr:2401.12345:reference_item:185",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "<div style=\"text-align: center;\"><img src=\"imgs/img_in_image_box_633_1128_755_1290.jpg\" alt=\"Image\" width=\"9%\" /></div>",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:2401.12345:p1:b458"
+        "paddleocr:2401.12345:p1:b474"
       ],
       "confidence": 0.62,
       "confidence_source": "heuristic",
@@ -5198,7 +5678,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:2401.12345:p1:b458",
+          "source_block_id": "paddleocr:2401.12345:p1:b474",
           "raw_ref": "output.md",
           "text": "<div style=\"text-align: center;\"><img src=\"imgs/img_in_image_box_633_1128_755_1290.jpg\" alt=\"Image\" width=\"9%\" /></div>",
           "bbox": null,
@@ -5213,13 +5693,13 @@
       }
     },
     {
-      "id": "ent:paddleocr:2401.12345:reference_item:170",
+      "id": "ent:paddleocr:2401.12345:reference_item:186",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "Geoffrey Ye Li is currently a Chair Professor at Imperial College London, UK. Before joining Imperial in 2020, he was a Professor at Georgia Institute of Technology for 20 years and a Principal Technical Staff Member with AT&T Labs – Research (previous Bell Labs) for five years. He made fundamental contributions to orthogonal frequency division multiplexing (OfDM) for wireless communications,established a framework on resource cooperation in wireless networks, and introduced deep learning to communications. In these areas, he has published over 700 journal and conference papers in addition to over 40 granted patents.His publications have been cited around 80.000 times with an H-index over 130. He has been listed as a Highly Cited Researcher by Clarivate/Web of Science almost every year.",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:2401.12345:p1:b459"
+        "paddleocr:2401.12345:p1:b475"
       ],
       "confidence": 0.62,
       "confidence_source": "heuristic",
@@ -5227,7 +5707,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:2401.12345:p1:b459",
+          "source_block_id": "paddleocr:2401.12345:p1:b475",
           "raw_ref": "output.md",
           "text": "Geoffrey Ye Li is currently a Chair Professor at Imperial College London, UK. Before joining Imperial in 2020, he was a Professor at Georgia Institute of Technology for 20 years and a Principal Technical Staff Member with AT&T Labs – Research (previous Bell Labs) for five years. He made fundamental contributions to orthogonal frequency division multiplexing (OfDM) for wireless communications,established a framework on resource cooperation in wireless networks, and introduced deep learning to communications. In these areas, he has published over 700 journal and conference papers in addition to over 40 granted patents.His publications have been cited around 80.000 times with an H-index over 130. He has been listed as a Highly Cited Researcher by Clarivate/Web of Science almost every year.",
           "bbox": null,
@@ -5242,13 +5722,13 @@
       }
     },
     {
-      "id": "ent:paddleocr:2401.12345:reference_item:171",
+      "id": "ent:paddleocr:2401.12345:reference_item:187",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "Dr. Geoffrey Ye Li was elected to Fellow of the Royal Academic of Engineering (FREng), IEEE Fellow, and IET Fellow for his contributionsto signal processing for wireless communications. He received 2024 IEEE Eric E.Sumner Award, 2019 IEEE ComSoc Edwin Howard Armstrong Achievement Award,andseveral other awards from IEEESignal Processing,Vehicular Technology, and Communications Societies.",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:2401.12345:p1:b460"
+        "paddleocr:2401.12345:p1:b476"
       ],
       "confidence": 0.62,
       "confidence_source": "heuristic",
@@ -5256,7 +5736,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:2401.12345:p1:b460",
+          "source_block_id": "paddleocr:2401.12345:p1:b476",
           "raw_ref": "output.md",
           "text": "Dr. Geoffrey Ye Li was elected to Fellow of the Royal Academic of Engineering (FREng), IEEE Fellow, and IET Fellow for his contributionsto signal processing for wireless communications. He received 2024 IEEE Eric E.Sumner Award, 2019 IEEE ComSoc Edwin Howard Armstrong Achievement Award,andseveral other awards from IEEESignal Processing,Vehicular Technology, and Communications Societies.",
           "bbox": null,
@@ -5271,13 +5751,13 @@
       }
     },
     {
-      "id": "ent:paddleocr:2401.12345:section:172",
+      "id": "ent:paddleocr:2401.12345:section:188",
       "entity_type": "section",
       "subtype": null,
       "canonical_text": "APPENDIX H ADDITIONAL EXPERIMENTAL RESULTS",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:2401.12345:p1:b461"
+        "paddleocr:2401.12345:p1:b477"
       ],
       "confidence": 0.75,
       "confidence_source": "heuristic",
@@ -5285,7 +5765,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:2401.12345:p1:b461",
+          "source_block_id": "paddleocr:2401.12345:p1:b477",
           "raw_ref": "output.md",
           "text": "## APPENDIX H ADDITIONAL EXPERIMENTAL RESULTS",
           "bbox": null,
@@ -5302,13 +5782,13 @@
       }
     },
     {
-      "id": "ent:paddleocr:2401.12345:reference_item:173",
+      "id": "ent:paddleocr:2401.12345:reference_item:189",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "Complementary to experimental setups in Section VI, we consider pure complex Gaussian channel noises. First, we suppose that the transmit antennas emit continuous-valued complex signals; without loss of generality, Gaussian signals are used in experiments. The performance evaluation measure is therefore the mean-squared error (MSE). The experimental results are shown in Fig. 2.",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:2401.12345:p1:b462"
+        "paddleocr:2401.12345:p1:b478"
       ],
       "confidence": 0.62,
       "confidence_source": "heuristic",
@@ -5316,7 +5796,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:2401.12345:p1:b462",
+          "source_block_id": "paddleocr:2401.12345:p1:b478",
           "raw_ref": "output.md",
           "text": "Complementary to experimental setups in Section VI, we consider pure complex Gaussian channel noises. First, we suppose that the transmit antennas emit continuous-valued complex signals; without loss of generality, Gaussian signals are used in experiments. The performance evaluation measure is therefore the mean-squared error (MSE). The experimental results are shown in Fig. 2.",
           "bbox": null,
@@ -5331,13 +5811,13 @@
       }
     },
     {
-      "id": "ent:paddleocr:2401.12345:reference_item:174",
+      "id": "ent:paddleocr:2401.12345:reference_item:190",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "<div style=\"text-align: center;\"><img src=\"imgs/img_in_chart_box_101_445_599_880.jpg\" alt=\"Image\" width=\"40%\" /></div>",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:2401.12345:p1:b463"
+        "paddleocr:2401.12345:p1:b479"
       ],
       "confidence": 0.62,
       "confidence_source": "heuristic",
@@ -5345,7 +5825,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:2401.12345:p1:b463",
+          "source_block_id": "paddleocr:2401.12345:p1:b479",
           "raw_ref": "output.md",
           "text": "<div style=\"text-align: center;\"><img src=\"imgs/img_in_chart_box_101_445_599_880.jpg\" alt=\"Image\" width=\"40%\" /></div>",
           "bbox": null,
@@ -5360,13 +5840,13 @@
       }
     },
     {
-      "id": "ent:paddleocr:2401.12345:reference_item:175",
+      "id": "ent:paddleocr:2401.12345:reference_item:191",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "<div style=\"text-align: center;\">Fig. 2. Testing MSE against training pilot sizes under different numbers of receive antennas; only non-robust beamformers including non-diagonalloading ones are considered. The true value of $\\pmb{R}_{\\tau}$ can be unknown and estimated using pilot data. The signal-to-noise ratio (SNR) is 10dB $\\mathrm{o r}-10\\mathrm{d B}$ i.</div>",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:2401.12345:p1:b464"
+        "paddleocr:2401.12345:p1:b480"
       ],
       "confidence": 0.62,
       "confidence_source": "heuristic",
@@ -5374,7 +5854,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:2401.12345:p1:b464",
+          "source_block_id": "paddleocr:2401.12345:p1:b480",
           "raw_ref": "output.md",
           "text": "<div style=\"text-align: center;\">Fig. 2. Testing MSE against training pilot sizes under different numbers of receive antennas; only non-robust beamformers including non-diagonalloading ones are considered. The true value of $\\pmb{R}_{\\tau}$ can be unknown and estimated using pilot data. The signal-to-noise ratio (SNR) is 10dB $\\mathrm{o r}-10\\mathrm{d B}$ i.</div>",
           "bbox": null,
@@ -5389,13 +5869,13 @@
       }
     },
     {
-      "id": "ent:paddleocr:2401.12345:reference_item:176",
+      "id": "ent:paddleocr:2401.12345:reference_item:192",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "From Fig. 2, the following main points can be outlined.",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:2401.12345:p1:b465"
+        "paddleocr:2401.12345:p1:b481"
       ],
       "confidence": 0.62,
       "confidence_source": "heuristic",
@@ -5403,7 +5883,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:2401.12345:p1:b465",
+          "source_block_id": "paddleocr:2401.12345:p1:b481",
           "raw_ref": "output.md",
           "text": "From Fig. 2, the following main points can be outlined.",
           "bbox": null,
@@ -5418,13 +5898,13 @@
       }
     },
     {
-      "id": "ent:paddleocr:2401.12345:reference_item:177",
+      "id": "ent:paddleocr:2401.12345:reference_item:193",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "Second, we suppose that the transmit antennas emit discretevalued symbols from a constellation that is modulated using quadrature phase-shift keying (QPSK). The performance evaluation measure is therefore the symbol error rate (SER). The experimental results are shown in Fig. 3. We find that all the conclusive main points from Fig. 2 can be obtained from Fig. 3 as well: this validates that minimizing MSE reduces SER. In addition, Figs.$3(\\mathbf{c})$ and 3(d) reveal that the Wiener beamformer even slightly works better than the Wiener-CE beamformer when the pilot size is smaller than 15 because the uncertainty in the estimated $\\hat{\\boldsymbol{R}}_{v}$ , on the contrary, misleads the latter. Nevertheless, as the pilot size increases, the Wiener-CE beamformer tends to overlap the Wiener beamformer quickly.",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:2401.12345:p1:b469"
+        "paddleocr:2401.12345:p1:b485"
       ],
       "confidence": 0.62,
       "confidence_source": "heuristic",
@@ -5432,7 +5912,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:2401.12345:p1:b469",
+          "source_block_id": "paddleocr:2401.12345:p1:b485",
           "raw_ref": "output.md",
           "text": "Second, we suppose that the transmit antennas emit discretevalued symbols from a constellation that is modulated using quadrature phase-shift keying (QPSK). The performance evaluation measure is therefore the symbol error rate (SER). The experimental results are shown in Fig. 3. We find that all the conclusive main points from Fig. 2 can be obtained from Fig. 3 as well: this validates that minimizing MSE reduces SER. In addition, Figs.$3(\\mathbf{c})$ and 3(d) reveal that the Wiener beamformer even slightly works better than the Wiener-CE beamformer when the pilot size is smaller than 15 because the uncertainty in the estimated $\\hat{\\boldsymbol{R}}_{v}$ , on the contrary, misleads the latter. Nevertheless, as the pilot size increases, the Wiener-CE beamformer tends to overlap the Wiener beamformer quickly.",
           "bbox": null,
@@ -5447,13 +5927,13 @@
       }
     },
     {
-      "id": "ent:paddleocr:2401.12345:reference_item:178",
+      "id": "ent:paddleocr:2401.12345:reference_item:194",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "<div style=\"text-align: center;\"><img src=\"imgs/img_in_chart_box_626_829_1125_1283.jpg\" alt=\"Image\" width=\"40%\" /></div>",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:2401.12345:p1:b470"
+        "paddleocr:2401.12345:p1:b486"
       ],
       "confidence": 0.62,
       "confidence_source": "heuristic",
@@ -5461,7 +5941,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:2401.12345:p1:b470",
+          "source_block_id": "paddleocr:2401.12345:p1:b486",
           "raw_ref": "output.md",
           "text": "<div style=\"text-align: center;\"><img src=\"imgs/img_in_chart_box_626_829_1125_1283.jpg\" alt=\"Image\" width=\"40%\" /></div>",
           "bbox": null,
@@ -5476,13 +5956,13 @@
       }
     },
     {
-      "id": "ent:paddleocr:2401.12345:reference_item:179",
+      "id": "ent:paddleocr:2401.12345:reference_item:195",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "<div style=\"text-align: center;\">Fig. 3. Testing SER against training pilot sizes under different numbers of receive antennas; only non-robust beamformers including non-diagonalloading ones are considered. The true value of $\\pmb{R}_{\\tau}$ ,can be unknown and estimated using pilot data. The signal-to-noise ratio (SNR) is 10dB $\\mathrm{o r}-10\\mathrm{d B}$ ;</div>",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:2401.12345:p1:b471"
+        "paddleocr:2401.12345:p1:b487"
       ],
       "confidence": 0.62,
       "confidence_source": "heuristic",
@@ -5490,7 +5970,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:2401.12345:p1:b471",
+          "source_block_id": "paddleocr:2401.12345:p1:b487",
           "raw_ref": "output.md",
           "text": "<div style=\"text-align: center;\">Fig. 3. Testing SER against training pilot sizes under different numbers of receive antennas; only non-robust beamformers including non-diagonalloading ones are considered. The true value of $\\pmb{R}_{\\tau}$ ,can be unknown and estimated using pilot data. The signal-to-noise ratio (SNR) is 10dB $\\mathrm{o r}-10\\mathrm{d B}$ ;</div>",
           "bbox": null,
@@ -9590,7 +10070,7 @@
       "id": "rel:paddleocr:2401.12345:171",
       "relation_type": "near",
       "source_entity_id": "ent:paddleocr:2401.12345:reference_item:171",
-      "target_entity_id": "ent:paddleocr:2401.12345:section:172",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:172",
       "confidence": 0.25,
       "confidence_source": "heuristic",
       "evidence": [
@@ -9613,7 +10093,7 @@
     {
       "id": "rel:paddleocr:2401.12345:172",
       "relation_type": "near",
-      "source_entity_id": "ent:paddleocr:2401.12345:section:172",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:172",
       "target_entity_id": "ent:paddleocr:2401.12345:reference_item:173",
       "confidence": 0.25,
       "confidence_source": "heuristic",
@@ -9741,7 +10221,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "paddleocr:2401.12345:p1:b469",
+          "source_block_id": "paddleocr:2401.12345:p1:b466",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -9765,6 +10245,78 @@
         {
           "kind": "document_context",
           "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b467",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:179",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:179",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:180",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b468",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:180",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:180",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:181",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b469",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:181",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:181",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:182",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
           "source_block_id": "paddleocr:2401.12345:p1:b470",
           "raw_ref": null,
           "text": null,
@@ -9776,6 +10328,486 @@
       ],
       "metadata": {
         "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:182",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:182",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:183",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b471",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:183",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:183",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:184",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b472",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:184",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:184",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:185",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b473",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:185",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:185",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:186",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b474",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:186",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:186",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:187",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b475",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:187",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:187",
+      "target_entity_id": "ent:paddleocr:2401.12345:section:188",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b476",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:188",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:2401.12345:section:188",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:189",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b477",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:189",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:189",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:190",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b478",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:190",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:190",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:191",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b479",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:191",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:191",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:192",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b480",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:192",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:192",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:193",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b481",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:193",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:193",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:194",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b485",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:194",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:194",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:195",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b486",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:195",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:159",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:160",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b448",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:196",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:160",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:161",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b449",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:197",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:165",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:166",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b454",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:198",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:167",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:168",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b456",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:199",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:169",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:170",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b458",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:200",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:174",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:175",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b463",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:2401.12345:201",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:paddleocr:2401.12345:reference_item:176",
+      "target_entity_id": "ent:paddleocr:2401.12345:reference_item:177",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:2401.12345:p1:b465",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
       }
     }
   ],

@@ -87,3 +87,61 @@ class TestConnectorWriting:
         assert "raw_text_missing" in connect_raw_dir(raw_dir=tmp_path, document_id="doc", config=CFG).warnings
     def test_missing_raw_dir_fails_hard(self, tmp_path):
         with pytest.raises(ValueError): connect_raw_dir(raw_dir=tmp_path/"missing", document_id="doc", config=CFG)
+
+
+# ---------------------------------------------------------------------------
+# _separate_bracket_bib_entries — Phase 1A connector pre-pass.
+# ---------------------------------------------------------------------------
+def _bib_block_count(text: str, backend: str = "mineru") -> int:
+    """Run the markdown→IR pipeline and count blocks that *start* with ``[N]``."""
+    import re
+    from pdf2md.connectors.common import markdown_to_pages
+    pages = markdown_to_pages(
+        text, backend=backend, backend_version=None,
+        document_id="d", raw_ref="r", warnings=[],
+    )
+    bib = 0
+    for p in pages:
+        for b in p.blocks:
+            if re.match(r"^\[\d+\]\s+\S", (b.text or "").lstrip()):
+                bib += 1
+    return bib
+
+
+def test_separates_adjacent_bracket_bib_entries() -> None:
+    """Lines like ``[1] A. ...\\n[2] B. ...`` must each become their own block."""
+    md = "[1] Smith, 2020.\n[2] Doe, 2021.\n[3] Roe, 2022.\n[4] Lee, 2023.\n"
+    assert _bib_block_count(md) == 4
+
+
+def test_keeps_wrapped_bib_entry_in_single_block() -> None:
+    """A wrap line inside a single ``[N]`` entry should NOT split it."""
+    md = "[1] Author, A long title that wraps\nacross two lines, Journal, 2020.\n"
+    assert _bib_block_count(md) == 1
+
+
+def test_separates_bib_entries_across_internal_blank_line() -> None:
+    """``[31] ... Ul-\\n\\nrich Schollwock ... \\n[32] ...`` — mineru emits a
+    blank line in the middle of [31] due to a page break in the source PDF.
+    Both entries should still come out as separate blocks."""
+    md = (
+        "[31] F. A. Wolf and Ul-\n"
+        "\n"
+        "rich Schollwock, 2014.\n"
+        "[32] Numerical Analysis, 1990.\n"
+    )
+    assert _bib_block_count(md) == 2
+
+
+def test_does_not_split_isolated_bracket_citation_in_prose() -> None:
+    """A one-off ``[2] is the next.`` line in body text (NOT inside a
+    bib run) should NOT be promoted to its own block."""
+    md = (
+        "Some body text that talks about citations.\n"
+        "[2] is the next step in the argument.\n"
+        "More body text follows.\n"
+    )
+    # Whole thing fuses as one paragraph; the line starting with [2]
+    # ends up inside it. We don't promote a one-off [N] line to a new
+    # block because there's no second [N] nearby.
+    assert _bib_block_count(md) == 0

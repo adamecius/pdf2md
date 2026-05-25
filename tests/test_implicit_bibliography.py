@@ -184,3 +184,34 @@ def test_implicit_detector_fires_on_long_run_anywhere_in_document() -> None:
         if (e.entity_type.value if hasattr(e.entity_type, "value") else e.entity_type) == "reference_section"
     ]
     assert any(s.metadata.get("detector") == "implicit_bibliography_detector" for s in ref_sections)
+
+
+def test_implicit_detector_promotes_duplicate_bibliography_runs() -> None:
+    """OCR sometimes captures the same bibliography twice — for
+    example because of a dual-column page-1 extract followed by a
+    single-column page-2 extract of the same References block. The
+    detector should promote BOTH ascending runs, not just the
+    longest, so every bib candidate is visible to the resolver."""
+    body = ["# Body", "x"] * 5
+    refs1 = [f"[{n}] entry first {n}" for n in range(1, 6)]   # 5 entries
+    refs2 = [f"[{n}] entry second {n}" for n in range(1, 8)]  # 7 entries
+    # Place refs1 in the middle so a heading separates the two runs
+    # (the heading creates a non-footnote entity that breaks
+    # contiguity, the same way page-headers do on real OCR output).
+    md = _spread_over_pages(body + refs1 + ["# Notes", "more body"] + refs2, pages=4)
+    doc = _ents(md)
+    ref_items = [
+        e for e in doc.entities
+        if (e.entity_type.value if hasattr(e.entity_type, "value") else e.entity_type) == "reference_item"
+    ]
+    assert len(ref_items) == 5 + 7  # both runs promoted
+    # Synthetic REFERENCE_SECTION anchors on the LONGEST run, with
+    # qualifying_runs recorded so audits can see the duplication.
+    ref_sections = [
+        e for e in doc.entities
+        if (e.entity_type.value if hasattr(e.entity_type, "value") else e.entity_type) == "reference_section"
+    ]
+    impl = [s for s in ref_sections if s.metadata.get("detector") == "implicit_bibliography_detector"]
+    assert len(impl) == 1
+    assert impl[0].metadata.get("qualifying_runs") == 2
+    assert impl[0].metadata.get("run_size") == 7
