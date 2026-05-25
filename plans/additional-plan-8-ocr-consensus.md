@@ -1,7 +1,19 @@
 # Additional Plan 8 — OCR-Side Weighted Consensus (`consensus` OCR option)
 
 Status:
-draft
+agent_complete
+
+Implementation note (PR #128):
+Implemented via :func:`pdf2md.consensus.merge_entity_documents` rather
+than the heavier :func:`build_consensus_ir` route originally sketched
+in §3.1. The block-level ConsensusIR sits at the wrong abstraction for
+the webui resolver bridge, which consumes
+:class:`EntityProposalDocument` directly. The lightweight
+entity-level merge keeps highest-confidence per dedup key and records
+``merged_from_backends`` for audits — same shape the semantic side's
+:func:`merge_graphs` produces. The full block-level ConsensusIR
+remains available behind ``pdf2md.consensus.build_consensus_ir`` for
+future stages.
 
 Allowed status values:
 draft

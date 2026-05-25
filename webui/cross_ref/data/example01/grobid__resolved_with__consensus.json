@@ -1,0 +1,2602 @@
+{
+  "schema_version": "1.0.0",
+  "document_id": "example01/grobid+consensus",
+  "nodes": [
+    {
+      "id": "#/bibliography/b0",
+      "type": "bibliography",
+      "label": "A Bastin C Lewinner O Betbeder-Matibet P Nozieres J. Phys. Chem. Solids 32 1811 1971 A. Bastin, C. Lewinner, O. Betbeder-Matibet and P. Nozieres, J. Phys. Chem. Solids 32, 1811 (1971)."
+    },
+    {
+      "id": "#/bibliography/b1",
+      "type": "bibliography",
+      "label": "E H Hall Am. J. Math 2 287 1879 E. H. Hall, Am. J. Math 2, 287 (1879)."
+    },
+    {
+      "id": "#/bibliography/b2",
+      "type": "bibliography",
+      "label": "N Nagaosa J Sinova S Onoda A H Macdonald N P Ong Rev. Mod. Phys 82 1539 2010 N. Nagaosa, J. Sinova, S. Onoda, A. H. MacDonald and N. P. Ong, Rev. Mod. Phys. 82, 1539 (2010)."
+    },
+    {
+      "id": "#/bibliography/b3",
+      "type": "bibliography",
+      "label": "T Jungwirth J Wunderlich K Olejnik Nature Mat 11 382 2012 T. Jungwirth, J. Wunderlich and K. Olejnik, Nature Mat. 11, 382 (2012)."
+    },
+    {
+      "id": "#/bibliography/b4",
+      "type": "bibliography",
+      "label": "K Klitzing G Dorda M Pepper Phys. Rev. Lett 45 494 1980 K. Klitzing, G. Dorda, M. Pepper, Phys. Rev. Lett. 45, 494 (1980)."
+    },
+    {
+      "id": "#/bibliography/b5",
+      "type": "bibliography",
+      "label": "C.-Z Chang Science 340 167 2013 C.-Z.Chang et al. ,Science 340,167 (2013)."
+    },
+    {
+      "id": "#/bibliography/b6",
+      "type": "bibliography",
+      "label": "M K\u00f6nig Science 318 766 2007 M.K\u00f6nig et al., Science 318, 766(2007)."
+    },
+    {
+      "id": "#/bibliography/b7",
+      "type": "bibliography",
+      "label": "M Z Hasan C L Kane Rev. Mod. Phys 82 3045 2010 M. Z. Hasan and C. L. Kane, Rev. Mod. Phys. 82 3045 (2010)."
+    },
+    {
+      "id": "#/bibliography/b8",
+      "type": "bibliography",
+      "label": "R Kubo J. Phys. Soc. Japan 12 570 1957 R. Kubo, J. Phys. Soc. Japan 12, 570 (1957);"
+    },
+    {
+      "id": "#/bibliography/b9",
+      "type": "bibliography",
+      "label": "R Kubo A Yokota S Nakajima J. Phys. Soc. Japan 12 1203 1957 R. Kubo, A. Yokota, and S. Nakajima, J. Phys. Soc. Japan 12,1203 (1957)."
+    },
+    {
+      "id": "#/bibliography/b10",
+      "type": "bibliography",
+      "label": "D J Thouless M Kohmoto M P Nightingale M Nijs Phys. Rev. Lett 49 405 1982 D.J. Thouless, M. Kohmoto, M. P. Nightingale and M. den Nijs, Phys. Rev. Lett. 49, 405 (1982)."
+    },
+    {
+      "id": "#/bibliography/b11",
+      "type": "bibliography",
+      "label": "Yisong Zheng Tsuneya Ando Phys. Rev. B 65 245420 2002 Yisong Zheng and Tsuneya Ando, Phys. Rev. B 65, 245420 (2002)."
+    },
+    {
+      "id": "#/bibliography/b12",
+      "type": "bibliography",
+      "label": "D N Sheng L Sheng Z Y Weng Phys. Rev. B 73 233406 2006 D. N. Sheng, L. Sheng, and Z. Y. Weng, Phys. Rev. B 73, 233406 (2006)."
+    },
+    {
+      "id": "#/bibliography/b13",
+      "type": "bibliography",
+      "label": "Yu Xue Emil Prodan Phys. Rev. B 86 155445 2012 Yu Xue and Emil Prodan, Phys. Rev. B 86, 155445 (2012)."
+    },
+    {
+      "id": "#/bibliography/b14",
+      "type": "bibliography",
+      "label": "Frank Ortmann Stephan Roche Phys. Rev. Lett 110 86602 2013 Frank Ortmann and Stephan Roche, Phys. Rev. Lett. 110, 086602 (2013)."
+    },
+    {
+      "id": "#/bibliography/b15",
+      "type": "bibliography",
+      "label": "D A Greenwood Proc. Phys. Soc. (London) 71 585 1958 D. A. Greenwood, Proc. Phys. Soc. (London) 71, 585 (1958)."
+    },
+    {
+      "id": "#/bibliography/b16",
+      "type": "bibliography",
+      "label": "A Weisse G Wellein A Alvermann H Fehske Rev. Mod. Phys 78 275 2006 A. Weisse, G. Wellein, A. Alvermann, H. Fehske, Rev. Mod. Phys. 78, 275(2006)."
+    },
+    {
+      "id": "#/bibliography/b17",
+      "type": "bibliography",
+      "label": "S Roche Phys. Rev. B 59 2284 1999 S. Roche, Phys. Rev. B 59, 2284 (1999)."
+    },
+    {
+      "id": "#/bibliography/b18",
+      "type": "bibliography",
+      "label": "S Yuan H De Raedt M I Katsnelson Phys. Rev. B 82 115448 2010 S. Yuan, H. De Raedt, and M.I. Katsnelson, Phys. Rev. B 82, 115448 (2010)."
+    },
+    {
+      "id": "#/bibliography/b19",
+      "type": "bibliography",
+      "label": "Aires Ferreira J Viana-Gomes Johan Nilsson E R Mucciolo N M R Peres A H Castro Neto Phys. Rev. B 83 165402 2011 Aires Ferreira, J. Viana-Gomes, Johan Nilsson, E. R. Mucciolo, N. M. R. Peres, and A. H. Castro Neto, Phys. Rev. B 83, 165402 (2011)."
+    },
+    {
+      "id": "#/bibliography/b20",
+      "type": "bibliography",
+      "label": "Z Fan A Uppstu T Siro A Harju Computer Physics Communications 185 28 2014 Z. Fan, A. Uppstu, T. Siro, and A. Harju, Computer Physics Communications 185, 28 (2014)."
+    },
+    {
+      "id": "#/bibliography/b21",
+      "type": "bibliography",
+      "label": "T L Van Den Berg L Raymond A Verga Phys. Rev. B 84 245210 2011 T. L. van den Berg, L. Raymond, A. Verga, Phys. Rev. B 84, 245210 (2011)."
+    },
+    {
+      "id": "#/bibliography/b22",
+      "type": "bibliography",
+      "label": "A H Castro Neto F Guinea N M R Peres K S Novoselov A K Geim Rev. Mod. Phys 81 109 2009 A. H. Castro Neto, F. Guinea, N. M. R. Peres, K. S. Novoselov, and A. K. Geim, Rev. Mod. Phys. 81, 109 (2009)."
+    },
+    {
+      "id": "#/bibliography/b23",
+      "type": "bibliography",
+      "label": "S Das Sarma Shaffique Adam E H Hwang Enrico Rossi Rev. Mod. Phys 83 407 2011 and references therein S. Das Sarma, Shaffique Adam, E. H. Hwang, Enrico Rossi, Rev. Mod. Phys. 83, 407 (2011) and references therein."
+    },
+    {
+      "id": "#/bibliography/b24",
+      "type": "bibliography",
+      "label": "S Gattenlohner W.-R Hannes P M Ostrovsky I V Gornyi A D Mirlin M Titov Phys. Rev. Lett 112 26802 2014 S. Gattenlohner, W.-R. Hannes, P. M. Ostrovsky, I. V. Gornyi, A. D. Mirlin, M. Titov, Phys. Rev. Lett. 112, 026802 (2014)"
+    },
+    {
+      "id": "#/bibliography/b25",
+      "type": "bibliography",
+      "label": "F D M Haldane Phys. Rev. Lett 61 2015 1988 F. D. M. Haldane, Phys. Rev. Lett. 61, 2015 (1988)."
+    },
+    {
+      "id": "#/bibliography/b26",
+      "type": "bibliography",
+      "label": "A Crepieux P Bruno Phys. Rev. B 64 94434 2001 A. Crepieux, and P. Bruno, Phys. Rev. B 64, 094434 (2001)."
+    },
+    {
+      "id": "#/bibliography/b27",
+      "type": "bibliography",
+      "label": "P Streda J. Phys. C: Solid State Phys 15 1299 1982. 1982 L P. Streda, J. Phys. C: Solid State Phys. 15, L717 (1982); 15, L1299 (1982)."
+    },
+    {
+      "id": "#/bibliography/b28",
+      "type": "bibliography",
+      "label": "R N Silvera H Roederb A F Votera J D Kressb Journal of Computational Physics 124 115 1996 R.N. Silvera, H. Roederb, A.F. Votera, J.D. Kressb, Jour- nal of Computational Physics 124, 115 (1996)."
+    },
+    {
+      "id": "#/bibliography/b29",
+      "type": "bibliography",
+      "label": "L Covaci F M Peeters M Berciu Phys. Rev. Lett 105 167006 2010 L. Covaci, F.M. Peeters, M. Berciu, Phys. Rev. Lett. 105, 167006 (2010)"
+    },
+    {
+      "id": "#/bibliography/b30",
+      "type": "bibliography",
+      "label": "M Ganahl P Thunstrom F Verstraete K Held H G Evertz Phys. Rev. B 90 45144 2014 M. Ganahl, P. Thunstrom, F. Verstraete, K. Held, H. G. Evertz, Phys. Rev. B. 90, 045144 (2014)."
+    },
+    {
+      "id": "#/bibliography/b31",
+      "type": "bibliography",
+      "label": "F A Wolf Ian P Mcculloch Olivier Parcollet Ul-Rich Schollwock Phys. Rev. B 90 115124 2014 F. A. Wolf, Ian P. McCulloch, Olivier Parcollet, and Ul- rich Schollwock, Phys. Rev. B. 90, 115124 (2014)."
+    },
+    {
+      "id": "#/bibliography/b32",
+      "type": "bibliography",
+      "label": "Numerical Analysis: Mathematics of Scientific Computing David Ronald Kincaid, Elliott Ward Cheney American Mathematical Society 2002 2 \"Numerical Analysis: Mathematics of Scientific Comput- ing, Vol 2\", David Ronald Kincaid, Elliott Ward Cheney, American Mathematical Society (2002)."
+    },
+    {
+      "id": "#/bibliography/b33",
+      "type": "bibliography",
+      "label": "See Supplemental Material which includes Refs. 42-48 See Supplemental Material [url], which includes Refs. [42- 48]"
+    },
+    {
+      "id": "#/bibliography/b34",
+      "type": "bibliography",
+      "label": "A Weisse Eur. Phys. J. B 40 125 2004 A. Weisse, Eur. Phys. J. B 40, 125 (2004);"
+    },
+    {
+      "id": "#/bibliography/b35",
+      "type": "bibliography",
+      "label": "A Weisse G Schubert H Fehske Physica B 359-361 2005 786 A. Weisse, G. Schubert, H. Fehske, Physica B 359-361, 786 (2005)."
+    },
+    {
+      "id": "#/bibliography/b36",
+      "type": "bibliography",
+      "label": "R Alben M Blume H Krakauer L Schwartz Phys.Rev. B 12 4090 1975 R. Alben, M. Blume, H. Krakauer, L. Schwartz, Phys.Rev. B 12, 4090(1975)."
+    },
+    {
+      "id": "#/bibliography/b37",
+      "type": "bibliography",
+      "label": "Toshiaki Iitaka Toshikazu Ebisuzaki Phys. Rev. E 69 57701 2004 Toshiaki Iitaka, Toshikazu Ebisuzaki, Phys. Rev. E,69, 057701(2004)."
+    },
+    {
+      "id": "#/bibliography/b38",
+      "type": "bibliography",
+      "label": "K S Novoselov A K Geim S V Morozov D Jiang M I Katsnelson I V Grigorieva S V Dubonos A A Firsov Nature 438 197 2005 K. S. Novoselov, A. K. Geim, S. V. Morozov, D. Jiang, M. I. Katsnelson, I. V. Grigorieva, S. V. Dubonos, and A. A. Firsov, Nature 438, 197 (2005)."
+    },
+    {
+      "id": "#/bibliography/b39",
+      "type": "bibliography",
+      "label": "C Z Chang Science 340 167 2013 C. Z. Chang et al. Science 340 167 (2013)."
+    },
+    {
+      "id": "#/bibliography/b40",
+      "type": "bibliography",
+      "label": "Jian Li Rui-Lin Chu J K Jain Shun-Qing Shen Phys. Rev. Lett 102 136806 2009 Jian Li, Rui-Lin Chu, J. K. Jain, and Shun-Qing Shen, Phys. Rev. Lett. 102, 136806 (2009)."
+    },
+    {
+      "id": "#/bibliography/b41",
+      "type": "bibliography",
+      "label": "Juntao Song Haiwen Liu Hua Jiang Qing-Feng Sun X C Xie Phys.Rev. B 85 195125 2012 Juntao Song, Haiwen Liu, Hua Jiang, Qing-feng Sun, and X. C. Xie, Phys.Rev. B 85, 195125 (2012)."
+    },
+    {
+      "id": "#/bibliography/b42",
+      "type": "bibliography",
+      "label": "K Sun Z Gu H Katsura S Das Sarma Phys. Rev. Lett 106 236803 2011 K. Sun, Z. Gu, H. Katsura, and S. Das Sarma, Phys. Rev. Lett. 106, 236803 (2011);"
+    },
+    {
+      "id": "#/bibliography/b43",
+      "type": "bibliography",
+      "label": "E Tang J.-W Mei X.-G E. Tang, J.-W. Mei, and X.-G."
+    },
+    {
+      "id": "#/bibliography/b44",
+      "type": "bibliography",
+      "label": "Wen Phys. Rev. Lett 106 236802 2011 Wen, Phys. Rev. Lett. 106, 236802 (2011);"
+    },
+    {
+      "id": "#/bibliography/b45",
+      "type": "bibliography",
+      "label": "T Neupert L Santos C Chamon C Mudry Phys. Rev. Lett 106 236804 2011 T. Neupert, L. Santos, C. Chamon, and C. Mudry, Phys. Rev. Lett. 106, 236804 (2011)."
+    },
+    {
+      "id": "#/bibliography/b46",
+      "type": "bibliography",
+      "label": "Jens Holger Fehske Gerald Schleede Gerhard Schubert Vladimir S Wellein Alan R Filinov Bishop Phys. Lett. A 373 2182 2009 Holger Fehske, Jens Schleede, Gerald Schubert, Gerhard Wellein, Vladimir S. Filinov, Alan R. Bishop, Phys. Lett. A 373, 2182 (2009)."
+    },
+    {
+      "id": "#/bibliography/b47",
+      "type": "bibliography",
+      "label": "J B Wang T T Scholz Phys. Rev. A 57 3554 1998 J. B. Wang and T. T. Scholz , Phys. Rev. A 57, 3554 (1998)."
+    },
+    {
+      "id": "#/bibliography/b48",
+      "type": "bibliography",
+      "label": "A Weisse H Fehske Lect. Notes Phys 739 545577 2008 A. Weisse and H. Fehske, Lect. Notes Phys. 739, 545577 (2008)."
+    },
+    {
+      "id": "#/bibliography/b49",
+      "type": "bibliography",
+      "label": "D Jackson XI providence R. I 1930 American Mathematical Society Colloquium Publications D. Jackson D. Jackson, American Mathematical Society Colloquium Publications D. Jackson, XI providence R. I. (1930)."
+    },
+    {
+      "id": "#/bibliography/b50",
+      "type": "bibliography",
+      "label": "D A Drabold O F Sankey Phys. Rev. Lett 70 3631 1993 D. A. Drabold and O. F. Sankey, Phys. Rev. Lett. 70 3631(1993)."
+    },
+    {
+      "id": "#/bibliography/b51",
+      "type": "bibliography",
+      "label": "R N Silver H Rder Int. J. Mod. Phys. C 5 935 1994 Silver, R. N., and H. Rder Int. J. Mod. Phys. C 5 935 (1994)."
+    },
+    {
+      "id": "#/bibliography/b52",
+      "type": "bibliography",
+      "label": "Cuda Perfomance Report September 2014 Cuda Perfomance Report, September 2014."
+    },
+    {
+      "id": "#/bibliography/b53",
+      "type": "bibliography",
+      "label": "Alexander Weisse Gerhard Wellein Andreas Alvermann Holger Fehske Rev. Mod. Phys 78 275 2006 Alexander Weisse, Gerhard Wellein, Andreas Alvermann and Holger Fehske, Rev. Mod. Phys. 78, 275 (2006)."
+    },
+    {
+      "id": "#/bibliography/b54",
+      "type": "bibliography",
+      "label": "L Covaci F M Peeters M Berciu Phys. Rev. Lett 105 167006 2010 L. Covaci, F. M. Peeters and M. Berciu , Phys. Rev. Lett. 105, 167006 (2010)."
+    },
+    {
+      "id": "#/bibliography/b55",
+      "type": "bibliography",
+      "label": "Jens Holger Fehske Gerald Schleede Gerhard Schubert Vladimir S Wellein Alan R Filinov Bishop Phys. Lett. A 373 2182 2009 Holger Fehske, Jens Schleede, Gerald Schubert, Gerhard Wellein, Vladimir S. Filinov, Alan R. Bishop, Phys. Lett. A 373, 2182 (2009)."
+    },
+    {
+      "id": "#/bibliography/b56",
+      "type": "bibliography",
+      "label": "J B Wang T T Scholz Phys. Rev. A 5 57 1998 J. B. Wang and T. T. Scholz , Phys. Rev. A 5, 57 (1998)."
+    },
+    {
+      "id": "#/bibliography/b57",
+      "type": "bibliography",
+      "label": "R N Silver H Roeder A F Voter J D Kress Journal of Computational Physics 124 1996 R. N. Silver, H. Roeder, A. F. Voter and J. D. Kress, Journal of Computational Physics 124, 115-130 (1996)."
+    },
+    {
+      "id": "#/bibliography/b58",
+      "type": "bibliography",
+      "label": "A Weisse H Fehske Lect. Notes Phys 739 545577 2008 A. Weisse and H. Fehske, Lect. Notes Phys. 739, 545577 (2008)."
+    },
+    {
+      "id": "#/bibliography/b59",
+      "type": "bibliography",
+      "label": "D Jackson XI providence R. I 1930 American Mathematical Society Colloquium Publications D. Jackson D. Jackson, American Mathematical Society Colloquium Publications D. Jackson, XI providence R. I. (1930)."
+    },
+    {
+      "id": "#/bibliography/b60",
+      "type": "bibliography",
+      "label": "D A Drabold O F Sankey Phys. Rev. Lett 70 3631 1993 D. A. Drabold and O. F. Sankey, Phys. Rev. Lett. 70 3631(1993)."
+    },
+    {
+      "id": "#/bibliography/b61",
+      "type": "bibliography",
+      "label": "R N Silver H Rder Int. J. Mod. Phys. C 5 935 1994 Silver, R. N., and H. Rder Int. J. Mod. Phys. C 5 935 (1994)."
+    },
+    {
+      "id": "#/bibliography/b62",
+      "type": "bibliography",
+      "label": "Toshiaki Iitaka Toshikazu Ebisuzakis Phys. Rev. E 69 57701 2004 Toshiaki Iitaka and Toshikazu Ebisuzakis,Phys. Rev. E 69 057701 (2004)."
+    },
+    {
+      "id": "#/bibliography/b63",
+      "type": "bibliography",
+      "label": "A Bastin C Lewiner O Betbeder-Matibet P Nozieres J. Phys, Chem. Solids 32 1971 A. Bastin, C. Lewiner, O. Betbeder-Matibet et P. Nozieres, J. Phys, Chem. Solids 32 1-1824 (1971)."
+    },
+    {
+      "id": "#/bibliography/b64",
+      "type": "bibliography",
+      "label": "Cuda Perfomance Report September 2014 Cuda Perfomance Report, September 2014."
+    },
+    {
+      "id": "marker:0:#/document:[2]",
+      "type": "bibliography",
+      "label": "[2]",
+      "source_ref": "#/document",
+      "char_offset": [
+        0,
+        3
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:1:#/document:[3]",
+      "type": "bibliography",
+      "label": "[3]",
+      "source_ref": "#/document",
+      "char_offset": [
+        4,
+        7
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:2:#/document:[4]",
+      "type": "bibliography",
+      "label": "[4]",
+      "source_ref": "#/document",
+      "char_offset": [
+        8,
+        11
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:3:#/document:[5]",
+      "type": "bibliography",
+      "label": "[5]",
+      "source_ref": "#/document",
+      "char_offset": [
+        12,
+        15
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:4:#/document:[6,",
+      "type": "bibliography",
+      "label": "[6,",
+      "source_ref": "#/document",
+      "char_offset": [
+        16,
+        19
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:5:#/document:7]",
+      "type": "bibliography",
+      "label": "7]",
+      "source_ref": "#/document",
+      "char_offset": [
+        20,
+        22
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:6:#/document:[8]",
+      "type": "bibliography",
+      "label": "[8]",
+      "source_ref": "#/document",
+      "char_offset": [
+        23,
+        26
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:7:#/document:[9]",
+      "type": "bibliography",
+      "label": "[9]",
+      "source_ref": "#/document",
+      "char_offset": [
+        27,
+        30
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:8:#/document:[10]",
+      "type": "bibliography",
+      "label": "[10]",
+      "source_ref": "#/document",
+      "char_offset": [
+        31,
+        35
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:9:#/document:[11]",
+      "type": "bibliography",
+      "label": "[11]",
+      "source_ref": "#/document",
+      "char_offset": [
+        36,
+        40
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:10:#/document:[12,",
+      "type": "bibliography",
+      "label": "[12,",
+      "source_ref": "#/document",
+      "char_offset": [
+        41,
+        45
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:11:#/document:13]",
+      "type": "bibliography",
+      "label": "13]",
+      "source_ref": "#/document",
+      "char_offset": [
+        46,
+        49
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:12:#/document:[14]",
+      "type": "bibliography",
+      "label": "[14]",
+      "source_ref": "#/document",
+      "char_offset": [
+        50,
+        54
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:13:#/document:[1]",
+      "type": "bibliography",
+      "label": "[1]",
+      "source_ref": "#/document",
+      "char_offset": [
+        55,
+        58
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:14:#/document:[16]",
+      "type": "bibliography",
+      "label": "[16]",
+      "source_ref": "#/document",
+      "char_offset": [
+        59,
+        63
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:15:#/document:[17]",
+      "type": "bibliography",
+      "label": "[17]",
+      "source_ref": "#/document",
+      "char_offset": [
+        64,
+        68
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:16:#/document:[18]",
+      "type": "bibliography",
+      "label": "[18]",
+      "source_ref": "#/document",
+      "char_offset": [
+        69,
+        73
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:17:#/document:[19]",
+      "type": "bibliography",
+      "label": "[19]",
+      "source_ref": "#/document",
+      "char_offset": [
+        74,
+        78
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:18:#/document:[20]",
+      "type": "bibliography",
+      "label": "[20]",
+      "source_ref": "#/document",
+      "char_offset": [
+        79,
+        83
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:19:#/document:[14,",
+      "type": "bibliography",
+      "label": "[14,",
+      "source_ref": "#/document",
+      "char_offset": [
+        84,
+        88
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:20:#/document:21]",
+      "type": "bibliography",
+      "label": "21]",
+      "source_ref": "#/document",
+      "char_offset": [
+        89,
+        92
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:21:#/document:[14,",
+      "type": "bibliography",
+      "label": "[14,",
+      "source_ref": "#/document",
+      "char_offset": [
+        84,
+        88
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:22:#/document:[22]",
+      "type": "bibliography",
+      "label": "[22]",
+      "source_ref": "#/document",
+      "char_offset": [
+        98,
+        102
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:23:#/document:[23]",
+      "type": "bibliography",
+      "label": "[23]",
+      "source_ref": "#/document",
+      "char_offset": [
+        103,
+        107
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:24:#/document:[24]",
+      "type": "bibliography",
+      "label": "[24]",
+      "source_ref": "#/document",
+      "char_offset": [
+        108,
+        112
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:25:#/document:[25]",
+      "type": "bibliography",
+      "label": "[25]",
+      "source_ref": "#/document",
+      "char_offset": [
+        113,
+        117
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:26:#/document:[1]",
+      "type": "bibliography",
+      "label": "[1]",
+      "source_ref": "#/document",
+      "char_offset": [
+        55,
+        58
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:27:#/document:[1]",
+      "type": "bibliography",
+      "label": "[1]",
+      "source_ref": "#/document",
+      "char_offset": [
+        55,
+        58
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:28:#/document:[26]",
+      "type": "bibliography",
+      "label": "[26]",
+      "source_ref": "#/document",
+      "char_offset": [
+        126,
+        130
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:29:#/document:[26]",
+      "type": "bibliography",
+      "label": "[26]",
+      "source_ref": "#/document",
+      "char_offset": [
+        126,
+        130
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:30:#/document:[27]",
+      "type": "bibliography",
+      "label": "[27]",
+      "source_ref": "#/document",
+      "char_offset": [
+        136,
+        140
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:31:#/document:[15]",
+      "type": "bibliography",
+      "label": "[15]",
+      "source_ref": "#/document",
+      "char_offset": [
+        141,
+        145
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:32:#/document:1",
+      "type": "equation",
+      "label": "1",
+      "source_ref": "#/document",
+      "char_offset": [
+        32,
+        33
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:33:#/document:[16,",
+      "type": "bibliography",
+      "label": "[16,",
+      "source_ref": "#/document",
+      "char_offset": [
+        148,
+        152
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:34:#/document:28]",
+      "type": "bibliography",
+      "label": "28]",
+      "source_ref": "#/document",
+      "char_offset": [
+        153,
+        156
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:35:#/document:[16,",
+      "type": "bibliography",
+      "label": "[16,",
+      "source_ref": "#/document",
+      "char_offset": [
+        148,
+        152
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:36:#/document:[29]",
+      "type": "bibliography",
+      "label": "[29]",
+      "source_ref": "#/document",
+      "char_offset": [
+        162,
+        166
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:37:#/document:[30]",
+      "type": "bibliography",
+      "label": "[30]",
+      "source_ref": "#/document",
+      "char_offset": [
+        167,
+        171
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:38:#/document:[31]",
+      "type": "bibliography",
+      "label": "[31]",
+      "source_ref": "#/document",
+      "char_offset": [
+        172,
+        176
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:39:#/document:[32]",
+      "type": "bibliography",
+      "label": "[32]",
+      "source_ref": "#/document",
+      "char_offset": [
+        177,
+        181
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:40:#/document:[33]",
+      "type": "bibliography",
+      "label": "[33]",
+      "source_ref": "#/document",
+      "char_offset": [
+        182,
+        186
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:41:#/document:[16,",
+      "type": "bibliography",
+      "label": "[16,",
+      "source_ref": "#/document",
+      "char_offset": [
+        148,
+        152
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:42:#/document:28]",
+      "type": "bibliography",
+      "label": "28]",
+      "source_ref": "#/document",
+      "char_offset": [
+        153,
+        156
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:43:#/document:(19)",
+      "type": "bibliography",
+      "label": "(19)",
+      "source_ref": "#/document",
+      "char_offset": [
+        196,
+        200
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:44:#/document:[34]",
+      "type": "bibliography",
+      "label": "[34]",
+      "source_ref": "#/document",
+      "char_offset": [
+        201,
+        205
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:45:#/document:[20,",
+      "type": "bibliography",
+      "label": "[20,",
+      "source_ref": "#/document",
+      "char_offset": [
+        206,
+        210
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:46:#/document:29]",
+      "type": "bibliography",
+      "label": "29]",
+      "source_ref": "#/document",
+      "char_offset": [
+        163,
+        166
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:47:#/document:[35,",
+      "type": "bibliography",
+      "label": "[35,",
+      "source_ref": "#/document",
+      "char_offset": [
+        215,
+        219
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:48:#/document:36]",
+      "type": "bibliography",
+      "label": "36]",
+      "source_ref": "#/document",
+      "char_offset": [
+        220,
+        223
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:49:#/document:1 (b)",
+      "type": "figure",
+      "label": "1 (b)",
+      "source_ref": "#/document",
+      "char_offset": [
+        224,
+        229
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:50:#/document:1",
+      "type": "figure",
+      "label": "1",
+      "source_ref": "#/document",
+      "char_offset": [
+        32,
+        33
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:51:#/document:1 (c",
+      "type": "figure",
+      "label": "1 (c",
+      "source_ref": "#/document",
+      "char_offset": [
+        232,
+        236
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:52:#/document:[37]",
+      "type": "bibliography",
+      "label": "[37]",
+      "source_ref": "#/document",
+      "char_offset": [
+        237,
+        241
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:53:#/document:1",
+      "type": "figure",
+      "label": "1",
+      "source_ref": "#/document",
+      "char_offset": [
+        32,
+        33
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:54:#/document:2",
+      "type": "figure",
+      "label": "2",
+      "source_ref": "#/document",
+      "char_offset": [
+        1,
+        2
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:55:#/document:[29]",
+      "type": "bibliography",
+      "label": "[29]",
+      "source_ref": "#/document",
+      "char_offset": [
+        162,
+        166
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:56:#/document:2",
+      "type": "figure",
+      "label": "2",
+      "source_ref": "#/document",
+      "char_offset": [
+        1,
+        2
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:57:#/document:[14,",
+      "type": "bibliography",
+      "label": "[14,",
+      "source_ref": "#/document",
+      "char_offset": [
+        84,
+        88
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:58:#/document:24]",
+      "type": "bibliography",
+      "label": "24]",
+      "source_ref": "#/document",
+      "char_offset": [
+        109,
+        112
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:59:#/document:2",
+      "type": "figure",
+      "label": "2",
+      "source_ref": "#/document",
+      "char_offset": [
+        1,
+        2
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:60:#/document:[33]",
+      "type": "bibliography",
+      "label": "[33]",
+      "source_ref": "#/document",
+      "char_offset": [
+        182,
+        186
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:61:#/document:[16]",
+      "type": "bibliography",
+      "label": "[16]",
+      "source_ref": "#/document",
+      "char_offset": [
+        59,
+        63
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:62:#/document:2 (c",
+      "type": "figure",
+      "label": "2 (c",
+      "source_ref": "#/document",
+      "char_offset": [
+        274,
+        278
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:63:#/document:2",
+      "type": "figure",
+      "label": "2",
+      "source_ref": "#/document",
+      "char_offset": [
+        1,
+        2
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:64:#/document:[38]",
+      "type": "bibliography",
+      "label": "[38]",
+      "source_ref": "#/document",
+      "char_offset": [
+        281,
+        285
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:65:#/document:[25]",
+      "type": "bibliography",
+      "label": "[25]",
+      "source_ref": "#/document",
+      "char_offset": [
+        113,
+        117
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:66:#/document:[25]",
+      "type": "bibliography",
+      "label": "[25]",
+      "source_ref": "#/document",
+      "char_offset": [
+        113,
+        117
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:67:#/document:[38]",
+      "type": "bibliography",
+      "label": "[38]",
+      "source_ref": "#/document",
+      "char_offset": [
+        281,
+        285
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:68:#/document:3",
+      "type": "figure",
+      "label": "3",
+      "source_ref": "#/document",
+      "char_offset": [
+        5,
+        6
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:69:#/document:[39,",
+      "type": "bibliography",
+      "label": "[39,",
+      "source_ref": "#/document",
+      "char_offset": [
+        303,
+        307
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:70:#/document:40]",
+      "type": "bibliography",
+      "label": "40]",
+      "source_ref": "#/document",
+      "char_offset": [
+        308,
+        311
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:71:#/document:[41]",
+      "type": "bibliography",
+      "label": "[41]",
+      "source_ref": "#/document",
+      "char_offset": [
+        312,
+        316
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:72:#/document:[2]",
+      "type": "bibliography",
+      "label": "[2]",
+      "source_ref": "#/document",
+      "char_offset": [
+        0,
+        3
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:73:#/document:[3,",
+      "type": "bibliography",
+      "label": "[3,",
+      "source_ref": "#/document",
+      "char_offset": [
+        321,
+        324
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:74:#/document:4]",
+      "type": "bibliography",
+      "label": "4]",
+      "source_ref": "#/document",
+      "char_offset": [
+        9,
+        11
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:75:#/document:[1,",
+      "type": "bibliography",
+      "label": "[1,",
+      "source_ref": "#/document",
+      "char_offset": [
+        328,
+        331
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:76:#/document:5]",
+      "type": "bibliography",
+      "label": "5]",
+      "source_ref": "#/document",
+      "char_offset": [
+        13,
+        15
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:77:#/document:(10)",
+      "type": "bibliography",
+      "label": "(10)",
+      "source_ref": "#/document",
+      "char_offset": [
+        335,
+        339
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:78:#/document:11",
+      "type": "equation",
+      "label": "11",
+      "source_ref": "#/document",
+      "char_offset": [
+        37,
+        39
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:79:#/document:[1,",
+      "type": "bibliography",
+      "label": "[1,",
+      "source_ref": "#/document",
+      "char_offset": [
+        328,
+        331
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:80:#/document:6,",
+      "type": "bibliography",
+      "label": "6,",
+      "source_ref": "#/document",
+      "char_offset": [
+        17,
+        19
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:81:#/document:7]",
+      "type": "bibliography",
+      "label": "7]",
+      "source_ref": "#/document",
+      "char_offset": [
+        20,
+        22
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:82:#/document:[1,",
+      "type": "bibliography",
+      "label": "[1,",
+      "source_ref": "#/document",
+      "char_offset": [
+        328,
+        331
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:83:#/document:8,",
+      "type": "bibliography",
+      "label": "8,",
+      "source_ref": "#/document",
+      "char_offset": [
+        357,
+        359
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:84:#/document:9]",
+      "type": "bibliography",
+      "label": "9]",
+      "source_ref": "#/document",
+      "char_offset": [
+        28,
+        30
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:85:#/document:14",
+      "type": "equation",
+      "label": "14",
+      "source_ref": "#/document",
+      "char_offset": [
+        51,
+        53
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:86:#/document:[9,",
+      "type": "bibliography",
+      "label": "[9,",
+      "source_ref": "#/document",
+      "char_offset": [
+        366,
+        369
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:87:#/document:10]",
+      "type": "bibliography",
+      "label": "10]",
+      "source_ref": "#/document",
+      "char_offset": [
+        32,
+        35
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:88:#/document:[11]",
+      "type": "bibliography",
+      "label": "[11]",
+      "source_ref": "#/document",
+      "char_offset": [
+        36,
+        40
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:89:#/document:(10)",
+      "type": "bibliography",
+      "label": "(10)",
+      "source_ref": "#/document",
+      "char_offset": [
+        335,
+        339
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:90:#/document:(16)",
+      "type": "bibliography",
+      "label": "(16)",
+      "source_ref": "#/document",
+      "char_offset": [
+        384,
+        388
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:91:#/document:19",
+      "type": "equation",
+      "label": "19",
+      "source_ref": "#/document",
+      "char_offset": [
+        75,
+        77
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:92:#/document:(11)",
+      "type": "bibliography",
+      "label": "(11)",
+      "source_ref": "#/document",
+      "char_offset": [
+        392,
+        396
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:93:#/document:(22)",
+      "type": "bibliography",
+      "label": "(22)",
+      "source_ref": "#/document",
+      "char_offset": [
+        397,
+        401
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:94:#/document:[1]",
+      "type": "bibliography",
+      "label": "[1]",
+      "source_ref": "#/document",
+      "char_offset": [
+        55,
+        58
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:95:#/document:1",
+      "type": "figure",
+      "label": "1",
+      "source_ref": "#/document",
+      "char_offset": [
+        32,
+        33
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:96:#/document:2",
+      "type": "figure",
+      "label": "2",
+      "source_ref": "#/document",
+      "char_offset": [
+        1,
+        2
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:97:#/document:[12]",
+      "type": "bibliography",
+      "label": "[12]",
+      "source_ref": "#/document",
+      "char_offset": [
+        410,
+        414
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:98:#/document:[38]",
+      "type": "bibliography",
+      "label": "[38]",
+      "source_ref": "#/document",
+      "char_offset": [
+        281,
+        285
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:99:#/document:[39,",
+      "type": "bibliography",
+      "label": "[39,",
+      "source_ref": "#/document",
+      "char_offset": [
+        303,
+        307
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "marker:100:#/document:40]",
+      "type": "bibliography",
+      "label": "40]",
+      "source_ref": "#/document",
+      "char_offset": [
+        308,
+        311
+      ],
+      "backend": "grobid"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:6",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:6"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:7",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:7"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:8",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:8"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:9",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:9"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:10",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:10"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:11",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:11"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:12",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:12"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:13",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:13"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:14",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:14"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:15",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:15"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:16",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:16"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:17",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:17"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:18",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:18"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:5",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:5"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:20",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:20"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:21",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:21"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:22",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:22"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:23",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:23"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:24",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:24"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:25",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:25"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:26",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:26"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:27",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:27"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:28",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:28"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:29",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:29"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:30",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:30"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:31",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:31"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:19",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:19"
+    },
+    {
+      "id": "_unresolved",
+      "type": "unresolved",
+      "label": "(unresolved)"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:32",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:32"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:33",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:33"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:34",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:34"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:35",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:35"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:36",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:36"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:37",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:37"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:38",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:38"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:39",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:39"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:40",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:40"
+    },
+    {
+      "id": "ent:consensus:example01:caption:2",
+      "type": "figure",
+      "label": "ent:consensus:example01:caption:2"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:41",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:41"
+    },
+    {
+      "id": "ent:consensus:example01:caption:3",
+      "type": "figure",
+      "label": "ent:consensus:example01:caption:3"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:42",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:42"
+    },
+    {
+      "id": "ent:consensus:example01:caption:4",
+      "type": "figure",
+      "label": "ent:consensus:example01:caption:4"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:43",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:43"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:44",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:44"
+    },
+    {
+      "id": "ent:consensus:example01:reference_item:45",
+      "type": "bibliography",
+      "label": "ent:consensus:example01:reference_item:45"
+    }
+  ],
+  "edges": [
+    {
+      "source": "marker:72:#/document:[2]",
+      "target": "ent:consensus:example01:reference_item:6",
+      "marker_type": "bibliography",
+      "label": "[2]",
+      "resolved": true
+    },
+    {
+      "source": "marker:1:#/document:[3]",
+      "target": "ent:consensus:example01:reference_item:7",
+      "marker_type": "bibliography",
+      "label": "[3]",
+      "resolved": true
+    },
+    {
+      "source": "marker:2:#/document:[4]",
+      "target": "ent:consensus:example01:reference_item:8",
+      "marker_type": "bibliography",
+      "label": "[4]",
+      "resolved": true
+    },
+    {
+      "source": "marker:3:#/document:[5]",
+      "target": "ent:consensus:example01:reference_item:9",
+      "marker_type": "bibliography",
+      "label": "[5]",
+      "resolved": true
+    },
+    {
+      "source": "marker:4:#/document:[6,",
+      "target": "ent:consensus:example01:reference_item:10",
+      "marker_type": "bibliography",
+      "label": "[6,",
+      "resolved": true
+    },
+    {
+      "source": "marker:81:#/document:7]",
+      "target": "ent:consensus:example01:reference_item:11",
+      "marker_type": "bibliography",
+      "label": "7]",
+      "resolved": true
+    },
+    {
+      "source": "marker:6:#/document:[8]",
+      "target": "ent:consensus:example01:reference_item:12",
+      "marker_type": "bibliography",
+      "label": "[8]",
+      "resolved": true
+    },
+    {
+      "source": "marker:7:#/document:[9]",
+      "target": "ent:consensus:example01:reference_item:13",
+      "marker_type": "bibliography",
+      "label": "[9]",
+      "resolved": true
+    },
+    {
+      "source": "marker:8:#/document:[10]",
+      "target": "ent:consensus:example01:reference_item:14",
+      "marker_type": "bibliography",
+      "label": "[10]",
+      "resolved": true
+    },
+    {
+      "source": "marker:88:#/document:[11]",
+      "target": "ent:consensus:example01:reference_item:15",
+      "marker_type": "bibliography",
+      "label": "[11]",
+      "resolved": true
+    },
+    {
+      "source": "marker:10:#/document:[12,",
+      "target": "ent:consensus:example01:reference_item:16",
+      "marker_type": "bibliography",
+      "label": "[12,",
+      "resolved": true
+    },
+    {
+      "source": "marker:11:#/document:13]",
+      "target": "ent:consensus:example01:reference_item:17",
+      "marker_type": "bibliography",
+      "label": "13]",
+      "resolved": true
+    },
+    {
+      "source": "marker:12:#/document:[14]",
+      "target": "ent:consensus:example01:reference_item:18",
+      "marker_type": "bibliography",
+      "label": "[14]",
+      "resolved": true
+    },
+    {
+      "source": "marker:94:#/document:[1]",
+      "target": "ent:consensus:example01:reference_item:5",
+      "marker_type": "bibliography",
+      "label": "[1]",
+      "resolved": true
+    },
+    {
+      "source": "marker:61:#/document:[16]",
+      "target": "ent:consensus:example01:reference_item:20",
+      "marker_type": "bibliography",
+      "label": "[16]",
+      "resolved": true
+    },
+    {
+      "source": "marker:15:#/document:[17]",
+      "target": "ent:consensus:example01:reference_item:21",
+      "marker_type": "bibliography",
+      "label": "[17]",
+      "resolved": true
+    },
+    {
+      "source": "marker:16:#/document:[18]",
+      "target": "ent:consensus:example01:reference_item:22",
+      "marker_type": "bibliography",
+      "label": "[18]",
+      "resolved": true
+    },
+    {
+      "source": "marker:17:#/document:[19]",
+      "target": "ent:consensus:example01:reference_item:23",
+      "marker_type": "bibliography",
+      "label": "[19]",
+      "resolved": true
+    },
+    {
+      "source": "marker:18:#/document:[20]",
+      "target": "ent:consensus:example01:reference_item:24",
+      "marker_type": "bibliography",
+      "label": "[20]",
+      "resolved": true
+    },
+    {
+      "source": "marker:57:#/document:[14,",
+      "target": "ent:consensus:example01:reference_item:18",
+      "marker_type": "bibliography",
+      "label": "[14,",
+      "resolved": true
+    },
+    {
+      "source": "marker:20:#/document:21]",
+      "target": "ent:consensus:example01:reference_item:25",
+      "marker_type": "bibliography",
+      "label": "21]",
+      "resolved": true
+    },
+    {
+      "source": "marker:57:#/document:[14,",
+      "target": "ent:consensus:example01:reference_item:18",
+      "marker_type": "bibliography",
+      "label": "[14,",
+      "resolved": true
+    },
+    {
+      "source": "marker:22:#/document:[22]",
+      "target": "ent:consensus:example01:reference_item:26",
+      "marker_type": "bibliography",
+      "label": "[22]",
+      "resolved": true
+    },
+    {
+      "source": "marker:23:#/document:[23]",
+      "target": "ent:consensus:example01:reference_item:27",
+      "marker_type": "bibliography",
+      "label": "[23]",
+      "resolved": true
+    },
+    {
+      "source": "marker:24:#/document:[24]",
+      "target": "ent:consensus:example01:reference_item:28",
+      "marker_type": "bibliography",
+      "label": "[24]",
+      "resolved": true
+    },
+    {
+      "source": "marker:66:#/document:[25]",
+      "target": "ent:consensus:example01:reference_item:29",
+      "marker_type": "bibliography",
+      "label": "[25]",
+      "resolved": true
+    },
+    {
+      "source": "marker:94:#/document:[1]",
+      "target": "ent:consensus:example01:reference_item:5",
+      "marker_type": "bibliography",
+      "label": "[1]",
+      "resolved": true
+    },
+    {
+      "source": "marker:94:#/document:[1]",
+      "target": "ent:consensus:example01:reference_item:5",
+      "marker_type": "bibliography",
+      "label": "[1]",
+      "resolved": true
+    },
+    {
+      "source": "marker:29:#/document:[26]",
+      "target": "ent:consensus:example01:reference_item:30",
+      "marker_type": "bibliography",
+      "label": "[26]",
+      "resolved": true
+    },
+    {
+      "source": "marker:29:#/document:[26]",
+      "target": "ent:consensus:example01:reference_item:30",
+      "marker_type": "bibliography",
+      "label": "[26]",
+      "resolved": true
+    },
+    {
+      "source": "marker:30:#/document:[27]",
+      "target": "ent:consensus:example01:reference_item:31",
+      "marker_type": "bibliography",
+      "label": "[27]",
+      "resolved": true
+    },
+    {
+      "source": "marker:31:#/document:[15]",
+      "target": "ent:consensus:example01:reference_item:19",
+      "marker_type": "bibliography",
+      "label": "[15]",
+      "resolved": true
+    },
+    {
+      "source": "marker:95:#/document:1",
+      "target": "_unresolved",
+      "marker_type": "equation",
+      "label": "1",
+      "resolved": false
+    },
+    {
+      "source": "marker:41:#/document:[16,",
+      "target": "ent:consensus:example01:reference_item:20",
+      "marker_type": "bibliography",
+      "label": "[16,",
+      "resolved": true
+    },
+    {
+      "source": "marker:42:#/document:28]",
+      "target": "ent:consensus:example01:reference_item:32",
+      "marker_type": "bibliography",
+      "label": "28]",
+      "resolved": true
+    },
+    {
+      "source": "marker:41:#/document:[16,",
+      "target": "ent:consensus:example01:reference_item:20",
+      "marker_type": "bibliography",
+      "label": "[16,",
+      "resolved": true
+    },
+    {
+      "source": "marker:55:#/document:[29]",
+      "target": "ent:consensus:example01:reference_item:33",
+      "marker_type": "bibliography",
+      "label": "[29]",
+      "resolved": true
+    },
+    {
+      "source": "marker:37:#/document:[30]",
+      "target": "ent:consensus:example01:reference_item:34",
+      "marker_type": "bibliography",
+      "label": "[30]",
+      "resolved": true
+    },
+    {
+      "source": "marker:38:#/document:[31]",
+      "target": "ent:consensus:example01:reference_item:35",
+      "marker_type": "bibliography",
+      "label": "[31]",
+      "resolved": true
+    },
+    {
+      "source": "marker:39:#/document:[32]",
+      "target": "ent:consensus:example01:reference_item:36",
+      "marker_type": "bibliography",
+      "label": "[32]",
+      "resolved": true
+    },
+    {
+      "source": "marker:60:#/document:[33]",
+      "target": "ent:consensus:example01:reference_item:37",
+      "marker_type": "bibliography",
+      "label": "[33]",
+      "resolved": true
+    },
+    {
+      "source": "marker:41:#/document:[16,",
+      "target": "ent:consensus:example01:reference_item:20",
+      "marker_type": "bibliography",
+      "label": "[16,",
+      "resolved": true
+    },
+    {
+      "source": "marker:42:#/document:28]",
+      "target": "ent:consensus:example01:reference_item:32",
+      "marker_type": "bibliography",
+      "label": "28]",
+      "resolved": true
+    },
+    {
+      "source": "marker:43:#/document:(19)",
+      "target": "ent:consensus:example01:reference_item:23",
+      "marker_type": "bibliography",
+      "label": "(19)",
+      "resolved": true
+    },
+    {
+      "source": "marker:44:#/document:[34]",
+      "target": "ent:consensus:example01:reference_item:38",
+      "marker_type": "bibliography",
+      "label": "[34]",
+      "resolved": true
+    },
+    {
+      "source": "marker:45:#/document:[20,",
+      "target": "ent:consensus:example01:reference_item:24",
+      "marker_type": "bibliography",
+      "label": "[20,",
+      "resolved": true
+    },
+    {
+      "source": "marker:46:#/document:29]",
+      "target": "ent:consensus:example01:reference_item:33",
+      "marker_type": "bibliography",
+      "label": "29]",
+      "resolved": true
+    },
+    {
+      "source": "marker:47:#/document:[35,",
+      "target": "ent:consensus:example01:reference_item:39",
+      "marker_type": "bibliography",
+      "label": "[35,",
+      "resolved": true
+    },
+    {
+      "source": "marker:48:#/document:36]",
+      "target": "ent:consensus:example01:reference_item:40",
+      "marker_type": "bibliography",
+      "label": "36]",
+      "resolved": true
+    },
+    {
+      "source": "marker:49:#/document:1 (b)",
+      "target": "ent:consensus:example01:caption:2",
+      "marker_type": "figure",
+      "label": "1 (b)",
+      "resolved": true
+    },
+    {
+      "source": "marker:95:#/document:1",
+      "target": "ent:consensus:example01:caption:2",
+      "marker_type": "figure",
+      "label": "1",
+      "resolved": true
+    },
+    {
+      "source": "marker:51:#/document:1 (c",
+      "target": "ent:consensus:example01:caption:2",
+      "marker_type": "figure",
+      "label": "1 (c",
+      "resolved": true
+    },
+    {
+      "source": "marker:52:#/document:[37]",
+      "target": "ent:consensus:example01:reference_item:41",
+      "marker_type": "bibliography",
+      "label": "[37]",
+      "resolved": true
+    },
+    {
+      "source": "marker:95:#/document:1",
+      "target": "ent:consensus:example01:caption:2",
+      "marker_type": "figure",
+      "label": "1",
+      "resolved": true
+    },
+    {
+      "source": "marker:96:#/document:2",
+      "target": "ent:consensus:example01:caption:3",
+      "marker_type": "figure",
+      "label": "2",
+      "resolved": true
+    },
+    {
+      "source": "marker:55:#/document:[29]",
+      "target": "ent:consensus:example01:reference_item:33",
+      "marker_type": "bibliography",
+      "label": "[29]",
+      "resolved": true
+    },
+    {
+      "source": "marker:96:#/document:2",
+      "target": "ent:consensus:example01:caption:3",
+      "marker_type": "figure",
+      "label": "2",
+      "resolved": true
+    },
+    {
+      "source": "marker:57:#/document:[14,",
+      "target": "ent:consensus:example01:reference_item:18",
+      "marker_type": "bibliography",
+      "label": "[14,",
+      "resolved": true
+    },
+    {
+      "source": "marker:58:#/document:24]",
+      "target": "ent:consensus:example01:reference_item:28",
+      "marker_type": "bibliography",
+      "label": "24]",
+      "resolved": true
+    },
+    {
+      "source": "marker:96:#/document:2",
+      "target": "ent:consensus:example01:caption:3",
+      "marker_type": "figure",
+      "label": "2",
+      "resolved": true
+    },
+    {
+      "source": "marker:60:#/document:[33]",
+      "target": "ent:consensus:example01:reference_item:37",
+      "marker_type": "bibliography",
+      "label": "[33]",
+      "resolved": true
+    },
+    {
+      "source": "marker:61:#/document:[16]",
+      "target": "ent:consensus:example01:reference_item:20",
+      "marker_type": "bibliography",
+      "label": "[16]",
+      "resolved": true
+    },
+    {
+      "source": "marker:62:#/document:2 (c",
+      "target": "ent:consensus:example01:caption:3",
+      "marker_type": "figure",
+      "label": "2 (c",
+      "resolved": true
+    },
+    {
+      "source": "marker:96:#/document:2",
+      "target": "ent:consensus:example01:caption:3",
+      "marker_type": "figure",
+      "label": "2",
+      "resolved": true
+    },
+    {
+      "source": "marker:98:#/document:[38]",
+      "target": "ent:consensus:example01:reference_item:42",
+      "marker_type": "bibliography",
+      "label": "[38]",
+      "resolved": true
+    },
+    {
+      "source": "marker:66:#/document:[25]",
+      "target": "ent:consensus:example01:reference_item:29",
+      "marker_type": "bibliography",
+      "label": "[25]",
+      "resolved": true
+    },
+    {
+      "source": "marker:66:#/document:[25]",
+      "target": "ent:consensus:example01:reference_item:29",
+      "marker_type": "bibliography",
+      "label": "[25]",
+      "resolved": true
+    },
+    {
+      "source": "marker:98:#/document:[38]",
+      "target": "ent:consensus:example01:reference_item:42",
+      "marker_type": "bibliography",
+      "label": "[38]",
+      "resolved": true
+    },
+    {
+      "source": "marker:68:#/document:3",
+      "target": "ent:consensus:example01:caption:4",
+      "marker_type": "figure",
+      "label": "3",
+      "resolved": true
+    },
+    {
+      "source": "marker:99:#/document:[39,",
+      "target": "ent:consensus:example01:reference_item:43",
+      "marker_type": "bibliography",
+      "label": "[39,",
+      "resolved": true
+    },
+    {
+      "source": "marker:100:#/document:40]",
+      "target": "ent:consensus:example01:reference_item:44",
+      "marker_type": "bibliography",
+      "label": "40]",
+      "resolved": true
+    },
+    {
+      "source": "marker:71:#/document:[41]",
+      "target": "ent:consensus:example01:reference_item:45",
+      "marker_type": "bibliography",
+      "label": "[41]",
+      "resolved": true
+    },
+    {
+      "source": "marker:72:#/document:[2]",
+      "target": "ent:consensus:example01:reference_item:6",
+      "marker_type": "bibliography",
+      "label": "[2]",
+      "resolved": true
+    },
+    {
+      "source": "marker:73:#/document:[3,",
+      "target": "ent:consensus:example01:reference_item:7",
+      "marker_type": "bibliography",
+      "label": "[3,",
+      "resolved": true
+    },
+    {
+      "source": "marker:74:#/document:4]",
+      "target": "ent:consensus:example01:reference_item:8",
+      "marker_type": "bibliography",
+      "label": "4]",
+      "resolved": true
+    },
+    {
+      "source": "marker:82:#/document:[1,",
+      "target": "ent:consensus:example01:reference_item:5",
+      "marker_type": "bibliography",
+      "label": "[1,",
+      "resolved": true
+    },
+    {
+      "source": "marker:76:#/document:5]",
+      "target": "ent:consensus:example01:reference_item:9",
+      "marker_type": "bibliography",
+      "label": "5]",
+      "resolved": true
+    },
+    {
+      "source": "marker:89:#/document:(10)",
+      "target": "ent:consensus:example01:reference_item:14",
+      "marker_type": "bibliography",
+      "label": "(10)",
+      "resolved": true
+    },
+    {
+      "source": "marker:78:#/document:11",
+      "target": "_unresolved",
+      "marker_type": "equation",
+      "label": "11",
+      "resolved": false
+    },
+    {
+      "source": "marker:82:#/document:[1,",
+      "target": "ent:consensus:example01:reference_item:5",
+      "marker_type": "bibliography",
+      "label": "[1,",
+      "resolved": true
+    },
+    {
+      "source": "marker:80:#/document:6,",
+      "target": "ent:consensus:example01:reference_item:10",
+      "marker_type": "bibliography",
+      "label": "6,",
+      "resolved": true
+    },
+    {
+      "source": "marker:81:#/document:7]",
+      "target": "ent:consensus:example01:reference_item:11",
+      "marker_type": "bibliography",
+      "label": "7]",
+      "resolved": true
+    },
+    {
+      "source": "marker:82:#/document:[1,",
+      "target": "ent:consensus:example01:reference_item:5",
+      "marker_type": "bibliography",
+      "label": "[1,",
+      "resolved": true
+    },
+    {
+      "source": "marker:83:#/document:8,",
+      "target": "ent:consensus:example01:reference_item:12",
+      "marker_type": "bibliography",
+      "label": "8,",
+      "resolved": true
+    },
+    {
+      "source": "marker:84:#/document:9]",
+      "target": "ent:consensus:example01:reference_item:13",
+      "marker_type": "bibliography",
+      "label": "9]",
+      "resolved": true
+    },
+    {
+      "source": "marker:85:#/document:14",
+      "target": "_unresolved",
+      "marker_type": "equation",
+      "label": "14",
+      "resolved": false
+    },
+    {
+      "source": "marker:86:#/document:[9,",
+      "target": "ent:consensus:example01:reference_item:13",
+      "marker_type": "bibliography",
+      "label": "[9,",
+      "resolved": true
+    },
+    {
+      "source": "marker:87:#/document:10]",
+      "target": "ent:consensus:example01:reference_item:14",
+      "marker_type": "bibliography",
+      "label": "10]",
+      "resolved": true
+    },
+    {
+      "source": "marker:88:#/document:[11]",
+      "target": "ent:consensus:example01:reference_item:15",
+      "marker_type": "bibliography",
+      "label": "[11]",
+      "resolved": true
+    },
+    {
+      "source": "marker:89:#/document:(10)",
+      "target": "ent:consensus:example01:reference_item:14",
+      "marker_type": "bibliography",
+      "label": "(10)",
+      "resolved": true
+    },
+    {
+      "source": "marker:90:#/document:(16)",
+      "target": "ent:consensus:example01:reference_item:20",
+      "marker_type": "bibliography",
+      "label": "(16)",
+      "resolved": true
+    },
+    {
+      "source": "marker:91:#/document:19",
+      "target": "_unresolved",
+      "marker_type": "equation",
+      "label": "19",
+      "resolved": false
+    },
+    {
+      "source": "marker:92:#/document:(11)",
+      "target": "ent:consensus:example01:reference_item:15",
+      "marker_type": "bibliography",
+      "label": "(11)",
+      "resolved": true
+    },
+    {
+      "source": "marker:93:#/document:(22)",
+      "target": "ent:consensus:example01:reference_item:26",
+      "marker_type": "bibliography",
+      "label": "(22)",
+      "resolved": true
+    },
+    {
+      "source": "marker:94:#/document:[1]",
+      "target": "ent:consensus:example01:reference_item:5",
+      "marker_type": "bibliography",
+      "label": "[1]",
+      "resolved": true
+    },
+    {
+      "source": "marker:95:#/document:1",
+      "target": "ent:consensus:example01:caption:2",
+      "marker_type": "figure",
+      "label": "1",
+      "resolved": true
+    },
+    {
+      "source": "marker:96:#/document:2",
+      "target": "ent:consensus:example01:caption:3",
+      "marker_type": "figure",
+      "label": "2",
+      "resolved": true
+    },
+    {
+      "source": "marker:97:#/document:[12]",
+      "target": "ent:consensus:example01:reference_item:16",
+      "marker_type": "bibliography",
+      "label": "[12]",
+      "resolved": true
+    },
+    {
+      "source": "marker:98:#/document:[38]",
+      "target": "ent:consensus:example01:reference_item:42",
+      "marker_type": "bibliography",
+      "label": "[38]",
+      "resolved": true
+    },
+    {
+      "source": "marker:99:#/document:[39,",
+      "target": "ent:consensus:example01:reference_item:43",
+      "marker_type": "bibliography",
+      "label": "[39,",
+      "resolved": true
+    },
+    {
+      "source": "marker:100:#/document:40]",
+      "target": "ent:consensus:example01:reference_item:44",
+      "marker_type": "bibliography",
+      "label": "40]",
+      "resolved": true
+    },
+    {
+      "source": "marker:0:#/document:[2]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[2]",
+      "resolved": false
+    },
+    {
+      "source": "marker:5:#/document:7]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "7]",
+      "resolved": false
+    },
+    {
+      "source": "marker:9:#/document:[11]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[11]",
+      "resolved": false
+    },
+    {
+      "source": "marker:13:#/document:[1]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[1]",
+      "resolved": false
+    },
+    {
+      "source": "marker:14:#/document:[16]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[16]",
+      "resolved": false
+    },
+    {
+      "source": "marker:19:#/document:[14,",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[14,",
+      "resolved": false
+    },
+    {
+      "source": "marker:21:#/document:[14,",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[14,",
+      "resolved": false
+    },
+    {
+      "source": "marker:25:#/document:[25]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[25]",
+      "resolved": false
+    },
+    {
+      "source": "marker:26:#/document:[1]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[1]",
+      "resolved": false
+    },
+    {
+      "source": "marker:27:#/document:[1]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[1]",
+      "resolved": false
+    },
+    {
+      "source": "marker:28:#/document:[26]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[26]",
+      "resolved": false
+    },
+    {
+      "source": "marker:32:#/document:1",
+      "target": "_unresolved",
+      "marker_type": "equation",
+      "label": "1",
+      "resolved": false
+    },
+    {
+      "source": "marker:33:#/document:[16,",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[16,",
+      "resolved": false
+    },
+    {
+      "source": "marker:34:#/document:28]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "28]",
+      "resolved": false
+    },
+    {
+      "source": "marker:35:#/document:[16,",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[16,",
+      "resolved": false
+    },
+    {
+      "source": "marker:36:#/document:[29]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[29]",
+      "resolved": false
+    },
+    {
+      "source": "marker:40:#/document:[33]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[33]",
+      "resolved": false
+    },
+    {
+      "source": "marker:50:#/document:1",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "1",
+      "resolved": false
+    },
+    {
+      "source": "marker:53:#/document:1",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "1",
+      "resolved": false
+    },
+    {
+      "source": "marker:54:#/document:2",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "2",
+      "resolved": false
+    },
+    {
+      "source": "marker:56:#/document:2",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "2",
+      "resolved": false
+    },
+    {
+      "source": "marker:59:#/document:2",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "2",
+      "resolved": false
+    },
+    {
+      "source": "marker:63:#/document:2",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "2",
+      "resolved": false
+    },
+    {
+      "source": "marker:64:#/document:[38]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[38]",
+      "resolved": false
+    },
+    {
+      "source": "marker:65:#/document:[25]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[25]",
+      "resolved": false
+    },
+    {
+      "source": "marker:67:#/document:[38]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[38]",
+      "resolved": false
+    },
+    {
+      "source": "marker:69:#/document:[39,",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[39,",
+      "resolved": false
+    },
+    {
+      "source": "marker:70:#/document:40]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "40]",
+      "resolved": false
+    },
+    {
+      "source": "marker:75:#/document:[1,",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[1,",
+      "resolved": false
+    },
+    {
+      "source": "marker:77:#/document:(10)",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "(10)",
+      "resolved": false
+    },
+    {
+      "source": "marker:79:#/document:[1,",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[1,",
+      "resolved": false
+    }
+  ],
+  "metadata": {
+    "doc_hash": "sha256:617923f5e52a638b125c0edd7f3606032e7b29d12d07c63ba0a02ab77fea999f",
+    "total_markers": 101,
+    "resolved_count": 97,
+    "unresolved_count": 35,
+    "backend_versions": {
+      "grobid": "0.1.0"
+    }
+  }
+}

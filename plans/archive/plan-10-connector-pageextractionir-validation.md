@@ -1,7 +1,7 @@
 # Plan 10 — Connector Implementation and PageExtractionIR Validation
 
 Status:
-draft
+finished
 
 Allowed status values:
 draft

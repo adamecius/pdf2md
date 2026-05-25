@@ -1,7 +1,7 @@
 # Plan 15 — Docling Export Validation
 
 Status:
-draft
+finished
 
 Allowed status values:
 draft

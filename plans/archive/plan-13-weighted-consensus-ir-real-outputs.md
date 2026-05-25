@@ -1,7 +1,7 @@
 # Plan 13 — Weighted ConsensusIR on Real Outputs
 
 Status:
-draft
+finished
 
 Allowed status values:
 draft

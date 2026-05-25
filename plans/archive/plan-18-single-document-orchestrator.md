@@ -1,7 +1,7 @@
 # Plan 18 — Single-Document Pipeline Orchestrator
 
 Status:
-draft
+finished
 
 Allowed status values:
 draft

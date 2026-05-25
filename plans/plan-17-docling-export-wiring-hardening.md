@@ -1,7 +1,7 @@
 # Plan 17 — Docling Export Wiring Hardening
 
 Status:
-draft
+agent_complete
 
 Allowed status values:
 draft
