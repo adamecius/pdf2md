@@ -215,9 +215,9 @@
       "label": "ent:consensus:example01:reference_item:5"
     },
     {
-      "id": "ent:consensus:example01:footnote:138",
+      "id": "ent:consensus:example01:footnote:143",
       "type": "footnote",
-      "label": "ent:consensus:example01:footnote:138"
+      "label": "ent:consensus:example01:footnote:143"
     }
   ],
   "edges": [
@@ -335,7 +335,7 @@
     },
     {
       "source": "marker:16:#/document/pages/10:footnote 1",
-      "target": "ent:consensus:example01:footnote:138",
+      "target": "ent:consensus:example01:footnote:143",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true
