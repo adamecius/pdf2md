@@ -1507,9 +1507,9 @@
       "label": "ent:deepseek:1410.8140:footnote:34"
     },
     {
-      "id": "_unresolved",
-      "type": "unresolved",
-      "label": "(unresolved)"
+      "id": "ent:deepseek:1410.8140:equation:2",
+      "type": "equation",
+      "label": "ent:deepseek:1410.8140:equation:2"
     },
     {
       "id": "ent:deepseek:1410.8140:footnote:51",
@@ -1682,6 +1682,16 @@
       "label": "ent:deepseek:1410.8140:footnote:67"
     },
     {
+      "id": "ent:deepseek:1410.8140:equation:73",
+      "type": "equation",
+      "label": "ent:deepseek:1410.8140:equation:73"
+    },
+    {
+      "id": "ent:deepseek:1410.8140:equation:76",
+      "type": "equation",
+      "label": "ent:deepseek:1410.8140:equation:76"
+    },
+    {
       "id": "ent:deepseek:1410.8140:caption:89",
       "type": "figure",
       "label": "ent:deepseek:1410.8140:caption:89"
@@ -1849,10 +1859,10 @@
     },
     {
       "source": "marker:22:#/document:eq. (1)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:2",
       "marker_type": "equation",
       "label": "eq. (1)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:23:#/document:[16, 28]",
@@ -2430,10 +2440,10 @@
     },
     {
       "source": "marker:105:#/document:equation (11)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:73",
       "marker_type": "equation",
       "label": "equation (11)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:106:#/document:[1, 6, 7]",
@@ -2451,10 +2461,10 @@
     },
     {
       "source": "marker:108:#/document:Eq. (14)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:1410.8140:equation:76",
       "marker_type": "equation",
       "label": "Eq. (14)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:109:#/document:[9, 10]",
@@ -2600,8 +2610,8 @@
   "metadata": {
     "doc_hash": "sha256:14e470cf2425286b3a04cde73e2ee7274d010a31726a1e5ce5703f1012d0f4bb",
     "total_markers": 129,
-    "resolved_count": 126,
-    "unresolved_count": 3,
+    "resolved_count": 129,
+    "unresolved_count": 0,
     "backend_versions": {
       "regex": "0.1.0"
     }

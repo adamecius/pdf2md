@@ -657,6 +657,11 @@
       "label": "(unresolved)"
     },
     {
+      "id": "ent:deepseek:2401.12345:equation:22",
+      "type": "equation",
+      "label": "ent:deepseek:2401.12345:equation:22"
+    },
+    {
       "id": "ent:deepseek:2401.12345:caption:250",
       "type": "figure",
       "label": "ent:deepseek:2401.12345:caption:250"
@@ -689,10 +694,10 @@
     },
     {
       "source": "marker:2:#/document/pages/1:Eq. (11)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:2401.12345:equation:22",
       "marker_type": "equation",
       "label": "Eq. (11)",
-      "resolved": false
+      "resolved": true
     },
     {
       "source": "marker:3:#/document/pages/1:FIG. 3",
@@ -1090,8 +1095,8 @@
   "metadata": {
     "doc_hash": "sha256:d6b7aff259de7c133b09b958fb1782ddf21da627c354b777b48e056beb2a57fb",
     "total_markers": 59,
-    "resolved_count": 4,
-    "unresolved_count": 55,
+    "resolved_count": 5,
+    "unresolved_count": 54,
     "backend_versions": {
       "vlm": "deepseek-ai/deepseek-vl2-small"
     }
