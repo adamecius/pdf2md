@@ -31,7 +31,9 @@
         0,
         1
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 1,
+      "parent_id": "page:example02/vlm_v4+paddleocr:1"
     },
     {
       "id": "marker:1:#/document/pages/1:1.1",
@@ -42,7 +44,9 @@
         0,
         3
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 1,
+      "parent_id": "page:example02/vlm_v4+paddleocr:1"
     },
     {
       "id": "marker:2:#/document/pages/1:Eq. (11)",
@@ -53,7 +57,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 1,
+      "parent_id": "page:example02/vlm_v4+paddleocr:1"
     },
     {
       "id": "marker:3:#/document/pages/1:FIG. 3",
@@ -64,7 +70,9 @@
         0,
         6
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 1,
+      "parent_id": "page:example02/vlm_v4+paddleocr:1"
     },
     {
       "id": "marker:4:#/document/pages/2:Theorem 2",
@@ -75,7 +83,16 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 2,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
+    },
+    {
+      "id": "section:markers:example02/vlm_v4+paddleocr",
+      "type": "markers_section",
+      "label": "Markers",
+      "parent_id": "document:example02/vlm_v4+paddleocr",
+      "back_matter_kind": "markers"
     },
     {
       "id": "marker:5:#/document/pages/2:Theorem 3",
@@ -86,7 +103,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 2,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:6:#/document/pages/2:Corollary 3",
@@ -97,7 +116,9 @@
         0,
         11
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 2,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:7:#/document/pages/2:Corollary 5",
@@ -108,7 +129,9 @@
         0,
         11
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 2,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:8:#/document/pages/2:Example 4",
@@ -119,7 +142,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 2,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:9:#/document/pages/2:Example 5",
@@ -130,7 +155,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 2,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:10:#/document/pages/3:Chapter 5",
@@ -141,7 +168,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 3,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:11:#/document/pages/3:Eq. (5.4)",
@@ -152,7 +181,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 3,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:12:#/document/pages/3:footnote 1",
@@ -163,7 +194,9 @@
         0,
         10
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 3,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:13:#/document/pages/3:Section 3",
@@ -174,7 +207,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 3,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:14:#/document/pages/3:Theorem 1",
@@ -185,7 +220,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 3,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:15:#/document/pages/3:Definition 1",
@@ -196,7 +233,9 @@
         0,
         12
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 3,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:16:#/document/pages/3:Proof 1",
@@ -207,7 +246,9 @@
         0,
         7
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 3,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:17:#/document/pages/3:Corollary 1",
@@ -218,7 +259,9 @@
         0,
         11
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 3,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:18:#/document/pages/3:Example 1",
@@ -229,7 +272,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 3,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:19:#/document/pages/5:Theorem 1",
@@ -240,7 +285,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 5,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:20:#/document/pages/5:Definition 1",
@@ -251,7 +298,9 @@
         0,
         12
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 5,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:21:#/document/pages/5:Proof",
@@ -262,7 +311,9 @@
         0,
         5
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 5,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:22:#/document/pages/5:Corollary 1",
@@ -273,7 +324,9 @@
         0,
         11
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 5,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:23:#/document/pages/5:Example N",
@@ -284,7 +337,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 5,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:24:#/document/pages/6:Theorem 1",
@@ -295,7 +350,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 6,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:25:#/document/pages/6:Definition 5",
@@ -306,7 +363,9 @@
         0,
         12
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 6,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:26:#/document/pages/6:Proof of Theorem 1",
@@ -317,7 +376,9 @@
         0,
         18
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 6,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:27:#/document/pages/6:Corollary 1",
@@ -328,7 +389,9 @@
         0,
         11
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 6,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:28:#/document/pages/6:Example 1",
@@ -339,7 +402,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 6,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:29:#/document/pages/6:Example 2",
@@ -350,7 +415,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 6,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:30:#/document/pages/8:Theorem 2",
@@ -361,7 +428,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:31:#/document/pages/8:Proof",
@@ -372,7 +441,9 @@
         0,
         5
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:32:#/document/pages/8:Corollary",
@@ -383,7 +454,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:33:#/document/pages/8:Example",
@@ -394,7 +467,9 @@
         0,
         7
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:34:#/document/pages/10:Theorem 3 (Kernel Ridge Regression and Kernel Tikhonov Regularization)",
@@ -405,7 +480,9 @@
         0,
         70
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:35:#/document/pages/10:Theorem 5 (Data Augmentation for Kernel Regression)",
@@ -416,7 +493,9 @@
         0,
         51
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:36:#/document/pages/10:Corollary 4",
@@ -427,7 +506,9 @@
         0,
         11
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:37:#/document/pages/10:Corollary 5",
@@ -438,7 +519,9 @@
         0,
         11
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:38:#/document/pages/10:Example 5 (Kernelized Eigenvalue Thresholding)",
@@ -449,7 +532,9 @@
         0,
         46
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:39:#/document/pages/11:FIG. 3",
@@ -460,7 +545,9 @@
         0,
         6
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 11,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:40:#/document/pages/11:Table I",
@@ -471,7 +558,9 @@
         0,
         7
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 11,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:41:#/document/pages/11:Eq. (5.4)",
@@ -482,7 +571,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 11,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:42:#/document/pages/11:footnote 1",
@@ -493,7 +584,9 @@
         0,
         10
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 11,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:43:#/document/pages/11:Section VI. Experiments",
@@ -504,7 +597,9 @@
         0,
         23
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 11,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:44:#/document/pages/11:Chapter VII (Conclusions)",
@@ -515,7 +610,9 @@
         0,
         25
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 11,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:45:#/document/pages/12:TABLE II",
@@ -526,7 +623,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 12,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:46:#/document/pages/12:TABLE III",
@@ -537,7 +636,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 12,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:47:#/document/pages/12:TABLE IV",
@@ -548,7 +649,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 12,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:48:#/document/pages/12:TABLE V",
@@ -559,7 +662,9 @@
         0,
         7
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 12,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:49:#/document/pages/12:TABLE VI",
@@ -570,7 +675,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 12,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:50:#/document/pages/14:Fig. 1",
@@ -581,7 +688,9 @@
         0,
         6
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 14,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:51:#/document/pages/14:footnote 1",
@@ -592,7 +701,9 @@
         0,
         10
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 14,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:52:#/document/pages/14:Eq. (5.4)",
@@ -603,7 +714,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 14,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:53:#/document/pages/14:Additional Discussions on Distributionally Robust Estimation",
@@ -614,7 +727,9 @@
         0,
         60
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 14,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:54:#/document/pages/14:Appendix D",
@@ -625,7 +740,9 @@
         0,
         10
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 14,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:55:#/document/pages/15:Proof of Lemma N",
@@ -636,7 +753,9 @@
         0,
         16
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 15,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:56:#/document/pages/15:Proof of Theorem N",
@@ -647,7 +766,9 @@
         0,
         18
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 15,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:57:#/document/pages/15:Corollary N",
@@ -658,7 +779,9 @@
         0,
         11
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 15,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "marker:58:#/document/pages/15:Example N",
@@ -669,7 +792,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 15,
+      "parent_id": "section:markers:example02/vlm_v4+paddleocr"
     },
     {
       "id": "_unresolved",
@@ -1166,6 +1291,366 @@
     {
       "source": "document:example02/vlm_v4+paddleocr",
       "target": "section:bibliography:example02/vlm_v4+paddleocr",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/vlm_v4+paddleocr:1",
+      "target": "marker:0:#/document/pages/1:1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/vlm_v4+paddleocr:1",
+      "target": "marker:1:#/document/pages/1:1.1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/vlm_v4+paddleocr:1",
+      "target": "marker:2:#/document/pages/1:Eq. (11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/vlm_v4+paddleocr:1",
+      "target": "marker:3:#/document/pages/1:FIG. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/vlm_v4+paddleocr",
+      "target": "section:markers:example02/vlm_v4+paddleocr",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:4:#/document/pages/2:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:5:#/document/pages/2:Theorem 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:6:#/document/pages/2:Corollary 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:7:#/document/pages/2:Corollary 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:8:#/document/pages/2:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:9:#/document/pages/2:Example 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:10:#/document/pages/3:Chapter 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:11:#/document/pages/3:Eq. (5.4)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:12:#/document/pages/3:footnote 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:13:#/document/pages/3:Section 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:14:#/document/pages/3:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:15:#/document/pages/3:Definition 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:16:#/document/pages/3:Proof 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:17:#/document/pages/3:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:18:#/document/pages/3:Example 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:19:#/document/pages/5:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:20:#/document/pages/5:Definition 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:21:#/document/pages/5:Proof",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:22:#/document/pages/5:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:23:#/document/pages/5:Example N",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:24:#/document/pages/6:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:25:#/document/pages/6:Definition 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:26:#/document/pages/6:Proof of Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:27:#/document/pages/6:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:28:#/document/pages/6:Example 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:29:#/document/pages/6:Example 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:30:#/document/pages/8:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:31:#/document/pages/8:Proof",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:32:#/document/pages/8:Corollary",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:33:#/document/pages/8:Example",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:34:#/document/pages/10:Theorem 3 (Kernel Ridge Regression and Kernel Tikhonov Regularization)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:35:#/document/pages/10:Theorem 5 (Data Augmentation for Kernel Regression)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:36:#/document/pages/10:Corollary 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:37:#/document/pages/10:Corollary 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:38:#/document/pages/10:Example 5 (Kernelized Eigenvalue Thresholding)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:39:#/document/pages/11:FIG. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:40:#/document/pages/11:Table I",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:41:#/document/pages/11:Eq. (5.4)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:42:#/document/pages/11:footnote 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:43:#/document/pages/11:Section VI. Experiments",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:44:#/document/pages/11:Chapter VII (Conclusions)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:45:#/document/pages/12:TABLE II",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:46:#/document/pages/12:TABLE III",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:47:#/document/pages/12:TABLE IV",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:48:#/document/pages/12:TABLE V",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:49:#/document/pages/12:TABLE VI",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:50:#/document/pages/14:Fig. 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:51:#/document/pages/14:footnote 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:52:#/document/pages/14:Eq. (5.4)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:53:#/document/pages/14:Additional Discussions on Distributionally Robust Estimation",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:54:#/document/pages/14:Appendix D",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:55:#/document/pages/15:Proof of Lemma N",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:56:#/document/pages/15:Proof of Theorem N",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:57:#/document/pages/15:Corollary N",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/vlm_v4+paddleocr",
+      "target": "marker:58:#/document/pages/15:Example N",
       "edge_kind": "contains",
       "label": ""
     },

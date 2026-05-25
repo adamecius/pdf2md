@@ -183,6 +183,7 @@ const NODE_RADIUS = {
   bibliography_section: 12,
   index_section: 12,
   glossary_section: 12,
+  markers_section: 11,
   reference_section: 12,
   unresolved: 10,
   default: 6,
@@ -193,6 +194,7 @@ const NODE_COLOR_OVERRIDES = {
   bibliography_section: '#ffb380',
   index_section: '#ffcf80',
   glossary_section: '#80c8ff',
+  markers_section: '#b9a7e7',
   unresolved: '#d33',
 };
 
@@ -225,14 +227,20 @@ function renderGraph(data) {
     }
   }
 
-  // Two link forces — one for the structural backbone, one for
-  // cross-references. The structural force is stiff + short; the
-  // cross-ref force is loose + longer.
+  // Three link forces: containment backbone, page-sequence spine,
+  // and cross-reference arcs. The spine has a longer distance (~110)
+  // and high strength so adjacent pages line up in reading order; the
+  // containment force is stiff + short; the cross-ref force is loose
+  // + long so it curves on top of the layout rather than fighting it.
   const containmentLinks = links.filter(d => d.edge_kind === 'contains');
-  const crossRefLinks = links.filter(d => d.edge_kind !== 'contains');
+  const sequenceLinks = links.filter(d => d.edge_kind === 'page_sequence');
+  const crossRefLinks = links.filter(
+    d => d.edge_kind !== 'contains' && d.edge_kind !== 'page_sequence'
+  );
 
   simulation = d3.forceSimulation(nodes)
     .force('link_contain', d3.forceLink(containmentLinks).id(d => d.id).distance(45).strength(0.9))
+    .force('link_sequence', d3.forceLink(sequenceLinks).id(d => d.id).distance(110).strength(0.6))
     .force('link_xref', d3.forceLink(crossRefLinks).id(d => d.id).distance(140).strength(0.05))
     .force('charge', d3.forceManyBody().strength(d => d.type === 'document' ? -800 : -130))
     .force('center', hierarchical ? null : d3.forceCenter(width / 2, height / 2))
@@ -246,6 +254,17 @@ function renderGraph(data) {
     .attr('stroke', '#cbd2d8')
     .attr('stroke-width', 1)
     .attr('stroke-opacity', 0.7);
+
+  // Page-sequence spine — dashed blue lines connecting adjacent pages
+  // in reading order. Visually distinct from both containment (lighter)
+  // and cross-ref (curved + colored).
+  const sequenceLine = els.chart.append('g').attr('class', 'links-sequence')
+    .selectAll('line').data(sequenceLinks).join('line')
+    .attr('class', 'link page-sequence')
+    .attr('stroke', '#5a8fcb')
+    .attr('stroke-width', 1.6)
+    .attr('stroke-dasharray', '6 4')
+    .attr('stroke-opacity', 0.85);
 
   // Cross-reference arcs — thicker, colored by resolved status,
   // drawn as Bézier paths so they curve gracefully across the
@@ -288,6 +307,9 @@ function renderGraph(data) {
 
   simulation.on('tick', () => {
     containmentLine
+      .attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+      .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+    sequenceLine
       .attr('x1', d => d.source.x).attr('y1', d => d.source.y)
       .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
     xrefPath.attr('d', d => {

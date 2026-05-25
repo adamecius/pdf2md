@@ -113,10 +113,15 @@ main {
   content: ""; display: inline-block; width: 18px; height: 0;
   border-top: 1px solid #cbd2d8; vertical-align: middle;
 }
+.legend-key.sequence::before {
+  content: ""; display: inline-block; width: 18px; height: 0;
+  border-top: 1.6px dashed #5a8fcb; vertical-align: middle;
+}
 
 .link.xref.resolved { stroke: #2ca02c; }
 .link.xref.unresolved { stroke: #d62728; stroke-dasharray: 5 3; }
 .link.contains { stroke: #cbd2d8; }
+.link.page-sequence { stroke: #5a8fcb; stroke-dasharray: 6 4; }
 
 .node circle { stroke: #fff; stroke-width: 1.5px; }
 .node text { font-size: 10px; pointer-events: none; fill: #333; }

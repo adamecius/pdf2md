@@ -430,7 +430,15 @@
         2378,
         2381
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
+    },
+    {
+      "id": "section:markers:example02/consensus+deepseek",
+      "type": "markers_section",
+      "label": "Markers",
+      "parent_id": "document:example02/consensus+deepseek",
+      "back_matter_kind": "markers"
     },
     {
       "id": "marker:1:#/document:[3]",
@@ -441,7 +449,8 @@
         2382,
         2385
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:2:#/document:[4]",
@@ -452,7 +461,8 @@
         2798,
         2801
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:3:#/document:[9]",
@@ -463,7 +473,8 @@
         2802,
         2805
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:4:#/document:[10]",
@@ -474,7 +485,8 @@
         4220,
         4224
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:5:#/document:[12]",
@@ -485,7 +497,8 @@
         4225,
         4229
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:6:#/document:[13]",
@@ -496,7 +509,8 @@
         4401,
         4405
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:7:#/document:[18]",
@@ -507,7 +521,8 @@
         4407,
         4411
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:8:#/document:[19]",
@@ -518,7 +533,8 @@
         4507,
         4511
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:9:#/document:Eq. (11)",
@@ -529,7 +545,8 @@
         4518,
         4526
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:10:#/document:[20]",
@@ -540,7 +557,8 @@
         4567,
         4571
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:11:#/document:Eq. (12)",
@@ -551,7 +569,8 @@
         4578,
         4586
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:12:#/document:[21]",
@@ -562,7 +581,8 @@
         4897,
         4901
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:13:#/document:[23]",
@@ -573,7 +593,8 @@
         4902,
         4906
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:14:#/document:[13]",
@@ -584,7 +605,8 @@
         6222,
         6226
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:15:#/document:[18]",
@@ -595,7 +617,8 @@
         6227,
         6231
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:16:#/document:Corollary 1",
@@ -606,7 +629,8 @@
         8706,
         8717
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:17:#/document:[10]",
@@ -617,7 +641,8 @@
         14498,
         14502
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:18:#/document:[12]",
@@ -628,7 +653,8 @@
         14504,
         14508
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:19:#/document:[26]",
@@ -639,7 +665,8 @@
         15629,
         15633
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:20:#/document:Theorem 1",
@@ -650,7 +677,8 @@
         34839,
         34848
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:21:#/document:Definition 1",
@@ -661,7 +689,8 @@
         35659,
         35671
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:22:#/document:Definition 1",
@@ -672,7 +701,8 @@
         36155,
         36167
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:23:#/document:Definition 2",
@@ -683,7 +713,8 @@
         36707,
         36719
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:24:#/document:Definition 3",
@@ -694,7 +725,8 @@
         37795,
         37807
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:25:#/document:Definition 4",
@@ -705,7 +737,8 @@
         40122,
         40134
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:26:#/document:[29]",
@@ -716,7 +749,8 @@
         40174,
         40178
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:27:#/document:Corollary 1",
@@ -727,7 +761,8 @@
         40716,
         40727
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:28:#/document:Theorem 1",
@@ -738,7 +773,8 @@
         40732,
         40741
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:29:#/document:Definition 1",
@@ -749,7 +785,8 @@
         40960,
         40972
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:30:#/document:Definition 2",
@@ -760,7 +797,8 @@
         41781,
         41793
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:31:#/document:[19]",
@@ -771,7 +809,8 @@
         42405,
         42409
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:32:#/document:Eq. (11)",
@@ -782,7 +821,8 @@
         42416,
         42424
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:33:#/document:Definition 3",
@@ -793,7 +833,8 @@
         42497,
         42509
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:34:#/document:Definition 4",
@@ -804,7 +845,8 @@
         43068,
         43080
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:35:#/document:Corollary 1",
@@ -815,7 +857,8 @@
         43739,
         43750
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:36:#/document:Definition 5",
@@ -826,7 +869,8 @@
         43981,
         43993
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:37:#/document:Theorem 1",
@@ -837,7 +881,8 @@
         45006,
         45015
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:38:#/document:Corollary 1",
@@ -848,7 +893,8 @@
         45037,
         45048
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:39:#/document:Corollary 1",
@@ -859,7 +905,8 @@
         45930,
         45941
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:40:#/document:Definition 4",
@@ -870,7 +917,8 @@
         46413,
         46425
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:41:#/document:Definition 6",
@@ -881,7 +929,8 @@
         46450,
         46462
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:42:#/document:Corollary 1",
@@ -892,7 +941,8 @@
         49884,
         49895
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:43:#/document:Example 1",
@@ -903,7 +953,8 @@
         50111,
         50120
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:44:#/document:Theorem 1",
@@ -914,7 +965,8 @@
         51281,
         51290
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:45:#/document:Eq. (10)",
@@ -925,7 +977,8 @@
         51701,
         51709
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:46:#/document:Example 2",
@@ -936,7 +989,8 @@
         52123,
         52132
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:47:#/document:[20]",
@@ -947,7 +1001,8 @@
         53086,
         53090
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:48:#/document:Eq. (12)",
@@ -958,7 +1013,8 @@
         53097,
         53105
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:49:#/document:Example 3",
@@ -969,7 +1025,8 @@
         53111,
         53120
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:50:#/document:Corollary 1",
@@ -980,7 +1037,8 @@
         55726,
         55737
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:51:#/document:Definition 5",
@@ -991,7 +1049,8 @@
         55807,
         55819
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:52:#/document:Theorem 2",
@@ -1002,7 +1061,8 @@
         55929,
         55938
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:53:#/document:Theorem 1",
@@ -1013,7 +1073,8 @@
         57707,
         57716
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:54:#/document:Theorem 1",
@@ -1024,7 +1085,8 @@
         58495,
         58504
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:55:#/document:Theorem 2",
@@ -1035,7 +1097,8 @@
         58557,
         58566
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:56:#/document:Theorem 2",
@@ -1046,7 +1109,8 @@
         58780,
         58789
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:57:#/document:Corollary 2",
@@ -1057,7 +1121,8 @@
         59551,
         59562
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:58:#/document:Theorem 2",
@@ -1068,7 +1133,8 @@
         60465,
         60474
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:59:#/document:Theorem 2",
@@ -1079,7 +1145,8 @@
         60492,
         60501
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:60:#/document:[34]",
@@ -1090,7 +1157,8 @@
         60722,
         60726
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:61:#/document:[35]",
@@ -1101,7 +1169,8 @@
         60738,
         60742
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:62:#/document:Corollary 3",
@@ -1112,7 +1181,8 @@
         60757,
         60768
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:63:#/document:Corollary 3",
@@ -1123,7 +1193,8 @@
         63038,
         63049
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:64:#/document:Example 4",
@@ -1134,7 +1205,8 @@
         83851,
         83860
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:65:#/document:Example 5",
@@ -1145,7 +1217,8 @@
         85353,
         85362
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:66:#/document:Example 2",
@@ -1156,7 +1229,8 @@
         85477,
         85486
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:67:#/document:Example 4",
@@ -1167,7 +1241,8 @@
         85646,
         85655
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:68:#/document:Theorem 3",
@@ -1178,7 +1253,8 @@
         85733,
         85742
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:69:#/document:Example 4",
@@ -1189,7 +1265,8 @@
         87520,
         87529
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:70:#/document:Theorem 2",
@@ -1200,7 +1277,8 @@
         87535,
         87544
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:71:#/document:Theorem 3",
@@ -1211,7 +1289,8 @@
         87629,
         87638
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:72:#/document:Theorem 3",
@@ -1222,7 +1301,8 @@
         87746,
         87755
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:73:#/document:Eq. (4)",
@@ -1233,7 +1313,8 @@
         87808,
         87815
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:74:#/document:(15.110)",
@@ -1244,7 +1325,8 @@
         87828,
         87836
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:75:#/document:(15.113)",
@@ -1255,7 +1337,8 @@
         87841,
         87849
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:76:#/document:Corollary 2",
@@ -1266,7 +1349,8 @@
         88235,
         88246
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:77:#/document:Corollary 4",
@@ -1277,7 +1361,8 @@
         88307,
         88318
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:78:#/document:Corollary 2",
@@ -1288,7 +1373,8 @@
         88945,
         88956
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:79:#/document:Corollary 3",
@@ -1299,7 +1385,8 @@
         89065,
         89076
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:80:#/document:Corollary 5",
@@ -1310,7 +1397,8 @@
         89117,
         89128
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:81:#/document:Theorem 3",
@@ -1321,7 +1409,8 @@
         89217,
         89226
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:82:#/document:Eq. (70)",
@@ -1332,7 +1421,8 @@
         94382,
         94390
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:83:#/document:[0, 0]",
@@ -1343,7 +1433,8 @@
         96253,
         96259
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:84:#/document:Corollary 1",
@@ -1354,7 +1445,8 @@
         97889,
         97900
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:85:#/document:Example 4",
@@ -1365,7 +1457,8 @@
         97905,
         97914
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:86:#/document:[10]",
@@ -1376,7 +1469,8 @@
         98086,
         98090
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:87:#/document:[12]",
@@ -1387,7 +1481,8 @@
         98092,
         98096
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:88:#/document:[10]",
@@ -1398,7 +1493,8 @@
         106648,
         106652
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:89:#/document:[12]",
@@ -1409,7 +1505,8 @@
         106654,
         106658
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:90:#/document:Fig. 1",
@@ -1420,7 +1517,8 @@
         120992,
         120998
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:91:#/document:Fig. 1",
@@ -1431,7 +1529,8 @@
         121312,
         121318
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:92:#/document:[37]",
@@ -1442,7 +1541,8 @@
         126686,
         126690
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:93:#/document:[38]",
@@ -1453,7 +1553,8 @@
         126692,
         126696
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:94:#/document:[39]",
@@ -1464,7 +1565,8 @@
         128579,
         128583
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:95:#/document:[40]",
@@ -1475,7 +1577,8 @@
         128585,
         128589
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:96:#/document:[32]",
@@ -1486,7 +1589,8 @@
         128801,
         128805
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:97:#/document:Corollary 1",
@@ -1497,7 +1601,8 @@
         129201,
         129212
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:98:#/document:Example 4",
@@ -1508,7 +1613,8 @@
         129227,
         129236
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:99:#/document:PROOF OF LEMMA 1",
@@ -1519,7 +1625,8 @@
         129906,
         129922
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:100:#/document:Corollary 3.3",
@@ -1530,7 +1637,8 @@
         130616,
         130629
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:101:#/document:PROOF OF THEOREM 1",
@@ -1541,7 +1649,8 @@
         131530,
         131548
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:102:#/document:[1]",
@@ -1552,7 +1661,8 @@
         136583,
         136586
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:103:#/document:[2]",
@@ -1563,7 +1673,8 @@
         136702,
         136705
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:104:#/document:[3]",
@@ -1574,7 +1685,8 @@
         136860,
         136863
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:105:#/document:[4]",
@@ -1585,7 +1697,8 @@
         137101,
         137104
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:106:#/document:[5]",
@@ -1596,7 +1709,8 @@
         137261,
         137264
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:107:#/document:[6]",
@@ -1607,7 +1721,8 @@
         137468,
         137471
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:108:#/document:[7]",
@@ -1618,7 +1733,8 @@
         137697,
         137700
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:109:#/document:[8]",
@@ -1629,7 +1745,8 @@
         137908,
         137911
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:110:#/document:[9]",
@@ -1640,7 +1757,8 @@
         138071,
         138074
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:111:#/document:[10]",
@@ -1651,7 +1769,8 @@
         138247,
         138251
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:112:#/document:[11]",
@@ -1662,7 +1781,8 @@
         138438,
         138442
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:113:#/document:[12]",
@@ -1673,7 +1793,8 @@
         138597,
         138601
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:114:#/document:[13]",
@@ -1684,7 +1805,8 @@
         138760,
         138764
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:115:#/document:[14]",
@@ -1695,7 +1817,8 @@
         138919,
         138923
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:116:#/document:[15]",
@@ -1706,7 +1829,8 @@
         139063,
         139067
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:117:#/document:[16]",
@@ -1717,7 +1841,8 @@
         139296,
         139300
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:118:#/document:[17]",
@@ -1728,7 +1853,8 @@
         139472,
         139476
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:119:#/document:[18]",
@@ -1739,7 +1865,8 @@
         139798,
         139802
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:120:#/document:[19]",
@@ -1750,7 +1877,8 @@
         140009,
         140013
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:121:#/document:[20]",
@@ -1761,7 +1889,8 @@
         140167,
         140171
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:122:#/document:[21]",
@@ -1772,7 +1901,8 @@
         140378,
         140382
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:123:#/document:[22]",
@@ -1783,7 +1913,8 @@
         140597,
         140601
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:124:#/document:[23]",
@@ -1794,7 +1925,8 @@
         140857,
         140861
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:125:#/document:[24]",
@@ -1805,7 +1937,8 @@
         141055,
         141059
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:126:#/document:[25]",
@@ -1816,7 +1949,8 @@
         141141,
         141145
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:127:#/document:[26]",
@@ -1827,7 +1961,8 @@
         141256,
         141260
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:128:#/document:[27]",
@@ -1838,7 +1973,8 @@
         141410,
         141414
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:129:#/document:[28]",
@@ -1849,7 +1985,8 @@
         141585,
         141589
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:130:#/document:[29]",
@@ -1860,7 +1997,8 @@
         141761,
         141765
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:131:#/document:[30]",
@@ -1871,7 +2009,8 @@
         141952,
         141956
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:132:#/document:[31]",
@@ -1882,7 +2021,8 @@
         142074,
         142078
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:133:#/document:[32]",
@@ -1893,7 +2033,8 @@
         142297,
         142301
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:134:#/document:[33]",
@@ -1904,7 +2045,8 @@
         142566,
         142570
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:135:#/document:[34]",
@@ -1915,7 +2057,8 @@
         142755,
         142759
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:136:#/document:[35]",
@@ -1926,7 +2069,8 @@
         142890,
         142894
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:137:#/document:[36]",
@@ -1937,7 +2081,8 @@
         143152,
         143156
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:138:#/document:[37]",
@@ -1948,7 +2093,8 @@
         143435,
         143439
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:139:#/document:[38]",
@@ -1959,7 +2105,8 @@
         143591,
         143595
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:140:#/document:[39]",
@@ -1970,7 +2117,8 @@
         143788,
         143792
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:141:#/document:[40]",
@@ -1981,7 +2129,8 @@
         143958,
         143962
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:142:#/document:[41]",
@@ -1992,7 +2141,8 @@
         144066,
         144070
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:143:#/document:Fig. 2",
@@ -2003,7 +2153,8 @@
         148026,
         148032
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:144:#/document:Fig. 2",
@@ -2014,7 +2165,8 @@
         148681,
         148687
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:145:#/document:Fig. 2",
@@ -2025,7 +2177,8 @@
         149012,
         149018
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:146:#/document:Fig. 2",
@@ -2036,7 +2189,8 @@
         149711,
         149717
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:147:#/document:Fig. 2",
@@ -2047,7 +2201,8 @@
         150109,
         150115
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:148:#/document:Fig. 3",
@@ -2058,7 +2213,8 @@
         151093,
         151099
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:149:#/document:Fig. 2",
@@ -2069,7 +2225,8 @@
         151150,
         151156
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:150:#/document:Fig. 3",
@@ -2080,7 +2237,8 @@
         151178,
         151184
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:151:#/document:Fig. 3",
@@ -2091,7 +2249,8 @@
         152153,
         152159
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:152:#/document:[1]",
@@ -2102,7 +2261,8 @@
         0,
         3
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:153:#/document:[3]",
@@ -2113,7 +2273,8 @@
         4,
         7
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:154:#/document:[4]",
@@ -2124,7 +2285,8 @@
         8,
         11
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:155:#/document:[9]",
@@ -2135,7 +2297,8 @@
         12,
         15
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:156:#/document:[10]",
@@ -2146,7 +2309,8 @@
         16,
         20
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:157:#/document:[12]",
@@ -2157,7 +2321,8 @@
         21,
         25
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:158:#/document:[13]",
@@ -2168,7 +2333,8 @@
         26,
         30
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:159:#/document:[18]",
@@ -2179,7 +2345,8 @@
         31,
         35
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:160:#/document:[19]",
@@ -2190,7 +2357,8 @@
         36,
         40
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:161:#/document:[14,",
@@ -2201,7 +2369,8 @@
         41,
         45
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:162:#/document:Eq. (11)",
@@ -2212,7 +2381,8 @@
         46,
         54
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:163:#/document:[20]",
@@ -2223,7 +2393,8 @@
         55,
         59
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:164:#/document:Eq. (12)",
@@ -2234,7 +2405,8 @@
         65,
         73
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:165:#/document:[21]",
@@ -2245,7 +2417,8 @@
         74,
         78
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:166:#/document:[23]",
@@ -2256,7 +2429,8 @@
         79,
         83
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:167:#/document:[24,",
@@ -2267,7 +2441,8 @@
         94,
         98
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:168:#/document:Chap. 14]",
@@ -2278,7 +2453,8 @@
         99,
         108
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:169:#/document:[25,",
@@ -2289,7 +2465,8 @@
         119,
         123
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:170:#/document:Chap. 5]",
@@ -2300,7 +2477,8 @@
         124,
         132
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:171:#/document:[26]",
@@ -2311,7 +2489,8 @@
         133,
         137
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:172:#/document:5",
@@ -2322,7 +2501,8 @@
         121,
         122
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:173:#/document:(7)",
@@ -2333,7 +2513,8 @@
         140,
         143
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:174:#/document:(11)",
@@ -2344,7 +2525,8 @@
         50,
         54
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:175:#/document:(10)",
@@ -2355,7 +2537,8 @@
         149,
         153
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:176:#/document:7",
@@ -2366,7 +2549,8 @@
         141,
         142
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:177:#/document:(12)",
@@ -2377,7 +2561,8 @@
         69,
         73
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:178:#/document:(15)",
@@ -2388,7 +2573,8 @@
         196,
         200
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:179:#/document:(17)",
@@ -2399,7 +2585,8 @@
         201,
         205
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:180:#/document:(16)",
@@ -2410,7 +2597,8 @@
         211,
         215
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:181:#/document:(19)",
@@ -2421,7 +2609,8 @@
         216,
         220
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:182:#/document:21",
@@ -2432,7 +2621,8 @@
         75,
         77
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:183:#/document:(22)",
@@ -2443,7 +2633,8 @@
         239,
         243
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:184:#/document:(20)",
@@ -2454,7 +2645,8 @@
         247,
         251
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:185:#/document:23",
@@ -2465,7 +2657,8 @@
         80,
         82
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:186:#/document:(24)",
@@ -2476,7 +2669,8 @@
         255,
         259
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:187:#/document:(21)",
@@ -2487,7 +2681,8 @@
         260,
         264
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:188:#/document:[29]",
@@ -2498,7 +2693,8 @@
         265,
         269
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:189:#/document:11",
@@ -2509,7 +2705,8 @@
         51,
         53
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:190:#/document:(26)",
@@ -2520,7 +2717,8 @@
         286,
         290
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:191:#/document:(27)",
@@ -2531,7 +2729,8 @@
         291,
         295
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:192:#/document:(33)",
@@ -2542,7 +2741,8 @@
         306,
         310
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:193:#/document:(34)",
@@ -2553,7 +2753,8 @@
         311,
         315
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:194:#/document:(31)",
@@ -2564,7 +2765,8 @@
         316,
         320
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:195:#/document:(30)",
@@ -2575,7 +2777,8 @@
         321,
         325
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:196:#/document:(28)",
@@ -2586,7 +2789,8 @@
         326,
         330
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:197:#/document:(35)",
@@ -2597,7 +2801,8 @@
         331,
         335
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:198:#/document:(38)",
@@ -2608,7 +2813,8 @@
         341,
         345
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:199:#/document:(37)",
@@ -2619,7 +2825,8 @@
         349,
         353
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:200:#/document:10",
@@ -2630,7 +2837,8 @@
         17,
         19
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:201:#/document:12",
@@ -2641,7 +2849,8 @@
         22,
         24
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:202:#/document:[31,",
@@ -2652,7 +2861,8 @@
         387,
         391
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:203:#/document:Ex. 3.3]",
@@ -2663,7 +2873,8 @@
         392,
         400
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:204:#/document:[32,",
@@ -2674,7 +2885,8 @@
         401,
         405
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:205:#/document:Prop. 3",
@@ -2685,7 +2897,8 @@
         406,
         413
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:206:#/document:[27,",
@@ -2696,7 +2909,8 @@
         427,
         431
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:207:#/document:Rem. 18 and 19]",
@@ -2707,7 +2921,8 @@
         432,
         447
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:208:#/document:[34]",
@@ -2718,7 +2933,8 @@
         448,
         452
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:209:#/document:[35]",
@@ -2729,7 +2945,8 @@
         453,
         457
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:210:#/document:17",
@@ -2740,7 +2957,8 @@
         202,
         204
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:211:#/document:(40)",
@@ -2751,7 +2969,8 @@
         523,
         527
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:212:#/document:[36,",
@@ -2762,7 +2981,8 @@
         528,
         532
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:213:#/document:4",
@@ -2773,7 +2993,8 @@
         9,
         10
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:214:#/document:Eqs. (15.110",
@@ -2784,7 +3005,8 @@
         540,
         552
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:215:#/document:(15.113)",
@@ -2795,7 +3017,8 @@
         553,
         561
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:216:#/document:59",
@@ -2806,7 +3029,8 @@
         562,
         564
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:217:#/document:(4)",
@@ -2817,7 +3041,8 @@
         570,
         573
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:218:#/document:Cor. 33]",
@@ -2828,7 +3053,8 @@
         579,
         587
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:219:#/document:69",
@@ -2839,7 +3065,8 @@
         588,
         590
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:220:#/document:70",
@@ -2850,7 +3077,8 @@
         591,
         593
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:221:#/document:15",
@@ -2861,7 +3089,8 @@
         197,
         199
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:222:#/document:(18)",
@@ -2872,7 +3101,8 @@
         682,
         686
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:223:#/document:1",
@@ -2883,7 +3113,8 @@
         1,
         2
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:224:#/document:[37]",
@@ -2894,7 +3125,8 @@
         698,
         702
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:225:#/document:[38]",
@@ -2905,7 +3137,8 @@
         703,
         707
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:226:#/document:[39]",
@@ -2916,7 +3149,8 @@
         715,
         719
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:227:#/document:[40]",
@@ -2927,7 +3161,8 @@
         720,
         724
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:228:#/document:[32]",
@@ -2938,7 +3173,8 @@
         725,
         729
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:229:#/document:78",
@@ -2949,7 +3185,8 @@
         737,
         739
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:230:#/document:19",
@@ -2960,7 +3197,8 @@
         37,
         39
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:231:#/document:[41,",
@@ -2971,7 +3209,8 @@
         748,
         752
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:232:#/document:Corollary 3.3]",
@@ -2982,7 +3221,8 @@
         753,
         767
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/consensus+deepseek"
     },
     {
       "id": "marker:233:#/document/pages/1:1",
@@ -2993,7 +3233,9 @@
         0,
         1
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 1,
+      "parent_id": "page:example02/consensus+deepseek:1"
     },
     {
       "id": "marker:234:#/document/pages/1:1.1",
@@ -3004,7 +3246,9 @@
         0,
         3
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 1,
+      "parent_id": "page:example02/consensus+deepseek:1"
     },
     {
       "id": "marker:235:#/document/pages/1:Eq. (11)",
@@ -3015,7 +3259,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 1,
+      "parent_id": "page:example02/consensus+deepseek:1"
     },
     {
       "id": "marker:236:#/document/pages/1:FIG. 3",
@@ -3026,7 +3272,9 @@
         0,
         6
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 1,
+      "parent_id": "page:example02/consensus+deepseek:1"
     },
     {
       "id": "marker:237:#/document/pages/2:Theorem 2",
@@ -3037,7 +3285,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 2,
+      "parent_id": "page:example02/consensus+deepseek:2"
     },
     {
       "id": "marker:238:#/document/pages/2:Theorem 3",
@@ -3048,7 +3298,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 2,
+      "parent_id": "page:example02/consensus+deepseek:2"
     },
     {
       "id": "marker:239:#/document/pages/2:Corollary 3",
@@ -3059,7 +3311,9 @@
         0,
         11
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 2,
+      "parent_id": "page:example02/consensus+deepseek:2"
     },
     {
       "id": "marker:240:#/document/pages/2:Corollary 5",
@@ -3070,7 +3324,9 @@
         0,
         11
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 2,
+      "parent_id": "page:example02/consensus+deepseek:2"
     },
     {
       "id": "marker:241:#/document/pages/2:Example 4",
@@ -3081,7 +3337,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 2,
+      "parent_id": "page:example02/consensus+deepseek:2"
     },
     {
       "id": "marker:242:#/document/pages/2:Example 5",
@@ -3092,7 +3350,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 2,
+      "parent_id": "page:example02/consensus+deepseek:2"
     },
     {
       "id": "marker:243:#/document/pages/3:Chapter 5",
@@ -3103,7 +3363,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 3,
+      "parent_id": "page:example02/consensus+deepseek:3"
     },
     {
       "id": "marker:244:#/document/pages/3:Eq. (5.4)",
@@ -3114,7 +3376,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 3,
+      "parent_id": "page:example02/consensus+deepseek:3"
     },
     {
       "id": "marker:245:#/document/pages/3:footnote 1",
@@ -3125,7 +3389,9 @@
         0,
         10
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 3,
+      "parent_id": "page:example02/consensus+deepseek:3"
     },
     {
       "id": "marker:246:#/document/pages/3:Section 3",
@@ -3136,7 +3402,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 3,
+      "parent_id": "page:example02/consensus+deepseek:3"
     },
     {
       "id": "marker:247:#/document/pages/3:Theorem 1",
@@ -3147,7 +3415,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 3,
+      "parent_id": "page:example02/consensus+deepseek:3"
     },
     {
       "id": "marker:248:#/document/pages/3:Definition 1",
@@ -3158,7 +3428,9 @@
         0,
         12
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 3,
+      "parent_id": "page:example02/consensus+deepseek:3"
     },
     {
       "id": "marker:249:#/document/pages/3:Proof 1",
@@ -3169,7 +3441,9 @@
         0,
         7
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 3,
+      "parent_id": "page:example02/consensus+deepseek:3"
     },
     {
       "id": "marker:250:#/document/pages/3:Corollary 1",
@@ -3180,7 +3454,9 @@
         0,
         11
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 3,
+      "parent_id": "page:example02/consensus+deepseek:3"
     },
     {
       "id": "marker:251:#/document/pages/3:Example 1",
@@ -3191,7 +3467,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 3,
+      "parent_id": "page:example02/consensus+deepseek:3"
     },
     {
       "id": "marker:252:#/document/pages/5:Theorem 1",
@@ -3202,7 +3480,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 5,
+      "parent_id": "page:example02/consensus+deepseek:5"
     },
     {
       "id": "marker:253:#/document/pages/5:Definition 1",
@@ -3213,7 +3493,9 @@
         0,
         12
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 5,
+      "parent_id": "page:example02/consensus+deepseek:5"
     },
     {
       "id": "marker:254:#/document/pages/5:Proof",
@@ -3224,7 +3506,9 @@
         0,
         5
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 5,
+      "parent_id": "page:example02/consensus+deepseek:5"
     },
     {
       "id": "marker:255:#/document/pages/5:Corollary 1",
@@ -3235,7 +3519,9 @@
         0,
         11
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 5,
+      "parent_id": "page:example02/consensus+deepseek:5"
     },
     {
       "id": "marker:256:#/document/pages/5:Example N",
@@ -3246,7 +3532,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 5,
+      "parent_id": "page:example02/consensus+deepseek:5"
     },
     {
       "id": "marker:257:#/document/pages/6:Theorem 1",
@@ -3257,7 +3545,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 6,
+      "parent_id": "page:example02/consensus+deepseek:6"
     },
     {
       "id": "marker:258:#/document/pages/6:Definition 5",
@@ -3268,7 +3558,9 @@
         0,
         12
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 6,
+      "parent_id": "page:example02/consensus+deepseek:6"
     },
     {
       "id": "marker:259:#/document/pages/6:Proof of Theorem 1",
@@ -3279,7 +3571,9 @@
         0,
         18
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 6,
+      "parent_id": "page:example02/consensus+deepseek:6"
     },
     {
       "id": "marker:260:#/document/pages/6:Corollary 1",
@@ -3290,7 +3584,9 @@
         0,
         11
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 6,
+      "parent_id": "page:example02/consensus+deepseek:6"
     },
     {
       "id": "marker:261:#/document/pages/6:Example 1",
@@ -3301,7 +3597,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 6,
+      "parent_id": "page:example02/consensus+deepseek:6"
     },
     {
       "id": "marker:262:#/document/pages/6:Example 2",
@@ -3312,7 +3610,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 6,
+      "parent_id": "page:example02/consensus+deepseek:6"
     },
     {
       "id": "marker:263:#/document/pages/8:Theorem 2",
@@ -3323,7 +3623,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "page:example02/consensus+deepseek:8"
     },
     {
       "id": "marker:264:#/document/pages/8:Proof",
@@ -3334,7 +3636,9 @@
         0,
         5
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "page:example02/consensus+deepseek:8"
     },
     {
       "id": "marker:265:#/document/pages/8:Corollary",
@@ -3345,7 +3649,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "page:example02/consensus+deepseek:8"
     },
     {
       "id": "marker:266:#/document/pages/8:Example",
@@ -3356,7 +3662,9 @@
         0,
         7
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "page:example02/consensus+deepseek:8"
     },
     {
       "id": "marker:267:#/document/pages/10:Theorem 3 (Kernel Ridge Regression and Kernel Tikhonov Regularization)",
@@ -3367,7 +3675,9 @@
         0,
         70
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "page:example02/consensus+deepseek:10"
     },
     {
       "id": "marker:268:#/document/pages/10:Theorem 5 (Data Augmentation for Kernel Regression)",
@@ -3378,7 +3688,9 @@
         0,
         51
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "page:example02/consensus+deepseek:10"
     },
     {
       "id": "marker:269:#/document/pages/10:Corollary 4",
@@ -3389,7 +3701,9 @@
         0,
         11
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "page:example02/consensus+deepseek:10"
     },
     {
       "id": "marker:270:#/document/pages/10:Corollary 5",
@@ -3400,7 +3714,9 @@
         0,
         11
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "page:example02/consensus+deepseek:10"
     },
     {
       "id": "marker:271:#/document/pages/10:Example 5 (Kernelized Eigenvalue Thresholding)",
@@ -3411,7 +3727,9 @@
         0,
         46
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "page:example02/consensus+deepseek:10"
     },
     {
       "id": "marker:272:#/document/pages/11:FIG. 3",
@@ -3422,7 +3740,9 @@
         0,
         6
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 11,
+      "parent_id": "page:example02/consensus+deepseek:11"
     },
     {
       "id": "marker:273:#/document/pages/11:Table I",
@@ -3433,7 +3753,9 @@
         0,
         7
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 11,
+      "parent_id": "page:example02/consensus+deepseek:11"
     },
     {
       "id": "marker:274:#/document/pages/11:Eq. (5.4)",
@@ -3444,7 +3766,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 11,
+      "parent_id": "page:example02/consensus+deepseek:11"
     },
     {
       "id": "marker:275:#/document/pages/11:footnote 1",
@@ -3455,7 +3779,9 @@
         0,
         10
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 11,
+      "parent_id": "page:example02/consensus+deepseek:11"
     },
     {
       "id": "marker:276:#/document/pages/11:Section VI. Experiments",
@@ -3466,7 +3792,9 @@
         0,
         23
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 11,
+      "parent_id": "page:example02/consensus+deepseek:11"
     },
     {
       "id": "marker:277:#/document/pages/11:Chapter VII (Conclusions)",
@@ -3477,7 +3805,9 @@
         0,
         25
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 11,
+      "parent_id": "page:example02/consensus+deepseek:11"
     },
     {
       "id": "marker:278:#/document/pages/12:TABLE II",
@@ -3488,7 +3818,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 12,
+      "parent_id": "page:example02/consensus+deepseek:12"
     },
     {
       "id": "marker:279:#/document/pages/12:TABLE III",
@@ -3499,7 +3831,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 12,
+      "parent_id": "page:example02/consensus+deepseek:12"
     },
     {
       "id": "marker:280:#/document/pages/12:TABLE IV",
@@ -3510,7 +3844,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 12,
+      "parent_id": "page:example02/consensus+deepseek:12"
     },
     {
       "id": "marker:281:#/document/pages/12:TABLE V",
@@ -3521,7 +3857,9 @@
         0,
         7
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 12,
+      "parent_id": "page:example02/consensus+deepseek:12"
     },
     {
       "id": "marker:282:#/document/pages/12:TABLE VI",
@@ -3532,7 +3870,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 12,
+      "parent_id": "page:example02/consensus+deepseek:12"
     },
     {
       "id": "marker:283:#/document/pages/14:Fig. 1",
@@ -3543,7 +3883,9 @@
         0,
         6
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 14,
+      "parent_id": "page:example02/consensus+deepseek:14"
     },
     {
       "id": "marker:284:#/document/pages/14:footnote 1",
@@ -3554,7 +3896,9 @@
         0,
         10
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 14,
+      "parent_id": "page:example02/consensus+deepseek:14"
     },
     {
       "id": "marker:285:#/document/pages/14:Eq. (5.4)",
@@ -3565,7 +3909,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 14,
+      "parent_id": "page:example02/consensus+deepseek:14"
     },
     {
       "id": "marker:286:#/document/pages/14:Additional Discussions on Distributionally Robust Estimation",
@@ -3576,7 +3922,9 @@
         0,
         60
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 14,
+      "parent_id": "page:example02/consensus+deepseek:14"
     },
     {
       "id": "marker:287:#/document/pages/14:Appendix D",
@@ -3587,7 +3935,9 @@
         0,
         10
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 14,
+      "parent_id": "page:example02/consensus+deepseek:14"
     },
     {
       "id": "marker:288:#/document/pages/15:Proof of Lemma N",
@@ -3598,7 +3948,9 @@
         0,
         16
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 15,
+      "parent_id": "page:example02/consensus+deepseek:15"
     },
     {
       "id": "marker:289:#/document/pages/15:Proof of Theorem N",
@@ -3609,7 +3961,9 @@
         0,
         18
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 15,
+      "parent_id": "page:example02/consensus+deepseek:15"
     },
     {
       "id": "marker:290:#/document/pages/15:Corollary N",
@@ -3620,7 +3974,9 @@
         0,
         11
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 15,
+      "parent_id": "page:example02/consensus+deepseek:15"
     },
     {
       "id": "marker:291:#/document/pages/15:Example N",
@@ -3631,7 +3987,9 @@
         0,
         9
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 15,
+      "parent_id": "page:example02/consensus+deepseek:15"
     },
     {
       "id": "ent:deepseek:2401.12345:reference_item:177",
@@ -6409,9 +6767,21 @@
       "label": ""
     },
     {
+      "source": "page:example02/consensus+deepseek:1",
+      "target": "page:example02/consensus+deepseek:2",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example02/consensus+deepseek",
       "target": "page:example02/consensus+deepseek:3",
       "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:2",
+      "target": "page:example02/consensus+deepseek:3",
+      "edge_kind": "page_sequence",
       "label": ""
     },
     {
@@ -6421,9 +6791,21 @@
       "label": ""
     },
     {
+      "source": "page:example02/consensus+deepseek:3",
+      "target": "page:example02/consensus+deepseek:4",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example02/consensus+deepseek",
       "target": "page:example02/consensus+deepseek:5",
       "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:4",
+      "target": "page:example02/consensus+deepseek:5",
+      "edge_kind": "page_sequence",
       "label": ""
     },
     {
@@ -6433,9 +6815,21 @@
       "label": ""
     },
     {
+      "source": "page:example02/consensus+deepseek:5",
+      "target": "page:example02/consensus+deepseek:6",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example02/consensus+deepseek",
       "target": "page:example02/consensus+deepseek:7",
       "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:6",
+      "target": "page:example02/consensus+deepseek:7",
+      "edge_kind": "page_sequence",
       "label": ""
     },
     {
@@ -6445,9 +6839,21 @@
       "label": ""
     },
     {
+      "source": "page:example02/consensus+deepseek:7",
+      "target": "page:example02/consensus+deepseek:8",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example02/consensus+deepseek",
       "target": "page:example02/consensus+deepseek:9",
       "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:8",
+      "target": "page:example02/consensus+deepseek:9",
+      "edge_kind": "page_sequence",
       "label": ""
     },
     {
@@ -6457,9 +6863,21 @@
       "label": ""
     },
     {
+      "source": "page:example02/consensus+deepseek:9",
+      "target": "page:example02/consensus+deepseek:10",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example02/consensus+deepseek",
       "target": "page:example02/consensus+deepseek:11",
       "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:10",
+      "target": "page:example02/consensus+deepseek:11",
+      "edge_kind": "page_sequence",
       "label": ""
     },
     {
@@ -6469,9 +6887,21 @@
       "label": ""
     },
     {
+      "source": "page:example02/consensus+deepseek:11",
+      "target": "page:example02/consensus+deepseek:12",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example02/consensus+deepseek",
       "target": "page:example02/consensus+deepseek:13",
       "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:12",
+      "target": "page:example02/consensus+deepseek:13",
+      "edge_kind": "page_sequence",
       "label": ""
     },
     {
@@ -6481,9 +6911,21 @@
       "label": ""
     },
     {
+      "source": "page:example02/consensus+deepseek:13",
+      "target": "page:example02/consensus+deepseek:14",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example02/consensus+deepseek",
       "target": "page:example02/consensus+deepseek:15",
       "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:14",
+      "target": "page:example02/consensus+deepseek:15",
+      "edge_kind": "page_sequence",
       "label": ""
     },
     {
@@ -6493,9 +6935,21 @@
       "label": ""
     },
     {
+      "source": "page:example02/consensus+deepseek:15",
+      "target": "page:example02/consensus+deepseek:16",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
       "source": "document:example02/consensus+deepseek",
       "target": "page:example02/consensus+deepseek:17",
       "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:16",
+      "target": "page:example02/consensus+deepseek:17",
+      "edge_kind": "page_sequence",
       "label": ""
     },
     {
@@ -6747,6 +7201,1764 @@
     {
       "source": "document:example02/consensus+deepseek",
       "target": "#/bibliography/b40",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/consensus+deepseek",
+      "target": "section:markers:example02/consensus+deepseek",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:0:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:1:#/document:[3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:2:#/document:[4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:3:#/document:[9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:4:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:5:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:6:#/document:[13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:7:#/document:[18]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:8:#/document:[19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:9:#/document:Eq. (11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:10:#/document:[20]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:11:#/document:Eq. (12)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:12:#/document:[21]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:13:#/document:[23]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:14:#/document:[13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:15:#/document:[18]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:16:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:17:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:18:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:19:#/document:[26]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:20:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:21:#/document:Definition 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:22:#/document:Definition 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:23:#/document:Definition 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:24:#/document:Definition 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:25:#/document:Definition 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:26:#/document:[29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:27:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:28:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:29:#/document:Definition 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:30:#/document:Definition 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:31:#/document:[19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:32:#/document:Eq. (11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:33:#/document:Definition 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:34:#/document:Definition 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:35:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:36:#/document:Definition 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:37:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:38:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:39:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:40:#/document:Definition 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:41:#/document:Definition 6",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:42:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:43:#/document:Example 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:44:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:45:#/document:Eq. (10)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:46:#/document:Example 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:47:#/document:[20]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:48:#/document:Eq. (12)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:49:#/document:Example 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:50:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:51:#/document:Definition 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:52:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:53:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:54:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:55:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:56:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:57:#/document:Corollary 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:58:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:59:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:60:#/document:[34]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:61:#/document:[35]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:62:#/document:Corollary 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:63:#/document:Corollary 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:64:#/document:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:65:#/document:Example 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:66:#/document:Example 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:67:#/document:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:68:#/document:Theorem 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:69:#/document:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:70:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:71:#/document:Theorem 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:72:#/document:Theorem 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:73:#/document:Eq. (4)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:74:#/document:(15.110)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:75:#/document:(15.113)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:76:#/document:Corollary 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:77:#/document:Corollary 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:78:#/document:Corollary 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:79:#/document:Corollary 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:80:#/document:Corollary 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:81:#/document:Theorem 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:82:#/document:Eq. (70)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:83:#/document:[0, 0]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:84:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:85:#/document:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:86:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:87:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:88:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:89:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:90:#/document:Fig. 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:91:#/document:Fig. 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:92:#/document:[37]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:93:#/document:[38]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:94:#/document:[39]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:95:#/document:[40]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:96:#/document:[32]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:97:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:98:#/document:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:99:#/document:PROOF OF LEMMA 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:100:#/document:Corollary 3.3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:101:#/document:PROOF OF THEOREM 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:102:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:103:#/document:[2]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:104:#/document:[3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:105:#/document:[4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:106:#/document:[5]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:107:#/document:[6]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:108:#/document:[7]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:109:#/document:[8]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:110:#/document:[9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:111:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:112:#/document:[11]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:113:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:114:#/document:[13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:115:#/document:[14]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:116:#/document:[15]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:117:#/document:[16]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:118:#/document:[17]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:119:#/document:[18]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:120:#/document:[19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:121:#/document:[20]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:122:#/document:[21]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:123:#/document:[22]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:124:#/document:[23]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:125:#/document:[24]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:126:#/document:[25]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:127:#/document:[26]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:128:#/document:[27]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:129:#/document:[28]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:130:#/document:[29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:131:#/document:[30]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:132:#/document:[31]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:133:#/document:[32]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:134:#/document:[33]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:135:#/document:[34]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:136:#/document:[35]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:137:#/document:[36]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:138:#/document:[37]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:139:#/document:[38]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:140:#/document:[39]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:141:#/document:[40]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:142:#/document:[41]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:143:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:144:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:145:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:146:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:147:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:148:#/document:Fig. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:149:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:150:#/document:Fig. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:151:#/document:Fig. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:152:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:153:#/document:[3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:154:#/document:[4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:155:#/document:[9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:156:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:157:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:158:#/document:[13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:159:#/document:[18]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:160:#/document:[19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:161:#/document:[14,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:162:#/document:Eq. (11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:163:#/document:[20]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:164:#/document:Eq. (12)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:165:#/document:[21]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:166:#/document:[23]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:167:#/document:[24,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:168:#/document:Chap. 14]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:169:#/document:[25,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:170:#/document:Chap. 5]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:171:#/document:[26]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:172:#/document:5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:173:#/document:(7)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:174:#/document:(11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:175:#/document:(10)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:176:#/document:7",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:177:#/document:(12)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:178:#/document:(15)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:179:#/document:(17)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:180:#/document:(16)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:181:#/document:(19)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:182:#/document:21",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:183:#/document:(22)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:184:#/document:(20)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:185:#/document:23",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:186:#/document:(24)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:187:#/document:(21)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:188:#/document:[29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:189:#/document:11",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:190:#/document:(26)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:191:#/document:(27)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:192:#/document:(33)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:193:#/document:(34)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:194:#/document:(31)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:195:#/document:(30)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:196:#/document:(28)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:197:#/document:(35)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:198:#/document:(38)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:199:#/document:(37)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:200:#/document:10",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:201:#/document:12",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:202:#/document:[31,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:203:#/document:Ex. 3.3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:204:#/document:[32,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:205:#/document:Prop. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:206:#/document:[27,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:207:#/document:Rem. 18 and 19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:208:#/document:[34]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:209:#/document:[35]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:210:#/document:17",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:211:#/document:(40)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:212:#/document:[36,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:213:#/document:4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:214:#/document:Eqs. (15.110",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:215:#/document:(15.113)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:216:#/document:59",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:217:#/document:(4)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:218:#/document:Cor. 33]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:219:#/document:69",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:220:#/document:70",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:221:#/document:15",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:222:#/document:(18)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:223:#/document:1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:224:#/document:[37]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:225:#/document:[38]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:226:#/document:[39]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:227:#/document:[40]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:228:#/document:[32]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:229:#/document:78",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:230:#/document:19",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:231:#/document:[41,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/consensus+deepseek",
+      "target": "marker:232:#/document:Corollary 3.3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:1",
+      "target": "marker:233:#/document/pages/1:1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:1",
+      "target": "marker:234:#/document/pages/1:1.1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:1",
+      "target": "marker:235:#/document/pages/1:Eq. (11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:1",
+      "target": "marker:236:#/document/pages/1:FIG. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:2",
+      "target": "marker:237:#/document/pages/2:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:2",
+      "target": "marker:238:#/document/pages/2:Theorem 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:2",
+      "target": "marker:239:#/document/pages/2:Corollary 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:2",
+      "target": "marker:240:#/document/pages/2:Corollary 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:2",
+      "target": "marker:241:#/document/pages/2:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:2",
+      "target": "marker:242:#/document/pages/2:Example 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:3",
+      "target": "marker:243:#/document/pages/3:Chapter 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:3",
+      "target": "marker:244:#/document/pages/3:Eq. (5.4)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:3",
+      "target": "marker:245:#/document/pages/3:footnote 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:3",
+      "target": "marker:246:#/document/pages/3:Section 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:3",
+      "target": "marker:247:#/document/pages/3:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:3",
+      "target": "marker:248:#/document/pages/3:Definition 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:3",
+      "target": "marker:249:#/document/pages/3:Proof 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:3",
+      "target": "marker:250:#/document/pages/3:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:3",
+      "target": "marker:251:#/document/pages/3:Example 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:5",
+      "target": "marker:252:#/document/pages/5:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:5",
+      "target": "marker:253:#/document/pages/5:Definition 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:5",
+      "target": "marker:254:#/document/pages/5:Proof",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:5",
+      "target": "marker:255:#/document/pages/5:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:5",
+      "target": "marker:256:#/document/pages/5:Example N",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:6",
+      "target": "marker:257:#/document/pages/6:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:6",
+      "target": "marker:258:#/document/pages/6:Definition 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:6",
+      "target": "marker:259:#/document/pages/6:Proof of Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:6",
+      "target": "marker:260:#/document/pages/6:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:6",
+      "target": "marker:261:#/document/pages/6:Example 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:6",
+      "target": "marker:262:#/document/pages/6:Example 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:8",
+      "target": "marker:263:#/document/pages/8:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:8",
+      "target": "marker:264:#/document/pages/8:Proof",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:8",
+      "target": "marker:265:#/document/pages/8:Corollary",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:8",
+      "target": "marker:266:#/document/pages/8:Example",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:10",
+      "target": "marker:267:#/document/pages/10:Theorem 3 (Kernel Ridge Regression and Kernel Tikhonov Regularization)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:10",
+      "target": "marker:268:#/document/pages/10:Theorem 5 (Data Augmentation for Kernel Regression)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:10",
+      "target": "marker:269:#/document/pages/10:Corollary 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:10",
+      "target": "marker:270:#/document/pages/10:Corollary 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:10",
+      "target": "marker:271:#/document/pages/10:Example 5 (Kernelized Eigenvalue Thresholding)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:11",
+      "target": "marker:272:#/document/pages/11:FIG. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:11",
+      "target": "marker:273:#/document/pages/11:Table I",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:11",
+      "target": "marker:274:#/document/pages/11:Eq. (5.4)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:11",
+      "target": "marker:275:#/document/pages/11:footnote 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:11",
+      "target": "marker:276:#/document/pages/11:Section VI. Experiments",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:11",
+      "target": "marker:277:#/document/pages/11:Chapter VII (Conclusions)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:12",
+      "target": "marker:278:#/document/pages/12:TABLE II",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:12",
+      "target": "marker:279:#/document/pages/12:TABLE III",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:12",
+      "target": "marker:280:#/document/pages/12:TABLE IV",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:12",
+      "target": "marker:281:#/document/pages/12:TABLE V",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:12",
+      "target": "marker:282:#/document/pages/12:TABLE VI",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:14",
+      "target": "marker:283:#/document/pages/14:Fig. 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:14",
+      "target": "marker:284:#/document/pages/14:footnote 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:14",
+      "target": "marker:285:#/document/pages/14:Eq. (5.4)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:14",
+      "target": "marker:286:#/document/pages/14:Additional Discussions on Distributionally Robust Estimation",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:14",
+      "target": "marker:287:#/document/pages/14:Appendix D",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:15",
+      "target": "marker:288:#/document/pages/15:Proof of Lemma N",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:15",
+      "target": "marker:289:#/document/pages/15:Proof of Theorem N",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:15",
+      "target": "marker:290:#/document/pages/15:Corollary N",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+deepseek:15",
+      "target": "marker:291:#/document/pages/15:Example N",
       "edge_kind": "contains",
       "label": ""
     },

@@ -13,6 +13,7 @@ without reaching back into the original graph.
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from typing import Any, Iterable
 
@@ -38,14 +39,29 @@ MARKER_SOURCE_NODE_TYPE = "marker_source"
 # working.
 DOCUMENT_NODE_TYPE = "document"
 PAGE_NODE_TYPE = "page"
-BACK_MATTER_BIBLIOGRAPHY_NODE_ID_PREFIX = "section:bibliography:"
+SECTION_NODE_ID_PREFIX = "section:"
+
+
+def _section_node_id(kind: str, document_id: str) -> str:
+    """Stable id for a synthetic section grouping node.
+
+    ``kind`` ∈ {``bibliography``, ``index``, ``glossary``, ``markers``}.
+    Format: ``section:<kind>:<document_id>``.
+    """
+    return f"{SECTION_NODE_ID_PREFIX}{kind}:{document_id}"
 
 # Edge "kind" field added in schema 1.1: "cross_reference" (the
-# marker → target edges already emitted by 1.0.0) and "contains"
-# (the new hierarchy edges from document → page → entity). The
-# default is "cross_reference" so 1.0.0-shaped graphs keep working.
+# marker → target edges already emitted by 1.0.0), "contains" (the
+# hierarchy edges from document → page → entity), and "page_sequence"
+# (next-page reading-order edges between adjacent page nodes).
 EDGE_KIND_CROSS_REFERENCE = "cross_reference"
 EDGE_KIND_CONTAINS = "contains"
+EDGE_KIND_PAGE_SEQUENCE = "page_sequence"
+
+# Markers whose source_ref doesn't encode a page (regex / grobid)
+# cluster under this synthetic "markers" sibling of pages so they
+# don't visually contaminate the page bodies.
+MARKERS_SECTION_ID_PREFIX = "section:markers:"
 
 
 @dataclass(frozen=True)
@@ -127,6 +143,20 @@ def _edge_target(edge: RefEdge) -> str:
     if edge.resolved and edge.target_ref:
         return edge.target_ref
     return UNRESOLVED_NODE_ID
+
+
+# VLM marker source_refs encode page index as ``#/document/pages/N``.
+# The standalone regex / grobid backends emit ``#/document`` (no page),
+# so a ``None`` return means "page unknown — cluster under markers section".
+_MARKER_PAGE_RE = re.compile(r"/pages/(\d+)\b")
+
+
+def _marker_source_page(marker: RefMarker) -> int | None:
+    """Return the marker's source page number, or ``None`` when unknown."""
+    m = _MARKER_PAGE_RE.search(marker.source_ref or "")
+    if m:
+        return int(m.group(1))
+    return None
 
 
 def _marker_node_id(marker: RefMarker, index: int) -> str:
@@ -244,7 +274,9 @@ def export_graph(
         # Mint one page node per distinct page_no the proposals know
         # about. Pages are ordered low → high.
         pages_seen: set[int] = {p for p in page_by_id.values() if p is not None}
-        for page_no in sorted(pages_seen):
+        sorted_pages = sorted(pages_seen)
+        prev_page_id: str | None = None
+        for page_no in sorted_pages:
             page_id = f"page:{document_id or proposals.document_id}:{page_no}"
             _ensure_node(
                 nodes,
@@ -261,11 +293,34 @@ def export_graph(
                     "label": "",
                 }
             )
+            # Sequential reading-order edge (page_sequence) — page N
+            # is followed by page N+1. Emitted between consecutive
+            # pages in sorted order; non-consecutive page numbers
+            # (e.g. a missing page 7) still get a single edge from
+            # the previous numbered page to the next one we have, so
+            # the spine stays a single chain.
+            if prev_page_id is not None:
+                containment_edges.append(
+                    {
+                        "source": prev_page_id,
+                        "target": page_id,
+                        "edge_kind": EDGE_KIND_PAGE_SEQUENCE,
+                        "label": "",
+                    }
+                )
+            prev_page_id = page_id
+        # Markers section — synthetic sibling of pages where markers
+        # whose source_ref doesn't encode a page (regex / grobid)
+        # cluster. Created lazily on first attribution; the empty
+        # section here avoids cluttering documents with no markers.
+        markers_section_id = _section_node_id(
+            "markers", document_id or proposals.document_id
+        )
         # Back-matter section nodes — children of the document, NOT of
         # any page. REFERENCE_ITEM / INDEX_ENTRY / GLOSSARY_ENTRY
         # entries are reparented under these.
         for section_kind in {s for s in section_by_id.values() if s is not None}:
-            section_id = f"{BACK_MATTER_BIBLIOGRAPHY_NODE_ID_PREFIX[:-1].rsplit(':', 1)[0]}:{section_kind}:{document_id or proposals.document_id}"
+            section_id = _section_node_id(section_kind, document_id or proposals.document_id)
             _ensure_node(
                 nodes,
                 section_id,
@@ -295,7 +350,7 @@ def export_graph(
         # page the OCR landed it on).
         section_kind = section_by_id.get(node_id)
         if section_kind is not None:
-            parent_id = f"{BACK_MATTER_BIBLIOGRAPHY_NODE_ID_PREFIX[:-1].rsplit(':', 1)[0]}:{section_kind}:{document_id or proposals.document_id}"
+            parent_id = _section_node_id(section_kind, document_id or proposals.document_id)
         else:
             page_no = page_by_id.get(node_id)
             parent_id = (
@@ -326,20 +381,74 @@ def export_graph(
             _attach_to_hierarchy(node_id)
 
     marker_ids: dict[int, str] = {}
+    markers_section_minted = False
     for idx, marker in enumerate(xref.markers):
         node_id = _marker_node_id(marker, idx)
         marker_ids[idx] = node_id
+        marker_page = _marker_source_page(marker)
+        extra: dict[str, Any] = {
+            "source_ref": marker.source_ref,
+            "char_offset": list(marker.char_offset),
+            "backend": marker.backend,
+        }
+        if marker_page is not None:
+            extra["page_no"] = marker_page
         _ensure_node(
             nodes,
             node_id,
             str(marker.marker_type),
             marker.marker_text,
-            extra={
-                "source_ref": marker.source_ref,
-                "char_offset": list(marker.char_offset),
-                "backend": marker.backend,
-            },
+            extra=extra,
         )
+        # Attribute the marker to its source page when known. Markers
+        # whose source_ref doesn't encode a page (regex / grobid) get
+        # parented under the synthetic markers section (minted lazily
+        # on first hit so empty graphs stay clean).
+        if proposals is not None and document_node_id is not None:
+            if marker_page is not None and marker_page in pages_seen:
+                page_id = f"page:{document_id or proposals.document_id}:{marker_page}"
+                nodes[node_id]["parent_id"] = page_id
+                containment_edges.append(
+                    {
+                        "source": page_id,
+                        "target": node_id,
+                        "edge_kind": EDGE_KIND_CONTAINS,
+                        "label": "",
+                    }
+                )
+            else:
+                section_id = _section_node_id(
+                    "markers", document_id or proposals.document_id
+                )
+                if not markers_section_minted:
+                    _ensure_node(
+                        nodes,
+                        section_id,
+                        "markers_section",
+                        "Markers",
+                        extra={
+                            "parent_id": document_node_id,
+                            "back_matter_kind": "markers",
+                        },
+                    )
+                    containment_edges.append(
+                        {
+                            "source": document_node_id,
+                            "target": section_id,
+                            "edge_kind": EDGE_KIND_CONTAINS,
+                            "label": "",
+                        }
+                    )
+                    markers_section_minted = True
+                nodes[node_id]["parent_id"] = section_id
+                containment_edges.append(
+                    {
+                        "source": section_id,
+                        "target": node_id,
+                        "edge_kind": EDGE_KIND_CONTAINS,
+                        "label": "",
+                    }
+                )
 
     # Build a lookup from (source_ref, marker_text, char_offset) → marker index
     # so we can connect explicit edges back to their marker nodes.

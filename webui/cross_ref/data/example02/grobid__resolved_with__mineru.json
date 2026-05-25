@@ -318,7 +318,15 @@
         0,
         3
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
+    },
+    {
+      "id": "section:markers:example02/grobid+mineru",
+      "type": "markers_section",
+      "label": "Markers",
+      "parent_id": "document:example02/grobid+mineru",
+      "back_matter_kind": "markers"
     },
     {
       "id": "marker:1:#/document:[3]",
@@ -329,7 +337,8 @@
         4,
         7
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:2:#/document:[4]",
@@ -340,7 +349,8 @@
         8,
         11
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:3:#/document:[9]",
@@ -351,7 +361,8 @@
         12,
         15
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:4:#/document:[10]",
@@ -362,7 +373,8 @@
         16,
         20
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:5:#/document:[12]",
@@ -373,7 +385,8 @@
         21,
         25
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:6:#/document:[13]",
@@ -384,7 +397,8 @@
         26,
         30
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:7:#/document:[18]",
@@ -395,7 +409,8 @@
         31,
         35
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:8:#/document:[19]",
@@ -406,7 +421,8 @@
         36,
         40
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:9:#/document:[14,",
@@ -417,7 +433,8 @@
         41,
         45
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:10:#/document:Eq. (11)",
@@ -428,7 +445,8 @@
         46,
         54
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:11:#/document:[20]",
@@ -439,7 +457,8 @@
         55,
         59
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:12:#/document:[14,",
@@ -450,7 +469,8 @@
         41,
         45
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:13:#/document:Eq. (12)",
@@ -461,7 +481,8 @@
         65,
         73
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:14:#/document:[21]",
@@ -472,7 +493,8 @@
         74,
         78
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:15:#/document:[23]",
@@ -483,7 +505,8 @@
         79,
         83
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:16:#/document:[13]",
@@ -494,7 +517,8 @@
         26,
         30
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:17:#/document:[18]",
@@ -505,7 +529,8 @@
         31,
         35
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:18:#/document:[24,",
@@ -516,7 +541,8 @@
         94,
         98
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:19:#/document:Chap. 14]",
@@ -527,7 +553,8 @@
         99,
         108
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:20:#/document:[10]",
@@ -538,7 +565,8 @@
         16,
         20
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:21:#/document:[12]",
@@ -549,7 +577,8 @@
         21,
         25
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:22:#/document:[25,",
@@ -560,7 +589,8 @@
         119,
         123
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:23:#/document:Chap. 5]",
@@ -571,7 +601,8 @@
         124,
         132
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:24:#/document:[26]",
@@ -582,7 +613,8 @@
         133,
         137
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:25:#/document:5",
@@ -593,7 +625,8 @@
         121,
         122
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:26:#/document:(7)",
@@ -604,7 +637,8 @@
         140,
         143
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:27:#/document:(11)",
@@ -615,7 +649,8 @@
         50,
         54
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:28:#/document:(10)",
@@ -626,7 +661,8 @@
         149,
         153
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:29:#/document:(11)",
@@ -637,7 +673,8 @@
         50,
         54
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:30:#/document:(10)",
@@ -648,7 +685,8 @@
         149,
         153
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:31:#/document:7",
@@ -659,7 +697,8 @@
         141,
         142
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:32:#/document:(10)",
@@ -670,7 +709,8 @@
         149,
         153
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:33:#/document:(7)",
@@ -681,7 +721,8 @@
         140,
         143
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:34:#/document:(12)",
@@ -692,7 +733,8 @@
         69,
         73
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:35:#/document:(11)",
@@ -703,7 +745,8 @@
         50,
         54
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:36:#/document:(7)",
@@ -714,7 +757,8 @@
         140,
         143
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:37:#/document:(11)",
@@ -725,7 +769,8 @@
         50,
         54
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:38:#/document:7",
@@ -736,7 +781,8 @@
         141,
         142
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:39:#/document:(15)",
@@ -747,7 +793,8 @@
         196,
         200
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:40:#/document:(17)",
@@ -758,7 +805,8 @@
         201,
         205
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:41:#/document:(12)",
@@ -769,7 +817,8 @@
         69,
         73
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:42:#/document:(16)",
@@ -780,7 +829,8 @@
         211,
         215
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:43:#/document:(19)",
@@ -791,7 +841,8 @@
         216,
         220
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:44:#/document:(19)",
@@ -802,7 +853,8 @@
         216,
         220
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:45:#/document:(19)",
@@ -813,7 +865,8 @@
         216,
         220
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:46:#/document:(19)",
@@ -824,7 +877,8 @@
         216,
         220
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:47:#/document:21",
@@ -835,7 +889,8 @@
         75,
         77
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:48:#/document:(22)",
@@ -846,7 +901,8 @@
         239,
         243
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:49:#/document:21",
@@ -857,7 +913,8 @@
         75,
         77
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:50:#/document:(20)",
@@ -868,7 +925,8 @@
         247,
         251
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:51:#/document:23",
@@ -879,7 +937,8 @@
         80,
         82
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:52:#/document:(24)",
@@ -890,7 +949,8 @@
         255,
         259
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:53:#/document:(21)",
@@ -901,7 +961,8 @@
         260,
         264
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:54:#/document:[29]",
@@ -912,7 +973,8 @@
         265,
         269
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:55:#/document:21",
@@ -923,7 +985,8 @@
         75,
         77
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:56:#/document:[19]",
@@ -934,7 +997,8 @@
         36,
         40
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:57:#/document:11",
@@ -945,7 +1009,8 @@
         51,
         53
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:58:#/document:(12)",
@@ -956,7 +1021,8 @@
         69,
         73
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:59:#/document:(26)",
@@ -967,7 +1033,8 @@
         286,
         290
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:60:#/document:(27)",
@@ -978,7 +1045,8 @@
         291,
         295
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:61:#/document:(27)",
@@ -989,7 +1057,8 @@
         291,
         295
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:62:#/document:(27)",
@@ -1000,7 +1069,8 @@
         291,
         295
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:63:#/document:(33)",
@@ -1011,7 +1081,8 @@
         306,
         310
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:64:#/document:(34)",
@@ -1022,7 +1093,8 @@
         311,
         315
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:65:#/document:(31)",
@@ -1033,7 +1105,8 @@
         316,
         320
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:66:#/document:(30)",
@@ -1044,7 +1117,8 @@
         321,
         325
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:67:#/document:(28)",
@@ -1055,7 +1129,8 @@
         326,
         330
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:68:#/document:(35)",
@@ -1066,7 +1141,8 @@
         331,
         335
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:69:#/document:(12)",
@@ -1077,7 +1153,8 @@
         69,
         73
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:70:#/document:(38)",
@@ -1088,7 +1165,8 @@
         341,
         345
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:71:#/document:21",
@@ -1099,7 +1177,8 @@
         75,
         77
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:72:#/document:(37)",
@@ -1110,7 +1189,8 @@
         349,
         353
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:73:#/document:(34)",
@@ -1121,7 +1201,8 @@
         311,
         315
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:74:#/document:10",
@@ -1132,7 +1213,8 @@
         17,
         19
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:75:#/document:[20]",
@@ -1143,7 +1225,8 @@
         55,
         59
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:76:#/document:12",
@@ -1154,7 +1237,8 @@
         22,
         24
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:77:#/document:(37)",
@@ -1165,7 +1249,8 @@
         349,
         353
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:78:#/document:(19)",
@@ -1176,7 +1261,8 @@
         216,
         220
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:79:#/document:[31,",
@@ -1187,7 +1273,8 @@
         387,
         391
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:80:#/document:Ex. 3.3]",
@@ -1198,7 +1285,8 @@
         392,
         400
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:81:#/document:[32,",
@@ -1209,7 +1297,8 @@
         401,
         405
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:82:#/document:Prop. 3",
@@ -1220,7 +1309,8 @@
         406,
         413
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:83:#/document:[32,",
@@ -1231,7 +1321,8 @@
         401,
         405
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:84:#/document:Prop. 3",
@@ -1242,7 +1333,8 @@
         406,
         413
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:85:#/document:[27,",
@@ -1253,7 +1345,8 @@
         427,
         431
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:86:#/document:Rem. 18 and 19]",
@@ -1264,7 +1357,8 @@
         432,
         447
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:87:#/document:[34]",
@@ -1275,7 +1369,8 @@
         448,
         452
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:88:#/document:[35]",
@@ -1286,7 +1381,8 @@
         453,
         457
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:89:#/document:(10)",
@@ -1297,7 +1393,8 @@
         149,
         153
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:90:#/document:(17)",
@@ -1308,7 +1405,8 @@
         201,
         205
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:91:#/document:17",
@@ -1319,7 +1417,8 @@
         202,
         204
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:92:#/document:17",
@@ -1330,7 +1429,8 @@
         202,
         204
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:93:#/document:(40)",
@@ -1341,7 +1441,8 @@
         523,
         527
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:94:#/document:[36,",
@@ -1352,7 +1453,8 @@
         528,
         532
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:95:#/document:4",
@@ -1363,7 +1465,8 @@
         9,
         10
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:96:#/document:[24,",
@@ -1374,7 +1477,8 @@
         94,
         98
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:97:#/document:Eqs. (15.110",
@@ -1385,7 +1489,8 @@
         540,
         552
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:98:#/document:(15.113)",
@@ -1396,7 +1501,8 @@
         553,
         561
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:99:#/document:59",
@@ -1407,7 +1513,8 @@
         562,
         564
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:100:#/document:(17)",
@@ -1418,7 +1525,8 @@
         201,
         205
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:101:#/document:(4)",
@@ -1429,7 +1537,8 @@
         570,
         573
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:102:#/document:[27,",
@@ -1440,7 +1549,8 @@
         427,
         431
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:103:#/document:Cor. 33]",
@@ -1451,7 +1561,8 @@
         579,
         587
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:104:#/document:69",
@@ -1462,7 +1573,8 @@
         588,
         590
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:105:#/document:70",
@@ -1473,7 +1585,8 @@
         591,
         593
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:106:#/document:(30)",
@@ -1484,7 +1597,8 @@
         321,
         325
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:107:#/document:(30)",
@@ -1495,7 +1609,8 @@
         321,
         325
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:108:#/document:[10]",
@@ -1506,7 +1621,8 @@
         16,
         20
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:109:#/document:[12]",
@@ -1517,7 +1633,8 @@
         21,
         25
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:110:#/document:(30)",
@@ -1528,7 +1645,8 @@
         321,
         325
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:111:#/document:[10]",
@@ -1539,7 +1657,8 @@
         16,
         20
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:112:#/document:[12]",
@@ -1550,7 +1669,8 @@
         21,
         25
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:113:#/document:7",
@@ -1561,7 +1681,8 @@
         141,
         142
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:114:#/document:15",
@@ -1572,7 +1693,8 @@
         197,
         199
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:115:#/document:(7)",
@@ -1583,7 +1705,8 @@
         140,
         143
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:116:#/document:(17)",
@@ -1594,7 +1717,8 @@
         201,
         205
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:117:#/document:(18)",
@@ -1605,7 +1729,8 @@
         682,
         686
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:118:#/document:1",
@@ -1616,7 +1741,8 @@
         1,
         2
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:119:#/document:(7)",
@@ -1627,7 +1753,8 @@
         140,
         143
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:120:#/document:(10)",
@@ -1638,7 +1765,8 @@
         149,
         153
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:121:#/document:[37]",
@@ -1649,7 +1777,8 @@
         698,
         702
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:122:#/document:[38]",
@@ -1660,7 +1789,8 @@
         703,
         707
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:123:#/document:7",
@@ -1671,7 +1801,8 @@
         141,
         142
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:124:#/document:(10)",
@@ -1682,7 +1813,8 @@
         149,
         153
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:125:#/document:[39]",
@@ -1693,7 +1825,8 @@
         715,
         719
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:126:#/document:[40]",
@@ -1704,7 +1837,8 @@
         720,
         724
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:127:#/document:[32]",
@@ -1715,7 +1849,8 @@
         725,
         729
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:128:#/document:7",
@@ -1726,7 +1861,8 @@
         141,
         142
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:129:#/document:(19)",
@@ -1737,7 +1873,8 @@
         216,
         220
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:130:#/document:78",
@@ -1748,7 +1885,8 @@
         737,
         739
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:131:#/document:(19)",
@@ -1759,7 +1897,8 @@
         216,
         220
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:132:#/document:19",
@@ -1770,7 +1909,8 @@
         37,
         39
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:133:#/document:[41,",
@@ -1781,7 +1921,8 @@
         748,
         752
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:134:#/document:Corollary 3.3]",
@@ -1792,7 +1933,8 @@
         753,
         767
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:135:#/document:19",
@@ -1803,7 +1945,8 @@
         37,
         39
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:136:#/document:(21)",
@@ -1814,7 +1957,8 @@
         260,
         264
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:137:#/document:(19)",
@@ -1825,7 +1969,8 @@
         216,
         220
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "marker:138:#/document:(19)",
@@ -1836,7 +1981,8 @@
         216,
         220
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example02/grobid+mineru"
     },
     {
       "id": "ent:mineru:2401.12345:reference_item:212",
@@ -3956,6 +4102,846 @@
     {
       "source": "document:example02/grobid+mineru",
       "target": "#/bibliography/b40",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/grobid+mineru",
+      "target": "section:markers:example02/grobid+mineru",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:0:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:1:#/document:[3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:2:#/document:[4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:3:#/document:[9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:4:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:5:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:6:#/document:[13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:7:#/document:[18]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:8:#/document:[19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:9:#/document:[14,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:10:#/document:Eq. (11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:11:#/document:[20]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:12:#/document:[14,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:13:#/document:Eq. (12)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:14:#/document:[21]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:15:#/document:[23]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:16:#/document:[13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:17:#/document:[18]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:18:#/document:[24,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:19:#/document:Chap. 14]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:20:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:21:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:22:#/document:[25,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:23:#/document:Chap. 5]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:24:#/document:[26]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:25:#/document:5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:26:#/document:(7)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:27:#/document:(11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:28:#/document:(10)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:29:#/document:(11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:30:#/document:(10)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:31:#/document:7",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:32:#/document:(10)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:33:#/document:(7)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:34:#/document:(12)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:35:#/document:(11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:36:#/document:(7)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:37:#/document:(11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:38:#/document:7",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:39:#/document:(15)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:40:#/document:(17)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:41:#/document:(12)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:42:#/document:(16)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:43:#/document:(19)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:44:#/document:(19)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:45:#/document:(19)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:46:#/document:(19)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:47:#/document:21",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:48:#/document:(22)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:49:#/document:21",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:50:#/document:(20)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:51:#/document:23",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:52:#/document:(24)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:53:#/document:(21)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:54:#/document:[29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:55:#/document:21",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:56:#/document:[19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:57:#/document:11",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:58:#/document:(12)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:59:#/document:(26)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:60:#/document:(27)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:61:#/document:(27)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:62:#/document:(27)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:63:#/document:(33)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:64:#/document:(34)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:65:#/document:(31)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:66:#/document:(30)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:67:#/document:(28)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:68:#/document:(35)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:69:#/document:(12)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:70:#/document:(38)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:71:#/document:21",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:72:#/document:(37)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:73:#/document:(34)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:74:#/document:10",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:75:#/document:[20]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:76:#/document:12",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:77:#/document:(37)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:78:#/document:(19)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:79:#/document:[31,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:80:#/document:Ex. 3.3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:81:#/document:[32,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:82:#/document:Prop. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:83:#/document:[32,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:84:#/document:Prop. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:85:#/document:[27,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:86:#/document:Rem. 18 and 19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:87:#/document:[34]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:88:#/document:[35]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:89:#/document:(10)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:90:#/document:(17)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:91:#/document:17",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:92:#/document:17",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:93:#/document:(40)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:94:#/document:[36,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:95:#/document:4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:96:#/document:[24,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:97:#/document:Eqs. (15.110",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:98:#/document:(15.113)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:99:#/document:59",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:100:#/document:(17)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:101:#/document:(4)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:102:#/document:[27,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:103:#/document:Cor. 33]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:104:#/document:69",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:105:#/document:70",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:106:#/document:(30)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:107:#/document:(30)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:108:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:109:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:110:#/document:(30)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:111:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:112:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:113:#/document:7",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:114:#/document:15",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:115:#/document:(7)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:116:#/document:(17)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:117:#/document:(18)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:118:#/document:1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:119:#/document:(7)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:120:#/document:(10)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:121:#/document:[37]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:122:#/document:[38]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:123:#/document:7",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:124:#/document:(10)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:125:#/document:[39]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:126:#/document:[40]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:127:#/document:[32]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:128:#/document:7",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:129:#/document:(19)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:130:#/document:78",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:131:#/document:(19)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:132:#/document:19",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:133:#/document:[41,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:134:#/document:Corollary 3.3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:135:#/document:19",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:136:#/document:(21)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:137:#/document:(19)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/grobid+mineru",
+      "target": "marker:138:#/document:(19)",
       "edge_kind": "contains",
       "label": ""
     },
