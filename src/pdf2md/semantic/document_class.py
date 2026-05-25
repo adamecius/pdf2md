@@ -32,7 +32,6 @@ from typing import Any
 from pdf2md.models.entities import EntityProposalDocument, EntityType
 from pdf2md.models.ir import PageExtractionIR
 
-
 # Decision-tree thresholds. Each is exported so callers can override
 # for fixture-specific testing without code surgery.
 

@@ -65,7 +65,15 @@ ignore = [
     "UP042",  # str-Enum to StrEnum: behavioural-equivalent rewrite would touch
               # every model enum and risk JSON-serialisation drift against
               # snapshot fixtures. Plan 3 forbids runtime behaviour changes.
+    "RUF001", # ambiguous unicode in strings: we use real en-dashes intentionally
+              # in regex patterns to handle Unicode-aware OCR output (page ranges
+              # like "12–14", thin spaces in OCR'd text). Renaming to ASCII would
+              # break the patterns those regexes are designed to match.
+    "RUF002", # same rationale for docstrings — en-dashes in docs are intentional.
+    "RUF003", # same rationale for comments.
 ]
+# Per-file overrides for intentional patterns the rule-set doesn't tolerate.
+per-file-ignores = { "src/pdf2md/connectors/common.py" = ["E402"] }
 
 [tool.ruff.lint.isort]
 known-first-party = ["pdf2md"]

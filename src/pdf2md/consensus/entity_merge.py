@@ -28,7 +28,6 @@ from pdf2md.models.entities import (
     entity_id,
 )
 
-
 CONSENSUS_BACKEND: str = "consensus"
 
 
@@ -81,9 +80,7 @@ def _identity_key(entity: EntityProposal) -> tuple[str, ...] | None:
             return (et, str(term).lower().strip())
     elif et == EntityType.REFERENCE_SECTION.value:
         return (et,)  # at most one per document
-    elif et == EntityType.INDEX_SECTION.value:
-        return (et,)
-    elif et == EntityType.GLOSSARY_SECTION.value:
+    elif et == EntityType.INDEX_SECTION.value or et == EntityType.GLOSSARY_SECTION.value:
         return (et,)
     # FIGURE / TABLE / PAGE_NUMBER / HEADER / FOOTER / FOOTNOTE /
     # TOC_ENTRY / DOCUMENT_TITLE / UNKNOWN: keep every proposal.
@@ -227,4 +224,4 @@ def merge_entity_documents(
     )
 
 
-__all__ = ["merge_entity_documents", "CONSENSUS_BACKEND"]
+__all__ = ["CONSENSUS_BACKEND", "merge_entity_documents"]

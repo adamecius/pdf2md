@@ -1255,7 +1255,7 @@ def _detect_implicit_bibliography(
             continue
         if not nums:
             continue
-        ascending = sum(1 for a, b in zip(nums, nums[1:]) if b == a + 1)
+        ascending = sum(1 for a, b in pairwise(nums) if b == a + 1)
         ascending_pairs_max = len(nums) - 1
         if ascending_pairs_max == 0:
             continue

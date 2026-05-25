@@ -14,8 +14,9 @@ without reaching back into the original graph.
 from __future__ import annotations
 
 import re
+from collections.abc import Iterable
 from dataclasses import dataclass, field
-from typing import Any, Iterable
+from typing import Any
 
 from pdf2md.models.cross_ref import (
     CrossReferenceGraph,
@@ -24,7 +25,6 @@ from pdf2md.models.cross_ref import (
     SemanticEntity,
 )
 from pdf2md.models.entities import EntityProposalDocument, EntityType
-
 
 GRAPH_EXPORT_SCHEMA_VERSION = "1.1.0"
 UNRESOLVED_NODE_ID = "_unresolved"
@@ -309,13 +309,10 @@ def export_graph(
                     }
                 )
             prev_page_id = page_id
-        # Markers section — synthetic sibling of pages where markers
-        # whose source_ref doesn't encode a page (regex / grobid)
-        # cluster. Created lazily on first attribution; the empty
-        # section here avoids cluttering documents with no markers.
-        markers_section_id = _section_node_id(
-            "markers", document_id or proposals.document_id
-        )
+        # Markers section is minted lazily later (only when at least
+        # one marker lacks page info), so we don't pre-compute its id
+        # here. The minted-flag plus _section_node_id() handle creation
+        # in the marker loop below.
         # Back-matter section nodes — children of the document, NOT of
         # any page. REFERENCE_ITEM / INDEX_ENTRY / GLOSSARY_ENTRY
         # entries are reparented under these.
