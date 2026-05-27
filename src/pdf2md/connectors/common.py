@@ -1029,11 +1029,17 @@ def recognize_entities(
             #      block (often as a standalone "(11)" paragraph).
             # Guard against (1) and look at the next block for (2).
             is_bib_entry = bool(re.match(r"^\[\s*\d+\s*\]\s+\S", plain))
+            # Equation-number pattern accepts:
+            #   * plain integers ``15`` and dotted ``15.110``
+            #   * chapter/appendix letter prefixes ``J.4``, ``E.11``,
+            #     ``A.2``, ``A.2.1`` — common in textbooks where
+            #     equations carry an appendix letter.
+            _EQ_NUM = r"(?:[A-Z]\.)?[0-9]+(?:\.[0-9]+)*"
             if not is_bib_entry and (
                 block.kind == BlockKind.FORMULA
-                or re.search(r"\([0-9]+(?:\.[0-9]+)*\)\s*$", plain)
+                or re.search(rf"\({_EQ_NUM}\)\s*$", plain)
             ):
-                num = (re.search(r"\(([0-9]+(?:\.[0-9]+)*)\)\s*$", plain) or [None, None])[1]
+                num = (re.search(rf"\(({_EQ_NUM})\)\s*$", plain) or [None, None])[1]
                 if num is None and block.kind == BlockKind.FORMULA:
                     # DeepSeek emits ``\[ math \quad (N) \]`` — the
                     # ``(N)`` sits inside the LaTeX delimiters before
@@ -1041,7 +1047,7 @@ def recognize_entities(
                     # ``(N)`` in the block, optionally followed by
                     # ``\]`` / whitespace / end-of-text.
                     inner = re.search(
-                        r"\(([0-9]+(?:\.[0-9]+)*)\)\s*\\?\]?\s*$",
+                        rf"\(({_EQ_NUM})\)\s*\\?\]?\s*$",
                         plain,
                     )
                     if inner:
@@ -1049,7 +1055,7 @@ def recognize_entities(
                     # LaTeX `\tag{N}` form — emitted by some VLM /
                     # docling outputs of authored equations.
                     if num is None:
-                        tag_m = re.search(r"\\tag\{([0-9]+(?:\.[0-9]+)*)\}", plain)
+                        tag_m = re.search(rf"\\tag\{{({_EQ_NUM})\}}", plain)
                         if tag_m:
                             num = tag_m.group(1)
                 # FORMULA blocks without trailing (N): peek at the next
@@ -1057,7 +1063,7 @@ def recognize_entities(
                 # is just "(N)" alone, attribute that number here.
                 if num is None and block.kind == BlockKind.FORMULA and pos + 1 < len(page.blocks):
                     next_plain = _strip_heading(page.blocks[pos + 1].text).strip()
-                    nm = re.match(r"^\(?([0-9]+(?:\.[0-9]+)*)\)?(?:\s|$)", next_plain)
+                    nm = re.match(rf"^\(?({_EQ_NUM})\)?(?:\s|$)", next_plain)
                     if nm:
                         num = nm.group(1)
                 add(

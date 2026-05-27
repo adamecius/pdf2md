@@ -27,6 +27,8 @@ Designed to be **book-friendly**:
 
 from __future__ import annotations
 
+import re
+
 from pdf2md.models.cross_ref import RefType
 from pdf2md.models.entities import EntityProposal, EntityProposalDocument, EntityType
 from pdf2md.semantic.resolver import ResolverCandidate
@@ -139,12 +141,33 @@ def _candidate_for(proposal: EntityProposal) -> ResolverCandidate | None:
         if caption_result is None:
             return None
         cap_ref_type, cap_label = caption_result
-        return ResolverCandidate(target_ref=proposal.id, entity_type=cap_ref_type, label=cap_label)
+        # Captions: the caption_number metadata IS the authoritative
+        # numbering for the figure/table — surface it so the fuzzy
+        # resolver doesn't fall back to digit-scraping.
+        cap_md = proposal.metadata or {}
+        cap_numbering = str(cap_md["caption_number"]) if cap_md.get("caption_number") else None
+        return ResolverCandidate(
+            target_ref=proposal.id,
+            entity_type=cap_ref_type,
+            label=cap_label,
+            numbering=cap_numbering,
+        )
 
     looked_up = _ENTITY_TYPE_TO_REF_TYPE.get(entity_type_str)
     if looked_up is None:
         return None
     ref_type: RefType = looked_up
+    # Chapter → Section downcast: when the OCR / VLM tagged a heading
+    # as CHAPTER but its canonical text starts with a dotted number
+    # (``1.6 Electronic Structure ...``), it's really a section, not
+    # a chapter. The book-fixture (example3) has ~90 such mis-tagged
+    # entries — downcasting here lets ``Section 1.6`` markers
+    # resolve against them. Top-level numbering (``1 Overview``)
+    # stays as a chapter.
+    if ref_type is RefType.CHAPTER:
+        canonical = (proposal.canonical_text or "").strip()
+        if re.match(r"^\d+\.\d", canonical):
+            ref_type = RefType.SECTION
     label: str | None
     if ref_type in (RefType.CHAPTER, RefType.SECTION):
         label = _section_or_chapter_label(proposal, ref_type)
@@ -170,7 +193,31 @@ def _candidate_for(proposal: EntityProposal) -> ResolverCandidate | None:
         if not label:
             return None
 
-    return ResolverCandidate(target_ref=proposal.id, entity_type=ref_type, label=label)
+    # Pull the authoritative numbering off the proposal when the
+    # detector wrote one. The fuzzy resolver uses this in preference
+    # to scraping digits out of arbitrary trailing text (which was
+    # the source of the ``Section 3 → APPENDIX G PROOF OF PROPOSITION 3``
+    # wrong-resolution class).
+    md_n = proposal.metadata or {}
+    numbering: str | None
+    if ref_type is RefType.CHAPTER:
+        numbering = md_n.get("chapter_number") or md_n.get("numbering")
+    elif ref_type is RefType.SECTION:
+        numbering = md_n.get("numbering")
+    elif ref_type is RefType.EQUATION:
+        numbering = md_n.get("equation_number")
+    elif ref_type is RefType.FOOTNOTE:
+        numbering = md_n.get("marker")
+    elif ref_type is RefType.BIBLIOGRAPHY:
+        numbering = md_n.get("marker")
+    else:
+        numbering = None
+    return ResolverCandidate(
+        target_ref=proposal.id,
+        entity_type=ref_type,
+        label=label,
+        numbering=str(numbering) if numbering is not None else None,
+    )
 
 
 def entities_to_candidates(

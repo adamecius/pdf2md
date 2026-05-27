@@ -100,6 +100,31 @@ _REROUTE_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
 _DROP_PATTERNS: list[re.Pattern[str]] = [
     re.compile(r"^p\.\s*\d", re.IGNORECASE),  # page references: "p. 539;", "p.42"
     re.compile(r"^\[[A-Z]\]$"),                # single-letter brackets: "[L]"
+    # Book-scale (example3) noise: GROBID frequently mis-tags inline
+    # math placeholders, figure cross-refs, and single-author periods
+    # as ``<ref type="bibr">``. Adding these drops cleared ~235 noise
+    # bibs on example3 without affecting canonical citation forms
+    # (which match ``_BIB_NUMERIC_RE`` / ``_BIB_AUTHOR_YEAR_RE``
+    # earlier in ``_classify_bibr``).
+    #
+    # Inline math parens: "(r)", "(ε)", "(r,r')", "(x)" — no commas/
+    # digits except in the comma-pair form.
+    re.compile(r"^\([a-zα-ω][a-zα-ω,\s'’.]*\)$"),
+    # Single-author period: "Wilson.", "Wigner.", "Schrödinger." —
+    # body-text author mentions GROBID over-eagerly bracketed as bibs.
+    re.compile(r"^[A-Z][a-zäöüß\-]{2,}\.$"),
+    # Figure-prefix mis-tag: "Fig. 11.1)", "Fig. 3.2)" — figure refs
+    # leaking into bibr. (The reroute table has an entry for "figure"
+    # markers but it lives ABOVE drop in priority; this drop is a
+    # belt-and-braces for the cases where the figure pattern is
+    # itself wrapped in trailing punctuation.)
+    re.compile(r"^Fig\.\s+\d", re.IGNORECASE),
+    # Bracketed year: "[1935]", "[1936]" — author-year bibs that
+    # GROBID broke into ``[YYYY]`` halves; these don't match
+    # ``_BIB_NUMERIC_RE`` because that requires a ≤ 4-digit number
+    # range, but a single 4-digit number in brackets is a date, not
+    # a citation index, so safer to drop.
+    re.compile(r"^\[\d{4}\]$"),
 ]
 
 

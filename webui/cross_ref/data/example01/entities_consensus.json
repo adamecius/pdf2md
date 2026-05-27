@@ -13,7 +13,7 @@
       "canonical_text": "Real-space calculation of the conductivity tensor for disordered topological matter",
       "page_no": 1,
       "block_ids": [
-        "deepseek:1410.8140:p1:b0"
+        "deepseek:example01:p1:b0"
       ],
       "confidence": 0.75,
       "confidence_source": "heuristic",
@@ -21,7 +21,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "deepseek:1410.8140:p1:b0",
+          "source_block_id": "deepseek:example01:p1:b0",
           "raw_ref": "output.md",
           "text": "# Real-space calculation of the conductivity tensor for disordered topological matter",
           "bbox": null,
@@ -50,7 +50,7 @@
       "canonical_text": "\\[ \\begin{align*}\\tilde{\\sigma}_{\\alpha\\beta}(\\mu,T)&=\\frac{ie^{2}\\hbar}{\\Omega}\\int_{-\\infty}^{\\infty}d\\varepsilon f(\\varepsilon)\\\\\\times\\mathrm{Tr}\\left\\langle v_{\\alpha}\\delta(\\varepsilon-H)v_{\\beta}\\frac{dG^{+}(\\varepsilon)}{d\\varepsilon}-v_{\\alpha}\\frac{dG^{-}(\\varepsilon)}{d\\varepsilon}v_{\\beta}\\delta(\\varepsilon-H)\\right\\rangle,\\end{align*} \\quad (1) \\]",
       "page_no": 1,
       "block_ids": [
-        "deepseek:1410.8140:p1:b12"
+        "deepseek:example01:p1:b12"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -58,7 +58,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "deepseek:1410.8140:p1:b12",
+          "source_block_id": "deepseek:example01:p1:b12",
           "raw_ref": "output.md",
           "text": "\\[ \\begin{align*}\\tilde{\\sigma}_{\\alpha\\beta}(\\mu,T)&=\\frac{ie^{2}\\hbar}{\\Omega}\\int_{-\\infty}^{\\infty}d\\varepsilon f(\\varepsilon)\\\\\\times\\mathrm{Tr}\\left\\langle v_{\\alpha}\\delta(\\varepsilon-H)v_{\\beta}\\frac{dG^{+}(\\varepsilon)}{d\\varepsilon}-v_{\\alpha}\\frac{dG^{-}(\\varepsilon)}{d\\varepsilon}v_{\\beta}\\delta(\\varepsilon-H)\\right\\rangle,\\end{align*} \\quad (1) \\]",
           "bbox": null,
@@ -85,7 +85,7 @@
       "canonical_text": "\\[ \\delta(\\tilde{\\varepsilon}-\\tilde{H})=\\frac{2}{\\pi\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{M}g_{m}\\frac{T_{m}(\\tilde{\\varepsilon})}{\\delta_{m,0}+1}T_{m}(\\tilde{H}), \\quad (2) \\]",
       "page_no": 2,
       "block_ids": [
-        "deepseek:1410.8140:p2:b2"
+        "deepseek:example01:p2:b2"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -93,7 +93,7 @@
         {
           "kind": "block_text",
           "page_no": 2,
-          "source_block_id": "deepseek:1410.8140:p2:b2",
+          "source_block_id": "deepseek:example01:p2:b2",
           "raw_ref": "output.md",
           "text": "\\[ \\delta(\\tilde{\\varepsilon}-\\tilde{H})=\\frac{2}{\\pi\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{M}g_{m}\\frac{T_{m}(\\tilde{\\varepsilon})}{\\delta_{m,0}+1}T_{m}(\\tilde{H}), \\quad (2) \\]",
           "bbox": null,
@@ -120,7 +120,7 @@
       "canonical_text": "\\[ G^{\\pm}(\\tilde{\\varepsilon},\\tilde{H})=\\mp\\frac{2i}{\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{M}g_{m}\\frac{\\mathrm{e}^{\\pm i m a r c o s(\\tilde{\\varepsilon})}}{\\delta_{m,0}+1}T_{m}(\\tilde{H}). \\quad (3) \\]",
       "page_no": 2,
       "block_ids": [
-        "deepseek:1410.8140:p2:b3"
+        "deepseek:example01:p2:b3"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -128,7 +128,7 @@
         {
           "kind": "block_text",
           "page_no": 2,
-          "source_block_id": "deepseek:1410.8140:p2:b3",
+          "source_block_id": "deepseek:example01:p2:b3",
           "raw_ref": "output.md",
           "text": "\\[ G^{\\pm}(\\tilde{\\varepsilon},\\tilde{H})=\\mp\\frac{2i}{\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{M}g_{m}\\frac{\\mathrm{e}^{\\pm i m a r c o s(\\tilde{\\varepsilon})}}{\\delta_{m,0}+1}T_{m}(\\tilde{H}). \\quad (3) \\]",
           "bbox": null,
@@ -155,7 +155,7 @@
       "canonical_text": "\\[ \\sigma_{\\alpha\\beta}(\\mu,T)=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\frac{4}{\\Delta E^{2}}\\int_{-1}^{1}d\\tilde{\\varepsilon}\\frac{f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})^{2}}\\sum_{m,n}\\Gamma_{n m}(\\tilde{\\varepsilon})\\mu_{n m}^{\\alpha\\beta} \\quad (4) \\]",
       "page_no": 2,
       "block_ids": [
-        "deepseek:1410.8140:p2:b6"
+        "deepseek:example01:p2:b6"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -163,7 +163,7 @@
         {
           "kind": "block_text",
           "page_no": 2,
-          "source_block_id": "deepseek:1410.8140:p2:b6",
+          "source_block_id": "deepseek:example01:p2:b6",
           "raw_ref": "output.md",
           "text": "\\[ \\sigma_{\\alpha\\beta}(\\mu,T)=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\frac{4}{\\Delta E^{2}}\\int_{-1}^{1}d\\tilde{\\varepsilon}\\frac{f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})^{2}}\\sum_{m,n}\\Gamma_{n m}(\\tilde{\\varepsilon})\\mu_{n m}^{\\alpha\\beta} \\quad (4) \\]",
           "bbox": null,
@@ -190,7 +190,7 @@
       "canonical_text": "\\[ \\begin{align*}\\Gamma_{mn}(\\tilde{\\varepsilon})\\equiv&[(\\tilde{\\varepsilon}-in\\sqrt{1-\\tilde{\\varepsilon}^{2}})\\mathrm{e}^{imarccos(\\tilde{\\varepsilon})}T_{m}(\\tilde{\\varepsilon})\\\\&+(\\tilde{\\varepsilon}+im\\sqrt{1-\\tilde{\\varepsilon}^{2}})\\mathrm{e}^{-imarccos(\\tilde{\\varepsilon})}T_{n}(\\tilde{\\varepsilon})].\\end{align*} \\quad (5) \\]",
       "page_no": 2,
       "block_ids": [
-        "deepseek:1410.8140:p2:b9"
+        "deepseek:example01:p2:b9"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -198,7 +198,7 @@
         {
           "kind": "block_text",
           "page_no": 2,
-          "source_block_id": "deepseek:1410.8140:p2:b9",
+          "source_block_id": "deepseek:example01:p2:b9",
           "raw_ref": "output.md",
           "text": "\\[ \\begin{align*}\\Gamma_{mn}(\\tilde{\\varepsilon})\\equiv&[(\\tilde{\\varepsilon}-in\\sqrt{1-\\tilde{\\varepsilon}^{2}})\\mathrm{e}^{imarccos(\\tilde{\\varepsilon})}T_{m}(\\tilde{\\varepsilon})\\\\&+(\\tilde{\\varepsilon}+im\\sqrt{1-\\tilde{\\varepsilon}^{2}})\\mathrm{e}^{-imarccos(\\tilde{\\varepsilon})}T_{n}(\\tilde{\\varepsilon})].\\end{align*} \\quad (5) \\]",
           "bbox": null,
@@ -225,7 +225,7 @@
       "canonical_text": "FIG. 1. (a)  \\( \\sigma_{xx} \\)  (solid line) and  \\( \\sigma_{xy} \\)  (dashed line) for  \\( k_{B}T=0 \\)  (black) and  \\( k_{B}T/t=0.004 \\)  (red). (b) Electronic density of states (c)  \\( \\sigma_{xx} \\)  away from the Dirac point where Shubnikov-de Haas oscillations can be observed for  \\( k_{B}T/t=0.002 \\)  (black),  \\( k_{B}T/t=0.004 \\)  (red),  \\( k_{B}T/t=0.008 \\)  (blue). The parameters in panels (a)-(c) are  \\( \\phi/\\phi_{0}\\approx1\\times10^{-3} \\) , SR=200, M=6144 and  \\( N=2\\times128\\times1024 \\)  sites where we use a rectangular geometry to minimize the magnetic flux per unit cell in a system with periodic boundary conditions.",
       "page_no": 3,
       "block_ids": [
-        "deepseek:1410.8140:p3:b3"
+        "deepseek:example01:p3:b3"
       ],
       "confidence": 0.78,
       "confidence_source": "heuristic",
@@ -233,7 +233,7 @@
         {
           "kind": "block_text",
           "page_no": 3,
-          "source_block_id": "deepseek:1410.8140:p3:b3",
+          "source_block_id": "deepseek:example01:p3:b3",
           "raw_ref": "output.md",
           "text": "FIG. 1. (a)  \\( \\sigma_{xx} \\)  (solid line) and  \\( \\sigma_{xy} \\)  (dashed line) for  \\( k_{B}T=0 \\)  (black) and  \\( k_{B}T/t=0.004 \\)  (red). (b) Electronic density of states (c)  \\( \\sigma_{xx} \\)  away from the Dirac point where Shubnikov-de Haas oscillations can be observed for  \\( k_{B}T/t=0.002 \\)  (black),  \\( k_{B}T/t=0.004 \\)  (red),  \\( k_{B}T/t=0.008 \\)  (blue). The parameters in panels (a)-(c) are  \\( \\phi/\\phi_{0}\\approx1\\times10^{-3} \\) , SR=200, M=6144 and  \\( N=2\\times128\\times1024 \\)  sites where we use a rectangular geometry to minimize the magnetic flux per unit cell in a system with periodic boundary conditions.",
           "bbox": null,
@@ -261,7 +261,7 @@
       "canonical_text": "FIG. 2. Analysis of the dependency on the number of random vectors and disorder realizations SR and moments M: (a)  \\( \\sigma_{xx} \\)  and (b)  \\( \\sigma_{xy} \\)  for SR = 200 and M = 2048 (blue), 4096 (red) and 6144 (black). (c)  \\( \\sigma_{xx} \\)  and (d)  \\( \\sigma_{xy} \\)  for M = 6144 and SR = 25 (blue), 50 (red) and 200 (black). In panels (a)–(d),  \\( \\phi/\\phi_{0} = 5 \\times 10^{-3} \\) , and  \\( N = 2 \\times 128 \\times 1024 \\)  sites",
       "page_no": 3,
       "block_ids": [
-        "deepseek:1410.8140:p3:b8"
+        "deepseek:example01:p3:b8"
       ],
       "confidence": 0.78,
       "confidence_source": "heuristic",
@@ -269,7 +269,7 @@
         {
           "kind": "block_text",
           "page_no": 3,
-          "source_block_id": "deepseek:1410.8140:p3:b8",
+          "source_block_id": "deepseek:example01:p3:b8",
           "raw_ref": "output.md",
           "text": "FIG. 2. Analysis of the dependency on the number of random vectors and disorder realizations SR and moments M: (a)  \\( \\sigma_{xx} \\)  and (b)  \\( \\sigma_{xy} \\)  for SR = 200 and M = 2048 (blue), 4096 (red) and 6144 (black). (c)  \\( \\sigma_{xx} \\)  and (d)  \\( \\sigma_{xy} \\)  for M = 6144 and SR = 25 (blue), 50 (red) and 200 (black). In panels (a)–(d),  \\( \\phi/\\phi_{0} = 5 \\times 10^{-3} \\) , and  \\( N = 2 \\times 128 \\times 1024 \\)  sites",
           "bbox": null,
@@ -296,7 +296,7 @@
       "canonical_text": "\\[ \\mathcal{H}=-t\\sum_{\\langle i,j\\rangle}c_{i}^{\\dagger}c_{j}+t_{2}\\sum_{\\langle\\langle i,j\\rangle\\rangle}e^{i\\phi_{i j}}c_{i}^{\\dagger}c_{j}\\pm\\frac{\\Delta_{A B}}{2}\\sum_{i\\in A/B}c_{i}^{\\dagger}c_{i}, \\quad (6) \\]",
       "page_no": 3,
       "block_ids": [
-        "deepseek:1410.8140:p3:b12"
+        "deepseek:example01:p3:b12"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -304,7 +304,7 @@
         {
           "kind": "block_text",
           "page_no": 3,
-          "source_block_id": "deepseek:1410.8140:p3:b12",
+          "source_block_id": "deepseek:example01:p3:b12",
           "raw_ref": "output.md",
           "text": "\\[ \\mathcal{H}=-t\\sum_{\\langle i,j\\rangle}c_{i}^{\\dagger}c_{j}+t_{2}\\sum_{\\langle\\langle i,j\\rangle\\rangle}e^{i\\phi_{i j}}c_{i}^{\\dagger}c_{j}\\pm\\frac{\\Delta_{A B}}{2}\\sum_{i\\in A/B}c_{i}^{\\dagger}c_{i}, \\quad (6) \\]",
           "bbox": null,
@@ -331,7 +331,7 @@
       "canonical_text": "FIG. 3.  \\( \\rho_{xx} \\)  (solid line) and  \\( \\rho_{xy} \\)  (dashed line) for HM with (a)  \\( \\Delta_{T}=0.1t \\) ,  \\( \\Delta_{AB}=0 \\)  and  \\( \\gamma=0.2t \\)  for  \\( k_{B}T=0 \\)  (black) and  \\( k_{B}T=0.16t \\)  (red); (b)  \\( \\Delta_{T}=0.1t \\) ,  \\( \\Delta_{AB}=0 \\)  and  \\( k_{B}T=0 \\)  for  \\( \\gamma=0.4t \\)  (black) and  \\( \\gamma=1.8t \\)  (red); (c)  \\( \\Delta_{T}=0.5t \\) ,  \\( \\Delta_{AB}=0.4t \\)  and  \\( k_{B}T=0 \\)  for  \\( \\gamma=0.2t \\)  (black) and  \\( \\gamma=1.8t \\)  (red). The green arrow indicates the increase of the topological region with disorder. The system sizes in panels  \\( D=2\\times L\\times L \\)  with L=512 (a), L=256 (b-c) and  \\( SR>200 \\) . Panel (d) illustrates the different gap sizes at K and  \\( K' \\)  for  \\( \\Delta_{AB}\\neq0 \\) .",
       "page_no": 4,
       "block_ids": [
-        "deepseek:1410.8140:p4:b5"
+        "deepseek:example01:p4:b5"
       ],
       "confidence": 0.78,
       "confidence_source": "heuristic",
@@ -339,7 +339,7 @@
         {
           "kind": "block_text",
           "page_no": 4,
-          "source_block_id": "deepseek:1410.8140:p4:b5",
+          "source_block_id": "deepseek:example01:p4:b5",
           "raw_ref": "output.md",
           "text": "FIG. 3.  \\( \\rho_{xx} \\)  (solid line) and  \\( \\rho_{xy} \\)  (dashed line) for HM with (a)  \\( \\Delta_{T}=0.1t \\) ,  \\( \\Delta_{AB}=0 \\)  and  \\( \\gamma=0.2t \\)  for  \\( k_{B}T=0 \\)  (black) and  \\( k_{B}T=0.16t \\)  (red); (b)  \\( \\Delta_{T}=0.1t \\) ,  \\( \\Delta_{AB}=0 \\)  and  \\( k_{B}T=0 \\)  for  \\( \\gamma=0.4t \\)  (black) and  \\( \\gamma=1.8t \\)  (red); (c)  \\( \\Delta_{T}=0.5t \\) ,  \\( \\Delta_{AB}=0.4t \\)  and  \\( k_{B}T=0 \\)  for  \\( \\gamma=0.2t \\)  (black) and  \\( \\gamma=1.8t \\)  (red). The green arrow indicates the increase of the topological region with disorder. The system sizes in panels  \\( D=2\\times L\\times L \\)  with L=512 (a), L=256 (b-c) and  \\( SR>200 \\) . Panel (d) illustrates the different gap sizes at K and  \\( K' \\)  for  \\( \\Delta_{AB}\\neq0 \\) .",
           "bbox": null,
@@ -367,7 +367,7 @@
       "canonical_text": "[1] A. Bastin, C. Lewinner, O. Betbeder-Matibet and P. Nozieres, J. Phys. Chem. Solids 32, 1811 (1971).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b0"
+        "deepseek:example01:p5:b0"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -375,7 +375,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b0",
+          "source_block_id": "deepseek:example01:p5:b0",
           "raw_ref": "output.md",
           "text": "[1] A. Bastin, C. Lewinner, O. Betbeder-Matibet and P. Nozieres, J. Phys. Chem. Solids 32, 1811 (1971).",
           "bbox": null,
@@ -403,7 +403,7 @@
       "canonical_text": "[2] E. H. Hall, Am. J. Math 2, 287 (1879).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b2"
+        "deepseek:example01:p5:b2"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -411,7 +411,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b2",
+          "source_block_id": "deepseek:example01:p5:b2",
           "raw_ref": "output.md",
           "text": "[2] E. H. Hall, Am. J. Math 2, 287 (1879).",
           "bbox": null,
@@ -439,7 +439,7 @@
       "canonical_text": "[3] N. Nagaosa, J. Sinova, S. Onoda, A. H. MacDonald and N. P. Ong, Rev. Mod. Phys. 82, 1539 (2010).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b4"
+        "deepseek:example01:p5:b4"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -447,7 +447,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b4",
+          "source_block_id": "deepseek:example01:p5:b4",
           "raw_ref": "output.md",
           "text": "[3] N. Nagaosa, J. Sinova, S. Onoda, A. H. MacDonald and N. P. Ong, Rev. Mod. Phys. 82, 1539 (2010).",
           "bbox": null,
@@ -475,7 +475,7 @@
       "canonical_text": "[4] T. Jungwirth, J. Wunderlich and K. Olejnik, Nature Mat. 11, 382 (2012).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b6"
+        "deepseek:example01:p5:b6"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -483,7 +483,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b6",
+          "source_block_id": "deepseek:example01:p5:b6",
           "raw_ref": "output.md",
           "text": "[4] T. Jungwirth, J. Wunderlich and K. Olejnik, Nature Mat. 11, 382 (2012).",
           "bbox": null,
@@ -511,7 +511,7 @@
       "canonical_text": "[5] K. Klitzing, G. Dorda, M. Pepper, Phys. Rev. Lett. 45, 494 (1980).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b8"
+        "deepseek:example01:p5:b8"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -519,7 +519,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b8",
+          "source_block_id": "deepseek:example01:p5:b8",
           "raw_ref": "output.md",
           "text": "[5] K. Klitzing, G. Dorda, M. Pepper, Phys. Rev. Lett. 45, 494 (1980).",
           "bbox": null,
@@ -548,7 +548,7 @@
       "canonical_text": "[6] C.-Z.Chang et al. Science 340,167 (2013).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b10"
+        "deepseek:example01:p5:b10"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -556,7 +556,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b10",
+          "source_block_id": "deepseek:example01:p5:b10",
           "raw_ref": "output.md",
           "text": "[6] C.-Z.Chang et al. Science 340,167 (2013).",
           "bbox": null,
@@ -584,7 +584,7 @@
       "canonical_text": "[7] M. König et al., Science 318, 766(2007).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b12"
+        "deepseek:example01:p5:b12"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -592,7 +592,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b12",
+          "source_block_id": "deepseek:example01:p5:b12",
           "raw_ref": "output.md",
           "text": "[7] M. König et al., Science 318, 766(2007).",
           "bbox": null,
@@ -621,7 +621,7 @@
       "canonical_text": "[8] M. Z. Hasan and C. L. Kane, Rev. Mod. Phys. 82 3045 (2010).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b14"
+        "deepseek:example01:p5:b14"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -629,7 +629,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b14",
+          "source_block_id": "deepseek:example01:p5:b14",
           "raw_ref": "output.md",
           "text": "[8] M. Z. Hasan and C. L. Kane, Rev. Mod. Phys. 82 3045 (2010).",
           "bbox": null,
@@ -658,7 +658,7 @@
       "canonical_text": "[9] R. Kubo, J. Phys. Soc. Japan 12, 570 (1957); R. Kubo, A. Yokota, and S. Nakajima, J. Phys. Soc. Japan 12, 1203 (1957).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b16"
+        "deepseek:example01:p5:b16"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -666,7 +666,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b16",
+          "source_block_id": "deepseek:example01:p5:b16",
           "raw_ref": "output.md",
           "text": "[9] R. Kubo, J. Phys. Soc. Japan 12, 570 (1957); R. Kubo, A. Yokota, and S. Nakajima, J. Phys. Soc. Japan 12, 1203 (1957).",
           "bbox": null,
@@ -695,7 +695,7 @@
       "canonical_text": "[10] D.J. Thouless, M. Kohmoto, M. P. Nightingale and M. den Nijs, Phys. Rev. Lett. 49, 405 (1982).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b18"
+        "deepseek:example01:p5:b18"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -703,7 +703,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b18",
+          "source_block_id": "deepseek:example01:p5:b18",
           "raw_ref": "output.md",
           "text": "[10] D.J. Thouless, M. Kohmoto, M. P. Nightingale and M. den Nijs, Phys. Rev. Lett. 49, 405 (1982).",
           "bbox": null,
@@ -732,7 +732,7 @@
       "canonical_text": "[11] Yisong Zheng and Tsuneya Ando, Phys. Rev. B 65, 245420 (2002).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b20"
+        "deepseek:example01:p5:b20"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -740,7 +740,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b20",
+          "source_block_id": "deepseek:example01:p5:b20",
           "raw_ref": "output.md",
           "text": "[11] Yisong Zheng and Tsuneya Ando, Phys. Rev. B 65, 245420 (2002).",
           "bbox": null,
@@ -769,7 +769,7 @@
       "canonical_text": "[12] D. N. Sheng, L. Sheng, and Z. Y. Weng, Phys. Rev. B 73, 233406 (2006).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b22"
+        "deepseek:example01:p5:b22"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -777,7 +777,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b22",
+          "source_block_id": "deepseek:example01:p5:b22",
           "raw_ref": "output.md",
           "text": "[12] D. N. Sheng, L. Sheng, and Z. Y. Weng, Phys. Rev. B 73, 233406 (2006).",
           "bbox": null,
@@ -806,7 +806,7 @@
       "canonical_text": "[13] Yu Xue and Emil Prodan, Phys. Rev. B 86, 155445 (2012).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b24"
+        "deepseek:example01:p5:b24"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -814,7 +814,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b24",
+          "source_block_id": "deepseek:example01:p5:b24",
           "raw_ref": "output.md",
           "text": "[13] Yu Xue and Emil Prodan, Phys. Rev. B 86, 155445 (2012).",
           "bbox": null,
@@ -842,7 +842,7 @@
       "canonical_text": "[14] Frank Ortmann and Stephan Roche, Phys. Rev. Lett. 110, 086602 (2013).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b26"
+        "deepseek:example01:p5:b26"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -850,7 +850,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b26",
+          "source_block_id": "deepseek:example01:p5:b26",
           "raw_ref": "output.md",
           "text": "[14] Frank Ortmann and Stephan Roche, Phys. Rev. Lett. 110, 086602 (2013).",
           "bbox": null,
@@ -878,7 +878,7 @@
       "canonical_text": "[15] D. A. Greenwood, Proc. Phys. Soc. (London) 71, 585 (1958).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b28"
+        "deepseek:example01:p5:b28"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -886,7 +886,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b28",
+          "source_block_id": "deepseek:example01:p5:b28",
           "raw_ref": "output.md",
           "text": "[15] D. A. Greenwood, Proc. Phys. Soc. (London) 71, 585 (1958).",
           "bbox": null,
@@ -914,7 +914,7 @@
       "canonical_text": "[16] A. Weisse, G. Wellein, A. Alvermann, H. Fehske, Rev. Mod. Phys. 78, 275(2006).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b30"
+        "deepseek:example01:p5:b30"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -922,7 +922,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b30",
+          "source_block_id": "deepseek:example01:p5:b30",
           "raw_ref": "output.md",
           "text": "[16] A. Weisse, G. Wellein, A. Alvermann, H. Fehske, Rev. Mod. Phys. 78, 275(2006).",
           "bbox": null,
@@ -950,7 +950,7 @@
       "canonical_text": "[17] S. Roche, Phys. Rev. B 59, 2284 (1999).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b32"
+        "deepseek:example01:p5:b32"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -958,7 +958,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b32",
+          "source_block_id": "deepseek:example01:p5:b32",
           "raw_ref": "output.md",
           "text": "[17] S. Roche, Phys. Rev. B 59, 2284 (1999).",
           "bbox": null,
@@ -986,7 +986,7 @@
       "canonical_text": "[18] S. Yuan, H. De Raedt, and M.I. Katsnelson, Phys. Rev. B 82, 115448 (2010).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b34"
+        "deepseek:example01:p5:b34"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -994,7 +994,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b34",
+          "source_block_id": "deepseek:example01:p5:b34",
           "raw_ref": "output.md",
           "text": "[18] S. Yuan, H. De Raedt, and M.I. Katsnelson, Phys. Rev. B 82, 115448 (2010).",
           "bbox": null,
@@ -1022,7 +1022,7 @@
       "canonical_text": "[19] Aires Ferreira, J. Viana-Gomes, Johan Nilsson, E. R. Mucciolo, N. M. R. Peres, and A. H. Castro Neto, Phys. Rev. B 83, 165402 (2011).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b36"
+        "deepseek:example01:p5:b36"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1030,7 +1030,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b36",
+          "source_block_id": "deepseek:example01:p5:b36",
           "raw_ref": "output.md",
           "text": "[19] Aires Ferreira, J. Viana-Gomes, Johan Nilsson, E. R. Mucciolo, N. M. R. Peres, and A. H. Castro Neto, Phys. Rev. B 83, 165402 (2011).",
           "bbox": null,
@@ -1058,7 +1058,7 @@
       "canonical_text": "[20] Z. Fan, A. Uppstu, T. Siro, and A. Harju, Computer Physics Communications 185, 28 (2014).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b38"
+        "deepseek:example01:p5:b38"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1066,7 +1066,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b38",
+          "source_block_id": "deepseek:example01:p5:b38",
           "raw_ref": "output.md",
           "text": "[20] Z. Fan, A. Uppstu, T. Siro, and A. Harju, Computer Physics Communications 185, 28 (2014).",
           "bbox": null,
@@ -1094,7 +1094,7 @@
       "canonical_text": "[21] T. L. van den Berg, L. Raymond, A. Verga, Phys. Rev. B 84, 245210 (2011).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b40"
+        "deepseek:example01:p5:b40"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1102,7 +1102,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b40",
+          "source_block_id": "deepseek:example01:p5:b40",
           "raw_ref": "output.md",
           "text": "[21] T. L. van den Berg, L. Raymond, A. Verga, Phys. Rev. B 84, 245210 (2011).",
           "bbox": null,
@@ -1130,7 +1130,7 @@
       "canonical_text": "[22] A. H. Castro Neto, F. Guinea, N. M. R. Peres, K. S. Novoselov, and A. K. Geim, Rev. Mod. Phys. 81, 109 (2009).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b42"
+        "deepseek:example01:p5:b42"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1138,7 +1138,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b42",
+          "source_block_id": "deepseek:example01:p5:b42",
           "raw_ref": "output.md",
           "text": "[22] A. H. Castro Neto, F. Guinea, N. M. R. Peres, K. S. Novoselov, and A. K. Geim, Rev. Mod. Phys. 81, 109 (2009).",
           "bbox": null,
@@ -1166,7 +1166,7 @@
       "canonical_text": "[23] S. Das Sarma, Shaffique Adam, E. H. Hwang, Enrico Rossi, Rev. Mod. Phys. 83, 407 (2011) and references therein.",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b44"
+        "deepseek:example01:p5:b44"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1174,7 +1174,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b44",
+          "source_block_id": "deepseek:example01:p5:b44",
           "raw_ref": "output.md",
           "text": "[23] S. Das Sarma, Shaffique Adam, E. H. Hwang, Enrico Rossi, Rev. Mod. Phys. 83, 407 (2011) and references therein.",
           "bbox": null,
@@ -1202,7 +1202,7 @@
       "canonical_text": "[24] S. Gattenlohner, W.-R. Hannes, P. M. Ostrovsky, I. V. Gornyi, A. D. Mirlin, M. Titov, Phys. Rev. Lett. 112, 026802 (2014)",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b46"
+        "deepseek:example01:p5:b46"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1210,7 +1210,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b46",
+          "source_block_id": "deepseek:example01:p5:b46",
           "raw_ref": "output.md",
           "text": "[24] S. Gattenlohner, W.-R. Hannes, P. M. Ostrovsky, I. V. Gornyi, A. D. Mirlin, M. Titov, Phys. Rev. Lett. 112, 026802 (2014)",
           "bbox": null,
@@ -1238,7 +1238,7 @@
       "canonical_text": "[25] F. D. M. Haldane, Phys. Rev. Lett. 61, 2015 (1988).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b48"
+        "deepseek:example01:p5:b48"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1246,7 +1246,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b48",
+          "source_block_id": "deepseek:example01:p5:b48",
           "raw_ref": "output.md",
           "text": "[25] F. D. M. Haldane, Phys. Rev. Lett. 61, 2015 (1988).",
           "bbox": null,
@@ -1274,7 +1274,7 @@
       "canonical_text": "[26] A. Crepieux, and P. Bruno, Phys. Rev. B 64, 094434 (2001).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b50"
+        "deepseek:example01:p5:b50"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1282,7 +1282,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b50",
+          "source_block_id": "deepseek:example01:p5:b50",
           "raw_ref": "output.md",
           "text": "[26] A. Crepieux, and P. Bruno, Phys. Rev. B 64, 094434 (2001).",
           "bbox": null,
@@ -1310,7 +1310,7 @@
       "canonical_text": "[27] P. Streda, J. Phys. C: Solid State Phys. 15, L717 (1982); 15, L1299 (1982).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b52"
+        "deepseek:example01:p5:b52"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1318,7 +1318,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b52",
+          "source_block_id": "deepseek:example01:p5:b52",
           "raw_ref": "output.md",
           "text": "[27] P. Streda, J. Phys. C: Solid State Phys. 15, L717 (1982); 15, L1299 (1982).",
           "bbox": null,
@@ -1346,7 +1346,7 @@
       "canonical_text": "[28] R.N. Silvera, H. Roederb, A.F. Votera, J.D. Kressb, Journal of Computational Physics 124, 115 (1996).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b54"
+        "deepseek:example01:p5:b54"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1354,7 +1354,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b54",
+          "source_block_id": "deepseek:example01:p5:b54",
           "raw_ref": "output.md",
           "text": "[28] R.N. Silvera, H. Roederb, A.F. Votera, J.D. Kressb, Journal of Computational Physics 124, 115 (1996).",
           "bbox": null,
@@ -1382,7 +1382,7 @@
       "canonical_text": "[29] L. Covaci, F.M. Peeters, M. Berciu, Phys. Rev. Lett. 105, 167006 (2010)",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b56"
+        "deepseek:example01:p5:b56"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1390,7 +1390,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b56",
+          "source_block_id": "deepseek:example01:p5:b56",
           "raw_ref": "output.md",
           "text": "[29] L. Covaci, F.M. Peeters, M. Berciu, Phys. Rev. Lett. 105, 167006 (2010)",
           "bbox": null,
@@ -1418,7 +1418,7 @@
       "canonical_text": "[30] M. Ganahl, P. Thunstrom, F. Verstraete, K. Held, H. G. Evertz, Phys. Rev. B. 90, 045144 (2014).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b58"
+        "deepseek:example01:p5:b58"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1426,7 +1426,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b58",
+          "source_block_id": "deepseek:example01:p5:b58",
           "raw_ref": "output.md",
           "text": "[30] M. Ganahl, P. Thunstrom, F. Verstraete, K. Held, H. G. Evertz, Phys. Rev. B. 90, 045144 (2014).",
           "bbox": null,
@@ -1454,7 +1454,7 @@
       "canonical_text": "[31] F. A. Wolf, Ian P. McCulloch, Olivier Parcollet, and Ul-",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b60"
+        "deepseek:example01:p5:b60"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1462,7 +1462,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b60",
+          "source_block_id": "deepseek:example01:p5:b60",
           "raw_ref": "output.md",
           "text": "[31] F. A. Wolf, Ian P. McCulloch, Olivier Parcollet, and Ul-",
           "bbox": null,
@@ -1490,7 +1490,7 @@
       "canonical_text": "[32] \"Numerical Analysis: Mathematics of Scientific Computing, Vol 2\", David Ronald Kincaid, Elliott Ward Cheney, American Mathematical Society (2002).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b62"
+        "deepseek:example01:p5:b62"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1498,7 +1498,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b62",
+          "source_block_id": "deepseek:example01:p5:b62",
           "raw_ref": "output.md",
           "text": "[32] \"Numerical Analysis: Mathematics of Scientific Computing, Vol 2\", David Ronald Kincaid, Elliott Ward Cheney, American Mathematical Society (2002).",
           "bbox": null,
@@ -1526,7 +1526,7 @@
       "canonical_text": "[33] See Supplemental Material [url], which includes Refs. [42-48]",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b64"
+        "deepseek:example01:p5:b64"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1534,7 +1534,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b64",
+          "source_block_id": "deepseek:example01:p5:b64",
           "raw_ref": "output.md",
           "text": "[33] See Supplemental Material [url], which includes Refs. [42-48]",
           "bbox": null,
@@ -1562,7 +1562,7 @@
       "canonical_text": "[34] A. Weisse, Eur. Phys. J. B 40, 125 (2004); A. Weisse, G. Schubert, H. Fehske, Physica B 359-361, 786 (2005).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b66"
+        "deepseek:example01:p5:b66"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1570,7 +1570,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b66",
+          "source_block_id": "deepseek:example01:p5:b66",
           "raw_ref": "output.md",
           "text": "[34] A. Weisse, Eur. Phys. J. B 40, 125 (2004); A. Weisse, G. Schubert, H. Fehske, Physica B 359-361, 786 (2005).",
           "bbox": null,
@@ -1598,7 +1598,7 @@
       "canonical_text": "[35] R. Alben, M. Blume, H. Krakauer, L. Schwartz, Phys. Rev. B 12, 4090(1975).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b68"
+        "deepseek:example01:p5:b68"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1606,7 +1606,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b68",
+          "source_block_id": "deepseek:example01:p5:b68",
           "raw_ref": "output.md",
           "text": "[35] R. Alben, M. Blume, H. Krakauer, L. Schwartz, Phys. Rev. B 12, 4090(1975).",
           "bbox": null,
@@ -1634,7 +1634,7 @@
       "canonical_text": "[36] Toshiaki Iitaka, Toshikazu Ebisuzaki, Phys. Rev. E, 69, 057701(2004).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b70"
+        "deepseek:example01:p5:b70"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1642,7 +1642,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b70",
+          "source_block_id": "deepseek:example01:p5:b70",
           "raw_ref": "output.md",
           "text": "[36] Toshiaki Iitaka, Toshikazu Ebisuzaki, Phys. Rev. E, 69, 057701(2004).",
           "bbox": null,
@@ -1670,7 +1670,7 @@
       "canonical_text": "[37] K. S. Novoselov, A. K. Geim, S. V. Morozov, D. Jiang, M. I. Katsnelson, I. V. Grigorieva, S. V. Dubonos, and A. A. Firsov, Nature 438, 197 (2005).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b72"
+        "deepseek:example01:p5:b72"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1678,7 +1678,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b72",
+          "source_block_id": "deepseek:example01:p5:b72",
           "raw_ref": "output.md",
           "text": "[37] K. S. Novoselov, A. K. Geim, S. V. Morozov, D. Jiang, M. I. Katsnelson, I. V. Grigorieva, S. V. Dubonos, and A. A. Firsov, Nature 438, 197 (2005).",
           "bbox": null,
@@ -1706,7 +1706,7 @@
       "canonical_text": "[38] C. Z. Chang et al. Science 340 167 (2013).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b74"
+        "deepseek:example01:p5:b74"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1714,7 +1714,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b74",
+          "source_block_id": "deepseek:example01:p5:b74",
           "raw_ref": "output.md",
           "text": "[38] C. Z. Chang et al. Science 340 167 (2013).",
           "bbox": null,
@@ -1742,7 +1742,7 @@
       "canonical_text": "[39] Jian Li, Rui-Lin Chu, J. K. Jain, and Shun-Qing Shen, Phys. Rev. Lett. 102, 136806 (2009).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b76"
+        "deepseek:example01:p5:b76"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1750,7 +1750,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b76",
+          "source_block_id": "deepseek:example01:p5:b76",
           "raw_ref": "output.md",
           "text": "[39] Jian Li, Rui-Lin Chu, J. K. Jain, and Shun-Qing Shen, Phys. Rev. Lett. 102, 136806 (2009).",
           "bbox": null,
@@ -1778,7 +1778,7 @@
       "canonical_text": "[40] Juntao Song, Haiwen Liu, Hua Jiang, Qing-feng Sun, and X. C. Xie, Phys. Rev. B 85, 195125 (2012).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b78"
+        "deepseek:example01:p5:b78"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1786,7 +1786,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b78",
+          "source_block_id": "deepseek:example01:p5:b78",
           "raw_ref": "output.md",
           "text": "[40] Juntao Song, Haiwen Liu, Hua Jiang, Qing-feng Sun, and X. C. Xie, Phys. Rev. B 85, 195125 (2012).",
           "bbox": null,
@@ -1814,7 +1814,7 @@
       "canonical_text": "[41] K. Sun, Z. Gu, H. Katsura, and S. Das Sarma, Phys. Rev. Lett. 106, 236803 (2011); E. Tang, J.-W. Mei, and X.-G. Wen, Phys. Rev. Lett. 106, 236802 (2011); T. Neupert, L. Santos, C. Chamon, and C. Mudry, Phys. Rev. Lett. 106, 236804 (2011).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b80"
+        "deepseek:example01:p5:b80"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1822,7 +1822,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b80",
+          "source_block_id": "deepseek:example01:p5:b80",
           "raw_ref": "output.md",
           "text": "[41] K. Sun, Z. Gu, H. Katsura, and S. Das Sarma, Phys. Rev. Lett. 106, 236803 (2011); E. Tang, J.-W. Mei, and X.-G. Wen, Phys. Rev. Lett. 106, 236802 (2011); T. Neupert, L. Santos, C. Chamon, and C. Mudry, Phys. Rev. Lett. 106, 236804 (2011).",
           "bbox": null,
@@ -1850,7 +1850,7 @@
       "canonical_text": "[42] Holger Fehske, Jens Schleede, Gerald Schubert, Gerhard Wellein, Vladimir S. Filinov, Alan R. Bishop, Phys. Lett. A 373, 2182 (2009).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b82"
+        "deepseek:example01:p5:b82"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1858,7 +1858,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b82",
+          "source_block_id": "deepseek:example01:p5:b82",
           "raw_ref": "output.md",
           "text": "[42] Holger Fehske, Jens Schleede, Gerald Schubert, Gerhard Wellein, Vladimir S. Filinov, Alan R. Bishop, Phys. Lett. A 373, 2182 (2009).",
           "bbox": null,
@@ -1886,7 +1886,7 @@
       "canonical_text": "[43] J. B. Wang and T. T. Scholz, Phys. Rev. A 57, 3554 (1998).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b84"
+        "deepseek:example01:p5:b84"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1894,7 +1894,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b84",
+          "source_block_id": "deepseek:example01:p5:b84",
           "raw_ref": "output.md",
           "text": "[43] J. B. Wang and T. T. Scholz, Phys. Rev. A 57, 3554 (1998).",
           "bbox": null,
@@ -1922,7 +1922,7 @@
       "canonical_text": "[44] A. Weisse and H. Fehske, Lect. Notes Phys. 739, 545577 (2008).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b86"
+        "deepseek:example01:p5:b86"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1930,7 +1930,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b86",
+          "source_block_id": "deepseek:example01:p5:b86",
           "raw_ref": "output.md",
           "text": "[44] A. Weisse and H. Fehske, Lect. Notes Phys. 739, 545577 (2008).",
           "bbox": null,
@@ -1958,7 +1958,7 @@
       "canonical_text": "[45] D. Jackson, American Mathematical Society Colloquium Publications D. Jackson, XI providence R. I. (1930).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b88"
+        "deepseek:example01:p5:b88"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -1966,7 +1966,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b88",
+          "source_block_id": "deepseek:example01:p5:b88",
           "raw_ref": "output.md",
           "text": "[45] D. Jackson, American Mathematical Society Colloquium Publications D. Jackson, XI providence R. I. (1930).",
           "bbox": null,
@@ -1994,7 +1994,7 @@
       "canonical_text": "[46] D. A. Drabold and O. F. Sankey, Phys. Rev. Lett. 70 3631(1993).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b90"
+        "deepseek:example01:p5:b90"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -2002,7 +2002,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b90",
+          "source_block_id": "deepseek:example01:p5:b90",
           "raw_ref": "output.md",
           "text": "[46] D. A. Drabold and O. F. Sankey, Phys. Rev. Lett. 70 3631(1993).",
           "bbox": null,
@@ -2030,7 +2030,7 @@
       "canonical_text": "[47] Silver, R. N., and H. Rder Int. J. Mod. Phys. C 5 935 (1994).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b92"
+        "deepseek:example01:p5:b92"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -2038,7 +2038,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b92",
+          "source_block_id": "deepseek:example01:p5:b92",
           "raw_ref": "output.md",
           "text": "[47] Silver, R. N., and H. Rder Int. J. Mod. Phys. C 5 935 (1994).",
           "bbox": null,
@@ -2066,7 +2066,7 @@
       "canonical_text": "[48] Cuda Performance Report, September 2014.",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b94"
+        "deepseek:example01:p5:b94"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -2074,7 +2074,7 @@
         {
           "kind": "block_text",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b94",
+          "source_block_id": "deepseek:example01:p5:b94",
           "raw_ref": "output.md",
           "text": "[48] Cuda Performance Report, September 2014.",
           "bbox": null,
@@ -2102,7 +2102,7 @@
       "canonical_text": "\\[ \\tilde{H}=\\frac{2}{\\Delta E}\\left(H-\\frac{E^{+}+E^{-}}{2}\\right),\\quad\\tilde{\\varepsilon}=\\frac{2}{\\Delta E}\\left(\\varepsilon-\\frac{E^{+}+E^{-}}{2}\\right), \\quad (7) \\]",
       "page_no": 6,
       "block_ids": [
-        "deepseek:1410.8140:p6:b4"
+        "deepseek:example01:p6:b4"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -2110,7 +2110,7 @@
         {
           "kind": "block_text",
           "page_no": 6,
-          "source_block_id": "deepseek:1410.8140:p6:b4",
+          "source_block_id": "deepseek:example01:p6:b4",
           "raw_ref": "output.md",
           "text": "\\[ \\tilde{H}=\\frac{2}{\\Delta E}\\left(H-\\frac{E^{+}+E^{-}}{2}\\right),\\quad\\tilde{\\varepsilon}=\\frac{2}{\\Delta E}\\left(\\varepsilon-\\frac{E^{+}+E^{-}}{2}\\right), \\quad (7) \\]",
           "bbox": null,
@@ -2137,7 +2137,7 @@
       "canonical_text": "\\[ \\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{H})=\\sum_{k}\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{E}_{k})\\left|\\tilde{E}_{k}\\right\\rangle\\left\\langle\\tilde{E}_{k}\\right|, \\quad (8) \\]",
       "page_no": 6,
       "block_ids": [
-        "deepseek:1410.8140:p6:b6"
+        "deepseek:example01:p6:b6"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -2145,7 +2145,7 @@
         {
           "kind": "block_text",
           "page_no": 6,
-          "source_block_id": "deepseek:1410.8140:p6:b6",
+          "source_block_id": "deepseek:example01:p6:b6",
           "raw_ref": "output.md",
           "text": "\\[ \\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{H})=\\sum_{k}\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{E}_{k})\\left|\\tilde{E}_{k}\\right\\rangle\\left\\langle\\tilde{E}_{k}\\right|, \\quad (8) \\]",
           "bbox": null,
@@ -2172,7 +2172,7 @@
       "canonical_text": "\\[ \\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{E}_{k})=\\frac{2}{\\pi}\\sum_{m=0}^{\\infty}\\Gamma_{m}(\\tilde{\\varepsilon})T_{m}(\\tilde{E}_{k}),\\quad\\Gamma_{m}(\\tilde{\\varepsilon})=\\frac{1}{\\delta_{m,0}+1}\\int_{-1}^{1}\\frac{\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{E}_{k})T_{m}(\\tilde{E}_{k})}{\\sqrt{1-\\tilde{E}_{k}^{2}}}d\\tilde{E}_{k}, \\quad (9) \\]",
       "page_no": 6,
       "block_ids": [
-        "deepseek:1410.8140:p6:b8"
+        "deepseek:example01:p6:b8"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -2180,7 +2180,7 @@
         {
           "kind": "block_text",
           "page_no": 6,
-          "source_block_id": "deepseek:1410.8140:p6:b8",
+          "source_block_id": "deepseek:example01:p6:b8",
           "raw_ref": "output.md",
           "text": "\\[ \\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{E}_{k})=\\frac{2}{\\pi}\\sum_{m=0}^{\\infty}\\Gamma_{m}(\\tilde{\\varepsilon})T_{m}(\\tilde{E}_{k}),\\quad\\Gamma_{m}(\\tilde{\\varepsilon})=\\frac{1}{\\delta_{m,0}+1}\\int_{-1}^{1}\\frac{\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{E}_{k})T_{m}(\\tilde{E}_{k})}{\\sqrt{1-\\tilde{E}_{k}^{2}}}d\\tilde{E}_{k}, \\quad (9) \\]",
           "bbox": null,
@@ -2207,7 +2207,7 @@
       "canonical_text": "\\[ \\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{H})=\\frac{2}{\\pi}\\sum_{m=0}^{\\infty}\\Gamma_{m}(\\tilde{\\varepsilon})T_{m}(\\tilde{H}), \\quad (10) \\]",
       "page_no": 6,
       "block_ids": [
-        "deepseek:1410.8140:p6:b10"
+        "deepseek:example01:p6:b10"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -2215,7 +2215,7 @@
         {
           "kind": "block_text",
           "page_no": 6,
-          "source_block_id": "deepseek:1410.8140:p6:b10",
+          "source_block_id": "deepseek:example01:p6:b10",
           "raw_ref": "output.md",
           "text": "\\[ \\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{H})=\\frac{2}{\\pi}\\sum_{m=0}^{\\infty}\\Gamma_{m}(\\tilde{\\varepsilon})T_{m}(\\tilde{H}), \\quad (10) \\]",
           "bbox": null,
@@ -2242,7 +2242,7 @@
       "canonical_text": "\\[ \\tilde{\\rho}(\\tilde{\\varepsilon})=\\frac{2}{\\pi\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{\\infty}\\Gamma_{m}(\\tilde{\\varepsilon})\\mu_{m}, \\quad (11) \\]",
       "page_no": 6,
       "block_ids": [
-        "deepseek:1410.8140:p6:b12"
+        "deepseek:example01:p6:b12"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -2250,7 +2250,7 @@
         {
           "kind": "block_text",
           "page_no": 6,
-          "source_block_id": "deepseek:1410.8140:p6:b12",
+          "source_block_id": "deepseek:example01:p6:b12",
           "raw_ref": "output.md",
           "text": "\\[ \\tilde{\\rho}(\\tilde{\\varepsilon})=\\frac{2}{\\pi\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{\\infty}\\Gamma_{m}(\\tilde{\\varepsilon})\\mu_{m}, \\quad (11) \\]",
           "bbox": null,
@@ -2277,7 +2277,7 @@
       "canonical_text": "\\[ g_{m}^{J}=\\frac{(M-m+1)\\cos\\frac{\\pi m}{M+1}+\\sin\\frac{\\pi m}{M+1}\\cot\\frac{\\pi}{M+1}}{M+1}, \\quad (12) \\]",
       "page_no": 6,
       "block_ids": [
-        "deepseek:1410.8140:p6:b14"
+        "deepseek:example01:p6:b14"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -2285,7 +2285,7 @@
         {
           "kind": "block_text",
           "page_no": 6,
-          "source_block_id": "deepseek:1410.8140:p6:b14",
+          "source_block_id": "deepseek:example01:p6:b14",
           "raw_ref": "output.md",
           "text": "\\[ g_{m}^{J}=\\frac{(M-m+1)\\cos\\frac{\\pi m}{M+1}+\\sin\\frac{\\pi m}{M+1}\\cot\\frac{\\pi}{M+1}}{M+1}, \\quad (12) \\]",
           "bbox": null,
@@ -2312,7 +2312,7 @@
       "canonical_text": "\\[ \\left|r\\right\\rangle\\equiv(\\xi_{1}^{r},\\cdots,\\xi_{N}^{r}),\\quad r=1,\\cdots,R, \\quad (13) \\]",
       "page_no": 7,
       "block_ids": [
-        "deepseek:1410.8140:p7:b1"
+        "deepseek:example01:p7:b1"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -2320,7 +2320,7 @@
         {
           "kind": "block_text",
           "page_no": 7,
-          "source_block_id": "deepseek:1410.8140:p7:b1",
+          "source_block_id": "deepseek:example01:p7:b1",
           "raw_ref": "output.md",
           "text": "\\[ \\left|r\\right\\rangle\\equiv(\\xi_{1}^{r},\\cdots,\\xi_{N}^{r}),\\quad r=1,\\cdots,R, \\quad (13) \\]",
           "bbox": null,
@@ -2347,7 +2347,7 @@
       "canonical_text": "\\[ \\left\\langle\\left\\langle\\xi_{i}^{r}\\right\\rangle\\right\\rangle=0,\\quad\\left\\langle\\left\\langle\\xi_{i}^{r*}\\xi_{j}^{r^{\\prime}}\\right\\rangle\\right\\rangle=\\delta_{r,r^{\\prime}}\\delta_{i,j}, \\quad (14) \\]",
       "page_no": 7,
       "block_ids": [
-        "deepseek:1410.8140:p7:b3"
+        "deepseek:example01:p7:b3"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -2355,7 +2355,7 @@
         {
           "kind": "block_text",
           "page_no": 7,
-          "source_block_id": "deepseek:1410.8140:p7:b3",
+          "source_block_id": "deepseek:example01:p7:b3",
           "raw_ref": "output.md",
           "text": "\\[ \\left\\langle\\left\\langle\\xi_{i}^{r}\\right\\rangle\\right\\rangle=0,\\quad\\left\\langle\\left\\langle\\xi_{i}^{r*}\\xi_{j}^{r^{\\prime}}\\right\\rangle\\right\\rangle=\\delta_{r,r^{\\prime}}\\delta_{i,j}, \\quad (14) \\]",
           "bbox": null,
@@ -2382,7 +2382,7 @@
       "canonical_text": "\\[ \\mathrm{T r}\\left[T_{m}(\\tilde{H})\\right]\\approx\\frac{1}{R}\\sum_{r=1}^{R}\\left\\langle r\\right|T_{m}(\\tilde{H})\\left|r\\right\\rangle. \\quad (15) \\]",
       "page_no": 7,
       "block_ids": [
-        "deepseek:1410.8140:p7:b5"
+        "deepseek:example01:p7:b5"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -2390,7 +2390,7 @@
         {
           "kind": "block_text",
           "page_no": 7,
-          "source_block_id": "deepseek:1410.8140:p7:b5",
+          "source_block_id": "deepseek:example01:p7:b5",
           "raw_ref": "output.md",
           "text": "\\[ \\mathrm{T r}\\left[T_{m}(\\tilde{H})\\right]\\approx\\frac{1}{R}\\sum_{r=1}^{R}\\left\\langle r\\right|T_{m}(\\tilde{H})\\left|r\\right\\rangle. \\quad (15) \\]",
           "bbox": null,
@@ -2417,7 +2417,7 @@
       "canonical_text": "\\[ \\sigma_{\\alpha\\beta}(\\mu)=\\frac{i e^{2}\\hbar}{\\Omega}\\int_{E^{-}}^{E^{+}}d\\varepsilon f(\\varepsilon)\\mathrm{T r}\\left\\langle v_{\\alpha}\\delta(\\varepsilon-H)v_{\\beta}\\frac{d G^{+}(\\varepsilon,H)}{d\\varepsilon}-v_{\\alpha}\\frac{d G^{-}(\\varepsilon,H)}{d\\varepsilon}v_{\\beta}\\delta(\\varepsilon-H)\\right\\rangle. \\quad (16) \\]",
       "page_no": 7,
       "block_ids": [
-        "deepseek:1410.8140:p7:b8"
+        "deepseek:example01:p7:b8"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -2425,7 +2425,7 @@
         {
           "kind": "block_text",
           "page_no": 7,
-          "source_block_id": "deepseek:1410.8140:p7:b8",
+          "source_block_id": "deepseek:example01:p7:b8",
           "raw_ref": "output.md",
           "text": "\\[ \\sigma_{\\alpha\\beta}(\\mu)=\\frac{i e^{2}\\hbar}{\\Omega}\\int_{E^{-}}^{E^{+}}d\\varepsilon f(\\varepsilon)\\mathrm{T r}\\left\\langle v_{\\alpha}\\delta(\\varepsilon-H)v_{\\beta}\\frac{d G^{+}(\\varepsilon,H)}{d\\varepsilon}-v_{\\alpha}\\frac{d G^{-}(\\varepsilon,H)}{d\\varepsilon}v_{\\beta}\\delta(\\varepsilon-H)\\right\\rangle. \\quad (16) \\]",
           "bbox": null,
@@ -2452,7 +2452,7 @@
       "canonical_text": "\\[ \\begin{align*}\\sigma_{\\alpha\\beta}(\\mu)&=\\left(\\frac{2}{E^{+}-E^{-}}\\right)^{2}\\frac{i e^{2}\\hbar}{\\Omega}\\int_{-1}^{1}d\\tilde{\\varepsilon}f(\\tilde{\\varepsilon},\\tilde{\\mu})\\mathrm{Tr}\\left\\langle v_{\\alpha}\\delta(\\tilde{\\varepsilon}-\\tilde{H})v_{\\beta}\\frac{d G^{+}(\\tilde{\\varepsilon},\\tilde{H})}{d\\tilde{\\varepsilon}}-v_{\\alpha}\\frac{d G^{-}(\\tilde{\\varepsilon},\\tilde{H})}{d\\tilde{\\varepsilon}}v_{\\beta}\\delta(\\tilde{\\varepsilon}-\\tilde{H})\\right\\rangle\\\\\\sigma_{\\alpha\\beta}(\\mu)&=\\left(\\frac{2}{E^{+}-E^{-}}\\right)^{2}\\tilde{\\sigma}_{\\alpha\\beta}(\\tilde{\\mu}),\\end{align*} \\quad (17) \\]",
       "page_no": 7,
       "block_ids": [
-        "deepseek:1410.8140:p7:b10"
+        "deepseek:example01:p7:b10"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -2460,7 +2460,7 @@
         {
           "kind": "block_text",
           "page_no": 7,
-          "source_block_id": "deepseek:1410.8140:p7:b10",
+          "source_block_id": "deepseek:example01:p7:b10",
           "raw_ref": "output.md",
           "text": "\\[ \\begin{align*}\\sigma_{\\alpha\\beta}(\\mu)&=\\left(\\frac{2}{E^{+}-E^{-}}\\right)^{2}\\frac{i e^{2}\\hbar}{\\Omega}\\int_{-1}^{1}d\\tilde{\\varepsilon}f(\\tilde{\\varepsilon},\\tilde{\\mu})\\mathrm{Tr}\\left\\langle v_{\\alpha}\\delta(\\tilde{\\varepsilon}-\\tilde{H})v_{\\beta}\\frac{d G^{+}(\\tilde{\\varepsilon},\\tilde{H})}{d\\tilde{\\varepsilon}}-v_{\\alpha}\\frac{d G^{-}(\\tilde{\\varepsilon},\\tilde{H})}{d\\tilde{\\varepsilon}}v_{\\beta}\\delta(\\tilde{\\varepsilon}-\\tilde{H})\\right\\rangle\\\\\\sigma_{\\alpha\\beta}(\\mu)&=\\left(\\frac{2}{E^{+}-E^{-}}\\right)^{2}\\tilde{\\sigma}_{\\alpha\\beta}(\\tilde{\\mu}),\\end{align*} \\quad (17) \\]",
           "bbox": null,
@@ -2487,7 +2487,7 @@
       "canonical_text": "\\[ \\delta(\\tilde{\\varepsilon}-\\tilde{H})=\\frac{2}{\\pi\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{\\infty}T_{m}(\\tilde{\\varepsilon})T_{m}(\\tilde{H}),\\quad G^{\\pm}(\\tilde{\\varepsilon},\\tilde{H})=\\mp\\frac{2i}{\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{M}g_{m}\\epsilon^{\\pm i m a r c c o s(\\tilde{\\varepsilon})}T_{m}(\\tilde{H}). \\quad (18) \\]",
       "page_no": 7,
       "block_ids": [
-        "deepseek:1410.8140:p7:b12"
+        "deepseek:example01:p7:b12"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -2495,7 +2495,7 @@
         {
           "kind": "block_text",
           "page_no": 7,
-          "source_block_id": "deepseek:1410.8140:p7:b12",
+          "source_block_id": "deepseek:example01:p7:b12",
           "raw_ref": "output.md",
           "text": "\\[ \\delta(\\tilde{\\varepsilon}-\\tilde{H})=\\frac{2}{\\pi\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{\\infty}T_{m}(\\tilde{\\varepsilon})T_{m}(\\tilde{H}),\\quad G^{\\pm}(\\tilde{\\varepsilon},\\tilde{H})=\\mp\\frac{2i}{\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{M}g_{m}\\epsilon^{\\pm i m a r c c o s(\\tilde{\\varepsilon})}T_{m}(\\tilde{H}). \\quad (18) \\]",
           "bbox": null,
@@ -2522,7 +2522,7 @@
       "canonical_text": "\\[ \\tilde{\\sigma}_{\\alpha\\beta}(\\tilde{\\mu})=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\int_{-1}^{1}\\frac{d\\tilde{\\varepsilon}f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})^{2}}\\sum_{m,n}\\mu_{n m}^{\\alpha\\beta}\\Gamma_{n m}(\\tilde{\\varepsilon}), \\quad (19) \\]",
       "page_no": 7,
       "block_ids": [
-        "deepseek:1410.8140:p7:b14"
+        "deepseek:example01:p7:b14"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -2530,7 +2530,7 @@
         {
           "kind": "block_text",
           "page_no": 7,
-          "source_block_id": "deepseek:1410.8140:p7:b14",
+          "source_block_id": "deepseek:example01:p7:b14",
           "raw_ref": "output.md",
           "text": "\\[ \\tilde{\\sigma}_{\\alpha\\beta}(\\tilde{\\mu})=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\int_{-1}^{1}\\frac{d\\tilde{\\varepsilon}f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})^{2}}\\sum_{m,n}\\mu_{n m}^{\\alpha\\beta}\\Gamma_{n m}(\\tilde{\\varepsilon}), \\quad (19) \\]",
           "bbox": null,
@@ -2557,7 +2557,7 @@
       "canonical_text": "\\[ \\mu_{m n}^{\\alpha\\beta}\\equiv\\frac{g_{m}g_{n}}{(1+\\mu_{n0})(1+\\mu_{m0})}\\mathrm{T r}\\left[v_{\\alpha}T_{m}(\\tilde{H})v_{\\beta}T_{n}(\\tilde{H})\\right], \\quad (20) \\]",
       "page_no": 7,
       "block_ids": [
-        "deepseek:1410.8140:p7:b16"
+        "deepseek:example01:p7:b16"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -2565,7 +2565,7 @@
         {
           "kind": "block_text",
           "page_no": 7,
-          "source_block_id": "deepseek:1410.8140:p7:b16",
+          "source_block_id": "deepseek:example01:p7:b16",
           "raw_ref": "output.md",
           "text": "\\[ \\mu_{m n}^{\\alpha\\beta}\\equiv\\frac{g_{m}g_{n}}{(1+\\mu_{n0})(1+\\mu_{m0})}\\mathrm{T r}\\left[v_{\\alpha}T_{m}(\\tilde{H})v_{\\beta}T_{n}(\\tilde{H})\\right], \\quad (20) \\]",
           "bbox": null,
@@ -2592,7 +2592,7 @@
       "canonical_text": "\\[ \\Gamma_{m n}(\\tilde{\\varepsilon})\\equiv\\left(\\varepsilon-i n\\sqrt{1-\\varepsilon^{2}}\\right)T_{m}(\\varepsilon)e^{i n a r c c o s(\\varepsilon)}+\\left(\\varepsilon+i m\\sqrt{1-\\varepsilon^{2}}\\right)T_{n}(\\varepsilon)e^{-i m a r c c o s(\\varepsilon)}, \\quad (21) \\]",
       "page_no": 7,
       "block_ids": [
-        "deepseek:1410.8140:p7:b18"
+        "deepseek:example01:p7:b18"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -2600,7 +2600,7 @@
         {
           "kind": "block_text",
           "page_no": 7,
-          "source_block_id": "deepseek:1410.8140:p7:b18",
+          "source_block_id": "deepseek:example01:p7:b18",
           "raw_ref": "output.md",
           "text": "\\[ \\Gamma_{m n}(\\tilde{\\varepsilon})\\equiv\\left(\\varepsilon-i n\\sqrt{1-\\varepsilon^{2}}\\right)T_{m}(\\varepsilon)e^{i n a r c c o s(\\varepsilon)}+\\left(\\varepsilon+i m\\sqrt{1-\\varepsilon^{2}}\\right)T_{n}(\\varepsilon)e^{-i m a r c c o s(\\varepsilon)}, \\quad (21) \\]",
           "bbox": null,
@@ -2627,7 +2627,7 @@
       "canonical_text": "\\[ (\\mu_{m n}^{\\alpha\\beta})^{*}=\\mu_{n m}^{\\alpha\\beta}=\\mu_{m n}^{\\beta\\alpha}\\quad\\mathrm{a n d}\\quad\\Gamma_{m n}^{*}=\\Gamma_{n m}, \\quad (22) \\]",
       "page_no": 8,
       "block_ids": [
-        "deepseek:1410.8140:p8:b1"
+        "deepseek:example01:p8:b1"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -2635,7 +2635,7 @@
         {
           "kind": "block_text",
           "page_no": 8,
-          "source_block_id": "deepseek:1410.8140:p8:b1",
+          "source_block_id": "deepseek:example01:p8:b1",
           "raw_ref": "output.md",
           "text": "\\[ (\\mu_{m n}^{\\alpha\\beta})^{*}=\\mu_{n m}^{\\alpha\\beta}=\\mu_{m n}^{\\beta\\alpha}\\quad\\mathrm{a n d}\\quad\\Gamma_{m n}^{*}=\\Gamma_{n m}, \\quad (22) \\]",
           "bbox": null,
@@ -2662,7 +2662,7 @@
       "canonical_text": "\\[ \\tilde{\\sigma}_{\\alpha\\beta}(\\mu)=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\int_{-1}^{1}\\frac{d\\tilde{\\varepsilon}\\;f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})^{2}}\\sum_{m,n\\leq m}\\mathrm{R e}\\left[\\mu_{n m}^{\\alpha,\\beta}\\Gamma_{n m}(\\tilde{\\varepsilon})\\right]. \\quad (23) \\]",
       "page_no": 8,
       "block_ids": [
-        "deepseek:1410.8140:p8:b3"
+        "deepseek:example01:p8:b3"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -2670,7 +2670,7 @@
         {
           "kind": "block_text",
           "page_no": 8,
-          "source_block_id": "deepseek:1410.8140:p8:b3",
+          "source_block_id": "deepseek:example01:p8:b3",
           "raw_ref": "output.md",
           "text": "\\[ \\tilde{\\sigma}_{\\alpha\\beta}(\\mu)=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\int_{-1}^{1}\\frac{d\\tilde{\\varepsilon}\\;f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})^{2}}\\sum_{m,n\\leq m}\\mathrm{R e}\\left[\\mu_{n m}^{\\alpha,\\beta}\\Gamma_{n m}(\\tilde{\\varepsilon})\\right]. \\quad (23) \\]",
           "bbox": null,
@@ -2697,7 +2697,7 @@
       "canonical_text": "\\[ \\tilde{\\sigma}_{\\alpha\\alpha}(\\tilde{\\mu})=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\sum_{m,n\\leq m}\\mu_{n m}^{\\alpha\\alpha}\\int_{-\\alpha}^{\\alpha}\\frac{d\\tilde{\\varepsilon}\\;f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})}\\left(\\frac{d}{d\\tilde{\\varepsilon}}\\left[\\mathrm{T}_{n}(\\tilde{\\varepsilon})\\mathrm{T}_{m}(\\tilde{\\varepsilon})\\right]+2\\tilde{\\varepsilon}\\mathrm{T}_{n}(\\tilde{\\varepsilon})\\mathrm{T}_{m}(\\tilde{\\varepsilon})\\right), \\quad (24) \\]",
       "page_no": 8,
       "block_ids": [
-        "deepseek:1410.8140:p8:b5"
+        "deepseek:example01:p8:b5"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -2705,7 +2705,7 @@
         {
           "kind": "block_text",
           "page_no": 8,
-          "source_block_id": "deepseek:1410.8140:p8:b5",
+          "source_block_id": "deepseek:example01:p8:b5",
           "raw_ref": "output.md",
           "text": "\\[ \\tilde{\\sigma}_{\\alpha\\alpha}(\\tilde{\\mu})=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\sum_{m,n\\leq m}\\mu_{n m}^{\\alpha\\alpha}\\int_{-\\alpha}^{\\alpha}\\frac{d\\tilde{\\varepsilon}\\;f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})}\\left(\\frac{d}{d\\tilde{\\varepsilon}}\\left[\\mathrm{T}_{n}(\\tilde{\\varepsilon})\\mathrm{T}_{m}(\\tilde{\\varepsilon})\\right]+2\\tilde{\\varepsilon}\\mathrm{T}_{n}(\\tilde{\\varepsilon})\\mathrm{T}_{m}(\\tilde{\\varepsilon})\\right), \\quad (24) \\]",
           "bbox": null,
@@ -2732,7 +2732,7 @@
       "canonical_text": "\\[ \\sigma_{\\alpha\\alpha}(\\tilde{\\varepsilon}_{F})=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\sum_{m,n\\leq m}\\mu_{n m}^{\\alpha\\alpha}T_{n}(\\tilde{\\varepsilon}_{F})T_{m}(\\tilde{\\varepsilon}_{F}), \\quad (25) \\]",
       "page_no": 8,
       "block_ids": [
-        "deepseek:1410.8140:p8:b7"
+        "deepseek:example01:p8:b7"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -2740,7 +2740,7 @@
         {
           "kind": "block_text",
           "page_no": 8,
-          "source_block_id": "deepseek:1410.8140:p8:b7",
+          "source_block_id": "deepseek:example01:p8:b7",
           "raw_ref": "output.md",
           "text": "\\[ \\sigma_{\\alpha\\alpha}(\\tilde{\\varepsilon}_{F})=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\sum_{m,n\\leq m}\\mu_{n m}^{\\alpha\\alpha}T_{n}(\\tilde{\\varepsilon}_{F})T_{m}(\\tilde{\\varepsilon}_{F}), \\quad (25) \\]",
           "bbox": null,
@@ -2767,7 +2767,7 @@
       "canonical_text": "FIG. 4.  \\( \\sigma_{xy} \\)  as a function of E for increasing values of M.  \\( \\phi/\\phi_{0} \\approx 1 \\times 10^{-2} \\) ,  \\( SR > 150 \\) ,  \\( K_{B}T = 0.005t \\)  and  \\( N = 2 \\times 400 \\times 400 \\)  sites. Inset:  \\( \\langle d\\sigma_{xy}(E)\\rangle \\)  as a function of M for the data shown in the main panel.",
       "page_no": 8,
       "block_ids": [
-        "deepseek:1410.8140:p8:b10"
+        "deepseek:example01:p8:b10"
       ],
       "confidence": 0.78,
       "confidence_source": "heuristic",
@@ -2775,7 +2775,7 @@
         {
           "kind": "block_text",
           "page_no": 8,
-          "source_block_id": "deepseek:1410.8140:p8:b10",
+          "source_block_id": "deepseek:example01:p8:b10",
           "raw_ref": "output.md",
           "text": "FIG. 4.  \\( \\sigma_{xy} \\)  as a function of E for increasing values of M.  \\( \\phi/\\phi_{0} \\approx 1 \\times 10^{-2} \\) ,  \\( SR > 150 \\) ,  \\( K_{B}T = 0.005t \\)  and  \\( N = 2 \\times 400 \\times 400 \\)  sites. Inset:  \\( \\langle d\\sigma_{xy}(E)\\rangle \\)  as a function of M for the data shown in the main panel.",
           "bbox": null,
@@ -2803,7 +2803,7 @@
       "canonical_text": "FIG. 5. (a)  \\( \\langle d\\sigma_{xy}(E)\\rangle \\)  as a function of R for  \\( \\phi/\\phi_{0}\\approx1\\times10^{-2} \\) , M=3200,  \\( k_{B}T=0 \\)  and  \\( N=2\\times400\\times400 \\)  sites.",
       "page_no": 9,
       "block_ids": [
-        "deepseek:1410.8140:p9:b3"
+        "deepseek:example01:p9:b3"
       ],
       "confidence": 0.78,
       "confidence_source": "heuristic",
@@ -2811,7 +2811,7 @@
         {
           "kind": "block_text",
           "page_no": 9,
-          "source_block_id": "deepseek:1410.8140:p9:b3",
+          "source_block_id": "deepseek:example01:p9:b3",
           "raw_ref": "output.md",
           "text": "FIG. 5. (a)  \\( \\langle d\\sigma_{xy}(E)\\rangle \\)  as a function of R for  \\( \\phi/\\phi_{0}\\approx1\\times10^{-2} \\) , M=3200,  \\( k_{B}T=0 \\)  and  \\( N=2\\times400\\times400 \\)  sites.",
           "bbox": null,
@@ -2839,7 +2839,7 @@
       "canonical_text": "GPU Computing",
       "page_no": 9,
       "block_ids": [
-        "deepseek:1410.8140:p9:b5"
+        "deepseek:example01:p9:b5"
       ],
       "confidence": 0.75,
       "confidence_source": "heuristic",
@@ -2847,7 +2847,7 @@
         {
           "kind": "block_text",
           "page_no": 9,
-          "source_block_id": "deepseek:1410.8140:p9:b5",
+          "source_block_id": "deepseek:example01:p9:b5",
           "raw_ref": "output.md",
           "text": "## GPU Computing",
           "bbox": null,
@@ -2876,7 +2876,7 @@
       "canonical_text": "[1] A. Bastin, C. Lewinner, O. Betbeder-Matibet and P. Nozieres, J. Phys. Chem. Solids 32, 1811 (1971).",
       "page_no": 5,
       "block_ids": [
-        "deepseek:1410.8140:p5:b0"
+        "deepseek:example01:p5:b0"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -2884,7 +2884,7 @@
         {
           "kind": "position",
           "page_no": 5,
-          "source_block_id": "deepseek:1410.8140:p5:b0",
+          "source_block_id": "deepseek:example01:p5:b0",
           "raw_ref": "output.md",
           "text": "[1] A. Bastin, C. Lewinner, O. Betbeder-Matibet and P. Nozieres, J. Phys. Chem. Solids 32, 1811 (1971).",
           "bbox": null,
@@ -2914,7 +2914,7 @@
       "canonical_text": "Jose H. Garc´ıa,1 Lucian Covaci,2 and Tatiana G. Rappoport1",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b1"
+        "mineru:example01:p1:b1"
       ],
       "confidence": 0.75,
       "confidence_source": "heuristic",
@@ -2922,7 +2922,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b1",
+          "source_block_id": "mineru:example01:p1:b1",
           "raw_ref": "output.md",
           "text": "Jose H. Garc´ıa,1 Lucian Covaci,2 and Tatiana G. Rappoport1",
           "bbox": null,
@@ -2949,7 +2949,7 @@
       "canonical_text": "Jose H. García,1 Lucian Covaci,2 and Tatiana G. Rappoport1",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b1"
+        "paddleocr:example01:p1:b1"
       ],
       "confidence": 0.75,
       "confidence_source": "heuristic",
@@ -2957,7 +2957,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b1",
+          "source_block_id": "paddleocr:example01:p1:b1",
           "raw_ref": "output.md",
           "text": "Jose H. García,1 Lucian Covaci,2 and Tatiana G. Rappoport1",
           "bbox": null,
@@ -2984,7 +2984,7 @@
       "canonical_text": "Convergence of the method",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b118"
+        "paddleocr:example01:p1:b118"
       ],
       "confidence": 0.75,
       "confidence_source": "heuristic",
@@ -2992,7 +2992,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b118",
+          "source_block_id": "paddleocr:example01:p1:b118",
           "raw_ref": "output.md",
           "text": "## Convergence of the method",
           "bbox": null,
@@ -3019,7 +3019,7 @@
       "canonical_text": "",
       "page_no": 3,
       "block_ids": [
-        "deepseek:1410.8140:p3:b2"
+        "deepseek:example01:p3:b2"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -3027,7 +3027,7 @@
         {
           "kind": "block_text",
           "page_no": 3,
-          "source_block_id": "deepseek:1410.8140:p3:b2",
+          "source_block_id": "deepseek:example01:p3:b2",
           "raw_ref": "output.md",
           "text": "",
           "bbox": null,
@@ -3052,7 +3052,7 @@
       "canonical_text": "",
       "page_no": 3,
       "block_ids": [
-        "deepseek:1410.8140:p3:b4"
+        "deepseek:example01:p3:b4"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -3060,7 +3060,7 @@
         {
           "kind": "block_text",
           "page_no": 3,
-          "source_block_id": "deepseek:1410.8140:p3:b4",
+          "source_block_id": "deepseek:example01:p3:b4",
           "raw_ref": "output.md",
           "text": "",
           "bbox": null,
@@ -3085,7 +3085,7 @@
       "canonical_text": "",
       "page_no": 3,
       "block_ids": [
-        "deepseek:1410.8140:p3:b5"
+        "deepseek:example01:p3:b5"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -3093,7 +3093,7 @@
         {
           "kind": "block_text",
           "page_no": 3,
-          "source_block_id": "deepseek:1410.8140:p3:b5",
+          "source_block_id": "deepseek:example01:p3:b5",
           "raw_ref": "output.md",
           "text": "",
           "bbox": null,
@@ -3118,7 +3118,7 @@
       "canonical_text": "",
       "page_no": 3,
       "block_ids": [
-        "deepseek:1410.8140:p3:b6"
+        "deepseek:example01:p3:b6"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -3126,7 +3126,7 @@
         {
           "kind": "block_text",
           "page_no": 3,
-          "source_block_id": "deepseek:1410.8140:p3:b6",
+          "source_block_id": "deepseek:example01:p3:b6",
           "raw_ref": "output.md",
           "text": "",
           "bbox": null,
@@ -3151,7 +3151,7 @@
       "canonical_text": "",
       "page_no": 3,
       "block_ids": [
-        "deepseek:1410.8140:p3:b7"
+        "deepseek:example01:p3:b7"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -3159,7 +3159,7 @@
         {
           "kind": "block_text",
           "page_no": 3,
-          "source_block_id": "deepseek:1410.8140:p3:b7",
+          "source_block_id": "deepseek:example01:p3:b7",
           "raw_ref": "output.md",
           "text": "",
           "bbox": null,
@@ -3184,7 +3184,7 @@
       "canonical_text": "",
       "page_no": 4,
       "block_ids": [
-        "deepseek:1410.8140:p4:b1"
+        "deepseek:example01:p4:b1"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -3192,7 +3192,7 @@
         {
           "kind": "block_text",
           "page_no": 4,
-          "source_block_id": "deepseek:1410.8140:p4:b1",
+          "source_block_id": "deepseek:example01:p4:b1",
           "raw_ref": "output.md",
           "text": "",
           "bbox": null,
@@ -3217,7 +3217,7 @@
       "canonical_text": "",
       "page_no": 4,
       "block_ids": [
-        "deepseek:1410.8140:p4:b2"
+        "deepseek:example01:p4:b2"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -3225,7 +3225,7 @@
         {
           "kind": "block_text",
           "page_no": 4,
-          "source_block_id": "deepseek:1410.8140:p4:b2",
+          "source_block_id": "deepseek:example01:p4:b2",
           "raw_ref": "output.md",
           "text": "",
           "bbox": null,
@@ -3250,7 +3250,7 @@
       "canonical_text": "",
       "page_no": 4,
       "block_ids": [
-        "deepseek:1410.8140:p4:b3"
+        "deepseek:example01:p4:b3"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -3258,7 +3258,7 @@
         {
           "kind": "block_text",
           "page_no": 4,
-          "source_block_id": "deepseek:1410.8140:p4:b3",
+          "source_block_id": "deepseek:example01:p4:b3",
           "raw_ref": "output.md",
           "text": "",
           "bbox": null,
@@ -3283,7 +3283,7 @@
       "canonical_text": "",
       "page_no": 4,
       "block_ids": [
-        "deepseek:1410.8140:p4:b4"
+        "deepseek:example01:p4:b4"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -3291,7 +3291,7 @@
         {
           "kind": "block_text",
           "page_no": 4,
-          "source_block_id": "deepseek:1410.8140:p4:b4",
+          "source_block_id": "deepseek:example01:p4:b4",
           "raw_ref": "output.md",
           "text": "",
           "bbox": null,
@@ -3316,7 +3316,7 @@
       "canonical_text": "\\[ T_{m}(x)\\equiv\\cos(m a r c o s(x)),\\quad T_{m+1}(x) \\]",
       "page_no": 6,
       "block_ids": [
-        "deepseek:1410.8140:p6:b2"
+        "deepseek:example01:p6:b2"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -3324,7 +3324,7 @@
         {
           "kind": "block_text",
           "page_no": 6,
-          "source_block_id": "deepseek:1410.8140:p6:b2",
+          "source_block_id": "deepseek:example01:p6:b2",
           "raw_ref": "output.md",
           "text": "\\[ T_{m}(x)\\equiv\\cos(m a r c o s(x)),\\quad T_{m+1}(x) \\]",
           "bbox": null,
@@ -3351,7 +3351,7 @@
       "canonical_text": "",
       "page_no": 8,
       "block_ids": [
-        "deepseek:1410.8140:p8:b9"
+        "deepseek:example01:p8:b9"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -3359,7 +3359,7 @@
         {
           "kind": "block_text",
           "page_no": 8,
-          "source_block_id": "deepseek:1410.8140:p8:b9",
+          "source_block_id": "deepseek:example01:p8:b9",
           "raw_ref": "output.md",
           "text": "",
           "bbox": null,
@@ -3384,7 +3384,7 @@
       "canonical_text": "\\[ \\langle d\\sigma_{x y}(E)\\rangle=\\left\\langle\\left|\\frac{\\sigma_{x y}^{M}(E)-\\sigma_{x y}^{M^{\\prime}}(E)}{\\sigma_{x y}^{M}(E)}\\right|\\right\\rangle_{E}, \\]",
       "page_no": 8,
       "block_ids": [
-        "deepseek:1410.8140:p8:b12"
+        "deepseek:example01:p8:b12"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -3392,7 +3392,7 @@
         {
           "kind": "block_text",
           "page_no": 8,
-          "source_block_id": "deepseek:1410.8140:p8:b12",
+          "source_block_id": "deepseek:example01:p8:b12",
           "raw_ref": "output.md",
           "text": "\\[ \\langle d\\sigma_{x y}(E)\\rangle=\\left\\langle\\left|\\frac{\\sigma_{x y}^{M}(E)-\\sigma_{x y}^{M^{\\prime}}(E)}{\\sigma_{x y}^{M}(E)}\\right|\\right\\rangle_{E}, \\]",
           "bbox": null,
@@ -3419,7 +3419,7 @@
       "canonical_text": "",
       "page_no": 9,
       "block_ids": [
-        "deepseek:1410.8140:p9:b2"
+        "deepseek:example01:p9:b2"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -3427,7 +3427,7 @@
         {
           "kind": "block_text",
           "page_no": 9,
-          "source_block_id": "deepseek:1410.8140:p9:b2",
+          "source_block_id": "deepseek:example01:p9:b2",
           "raw_ref": "output.md",
           "text": "",
           "bbox": null,
@@ -3452,7 +3452,7 @@
       "canonical_text": "$$\n\\tilde {\\sigma} _ {\\alpha \\beta} (\\mu , T) = \\frac {i e ^ {2} \\hbar}{\\Omega} \\int_ {- \\infty} ^ {\\infty} d \\varepsilon f (\\varepsilon) (1)\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b13"
+        "mineru:example01:p1:b13"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -3460,7 +3460,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b13",
+          "source_block_id": "mineru:example01:p1:b13",
           "raw_ref": "output.md",
           "text": "$$\n\\tilde {\\sigma} _ {\\alpha \\beta} (\\mu , T) = \\frac {i e ^ {2} \\hbar}{\\Omega} \\int_ {- \\infty} ^ {\\infty} d \\varepsilon f (\\varepsilon) (1)\n$$",
           "bbox": null,
@@ -3487,7 +3487,7 @@
       "canonical_text": "$$\n\\times \\mathrm{Tr} \\left\\langle v _ {\\alpha} \\delta (\\varepsilon - H) v _ {\\beta} \\frac {d G ^ {+} (\\varepsilon)}{d \\varepsilon} - v _ {\\alpha} \\frac {d G ^ {-} (\\varepsilon)}{d \\varepsilon} v _ {\\beta} \\delta (\\varepsilon - H) \\right\\rangle ,\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b14"
+        "mineru:example01:p1:b14"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -3495,7 +3495,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b14",
+          "source_block_id": "mineru:example01:p1:b14",
           "raw_ref": "output.md",
           "text": "$$\n\\times \\mathrm{Tr} \\left\\langle v _ {\\alpha} \\delta (\\varepsilon - H) v _ {\\beta} \\frac {d G ^ {+} (\\varepsilon)}{d \\varepsilon} - v _ {\\alpha} \\frac {d G ^ {-} (\\varepsilon)}{d \\varepsilon} v _ {\\beta} \\delta (\\varepsilon - H) \\right\\rangle ,\n$$",
           "bbox": null,
@@ -3522,7 +3522,7 @@
       "canonical_text": "$$\n\\delta (\\tilde {\\varepsilon} - \\tilde {H}) = \\frac {2}{\\pi \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {M} g _ {m} \\frac {T _ {m} (\\tilde {\\varepsilon})}{\\delta_ {m , 0} + 1} T _ {m} (\\tilde {H}), \\tag {2}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b18"
+        "mineru:example01:p1:b18"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -3530,7 +3530,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b18",
+          "source_block_id": "mineru:example01:p1:b18",
           "raw_ref": "output.md",
           "text": "$$\n\\delta (\\tilde {\\varepsilon} - \\tilde {H}) = \\frac {2}{\\pi \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {M} g _ {m} \\frac {T _ {m} (\\tilde {\\varepsilon})}{\\delta_ {m , 0} + 1} T _ {m} (\\tilde {H}), \\tag {2}\n$$",
           "bbox": null,
@@ -3557,7 +3557,7 @@
       "canonical_text": "$$\nG ^ {\\pm} (\\tilde {\\varepsilon}, \\tilde {H}) = \\mp \\frac {2 i}{\\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {M} g _ {m} \\frac {\\mathrm{e} ^ {\\pm i m \\arccos (\\tilde {\\varepsilon})}}{\\delta_ {m , 0} + 1} T _ {m} (\\tilde {H}). (3)\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b19"
+        "mineru:example01:p1:b19"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -3565,7 +3565,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b19",
+          "source_block_id": "mineru:example01:p1:b19",
           "raw_ref": "output.md",
           "text": "$$\nG ^ {\\pm} (\\tilde {\\varepsilon}, \\tilde {H}) = \\mp \\frac {2 i}{\\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {M} g _ {m} \\frac {\\mathrm{e} ^ {\\pm i m \\arccos (\\tilde {\\varepsilon})}}{\\delta_ {m , 0} + 1} T _ {m} (\\tilde {H}). (3)\n$$",
           "bbox": null,
@@ -3592,7 +3592,7 @@
       "canonical_text": "$$\n\\sigma_ {\\alpha \\beta} (\\mu , T) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\frac {4}{\\Delta E ^ {2}} \\int_ {- 1} ^ {1} d \\tilde {\\varepsilon} \\frac {f (\\tilde {\\varepsilon})}{(1 - \\tilde {\\varepsilon} ^ {2}) ^ {2}} \\sum_ {m, n} \\Gamma_ {n m} (\\tilde {\\varepsilon}) \\mu_ {n m} ^ {\\alpha \\beta} \\tag {4}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b22"
+        "mineru:example01:p1:b22"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -3600,7 +3600,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b22",
+          "source_block_id": "mineru:example01:p1:b22",
           "raw_ref": "output.md",
           "text": "$$\n\\sigma_ {\\alpha \\beta} (\\mu , T) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\frac {4}{\\Delta E ^ {2}} \\int_ {- 1} ^ {1} d \\tilde {\\varepsilon} \\frac {f (\\tilde {\\varepsilon})}{(1 - \\tilde {\\varepsilon} ^ {2}) ^ {2}} \\sum_ {m, n} \\Gamma_ {n m} (\\tilde {\\varepsilon}) \\mu_ {n m} ^ {\\alpha \\beta} \\tag {4}\n$$",
           "bbox": null,
@@ -3627,7 +3627,7 @@
       "canonical_text": "$$\n\\Gamma_ {m n} (\\tilde {\\varepsilon}) \\equiv [ (\\tilde {\\varepsilon} - i n \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}) \\mathrm{e} ^ {i n \\arccos (\\tilde {\\varepsilon})} T _ {m} (\\tilde {\\varepsilon}) \\tag {5}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b25"
+        "mineru:example01:p1:b25"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -3635,7 +3635,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b25",
+          "source_block_id": "mineru:example01:p1:b25",
           "raw_ref": "output.md",
           "text": "$$\n\\Gamma_ {m n} (\\tilde {\\varepsilon}) \\equiv [ (\\tilde {\\varepsilon} - i n \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}) \\mathrm{e} ^ {i n \\arccos (\\tilde {\\varepsilon})} T _ {m} (\\tilde {\\varepsilon}) \\tag {5}\n$$",
           "bbox": null,
@@ -3662,7 +3662,7 @@
       "canonical_text": "$$\n+ (\\tilde {\\varepsilon} + i m \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}) \\mathrm{e} ^ {- i m \\arccos (\\tilde {\\varepsilon})} T _ {n} (\\tilde {\\varepsilon}) ].\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b26"
+        "mineru:example01:p1:b26"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -3670,7 +3670,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b26",
+          "source_block_id": "mineru:example01:p1:b26",
           "raw_ref": "output.md",
           "text": "$$\n+ (\\tilde {\\varepsilon} + i m \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}) \\mathrm{e} ^ {- i m \\arccos (\\tilde {\\varepsilon})} T _ {n} (\\tilde {\\varepsilon}) ].\n$$",
           "bbox": null,
@@ -3697,7 +3697,7 @@
       "canonical_text": "![](images/474cc0bad41d00dd5e5ef586a0eb7adfa0227898b02b396eac018848b441703e.jpg)",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b31"
+        "mineru:example01:p1:b31"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -3705,7 +3705,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b31",
+          "source_block_id": "mineru:example01:p1:b31",
           "raw_ref": "output.md",
           "text": "![](images/474cc0bad41d00dd5e5ef586a0eb7adfa0227898b02b396eac018848b441703e.jpg)",
           "bbox": null,
@@ -3730,7 +3730,7 @@
       "canonical_text": "![](images/84dfefd29e307c5cf1ad6b7987e6551ad84d2b4ae8144676536f061a2917dbf6.jpg)  \nFIG. 2. Analysis of the dependency on the number of random vectors and disorder realizations SR and moments M: (a) $\\sigma _ { x x }$ and (b) $\\sigma _ { x y }$ for $S R = 2 0 0$ and $M = 2 0 4 8$ (blue), 4096 (red) and 6144 (black). (c) $\\sigma _ { x x }$ and (d) $\\sigma _ { x y }$ for $M = 6 1 4 4$ and SR = 25 (blue), 50 (red) and 200 (black). In panels $\\mathrm { ( a ) - ( d ) }$ , $\\phi / \\phi _ { 0 } = 5 \\times 1 0 ^ { - 3 }$ , and $N = 2 \\times 1 2 8 \\times$ 1024 sites",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b35"
+        "mineru:example01:p1:b35"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -3738,7 +3738,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b35",
+          "source_block_id": "mineru:example01:p1:b35",
           "raw_ref": "output.md",
           "text": "![](images/84dfefd29e307c5cf1ad6b7987e6551ad84d2b4ae8144676536f061a2917dbf6.jpg)  \nFIG. 2. Analysis of the dependency on the number of random vectors and disorder realizations SR and moments M: (a) $\\sigma _ { x x }$ and (b) $\\sigma _ { x y }$ for $S R = 2 0 0$ and $M = 2 0 4 8$ (blue), 4096 (red) and 6144 (black). (c) $\\sigma _ { x x }$ and (d) $\\sigma _ { x y }$ for $M = 6 1 4 4$ and SR = 25 (blue), 50 (red) and 200 (black). In panels $\\mathrm { ( a ) - ( d ) }$ , $\\phi / \\phi _ { 0 } = 5 \\times 1 0 ^ { - 3 }$ , and $N = 2 \\times 1 2 8 \\times$ 1024 sites",
           "bbox": null,
@@ -3763,7 +3763,7 @@
       "canonical_text": "$$\n\\mathcal {H} = - t \\sum_ {\\langle i, j \\rangle} c _ {i} ^ {\\dagger} c _ {j} + t _ {2} \\sum_ {\\langle \\langle i, j \\rangle \\rangle} e ^ {i \\phi_ {i j}} c _ {i} ^ {\\dagger} c _ {j} \\pm \\frac {\\Delta_ {A B}}{2} \\sum_ {i \\in A / B} c _ {i} ^ {\\dagger} c _ {i}, \\tag {6}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b39"
+        "mineru:example01:p1:b39"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -3771,7 +3771,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b39",
+          "source_block_id": "mineru:example01:p1:b39",
           "raw_ref": "output.md",
           "text": "$$\n\\mathcal {H} = - t \\sum_ {\\langle i, j \\rangle} c _ {i} ^ {\\dagger} c _ {j} + t _ {2} \\sum_ {\\langle \\langle i, j \\rangle \\rangle} e ^ {i \\phi_ {i j}} c _ {i} ^ {\\dagger} c _ {j} \\pm \\frac {\\Delta_ {A B}}{2} \\sum_ {i \\in A / B} c _ {i} ^ {\\dagger} c _ {i}, \\tag {6}\n$$",
           "bbox": null,
@@ -3798,7 +3798,7 @@
       "canonical_text": "![](images/7c3acecdfd7ea28f4e69fc5076f8f7132e8752f102c5fef26d2f66955c666175.jpg)",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b41"
+        "mineru:example01:p1:b41"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -3806,7 +3806,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b41",
+          "source_block_id": "mineru:example01:p1:b41",
           "raw_ref": "output.md",
           "text": "![](images/7c3acecdfd7ea28f4e69fc5076f8f7132e8752f102c5fef26d2f66955c666175.jpg)",
           "bbox": null,
@@ -3831,7 +3831,7 @@
       "canonical_text": "![](images/47f54e2a5263f1ec28b1a0cbeb0b41c5757815c29984fc7f034d92e4532f1e4b.jpg)",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b44"
+        "mineru:example01:p1:b44"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -3839,7 +3839,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b44",
+          "source_block_id": "mineru:example01:p1:b44",
           "raw_ref": "output.md",
           "text": "![](images/47f54e2a5263f1ec28b1a0cbeb0b41c5757815c29984fc7f034d92e4532f1e4b.jpg)",
           "bbox": null,
@@ -3864,7 +3864,7 @@
       "canonical_text": "![](images/9612d0498911319ed28991e158183fa4e821a20bf0a435a421944b1542fccf37.jpg)",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b47"
+        "mineru:example01:p1:b47"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -3872,7 +3872,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b47",
+          "source_block_id": "mineru:example01:p1:b47",
           "raw_ref": "output.md",
           "text": "![](images/9612d0498911319ed28991e158183fa4e821a20bf0a435a421944b1542fccf37.jpg)",
           "bbox": null,
@@ -3897,7 +3897,7 @@
       "canonical_text": "![](images/eaac45363054d93e963713617de3f5f17db2e68a0f9dcb3bcbea62ef0f9ddb3c.jpg)",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b50"
+        "mineru:example01:p1:b50"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -3905,7 +3905,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b50",
+          "source_block_id": "mineru:example01:p1:b50",
           "raw_ref": "output.md",
           "text": "![](images/eaac45363054d93e963713617de3f5f17db2e68a0f9dcb3bcbea62ef0f9ddb3c.jpg)",
           "bbox": null,
@@ -3930,7 +3930,7 @@
       "canonical_text": "$$\nT _ {m} (x) \\equiv \\cos (m \\mathrm{arcos} (x)), \\quad T _ {m + 1} (x)\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b109"
+        "mineru:example01:p1:b109"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -3938,7 +3938,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b109",
+          "source_block_id": "mineru:example01:p1:b109",
           "raw_ref": "output.md",
           "text": "$$\nT _ {m} (x) \\equiv \\cos (m \\mathrm{arcos} (x)), \\quad T _ {m + 1} (x)\n$$",
           "bbox": null,
@@ -3965,7 +3965,7 @@
       "canonical_text": "$$\n\\tilde {H} = \\frac {2}{\\Delta E} \\left(H - \\frac {E ^ {+} + E ^ {-}}{2}\\right), \\quad \\tilde {\\varepsilon} = \\frac {2}{\\Delta E} \\left(\\varepsilon - \\frac {E ^ {+} + E ^ {-}}{2}\\right), \\tag {7}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b111"
+        "mineru:example01:p1:b111"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -3973,7 +3973,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b111",
+          "source_block_id": "mineru:example01:p1:b111",
           "raw_ref": "output.md",
           "text": "$$\n\\tilde {H} = \\frac {2}{\\Delta E} \\left(H - \\frac {E ^ {+} + E ^ {-}}{2}\\right), \\quad \\tilde {\\varepsilon} = \\frac {2}{\\Delta E} \\left(\\varepsilon - \\frac {E ^ {+} + E ^ {-}}{2}\\right), \\tag {7}\n$$",
           "bbox": null,
@@ -4000,7 +4000,7 @@
       "canonical_text": "$$\n\\tilde {\\Lambda} (\\tilde {\\varepsilon}, \\tilde {H}) = \\sum_ {k} \\tilde {\\Lambda} (\\tilde {\\varepsilon}, \\tilde {E} _ {k}) | \\tilde {E} _ {k} \\rangle \\left\\langle \\tilde {E} _ {k} \\right|, \\tag {8}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b113"
+        "mineru:example01:p1:b113"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4008,7 +4008,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b113",
+          "source_block_id": "mineru:example01:p1:b113",
           "raw_ref": "output.md",
           "text": "$$\n\\tilde {\\Lambda} (\\tilde {\\varepsilon}, \\tilde {H}) = \\sum_ {k} \\tilde {\\Lambda} (\\tilde {\\varepsilon}, \\tilde {E} _ {k}) | \\tilde {E} _ {k} \\rangle \\left\\langle \\tilde {E} _ {k} \\right|, \\tag {8}\n$$",
           "bbox": null,
@@ -4035,7 +4035,7 @@
       "canonical_text": "$$\n\\tilde {\\Lambda} (\\tilde {\\varepsilon}, \\tilde {E} _ {k}) = \\frac {2}{\\pi} \\sum_ {m = 0} ^ {\\infty} \\Gamma_ {m} (\\tilde {\\varepsilon}) T _ {m} (\\tilde {E} _ {k}), \\quad \\Gamma_ {m} (\\tilde {\\varepsilon}) = \\frac {1}{\\delta_ {m , 0} + 1} \\int_ {- 1} ^ {1} \\frac {\\tilde {\\Lambda} (\\tilde {\\varepsilon} , \\tilde {E} _ {k}) T _ {m} (\\tilde {E} _ {k})}{\\sqrt {1 - \\tilde {E} _ {k} ^ {2}}} d \\tilde {E} _ {k}, \\tag {9}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b115"
+        "mineru:example01:p1:b115"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4043,7 +4043,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b115",
+          "source_block_id": "mineru:example01:p1:b115",
           "raw_ref": "output.md",
           "text": "$$\n\\tilde {\\Lambda} (\\tilde {\\varepsilon}, \\tilde {E} _ {k}) = \\frac {2}{\\pi} \\sum_ {m = 0} ^ {\\infty} \\Gamma_ {m} (\\tilde {\\varepsilon}) T _ {m} (\\tilde {E} _ {k}), \\quad \\Gamma_ {m} (\\tilde {\\varepsilon}) = \\frac {1}{\\delta_ {m , 0} + 1} \\int_ {- 1} ^ {1} \\frac {\\tilde {\\Lambda} (\\tilde {\\varepsilon} , \\tilde {E} _ {k}) T _ {m} (\\tilde {E} _ {k})}{\\sqrt {1 - \\tilde {E} _ {k} ^ {2}}} d \\tilde {E} _ {k}, \\tag {9}\n$$",
           "bbox": null,
@@ -4070,7 +4070,7 @@
       "canonical_text": "$$\n\\tilde {\\Lambda} (\\tilde {\\varepsilon}, \\tilde {H}) = \\frac {2}{\\pi} \\sum_ {m = 0} ^ {\\infty} \\Gamma_ {m} (\\tilde {\\varepsilon}) T _ {m} (\\tilde {H}), \\tag {10}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b117"
+        "mineru:example01:p1:b117"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4078,7 +4078,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b117",
+          "source_block_id": "mineru:example01:p1:b117",
           "raw_ref": "output.md",
           "text": "$$\n\\tilde {\\Lambda} (\\tilde {\\varepsilon}, \\tilde {H}) = \\frac {2}{\\pi} \\sum_ {m = 0} ^ {\\infty} \\Gamma_ {m} (\\tilde {\\varepsilon}) T _ {m} (\\tilde {H}), \\tag {10}\n$$",
           "bbox": null,
@@ -4105,7 +4105,7 @@
       "canonical_text": "$$\n\\tilde {\\rho} (\\tilde {\\varepsilon}) = \\frac {2}{\\pi \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {\\infty} \\Gamma_ {m} (\\tilde {\\varepsilon}) \\mu_ {m}, \\tag {11}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b119"
+        "mineru:example01:p1:b119"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4113,7 +4113,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b119",
+          "source_block_id": "mineru:example01:p1:b119",
           "raw_ref": "output.md",
           "text": "$$\n\\tilde {\\rho} (\\tilde {\\varepsilon}) = \\frac {2}{\\pi \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {\\infty} \\Gamma_ {m} (\\tilde {\\varepsilon}) \\mu_ {m}, \\tag {11}\n$$",
           "bbox": null,
@@ -4140,7 +4140,7 @@
       "canonical_text": "$$\ng _ {m} ^ {J} = \\frac {(M - m + 1) \\cos \\frac {\\pi m}{M + 1} + \\sin \\frac {\\pi m}{M + 1} \\cot \\frac {\\pi}{M + 1}}{M + 1}, \\tag {12}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b121"
+        "mineru:example01:p1:b121"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4148,7 +4148,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b121",
+          "source_block_id": "mineru:example01:p1:b121",
           "raw_ref": "output.md",
           "text": "$$\ng _ {m} ^ {J} = \\frac {(M - m + 1) \\cos \\frac {\\pi m}{M + 1} + \\sin \\frac {\\pi m}{M + 1} \\cot \\frac {\\pi}{M + 1}}{M + 1}, \\tag {12}\n$$",
           "bbox": null,
@@ -4175,7 +4175,7 @@
       "canonical_text": "$$\n| r \\rangle \\equiv (\\xi_ {1} ^ {r}, \\dots , \\xi_ {N} ^ {r}), \\quad r = 1, \\dots , R, \\tag {13}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b123"
+        "mineru:example01:p1:b123"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4183,7 +4183,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b123",
+          "source_block_id": "mineru:example01:p1:b123",
           "raw_ref": "output.md",
           "text": "$$\n| r \\rangle \\equiv (\\xi_ {1} ^ {r}, \\dots , \\xi_ {N} ^ {r}), \\quad r = 1, \\dots , R, \\tag {13}\n$$",
           "bbox": null,
@@ -4210,7 +4210,7 @@
       "canonical_text": "$$\n\\langle \\langle \\xi_ {i} ^ {r} \\rangle \\rangle = 0, \\quad \\left\\langle \\left\\langle \\xi_ {i} ^ {r *} \\xi_ {j} ^ {r ^ {\\prime}} \\right\\rangle \\right\\rangle = \\delta_ {r, r ^ {\\prime}} \\delta_ {i, j}, \\tag {14}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b125"
+        "mineru:example01:p1:b125"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4218,7 +4218,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b125",
+          "source_block_id": "mineru:example01:p1:b125",
           "raw_ref": "output.md",
           "text": "$$\n\\langle \\langle \\xi_ {i} ^ {r} \\rangle \\rangle = 0, \\quad \\left\\langle \\left\\langle \\xi_ {i} ^ {r *} \\xi_ {j} ^ {r ^ {\\prime}} \\right\\rangle \\right\\rangle = \\delta_ {r, r ^ {\\prime}} \\delta_ {i, j}, \\tag {14}\n$$",
           "bbox": null,
@@ -4245,7 +4245,7 @@
       "canonical_text": "$$\n\\mathrm{Tr} \\left[ T _ {m} (\\tilde {H}) \\right] \\approx \\frac {1}{R} \\sum_ {r = 1} ^ {R} \\langle r |   T _ {m} (\\tilde {H})   | r \\rangle  . \\tag {15}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b127"
+        "mineru:example01:p1:b127"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4253,7 +4253,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b127",
+          "source_block_id": "mineru:example01:p1:b127",
           "raw_ref": "output.md",
           "text": "$$\n\\mathrm{Tr} \\left[ T _ {m} (\\tilde {H}) \\right] \\approx \\frac {1}{R} \\sum_ {r = 1} ^ {R} \\langle r |   T _ {m} (\\tilde {H})   | r \\rangle  . \\tag {15}\n$$",
           "bbox": null,
@@ -4280,7 +4280,7 @@
       "canonical_text": "$$\n\\sigma_ {\\alpha \\beta} (\\mu) = \\frac {i e ^ {2} \\hbar}{\\Omega} \\int_ {E ^ {-}} ^ {E ^ {+}} d \\varepsilon f (\\varepsilon) \\mathrm{Tr} \\left\\langle v _ {\\alpha} \\delta (\\varepsilon - H) v _ {\\beta} \\frac {d G ^ {+} (\\varepsilon , H)}{d \\varepsilon} - v _ {\\alpha} \\frac {d G ^ {-} (\\varepsilon , H)}{d \\varepsilon} v _ {\\beta} \\delta (\\varepsilon - H) \\right\\rangle . \\tag {16}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b130"
+        "mineru:example01:p1:b130"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4288,7 +4288,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b130",
+          "source_block_id": "mineru:example01:p1:b130",
           "raw_ref": "output.md",
           "text": "$$\n\\sigma_ {\\alpha \\beta} (\\mu) = \\frac {i e ^ {2} \\hbar}{\\Omega} \\int_ {E ^ {-}} ^ {E ^ {+}} d \\varepsilon f (\\varepsilon) \\mathrm{Tr} \\left\\langle v _ {\\alpha} \\delta (\\varepsilon - H) v _ {\\beta} \\frac {d G ^ {+} (\\varepsilon , H)}{d \\varepsilon} - v _ {\\alpha} \\frac {d G ^ {-} (\\varepsilon , H)}{d \\varepsilon} v _ {\\beta} \\delta (\\varepsilon - H) \\right\\rangle . \\tag {16}\n$$",
           "bbox": null,
@@ -4315,7 +4315,7 @@
       "canonical_text": "$$\n\\sigma_ {\\alpha \\beta} (\\mu) = \\left(\\frac {2}{E ^ {+} - E ^ {-}}\\right) ^ {2} \\frac {i e ^ {2} \\hbar}{\\Omega} \\int_ {- 1} ^ {1} d \\tilde {\\varepsilon} f (\\tilde {\\varepsilon}, \\tilde {\\mu}) \\mathrm{Tr} \\left\\langle v _ {\\alpha} \\delta (\\tilde {\\varepsilon} - \\tilde {H}) v _ {\\beta} \\frac {d G ^ {+} (\\tilde {\\varepsilon} , \\tilde {H})}{d \\tilde {\\varepsilon}} - v _ {\\alpha} \\frac {d G ^ {-} (\\tilde {\\varepsilon} , \\tilde {H})}{d \\tilde {\\varepsilon}} v _ {\\beta} \\delta (\\tilde {\\varepsilon} - \\tilde {H}) \\right\\rangle\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b132"
+        "mineru:example01:p1:b132"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4323,7 +4323,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b132",
+          "source_block_id": "mineru:example01:p1:b132",
           "raw_ref": "output.md",
           "text": "$$\n\\sigma_ {\\alpha \\beta} (\\mu) = \\left(\\frac {2}{E ^ {+} - E ^ {-}}\\right) ^ {2} \\frac {i e ^ {2} \\hbar}{\\Omega} \\int_ {- 1} ^ {1} d \\tilde {\\varepsilon} f (\\tilde {\\varepsilon}, \\tilde {\\mu}) \\mathrm{Tr} \\left\\langle v _ {\\alpha} \\delta (\\tilde {\\varepsilon} - \\tilde {H}) v _ {\\beta} \\frac {d G ^ {+} (\\tilde {\\varepsilon} , \\tilde {H})}{d \\tilde {\\varepsilon}} - v _ {\\alpha} \\frac {d G ^ {-} (\\tilde {\\varepsilon} , \\tilde {H})}{d \\tilde {\\varepsilon}} v _ {\\beta} \\delta (\\tilde {\\varepsilon} - \\tilde {H}) \\right\\rangle\n$$",
           "bbox": null,
@@ -4350,7 +4350,7 @@
       "canonical_text": "$$\n\\sigma_ {\\alpha \\beta} (\\mu) = \\left(\\frac {2}{E ^ {+} - E ^ {-}}\\right) ^ {2} \\tilde {\\sigma} _ {\\alpha \\beta} (\\tilde {\\mu}), \\tag {17}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b133"
+        "mineru:example01:p1:b133"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4358,7 +4358,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b133",
+          "source_block_id": "mineru:example01:p1:b133",
           "raw_ref": "output.md",
           "text": "$$\n\\sigma_ {\\alpha \\beta} (\\mu) = \\left(\\frac {2}{E ^ {+} - E ^ {-}}\\right) ^ {2} \\tilde {\\sigma} _ {\\alpha \\beta} (\\tilde {\\mu}), \\tag {17}\n$$",
           "bbox": null,
@@ -4385,7 +4385,7 @@
       "canonical_text": "$$\n\\delta (\\tilde {\\varepsilon} - \\tilde {H}) = \\frac {2}{\\pi \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {\\infty} T _ {m} (\\tilde {\\varepsilon}) T _ {m} (\\tilde {H}), \\quad G ^ {\\pm} (\\tilde {\\varepsilon}, \\tilde {H}) = \\mp \\frac {2 i}{\\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {M} g _ {m} \\mathrm{e} ^ {\\pm i m \\arccos (\\tilde {\\varepsilon})} T _ {m} (\\tilde {H}). \\tag {18}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b135"
+        "mineru:example01:p1:b135"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4393,7 +4393,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b135",
+          "source_block_id": "mineru:example01:p1:b135",
           "raw_ref": "output.md",
           "text": "$$\n\\delta (\\tilde {\\varepsilon} - \\tilde {H}) = \\frac {2}{\\pi \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {\\infty} T _ {m} (\\tilde {\\varepsilon}) T _ {m} (\\tilde {H}), \\quad G ^ {\\pm} (\\tilde {\\varepsilon}, \\tilde {H}) = \\mp \\frac {2 i}{\\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {M} g _ {m} \\mathrm{e} ^ {\\pm i m \\arccos (\\tilde {\\varepsilon})} T _ {m} (\\tilde {H}). \\tag {18}\n$$",
           "bbox": null,
@@ -4420,7 +4420,7 @@
       "canonical_text": "$$\n\\tilde {\\sigma} _ {\\alpha \\beta} (\\tilde {\\mu}) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\int_ {- 1} ^ {1} \\frac {d \\tilde {\\varepsilon} f (\\tilde {\\varepsilon})}{(1 - \\tilde {\\varepsilon} ^ {2}) ^ {2}} \\sum_ {m, n} \\mu_ {n m} ^ {\\alpha \\beta} \\Gamma_ {n m} (\\tilde {\\varepsilon}), \\tag {19}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b137"
+        "mineru:example01:p1:b137"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4428,7 +4428,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b137",
+          "source_block_id": "mineru:example01:p1:b137",
           "raw_ref": "output.md",
           "text": "$$\n\\tilde {\\sigma} _ {\\alpha \\beta} (\\tilde {\\mu}) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\int_ {- 1} ^ {1} \\frac {d \\tilde {\\varepsilon} f (\\tilde {\\varepsilon})}{(1 - \\tilde {\\varepsilon} ^ {2}) ^ {2}} \\sum_ {m, n} \\mu_ {n m} ^ {\\alpha \\beta} \\Gamma_ {n m} (\\tilde {\\varepsilon}), \\tag {19}\n$$",
           "bbox": null,
@@ -4455,7 +4455,7 @@
       "canonical_text": "$$\n\\mu_ {m n} ^ {\\alpha \\beta} \\equiv \\frac {g _ {m} g _ {n}}{(1 + \\mu_ {n 0}) (1 + \\mu_ {m 0})} \\mathrm{Tr} \\left[ v _ {\\alpha} T _ {m} (\\tilde {H}) v _ {\\beta} T _ {n} (\\tilde {H}) \\right], \\tag {20}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b139"
+        "mineru:example01:p1:b139"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4463,7 +4463,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b139",
+          "source_block_id": "mineru:example01:p1:b139",
           "raw_ref": "output.md",
           "text": "$$\n\\mu_ {m n} ^ {\\alpha \\beta} \\equiv \\frac {g _ {m} g _ {n}}{(1 + \\mu_ {n 0}) (1 + \\mu_ {m 0})} \\mathrm{Tr} \\left[ v _ {\\alpha} T _ {m} (\\tilde {H}) v _ {\\beta} T _ {n} (\\tilde {H}) \\right], \\tag {20}\n$$",
           "bbox": null,
@@ -4490,7 +4490,7 @@
       "canonical_text": "$$\n\\Gamma_ {m n} (\\tilde {\\varepsilon}) \\equiv \\left(\\varepsilon - i n \\sqrt {1 - \\varepsilon^ {2}}\\right) T _ {m} (\\varepsilon) e ^ {i n \\arccos (\\varepsilon)} + \\left(\\varepsilon + i m \\sqrt {1 - \\varepsilon^ {2}}\\right) T _ {n} (\\varepsilon) e ^ {- i m \\arccos (\\varepsilon)}, \\tag {21}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b141"
+        "mineru:example01:p1:b141"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4498,7 +4498,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b141",
+          "source_block_id": "mineru:example01:p1:b141",
           "raw_ref": "output.md",
           "text": "$$\n\\Gamma_ {m n} (\\tilde {\\varepsilon}) \\equiv \\left(\\varepsilon - i n \\sqrt {1 - \\varepsilon^ {2}}\\right) T _ {m} (\\varepsilon) e ^ {i n \\arccos (\\varepsilon)} + \\left(\\varepsilon + i m \\sqrt {1 - \\varepsilon^ {2}}\\right) T _ {n} (\\varepsilon) e ^ {- i m \\arccos (\\varepsilon)}, \\tag {21}\n$$",
           "bbox": null,
@@ -4525,7 +4525,7 @@
       "canonical_text": "$$\n(\\mu_ {m n} ^ {\\alpha \\beta}) ^ {*} = \\mu_ {n m} ^ {\\alpha \\beta} = \\mu_ {m n} ^ {\\beta \\alpha} \\quad \\text { and } \\quad \\Gamma_ {m n} ^ {*} = \\Gamma_ {n m}, \\tag {22}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b143"
+        "mineru:example01:p1:b143"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4533,7 +4533,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b143",
+          "source_block_id": "mineru:example01:p1:b143",
           "raw_ref": "output.md",
           "text": "$$\n(\\mu_ {m n} ^ {\\alpha \\beta}) ^ {*} = \\mu_ {n m} ^ {\\alpha \\beta} = \\mu_ {m n} ^ {\\beta \\alpha} \\quad \\text { and } \\quad \\Gamma_ {m n} ^ {*} = \\Gamma_ {n m}, \\tag {22}\n$$",
           "bbox": null,
@@ -4560,7 +4560,7 @@
       "canonical_text": "$$\n\\tilde {\\sigma} _ {\\alpha \\beta} (\\mu) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\int_ {- 1} ^ {1} \\frac {d \\tilde {\\varepsilon} f (\\tilde {\\varepsilon})}{(1 - \\tilde {\\varepsilon} ^ {2}) ^ {2}} \\sum_ {m, n \\leq m} \\operatorname{Re} \\left[ \\mu_ {n m} ^ {\\alpha , \\beta} \\Gamma_ {n m} (\\tilde {\\varepsilon}) \\right]. \\tag {23}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b145"
+        "mineru:example01:p1:b145"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4568,7 +4568,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b145",
+          "source_block_id": "mineru:example01:p1:b145",
           "raw_ref": "output.md",
           "text": "$$\n\\tilde {\\sigma} _ {\\alpha \\beta} (\\mu) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\int_ {- 1} ^ {1} \\frac {d \\tilde {\\varepsilon} f (\\tilde {\\varepsilon})}{(1 - \\tilde {\\varepsilon} ^ {2}) ^ {2}} \\sum_ {m, n \\leq m} \\operatorname{Re} \\left[ \\mu_ {n m} ^ {\\alpha , \\beta} \\Gamma_ {n m} (\\tilde {\\varepsilon}) \\right]. \\tag {23}\n$$",
           "bbox": null,
@@ -4595,7 +4595,7 @@
       "canonical_text": "$$\n\\tilde {\\sigma} _ {\\alpha \\alpha} (\\tilde {\\mu}) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\sum_ {m, n \\leq m} \\mu_ {n m} ^ {\\alpha \\alpha} \\int_ {- \\alpha} ^ {\\alpha} \\frac {d \\tilde {\\varepsilon} f (\\tilde {\\varepsilon})}{(1 - \\tilde {\\varepsilon} ^ {2})} \\left(\\frac {d}{d \\tilde {\\varepsilon}} [ \\mathrm{T} _ {n} (\\tilde {\\varepsilon}) \\mathrm{T} _ {m} (\\tilde {\\varepsilon}) ] + 2 \\tilde {\\varepsilon} \\mathrm{T} _ {n} (\\tilde {\\varepsilon}) \\mathrm{T} _ {m} (\\tilde {\\varepsilon})\\right), \\tag {24}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b147"
+        "mineru:example01:p1:b147"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4603,7 +4603,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b147",
+          "source_block_id": "mineru:example01:p1:b147",
           "raw_ref": "output.md",
           "text": "$$\n\\tilde {\\sigma} _ {\\alpha \\alpha} (\\tilde {\\mu}) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\sum_ {m, n \\leq m} \\mu_ {n m} ^ {\\alpha \\alpha} \\int_ {- \\alpha} ^ {\\alpha} \\frac {d \\tilde {\\varepsilon} f (\\tilde {\\varepsilon})}{(1 - \\tilde {\\varepsilon} ^ {2})} \\left(\\frac {d}{d \\tilde {\\varepsilon}} [ \\mathrm{T} _ {n} (\\tilde {\\varepsilon}) \\mathrm{T} _ {m} (\\tilde {\\varepsilon}) ] + 2 \\tilde {\\varepsilon} \\mathrm{T} _ {n} (\\tilde {\\varepsilon}) \\mathrm{T} _ {m} (\\tilde {\\varepsilon})\\right), \\tag {24}\n$$",
           "bbox": null,
@@ -4630,7 +4630,7 @@
       "canonical_text": "$$\n\\sigma_ {\\alpha \\alpha} (\\tilde {\\varepsilon} _ {F}) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\sum_ {m, n \\leq m} \\mu_ {n m} ^ {\\alpha \\alpha} T _ {n} (\\tilde {\\varepsilon} _ {F}) T _ {m} (\\tilde {\\varepsilon} _ {F}), \\tag {25}\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b149"
+        "mineru:example01:p1:b149"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4638,7 +4638,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b149",
+          "source_block_id": "mineru:example01:p1:b149",
           "raw_ref": "output.md",
           "text": "$$\n\\sigma_ {\\alpha \\alpha} (\\tilde {\\varepsilon} _ {F}) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\sum_ {m, n \\leq m} \\mu_ {n m} ^ {\\alpha \\alpha} T _ {n} (\\tilde {\\varepsilon} _ {F}) T _ {m} (\\tilde {\\varepsilon} _ {F}), \\tag {25}\n$$",
           "bbox": null,
@@ -4665,7 +4665,7 @@
       "canonical_text": "$$\n\\langle d \\sigma_ {x y} (E) \\rangle = \\left\\langle \\left| \\frac {\\sigma_ {x y} ^ {M} (E) - \\sigma_ {x y} ^ {M ^ {\\prime}} (E)}{\\sigma_ {x y} ^ {M} (E)} \\right| \\right\\rangle_ {E},\n$$",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b156"
+        "mineru:example01:p1:b156"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4673,7 +4673,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b156",
+          "source_block_id": "mineru:example01:p1:b156",
           "raw_ref": "output.md",
           "text": "$$\n\\langle d \\sigma_ {x y} (E) \\rangle = \\left\\langle \\left| \\frac {\\sigma_ {x y} ^ {M} (E) - \\sigma_ {x y} ^ {M ^ {\\prime}} (E)}{\\sigma_ {x y} ^ {M} (E)} \\right| \\right\\rangle_ {E},\n$$",
           "bbox": null,
@@ -4700,7 +4700,7 @@
       "canonical_text": "![](images/a24ecbb68fb3a0fa835a2e1ca51b0152291dbaf9d15a7cfffeb5c1d5f2264e38.jpg)",
       "page_no": 1,
       "block_ids": [
-        "mineru:1410.8140:p1:b159"
+        "mineru:example01:p1:b159"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -4708,7 +4708,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b159",
+          "source_block_id": "mineru:example01:p1:b159",
           "raw_ref": "output.md",
           "text": "![](images/a24ecbb68fb3a0fa835a2e1ca51b0152291dbaf9d15a7cfffeb5c1d5f2264e38.jpg)",
           "bbox": null,
@@ -4733,7 +4733,7 @@
       "canonical_text": "$$\\begin{aligned}{}&{{}\\tilde{\\sigma}_{\\alpha\\beta}(\\mu,T)=\\frac{i e^{2}\\hbar}{\\Omega}\\int_{-\\infty}^{\\infty}d\\varepsilon f(\\varepsilon)\\quad(1)}\\\\ {}&{{}\\times\\operatorname{T r}\\left\\langle v_{\\alpha}\\delta(\\varepsilon-H)v_{\\beta}\\frac{d G^{+}(\\varepsilon)}{d\\varepsilon}-v_{\\alpha}\\frac{d G^{-}(\\varepsilon)}{d\\varepsilon}v_{\\beta}\\delta(\\varepsilon-H)\\right\\rangle,}\\\\ \\end{aligned}$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b10"
+        "paddleocr:example01:p1:b10"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4741,7 +4741,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b10",
+          "source_block_id": "paddleocr:example01:p1:b10",
           "raw_ref": "output.md",
           "text": "$$\\begin{aligned}{}&{{}\\tilde{\\sigma}_{\\alpha\\beta}(\\mu,T)=\\frac{i e^{2}\\hbar}{\\Omega}\\int_{-\\infty}^{\\infty}d\\varepsilon f(\\varepsilon)\\quad(1)}\\\\ {}&{{}\\times\\operatorname{T r}\\left\\langle v_{\\alpha}\\delta(\\varepsilon-H)v_{\\beta}\\frac{d G^{+}(\\varepsilon)}{d\\varepsilon}-v_{\\alpha}\\frac{d G^{-}(\\varepsilon)}{d\\varepsilon}v_{\\beta}\\delta(\\varepsilon-H)\\right\\rangle,}\\\\ \\end{aligned}$$",
           "bbox": null,
@@ -4768,7 +4768,7 @@
       "canonical_text": "$$\\begin{aligned}{}&{{}\\delta(\\tilde{\\varepsilon}-\\tilde{H})=\\frac{2}{\\pi\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{M}g_{m}\\frac{T_{m}(\\tilde{\\varepsilon})}{\\delta_{m,0}+1}T_{m}(\\tilde{H}),}\\\\ {}&{{}G^{\\pm}(\\tilde{\\varepsilon},\\tilde{H})=\\mp\\frac{2i}{\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{M}g_{m}\\frac{\\operatorname{e}^{\\pm i m\\operatorname{a r c c o s}(\\tilde{\\varepsilon})}}{\\delta_{m,0}+1}T_{m}(\\tilde{H})}\\\\ \\end{aligned} . (3)$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b13"
+        "paddleocr:example01:p1:b13"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4776,7 +4776,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b13",
+          "source_block_id": "paddleocr:example01:p1:b13",
           "raw_ref": "output.md",
           "text": "$$\\begin{aligned}{}&{{}\\delta(\\tilde{\\varepsilon}-\\tilde{H})=\\frac{2}{\\pi\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{M}g_{m}\\frac{T_{m}(\\tilde{\\varepsilon})}{\\delta_{m,0}+1}T_{m}(\\tilde{H}),}\\\\ {}&{{}G^{\\pm}(\\tilde{\\varepsilon},\\tilde{H})=\\mp\\frac{2i}{\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{M}g_{m}\\frac{\\operatorname{e}^{\\pm i m\\operatorname{a r c c o s}(\\tilde{\\varepsilon})}}{\\delta_{m,0}+1}T_{m}(\\tilde{H})}\\\\ \\end{aligned} . (3)$$",
           "bbox": null,
@@ -4803,7 +4803,7 @@
       "canonical_text": "$$\\sigma_{\\alpha\\beta}(\\mu,T)=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\frac{4}{\\Delta E^{2}}\\int_{-1}^{1}d\\tilde{\\varepsilon}\\frac{f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})^{2}}\\sum_{m,n}\\Gamma_{n m}(\\tilde{\\varepsilon})\\mu_{n m}^{\\alpha\\beta}.$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b17"
+        "paddleocr:example01:p1:b17"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4811,7 +4811,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b17",
+          "source_block_id": "paddleocr:example01:p1:b17",
           "raw_ref": "output.md",
           "text": "$$\\sigma_{\\alpha\\beta}(\\mu,T)=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\frac{4}{\\Delta E^{2}}\\int_{-1}^{1}d\\tilde{\\varepsilon}\\frac{f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})^{2}}\\sum_{m,n}\\Gamma_{n m}(\\tilde{\\varepsilon})\\mu_{n m}^{\\alpha\\beta}.$$",
           "bbox": null,
@@ -4838,7 +4838,7 @@
       "canonical_text": "$$\\begin{aligned}{\\Gamma_{m n}(\\tilde{\\varepsilon})\\equiv[(\\tilde{\\varepsilon}-i n\\sqrt{1-\\tilde{\\varepsilon}^{2}})\\operatorname{e}^{i n\\operatorname{a r c c o s}(\\tilde{\\varepsilon})}T_{m}(\\tilde{\\varepsilon})}\\\\ {+(\\tilde{\\varepsilon}+i m\\sqrt{1-\\tilde{\\varepsilon}^{2}})\\operatorname{e}^{-i m\\operatorname{a r c c o s}(\\tilde{\\varepsilon})}T_{n}(\\tilde{\\varepsilon})].}\\\\ \\end{aligned}$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b20"
+        "paddleocr:example01:p1:b20"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4846,7 +4846,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b20",
+          "source_block_id": "paddleocr:example01:p1:b20",
           "raw_ref": "output.md",
           "text": "$$\\begin{aligned}{\\Gamma_{m n}(\\tilde{\\varepsilon})\\equiv[(\\tilde{\\varepsilon}-i n\\sqrt{1-\\tilde{\\varepsilon}^{2}})\\operatorname{e}^{i n\\operatorname{a r c c o s}(\\tilde{\\varepsilon})}T_{m}(\\tilde{\\varepsilon})}\\\\ {+(\\tilde{\\varepsilon}+i m\\sqrt{1-\\tilde{\\varepsilon}^{2}})\\operatorname{e}^{-i m\\operatorname{a r c c o s}(\\tilde{\\varepsilon})}T_{n}(\\tilde{\\varepsilon})].}\\\\ \\end{aligned}$$",
           "bbox": null,
@@ -4873,7 +4873,7 @@
       "canonical_text": "<img src=\"imgs/img_in_chart_box_132_908_573_1224.jpg\"/>",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b25"
+        "paddleocr:example01:p1:b25"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -4881,7 +4881,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b25",
+          "source_block_id": "paddleocr:example01:p1:b25",
           "raw_ref": "output.md",
           "text": "<img src=\"imgs/img_in_chart_box_132_908_573_1224.jpg\"/>",
           "bbox": null,
@@ -4906,7 +4906,7 @@
       "canonical_text": "<img src=\"imgs/img_in_chart_box_657_100_1099_411.jpg\"/>",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b27"
+        "paddleocr:example01:p1:b27"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -4914,7 +4914,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b27",
+          "source_block_id": "paddleocr:example01:p1:b27",
           "raw_ref": "output.md",
           "text": "<img src=\"imgs/img_in_chart_box_657_100_1099_411.jpg\"/>",
           "bbox": null,
@@ -4939,7 +4939,7 @@
       "canonical_text": "$$\\mathcal{H}=-t{\\sum_{\\langle i,j\\rangle}c_{i}^{\\dagger}c_{j}}+t_{2}{\\sum_{\\langle\\langle i,j\\rangle\\rangle}e^{i\\phi_{i j}}c_{i}^{\\dagger}c_{j}}\\pm\\frac{\\Delta_{A B}}{2}\\sum_{i\\in A/B}c_{i}^{\\dagger}c_{i},$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b32"
+        "paddleocr:example01:p1:b32"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -4947,7 +4947,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b32",
+          "source_block_id": "paddleocr:example01:p1:b32",
           "raw_ref": "output.md",
           "text": "$$\\mathcal{H}=-t{\\sum_{\\langle i,j\\rangle}c_{i}^{\\dagger}c_{j}}+t_{2}{\\sum_{\\langle\\langle i,j\\rangle\\rangle}e^{i\\phi_{i j}}c_{i}^{\\dagger}c_{j}}\\pm\\frac{\\Delta_{A B}}{2}\\sum_{i\\in A/B}c_{i}^{\\dagger}c_{i},$$",
           "bbox": null,
@@ -4974,7 +4974,7 @@
       "canonical_text": "<img src=\"imgs/img_in_chart_box_117_287_583_612.jpg\"/>",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b35"
+        "paddleocr:example01:p1:b35"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -4982,7 +4982,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b35",
+          "source_block_id": "paddleocr:example01:p1:b35",
           "raw_ref": "output.md",
           "text": "<img src=\"imgs/img_in_chart_box_117_287_583_612.jpg\"/>",
           "bbox": null,
@@ -5007,7 +5007,7 @@
       "canonical_text": "[1] A. Bastin, C. Lewinner, O. Betbeder-Matibet and P.Nozieres, J. Phys. Chem. Solids 32, 1811 (1971).[2] E.H. Hall, Am. J.Math 2, 287 (1879).[3] N. Nagaosa, J. Sinova, S. Onoda, A. H. MacDonald and N.P. Ong, Rev. Mod. Phys. 82, 1539 (2010).[4] T. Jungwirth, J. Wunderlich and K. Olejnik, Nature Mat.11, 382 (2012).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b42"
+        "paddleocr:example01:p1:b42"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5015,7 +5015,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b42",
+          "source_block_id": "paddleocr:example01:p1:b42",
           "raw_ref": "output.md",
           "text": "[1] A. Bastin, C. Lewinner, O. Betbeder-Matibet and P.Nozieres, J. Phys. Chem. Solids 32, 1811 (1971).[2] E.H. Hall, Am. J.Math 2, 287 (1879).[3] N. Nagaosa, J. Sinova, S. Onoda, A. H. MacDonald and N.P. Ong, Rev. Mod. Phys. 82, 1539 (2010).[4] T. Jungwirth, J. Wunderlich and K. Olejnik, Nature Mat.11, 382 (2012).",
           "bbox": null,
@@ -5041,7 +5041,7 @@
       "canonical_text": "[5] K. Klitzing, G. Dorda, M. Pepper, Phys. Rev. Lett. 45,\n494 (1980).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b43"
+        "paddleocr:example01:p1:b43"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5049,7 +5049,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b43",
+          "source_block_id": "paddleocr:example01:p1:b43",
           "raw_ref": "output.md",
           "text": "[5] K. Klitzing, G. Dorda, M. Pepper, Phys. Rev. Lett. 45,\n494 (1980).",
           "bbox": null,
@@ -5075,7 +5075,7 @@
       "canonical_text": "[6] C.-Z.Chang et al. ,Science 340,167 (2013).[7] M.König et al., Science 318, 766(2007).[8] M.Z. Hasan and C.L.Kane, Rev. Mod. Phys. 82 045(2010).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b44"
+        "paddleocr:example01:p1:b44"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5083,7 +5083,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b44",
+          "source_block_id": "paddleocr:example01:p1:b44",
           "raw_ref": "output.md",
           "text": "[6] C.-Z.Chang et al. ,Science 340,167 (2013).[7] M.König et al., Science 318, 766(2007).[8] M.Z. Hasan and C.L.Kane, Rev. Mod. Phys. 82 045(2010).",
           "bbox": null,
@@ -5109,7 +5109,7 @@
       "canonical_text": "[9] R. Kubo, J. Phys. Soc. Japan 12, 570 (1957); R. Kubo,\nA.Yokota, and S.Nakajima, J.Phys. Soc. Japan 12,1203(1957).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b45"
+        "paddleocr:example01:p1:b45"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5117,7 +5117,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b45",
+          "source_block_id": "paddleocr:example01:p1:b45",
           "raw_ref": "output.md",
           "text": "[9] R. Kubo, J. Phys. Soc. Japan 12, 570 (1957); R. Kubo,\nA.Yokota, and S.Nakajima, J.Phys. Soc. Japan 12,1203(1957).",
           "bbox": null,
@@ -5143,7 +5143,7 @@
       "canonical_text": "[10] D.J. Thouless, M. Kohmoto, M. P. Nightingale and M.\nden Nijs, Phys. Rev. Lett. 49, 405 (1982).[11] Yisong Zheng and Tsuneya Ando, Phys. Rev. B 65,\n245420 (2002).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b46"
+        "paddleocr:example01:p1:b46"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5151,7 +5151,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b46",
+          "source_block_id": "paddleocr:example01:p1:b46",
           "raw_ref": "output.md",
           "text": "[10] D.J. Thouless, M. Kohmoto, M. P. Nightingale and M.\nden Nijs, Phys. Rev. Lett. 49, 405 (1982).[11] Yisong Zheng and Tsuneya Ando, Phys. Rev. B 65,\n245420 (2002).",
           "bbox": null,
@@ -5177,7 +5177,7 @@
       "canonical_text": "[12] D. N. Sheng, L. Sheng, and Z.Y. Weng, Phys. Rev. B 73, 233406 (2006).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b47"
+        "paddleocr:example01:p1:b47"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5185,7 +5185,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b47",
+          "source_block_id": "paddleocr:example01:p1:b47",
           "raw_ref": "output.md",
           "text": "[12] D. N. Sheng, L. Sheng, and Z.Y. Weng, Phys. Rev. B 73, 233406 (2006).",
           "bbox": null,
@@ -5211,7 +5211,7 @@
       "canonical_text": "[13] Yu Xue and Emil Prodan, Phys. Rev. B 86, 155445(2012).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b48"
+        "paddleocr:example01:p1:b48"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5219,7 +5219,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b48",
+          "source_block_id": "paddleocr:example01:p1:b48",
           "raw_ref": "output.md",
           "text": "[13] Yu Xue and Emil Prodan, Phys. Rev. B 86, 155445(2012).",
           "bbox": null,
@@ -5245,7 +5245,7 @@
       "canonical_text": "[14] Frank Ortmann and Stephan Roche, Phys. Rev. Lett.\n110, 086602 (2013).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b49"
+        "paddleocr:example01:p1:b49"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5253,7 +5253,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b49",
+          "source_block_id": "paddleocr:example01:p1:b49",
           "raw_ref": "output.md",
           "text": "[14] Frank Ortmann and Stephan Roche, Phys. Rev. Lett.\n110, 086602 (2013).",
           "bbox": null,
@@ -5279,7 +5279,7 @@
       "canonical_text": "[15] D. A. Greenwood, Proc. Phys. Soc. (London) 71, 585(1958).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b50"
+        "paddleocr:example01:p1:b50"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5287,7 +5287,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b50",
+          "source_block_id": "paddleocr:example01:p1:b50",
           "raw_ref": "output.md",
           "text": "[15] D. A. Greenwood, Proc. Phys. Soc. (London) 71, 585(1958).",
           "bbox": null,
@@ -5313,7 +5313,7 @@
       "canonical_text": "[16] A. Weisse, G. Wellein, A. Alvermann, H. Fehske, Rev.\nMod. Phys. 78, 275(206).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b51"
+        "paddleocr:example01:p1:b51"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5321,7 +5321,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b51",
+          "source_block_id": "paddleocr:example01:p1:b51",
           "raw_ref": "output.md",
           "text": "[16] A. Weisse, G. Wellein, A. Alvermann, H. Fehske, Rev.\nMod. Phys. 78, 275(206).",
           "bbox": null,
@@ -5347,7 +5347,7 @@
       "canonical_text": "[17] S. Roche, Phys. Rev. B 59, 2284 (199).[18] S. Yuan, H. De Raedt, and M.I. Katsnelson, Phys. Rev.\nB 82, 115448 (2010).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b52"
+        "paddleocr:example01:p1:b52"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5355,7 +5355,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b52",
+          "source_block_id": "paddleocr:example01:p1:b52",
           "raw_ref": "output.md",
           "text": "[17] S. Roche, Phys. Rev. B 59, 2284 (199).[18] S. Yuan, H. De Raedt, and M.I. Katsnelson, Phys. Rev.\nB 82, 115448 (2010).",
           "bbox": null,
@@ -5381,7 +5381,7 @@
       "canonical_text": "[19] Aires Ferreira, J. Viana-Gomes, Johan Nilsson, E. R.\nMucciolo, N. M. R. Peres, and A. H. Castro Neto, Phys.\nRev.B 83,165402 (2011).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b53"
+        "paddleocr:example01:p1:b53"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5389,7 +5389,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b53",
+          "source_block_id": "paddleocr:example01:p1:b53",
           "raw_ref": "output.md",
           "text": "[19] Aires Ferreira, J. Viana-Gomes, Johan Nilsson, E. R.\nMucciolo, N. M. R. Peres, and A. H. Castro Neto, Phys.\nRev.B 83,165402 (2011).",
           "bbox": null,
@@ -5415,7 +5415,7 @@
       "canonical_text": "[20] Z. Fan, A. Uppstu, T. Siro, and A. Harju, Computer Physics Communications 185, 28 (2014).[21] T. L. van den Berg, L. Raymond, A. Verga, Phys. Rev.\nB 84, 245210 (2011).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b54"
+        "paddleocr:example01:p1:b54"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5423,7 +5423,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b54",
+          "source_block_id": "paddleocr:example01:p1:b54",
           "raw_ref": "output.md",
           "text": "[20] Z. Fan, A. Uppstu, T. Siro, and A. Harju, Computer Physics Communications 185, 28 (2014).[21] T. L. van den Berg, L. Raymond, A. Verga, Phys. Rev.\nB 84, 245210 (2011).",
           "bbox": null,
@@ -5449,7 +5449,7 @@
       "canonical_text": "[22] A. H. Castro Neto, F. Guinea, N. M. R. Peres, K. S.\nNovoselov, and A. K. Geim, Rev. Mod. Phys. 81, 109(2009).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b55"
+        "paddleocr:example01:p1:b55"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5457,7 +5457,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b55",
+          "source_block_id": "paddleocr:example01:p1:b55",
           "raw_ref": "output.md",
           "text": "[22] A. H. Castro Neto, F. Guinea, N. M. R. Peres, K. S.\nNovoselov, and A. K. Geim, Rev. Mod. Phys. 81, 109(2009).",
           "bbox": null,
@@ -5483,7 +5483,7 @@
       "canonical_text": "[23] S. Das Sarma, Shaffique Adam, E. H. Hwang, Enrico Rossi, Rev. Mod. Phys. 83, 407 (2011) and references therein.",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b56"
+        "paddleocr:example01:p1:b56"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5491,7 +5491,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b56",
+          "source_block_id": "paddleocr:example01:p1:b56",
           "raw_ref": "output.md",
           "text": "[23] S. Das Sarma, Shaffique Adam, E. H. Hwang, Enrico Rossi, Rev. Mod. Phys. 83, 407 (2011) and references therein.",
           "bbox": null,
@@ -5517,7 +5517,7 @@
       "canonical_text": "[24] S. Gattenlohner, W.-R. Hannes, P. M. Ostrovsky, I. V.\nGornyi, A. D. Mirlin, M. Titov, Phys. Rev. Lett. 112,\n026802 (2014)",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b57"
+        "paddleocr:example01:p1:b57"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5525,7 +5525,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b57",
+          "source_block_id": "paddleocr:example01:p1:b57",
           "raw_ref": "output.md",
           "text": "[24] S. Gattenlohner, W.-R. Hannes, P. M. Ostrovsky, I. V.\nGornyi, A. D. Mirlin, M. Titov, Phys. Rev. Lett. 112,\n026802 (2014)",
           "bbox": null,
@@ -5551,7 +5551,7 @@
       "canonical_text": "[25] F.D. M. Haldane, Phys. Rev. Lett. 61, 2015 (1988).[26] A. Crepieux, and P. Bruno, Phys. Rev. B 64, 094434(2001).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b58"
+        "paddleocr:example01:p1:b58"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5559,7 +5559,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b58",
+          "source_block_id": "paddleocr:example01:p1:b58",
           "raw_ref": "output.md",
           "text": "[25] F.D. M. Haldane, Phys. Rev. Lett. 61, 2015 (1988).[26] A. Crepieux, and P. Bruno, Phys. Rev. B 64, 094434(2001).",
           "bbox": null,
@@ -5585,7 +5585,7 @@
       "canonical_text": "[27] P. Streda, J.Phys. C: Solid State Phys.15, L717 (1982);\n15, L1299 (1982).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b59"
+        "paddleocr:example01:p1:b59"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5593,7 +5593,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b59",
+          "source_block_id": "paddleocr:example01:p1:b59",
           "raw_ref": "output.md",
           "text": "[27] P. Streda, J.Phys. C: Solid State Phys.15, L717 (1982);\n15, L1299 (1982).",
           "bbox": null,
@@ -5619,7 +5619,7 @@
       "canonical_text": "[28] R.N. Silvera, H. Roederb, A.F.Votera, J.D. Kressb, Journal of Computational Physics 124, 115 (1996).[29] L. Covaci, F.M. Peeters, M. Berciu, Phys. Rev. Lett.105,\n167006 (2010)",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b60"
+        "paddleocr:example01:p1:b60"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5627,7 +5627,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b60",
+          "source_block_id": "paddleocr:example01:p1:b60",
           "raw_ref": "output.md",
           "text": "[28] R.N. Silvera, H. Roederb, A.F.Votera, J.D. Kressb, Journal of Computational Physics 124, 115 (1996).[29] L. Covaci, F.M. Peeters, M. Berciu, Phys. Rev. Lett.105,\n167006 (2010)",
           "bbox": null,
@@ -5653,7 +5653,7 @@
       "canonical_text": "[30] M. Ganahl, P. Thunstrom, F. Verstraete, K. Held, H. G.\nEvertz, Phys. Rev.B. 90, 045144 (2014).[31] F.A. Wolf, Ian P. McCulloch, Olivier Parcollet, and Ul",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b61"
+        "paddleocr:example01:p1:b61"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5661,7 +5661,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b61",
+          "source_block_id": "paddleocr:example01:p1:b61",
           "raw_ref": "output.md",
           "text": "[30] M. Ganahl, P. Thunstrom, F. Verstraete, K. Held, H. G.\nEvertz, Phys. Rev.B. 90, 045144 (2014).[31] F.A. Wolf, Ian P. McCulloch, Olivier Parcollet, and Ul",
           "bbox": null,
@@ -5687,7 +5687,7 @@
       "canonical_text": "[34] A. Weisse, Eur. Phys. J.B 40, 125 (2004); A. Weisse, G.\nSchubert, H. Fehske, Physica B 359-361, 786 (2005).[35] R. Alben, M. Blume, H. Krakauer, L. Schwartz Phys.Rev. B 12, 4090(1975).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b63"
+        "paddleocr:example01:p1:b63"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5695,7 +5695,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b63",
+          "source_block_id": "paddleocr:example01:p1:b63",
           "raw_ref": "output.md",
           "text": "[34] A. Weisse, Eur. Phys. J.B 40, 125 (2004); A. Weisse, G.\nSchubert, H. Fehske, Physica B 359-361, 786 (2005).[35] R. Alben, M. Blume, H. Krakauer, L. Schwartz Phys.Rev. B 12, 4090(1975).",
           "bbox": null,
@@ -5721,7 +5721,7 @@
       "canonical_text": "[36] Toshiaki Iitaka, Toshikazu Ebisuzaki, Phys. Rev. E,69,\n057701(2004).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b64"
+        "paddleocr:example01:p1:b64"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5729,7 +5729,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b64",
+          "source_block_id": "paddleocr:example01:p1:b64",
           "raw_ref": "output.md",
           "text": "[36] Toshiaki Iitaka, Toshikazu Ebisuzaki, Phys. Rev. E,69,\n057701(2004).",
           "bbox": null,
@@ -5755,7 +5755,7 @@
       "canonical_text": "[37] K. S. Novoselov, A. K. Geim, S.V. Morozov, D. Jiang,\nM. I. Katsnelson, I. V. Grigorieva, S. V. Dubonos, and A. A. Firsov, Nature 438, 197 (2005).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b65"
+        "paddleocr:example01:p1:b65"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5763,7 +5763,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b65",
+          "source_block_id": "paddleocr:example01:p1:b65",
           "raw_ref": "output.md",
           "text": "[37] K. S. Novoselov, A. K. Geim, S.V. Morozov, D. Jiang,\nM. I. Katsnelson, I. V. Grigorieva, S. V. Dubonos, and A. A. Firsov, Nature 438, 197 (2005).",
           "bbox": null,
@@ -5789,7 +5789,7 @@
       "canonical_text": "[38] C.Z. Chang et al. Science 340 167 (2013).[39] Jian Li, Rui-Lin Chu, J. K. Jain, and Shun-Qing Shen,\nPhys. Rev. Lett. 102, 136806 (2009).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b66"
+        "paddleocr:example01:p1:b66"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5797,7 +5797,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b66",
+          "source_block_id": "paddleocr:example01:p1:b66",
           "raw_ref": "output.md",
           "text": "[38] C.Z. Chang et al. Science 340 167 (2013).[39] Jian Li, Rui-Lin Chu, J. K. Jain, and Shun-Qing Shen,\nPhys. Rev. Lett. 102, 136806 (2009).",
           "bbox": null,
@@ -5823,7 +5823,7 @@
       "canonical_text": "[40] Juntao Song, Haiwen Liu, Hua Jiang, Qing-feng Sun, and X. C. Xie, Phys.Rev. B 85, 195125 (2012).[41] K. Sun, Z. Gu, H. Katsura, and S. Das Sarma, Phys. Rev.\nLett. 106, 236803 (2011);E. Tang, J.-W.Mei,and X.-G Wen, Phys. Rev. Lett. 106, 236802 (2011); T.Neupert,\nL. Santos, C. Chamon, and C. Mudry, Phys. Rev. Lett.\n106, 236804 (2011).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b67"
+        "paddleocr:example01:p1:b67"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5831,7 +5831,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b67",
+          "source_block_id": "paddleocr:example01:p1:b67",
           "raw_ref": "output.md",
           "text": "[40] Juntao Song, Haiwen Liu, Hua Jiang, Qing-feng Sun, and X. C. Xie, Phys.Rev. B 85, 195125 (2012).[41] K. Sun, Z. Gu, H. Katsura, and S. Das Sarma, Phys. Rev.\nLett. 106, 236803 (2011);E. Tang, J.-W.Mei,and X.-G Wen, Phys. Rev. Lett. 106, 236802 (2011); T.Neupert,\nL. Santos, C. Chamon, and C. Mudry, Phys. Rev. Lett.\n106, 236804 (2011).",
           "bbox": null,
@@ -5857,7 +5857,7 @@
       "canonical_text": "[42] Holger Fehske, Jens Schleede, Gerald Schubert, Gerhard Wellein, Vladimir S. Filinov, Alan R. Bishop, Phys. Lett.\nA 373, 2182 (2009).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b68"
+        "paddleocr:example01:p1:b68"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5865,7 +5865,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b68",
+          "source_block_id": "paddleocr:example01:p1:b68",
           "raw_ref": "output.md",
           "text": "[42] Holger Fehske, Jens Schleede, Gerald Schubert, Gerhard Wellein, Vladimir S. Filinov, Alan R. Bishop, Phys. Lett.\nA 373, 2182 (2009).",
           "bbox": null,
@@ -5891,7 +5891,7 @@
       "canonical_text": "[43] J. B. Wang and T.T. Scholz, Phys. Rev.A 57, 3554(1998).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b69"
+        "paddleocr:example01:p1:b69"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5899,7 +5899,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b69",
+          "source_block_id": "paddleocr:example01:p1:b69",
           "raw_ref": "output.md",
           "text": "[43] J. B. Wang and T.T. Scholz, Phys. Rev.A 57, 3554(1998).",
           "bbox": null,
@@ -5925,7 +5925,7 @@
       "canonical_text": "[44] A. Weisse and H. Fehske, Lect. Notes Phys. 739, 545577(2008).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b70"
+        "paddleocr:example01:p1:b70"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5933,7 +5933,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b70",
+          "source_block_id": "paddleocr:example01:p1:b70",
           "raw_ref": "output.md",
           "text": "[44] A. Weisse and H. Fehske, Lect. Notes Phys. 739, 545577(2008).",
           "bbox": null,
@@ -5959,7 +5959,7 @@
       "canonical_text": "[45] D. Jackson, American Mathematical Society Colloquium Publications D. Jackson, XI providence R. I. (1930).[46] D. A. Drabold and O. F. Sankey, Phys. Rev. Lett. 703631(1993).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b71"
+        "paddleocr:example01:p1:b71"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -5967,7 +5967,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b71",
+          "source_block_id": "paddleocr:example01:p1:b71",
           "raw_ref": "output.md",
           "text": "[45] D. Jackson, American Mathematical Society Colloquium Publications D. Jackson, XI providence R. I. (1930).[46] D. A. Drabold and O. F. Sankey, Phys. Rev. Lett. 703631(1993).",
           "bbox": null,
@@ -5993,7 +5993,7 @@
       "canonical_text": "[47] Silver, R. N., and H. Rder Int. J. Mod. Phys. C 5 935(1994).",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b72"
+        "paddleocr:example01:p1:b72"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -6001,7 +6001,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b72",
+          "source_block_id": "paddleocr:example01:p1:b72",
           "raw_ref": "output.md",
           "text": "[47] Silver, R. N., and H. Rder Int. J. Mod. Phys. C 5 935(1994).",
           "bbox": null,
@@ -6027,7 +6027,7 @@
       "canonical_text": "[48] Cuda Perfomance Report, September 2014.",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b73"
+        "paddleocr:example01:p1:b73"
       ],
       "confidence": 0.7,
       "confidence_source": "heuristic",
@@ -6035,7 +6035,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b73",
+          "source_block_id": "paddleocr:example01:p1:b73",
           "raw_ref": "output.md",
           "text": "[48] Cuda Perfomance Report, September 2014.",
           "bbox": null,
@@ -6061,7 +6061,7 @@
       "canonical_text": "$$T_{m}(x)\\equiv\\operatorname{c o s}(m{\\operatorname{a r c o s}(x)}),\\quad T_{m+1}(x)$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b76"
+        "paddleocr:example01:p1:b76"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6069,7 +6069,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b76",
+          "source_block_id": "paddleocr:example01:p1:b76",
           "raw_ref": "output.md",
           "text": "$$T_{m}(x)\\equiv\\operatorname{c o s}(m{\\operatorname{a r c o s}(x)}),\\quad T_{m+1}(x)$$",
           "bbox": null,
@@ -6096,7 +6096,7 @@
       "canonical_text": "$$\\tilde{H}=\\frac{2}{\\Delta E}\\left(H-\\frac{E^{+}+E^{-}}{2}\\right),\\quad\\tilde{\\varepsilon}=\\frac{2}{\\Delta E}\\left(\\varepsilon-\\frac{E^{+}+E^{-}}{2}\\right),$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b78"
+        "paddleocr:example01:p1:b78"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6104,7 +6104,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b78",
+          "source_block_id": "paddleocr:example01:p1:b78",
           "raw_ref": "output.md",
           "text": "$$\\tilde{H}=\\frac{2}{\\Delta E}\\left(H-\\frac{E^{+}+E^{-}}{2}\\right),\\quad\\tilde{\\varepsilon}=\\frac{2}{\\Delta E}\\left(\\varepsilon-\\frac{E^{+}+E^{-}}{2}\\right),$$",
           "bbox": null,
@@ -6131,7 +6131,7 @@
       "canonical_text": "$$\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{H})=\\sum_{k}\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{E}_{k})\\left|\\tilde{E}_{k}\\right\\rangle\\left\\langle\\tilde{E}_{k}\\right|,$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b80"
+        "paddleocr:example01:p1:b80"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6139,7 +6139,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b80",
+          "source_block_id": "paddleocr:example01:p1:b80",
           "raw_ref": "output.md",
           "text": "$$\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{H})=\\sum_{k}\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{E}_{k})\\left|\\tilde{E}_{k}\\right\\rangle\\left\\langle\\tilde{E}_{k}\\right|,$$",
           "bbox": null,
@@ -6166,7 +6166,7 @@
       "canonical_text": "$$\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{E}_{k})=\\frac{2}{\\pi}\\sum_{m=0}^{\\infty}\\Gamma_{m}(\\tilde{\\varepsilon})T_{m}(\\tilde{E}_{k}),\\quad\\Gamma_{m}(\\tilde{\\varepsilon})=\\frac{1}{\\delta_{m,0}+1}\\int_{-1}^{1}\\frac{\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{E}_{k})T_{m}(\\tilde{E}_{k})}{\\sqrt{1-\\tilde{E}_{k}^{2}}}d\\tilde{E}_{k},$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b82"
+        "paddleocr:example01:p1:b82"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6174,7 +6174,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b82",
+          "source_block_id": "paddleocr:example01:p1:b82",
           "raw_ref": "output.md",
           "text": "$$\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{E}_{k})=\\frac{2}{\\pi}\\sum_{m=0}^{\\infty}\\Gamma_{m}(\\tilde{\\varepsilon})T_{m}(\\tilde{E}_{k}),\\quad\\Gamma_{m}(\\tilde{\\varepsilon})=\\frac{1}{\\delta_{m,0}+1}\\int_{-1}^{1}\\frac{\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{E}_{k})T_{m}(\\tilde{E}_{k})}{\\sqrt{1-\\tilde{E}_{k}^{2}}}d\\tilde{E}_{k},$$",
           "bbox": null,
@@ -6201,7 +6201,7 @@
       "canonical_text": "$$\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{H})=\\frac{2}{\\pi}\\sum_{m=0}^{\\infty}\\Gamma_{m}(\\tilde{\\varepsilon})T_{m}(\\tilde{H}),$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b84"
+        "paddleocr:example01:p1:b84"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6209,7 +6209,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b84",
+          "source_block_id": "paddleocr:example01:p1:b84",
           "raw_ref": "output.md",
           "text": "$$\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{H})=\\frac{2}{\\pi}\\sum_{m=0}^{\\infty}\\Gamma_{m}(\\tilde{\\varepsilon})T_{m}(\\tilde{H}),$$",
           "bbox": null,
@@ -6236,7 +6236,7 @@
       "canonical_text": "$$\\tilde{\\rho}(\\tilde{\\varepsilon})=\\frac{2}{\\pi\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{\\infty}\\Gamma_{m}(\\tilde{\\varepsilon})\\mu_{m},$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b86"
+        "paddleocr:example01:p1:b86"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6244,7 +6244,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b86",
+          "source_block_id": "paddleocr:example01:p1:b86",
           "raw_ref": "output.md",
           "text": "$$\\tilde{\\rho}(\\tilde{\\varepsilon})=\\frac{2}{\\pi\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{\\infty}\\Gamma_{m}(\\tilde{\\varepsilon})\\mu_{m},$$",
           "bbox": null,
@@ -6271,7 +6271,7 @@
       "canonical_text": "$$g_{m}^{J}=\\frac{(M-m+1)\\cos\\frac{\\pi m}{M+1}+\\sin\\frac{\\pi m}{M+1}\\mathrm{c o t}\\frac{\\pi}{M+1}}{M+1},$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b88"
+        "paddleocr:example01:p1:b88"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6279,7 +6279,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b88",
+          "source_block_id": "paddleocr:example01:p1:b88",
           "raw_ref": "output.md",
           "text": "$$g_{m}^{J}=\\frac{(M-m+1)\\cos\\frac{\\pi m}{M+1}+\\sin\\frac{\\pi m}{M+1}\\mathrm{c o t}\\frac{\\pi}{M+1}}{M+1},$$",
           "bbox": null,
@@ -6306,7 +6306,7 @@
       "canonical_text": "$$|r\\rangle\\equiv(\\xi_{1}^{r},\\ldots,\\xi_{N}^{r}),\\quad r=1,\\ldots,R,$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b91"
+        "paddleocr:example01:p1:b91"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6314,7 +6314,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b91",
+          "source_block_id": "paddleocr:example01:p1:b91",
           "raw_ref": "output.md",
           "text": "$$|r\\rangle\\equiv(\\xi_{1}^{r},\\ldots,\\xi_{N}^{r}),\\quad r=1,\\ldots,R,$$",
           "bbox": null,
@@ -6341,7 +6341,7 @@
       "canonical_text": "$$\\left\\langle\\left\\langle\\xi_{i}^{r}\\right\\rangle\\right\\rangle=0,\\quad\\left\\langle\\left\\langle{\\xi_{i}^{r}}^{*}\\xi_{j}^{r^{\\prime}}\\right\\rangle\\right\\rangle=\\delta_{r,r^{\\prime}}\\delta_{i,j},$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b93"
+        "paddleocr:example01:p1:b93"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6349,7 +6349,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b93",
+          "source_block_id": "paddleocr:example01:p1:b93",
           "raw_ref": "output.md",
           "text": "$$\\left\\langle\\left\\langle\\xi_{i}^{r}\\right\\rangle\\right\\rangle=0,\\quad\\left\\langle\\left\\langle{\\xi_{i}^{r}}^{*}\\xi_{j}^{r^{\\prime}}\\right\\rangle\\right\\rangle=\\delta_{r,r^{\\prime}}\\delta_{i,j},$$",
           "bbox": null,
@@ -6376,7 +6376,7 @@
       "canonical_text": "$$\\mathrm{T r}\\left[T_{m}(\\tilde{H})\\right]\\approx\\frac{1}{R}\\sum_{r=1}^{R}\\left\\langle r\\right|T_{m}(\\tilde{H})\\left|r\\right\\rangle.$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b95"
+        "paddleocr:example01:p1:b95"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6384,7 +6384,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b95",
+          "source_block_id": "paddleocr:example01:p1:b95",
           "raw_ref": "output.md",
           "text": "$$\\mathrm{T r}\\left[T_{m}(\\tilde{H})\\right]\\approx\\frac{1}{R}\\sum_{r=1}^{R}\\left\\langle r\\right|T_{m}(\\tilde{H})\\left|r\\right\\rangle.$$",
           "bbox": null,
@@ -6411,7 +6411,7 @@
       "canonical_text": "$$\\sigma_{\\alpha\\beta}(\\mu)=\\frac{i e^{2}\\hbar}{\\Omega}\\int_{E^{-}}^{E^{+}}d\\varepsilon f(\\varepsilon)\\mathrm{T r}\\left\\langle v_{\\alpha}\\delta(\\varepsilon-H)v_{\\beta}\\frac{d G^{+}(\\varepsilon,H)}{d\\varepsilon}-v_{\\alpha}\\frac{d G^{-}(\\varepsilon,H)}{d\\varepsilon}v_{\\beta}\\delta(\\varepsilon-H)\\right\\rangle.$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b98"
+        "paddleocr:example01:p1:b98"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6419,7 +6419,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b98",
+          "source_block_id": "paddleocr:example01:p1:b98",
           "raw_ref": "output.md",
           "text": "$$\\sigma_{\\alpha\\beta}(\\mu)=\\frac{i e^{2}\\hbar}{\\Omega}\\int_{E^{-}}^{E^{+}}d\\varepsilon f(\\varepsilon)\\mathrm{T r}\\left\\langle v_{\\alpha}\\delta(\\varepsilon-H)v_{\\beta}\\frac{d G^{+}(\\varepsilon,H)}{d\\varepsilon}-v_{\\alpha}\\frac{d G^{-}(\\varepsilon,H)}{d\\varepsilon}v_{\\beta}\\delta(\\varepsilon-H)\\right\\rangle.$$",
           "bbox": null,
@@ -6446,7 +6446,7 @@
       "canonical_text": "$$\\begin{aligned}{\\sigma_{\\alpha\\beta}(\\mu)}&{{}=\\left(\\frac{2}{E^{+}-E^{-}}\\right)^{2}\\frac{i e^{2}\\hbar}{\\Omega}\\int_{-1}^{1}d\\tilde{\\varepsilon}f(\\tilde{\\varepsilon},\\tilde{\\mu}){\\operatorname{T r}}\\left\\langle v_{\\alpha}\\delta(\\tilde{\\varepsilon}-\\tilde{H})v_{\\beta}\\frac{d G^{+}(\\tilde{\\varepsilon},\\tilde{H})}{d\\tilde{\\varepsilon}}-v_{\\alpha}\\frac{d G^{-}(\\tilde{\\varepsilon},\\tilde{H})}{d\\tilde{\\varepsilon}}v_{\\beta}\\delta(\\tilde{\\varepsilon}-\\tilde{H})\\right\\rangle}\\\\ {\\sigma_{\\alpha\\beta}(\\mu)}&{{}=\\left(\\frac{2}{E^{+}-E^{-}}\\right)^{2}\\tilde{\\sigma}_{\\alpha\\beta}(\\tilde{\\mu}),}\\\\ \\end{aligned}$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b100"
+        "paddleocr:example01:p1:b100"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6454,7 +6454,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b100",
+          "source_block_id": "paddleocr:example01:p1:b100",
           "raw_ref": "output.md",
           "text": "$$\\begin{aligned}{\\sigma_{\\alpha\\beta}(\\mu)}&{{}=\\left(\\frac{2}{E^{+}-E^{-}}\\right)^{2}\\frac{i e^{2}\\hbar}{\\Omega}\\int_{-1}^{1}d\\tilde{\\varepsilon}f(\\tilde{\\varepsilon},\\tilde{\\mu}){\\operatorname{T r}}\\left\\langle v_{\\alpha}\\delta(\\tilde{\\varepsilon}-\\tilde{H})v_{\\beta}\\frac{d G^{+}(\\tilde{\\varepsilon},\\tilde{H})}{d\\tilde{\\varepsilon}}-v_{\\alpha}\\frac{d G^{-}(\\tilde{\\varepsilon},\\tilde{H})}{d\\tilde{\\varepsilon}}v_{\\beta}\\delta(\\tilde{\\varepsilon}-\\tilde{H})\\right\\rangle}\\\\ {\\sigma_{\\alpha\\beta}(\\mu)}&{{}=\\left(\\frac{2}{E^{+}-E^{-}}\\right)^{2}\\tilde{\\sigma}_{\\alpha\\beta}(\\tilde{\\mu}),}\\\\ \\end{aligned}$$",
           "bbox": null,
@@ -6481,7 +6481,7 @@
       "canonical_text": "$$\\delta(\\tilde{\\varepsilon}-\\tilde{H})=\\frac{2}{\\pi\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{\\infty}T_{m}(\\tilde{\\varepsilon})T_{m}(\\tilde{H}),\\quad G^{\\pm}(\\tilde{\\varepsilon},\\tilde{H})=\\mp\\frac{2i}{\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{M}g_{m}\\mathrm{e}^{\\pm i m\\mathrm{a r c c o s}(\\tilde{\\varepsilon})}T_{m}(\\tilde{H}).$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b102"
+        "paddleocr:example01:p1:b102"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6489,7 +6489,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b102",
+          "source_block_id": "paddleocr:example01:p1:b102",
           "raw_ref": "output.md",
           "text": "$$\\delta(\\tilde{\\varepsilon}-\\tilde{H})=\\frac{2}{\\pi\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{\\infty}T_{m}(\\tilde{\\varepsilon})T_{m}(\\tilde{H}),\\quad G^{\\pm}(\\tilde{\\varepsilon},\\tilde{H})=\\mp\\frac{2i}{\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{M}g_{m}\\mathrm{e}^{\\pm i m\\mathrm{a r c c o s}(\\tilde{\\varepsilon})}T_{m}(\\tilde{H}).$$",
           "bbox": null,
@@ -6516,7 +6516,7 @@
       "canonical_text": "$$\\tilde{\\sigma}_{\\alpha\\beta}(\\tilde{\\mu})=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\int_{-1}^{1}\\frac{d\\tilde{\\varepsilon}f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})^{2}}\\sum_{m,n}\\mu_{n m}^{\\alpha\\beta}\\Gamma_{n m}(\\tilde{\\varepsilon}),$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b104"
+        "paddleocr:example01:p1:b104"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6524,7 +6524,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b104",
+          "source_block_id": "paddleocr:example01:p1:b104",
           "raw_ref": "output.md",
           "text": "$$\\tilde{\\sigma}_{\\alpha\\beta}(\\tilde{\\mu})=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\int_{-1}^{1}\\frac{d\\tilde{\\varepsilon}f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})^{2}}\\sum_{m,n}\\mu_{n m}^{\\alpha\\beta}\\Gamma_{n m}(\\tilde{\\varepsilon}),$$",
           "bbox": null,
@@ -6551,7 +6551,7 @@
       "canonical_text": "$$\\mu_{m n}^{\\alpha\\beta}\\equiv\\frac{g_{m}g_{n}}{(1+\\mu_{n0})(1+\\mu_{m0})}\\mathrm{T r}\\left[v_{\\alpha}T_{m}(\\tilde{H})v_{\\beta}T_{n}(\\tilde{H})\\right],$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b106"
+        "paddleocr:example01:p1:b106"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6559,7 +6559,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b106",
+          "source_block_id": "paddleocr:example01:p1:b106",
           "raw_ref": "output.md",
           "text": "$$\\mu_{m n}^{\\alpha\\beta}\\equiv\\frac{g_{m}g_{n}}{(1+\\mu_{n0})(1+\\mu_{m0})}\\mathrm{T r}\\left[v_{\\alpha}T_{m}(\\tilde{H})v_{\\beta}T_{n}(\\tilde{H})\\right],$$",
           "bbox": null,
@@ -6586,7 +6586,7 @@
       "canonical_text": "$$\\Gamma_{m n}(\\tilde{\\varepsilon})\\equiv\\left(\\varepsilon-i n\\sqrt{1-\\varepsilon^{2}}\\right)T_{m}(\\varepsilon)e^{i n\\operatorname{a r c c o s}(\\varepsilon)}+\\left(\\varepsilon+i m\\sqrt{1-\\varepsilon^{2}}\\right)T_{n}(\\varepsilon)e^{-i m\\operatorname{a r c c o s}(\\varepsilon)},$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b108"
+        "paddleocr:example01:p1:b108"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6594,7 +6594,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b108",
+          "source_block_id": "paddleocr:example01:p1:b108",
           "raw_ref": "output.md",
           "text": "$$\\Gamma_{m n}(\\tilde{\\varepsilon})\\equiv\\left(\\varepsilon-i n\\sqrt{1-\\varepsilon^{2}}\\right)T_{m}(\\varepsilon)e^{i n\\operatorname{a r c c o s}(\\varepsilon)}+\\left(\\varepsilon+i m\\sqrt{1-\\varepsilon^{2}}\\right)T_{n}(\\varepsilon)e^{-i m\\operatorname{a r c c o s}(\\varepsilon)},$$",
           "bbox": null,
@@ -6621,7 +6621,7 @@
       "canonical_text": "$$(\\mu_{m n}^{\\alpha\\beta})^{*}=\\mu_{n m}^{\\alpha\\beta}=\\mu_{m n}^{\\beta\\alpha}\\quad\\mathrm{a n d}\\quad\\Gamma_{m n}^{*}=\\Gamma_{n m},$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b110"
+        "paddleocr:example01:p1:b110"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6629,7 +6629,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b110",
+          "source_block_id": "paddleocr:example01:p1:b110",
           "raw_ref": "output.md",
           "text": "$$(\\mu_{m n}^{\\alpha\\beta})^{*}=\\mu_{n m}^{\\alpha\\beta}=\\mu_{m n}^{\\beta\\alpha}\\quad\\mathrm{a n d}\\quad\\Gamma_{m n}^{*}=\\Gamma_{n m},$$",
           "bbox": null,
@@ -6656,7 +6656,7 @@
       "canonical_text": "$$\\tilde{\\sigma}_{\\alpha\\beta}(\\mu)=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\int_{-1}^{1}\\frac{d\\tilde{\\varepsilon}f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})^{2}}\\sum_{m,n\\leq m}\\operatorname{R e}\\left[\\mu_{n m}^{\\alpha,\\beta}\\Gamma_{n m}(\\tilde{\\varepsilon})\\right].$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b112"
+        "paddleocr:example01:p1:b112"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6664,7 +6664,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b112",
+          "source_block_id": "paddleocr:example01:p1:b112",
           "raw_ref": "output.md",
           "text": "$$\\tilde{\\sigma}_{\\alpha\\beta}(\\mu)=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\int_{-1}^{1}\\frac{d\\tilde{\\varepsilon}f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})^{2}}\\sum_{m,n\\leq m}\\operatorname{R e}\\left[\\mu_{n m}^{\\alpha,\\beta}\\Gamma_{n m}(\\tilde{\\varepsilon})\\right].$$",
           "bbox": null,
@@ -6691,7 +6691,7 @@
       "canonical_text": "$$\\tilde{\\sigma}_{\\alpha\\alpha}(\\tilde{\\mu})=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\sum_{m,n\\leq m}\\mu_{n m}^{\\alpha\\alpha}\\int_{-\\alpha}^{\\alpha}\\frac{d\\tilde{\\varepsilon}f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})}\\left(\\frac{d}{d\\tilde{\\varepsilon}}\\left[\\operatorname{T}_{n}(\\tilde{\\varepsilon})\\operatorname{T}_{m}(\\tilde{\\varepsilon})\\right]+2\\tilde{\\varepsilon}\\operatorname{T}_{n}(\\tilde{\\varepsilon})\\operatorname{T}_{m}(\\tilde{\\varepsilon})\\right),$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b114"
+        "paddleocr:example01:p1:b114"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6699,7 +6699,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b114",
+          "source_block_id": "paddleocr:example01:p1:b114",
           "raw_ref": "output.md",
           "text": "$$\\tilde{\\sigma}_{\\alpha\\alpha}(\\tilde{\\mu})=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\sum_{m,n\\leq m}\\mu_{n m}^{\\alpha\\alpha}\\int_{-\\alpha}^{\\alpha}\\frac{d\\tilde{\\varepsilon}f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})}\\left(\\frac{d}{d\\tilde{\\varepsilon}}\\left[\\operatorname{T}_{n}(\\tilde{\\varepsilon})\\operatorname{T}_{m}(\\tilde{\\varepsilon})\\right]+2\\tilde{\\varepsilon}\\operatorname{T}_{n}(\\tilde{\\varepsilon})\\operatorname{T}_{m}(\\tilde{\\varepsilon})\\right),$$",
           "bbox": null,
@@ -6726,7 +6726,7 @@
       "canonical_text": "$$\\sigma_{\\alpha\\alpha}(\\tilde{\\varepsilon}_{F})=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\sum_{m,n\\leq m}\\mu_{n m}^{\\alpha\\alpha}T_{n}(\\tilde{\\varepsilon}_{F})T_{m}(\\tilde{\\varepsilon}_{F}),$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b116"
+        "paddleocr:example01:p1:b116"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6734,7 +6734,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b116",
+          "source_block_id": "paddleocr:example01:p1:b116",
           "raw_ref": "output.md",
           "text": "$$\\sigma_{\\alpha\\alpha}(\\tilde{\\varepsilon}_{F})=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\sum_{m,n\\leq m}\\mu_{n m}^{\\alpha\\alpha}T_{n}(\\tilde{\\varepsilon}_{F})T_{m}(\\tilde{\\varepsilon}_{F}),$$",
           "bbox": null,
@@ -6761,7 +6761,7 @@
       "canonical_text": "<img src=\"imgs/img_in_chart_box_260_728_969_1225.jpg\"/>",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b119"
+        "paddleocr:example01:p1:b119"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -6769,7 +6769,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b119",
+          "source_block_id": "paddleocr:example01:p1:b119",
           "raw_ref": "output.md",
           "text": "<img src=\"imgs/img_in_chart_box_260_728_969_1225.jpg\"/>",
           "bbox": null,
@@ -6794,7 +6794,7 @@
       "canonical_text": "$$\\langle d\\sigma_{x y}(E)\\rangle=\\left\\langle\\left|\\frac{\\sigma_{x y}^{M}(E)-\\sigma_{x y}^{M^{\\prime}}(E)}{\\sigma_{x y}^{M}(E)}\\right|\\right\\rangle_{E},$$",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b122"
+        "paddleocr:example01:p1:b122"
       ],
       "confidence": 0.76,
       "confidence_source": "heuristic",
@@ -6802,7 +6802,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b122",
+          "source_block_id": "paddleocr:example01:p1:b122",
           "raw_ref": "output.md",
           "text": "$$\\langle d\\sigma_{x y}(E)\\rangle=\\left\\langle\\left|\\frac{\\sigma_{x y}^{M}(E)-\\sigma_{x y}^{M^{\\prime}}(E)}{\\sigma_{x y}^{M}(E)}\\right|\\right\\rangle_{E},$$",
           "bbox": null,
@@ -6829,7 +6829,7 @@
       "canonical_text": "<img src=\"imgs/img_in_chart_box_412_389_816_661.jpg\"/>",
       "page_no": 1,
       "block_ids": [
-        "paddleocr:1410.8140:p1:b125"
+        "paddleocr:example01:p1:b125"
       ],
       "confidence": 0.82,
       "confidence_source": "heuristic",
@@ -6837,7 +6837,7 @@
         {
           "kind": "block_text",
           "page_no": 1,
-          "source_block_id": "paddleocr:1410.8140:p1:b125",
+          "source_block_id": "paddleocr:example01:p1:b125",
           "raw_ref": "output.md",
           "text": "<img src=\"imgs/img_in_chart_box_412_389_816_661.jpg\"/>",
           "bbox": null,
