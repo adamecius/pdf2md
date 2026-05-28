@@ -3619,9 +3619,9 @@
       "page_no": 8
     },
     {
-      "id": "ent:consensus:example01:footnote:143",
+      "id": "ent:consensus:example01:footnote:120",
       "type": "footnote",
-      "label": "ent:consensus:example01:footnote:143",
+      "label": "ent:consensus:example01:footnote:120",
       "parent_id": "page:example01/consensus+consensus:1",
       "page_no": 1
     }
@@ -5349,7 +5349,7 @@
     },
     {
       "source": "marker:215:#/document/pages/10:footnote 1",
-      "target": "ent:consensus:example01:footnote:143",
+      "target": "ent:consensus:example01:footnote:120",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -8447,7 +8447,7 @@
     },
     {
       "source": "page:example01/consensus+consensus:1",
-      "target": "ent:consensus:example01:footnote:143",
+      "target": "ent:consensus:example01:footnote:120",
       "edge_kind": "contains",
       "label": ""
     }

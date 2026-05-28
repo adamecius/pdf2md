@@ -5196,18 +5196,18 @@
       "parent_id": "document:example3/grobid+deepseek"
     },
     {
-      "id": "section:index:example3/grobid+deepseek",
-      "type": "index_section",
-      "label": "Index",
-      "parent_id": "document:example3/grobid+deepseek",
-      "back_matter_kind": "index"
-    },
-    {
       "id": "section:bibliography:example3/grobid+deepseek",
       "type": "bibliography_section",
       "label": "Bibliography",
       "parent_id": "document:example3/grobid+deepseek",
       "back_matter_kind": "bibliography"
+    },
+    {
+      "id": "section:index:example3/grobid+deepseek",
+      "type": "index_section",
+      "label": "Index",
+      "parent_id": "document:example3/grobid+deepseek",
+      "back_matter_kind": "index"
     },
     {
       "id": "#/bibliography/b0",
@@ -126229,13 +126229,13 @@
     },
     {
       "source": "document:example3/grobid+deepseek",
-      "target": "section:index:example3/grobid+deepseek",
+      "target": "section:bibliography:example3/grobid+deepseek",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "document:example3/grobid+deepseek",
-      "target": "section:bibliography:example3/grobid+deepseek",
+      "target": "section:index:example3/grobid+deepseek",
       "edge_kind": "contains",
       "label": ""
     },
