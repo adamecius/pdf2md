@@ -3943,15 +3943,24 @@
       "page_no": 1
     },
     {
-      "id": "_unresolved",
-      "type": "unresolved",
-      "label": "(unresolved)"
+      "id": "ent:mineru:example02:equation:26",
+      "type": "equation",
+      "label": "ent:mineru:example02:equation:26",
+      "parent_id": "page:example02/consensus+mineru:1",
+      "page_no": 1
     },
     {
       "id": "ent:mineru:example02:reference_item:231",
       "type": "bibliography",
       "label": "ent:mineru:example02:reference_item:231",
       "parent_id": "section:bibliography:example02/consensus+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:equation:27",
+      "type": "equation",
+      "label": "ent:mineru:example02:equation:27",
+      "parent_id": "page:example02/consensus+mineru:1",
       "page_no": 1
     },
     {
@@ -3969,6 +3978,11 @@
       "page_no": 1
     },
     {
+      "id": "_unresolved",
+      "type": "unresolved",
+      "label": "(unresolved)"
+    },
+    {
       "id": "ent:mineru:example02:reference_item:237",
       "type": "bibliography",
       "label": "ent:mineru:example02:reference_item:237",
@@ -3983,6 +3997,13 @@
       "page_no": 1
     },
     {
+      "id": "ent:mineru:example02:equation:25",
+      "type": "equation",
+      "label": "ent:mineru:example02:equation:25",
+      "parent_id": "page:example02/consensus+mineru:1",
+      "page_no": 1
+    },
+    {
       "id": "ent:mineru:example02:reference_item:245",
       "type": "bibliography",
       "label": "ent:mineru:example02:reference_item:245",
@@ -3994,6 +4015,20 @@
       "type": "bibliography",
       "label": "ent:mineru:example02:reference_item:246",
       "parent_id": "section:bibliography:example02/consensus+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:equation:15",
+      "type": "equation",
+      "label": "ent:mineru:example02:equation:15",
+      "parent_id": "page:example02/consensus+mineru:1",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:equation:153",
+      "type": "equation",
+      "label": "ent:mineru:example02:equation:153",
+      "parent_id": "page:example02/consensus+mineru:1",
       "page_no": 1
     },
     {
@@ -4186,9 +4221,72 @@
       "page_no": 1
     },
     {
-      "id": "ent:mineru:example02:equation:33",
+      "id": "ent:mineru:example02:equation:18",
       "type": "equation",
-      "label": "ent:mineru:example02:equation:33",
+      "label": "ent:mineru:example02:equation:18",
+      "parent_id": "page:example02/consensus+mineru:1",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:equation:22",
+      "type": "equation",
+      "label": "ent:mineru:example02:equation:22",
+      "parent_id": "page:example02/consensus+mineru:1",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:equation:40",
+      "type": "equation",
+      "label": "ent:mineru:example02:equation:40",
+      "parent_id": "page:example02/consensus+mineru:1",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:equation:43",
+      "type": "equation",
+      "label": "ent:mineru:example02:equation:43",
+      "parent_id": "page:example02/consensus+mineru:1",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:equation:34",
+      "type": "equation",
+      "label": "ent:mineru:example02:equation:34",
+      "parent_id": "page:example02/consensus+mineru:1",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:equation:133",
+      "type": "equation",
+      "label": "ent:mineru:example02:equation:133",
+      "parent_id": "page:example02/consensus+mineru:1",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:equation:152",
+      "type": "equation",
+      "label": "ent:mineru:example02:equation:152",
+      "parent_id": "page:example02/consensus+mineru:1",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:equation:31",
+      "type": "equation",
+      "label": "ent:mineru:example02:equation:31",
+      "parent_id": "page:example02/consensus+mineru:1",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:equation:194",
+      "type": "equation",
+      "label": "ent:mineru:example02:equation:194",
+      "parent_id": "page:example02/consensus+mineru:1",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:equation:36",
+      "type": "equation",
+      "label": "ent:mineru:example02:equation:36",
       "parent_id": "page:example02/consensus+mineru:1",
       "page_no": 1
     },
@@ -4275,10 +4373,10 @@
     },
     {
       "source": "marker:9:#/document:Eq. (11)",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:26",
       "marker_type": "equation",
       "label": "Eq. (11)",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -4291,10 +4389,10 @@
     },
     {
       "source": "marker:11:#/document:Eq. (12)",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:27",
       "marker_type": "equation",
       "label": "Eq. (12)",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -4459,10 +4557,10 @@
     },
     {
       "source": "marker:32:#/document:Eq. (11)",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:26",
       "marker_type": "equation",
       "label": "Eq. (11)",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -4563,10 +4661,10 @@
     },
     {
       "source": "marker:45:#/document:Eq. (10)",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:25",
       "marker_type": "equation",
       "label": "Eq. (10)",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -4587,10 +4685,10 @@
     },
     {
       "source": "marker:48:#/document:Eq. (12)",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:27",
       "marker_type": "equation",
       "label": "Eq. (12)",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -4787,10 +4885,10 @@
     },
     {
       "source": "marker:73:#/document:Eq. (4)",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:15",
       "marker_type": "equation",
       "label": "Eq. (4)",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -4859,10 +4957,10 @@
     },
     {
       "source": "marker:82:#/document:Eq. (70)",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:153",
       "marker_type": "equation",
       "label": "Eq. (70)",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -5499,10 +5597,10 @@
     },
     {
       "source": "marker:162:#/document:Eq. (11)",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:26",
       "marker_type": "equation",
       "label": "Eq. (11)",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -5515,10 +5613,10 @@
     },
     {
       "source": "marker:164:#/document:Eq. (12)",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:27",
       "marker_type": "equation",
       "label": "Eq. (12)",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -5579,10 +5677,10 @@
     },
     {
       "source": "marker:172:#/document:5",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:18",
       "marker_type": "equation",
       "label": "5",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -5611,7 +5709,7 @@
     },
     {
       "source": "marker:176:#/document:7",
-      "target": "ent:mineru:example02:equation:33",
+      "target": "ent:mineru:example02:equation:22",
       "marker_type": "equation",
       "label": "7",
       "resolved": true,
@@ -5659,10 +5757,10 @@
     },
     {
       "source": "marker:182:#/document:21",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:40",
       "marker_type": "equation",
       "label": "21",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -5683,10 +5781,10 @@
     },
     {
       "source": "marker:185:#/document:23",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:43",
       "marker_type": "equation",
       "label": "23",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -5715,10 +5813,10 @@
     },
     {
       "source": "marker:189:#/document:11",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:26",
       "marker_type": "equation",
       "label": "11",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -5803,18 +5901,18 @@
     },
     {
       "source": "marker:200:#/document:10",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:25",
       "marker_type": "equation",
       "label": "10",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
       "source": "marker:201:#/document:12",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:27",
       "marker_type": "equation",
       "label": "12",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -5883,10 +5981,10 @@
     },
     {
       "source": "marker:210:#/document:17",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:34",
       "marker_type": "equation",
       "label": "17",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -5907,10 +6005,10 @@
     },
     {
       "source": "marker:213:#/document:4",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:15",
       "marker_type": "equation",
       "label": "4",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -5931,10 +6029,10 @@
     },
     {
       "source": "marker:216:#/document:59",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:133",
       "marker_type": "equation",
       "label": "59",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -5955,26 +6053,26 @@
     },
     {
       "source": "marker:219:#/document:69",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:152",
       "marker_type": "equation",
       "label": "69",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
       "source": "marker:220:#/document:70",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:153",
       "marker_type": "equation",
       "label": "70",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
       "source": "marker:221:#/document:15",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:31",
       "marker_type": "equation",
       "label": "15",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -6035,18 +6133,18 @@
     },
     {
       "source": "marker:229:#/document:78",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:194",
       "marker_type": "equation",
       "label": "78",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
       "source": "marker:230:#/document:19",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:36",
       "marker_type": "equation",
       "label": "19",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -6083,10 +6181,10 @@
     },
     {
       "source": "marker:235:#/document/pages/1:Eq. (11)",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:26",
       "marker_type": "equation",
       "label": "Eq. (11)",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -8608,8 +8706,20 @@
       "label": ""
     },
     {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:26",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
       "source": "section:bibliography:example02/consensus+mineru",
       "target": "ent:mineru:example02:reference_item:231",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:27",
       "edge_kind": "contains",
       "label": ""
     },
@@ -8668,8 +8778,26 @@
       "label": ""
     },
     {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:26",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:25",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
       "source": "section:bibliography:example02/consensus+mineru",
       "target": "ent:mineru:example02:reference_item:231",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:27",
       "edge_kind": "contains",
       "label": ""
     },
@@ -8682,6 +8810,18 @@
     {
       "source": "section:bibliography:example02/consensus+mineru",
       "target": "ent:mineru:example02:reference_item:246",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:15",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:153",
       "edge_kind": "contains",
       "label": ""
     },
@@ -9076,8 +9216,20 @@
       "label": ""
     },
     {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:26",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
       "source": "section:bibliography:example02/consensus+mineru",
       "target": "ent:mineru:example02:reference_item:231",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:27",
       "edge_kind": "contains",
       "label": ""
     },
@@ -9124,6 +9276,12 @@
       "label": ""
     },
     {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:18",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
       "source": "section:bibliography:example02/consensus+mineru",
       "target": "ent:mineru:example02:reference_item:218",
       "edge_kind": "contains",
@@ -9143,7 +9301,7 @@
     },
     {
       "source": "page:example02/consensus+mineru:1",
-      "target": "ent:mineru:example02:equation:33",
+      "target": "ent:mineru:example02:equation:22",
       "edge_kind": "contains",
       "label": ""
     },
@@ -9178,6 +9336,12 @@
       "label": ""
     },
     {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:40",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
       "source": "section:bibliography:example02/consensus+mineru",
       "target": "ent:mineru:example02:reference_item:233",
       "edge_kind": "contains",
@@ -9186,6 +9350,12 @@
     {
       "source": "section:bibliography:example02/consensus+mineru",
       "target": "ent:mineru:example02:reference_item:231",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:43",
       "edge_kind": "contains",
       "label": ""
     },
@@ -9204,6 +9374,12 @@
     {
       "source": "section:bibliography:example02/consensus+mineru",
       "target": "ent:mineru:example02:reference_item:240",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:26",
       "edge_kind": "contains",
       "label": ""
     },
@@ -9268,6 +9444,18 @@
       "label": ""
     },
     {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:25",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:27",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
       "source": "section:bibliography:example02/consensus+mineru",
       "target": "ent:mineru:example02:reference_item:242",
       "edge_kind": "contains",
@@ -9310,6 +9498,12 @@
       "label": ""
     },
     {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:34",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
       "source": "section:bibliography:example02/consensus+mineru",
       "target": "ent:mineru:example02:reference_item:251",
       "edge_kind": "contains",
@@ -9322,6 +9516,18 @@
       "label": ""
     },
     {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:15",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:133",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
       "source": "section:bibliography:example02/consensus+mineru",
       "target": "ent:mineru:example02:reference_item:215",
       "edge_kind": "contains",
@@ -9330,6 +9536,24 @@
     {
       "source": "section:bibliography:example02/consensus+mineru",
       "target": "ent:mineru:example02:reference_item:244",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:152",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:153",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:31",
       "edge_kind": "contains",
       "label": ""
     },
@@ -9376,8 +9600,26 @@
       "label": ""
     },
     {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:194",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:36",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
       "source": "section:bibliography:example02/consensus+mineru",
       "target": "ent:mineru:example02:reference_item:252",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/consensus+mineru:1",
+      "target": "ent:mineru:example02:equation:26",
       "edge_kind": "contains",
       "label": ""
     },
@@ -9409,8 +9651,8 @@
   "metadata": {
     "doc_hash": "sha256:bad03db1791be9cd52d706ee8dd166bb3a710afa94c077d3308b7e8b023db106",
     "total_markers": 292,
-    "resolved_count": 142,
-    "unresolved_count": 150,
+    "resolved_count": 166,
+    "unresolved_count": 126,
     "backend_versions": {
       "regex": "0.1.0",
       "grobid": "0.1.0",

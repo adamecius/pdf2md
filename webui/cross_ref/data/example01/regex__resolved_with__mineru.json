@@ -1933,6 +1933,20 @@
       "page_no": 1
     },
     {
+      "id": "ent:mineru:example01:equation:72",
+      "type": "equation",
+      "label": "ent:mineru:example01:equation:72",
+      "parent_id": "page:example01/regex+mineru:1",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example01:equation:75",
+      "type": "equation",
+      "label": "ent:mineru:example01:equation:75",
+      "parent_id": "page:example01/regex+mineru:1",
+      "page_no": 1
+    },
+    {
       "id": "ent:mineru:example01:caption:88",
       "type": "figure",
       "label": "ent:mineru:example01:caption:88",
@@ -2790,10 +2804,10 @@
     },
     {
       "source": "marker:105:#/document:equation (11)",
-      "target": "_unresolved",
+      "target": "ent:mineru:example01:equation:72",
       "marker_type": "equation",
       "label": "equation (11)",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -2814,10 +2828,10 @@
     },
     {
       "source": "marker:108:#/document:Eq. (14)",
-      "target": "_unresolved",
+      "target": "ent:mineru:example01:equation:75",
       "marker_type": "equation",
       "label": "Eq. (14)",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -4361,6 +4375,12 @@
       "label": ""
     },
     {
+      "source": "page:example01/regex+mineru:1",
+      "target": "ent:mineru:example01:equation:72",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
       "source": "section:bibliography:example01/regex+mineru",
       "target": "ent:mineru:example01:footnote:19",
       "edge_kind": "contains",
@@ -4369,6 +4389,12 @@
     {
       "source": "section:bibliography:example01/regex+mineru",
       "target": "ent:mineru:example01:footnote:19",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/regex+mineru:1",
+      "target": "ent:mineru:example01:equation:75",
       "edge_kind": "contains",
       "label": ""
     },
@@ -4490,8 +4516,8 @@
   "metadata": {
     "doc_hash": "sha256:14e470cf2425286b3a04cde73e2ee7274d010a31726a1e5ce5703f1012d0f4bb",
     "total_markers": 129,
-    "resolved_count": 119,
-    "unresolved_count": 10,
+    "resolved_count": 121,
+    "unresolved_count": 8,
     "backend_versions": {
       "regex": "0.1.0"
     },

@@ -5056,18 +5056,18 @@
       "parent_id": "document:example3/consensus+consensus"
     },
     {
-      "id": "section:index:example3/consensus+consensus",
-      "type": "index_section",
-      "label": "Index",
-      "parent_id": "document:example3/consensus+consensus",
-      "back_matter_kind": "index"
-    },
-    {
       "id": "section:bibliography:example3/consensus+consensus",
       "type": "bibliography_section",
       "label": "Bibliography",
       "parent_id": "document:example3/consensus+consensus",
       "back_matter_kind": "bibliography"
+    },
+    {
+      "id": "section:index:example3/consensus+consensus",
+      "type": "index_section",
+      "label": "Index",
+      "parent_id": "document:example3/consensus+consensus",
+      "back_matter_kind": "index"
     },
     {
       "id": "#/bibliography/b0",
@@ -74849,9 +74849,9 @@
       "page_no": 734
     },
     {
-      "id": "ent:consensus:example3:caption:4016",
+      "id": "ent:consensus:example3:caption:4014",
       "type": "figure",
-      "label": "ent:consensus:example3:caption:4016",
+      "label": "ent:consensus:example3:caption:4014",
       "parent_id": "page:example3/consensus+consensus:626",
       "page_no": 626
     },
@@ -74940,9 +74940,9 @@
       "page_no": 735
     },
     {
-      "id": "ent:consensus:example3:caption:4023",
+      "id": "ent:consensus:example3:caption:4021",
       "type": "figure",
-      "label": "ent:consensus:example3:caption:4023",
+      "label": "ent:consensus:example3:caption:4021",
       "parent_id": "page:example3/consensus+consensus:645",
       "page_no": 645
     },
@@ -75934,9 +75934,9 @@
       "page_no": 742
     },
     {
-      "id": "ent:consensus:example3:figure:5021",
+      "id": "ent:consensus:example3:figure:4414",
       "type": "figure",
-      "label": "ent:consensus:example3:figure:5021",
+      "label": "ent:consensus:example3:figure:4414",
       "parent_id": "page:example3/consensus+consensus:1",
       "page_no": 1
     },
@@ -76109,9 +76109,9 @@
       "page_no": 743
     },
     {
-      "id": "ent:consensus:example3:figure:4421",
+      "id": "ent:consensus:example3:figure:4279",
       "type": "figure",
-      "label": "ent:consensus:example3:figure:4421",
+      "label": "ent:consensus:example3:figure:4279",
       "parent_id": "page:example3/consensus+consensus:1",
       "page_no": 1
     },
@@ -76662,9 +76662,9 @@
       "page_no": 746
     },
     {
-      "id": "ent:consensus:example3:figure:4190",
+      "id": "ent:consensus:example3:figure:4185",
       "type": "figure",
-      "label": "ent:consensus:example3:figure:4190",
+      "label": "ent:consensus:example3:figure:4185",
       "parent_id": "page:example3/consensus+consensus:1",
       "page_no": 1
     },
@@ -76865,9 +76865,9 @@
       "page_no": 748
     },
     {
-      "id": "ent:consensus:example3:figure:4311",
+      "id": "ent:consensus:example3:figure:4240",
       "type": "figure",
-      "label": "ent:consensus:example3:figure:4311",
+      "label": "ent:consensus:example3:figure:4240",
       "parent_id": "page:example3/consensus+consensus:1",
       "page_no": 1
     },
@@ -77026,9 +77026,9 @@
       "page_no": 749
     },
     {
-      "id": "ent:consensus:example3:figure:4206",
+      "id": "ent:consensus:example3:figure:4200",
       "type": "figure",
-      "label": "ent:consensus:example3:figure:4206",
+      "label": "ent:consensus:example3:figure:4200",
       "parent_id": "page:example3/consensus+consensus:1",
       "page_no": 1
     },
@@ -77362,9 +77362,9 @@
       "page_no": 751
     },
     {
-      "id": "ent:consensus:example3:figure:4422",
+      "id": "ent:consensus:example3:figure:4280",
       "type": "figure",
-      "label": "ent:consensus:example3:figure:4422",
+      "label": "ent:consensus:example3:figure:4280",
       "parent_id": "page:example3/consensus+consensus:1",
       "page_no": 1
     },
@@ -77376,9 +77376,9 @@
       "page_no": 751
     },
     {
-      "id": "ent:consensus:example3:figure:4192",
+      "id": "ent:consensus:example3:figure:4187",
       "type": "figure",
-      "label": "ent:consensus:example3:figure:4192",
+      "label": "ent:consensus:example3:figure:4187",
       "parent_id": "page:example3/consensus+consensus:1",
       "page_no": 1
     },
@@ -77754,9 +77754,9 @@
       "page_no": 754
     },
     {
-      "id": "ent:consensus:example3:figure:5219",
+      "id": "ent:consensus:example3:figure:4474",
       "type": "figure",
-      "label": "ent:consensus:example3:figure:5219",
+      "label": "ent:consensus:example3:figure:4474",
       "parent_id": "page:example3/consensus+consensus:1",
       "page_no": 1
     },
@@ -78083,9 +78083,9 @@
       "page_no": 756
     },
     {
-      "id": "ent:consensus:example3:figure:5251",
+      "id": "ent:consensus:example3:figure:4500",
       "type": "figure",
-      "label": "ent:consensus:example3:figure:5251",
+      "label": "ent:consensus:example3:figure:4500",
       "parent_id": "page:example3/consensus+consensus:1",
       "page_no": 1
     },
@@ -79133,9 +79133,9 @@
       "page_no": 763
     },
     {
-      "id": "ent:consensus:example3:figure:4201",
+      "id": "ent:consensus:example3:figure:4195",
       "type": "figure",
-      "label": "ent:consensus:example3:figure:4201",
+      "label": "ent:consensus:example3:figure:4195",
       "parent_id": "page:example3/consensus+consensus:1",
       "page_no": 1
     },
@@ -81086,9 +81086,9 @@
       "page_no": 776
     },
     {
-      "id": "ent:consensus:example3:figure:5604",
+      "id": "ent:consensus:example3:figure:4571",
       "type": "figure",
-      "label": "ent:consensus:example3:figure:5604",
+      "label": "ent:consensus:example3:figure:4571",
       "parent_id": "page:example3/consensus+consensus:1",
       "page_no": 1
     },
@@ -81387,9 +81387,9 @@
       "page_no": 778
     },
     {
-      "id": "ent:consensus:example3:figure:4577",
+      "id": "ent:consensus:example3:figure:4311",
       "type": "figure",
-      "label": "ent:consensus:example3:figure:4577",
+      "label": "ent:consensus:example3:figure:4311",
       "parent_id": "page:example3/consensus+consensus:1",
       "page_no": 1
     },
@@ -82598,9 +82598,9 @@
       "page_no": 61
     },
     {
-      "id": "ent:consensus:example3:footnote:3777",
+      "id": "ent:consensus:example3:footnote:3775",
       "type": "footnote",
-      "label": "ent:consensus:example3:footnote:3777",
+      "label": "ent:consensus:example3:footnote:3775",
       "parent_id": "page:example3/consensus+consensus:125",
       "page_no": 125
     },
@@ -82745,9 +82745,9 @@
       "page_no": 29
     },
     {
-      "id": "ent:consensus:example3:footnote:3784",
+      "id": "ent:consensus:example3:footnote:3782",
       "type": "footnote",
-      "label": "ent:consensus:example3:footnote:3784",
+      "label": "ent:consensus:example3:footnote:3782",
       "parent_id": "page:example3/consensus+consensus:127",
       "page_no": 127
     },
@@ -82773,18 +82773,11 @@
       "page_no": 38
     },
     {
-      "id": "ent:consensus:example3:footnote:3782",
+      "id": "ent:consensus:example3:footnote:3780",
       "type": "footnote",
-      "label": "ent:consensus:example3:footnote:3782",
+      "label": "ent:consensus:example3:footnote:3780",
       "parent_id": "page:example3/consensus+consensus:126",
       "page_no": 126
-    },
-    {
-      "id": "ent:consensus:example3:footnote:3785",
-      "type": "footnote",
-      "label": "ent:consensus:example3:footnote:3785",
-      "parent_id": "page:example3/consensus+consensus:127",
-      "page_no": 127
     },
     {
       "id": "ent:consensus:example3:footnote:3783",
@@ -82794,23 +82787,30 @@
       "page_no": 127
     },
     {
-      "id": "ent:consensus:example3:footnote:3780",
+      "id": "ent:consensus:example3:footnote:3781",
       "type": "footnote",
-      "label": "ent:consensus:example3:footnote:3780",
-      "parent_id": "page:example3/consensus+consensus:125",
-      "page_no": 125
-    },
-    {
-      "id": "ent:consensus:example3:footnote:3779",
-      "type": "footnote",
-      "label": "ent:consensus:example3:footnote:3779",
-      "parent_id": "page:example3/consensus+consensus:125",
-      "page_no": 125
+      "label": "ent:consensus:example3:footnote:3781",
+      "parent_id": "page:example3/consensus+consensus:127",
+      "page_no": 127
     },
     {
       "id": "ent:consensus:example3:footnote:3778",
       "type": "footnote",
       "label": "ent:consensus:example3:footnote:3778",
+      "parent_id": "page:example3/consensus+consensus:125",
+      "page_no": 125
+    },
+    {
+      "id": "ent:consensus:example3:footnote:3777",
+      "type": "footnote",
+      "label": "ent:consensus:example3:footnote:3777",
+      "parent_id": "page:example3/consensus+consensus:125",
+      "page_no": 125
+    },
+    {
+      "id": "ent:consensus:example3:footnote:3776",
+      "type": "footnote",
+      "label": "ent:consensus:example3:footnote:3776",
       "parent_id": "page:example3/consensus+consensus:125",
       "page_no": 125
     },
@@ -82822,9 +82822,9 @@
       "page_no": 40
     },
     {
-      "id": "ent:consensus:example3:caption:4025",
+      "id": "ent:consensus:example3:caption:4023",
       "type": "figure",
-      "label": "ent:consensus:example3:caption:4025",
+      "label": "ent:consensus:example3:caption:4023",
       "parent_id": "page:example3/consensus+consensus:646",
       "page_no": 646
     },
@@ -83648,9 +83648,9 @@
       "page_no": 122
     },
     {
-      "id": "ent:consensus:example3:figure:4173",
+      "id": "ent:consensus:example3:figure:4171",
       "type": "figure",
-      "label": "ent:consensus:example3:figure:4173",
+      "label": "ent:consensus:example3:figure:4171",
       "parent_id": "page:example3/consensus+consensus:1",
       "page_no": 1
     },
@@ -84040,9 +84040,9 @@
       "page_no": 145
     },
     {
-      "id": "ent:consensus:example3:section:3540",
+      "id": "ent:consensus:example3:section:3539",
       "type": "section",
-      "label": "ent:consensus:example3:section:3540",
+      "label": "ent:consensus:example3:section:3539",
       "parent_id": "page:example3/consensus+consensus:1",
       "page_no": 1
     },
@@ -84831,11 +84831,11 @@
       "page_no": 211
     },
     {
-      "id": "ent:consensus:example3:equation:3574",
+      "id": "ent:consensus:example3:equation:1438",
       "type": "equation",
-      "label": "ent:consensus:example3:equation:3574",
-      "parent_id": "page:example3/consensus+consensus:1",
-      "page_no": 1
+      "label": "ent:consensus:example3:equation:1438",
+      "parent_id": "page:example3/consensus+consensus:610",
+      "page_no": 610
     },
     {
       "id": "ent:consensus:example3:equation:467",
@@ -86154,9 +86154,9 @@
       "page_no": 93
     },
     {
-      "id": "ent:consensus:example3:section:3628",
+      "id": "ent:consensus:example3:section:3626",
       "type": "section",
-      "label": "ent:consensus:example3:section:3628",
+      "label": "ent:consensus:example3:section:3626",
       "parent_id": "page:example3/consensus+consensus:1",
       "page_no": 1
     },
@@ -89381,9 +89381,9 @@
       "page_no": 562
     },
     {
-      "id": "ent:consensus:example3:footnote:3725",
+      "id": "ent:consensus:example3:footnote:3723",
       "type": "footnote",
-      "label": "ent:consensus:example3:footnote:3725",
+      "label": "ent:consensus:example3:footnote:3723",
       "parent_id": "page:example3/consensus+consensus:35",
       "page_no": 35
     },
@@ -89451,9 +89451,9 @@
       "page_no": 568
     },
     {
-      "id": "ent:consensus:example3:caption:4058",
+      "id": "ent:consensus:example3:caption:4056",
       "type": "figure",
-      "label": "ent:consensus:example3:caption:4058",
+      "label": "ent:consensus:example3:caption:4056",
       "parent_id": "page:example3/consensus+consensus:723",
       "page_no": 723
     },
@@ -89743,13 +89743,6 @@
       "label": "ent:consensus:example3:section:1434",
       "parent_id": "page:example3/consensus+consensus:607",
       "page_no": 607
-    },
-    {
-      "id": "ent:consensus:example3:equation:1438",
-      "type": "equation",
-      "label": "ent:consensus:example3:equation:1438",
-      "parent_id": "page:example3/consensus+consensus:610",
-      "page_no": 610
     },
     {
       "id": "ent:consensus:example3:equation:1439",
@@ -90340,9 +90333,9 @@
       "page_no": 640
     },
     {
-      "id": "ent:consensus:example3:table:3789",
+      "id": "ent:consensus:example3:table:3787",
       "type": "table",
-      "label": "ent:consensus:example3:table:3789",
+      "label": "ent:consensus:example3:table:3787",
       "parent_id": "page:example3/consensus+consensus:139",
       "page_no": 139
     },
@@ -90550,9 +90543,9 @@
       "page_no": 654
     },
     {
-      "id": "ent:consensus:example3:section:3633",
+      "id": "ent:consensus:example3:section:3631",
       "type": "section",
-      "label": "ent:consensus:example3:section:3633",
+      "label": "ent:consensus:example3:section:3631",
       "parent_id": "page:example3/consensus+consensus:1",
       "page_no": 1
     },
@@ -91467,9 +91460,9 @@
       "page_no": 714
     },
     {
-      "id": "ent:consensus:example3:section:3651",
+      "id": "ent:consensus:example3:section:3649",
       "type": "section",
-      "label": "ent:consensus:example3:section:3651",
+      "label": "ent:consensus:example3:section:3649",
       "parent_id": "page:example3/consensus+consensus:1",
       "page_no": 1
     },
@@ -91986,7 +91979,7 @@
     },
     {
       "source": "marker:40:#/document:1",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "marker_type": "figure",
       "label": "1",
       "resolved": true,
@@ -92114,7 +92107,7 @@
     },
     {
       "source": "marker:56:#/document:2",
-      "target": "ent:consensus:example3:caption:4023",
+      "target": "ent:consensus:example3:caption:4021",
       "marker_type": "figure",
       "label": "2",
       "resolved": true,
@@ -93490,7 +93483,7 @@
     },
     {
       "source": "marker:228:#/document:22",
-      "target": "ent:consensus:example3:figure:5021",
+      "target": "ent:consensus:example3:figure:4414",
       "marker_type": "figure",
       "label": "22",
       "resolved": true,
@@ -93714,7 +93707,7 @@
     },
     {
       "source": "marker:256:#/document:21.",
-      "target": "ent:consensus:example3:figure:4421",
+      "target": "ent:consensus:example3:figure:4279",
       "marker_type": "figure",
       "label": "21.",
       "resolved": true,
@@ -93946,7 +93939,7 @@
     },
     {
       "source": "marker:285:#/document:21",
-      "target": "ent:consensus:example3:figure:4421",
+      "target": "ent:consensus:example3:figure:4279",
       "marker_type": "figure",
       "label": "21",
       "resolved": true,
@@ -94634,7 +94627,7 @@
     },
     {
       "source": "marker:371:#/document:5",
-      "target": "ent:consensus:example3:figure:4190",
+      "target": "ent:consensus:example3:figure:4185",
       "marker_type": "figure",
       "label": "5",
       "resolved": true,
@@ -95122,7 +95115,7 @@
     },
     {
       "source": "marker:432:#/document:6",
-      "target": "ent:consensus:example3:figure:4311",
+      "target": "ent:consensus:example3:figure:4240",
       "marker_type": "figure",
       "label": "6",
       "resolved": true,
@@ -95418,7 +95411,7 @@
     },
     {
       "source": "marker:469:#/document:7",
-      "target": "ent:consensus:example3:figure:4206",
+      "target": "ent:consensus:example3:figure:4200",
       "marker_type": "figure",
       "label": "7",
       "resolved": true,
@@ -96050,7 +96043,7 @@
     },
     {
       "source": "marker:548:#/document:9",
-      "target": "ent:consensus:example3:figure:4422",
+      "target": "ent:consensus:example3:figure:4280",
       "marker_type": "figure",
       "label": "9",
       "resolved": true,
@@ -96082,7 +96075,7 @@
     },
     {
       "source": "marker:552:#/document:8",
-      "target": "ent:consensus:example3:figure:4192",
+      "target": "ent:consensus:example3:figure:4187",
       "marker_type": "figure",
       "label": "8",
       "resolved": true,
@@ -96738,7 +96731,7 @@
     },
     {
       "source": "marker:634:#/document:10",
-      "target": "ent:consensus:example3:figure:5219",
+      "target": "ent:consensus:example3:figure:4474",
       "marker_type": "figure",
       "label": "10",
       "resolved": true,
@@ -97266,7 +97259,7 @@
     },
     {
       "source": "marker:700:#/document:16",
-      "target": "ent:consensus:example3:figure:5251",
+      "target": "ent:consensus:example3:figure:4500",
       "marker_type": "figure",
       "label": "16",
       "resolved": true,
@@ -99378,7 +99371,7 @@
     },
     {
       "source": "marker:964:#/document:15",
-      "target": "ent:consensus:example3:figure:4201",
+      "target": "ent:consensus:example3:figure:4195",
       "marker_type": "figure",
       "label": "15",
       "resolved": true,
@@ -99698,7 +99691,7 @@
     },
     {
       "source": "marker:1004:#/document:2.",
-      "target": "ent:consensus:example3:caption:4023",
+      "target": "ent:consensus:example3:caption:4021",
       "marker_type": "figure",
       "label": "2.",
       "resolved": true,
@@ -103378,7 +103371,7 @@
     },
     {
       "source": "marker:1464:#/document:24",
-      "target": "ent:consensus:example3:figure:5604",
+      "target": "ent:consensus:example3:figure:4571",
       "marker_type": "figure",
       "label": "24",
       "resolved": true,
@@ -104106,7 +104099,7 @@
     },
     {
       "source": "marker:1555:#/document:28",
-      "target": "ent:consensus:example3:figure:4577",
+      "target": "ent:consensus:example3:figure:4311",
       "marker_type": "figure",
       "label": "28",
       "resolved": true,
@@ -106258,7 +106251,7 @@
     },
     {
       "source": "marker:1824:#/document/pages/1:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -106290,7 +106283,7 @@
     },
     {
       "source": "marker:1828:#/document/pages/3:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -106386,7 +106379,7 @@
     },
     {
       "source": "marker:1840:#/document/pages/6:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -106394,7 +106387,7 @@
     },
     {
       "source": "marker:1841:#/document/pages/7:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -106498,7 +106491,7 @@
     },
     {
       "source": "marker:1854:#/document/pages/19:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -106826,7 +106819,7 @@
     },
     {
       "source": "marker:1895:#/document/pages/32:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -106842,7 +106835,7 @@
     },
     {
       "source": "marker:1897:#/document/pages/33:7 Pauli and Sommerfeld based their",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "marker_type": "footnote",
       "label": "7 Pauli and Sommerfeld based their",
       "resolved": true,
@@ -106866,7 +106859,7 @@
     },
     {
       "source": "marker:1900:#/document/pages/35:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -107010,7 +107003,7 @@
     },
     {
       "source": "marker:1918:#/document/pages/38:Shockley\u2019s work is noted on page 5. One of the other inventors of the transistor, John Bardeen, was a student of Wigner; his thesis work on electronic structure of metals is quoted in Chapter 5.",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "marker_type": "footnote",
       "label": "Shockley\u2019s work is noted on page 5. One of the other inventors of the transistor, John Bardeen, was a student of Wigner; his thesis work on electronic structure of metals is quoted in Chapter 5.",
       "resolved": true,
@@ -107098,7 +107091,7 @@
     },
     {
       "source": "marker:1929:#/document/pages/39:8",
-      "target": "ent:consensus:example3:footnote:3785",
+      "target": "ent:consensus:example3:footnote:3783",
       "marker_type": "footnote",
       "label": "8",
       "resolved": true,
@@ -107106,7 +107099,7 @@
     },
     {
       "source": "marker:1930:#/document/pages/39:7",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "marker_type": "footnote",
       "label": "7",
       "resolved": true,
@@ -107114,7 +107107,7 @@
     },
     {
       "source": "marker:1931:#/document/pages/39:6",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "marker_type": "footnote",
       "label": "6",
       "resolved": true,
@@ -107122,7 +107115,7 @@
     },
     {
       "source": "marker:1932:#/document/pages/39:5",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "marker_type": "footnote",
       "label": "5",
       "resolved": true,
@@ -107130,7 +107123,7 @@
     },
     {
       "source": "marker:1933:#/document/pages/39:4",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "marker_type": "footnote",
       "label": "4",
       "resolved": true,
@@ -107138,7 +107131,7 @@
     },
     {
       "source": "marker:1934:#/document/pages/39:3",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "3",
       "resolved": true,
@@ -107146,7 +107139,7 @@
     },
     {
       "source": "marker:1935:#/document/pages/39:2",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2",
       "resolved": true,
@@ -107154,7 +107147,7 @@
     },
     {
       "source": "marker:1936:#/document/pages/39:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -107266,7 +107259,7 @@
     },
     {
       "source": "marker:1950:#/document/pages/44:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -107274,7 +107267,7 @@
     },
     {
       "source": "marker:1951:#/document/pages/44:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -107410,7 +107403,7 @@
     },
     {
       "source": "marker:1968:#/document/pages/51:4 For example, over 1,000 materials are treated in [114], which concludes that SCAN leads to significantly more accurate predicted crystal volumes and mildly improved bandgaps as compared to PBE, but calculations are about five times slower than for PBE. Hybrid functionals are compared for many systems in [115].",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "4 For example, over 1,000 materials are treated in [114], which concludes that SCAN leads to significantly more accurate predicted crystal volumes and mildly improved bandgaps as compared to PBE, but calculations are about five times slower than for PBE. Hybrid functionals are compared for many systems in [115].",
       "resolved": true,
@@ -107418,7 +107411,7 @@
     },
     {
       "source": "marker:1969:#/document/pages/51:5 There is another very important consideration. A main purpose for the development of hybrid functionals is to improve the prediction of bandgaps, which is a major deficiency that plagues the LDA and GGA functionals. The improvement is stressed in many places in this book, such as the gaps shown in Fig. 2.24 and there are special considerations for solids illustrated by the optical spectra in Figs. 2.25, 2.26, and 2.1.5.",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "marker_type": "footnote",
       "label": "5 There is another very important consideration. A main purpose for the development of hybrid functionals is to improve the prediction of bandgaps, which is a major deficiency that plagues the LDA and GGA functionals. The improvement is stressed in many places in this book, such as the gaps shown in Fig. 2.24 and there are special considerations for solids illustrated by the optical spectra in Figs. 2.25, 2.26, and 2.1.5.",
       "resolved": true,
@@ -107450,7 +107443,7 @@
     },
     {
       "source": "marker:1973:#/document/pages/54:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -107458,7 +107451,7 @@
     },
     {
       "source": "marker:1974:#/document/pages/55:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -107466,7 +107459,7 @@
     },
     {
       "source": "marker:1975:#/document/pages/55:footnote 6",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "marker_type": "footnote",
       "label": "footnote 6",
       "resolved": true,
@@ -107482,7 +107475,7 @@
     },
     {
       "source": "marker:1977:#/document/pages/56:7 See, for example, the book [134].",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "marker_type": "footnote",
       "label": "7 See, for example, the book [134].",
       "resolved": true,
@@ -107586,7 +107579,7 @@
     },
     {
       "source": "marker:1990:#/document/pages/61:8",
-      "target": "ent:consensus:example3:footnote:3785",
+      "target": "ent:consensus:example3:footnote:3783",
       "marker_type": "footnote",
       "label": "8",
       "resolved": true,
@@ -107674,7 +107667,7 @@
     },
     {
       "source": "marker:2001:#/document/pages/64:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -107930,7 +107923,7 @@
     },
     {
       "source": "marker:2033:#/document/pages/81:This is a primary topic in [1] and there are excellent reviews such as [240].",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "This is a primary topic in [1] and there are excellent reviews such as [240].",
       "resolved": true,
@@ -108002,7 +107995,7 @@
     },
     {
       "source": "marker:2042:#/document/pages/85:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -108066,7 +108059,7 @@
     },
     {
       "source": "marker:2050:#/document/pages/89:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -108194,7 +108187,7 @@
     },
     {
       "source": "marker:2066:#/document/pages/92:2 The method in its present form was developed by Ritz [258] in 1908, but the approach was used previously by Lord Rayleigh (John William Strutt) in several problems described in his 1877 book [259] and earlier work. The methods are described in many more texts, such as [260\u2013262].",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2 The method in its present form was developed by Ritz [258] in 1908, but the approach was used previously by Lord Rayleigh (John William Strutt) in several problems described in his 1877 book [259] and earlier work. The methods are described in many more texts, such as [260\u2013262].",
       "resolved": true,
@@ -108202,7 +108195,7 @@
     },
     {
       "source": "marker:2067:#/document/pages/92:3 This is an example of functional derivatives described in Appendix A for the case where the energy functional Eq. (3.9) is linear in both the bra \u27e8\u03a8| and the ket |\u03a8\u27e9 functions. Thus one may vary either or both at the same time with the same result.",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "3 This is an example of functional derivatives described in Appendix A for the case where the energy functional Eq. (3.9) is linear in both the bra \u27e8\u03a8| and the ket |\u03a8\u27e9 functions. Thus one may vary either or both at the same time with the same result.",
       "resolved": true,
@@ -108250,7 +108243,7 @@
     },
     {
       "source": "marker:2073:#/document/pages/93:4 This definition differs from that given in many texts (see Section 3.7) as the difference from Hartree\u2013Fock, since the Hartree\u2013Fock density differs from the true density.",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "marker_type": "footnote",
       "label": "4 This definition differs from that given in many texts (see Section 3.7) as the difference from Hartree\u2013Fock, since the Hartree\u2013Fock density differs from the true density.",
       "resolved": true,
@@ -108418,7 +108411,7 @@
     },
     {
       "source": "marker:2094:#/document/pages/98:7",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "marker_type": "footnote",
       "label": "7",
       "resolved": true,
@@ -108738,7 +108731,7 @@
     },
     {
       "source": "marker:2134:#/document/pages/110:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -108770,7 +108763,7 @@
     },
     {
       "source": "marker:2138:#/document/pages/111:2",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2",
       "resolved": true,
@@ -108882,7 +108875,7 @@
     },
     {
       "source": "marker:2152:#/document/pages/115:3",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "3",
       "resolved": true,
@@ -108890,7 +108883,7 @@
     },
     {
       "source": "marker:2153:#/document/pages/115:4",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "marker_type": "footnote",
       "label": "4",
       "resolved": true,
@@ -109098,7 +109091,7 @@
     },
     {
       "source": "marker:2179:#/document/pages/122:The zone center (k = 0) is designated \u0393 and interior lines by Greek letters; points on the zone boundary are designated by Roman letters. In the case of the fcc lattice, a portion of a neighboring cell is represented by dotted lines. This shows the orientation of neighboring cells that provides useful information, for example, that the line \u03a3 from \u0393 to K continues to a point outside the first BZ that is equivalent to X.",
-      "target": "ent:consensus:example3:figure:4173",
+      "target": "ent:consensus:example3:figure:4171",
       "marker_type": "figure",
       "label": "The zone center (k = 0) is designated \u0393 and interior lines by Greek letters; points on the zone boundary are designated by Roman letters. In the case of the fcc lattice, a portion of a neighboring cell is represented by dotted lines. This shows the orientation of neighboring cells that provides useful information, for example, that the line \u03a3 from \u0393 to K continues to a point outside the first BZ that is equivalent to X.",
       "resolved": true,
@@ -109122,7 +109115,7 @@
     },
     {
       "source": "marker:2182:#/document/pages/123:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -109154,7 +109147,7 @@
     },
     {
       "source": "marker:2186:#/document/pages/123:footnote 6",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "marker_type": "footnote",
       "label": "footnote 6",
       "resolved": true,
@@ -109162,7 +109155,7 @@
     },
     {
       "source": "marker:2187:#/document/pages/123:footnote 7",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "marker_type": "footnote",
       "label": "footnote 7",
       "resolved": true,
@@ -109418,7 +109411,7 @@
     },
     {
       "source": "marker:2219:#/document/pages/130:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -109594,7 +109587,7 @@
     },
     {
       "source": "marker:2241:#/document/pages/136:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -109610,7 +109603,7 @@
     },
     {
       "source": "marker:2243:#/document/pages/136:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -109634,7 +109627,7 @@
     },
     {
       "source": "marker:2246:#/document/pages/137:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -109690,7 +109683,7 @@
     },
     {
       "source": "marker:2253:#/document/pages/138:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -109746,7 +109739,7 @@
     },
     {
       "source": "marker:2260:#/document/pages/140:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -109914,7 +109907,7 @@
     },
     {
       "source": "marker:2281:#/document/pages/145:2",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2",
       "resolved": true,
@@ -109922,7 +109915,7 @@
     },
     {
       "source": "marker:2282:#/document/pages/145:Uniform Electron Gas and sp-Bonded Metals",
-      "target": "ent:consensus:example3:section:3540",
+      "target": "ent:consensus:example3:section:3539",
       "marker_type": "section",
       "label": "Uniform Electron Gas and sp-Bonded Metals",
       "resolved": true,
@@ -109930,7 +109923,7 @@
     },
     {
       "source": "marker:2283:#/document/pages/146:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -109946,7 +109939,7 @@
     },
     {
       "source": "marker:2285:#/document/pages/146:footnote 3",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "footnote 3",
       "resolved": true,
@@ -110114,7 +110107,7 @@
     },
     {
       "source": "marker:2306:#/document/pages/151:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -110314,7 +110307,7 @@
     },
     {
       "source": "marker:2331:#/document/pages/157:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -110402,7 +110395,7 @@
     },
     {
       "source": "marker:2342:#/document/pages/160:1 This is an example of functional equations described in Appendix A; see specifically Eq. (A.5).",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1 This is an example of functional equations described in Appendix A; see specifically Eq. (A.5).",
       "resolved": true,
@@ -110450,7 +110443,7 @@
     },
     {
       "source": "marker:2348:#/document/pages/161:2",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2",
       "resolved": true,
@@ -110514,7 +110507,7 @@
     },
     {
       "source": "marker:2356:#/document/pages/163:4 Note that here 'universal' means the same for all electron systems, independent of the external potential Vext(r).",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "marker_type": "footnote",
       "label": "4 Note that here 'universal' means the same for all electron systems, independent of the external potential Vext(r).",
       "resolved": true,
@@ -110650,7 +110643,7 @@
     },
     {
       "source": "marker:2373:#/document/pages/167:FIG. 3",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "FIG. 3",
       "resolved": true,
@@ -110714,7 +110707,7 @@
     },
     {
       "source": "marker:2381:#/document/pages/170:5 The dielectric susceptibility of an infinite system is a special case because the ground state is not strictly defined in the presence of a finite electric field. Nevertheless, susceptibilities can be calculated. Similarly a finite polarization is problematic. As discussed in Chapter 24, it is not given directly by the density; it is determined by expressions in terms of phases of the wavefunctions, which require some other method beyond the ground-state functional.",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "marker_type": "footnote",
       "label": "5 The dielectric susceptibility of an infinite system is a special case because the ground state is not strictly defined in the presence of a finite electric field. Nevertheless, susceptibilities can be calculated. Similarly a finite polarization is problematic. As discussed in Chapter 24, it is not given directly by the density; it is determined by expressions in terms of phases of the wavefunctions, which require some other method beyond the ground-state functional.",
       "resolved": true,
@@ -110770,7 +110763,7 @@
     },
     {
       "source": "marker:2388:#/document/pages/174:1 Ansatz: attempt, approach. A mathematical assumption, especially about the form of an unknown function, which is made in order to facilitate solution of an equation or other problem (Oxford English Dictionary).",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1 Ansatz: attempt, approach. A mathematical assumption, especially about the form of an unknown function, which is made in order to facilitate solution of an equation or other problem (Oxford English Dictionary).",
       "resolved": true,
@@ -110786,7 +110779,7 @@
     },
     {
       "source": "marker:2390:#/document/pages/175:3",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "3",
       "resolved": true,
@@ -110794,7 +110787,7 @@
     },
     {
       "source": "marker:2391:#/document/pages/175:2",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2",
       "resolved": true,
@@ -110802,7 +110795,7 @@
     },
     {
       "source": "marker:2392:#/document/pages/175:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -110874,7 +110867,7 @@
     },
     {
       "source": "marker:2401:#/document/pages/177:4",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "marker_type": "footnote",
       "label": "4",
       "resolved": true,
@@ -110922,7 +110915,7 @@
     },
     {
       "source": "marker:2407:#/document/pages/178:5",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "marker_type": "footnote",
       "label": "5",
       "resolved": true,
@@ -111218,7 +111211,7 @@
     },
     {
       "source": "marker:2444:#/document/pages/187:7 This method was first used in solid-state calculations by Bendt and Zunger [375] and described in more detail by Srivastava [376].",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "marker_type": "footnote",
       "label": "7 This method was first used in solid-state calculations by Bendt and Zunger [375] and described in more detail by Srivastava [376].",
       "resolved": true,
@@ -111290,7 +111283,7 @@
     },
     {
       "source": "marker:2453:#/document/pages/189:footnote [1]",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote [1]",
       "resolved": true,
@@ -111322,7 +111315,7 @@
     },
     {
       "source": "marker:2457:#/document/pages/190:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -111378,7 +111371,7 @@
     },
     {
       "source": "marker:2464:#/document/pages/194:8 The dielectric susceptibility is a special case and care must be taken to describe the electric polarization properly. There is a term outside the usual Kohn\u2013Sham theory related to the following question and described in Chapter 24.",
-      "target": "ent:consensus:example3:footnote:3785",
+      "target": "ent:consensus:example3:footnote:3783",
       "marker_type": "footnote",
       "label": "8 The dielectric susceptibility is a special case and care must be taken to describe the electric polarization properly. There is a term outside the usual Kohn\u2013Sham theory related to the following question and described in Chapter 24.",
       "resolved": true,
@@ -111586,7 +111579,7 @@
     },
     {
       "source": "marker:2490:#/document/pages/201:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -111858,7 +111851,7 @@
     },
     {
       "source": "marker:2524:#/document/pages/211:Fc = (1 - 0.21951s1^2 + ...)",
-      "target": "ent:consensus:example3:equation:3574",
+      "target": "ent:consensus:example3:equation:1438",
       "marker_type": "equation",
       "label": "Fc = (1 - 0.21951s1^2 + ...)",
       "resolved": true,
@@ -112146,7 +112139,7 @@
     },
     {
       "source": "marker:2560:#/document/pages/220:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -112506,7 +112499,7 @@
     },
     {
       "source": "marker:2605:#/document/pages/229:3",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "3",
       "resolved": true,
@@ -112594,7 +112587,7 @@
     },
     {
       "source": "marker:2616:#/document/pages/231:4",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "marker_type": "footnote",
       "label": "4",
       "resolved": true,
@@ -112618,7 +112611,7 @@
     },
     {
       "source": "marker:2619:#/document/pages/232:5",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "marker_type": "footnote",
       "label": "5",
       "resolved": true,
@@ -112666,7 +112659,7 @@
     },
     {
       "source": "marker:2625:#/document/pages/233:6",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "marker_type": "footnote",
       "label": "6",
       "resolved": true,
@@ -112730,7 +112723,7 @@
     },
     {
       "source": "marker:2633:#/document/pages/235:7 Imaginary frequencies are often used in many-body theory where they provide compact expressions like Eq. (9.25).",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "marker_type": "footnote",
       "label": "7 Imaginary frequencies are often used in many-body theory where they provide compact expressions like Eq. (9.25).",
       "resolved": true,
@@ -112778,7 +112771,7 @@
     },
     {
       "source": "marker:2639:#/document/pages/238:FIG. 2",
-      "target": "ent:consensus:example3:caption:4023",
+      "target": "ent:consensus:example3:caption:4021",
       "marker_type": "figure",
       "label": "FIG. 2",
       "resolved": true,
@@ -112962,7 +112955,7 @@
     },
     {
       "source": "marker:2662:#/document/pages/243:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -113130,7 +113123,7 @@
     },
     {
       "source": "marker:2683:#/document/pages/249:1 In general one needs nondiagonal Lagrange multipliers \u03b5n,l;n',l' [484], but these terms appear to be small [484].",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1 In general one needs nondiagonal Lagrange multipliers \u03b5n,l;n',l' [484], but these terms appear to be small [484].",
       "resolved": true,
@@ -113170,7 +113163,7 @@
     },
     {
       "source": "marker:2688:#/document/pages/250:2 This follows the definition of Slater [483], p. 180.",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2 This follows the definition of Slater [483], p. 180.",
       "resolved": true,
@@ -113610,7 +113603,7 @@
     },
     {
       "source": "marker:2743:#/document/pages/265:3",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "3",
       "resolved": true,
@@ -113666,7 +113659,7 @@
     },
     {
       "source": "marker:2750:#/document/pages/267:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -113706,7 +113699,7 @@
     },
     {
       "source": "marker:2755:#/document/pages/267:4",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "marker_type": "footnote",
       "label": "4",
       "resolved": true,
@@ -113738,7 +113731,7 @@
     },
     {
       "source": "marker:2759:#/document/pages/268:5 Perhaps the earliest work was that of Topp and Hopfield [524].",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "marker_type": "footnote",
       "label": "5 Perhaps the earliest work was that of Topp and Hopfield [524].",
       "resolved": true,
@@ -113810,7 +113803,7 @@
     },
     {
       "source": "marker:2768:#/document/pages/270:7",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "marker_type": "footnote",
       "label": "7",
       "resolved": true,
@@ -114338,7 +114331,7 @@
     },
     {
       "source": "marker:2834:#/document/pages/285:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -114450,7 +114443,7 @@
     },
     {
       "source": "marker:2848:#/document/pages/291:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -114554,7 +114547,7 @@
     },
     {
       "source": "marker:2861:#/document/pages/293:2",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2",
       "resolved": true,
@@ -114562,7 +114555,7 @@
     },
     {
       "source": "marker:2862:#/document/pages/293:3",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "3",
       "resolved": true,
@@ -114642,7 +114635,7 @@
     },
     {
       "source": "marker:2872:#/document/pages/297:5",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "marker_type": "footnote",
       "label": "5",
       "resolved": true,
@@ -114658,7 +114651,7 @@
     },
     {
       "source": "marker:2874:#/document/pages/297:Appendix F",
-      "target": "ent:consensus:example3:section:3628",
+      "target": "ent:consensus:example3:section:3626",
       "marker_type": "section",
       "label": "Appendix F",
       "resolved": true,
@@ -114850,7 +114843,7 @@
     },
     {
       "source": "marker:2898:#/document/pages/303:Fig. M.2",
-      "target": "ent:consensus:example3:caption:4023",
+      "target": "ent:consensus:example3:caption:4021",
       "marker_type": "figure",
       "label": "Fig. M.2",
       "resolved": true,
@@ -114858,7 +114851,7 @@
     },
     {
       "source": "marker:2899:#/document/pages/303:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -114890,7 +114883,7 @@
     },
     {
       "source": "marker:2903:#/document/pages/304:6 The method can readily be extended to nonorthogonal systems and nonuniform grids, but at the price of having to compute many different sets of C.",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "marker_type": "footnote",
       "label": "6 The method can readily be extended to nonorthogonal systems and nonuniform grids, but at the price of having to compute many different sets of C.",
       "resolved": true,
@@ -114962,7 +114955,7 @@
     },
     {
       "source": "marker:2912:#/document/pages/306:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -115002,7 +114995,7 @@
     },
     {
       "source": "marker:2917:#/document/pages/310:FIG. 1",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "marker_type": "figure",
       "label": "FIG. 1",
       "resolved": true,
@@ -115074,7 +115067,7 @@
     },
     {
       "source": "marker:2926:#/document/pages/311:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -115170,7 +115163,7 @@
     },
     {
       "source": "marker:2938:#/document/pages/314:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -115258,7 +115251,7 @@
     },
     {
       "source": "marker:2949:#/document/pages/315:2 Note the similarity to the Thomas\u2013Fermi expression, (12.25).",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2 Note the similarity to the Thomas\u2013Fermi expression, (12.25).",
       "resolved": true,
@@ -115298,7 +115291,7 @@
     },
     {
       "source": "marker:2954:#/document/pages/316:3 An example is the combination of dielectric screening and RMM-DIIS residual minimization, which is described in the online information on optimization in the VASP code.",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "3 An example is the combination of dielectric screening and RMM-DIIS residual minimization, which is described in the online information on optimization in the VASP code.",
       "resolved": true,
@@ -115338,7 +115331,7 @@
     },
     {
       "source": "marker:2959:#/document/pages/318:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -115370,7 +115363,7 @@
     },
     {
       "source": "marker:2963:#/document/pages/318:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -115658,7 +115651,7 @@
     },
     {
       "source": "marker:2999:#/document/pages/327:3",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "3",
       "resolved": true,
@@ -115946,7 +115939,7 @@
     },
     {
       "source": "marker:3035:#/document/pages/336:\u03b5(k) = \u00b1|t(k)| = \u00b1t \\left[ 1 + 4 cos \\left( k_y \\frac{\\sqrt{3}a}{2} \\right) cos \\left( k_x \\frac{a}{2} \\right) + 4 cos^2 \\left( k_x \\frac{a}{2} \\right) \\right]^{1/2}.",
-      "target": "ent:consensus:example3:equation:3574",
+      "target": "ent:consensus:example3:equation:1438",
       "marker_type": "equation",
       "label": "\u03b5(k) = \u00b1|t(k)| = \u00b1t \\left[ 1 + 4 cos \\left( k_y \\frac{\\sqrt{3}a}{2} \\right) cos \\left( k_x \\frac{a}{2} \\right) + 4 cos^2 \\left( k_x \\frac{a}{2} \\right) \\right]^{1/2}.",
       "resolved": true,
@@ -116026,7 +116019,7 @@
     },
     {
       "source": "marker:3045:#/document/pages/339:footnote 4",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "marker_type": "footnote",
       "label": "footnote 4",
       "resolved": true,
@@ -116250,7 +116243,7 @@
     },
     {
       "source": "marker:3073:#/document/pages/345:5 There are 40 parameters each for intersite hamiltonian and overlaps, and 13 on-site terms (s, p, d_eg, d_t2g).",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "5 There are 40 parameters each for intersite hamiltonian and overlaps, and 13 on-site terms (s, p, d_eg, d_t2g).",
       "resolved": true,
@@ -116514,7 +116507,7 @@
     },
     {
       "source": "marker:3106:#/document/pages/351:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -116538,7 +116531,7 @@
     },
     {
       "source": "marker:3109:#/document/pages/352:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -116658,7 +116651,7 @@
     },
     {
       "source": "marker:3124:#/document/pages/357:2 The term \u03b4E_II in Eq. (F.16) is omitted here. It should be added to cancel an unphysical term if the extent of the smeared ion core is allowed to be so large that they overlap.",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2 The term \u03b4E_II in Eq. (F.16) is omitted here. It should be added to cancel an unphysical term if the extent of the smeared ion core is allowed to be so large that they overlap.",
       "resolved": true,
@@ -116842,7 +116835,7 @@
     },
     {
       "source": "marker:3147:#/document/pages/365:3",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "3",
       "resolved": true,
@@ -116850,7 +116843,7 @@
     },
     {
       "source": "marker:3148:#/document/pages/365:4",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "marker_type": "footnote",
       "label": "4",
       "resolved": true,
@@ -116914,7 +116907,7 @@
     },
     {
       "source": "marker:3156:#/document/pages/368:5",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "marker_type": "footnote",
       "label": "5",
       "resolved": true,
@@ -117082,7 +117075,7 @@
     },
     {
       "source": "marker:3177:#/document/pages/373:Here h^2/2m_e is explicitly indicated to avoid confusion with references that assume m_e = 1/2.",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "Here h^2/2m_e is explicitly indicated to avoid confusion with references that assume m_e = 1/2.",
       "resolved": true,
@@ -117594,7 +117587,7 @@
     },
     {
       "source": "marker:3241:#/document/pages/386:P_l(\u03b5) = 1 / \u03b3 \u03b5 - C_l / \u03b5 - V_l",
-      "target": "ent:consensus:example3:equation:3574",
+      "target": "ent:consensus:example3:equation:1438",
       "marker_type": "equation",
       "label": "P_l(\u03b5) = 1 / \u03b3 \u03b5 - C_l / \u03b5 - V_l",
       "resolved": true,
@@ -117602,7 +117595,7 @@
     },
     {
       "source": "marker:3242:#/document/pages/386:r(P_l) = C_l + \u03b3(C_l - V_l) P_l / 1 - \u03b3 P_l \u2261 C_l + \u0127^2 / 2\u03bcS^2 P_l / 1 - \u03b3 P_l",
-      "target": "ent:consensus:example3:equation:3574",
+      "target": "ent:consensus:example3:equation:1438",
       "marker_type": "equation",
       "label": "r(P_l) = C_l + \u03b3(C_l - V_l) P_l / 1 - \u03b3 P_l \u2261 C_l + \u0127^2 / 2\u03bcS^2 P_l / 1 - \u03b3 P_l",
       "resolved": true,
@@ -117746,7 +117739,7 @@
     },
     {
       "source": "marker:3260:#/document/pages/388:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -117922,7 +117915,7 @@
     },
     {
       "source": "marker:3282:#/document/pages/394:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -118594,7 +118587,7 @@
     },
     {
       "source": "marker:3366:#/document/pages/416:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -118602,7 +118595,7 @@
     },
     {
       "source": "marker:3367:#/document/pages/416:2",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2",
       "resolved": true,
@@ -118826,7 +118819,7 @@
     },
     {
       "source": "marker:3395:#/document/pages/421:4 Here 0 denotes the starting state, which can be any state in the basis, e.g., any of the localized atomic-like states on site i.",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "marker_type": "footnote",
       "label": "4 Here 0 denotes the starting state, which can be any state in the basis, e.g., any of the localized atomic-like states on site i.",
       "resolved": true,
@@ -119210,7 +119203,7 @@
     },
     {
       "source": "marker:3443:#/document/pages/439:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -119290,7 +119283,7 @@
     },
     {
       "source": "marker:3453:#/document/pages/441:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -119330,7 +119323,7 @@
     },
     {
       "source": "marker:3458:#/document/pages/443:FIG. M.1",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "marker_type": "figure",
       "label": "FIG. M.1",
       "resolved": true,
@@ -119346,7 +119339,7 @@
     },
     {
       "source": "marker:3460:#/document/pages/443:2",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2",
       "resolved": true,
@@ -119354,7 +119347,7 @@
     },
     {
       "source": "marker:3461:#/document/pages/443:3",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "3",
       "resolved": true,
@@ -119410,7 +119403,7 @@
     },
     {
       "source": "marker:3468:#/document/pages/446:4 It is also possible to treat the occupations as dynamical variables in a way related to the ensemble density functional theory method [370], which can potentially allow the Car\u2013Parrinello unified algorithm to apply directly to metals.",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "marker_type": "footnote",
       "label": "4 It is also possible to treat the occupations as dynamical variables in a way related to the ensemble density functional theory method [370], which can potentially allow the Car\u2013Parrinello unified algorithm to apply directly to metals.",
       "resolved": true,
@@ -119442,7 +119435,7 @@
     },
     {
       "source": "marker:3472:#/document/pages/447:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -119594,7 +119587,7 @@
     },
     {
       "source": "marker:3491:#/document/pages/454:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -119610,7 +119603,7 @@
     },
     {
       "source": "marker:3493:#/document/pages/454:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -119682,7 +119675,7 @@
     },
     {
       "source": "marker:3502:#/document/pages/456:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -119802,7 +119795,7 @@
     },
     {
       "source": "marker:3517:#/document/pages/459:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -119834,7 +119827,7 @@
     },
     {
       "source": "marker:3521:#/document/pages/462:2 See references 2\u201313 in [180].",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2 See references 2\u201313 in [180].",
       "resolved": true,
@@ -120042,7 +120035,7 @@
     },
     {
       "source": "marker:3547:#/document/pages/468:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -120434,7 +120427,7 @@
     },
     {
       "source": "marker:3596:#/document/pages/479:3 The expressions in terms of the wavefunctions or density matrix are general and apply with nonlocal potential operators, such the exchange term, in Hartree\u2013Fock and hybrid functionals.",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "3 The expressions in terms of the wavefunctions or density matrix are general and apply with nonlocal potential operators, such the exchange term, in Hartree\u2013Fock and hybrid functionals.",
       "resolved": true,
@@ -120538,7 +120531,7 @@
     },
     {
       "source": "marker:3609:#/document/pages/483:Fig. M.2",
-      "target": "ent:consensus:example3:caption:4023",
+      "target": "ent:consensus:example3:caption:4021",
       "marker_type": "figure",
       "label": "Fig. M.2",
       "resolved": true,
@@ -120642,7 +120635,7 @@
     },
     {
       "source": "marker:3622:#/document/pages/488:6 The method is still called TDDFT even though it involves the macroscopic A and j. There are changes in the periodic charge density in each cell induced by the macroscopic fields, and it is more useful to treat them in terms of potentials and densities. The induced fields are called local field corrections. They can be dealt with as described in Section E.4 and they are included in the TDDFT response function.",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "marker_type": "footnote",
       "label": "6 The method is still called TDDFT even though it involves the macroscopic A and j. There are changes in the periodic charge density in each cell induced by the macroscopic fields, and it is more useful to treat them in terms of potentials and densities. The induced fields are called local field corrections. They can be dealt with as described in Section E.4 and they are included in the TDDFT response function.",
       "resolved": true,
@@ -120834,7 +120827,7 @@
     },
     {
       "source": "marker:3646:#/document/pages/497:3",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "3",
       "resolved": true,
@@ -120866,7 +120859,7 @@
     },
     {
       "source": "marker:3650:#/document/pages/498:footnote 4",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "marker_type": "footnote",
       "label": "footnote 4",
       "resolved": true,
@@ -120954,7 +120947,7 @@
     },
     {
       "source": "marker:3661:#/document/pages/502:5 The potential shown in Fig. 22.5 is the local pseudopotential; if done correctly, the final results are invariant to choice of pseudopotential or all-electron potential since the alignment is due to an intrinsic part plus terms that depend only on the interface dipole (Appendix F).",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "marker_type": "footnote",
       "label": "5 The potential shown in Fig. 22.5 is the local pseudopotential; if done correctly, the final results are invariant to choice of pseudopotential or all-electron potential since the alignment is due to an intrinsic part plus terms that depend only on the interface dipole (Appendix F).",
       "resolved": true,
@@ -121130,7 +121123,7 @@
     },
     {
       "source": "marker:3683:#/document/pages/510:1 As far as the present chapter is concerned, the essential assumption is that it is possible to find localized Wannier functions. The proof in one dimension was given years ago by Kohn [892], but the conditions for existence of",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1 As far as the present chapter is concerned, the essential assumption is that it is possible to find localized Wannier functions. The proof in one dimension was given years ago by Kohn [892], but the conditions for existence of",
       "resolved": true,
@@ -121258,7 +121251,7 @@
     },
     {
       "source": "marker:3699:#/document/pages/513:4",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "marker_type": "footnote",
       "label": "4",
       "resolved": true,
@@ -121290,7 +121283,7 @@
     },
     {
       "source": "marker:3703:#/document/pages/514:footnote [1]",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote [1]",
       "resolved": true,
@@ -121370,7 +121363,7 @@
     },
     {
       "source": "marker:3713:#/document/pages/516:5 For example, a widely used criterion is to maximize the self-Coulomb interaction.",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "marker_type": "footnote",
       "label": "5 For example, a widely used criterion is to maximize the self-Coulomb interaction.",
       "resolved": true,
@@ -121378,7 +121371,7 @@
     },
     {
       "source": "marker:3714:#/document/pages/516:6 This is the same as defined in Eq. (20.20), except that here the sum need not be over all occupied states.",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "marker_type": "footnote",
       "label": "6 This is the same as defined in Eq. (20.20), except that here the sum need not be over all occupied states.",
       "resolved": true,
@@ -121418,7 +121411,7 @@
     },
     {
       "source": "marker:3719:#/document/pages/517:7 An interesting feature is that \u03a9I can be expressed in terms of a \u201cmetric\u201d that defines the \u201cquantum distance\u201d along a given path in the Brillouin zone [900].",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "marker_type": "footnote",
       "label": "7 An interesting feature is that \u03a9I can be expressed in terms of a \u201cmetric\u201d that defines the \u201cquantum distance\u201d along a given path in the Brillouin zone [900].",
       "resolved": true,
@@ -121514,7 +121507,7 @@
     },
     {
       "source": "marker:3731:#/document/pages/521:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -121858,7 +121851,7 @@
     },
     {
       "source": "marker:3774:#/document/pages/532:2",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2",
       "resolved": true,
@@ -121930,7 +121923,7 @@
     },
     {
       "source": "marker:3783:#/document/pages/534:4 See, for example, the book by Vanderbilt [918] and reviews by Resta [176, 919].",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "marker_type": "footnote",
       "label": "4 See, for example, the book by Vanderbilt [918] and reviews by Resta [176, 919].",
       "resolved": true,
@@ -122050,7 +122043,7 @@
     },
     {
       "source": "marker:3798:#/document/pages/536:6 Spin is included in the sum over i. Some authors include a factor of 2 for spin, assuming no spin dependence.",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "marker_type": "footnote",
       "label": "6 Spin is included in the sum over i. Some authors include a factor of 2 for spin, assuming no spin dependence.",
       "resolved": true,
@@ -122234,7 +122227,7 @@
     },
     {
       "source": "marker:3821:#/document/pages/540:7 That is, the expectation value \u27e8X\u27e9 is equivalent [901] to the Berry phase expressions given in Section 24.3.",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "marker_type": "footnote",
       "label": "7 That is, the expectation value \u27e8X\u27e9 is equivalent [901] to the Berry phase expressions given in Section 24.3.",
       "resolved": true,
@@ -122354,7 +122347,7 @@
     },
     {
       "source": "marker:3836:#/document/pages/542:8 A detailed discussion can be found in [918].",
-      "target": "ent:consensus:example3:footnote:3785",
+      "target": "ent:consensus:example3:footnote:3783",
       "marker_type": "footnote",
       "label": "8 A detailed discussion can be found in [918].",
       "resolved": true,
@@ -122410,7 +122403,7 @@
     },
     {
       "source": "marker:3843:#/document/pages/545:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -122450,7 +122443,7 @@
     },
     {
       "source": "marker:3848:#/document/pages/547:2",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2",
       "resolved": true,
@@ -122466,7 +122459,7 @@
     },
     {
       "source": "marker:3850:#/document/pages/548:3 The Nobel Prize in Physics 2016 was to David J. Thouless, F. Duncan, M. Haldane, and J. Michael Kosterlitz 'for theoretical discoveries of topological phase transitions and topological phases of matter' (see the Nobel prize lecture [949]). Their work in the 1980s was the forerunner of the theoretical discovery and present-day understanding of topological insulators. An insightful book by Thouless is entitled Topological Quantum Numbers in Nonrelativistic Physics [950]. There are connections to other fields of physics. For example, the book The Phases of Quantum Chromodynamics: From Confinement to Extreme Environments by Kogut and Stephanov [951] points out that 'Domain-wall methods to describe light fermions were known in statistical physics for over 60 years (referring to the 1939 paper by Shockley) but were rediscovered in lattice gauge theory in the 1990\u2019s,' and the relevance to quantum field theory and topological insulators is pointed out in a paper by Wilczek [952] entitled 'Particle physics and condensed matter: the saga continues.'",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "3 The Nobel Prize in Physics 2016 was to David J. Thouless, F. Duncan, M. Haldane, and J. Michael Kosterlitz 'for theoretical discoveries of topological phase transitions and topological phases of matter' (see the Nobel prize lecture [949]). Their work in the 1980s was the forerunner of the theoretical discovery and present-day understanding of topological insulators. An insightful book by Thouless is entitled Topological Quantum Numbers in Nonrelativistic Physics [950]. There are connections to other fields of physics. For example, the book The Phases of Quantum Chromodynamics: From Confinement to Extreme Environments by Kogut and Stephanov [951] points out that 'Domain-wall methods to describe light fermions were known in statistical physics for over 60 years (referring to the 1939 paper by Shockley) but were rediscovered in lattice gauge theory in the 1990\u2019s,' and the relevance to quantum field theory and topological insulators is pointed out in a paper by Wilczek [952] entitled 'Particle physics and condensed matter: the saga continues.'",
       "resolved": true,
@@ -122474,7 +122467,7 @@
     },
     {
       "source": "marker:3851:#/document/pages/549:5 In this context, \u201cmass\u201d corresponds to \u201cgap\u201d in condensed matter (not curvature of bands) and the model corresponds to positive and negative (or inverted) gaps.",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "marker_type": "footnote",
       "label": "5 In this context, \u201cmass\u201d corresponds to \u201cgap\u201d in condensed matter (not curvature of bands) and the model corresponds to positive and negative (or inverted) gaps.",
       "resolved": true,
@@ -122538,7 +122531,7 @@
     },
     {
       "source": "marker:3859:#/document/pages/551:footnote 6",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "marker_type": "footnote",
       "label": "footnote 6",
       "resolved": true,
@@ -122546,7 +122539,7 @@
     },
     {
       "source": "marker:3860:#/document/pages/551:footnote 7",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "marker_type": "footnote",
       "label": "footnote 7",
       "resolved": true,
@@ -122594,7 +122587,7 @@
     },
     {
       "source": "marker:3866:#/document/pages/553:8",
-      "target": "ent:consensus:example3:footnote:3785",
+      "target": "ent:consensus:example3:footnote:3783",
       "marker_type": "footnote",
       "label": "8",
       "resolved": true,
@@ -122730,7 +122723,7 @@
     },
     {
       "source": "marker:3883:#/document/pages/559:See the review articles listed in footnote 1.",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "See the review articles listed in footnote 1.",
       "resolved": true,
@@ -122778,7 +122771,7 @@
     },
     {
       "source": "marker:3889:#/document/pages/560:1 This is shown in [960\u2013964] and described in the reviews [943] and [944].",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1 This is shown in [960\u2013964] and described in the reviews [943] and [944].",
       "resolved": true,
@@ -122826,7 +122819,7 @@
     },
     {
       "source": "marker:3895:#/document/pages/562:footnote 42",
-      "target": "ent:consensus:example3:footnote:3725",
+      "target": "ent:consensus:example3:footnote:3723",
       "marker_type": "footnote",
       "label": "footnote 42",
       "resolved": true,
@@ -122994,7 +122987,7 @@
     },
     {
       "source": "marker:3916:#/document/pages/567:4",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "marker_type": "footnote",
       "label": "4",
       "resolved": true,
@@ -123002,7 +122995,7 @@
     },
     {
       "source": "marker:3917:#/document/pages/567:5",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "marker_type": "footnote",
       "label": "5",
       "resolved": true,
@@ -123010,7 +123003,7 @@
     },
     {
       "source": "marker:3918:#/document/pages/567:6",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "marker_type": "footnote",
       "label": "6",
       "resolved": true,
@@ -123058,7 +123051,7 @@
     },
     {
       "source": "marker:3924:#/document/pages/569:Figure P.4",
-      "target": "ent:consensus:example3:caption:4058",
+      "target": "ent:consensus:example3:caption:4056",
       "marker_type": "figure",
       "label": "Figure P.4",
       "resolved": true,
@@ -123090,7 +123083,7 @@
     },
     {
       "source": "marker:3928:#/document/pages/570:8 This is an example of a polarization lattice in Section 24.8.",
-      "target": "ent:consensus:example3:footnote:3785",
+      "target": "ent:consensus:example3:footnote:3783",
       "marker_type": "footnote",
       "label": "8 This is an example of a polarization lattice in Section 24.8.",
       "resolved": true,
@@ -123298,7 +123291,7 @@
     },
     {
       "source": "marker:3954:#/document/pages/576:1 In-depth presentation of the topics in this chapter and the next can be found in reviews by Hasan and Kane [943] and by Qi and Zhang [944], the book by Vanderbilt [918], and the basic theory in the lecture notes by Asboth et al. [945].",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1 In-depth presentation of the topics in this chapter and the next can be found in reviews by Hasan and Kane [943] and by Qi and Zhang [944], the book by Vanderbilt [918], and the basic theory in the lecture notes by Asboth et al. [945].",
       "resolved": true,
@@ -123330,7 +123323,7 @@
     },
     {
       "source": "marker:3958:#/document/pages/577:2 The term 'topological insulator' has come to be used in different ways. Here we use it to denote systems with time-reversal symmetry that can be realized in systems with spin\u2013orbit interaction. Other cases where topology plays an essential role are indicated explicitly, for example, crystalline topological insulators, Chern insulators, and quantum Hall systems.",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2 The term 'topological insulator' has come to be used in different ways. Here we use it to denote systems with time-reversal symmetry that can be realized in systems with spin\u2013orbit interaction. Other cases where topology plays an essential role are indicated explicitly, for example, crystalline topological insulators, Chern insulators, and quantum Hall systems.",
       "resolved": true,
@@ -123394,7 +123387,7 @@
     },
     {
       "source": "marker:3966:#/document/pages/579:footnote 3",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "footnote 3",
       "resolved": true,
@@ -123402,7 +123395,7 @@
     },
     {
       "source": "marker:3967:#/document/pages/579:footnote 4",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "marker_type": "footnote",
       "label": "footnote 4",
       "resolved": true,
@@ -123498,7 +123491,7 @@
     },
     {
       "source": "marker:3979:#/document/pages/583:5",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "marker_type": "footnote",
       "label": "5",
       "resolved": true,
@@ -123506,7 +123499,7 @@
     },
     {
       "source": "marker:3980:#/document/pages/583:6",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "marker_type": "footnote",
       "label": "6",
       "resolved": true,
@@ -123706,7 +123699,7 @@
     },
     {
       "source": "marker:4005:#/document/pages/595:7 A small second-neighbor hopping leads to dispersion of the surface band, but the gap still vanishes at the same points and there is still a transition between normal and inverted bands.",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "marker_type": "footnote",
       "label": "7 A small second-neighbor hopping leads to dispersion of the surface band, but the gap still vanishes at the same points and there is still a transition between normal and inverted bands.",
       "resolved": true,
@@ -123962,7 +123955,7 @@
     },
     {
       "source": "marker:4037:#/document/pages/603:2 In earlier work [1983] the gap and bands were shown to be given well by DFT calculations using the PBE functional, in contrast to many other examples where the gap is too small.",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2 In earlier work [1983] the gap and bands were shown to be given well by DFT calculations using the PBE functional, in contrast to many other examples where the gap is too small.",
       "resolved": true,
@@ -123994,7 +123987,7 @@
     },
     {
       "source": "marker:4041:#/document/pages/604:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -124002,7 +123995,7 @@
     },
     {
       "source": "marker:4042:#/document/pages/605:3 Resources for Weyl semimetals include the review by Armitage et al. [1986] and the book by Vanderbilt [1918].",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "3 Resources for Weyl semimetals include the review by Armitage et al. [1986] and the book by Vanderbilt [1918].",
       "resolved": true,
@@ -124058,7 +124051,7 @@
     },
     {
       "source": "marker:4049:#/document/pages/608:footnote 3",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "footnote 3",
       "resolved": true,
@@ -124394,7 +124387,7 @@
     },
     {
       "source": "marker:4091:#/document/pages/614:Fx(s) = 1 + \u03ba - \u03ba/(1 + \u03bcs^2/\u03ba)",
-      "target": "ent:consensus:example3:equation:3574",
+      "target": "ent:consensus:example3:equation:1438",
       "marker_type": "equation",
       "label": "Fx(s) = 1 + \u03ba - \u03ba/(1 + \u03bcs^2/\u03ba)",
       "resolved": true,
@@ -124482,7 +124475,7 @@
     },
     {
       "source": "marker:4102:#/document/pages/616:1 Adapted from notes of K. Kunc and the author.",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1 Adapted from notes of K. Kunc and the author.",
       "resolved": true,
@@ -124842,7 +124835,7 @@
     },
     {
       "source": "marker:4147:#/document/pages/626:Figure D.1.",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "marker_type": "figure",
       "label": "Figure D.1.",
       "resolved": true,
@@ -125010,7 +125003,7 @@
     },
     {
       "source": "marker:4168:#/document/pages/630:2",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2",
       "resolved": true,
@@ -125210,7 +125203,7 @@
     },
     {
       "source": "marker:4193:#/document/pages/637:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -125274,7 +125267,7 @@
     },
     {
       "source": "marker:4201:#/document/pages/639:Figure F.1",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "marker_type": "figure",
       "label": "Figure F.1",
       "resolved": true,
@@ -125330,7 +125323,7 @@
     },
     {
       "source": "marker:4208:#/document/pages/641:Table F.1. Typical values of the Madelung constant \u03b1 for simple ionic crystals and for simple elemental crystals where the background term has been included",
-      "target": "ent:consensus:example3:table:3789",
+      "target": "ent:consensus:example3:table:3787",
       "marker_type": "table",
       "label": "Table F.1. Typical values of the Madelung constant \u03b1 for simple ionic crystals and for simple elemental crystals where the background term has been included",
       "resolved": true,
@@ -125450,7 +125443,7 @@
     },
     {
       "source": "marker:4223:#/document/pages/644:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -125466,7 +125459,7 @@
     },
     {
       "source": "marker:4225:#/document/pages/645:Figure F2.",
-      "target": "ent:consensus:example3:caption:4023",
+      "target": "ent:consensus:example3:caption:4021",
       "marker_type": "figure",
       "label": "Figure F2.",
       "resolved": true,
@@ -125506,7 +125499,7 @@
     },
     {
       "source": "marker:4230:#/document/pages/646:Figure F.3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "Figure F.3",
       "resolved": true,
@@ -125538,7 +125531,7 @@
     },
     {
       "source": "marker:4234:#/document/pages/647:5 This approach also applies to stress and strain due to defects that obey relations analogous to those for electrostatics.",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "marker_type": "footnote",
       "label": "5 This approach also applies to stress and strain due to defects that obey relations analogous to those for electrostatics.",
       "resolved": true,
@@ -125618,7 +125611,7 @@
     },
     {
       "source": "marker:4244:#/document/pages/649:Fig. G.1",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "marker_type": "figure",
       "label": "Fig. G.1",
       "resolved": true,
@@ -125634,7 +125627,7 @@
     },
     {
       "source": "marker:4246:#/document/pages/650:Figure G.1",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "marker_type": "figure",
       "label": "Figure G.1",
       "resolved": true,
@@ -125674,7 +125667,7 @@
     },
     {
       "source": "marker:4251:#/document/pages/651:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -125698,7 +125691,7 @@
     },
     {
       "source": "marker:4254:#/document/pages/651:1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1",
       "resolved": true,
@@ -125866,7 +125859,7 @@
     },
     {
       "source": "marker:4275:#/document/pages/656:Energy and Stress Densities",
-      "target": "ent:consensus:example3:section:3633",
+      "target": "ent:consensus:example3:section:3631",
       "marker_type": "section",
       "label": "Energy and Stress Densities",
       "resolved": true,
@@ -125954,7 +125947,7 @@
     },
     {
       "source": "marker:4286:#/document/pages/658:with1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "with1",
       "resolved": true,
@@ -125962,7 +125955,7 @@
     },
     {
       "source": "marker:4287:#/document/pages/658:The factor of 1/2 in the Hartree term might be thought of as an ad hoc assignment of 1/2 of the energy to each particle; however, it follows from the much deeper fact that electrons are identical. Any other assignment of the energy would violate this symmetry.",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "The factor of 1/2 in the Hartree term might be thought of as an ad hoc assignment of 1/2 of the energy to each particle; however, it follows from the much deeper fact that electrons are identical. Any other assignment of the energy would violate this symmetry.",
       "resolved": true,
@@ -126082,7 +126075,7 @@
     },
     {
       "source": "marker:4302:#/document/pages/660:3",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "3",
       "resolved": true,
@@ -126138,7 +126131,7 @@
     },
     {
       "source": "marker:4309:#/document/pages/661:4",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "marker_type": "footnote",
       "label": "4",
       "resolved": true,
@@ -126146,7 +126139,7 @@
     },
     {
       "source": "marker:4310:#/document/pages/662:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -126170,7 +126163,7 @@
     },
     {
       "source": "marker:4313:#/document/pages/663:Figure H.1",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "marker_type": "figure",
       "label": "Figure H.1",
       "resolved": true,
@@ -126178,7 +126171,7 @@
     },
     {
       "source": "marker:4314:#/document/pages/663:5 A good exposition of the relation of the derivations is given by Heine [499].",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "marker_type": "footnote",
       "label": "5 A good exposition of the relation of the derivations is given by Heine [499].",
       "resolved": true,
@@ -126186,7 +126179,7 @@
     },
     {
       "source": "marker:4315:#/document/pages/664:Figure H.2",
-      "target": "ent:consensus:example3:caption:4023",
+      "target": "ent:consensus:example3:caption:4021",
       "marker_type": "figure",
       "label": "Figure H.2",
       "resolved": true,
@@ -126298,7 +126291,7 @@
     },
     {
       "source": "marker:4329:#/document/pages/668:Fig. I.1",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "marker_type": "figure",
       "label": "Fig. I.1",
       "resolved": true,
@@ -126338,7 +126331,7 @@
     },
     {
       "source": "marker:4334:#/document/pages/669:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -126482,7 +126475,7 @@
     },
     {
       "source": "marker:4352:#/document/pages/672:p. 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "p. 1",
       "resolved": true,
@@ -126538,7 +126531,7 @@
     },
     {
       "source": "marker:4359:#/document/pages/674:Figure J.1",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "marker_type": "figure",
       "label": "Figure J.1",
       "resolved": true,
@@ -126914,7 +126907,7 @@
     },
     {
       "source": "marker:4406:#/document/pages/681:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -126930,7 +126923,7 @@
     },
     {
       "source": "marker:4408:#/document/pages/682:Figure L.1",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "marker_type": "figure",
       "label": "Figure L.1",
       "resolved": true,
@@ -127026,7 +127019,7 @@
     },
     {
       "source": "marker:4420:#/document/pages/684:3 Also called the Pulay method; the present discussion follows [1056].",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "3 Also called the Pulay method; the present discussion follows [1056].",
       "resolved": true,
@@ -127058,7 +127051,7 @@
     },
     {
       "source": "marker:4424:#/document/pages/685:4 The description here follows that of Pickett in [372].",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "marker_type": "footnote",
       "label": "4 The description here follows that of Pickett in [372].",
       "resolved": true,
@@ -127258,7 +127251,7 @@
     },
     {
       "source": "marker:4449:#/document/pages/691:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -127426,7 +127419,7 @@
     },
     {
       "source": "marker:4470:#/document/pages/697:FIG. M.1",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "marker_type": "figure",
       "label": "FIG. M.1",
       "resolved": true,
@@ -127466,7 +127459,7 @@
     },
     {
       "source": "marker:4475:#/document/pages/697:2",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2",
       "resolved": true,
@@ -127474,7 +127467,7 @@
     },
     {
       "source": "marker:4476:#/document/pages/698:Figure M.1.",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "marker_type": "figure",
       "label": "Figure M.1.",
       "resolved": true,
@@ -127490,7 +127483,7 @@
     },
     {
       "source": "marker:4478:#/document/pages/699:Fig. M.1",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "marker_type": "figure",
       "label": "Fig. M.1",
       "resolved": true,
@@ -127514,7 +127507,7 @@
     },
     {
       "source": "marker:4481:#/document/pages/699:3",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "3",
       "resolved": true,
@@ -127722,7 +127715,7 @@
     },
     {
       "source": "marker:4507:#/document/pages/703:Figure M.2.",
-      "target": "ent:consensus:example3:caption:4023",
+      "target": "ent:consensus:example3:caption:4021",
       "marker_type": "figure",
       "label": "Figure M.2.",
       "resolved": true,
@@ -127746,7 +127739,7 @@
     },
     {
       "source": "marker:4510:#/document/pages/704:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -127762,7 +127755,7 @@
     },
     {
       "source": "marker:4512:#/document/pages/704:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -127818,7 +127811,7 @@
     },
     {
       "source": "marker:4519:#/document/pages/706:1 This formulation is due to N. Romero and T. Arias.",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1 This formulation is due to N. Romero and T. Arias.",
       "resolved": true,
@@ -127874,7 +127867,7 @@
     },
     {
       "source": "marker:4526:#/document/pages/710:4",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "marker_type": "footnote",
       "label": "4",
       "resolved": true,
@@ -127922,7 +127915,7 @@
     },
     {
       "source": "marker:4532:#/document/pages/711:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -127938,7 +127931,7 @@
     },
     {
       "source": "marker:4534:#/document/pages/712:5",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "marker_type": "footnote",
       "label": "5",
       "resolved": true,
@@ -128018,7 +128011,7 @@
     },
     {
       "source": "marker:4544:#/document/pages/714:O.3 Relativistic Equations and Calculation of the Spin\u2013Orbit Interaction in an Atom",
-      "target": "ent:consensus:example3:section:3651",
+      "target": "ent:consensus:example3:section:3649",
       "marker_type": "section",
       "label": "O.3 Relativistic Equations and Calculation of the Spin\u2013Orbit Interaction in an Atom",
       "resolved": true,
@@ -128042,7 +128035,7 @@
     },
     {
       "source": "marker:4547:#/document/pages/716:2 See, for example, the article \u201cParticle physics and condensed matter: The saga continues\u201d by Frank Wilczek [952].",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2 See, for example, the article \u201cParticle physics and condensed matter: The saga continues\u201d by Frank Wilczek [952].",
       "resolved": true,
@@ -128050,7 +128043,7 @@
     },
     {
       "source": "marker:4548:#/document/pages/716:3 The notation u is adopted because the main applications considered later are to solids where u is the periodic part of the Bloch function, but at this point the theory is completely general.",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "marker_type": "footnote",
       "label": "3 The notation u is adopted because the main applications considered later are to solids where u is the periodic part of the Bloch function, but at this point the theory is completely general.",
       "resolved": true,
@@ -128058,7 +128051,7 @@
     },
     {
       "source": "marker:4549:#/document/pages/717:Figure P.1. Schematic illustration of a discrete set of steps along a path.",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "marker_type": "figure",
       "label": "Figure P.1. Schematic illustration of a discrete set of steps along a path.",
       "resolved": true,
@@ -128138,7 +128131,7 @@
     },
     {
       "source": "marker:4559:#/document/pages/719:Figure P2. Schematic illustration of the area bounded by a loop in two dimensions. See Fig. 25.1 for the corresponding figure used for calculation of polarization and topology in crystals.",
-      "target": "ent:consensus:example3:caption:4023",
+      "target": "ent:consensus:example3:caption:4021",
       "marker_type": "figure",
       "label": "Figure P2. Schematic illustration of the area bounded by a loop in two dimensions. See Fig. 25.1 for the corresponding figure used for calculation of polarization and topology in crystals.",
       "resolved": true,
@@ -128170,7 +128163,7 @@
     },
     {
       "source": "marker:4563:#/document/pages/719:6",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "marker_type": "footnote",
       "label": "6",
       "resolved": true,
@@ -128178,7 +128171,7 @@
     },
     {
       "source": "marker:4564:#/document/pages/719:7",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "marker_type": "footnote",
       "label": "7",
       "resolved": true,
@@ -128186,7 +128179,7 @@
     },
     {
       "source": "marker:4565:#/document/pages/720:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -128202,7 +128195,7 @@
     },
     {
       "source": "marker:4567:#/document/pages/720:8",
-      "target": "ent:consensus:example3:footnote:3785",
+      "target": "ent:consensus:example3:footnote:3783",
       "marker_type": "footnote",
       "label": "8",
       "resolved": true,
@@ -128226,7 +128219,7 @@
     },
     {
       "source": "marker:4570:#/document/pages/722:Figure P.3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "Figure P.3",
       "resolved": true,
@@ -128258,7 +128251,7 @@
     },
     {
       "source": "marker:4574:#/document/pages/723:Figure P4.",
-      "target": "ent:consensus:example3:caption:4058",
+      "target": "ent:consensus:example3:caption:4056",
       "marker_type": "figure",
       "label": "Figure P4.",
       "resolved": true,
@@ -128362,7 +128355,7 @@
     },
     {
       "source": "marker:4587:#/document/pages/726:Fig. Q.1",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "marker_type": "figure",
       "label": "Fig. Q.1",
       "resolved": true,
@@ -128370,7 +128363,7 @@
     },
     {
       "source": "marker:4588:#/document/pages/726:1 See, e.g., the book by Prange and Giorvin [1100].",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "1 See, e.g., the book by Prange and Giorvin [1100].",
       "resolved": true,
@@ -128378,7 +128371,7 @@
     },
     {
       "source": "marker:4589:#/document/pages/727:Figure Q.1",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "marker_type": "figure",
       "label": "Figure Q.1",
       "resolved": true,
@@ -128386,7 +128379,7 @@
     },
     {
       "source": "marker:4590:#/document/pages/727:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -128410,7 +128403,7 @@
     },
     {
       "source": "marker:4593:#/document/pages/728:Figure Q.2",
-      "target": "ent:consensus:example3:caption:4023",
+      "target": "ent:consensus:example3:caption:4021",
       "marker_type": "figure",
       "label": "Figure Q.2",
       "resolved": true,
@@ -128450,7 +128443,7 @@
     },
     {
       "source": "marker:4598:#/document/pages/729:2",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "marker_type": "footnote",
       "label": "2",
       "resolved": true,
@@ -128474,7 +128467,7 @@
     },
     {
       "source": "marker:4601:#/document/pages/731:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -128482,7 +128475,7 @@
     },
     {
       "source": "marker:4602:#/document/pages/731:TABLE 1",
-      "target": "ent:consensus:example3:table:3789",
+      "target": "ent:consensus:example3:table:3787",
       "marker_type": "table",
       "label": "TABLE 1",
       "resolved": true,
@@ -128498,7 +128491,7 @@
     },
     {
       "source": "marker:4604:#/document/pages/731:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -128522,7 +128515,7 @@
     },
     {
       "source": "marker:4607:#/document/pages/732:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -128810,7 +128803,7 @@
     },
     {
       "source": "marker:4643:#/document/pages/741:Figure 1",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "marker_type": "figure",
       "label": "Figure 1",
       "resolved": true,
@@ -128818,7 +128811,7 @@
     },
     {
       "source": "marker:4644:#/document/pages/741:Table 1",
-      "target": "ent:consensus:example3:table:3789",
+      "target": "ent:consensus:example3:table:3787",
       "marker_type": "table",
       "label": "Table 1",
       "resolved": true,
@@ -128826,7 +128819,7 @@
     },
     {
       "source": "marker:4645:#/document/pages/741:Eq. (1)",
-      "target": "ent:consensus:example3:equation:3574",
+      "target": "ent:consensus:example3:equation:1438",
       "marker_type": "equation",
       "label": "Eq. (1)",
       "resolved": true,
@@ -128842,7 +128835,7 @@
     },
     {
       "source": "marker:4647:#/document/pages/741:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -129122,7 +129115,7 @@
     },
     {
       "source": "marker:4682:#/document/pages/753:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -129242,7 +129235,7 @@
     },
     {
       "source": "marker:4697:#/document/pages/757:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -129586,7 +129579,7 @@
     },
     {
       "source": "marker:4740:#/document/pages/764:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -129690,7 +129683,7 @@
     },
     {
       "source": "marker:4753:#/document/pages/771:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -129834,7 +129827,7 @@
     },
     {
       "source": "marker:4771:#/document/pages/773:Figure 1",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "marker_type": "figure",
       "label": "Figure 1",
       "resolved": true,
@@ -129842,7 +129835,7 @@
     },
     {
       "source": "marker:4772:#/document/pages/773:Eq. (1)",
-      "target": "ent:consensus:example3:equation:3574",
+      "target": "ent:consensus:example3:equation:1438",
       "marker_type": "equation",
       "label": "Eq. (1)",
       "resolved": true,
@@ -130186,7 +130179,7 @@
     },
     {
       "source": "marker:4815:#/document/pages/785:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -130194,7 +130187,7 @@
     },
     {
       "source": "marker:4816:#/document/pages/785:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -130274,7 +130267,7 @@
     },
     {
       "source": "marker:4826:#/document/pages/789:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -130282,7 +130275,7 @@
     },
     {
       "source": "marker:4827:#/document/pages/789:TABLE 1",
-      "target": "ent:consensus:example3:table:3789",
+      "target": "ent:consensus:example3:table:3787",
       "marker_type": "table",
       "label": "TABLE 1",
       "resolved": true,
@@ -130298,7 +130291,7 @@
     },
     {
       "source": "marker:4829:#/document/pages/789:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -130322,7 +130315,7 @@
     },
     {
       "source": "marker:4832:#/document/pages/790:FIG. 3",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "marker_type": "figure",
       "label": "FIG. 3",
       "resolved": true,
@@ -130330,7 +130323,7 @@
     },
     {
       "source": "marker:4833:#/document/pages/790:TABLE 1",
-      "target": "ent:consensus:example3:table:3789",
+      "target": "ent:consensus:example3:table:3787",
       "marker_type": "table",
       "label": "TABLE 1",
       "resolved": true,
@@ -130362,7 +130355,7 @@
     },
     {
       "source": "marker:4837:#/document/pages/790:footnote 1",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -139016,13 +139009,13 @@
     },
     {
       "source": "document:example3/consensus+consensus",
-      "target": "section:index:example3/consensus+consensus",
+      "target": "section:bibliography:example3/consensus+consensus",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "document:example3/consensus+consensus",
-      "target": "section:bibliography:example3/consensus+consensus",
+      "target": "section:index:example3/consensus+consensus",
       "edge_kind": "contains",
       "label": ""
     },
@@ -175532,7 +175525,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:626",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "edge_kind": "contains",
       "label": ""
     },
@@ -175628,7 +175621,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:645",
-      "target": "ent:consensus:example3:caption:4023",
+      "target": "ent:consensus:example3:caption:4021",
       "edge_kind": "contains",
       "label": ""
     },
@@ -176570,7 +176563,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:figure:5021",
+      "target": "ent:consensus:example3:figure:4414",
       "edge_kind": "contains",
       "label": ""
     },
@@ -176726,7 +176719,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:figure:4421",
+      "target": "ent:consensus:example3:figure:4279",
       "edge_kind": "contains",
       "label": ""
     },
@@ -176888,7 +176881,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:figure:4421",
+      "target": "ent:consensus:example3:figure:4279",
       "edge_kind": "contains",
       "label": ""
     },
@@ -177308,7 +177301,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:figure:4190",
+      "target": "ent:consensus:example3:figure:4185",
       "edge_kind": "contains",
       "label": ""
     },
@@ -177590,7 +177583,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:figure:4311",
+      "target": "ent:consensus:example3:figure:4240",
       "edge_kind": "contains",
       "label": ""
     },
@@ -177776,7 +177769,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:figure:4206",
+      "target": "ent:consensus:example3:figure:4200",
       "edge_kind": "contains",
       "label": ""
     },
@@ -178112,7 +178105,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:figure:4422",
+      "target": "ent:consensus:example3:figure:4280",
       "edge_kind": "contains",
       "label": ""
     },
@@ -178124,7 +178117,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:figure:4192",
+      "target": "ent:consensus:example3:figure:4187",
       "edge_kind": "contains",
       "label": ""
     },
@@ -178562,7 +178555,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:figure:5219",
+      "target": "ent:consensus:example3:figure:4474",
       "edge_kind": "contains",
       "label": ""
     },
@@ -178886,7 +178879,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:figure:5251",
+      "target": "ent:consensus:example3:figure:4500",
       "edge_kind": "contains",
       "label": ""
     },
@@ -180104,7 +180097,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:figure:4201",
+      "target": "ent:consensus:example3:figure:4195",
       "edge_kind": "contains",
       "label": ""
     },
@@ -180320,7 +180313,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:645",
-      "target": "ent:consensus:example3:caption:4023",
+      "target": "ent:consensus:example3:caption:4021",
       "edge_kind": "contains",
       "label": ""
     },
@@ -182390,7 +182383,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:figure:5604",
+      "target": "ent:consensus:example3:figure:4571",
       "edge_kind": "contains",
       "label": ""
     },
@@ -182744,7 +182737,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:figure:4577",
+      "target": "ent:consensus:example3:figure:4311",
       "edge_kind": "contains",
       "label": ""
     },
@@ -184274,13 +184267,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -184310,13 +184303,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -184370,7 +184363,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -184526,13 +184519,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "edge_kind": "contains",
       "label": ""
     },
@@ -184544,7 +184537,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -184592,19 +184585,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:126",
-      "target": "ent:consensus:example3:footnote:3782",
-      "edge_kind": "contains",
-      "label": ""
-    },
-    {
-      "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3785",
-      "edge_kind": "contains",
-      "label": ""
-    },
-    {
-      "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3780",
       "edge_kind": "contains",
       "label": ""
     },
@@ -184615,20 +184596,20 @@
       "label": ""
     },
     {
-      "source": "page:example3/consensus+consensus:126",
+      "source": "page:example3/consensus+consensus:127",
       "target": "ent:consensus:example3:footnote:3782",
       "edge_kind": "contains",
       "label": ""
     },
     {
-      "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3780",
+      "source": "page:example3/consensus+consensus:127",
+      "target": "ent:consensus:example3:footnote:3781",
       "edge_kind": "contains",
       "label": ""
     },
     {
-      "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "source": "page:example3/consensus+consensus:126",
+      "target": "ent:consensus:example3:footnote:3780",
       "edge_kind": "contains",
       "label": ""
     },
@@ -184641,6 +184622,18 @@
     {
       "source": "page:example3/consensus+consensus:125",
       "target": "ent:consensus:example3:footnote:3777",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example3/consensus+consensus:125",
+      "target": "ent:consensus:example3:footnote:3776",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example3/consensus+consensus:125",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -184676,13 +184669,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -184778,13 +184771,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:126",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "edge_kind": "contains",
       "label": ""
     },
@@ -184808,19 +184801,19 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "edge_kind": "contains",
       "label": ""
     },
@@ -184832,7 +184825,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "edge_kind": "contains",
       "label": ""
     },
@@ -184862,7 +184855,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3785",
+      "target": "ent:consensus:example3:footnote:3783",
       "edge_kind": "contains",
       "label": ""
     },
@@ -184910,7 +184903,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -185060,7 +185053,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -185102,7 +185095,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -185132,7 +185125,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -185198,13 +185191,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
@@ -185234,7 +185227,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "edge_kind": "contains",
       "label": ""
     },
@@ -185354,7 +185347,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "edge_kind": "contains",
       "label": ""
     },
@@ -185534,7 +185527,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -185558,7 +185551,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "edge_kind": "contains",
       "label": ""
     },
@@ -185630,13 +185623,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "edge_kind": "contains",
       "label": ""
     },
@@ -185780,7 +185773,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:figure:4173",
+      "target": "ent:consensus:example3:figure:4171",
       "edge_kind": "contains",
       "label": ""
     },
@@ -185798,7 +185791,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
@@ -185822,13 +185815,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "edge_kind": "contains",
       "label": ""
     },
@@ -185984,7 +185977,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -186080,7 +186073,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
@@ -186092,13 +186085,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
@@ -186140,7 +186133,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -186182,7 +186175,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -186266,19 +186259,19 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:section:3540",
+      "target": "ent:consensus:example3:section:3539",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
@@ -186290,7 +186283,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
@@ -186410,7 +186403,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -186512,7 +186505,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -186560,7 +186553,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -186572,13 +186565,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "edge_kind": "contains",
       "label": ""
     },
@@ -186662,7 +186655,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
@@ -186686,7 +186679,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:126",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "edge_kind": "contains",
       "label": ""
     },
@@ -186722,7 +186715,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -186734,19 +186727,19 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
-      "edge_kind": "contains",
-      "label": ""
-    },
-    {
-      "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
-      "edge_kind": "contains",
-      "label": ""
-    },
-    {
-      "source": "page:example3/consensus+consensus:125",
       "target": "ent:consensus:example3:footnote:3777",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example3/consensus+consensus:125",
+      "target": "ent:consensus:example3:footnote:3776",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example3/consensus+consensus:125",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -186800,7 +186793,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "edge_kind": "contains",
       "label": ""
     },
@@ -186836,7 +186829,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:126",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "edge_kind": "contains",
       "label": ""
     },
@@ -187046,7 +187039,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "edge_kind": "contains",
       "label": ""
     },
@@ -187094,7 +187087,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -187106,7 +187099,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
@@ -187118,7 +187111,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3785",
+      "target": "ent:consensus:example3:footnote:3783",
       "edge_kind": "contains",
       "label": ""
     },
@@ -187184,7 +187177,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -187351,8 +187344,8 @@
       "label": ""
     },
     {
-      "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:equation:3574",
+      "source": "page:example3/consensus+consensus:610",
+      "target": "ent:consensus:example3:equation:1438",
       "edge_kind": "contains",
       "label": ""
     },
@@ -187496,7 +187489,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -187712,7 +187705,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
@@ -187748,7 +187741,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "edge_kind": "contains",
       "label": ""
     },
@@ -187760,7 +187753,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:126",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "edge_kind": "contains",
       "label": ""
     },
@@ -187796,7 +187789,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "edge_kind": "contains",
       "label": ""
     },
@@ -187832,7 +187825,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "edge_kind": "contains",
       "label": ""
     },
@@ -187868,7 +187861,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:645",
-      "target": "ent:consensus:example3:caption:4023",
+      "target": "ent:consensus:example3:caption:4021",
       "edge_kind": "contains",
       "label": ""
     },
@@ -187964,7 +187957,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -188066,7 +188059,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -188096,7 +188089,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "edge_kind": "contains",
       "label": ""
     },
@@ -188288,7 +188281,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
@@ -188318,7 +188311,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
@@ -188348,7 +188341,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "edge_kind": "contains",
       "label": ""
     },
@@ -188372,7 +188365,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:126",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "edge_kind": "contains",
       "label": ""
     },
@@ -188426,7 +188419,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "edge_kind": "contains",
       "label": ""
     },
@@ -188768,7 +188761,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -188840,7 +188833,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -188918,13 +188911,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
@@ -188984,7 +188977,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:126",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "edge_kind": "contains",
       "label": ""
     },
@@ -188996,7 +188989,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:section:3628",
+      "target": "ent:consensus:example3:section:3626",
       "edge_kind": "contains",
       "label": ""
     },
@@ -189110,13 +189103,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:645",
-      "target": "ent:consensus:example3:caption:4023",
+      "target": "ent:consensus:example3:caption:4021",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -189140,7 +189133,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "edge_kind": "contains",
       "label": ""
     },
@@ -189164,7 +189157,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -189194,7 +189187,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:626",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "edge_kind": "contains",
       "label": ""
     },
@@ -189242,7 +189235,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -189272,7 +189265,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
@@ -189332,7 +189325,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "edge_kind": "contains",
       "label": ""
     },
@@ -189356,7 +189349,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
@@ -189386,7 +189379,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
@@ -189404,7 +189397,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -189584,7 +189577,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
@@ -189739,8 +189732,8 @@
       "label": ""
     },
     {
-      "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:equation:3574",
+      "source": "page:example3/consensus+consensus:610",
+      "target": "ent:consensus:example3:equation:1438",
       "edge_kind": "contains",
       "label": ""
     },
@@ -189794,7 +189787,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "edge_kind": "contains",
       "label": ""
     },
@@ -189944,7 +189937,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "edge_kind": "contains",
       "label": ""
     },
@@ -190058,7 +190051,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -190076,7 +190069,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -190154,7 +190147,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "edge_kind": "contains",
       "label": ""
     },
@@ -190274,13 +190267,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "edge_kind": "contains",
       "label": ""
     },
@@ -190316,7 +190309,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:126",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "edge_kind": "contains",
       "label": ""
     },
@@ -190406,7 +190399,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "edge_kind": "contains",
       "label": ""
     },
@@ -190759,14 +190752,14 @@
       "label": ""
     },
     {
-      "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:equation:3574",
+      "source": "page:example3/consensus+consensus:610",
+      "target": "ent:consensus:example3:equation:1438",
       "edge_kind": "contains",
       "label": ""
     },
     {
-      "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:equation:3574",
+      "source": "page:example3/consensus+consensus:610",
+      "target": "ent:consensus:example3:equation:1438",
       "edge_kind": "contains",
       "label": ""
     },
@@ -190850,7 +190843,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -190934,7 +190927,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -191294,13 +191287,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "edge_kind": "contains",
       "label": ""
     },
@@ -191450,7 +191443,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "edge_kind": "contains",
       "label": ""
     },
@@ -191654,7 +191647,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -191708,7 +191701,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -191726,7 +191719,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:626",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "edge_kind": "contains",
       "label": ""
     },
@@ -191738,13 +191731,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
@@ -191780,7 +191773,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "edge_kind": "contains",
       "label": ""
     },
@@ -191804,7 +191797,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -191894,7 +191887,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
@@ -191906,7 +191899,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -191954,7 +191947,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -192032,7 +192025,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -192056,7 +192049,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "edge_kind": "contains",
       "label": ""
     },
@@ -192206,7 +192199,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -192434,7 +192427,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
@@ -192500,7 +192493,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:645",
-      "target": "ent:consensus:example3:caption:4023",
+      "target": "ent:consensus:example3:caption:4021",
       "edge_kind": "contains",
       "label": ""
     },
@@ -192566,7 +192559,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "edge_kind": "contains",
       "label": ""
     },
@@ -192680,7 +192673,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
@@ -192704,7 +192697,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "edge_kind": "contains",
       "label": ""
     },
@@ -192746,7 +192739,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:126",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "edge_kind": "contains",
       "label": ""
     },
@@ -192836,7 +192829,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -192932,7 +192925,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "edge_kind": "contains",
       "label": ""
     },
@@ -192950,7 +192943,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -192986,13 +192979,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:126",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "edge_kind": "contains",
       "label": ""
     },
@@ -193022,7 +193015,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "edge_kind": "contains",
       "label": ""
     },
@@ -193088,7 +193081,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -193220,7 +193213,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "edge_kind": "contains",
       "label": ""
     },
@@ -193244,7 +193237,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "edge_kind": "contains",
       "label": ""
     },
@@ -193316,7 +193309,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "edge_kind": "contains",
       "label": ""
     },
@@ -193388,7 +193381,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "edge_kind": "contains",
       "label": ""
     },
@@ -193406,7 +193399,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3785",
+      "target": "ent:consensus:example3:footnote:3783",
       "edge_kind": "contains",
       "label": ""
     },
@@ -193424,25 +193417,25 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
+      "target": "ent:consensus:example3:footnote:3775",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example3/consensus+consensus:125",
+      "target": "ent:consensus:example3:footnote:3776",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example3/consensus+consensus:125",
       "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
     {
-      "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
-      "edge_kind": "contains",
-      "label": ""
-    },
-    {
-      "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
-      "edge_kind": "contains",
-      "label": ""
-    },
-    {
       "source": "page:example3/consensus+consensus:126",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "edge_kind": "contains",
       "label": ""
     },
@@ -193478,13 +193471,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "edge_kind": "contains",
       "label": ""
     },
@@ -193514,7 +193507,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3785",
+      "target": "ent:consensus:example3:footnote:3783",
       "edge_kind": "contains",
       "label": ""
     },
@@ -193580,7 +193573,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -193598,7 +193591,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -193634,7 +193627,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:35",
-      "target": "ent:consensus:example3:footnote:3725",
+      "target": "ent:consensus:example3:footnote:3723",
       "edge_kind": "contains",
       "label": ""
     },
@@ -193748,19 +193741,19 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:126",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "edge_kind": "contains",
       "label": ""
     },
@@ -193796,7 +193789,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:723",
-      "target": "ent:consensus:example3:caption:4058",
+      "target": "ent:consensus:example3:caption:4056",
       "edge_kind": "contains",
       "label": ""
     },
@@ -193814,7 +193807,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3785",
+      "target": "ent:consensus:example3:footnote:3783",
       "edge_kind": "contains",
       "label": ""
     },
@@ -193934,7 +193927,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -193952,7 +193945,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "edge_kind": "contains",
       "label": ""
     },
@@ -194000,13 +193993,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "edge_kind": "contains",
       "label": ""
     },
@@ -194072,13 +194065,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:126",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "edge_kind": "contains",
       "label": ""
     },
@@ -194216,7 +194209,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "edge_kind": "contains",
       "label": ""
     },
@@ -194366,7 +194359,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "edge_kind": "contains",
       "label": ""
     },
@@ -194384,13 +194377,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
@@ -194420,7 +194413,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
@@ -194587,8 +194580,8 @@
       "label": ""
     },
     {
-      "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:equation:3574",
+      "source": "page:example3/consensus+consensus:610",
+      "target": "ent:consensus:example3:equation:1438",
       "edge_kind": "contains",
       "label": ""
     },
@@ -194648,7 +194641,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -194876,7 +194869,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:626",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "edge_kind": "contains",
       "label": ""
     },
@@ -194990,7 +194983,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "edge_kind": "contains",
       "label": ""
     },
@@ -195140,7 +195133,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -195188,7 +195181,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:626",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "edge_kind": "contains",
       "label": ""
     },
@@ -195224,7 +195217,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:139",
-      "target": "ent:consensus:example3:table:3789",
+      "target": "ent:consensus:example3:table:3787",
       "edge_kind": "contains",
       "label": ""
     },
@@ -195314,7 +195307,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -195326,7 +195319,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:645",
-      "target": "ent:consensus:example3:caption:4023",
+      "target": "ent:consensus:example3:caption:4021",
       "edge_kind": "contains",
       "label": ""
     },
@@ -195350,7 +195343,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
@@ -195368,7 +195361,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:126",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "edge_kind": "contains",
       "label": ""
     },
@@ -195410,7 +195403,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:626",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "edge_kind": "contains",
       "label": ""
     },
@@ -195422,7 +195415,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:626",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "edge_kind": "contains",
       "label": ""
     },
@@ -195452,7 +195445,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
@@ -195470,7 +195463,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -195590,7 +195583,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:section:3633",
+      "target": "ent:consensus:example3:section:3631",
       "edge_kind": "contains",
       "label": ""
     },
@@ -195650,13 +195643,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -195746,7 +195739,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
@@ -195788,13 +195781,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
@@ -195812,19 +195805,19 @@
     },
     {
       "source": "page:example3/consensus+consensus:626",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:126",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:645",
-      "target": "ent:consensus:example3:caption:4023",
+      "target": "ent:consensus:example3:caption:4021",
       "edge_kind": "contains",
       "label": ""
     },
@@ -195896,7 +195889,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:626",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "edge_kind": "contains",
       "label": ""
     },
@@ -195926,7 +195919,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
@@ -195986,7 +195979,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -196022,7 +196015,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:626",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "edge_kind": "contains",
       "label": ""
     },
@@ -196250,7 +196243,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -196262,7 +196255,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:626",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "edge_kind": "contains",
       "label": ""
     },
@@ -196334,7 +196327,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
@@ -196358,7 +196351,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "edge_kind": "contains",
       "label": ""
     },
@@ -196484,7 +196477,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -196598,7 +196591,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:626",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "edge_kind": "contains",
       "label": ""
     },
@@ -196628,13 +196621,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:626",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "edge_kind": "contains",
       "label": ""
     },
@@ -196646,7 +196639,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:626",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "edge_kind": "contains",
       "label": ""
     },
@@ -196664,7 +196657,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
@@ -196778,7 +196771,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:645",
-      "target": "ent:consensus:example3:caption:4023",
+      "target": "ent:consensus:example3:caption:4021",
       "edge_kind": "contains",
       "label": ""
     },
@@ -196790,7 +196783,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
@@ -196802,7 +196795,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -196844,7 +196837,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -196886,7 +196879,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3780",
+      "target": "ent:consensus:example3:footnote:3778",
       "edge_kind": "contains",
       "label": ""
     },
@@ -196922,7 +196915,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -196934,7 +196927,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:126",
-      "target": "ent:consensus:example3:footnote:3782",
+      "target": "ent:consensus:example3:footnote:3780",
       "edge_kind": "contains",
       "label": ""
     },
@@ -196994,7 +196987,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:section:3651",
+      "target": "ent:consensus:example3:section:3649",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197006,19 +196999,19 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3779",
+      "target": "ent:consensus:example3:footnote:3777",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:626",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197078,7 +197071,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:645",
-      "target": "ent:consensus:example3:caption:4023",
+      "target": "ent:consensus:example3:caption:4021",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197102,19 +197095,19 @@
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3783",
+      "target": "ent:consensus:example3:footnote:3781",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3784",
+      "target": "ent:consensus:example3:footnote:3782",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197126,7 +197119,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:127",
-      "target": "ent:consensus:example3:footnote:3785",
+      "target": "ent:consensus:example3:footnote:3783",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197138,7 +197131,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197156,7 +197149,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:723",
-      "target": "ent:consensus:example3:caption:4058",
+      "target": "ent:consensus:example3:caption:4056",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197216,25 +197209,25 @@
     },
     {
       "source": "page:example3/consensus+consensus:626",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:626",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197252,7 +197245,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:645",
-      "target": "ent:consensus:example3:caption:4023",
+      "target": "ent:consensus:example3:caption:4021",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197276,7 +197269,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3778",
+      "target": "ent:consensus:example3:footnote:3776",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197288,13 +197281,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:139",
-      "target": "ent:consensus:example3:table:3789",
+      "target": "ent:consensus:example3:table:3787",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197306,7 +197299,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197324,7 +197317,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197432,19 +197425,19 @@
     },
     {
       "source": "page:example3/consensus+consensus:626",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:139",
-      "target": "ent:consensus:example3:table:3789",
+      "target": "ent:consensus:example3:table:3787",
       "edge_kind": "contains",
       "label": ""
     },
     {
-      "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:equation:3574",
+      "source": "page:example3/consensus+consensus:610",
+      "target": "ent:consensus:example3:equation:1438",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197456,7 +197449,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197558,7 +197551,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197600,7 +197593,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197750,7 +197743,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197780,7 +197773,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197798,13 +197791,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:626",
-      "target": "ent:consensus:example3:caption:4016",
+      "target": "ent:consensus:example3:caption:4014",
       "edge_kind": "contains",
       "label": ""
     },
     {
-      "source": "page:example3/consensus+consensus:1",
-      "target": "ent:consensus:example3:equation:3574",
+      "source": "page:example3/consensus+consensus:610",
+      "target": "ent:consensus:example3:equation:1438",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197960,13 +197953,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -197996,13 +197989,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:139",
-      "target": "ent:consensus:example3:table:3789",
+      "target": "ent:consensus:example3:table:3787",
       "edge_kind": "contains",
       "label": ""
     },
@@ -198014,7 +198007,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     },
@@ -198032,13 +198025,13 @@
     },
     {
       "source": "page:example3/consensus+consensus:646",
-      "target": "ent:consensus:example3:caption:4025",
+      "target": "ent:consensus:example3:caption:4023",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "page:example3/consensus+consensus:139",
-      "target": "ent:consensus:example3:table:3789",
+      "target": "ent:consensus:example3:table:3787",
       "edge_kind": "contains",
       "label": ""
     },
@@ -198062,7 +198055,7 @@
     },
     {
       "source": "page:example3/consensus+consensus:125",
-      "target": "ent:consensus:example3:footnote:3777",
+      "target": "ent:consensus:example3:footnote:3775",
       "edge_kind": "contains",
       "label": ""
     }

@@ -802,6 +802,13 @@
       "label": "(unresolved)"
     },
     {
+      "id": "ent:mineru:example02:equation:26",
+      "type": "equation",
+      "label": "ent:mineru:example02:equation:26",
+      "parent_id": "page:example02/vlm_v4+mineru:1",
+      "page_no": 1
+    },
+    {
       "id": "ent:mineru:example02:figure:45",
       "type": "figure",
       "label": "ent:mineru:example02:figure:45",
@@ -842,10 +849,10 @@
     },
     {
       "source": "marker:2:#/document/pages/1:Eq. (11)",
-      "target": "_unresolved",
+      "target": "ent:mineru:example02:equation:26",
       "marker_type": "equation",
       "label": "Eq. (11)",
-      "resolved": false,
+      "resolved": true,
       "edge_kind": "cross_reference"
     },
     {
@@ -1670,6 +1677,12 @@
     },
     {
       "source": "page:example02/vlm_v4+mineru:1",
+      "target": "ent:mineru:example02:equation:26",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/vlm_v4+mineru:1",
       "target": "ent:mineru:example02:figure:45",
       "edge_kind": "contains",
       "label": ""
@@ -1696,8 +1709,8 @@
   "metadata": {
     "doc_hash": "sha256:d6b7aff259de7c133b09b958fb1782ddf21da627c354b777b48e056beb2a57fb",
     "total_markers": 59,
-    "resolved_count": 4,
-    "unresolved_count": 55,
+    "resolved_count": 5,
+    "unresolved_count": 54,
     "backend_versions": {
       "vlm": "deepseek-ai/deepseek-vl2-small"
     },

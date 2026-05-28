@@ -1,7 +1,7 @@
 # Plan 006_2 — Convention-Agnostic Equation Resolution
 
 Status:
-draft
+agent_complete
 
 Allowed status values:
 draft
@@ -254,39 +254,38 @@ no. Covered by H1.
 
 ---
 
-### Task A2 — Fragmented display-equation merge
+### Task A2 — Fragmented display-equation merge — DEFERRED (no corpus case)
 
 Title:
 Merge adjacent FORMULA fragments belonging to one numbered display equation.
 
-Files allowed:
+Status: **deferred during implementation — the pattern does not occur in the
+available corpus.** Investigation on 2026-05-28:
+
 ```text
-src/pdf2md/connectors/common.py
-tests/test_connector_common.py
+align/aligned/split/gather environments in mineru example01:  0
+align/aligned/split/gather environments in mineru example3:   0
+multi-$$ FORMULA runs on example01 mineru page 1:             4
+  → ALL fragments are unnumbered ($$ \tilde\sigma... $$ split
+    across two $$ blocks, no (N) / \tag{N} on EITHER fragment)
+74 unnumbered equation entities on example3 mineru:
+  → genuinely unnumbered display equations ($$ P = -(dE/dΩ) $$);
+    the book does not number them, so there is no number to merge in.
 ```
 
-Implementation requirements:
+A2's premise was "merge a run where ONLY THE LAST fragment carries the
+number, propagating it to the whole." No such run exists in either example —
+the fragmented runs are uniformly *unnumbered*, so merging them would add no
+`equation_number` and produce zero resolution gain, while adding non-trivial
+merge-correctness risk. Per the project's "no features for hypothetical
+requirements" rule, A2 is NOT implemented.
 
-1. When MinerU splits a numbered `align*` / `aligned` block across consecutive
-   FORMULA (or math-paragraph) entities where only the last fragment carries
-   the number, merge the run into a single equation entity that owns the
-   number and spans the fragments' block ids.
-2. The merge must be conservative: only consecutive blocks on the same page,
-   only when the trailing fragment carries a number and the leading fragments
-   carry none, and only when the leading fragments look like math (no prose).
-3. Record `metadata.merged_equation_fragments = <count>` for auditability.
-
-Automated tests required:
-```text
-tests/test_connector_common.py:
-  - 3-fragment align* split (mineru example01 shape) → 1 equation entity,
-    number on the merged entity, merged_equation_fragments == 3
-  - a numbered equation followed by an unrelated prose paragraph is NOT
-    merged into it
-```
+If a future fixture surfaces a real numbered-align* split, reopen A2 with that
+fixture as the driving test. The A1 pass criterion (below) is already met
+without A2.
 
 Human verification required:
-no. Covered by H1.
+no.
 
 ---
 
@@ -398,6 +397,13 @@ Status history:
 2026-05-28 — draft — agent — Plan 006_2 expanded from the plan-set skeleton;
   anchored to PR #136 state (DeepSeek conventions done, MinerU \tag {N} +
   un-delimited lines + align* fragmentation remaining).
+2026-05-28 — agent_complete — agent — A1 implemented (\tag {N} whitespace +
+  un-delimited math-line detection via _looks_like_math). A2 deferred: no
+  numbered-align*-fragment case exists in example01/02/03 (0 align envs;
+  multi-$$ runs are uniformly unnumbered). MinerU equation-number coverage
+  on example3: 15/1122 → 1048/1122 (93%); GROBID equation markers resolve
+  64/64 against MinerU (was ~0). DeepSeek unchanged. 6 new connector tests;
+  full suite 1146 → 1152 passed.
 ```
 
 ---

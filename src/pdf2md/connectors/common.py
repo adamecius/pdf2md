@@ -258,6 +258,33 @@ def _strip_deepseek_tags(chunk: str) -> tuple[str, str | None]:
 
 _BIB_LINE_RE = re.compile(r"^\[\d+\]\s+\S")
 
+# Signals that a line is a display equation even without ``\[ \]`` /
+# ``$$`` delimiters — used to recognise MinerU's un-delimited numbered
+# equations (``\chi = \frac{...}, \tag {2.3}``). Conservative: requires
+# either a common math control sequence OR an inline-math ``$...$`` span
+# combined with a relational operator, so prose that merely contains a
+# stray ``=`` is not swept in. (Plan 006_2 A1.)
+_MATH_CONTROL_RE = re.compile(
+    r"\\(?:frac|sum|int|prod|sqrt|partial|nabla|alpha|beta|gamma|delta|"
+    r"chi|psi|phi|sigma|omega|lambda|mu|nu|theta|begin\{(?:align|equation|aligned|gather|cases)|"
+    r"left|right|cdot|times|approx|geq|leq|neq|infty|hbar|mathbf|mathrm|boldsymbol)"
+)
+
+
+def _looks_like_math(text: str) -> bool:
+    """Heuristic: does this line read as a display equation?
+
+    True when it contains a recognised LaTeX math control sequence, or
+    an inline ``$...$`` span alongside a relational operator. Used only
+    to admit ``\\tag``-bearing lines that lack ``\\[ \\]`` / ``$$``
+    delimiters; the caller has already confirmed a ``\\tag{N}`` is
+    present, so this guards against the rare prose line that happens
+    to carry a stray ``\\tag``.
+    """
+    if _MATH_CONTROL_RE.search(text):
+        return True
+    return bool("$" in text and re.search(r"[=<>]", text))
+
 
 # Heading words that open a back-matter Index section. Lowercased.
 _INDEX_HEADING_WORDS: frozenset[str] = frozenset({
@@ -1035,11 +1062,28 @@ def recognize_entities(
             #     ``A.2``, ``A.2.1`` — common in textbooks where
             #     equations carry an appendix letter.
             _EQ_NUM = r"(?:[A-Z]\.)?[0-9]+(?:\.[0-9]+)*"
-            if not is_bib_entry and (
+            # LaTeX ``\tag{N}`` / ``\tag {N}`` — the brace form, with
+            # OPTIONAL whitespace between the macro and the brace.
+            # MinerU emits ``\tag {2.3}`` (with a space); DeepSeek /
+            # docling emit ``\tag{2.3}``. (Plan 006_2 A1.)
+            tag_match = re.search(rf"\\tag\s*\{{({_EQ_NUM})\}}", plain)
+            # An equation line is recognised when it is a FORMULA block,
+            # OR ends in a display number ``(N)``, OR carries a
+            # ``\tag{N}`` and looks like math. The last clause catches
+            # MinerU's un-delimited numbered equations like
+            # ``\chi = \frac{...}, \tag {2.3}`` that classify_block
+            # leaves as PARAGRAPH (no ``\[ \]`` / ``$$`` wrapper).
+            looks_like_equation = (
                 block.kind == BlockKind.FORMULA
                 or re.search(rf"\({_EQ_NUM}\)\s*$", plain)
-            ):
+                or (tag_match is not None and _looks_like_math(plain))
+            )
+            if not is_bib_entry and looks_like_equation:
                 num = (re.search(rf"\(({_EQ_NUM})\)\s*$", plain) or [None, None])[1]
+                # Tag form (with optional whitespace) — strongest signal
+                # when present, takes precedence over delimiter peeking.
+                if num is None and tag_match is not None:
+                    num = tag_match.group(1)
                 if num is None and block.kind == BlockKind.FORMULA:
                     # DeepSeek emits ``\[ math \quad (N) \]`` — the
                     # ``(N)`` sits inside the LaTeX delimiters before
@@ -1052,12 +1096,6 @@ def recognize_entities(
                     )
                     if inner:
                         num = inner.group(1)
-                    # LaTeX `\tag{N}` form — emitted by some VLM /
-                    # docling outputs of authored equations.
-                    if num is None:
-                        tag_m = re.search(rf"\\tag\{{({_EQ_NUM})\}}", plain)
-                        if tag_m:
-                            num = tag_m.group(1)
                 # FORMULA blocks without trailing (N): peek at the next
                 # block on the same page. If it BEGINS with a "(N)" or
                 # is just "(N)" alone, attribute that number here.

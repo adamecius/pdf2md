@@ -206,3 +206,57 @@ def test_equation_falls_back_to_next_block_when_inside_match_fails() -> None:
     eqs = [e for e in doc.entities
            if (e.entity_type.value if hasattr(e.entity_type, "value") else e.entity_type) == "equation"]
     assert eqs and eqs[0].metadata.get("equation_number") == "7"
+
+
+# ---------------------------------------------------------------------------
+# Plan 006_2 A1 — convention-agnostic equation-number extraction.
+# MinerU emits `\tag {N}` (with a space) on un-delimited equation lines.
+# ---------------------------------------------------------------------------
+def _eq_entities(md: str, backend: str = "mineru"):
+    from pdf2md.connectors.common import markdown_to_pages, recognize_entities
+    pages = markdown_to_pages(md, backend=backend, backend_version=None,
+                              document_id="d", raw_ref="r", warnings=[])
+    doc = recognize_entities(pages, backend=backend, backend_version=None,
+                             document_id="d", warnings=[])
+    return [e for e in doc.entities
+            if (e.entity_type.value if hasattr(e.entity_type, "value") else e.entity_type) == "equation"]
+
+
+def test_tag_with_space_extracts_number() -> None:
+    """MinerU's `\\tag {2.3}` (space before brace) must yield 2.3."""
+    eqs = _eq_entities(r"\chi = \frac {N(0)}{1 - I N(0)}, \tag {2.3}")
+    assert len(eqs) == 1
+    assert eqs[0].metadata.get("equation_number") == "2.3"
+
+
+def test_undelimited_equation_line_with_tag_is_detected() -> None:
+    """A math line with `\\tag{N}` but no `\\[ \\]` / `$$` wrapper is
+    still recognised as an equation (MinerU's bare-line form)."""
+    md = "# Section\n\n\\rho = \\sum_i \\psi_i, \\tag {4.7}\n\nProse after."
+    eqs = _eq_entities(md)
+    assert any(e.metadata.get("equation_number") == "4.7" for e in eqs)
+
+
+def test_tag_without_space_still_works() -> None:
+    """Regression: the no-space `\\tag{11}` form (DeepSeek/docling) keeps working."""
+    eqs = _eq_entities(r"\[ x + y = z \tag{11} \]", backend="deepseek")
+    assert eqs and eqs[0].metadata.get("equation_number") == "11"
+
+
+def test_deepseek_quad_paren_form_unregressed() -> None:
+    """Regression: DeepSeek `\\[ ... \\quad (11) \\]` still extracts 11."""
+    eqs = _eq_entities(r"\[ E = mc^2 \quad (11) \]", backend="deepseek")
+    assert eqs and eqs[0].metadata.get("equation_number") == "11"
+
+
+def test_tag_in_prose_without_math_is_not_an_equation() -> None:
+    """A prose line carrying a stray `\\tag` but no math signal must NOT
+    be swept up as an equation (the _looks_like_math guard)."""
+    eqs = _eq_entities("Please tag {this} item for review in the catalogue.")
+    assert eqs == []
+
+
+def test_bibliography_year_not_mistaken_for_equation() -> None:
+    """Regression guard: `[14] Smith ... (2020).` stays out of equations."""
+    eqs = _eq_entities("[14] Smith, J. A study of things. Journal X (2020).")
+    assert eqs == []

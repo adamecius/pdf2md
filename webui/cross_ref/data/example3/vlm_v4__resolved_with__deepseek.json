@@ -5196,18 +5196,18 @@
       "parent_id": "document:example3/vlm_v4+deepseek"
     },
     {
-      "id": "section:index:example3/vlm_v4+deepseek",
-      "type": "index_section",
-      "label": "Index",
-      "parent_id": "document:example3/vlm_v4+deepseek",
-      "back_matter_kind": "index"
-    },
-    {
       "id": "section:bibliography:example3/vlm_v4+deepseek",
       "type": "bibliography_section",
       "label": "Bibliography",
       "parent_id": "document:example3/vlm_v4+deepseek",
       "back_matter_kind": "bibliography"
+    },
+    {
+      "id": "section:index:example3/vlm_v4+deepseek",
+      "type": "index_section",
+      "label": "Index",
+      "parent_id": "document:example3/vlm_v4+deepseek",
+      "back_matter_kind": "index"
     },
     {
       "id": "marker:0:#/document/pages/1:Chapter 1",
@@ -86960,13 +86960,13 @@
     },
     {
       "source": "document:example3/vlm_v4+deepseek",
-      "target": "section:index:example3/vlm_v4+deepseek",
+      "target": "section:bibliography:example3/vlm_v4+deepseek",
       "edge_kind": "contains",
       "label": ""
     },
     {
       "source": "document:example3/vlm_v4+deepseek",
-      "target": "section:bibliography:example3/vlm_v4+deepseek",
+      "target": "section:index:example3/vlm_v4+deepseek",
       "edge_kind": "contains",
       "label": ""
     },
