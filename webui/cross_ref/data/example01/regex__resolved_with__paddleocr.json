@@ -1,0 +1,3609 @@
+{
+  "schema_version": "1.1.0",
+  "document_id": "example01/regex+paddleocr",
+  "nodes": [
+    {
+      "id": "document:example01/regex+paddleocr",
+      "type": "document",
+      "label": "example01/regex+paddleocr",
+      "page_count": 1
+    },
+    {
+      "id": "page:example01/regex+paddleocr:1",
+      "type": "page",
+      "label": "Page 1",
+      "page_no": 1,
+      "parent_id": "document:example01/regex+paddleocr"
+    },
+    {
+      "id": "section:bibliography:example01/regex+paddleocr",
+      "type": "bibliography_section",
+      "label": "Bibliography",
+      "parent_id": "document:example01/regex+paddleocr",
+      "back_matter_kind": "bibliography"
+    },
+    {
+      "id": "marker:0:#/document:[1]",
+      "type": "bibliography",
+      "label": "[1]",
+      "source_ref": "#/document",
+      "char_offset": [
+        541,
+        544
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "section:markers:example01/regex+paddleocr",
+      "type": "markers_section",
+      "label": "Markers",
+      "parent_id": "document:example01/regex+paddleocr",
+      "back_matter_kind": "markers"
+    },
+    {
+      "id": "marker:1:#/document:[2]",
+      "type": "bibliography",
+      "label": "[2]",
+      "source_ref": "#/document",
+      "char_offset": [
+        1303,
+        1306
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:2:#/document:[3]",
+      "type": "bibliography",
+      "label": "[3]",
+      "source_ref": "#/document",
+      "char_offset": [
+        1359,
+        1362
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:3:#/document:[4]",
+      "type": "bibliography",
+      "label": "[4]",
+      "source_ref": "#/document",
+      "char_offset": [
+        1499,
+        1502
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:4:#/document:[5]",
+      "type": "bibliography",
+      "label": "[5]",
+      "source_ref": "#/document",
+      "char_offset": [
+        1638,
+        1641
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:5:#/document:[6, 7]",
+      "type": "bibliography",
+      "label": "[6, 7]",
+      "source_ref": "#/document",
+      "char_offset": [
+        1747,
+        1753
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:6:#/document:[8]",
+      "type": "bibliography",
+      "label": "[8]",
+      "source_ref": "#/document",
+      "char_offset": [
+        1837,
+        1840
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:7:#/document:[9]",
+      "type": "bibliography",
+      "label": "[9]",
+      "source_ref": "#/document",
+      "char_offset": [
+        1941,
+        1944
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:8:#/document:[10]",
+      "type": "bibliography",
+      "label": "[10]",
+      "source_ref": "#/document",
+      "char_offset": [
+        2067,
+        2071
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:9:#/document:[11]",
+      "type": "bibliography",
+      "label": "[11]",
+      "source_ref": "#/document",
+      "char_offset": [
+        2237,
+        2241
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:10:#/document:[12, 13]",
+      "type": "bibliography",
+      "label": "[12, 13]",
+      "source_ref": "#/document",
+      "char_offset": [
+        2634,
+        2642
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:11:#/document:[14]",
+      "type": "bibliography",
+      "label": "[14]",
+      "source_ref": "#/document",
+      "char_offset": [
+        2681,
+        2685
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:12:#/document:[1]",
+      "type": "bibliography",
+      "label": "[1]",
+      "source_ref": "#/document",
+      "char_offset": [
+        3014,
+        3017
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:13:#/document:[16]",
+      "type": "bibliography",
+      "label": "[16]",
+      "source_ref": "#/document",
+      "char_offset": [
+        3129,
+        3133
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:14:#/document:[14, 21]",
+      "type": "bibliography",
+      "label": "[14, 21]",
+      "source_ref": "#/document",
+      "char_offset": [
+        3279,
+        3287
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:15:#/document:[25]",
+      "type": "bibliography",
+      "label": "[25]",
+      "source_ref": "#/document",
+      "char_offset": [
+        3985,
+        3989
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:16:#/document:[1]",
+      "type": "bibliography",
+      "label": "[1]",
+      "source_ref": "#/document",
+      "char_offset": [
+        4779,
+        4782
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:17:#/document:[1]",
+      "type": "bibliography",
+      "label": "[1]",
+      "source_ref": "#/document",
+      "char_offset": [
+        5612,
+        5615
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:18:#/document:[26]",
+      "type": "bibliography",
+      "label": "[26]",
+      "source_ref": "#/document",
+      "char_offset": [
+        5681,
+        5685
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:19:#/document:[26]",
+      "type": "bibliography",
+      "label": "[26]",
+      "source_ref": "#/document",
+      "char_offset": [
+        5888,
+        5892
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:20:#/document:[27]",
+      "type": "bibliography",
+      "label": "[27]",
+      "source_ref": "#/document",
+      "char_offset": [
+        6026,
+        6030
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:21:#/document:[15]",
+      "type": "bibliography",
+      "label": "[15]",
+      "source_ref": "#/document",
+      "char_offset": [
+        6160,
+        6164
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:22:#/document:eq. (1)",
+      "type": "equation",
+      "label": "eq. (1)",
+      "source_ref": "#/document",
+      "char_offset": [
+        6390,
+        6397
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:23:#/document:[16, 28]",
+      "type": "bibliography",
+      "label": "[16, 28]",
+      "source_ref": "#/document",
+      "char_offset": [
+        6467,
+        6475
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:24:#/document:[32]",
+      "type": "bibliography",
+      "label": "[32]",
+      "source_ref": "#/document",
+      "char_offset": [
+        6806,
+        6810
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:25:#/document:[34]",
+      "type": "bibliography",
+      "label": "[34]",
+      "source_ref": "#/document",
+      "char_offset": [
+        9700,
+        9704
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:26:#/document:[20, 29]",
+      "type": "bibliography",
+      "label": "[20, 29]",
+      "source_ref": "#/document",
+      "char_offset": [
+        9890,
+        9898
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:27:#/document:[35, 36]",
+      "type": "bibliography",
+      "label": "[35, 36]",
+      "source_ref": "#/document",
+      "char_offset": [
+        10202,
+        10210
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:28:#/document:Fig. 1",
+      "type": "figure",
+      "label": "Fig. 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        12662,
+        12668
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:29:#/document:Figure\n\n1",
+      "type": "figure",
+      "label": "Figure\n\n1",
+      "source_ref": "#/document",
+      "char_offset": [
+        12861,
+        12870
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:30:#/document:Fig. 1",
+      "type": "figure",
+      "label": "Fig. 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        13360,
+        13366
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:31:#/document:[37]",
+      "type": "bibliography",
+      "label": "[37]",
+      "source_ref": "#/document",
+      "char_offset": [
+        13515,
+        13519
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:32:#/document:Fig. 1",
+      "type": "figure",
+      "label": "Fig. 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        13597,
+        13603
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:33:#/document:Fig. 2",
+      "type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        13807,
+        13813
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:34:#/document:[29]",
+      "type": "bibliography",
+      "label": "[29]",
+      "source_ref": "#/document",
+      "char_offset": [
+        13988,
+        13992
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:35:#/document:Fig. 2",
+      "type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        14287,
+        14293
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:36:#/document:[14, 24]",
+      "type": "bibliography",
+      "label": "[14, 24]",
+      "source_ref": "#/document",
+      "char_offset": [
+        14386,
+        14394
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:37:#/document:FIG. 1",
+      "type": "figure",
+      "label": "FIG. 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        15127,
+        15133
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:38:#/document:FIG. 2",
+      "type": "figure",
+      "label": "FIG. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        15939,
+        15945
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:39:#/document:Fig. 2",
+      "type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        16489,
+        16495
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:40:#/document:[33]",
+      "type": "bibliography",
+      "label": "[33]",
+      "source_ref": "#/document",
+      "char_offset": [
+        16828,
+        16832
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:41:#/document:[16]",
+      "type": "bibliography",
+      "label": "[16]",
+      "source_ref": "#/document",
+      "char_offset": [
+        16899,
+        16903
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:42:#/document:Fig. 2",
+      "type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        17026,
+        17032
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:43:#/document:Fig. 2",
+      "type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        17098,
+        17104
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:44:#/document:[38]",
+      "type": "bibliography",
+      "label": "[38]",
+      "source_ref": "#/document",
+      "char_offset": [
+        17685,
+        17689
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:45:#/document:[25]",
+      "type": "bibliography",
+      "label": "[25]",
+      "source_ref": "#/document",
+      "char_offset": [
+        17726,
+        17730
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:46:#/document:[25]",
+      "type": "bibliography",
+      "label": "[25]",
+      "source_ref": "#/document",
+      "char_offset": [
+        18855,
+        18859
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:47:#/document:[38]",
+      "type": "bibliography",
+      "label": "[38]",
+      "source_ref": "#/document",
+      "char_offset": [
+        19336,
+        19340
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:48:#/document:FIG. 3",
+      "type": "figure",
+      "label": "FIG. 3",
+      "source_ref": "#/document",
+      "char_offset": [
+        21227,
+        21233
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:49:#/document:Fig. 3",
+      "type": "figure",
+      "label": "Fig. 3",
+      "source_ref": "#/document",
+      "char_offset": [
+        22427,
+        22433
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:50:#/document:[39, 40]",
+      "type": "bibliography",
+      "label": "[39, 40]",
+      "source_ref": "#/document",
+      "char_offset": [
+        22854,
+        22862
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:51:#/document:[41]",
+      "type": "bibliography",
+      "label": "[41]",
+      "source_ref": "#/document",
+      "char_offset": [
+        25566,
+        25570
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:52:#/document:[1]",
+      "type": "bibliography",
+      "label": "[1]",
+      "source_ref": "#/document",
+      "char_offset": [
+        26095,
+        26098
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:53:#/document:[2]",
+      "type": "bibliography",
+      "label": "[2]",
+      "source_ref": "#/document",
+      "char_offset": [
+        26202,
+        26205
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:54:#/document:[3]",
+      "type": "bibliography",
+      "label": "[3]",
+      "source_ref": "#/document",
+      "char_offset": [
+        26248,
+        26251
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:55:#/document:[4]",
+      "type": "bibliography",
+      "label": "[4]",
+      "source_ref": "#/document",
+      "char_offset": [
+        26352,
+        26355
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:56:#/document:[5]",
+      "type": "bibliography",
+      "label": "[5]",
+      "source_ref": "#/document",
+      "char_offset": [
+        26431,
+        26434
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:57:#/document:[6]",
+      "type": "bibliography",
+      "label": "[6]",
+      "source_ref": "#/document",
+      "char_offset": [
+        26505,
+        26508
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:58:#/document:[7]",
+      "type": "bibliography",
+      "label": "[7]",
+      "source_ref": "#/document",
+      "char_offset": [
+        26555,
+        26558
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:59:#/document:[8]",
+      "type": "bibliography",
+      "label": "[8]",
+      "source_ref": "#/document",
+      "char_offset": [
+        26603,
+        26606
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:60:#/document:[9]",
+      "type": "bibliography",
+      "label": "[9]",
+      "source_ref": "#/document",
+      "char_offset": [
+        26670,
+        26673
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:61:#/document:[10]",
+      "type": "bibliography",
+      "label": "[10]",
+      "source_ref": "#/document",
+      "char_offset": [
+        26795,
+        26799
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:62:#/document:[11]",
+      "type": "bibliography",
+      "label": "[11]",
+      "source_ref": "#/document",
+      "char_offset": [
+        26898,
+        26902
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:63:#/document:[12]",
+      "type": "bibliography",
+      "label": "[12]",
+      "source_ref": "#/document",
+      "char_offset": [
+        26969,
+        26973
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:64:#/document:[13]",
+      "type": "bibliography",
+      "label": "[13]",
+      "source_ref": "#/document",
+      "char_offset": [
+        27048,
+        27052
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:65:#/document:[14]",
+      "type": "bibliography",
+      "label": "[14]",
+      "source_ref": "#/document",
+      "char_offset": [
+        27112,
+        27116
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:66:#/document:[15]",
+      "type": "bibliography",
+      "label": "[15]",
+      "source_ref": "#/document",
+      "char_offset": [
+        27190,
+        27194
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:67:#/document:[16]",
+      "type": "bibliography",
+      "label": "[16]",
+      "source_ref": "#/document",
+      "char_offset": [
+        27257,
+        27261
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:68:#/document:[17]",
+      "type": "bibliography",
+      "label": "[17]",
+      "source_ref": "#/document",
+      "char_offset": [
+        27344,
+        27348
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:69:#/document:[18]",
+      "type": "bibliography",
+      "label": "[18]",
+      "source_ref": "#/document",
+      "char_offset": [
+        27392,
+        27396
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:70:#/document:[19]",
+      "type": "bibliography",
+      "label": "[19]",
+      "source_ref": "#/document",
+      "char_offset": [
+        27475,
+        27479
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:71:#/document:[20]",
+      "type": "bibliography",
+      "label": "[20]",
+      "source_ref": "#/document",
+      "char_offset": [
+        27617,
+        27621
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:72:#/document:[21]",
+      "type": "bibliography",
+      "label": "[21]",
+      "source_ref": "#/document",
+      "char_offset": [
+        27715,
+        27719
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:73:#/document:[22]",
+      "type": "bibliography",
+      "label": "[22]",
+      "source_ref": "#/document",
+      "char_offset": [
+        27797,
+        27801
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:74:#/document:[23]",
+      "type": "bibliography",
+      "label": "[23]",
+      "source_ref": "#/document",
+      "char_offset": [
+        27916,
+        27920
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:75:#/document:[24]",
+      "type": "bibliography",
+      "label": "[24]",
+      "source_ref": "#/document",
+      "char_offset": [
+        28036,
+        28040
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:76:#/document:[25]",
+      "type": "bibliography",
+      "label": "[25]",
+      "source_ref": "#/document",
+      "char_offset": [
+        28166,
+        28170
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:77:#/document:[26]",
+      "type": "bibliography",
+      "label": "[26]",
+      "source_ref": "#/document",
+      "char_offset": [
+        28226,
+        28230
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:78:#/document:[27]",
+      "type": "bibliography",
+      "label": "[27]",
+      "source_ref": "#/document",
+      "char_offset": [
+        28293,
+        28297
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:79:#/document:[28]",
+      "type": "bibliography",
+      "label": "[28]",
+      "source_ref": "#/document",
+      "char_offset": [
+        28377,
+        28381
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:80:#/document:[29]",
+      "type": "bibliography",
+      "label": "[29]",
+      "source_ref": "#/document",
+      "char_offset": [
+        28487,
+        28491
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:81:#/document:[30]",
+      "type": "bibliography",
+      "label": "[30]",
+      "source_ref": "#/document",
+      "char_offset": [
+        28567,
+        28571
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:82:#/document:[31]",
+      "type": "bibliography",
+      "label": "[31]",
+      "source_ref": "#/document",
+      "char_offset": [
+        28671,
+        28675
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:83:#/document:[32]",
+      "type": "bibliography",
+      "label": "[32]",
+      "source_ref": "#/document",
+      "char_offset": [
+        28787,
+        28791
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:84:#/document:[33]",
+      "type": "bibliography",
+      "label": "[33]",
+      "source_ref": "#/document",
+      "char_offset": [
+        28942,
+        28946
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:85:#/document:[42- 48]",
+      "type": "bibliography",
+      "label": "[42- 48]",
+      "source_ref": "#/document",
+      "char_offset": [
+        29001,
+        29009
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:86:#/document:[34]",
+      "type": "bibliography",
+      "label": "[34]",
+      "source_ref": "#/document",
+      "char_offset": [
+        29013,
+        29017
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:87:#/document:[35]",
+      "type": "bibliography",
+      "label": "[35]",
+      "source_ref": "#/document",
+      "char_offset": [
+        29130,
+        29134
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:88:#/document:[36]",
+      "type": "bibliography",
+      "label": "[36]",
+      "source_ref": "#/document",
+      "char_offset": [
+        29212,
+        29216
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:89:#/document:[37]",
+      "type": "bibliography",
+      "label": "[37]",
+      "source_ref": "#/document",
+      "char_offset": [
+        29289,
+        29293
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:90:#/document:[38]",
+      "type": "bibliography",
+      "label": "[38]",
+      "source_ref": "#/document",
+      "char_offset": [
+        29444,
+        29448
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:91:#/document:[39]",
+      "type": "bibliography",
+      "label": "[39]",
+      "source_ref": "#/document",
+      "char_offset": [
+        29495,
+        29499
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:92:#/document:[40]",
+      "type": "bibliography",
+      "label": "[40]",
+      "source_ref": "#/document",
+      "char_offset": [
+        29594,
+        29598
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:93:#/document:[41]",
+      "type": "bibliography",
+      "label": "[41]",
+      "source_ref": "#/document",
+      "char_offset": [
+        29699,
+        29703
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:94:#/document:[42]",
+      "type": "bibliography",
+      "label": "[42]",
+      "source_ref": "#/document",
+      "char_offset": [
+        29946,
+        29950
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:95:#/document:[43]",
+      "type": "bibliography",
+      "label": "[43]",
+      "source_ref": "#/document",
+      "char_offset": [
+        30087,
+        30091
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:96:#/document:[44]",
+      "type": "bibliography",
+      "label": "[44]",
+      "source_ref": "#/document",
+      "char_offset": [
+        30155,
+        30159
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:97:#/document:[45]",
+      "type": "bibliography",
+      "label": "[45]",
+      "source_ref": "#/document",
+      "char_offset": [
+        30226,
+        30230
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:98:#/document:[46]",
+      "type": "bibliography",
+      "label": "[46]",
+      "source_ref": "#/document",
+      "char_offset": [
+        30340,
+        30344
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:99:#/document:[47]",
+      "type": "bibliography",
+      "label": "[47]",
+      "source_ref": "#/document",
+      "char_offset": [
+        30412,
+        30416
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:100:#/document:[48]",
+      "type": "bibliography",
+      "label": "[48]",
+      "source_ref": "#/document",
+      "char_offset": [
+        30482,
+        30486
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:101:#/document:[1]",
+      "type": "bibliography",
+      "label": "[1]",
+      "source_ref": "#/document",
+      "char_offset": [
+        32184,
+        32187
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:102:#/document:[2]",
+      "type": "bibliography",
+      "label": "[2]",
+      "source_ref": "#/document",
+      "char_offset": [
+        33279,
+        33282
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:103:#/document:[3, 4]",
+      "type": "bibliography",
+      "label": "[3, 4]",
+      "source_ref": "#/document",
+      "char_offset": [
+        33309,
+        33315
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:104:#/document:[ 1 , 5 ]",
+      "type": "bibliography",
+      "label": "[ 1 , 5 ]",
+      "source_ref": "#/document",
+      "char_offset": [
+        33507,
+        33516
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:105:#/document:equation (11)",
+      "type": "equation",
+      "label": "equation (11)",
+      "source_ref": "#/document",
+      "char_offset": [
+        34187,
+        34200
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:106:#/document:[1, 6, 7]",
+      "type": "bibliography",
+      "label": "[1, 6, 7]",
+      "source_ref": "#/document",
+      "char_offset": [
+        34931,
+        34940
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:107:#/document:[1, 8, 9]",
+      "type": "bibliography",
+      "label": "[1, 8, 9]",
+      "source_ref": "#/document",
+      "char_offset": [
+        35352,
+        35361
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:108:#/document:Eq. (14)",
+      "type": "equation",
+      "label": "Eq. (14)",
+      "source_ref": "#/document",
+      "char_offset": [
+        36589,
+        36597
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:109:#/document:[9, 10]",
+      "type": "bibliography",
+      "label": "[9, 10]",
+      "source_ref": "#/document",
+      "char_offset": [
+        36840,
+        36847
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:110:#/document:[11]",
+      "type": "bibliography",
+      "label": "[11]",
+      "source_ref": "#/document",
+      "char_offset": [
+        37045,
+        37049
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:111:#/document:[1]",
+      "type": "bibliography",
+      "label": "[1]",
+      "source_ref": "#/document",
+      "char_offset": [
+        42544,
+        42547
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:112:#/document:FIG. 4",
+      "type": "figure",
+      "label": "FIG. 4",
+      "source_ref": "#/document",
+      "char_offset": [
+        43100,
+        43106
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:113:#/document:figure 1",
+      "type": "figure",
+      "label": "figure 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        43437,
+        43445
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:114:#/document:figure 2",
+      "type": "figure",
+      "label": "figure 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        44806,
+        44814
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:115:#/document:FIG. 5",
+      "type": "figure",
+      "label": "FIG. 5",
+      "source_ref": "#/document",
+      "char_offset": [
+        45545,
+        45551
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:116:#/document:[12]",
+      "type": "bibliography",
+      "label": "[12]",
+      "source_ref": "#/document",
+      "char_offset": [
+        47669,
+        47673
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:117:#/document:[1]",
+      "type": "bibliography",
+      "label": "[1]",
+      "source_ref": "#/document",
+      "char_offset": [
+        47676,
+        47679
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:118:#/document:[2]",
+      "type": "bibliography",
+      "label": "[2]",
+      "source_ref": "#/document",
+      "char_offset": [
+        47787,
+        47790
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:119:#/document:[3]",
+      "type": "bibliography",
+      "label": "[3]",
+      "source_ref": "#/document",
+      "char_offset": [
+        47872,
+        47875
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:120:#/document:[4]",
+      "type": "bibliography",
+      "label": "[4]",
+      "source_ref": "#/document",
+      "char_offset": [
+        48012,
+        48015
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:121:#/document:[5]",
+      "type": "bibliography",
+      "label": "[5]",
+      "source_ref": "#/document",
+      "char_offset": [
+        48076,
+        48079
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:122:#/document:[6]",
+      "type": "bibliography",
+      "label": "[6]",
+      "source_ref": "#/document",
+      "char_offset": [
+        48191,
+        48194
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:123:#/document:[7]",
+      "type": "bibliography",
+      "label": "[7]",
+      "source_ref": "#/document",
+      "char_offset": [
+        48259,
+        48262
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:124:#/document:[8]",
+      "type": "bibliography",
+      "label": "[8]",
+      "source_ref": "#/document",
+      "char_offset": [
+        48372,
+        48375
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:125:#/document:[9]",
+      "type": "bibliography",
+      "label": "[9]",
+      "source_ref": "#/document",
+      "char_offset": [
+        48443,
+        48446
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:126:#/document:[10]",
+      "type": "bibliography",
+      "label": "[10]",
+      "source_ref": "#/document",
+      "char_offset": [
+        48512,
+        48516
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:127:#/document:[11]",
+      "type": "bibliography",
+      "label": "[11]",
+      "source_ref": "#/document",
+      "char_offset": [
+        48592,
+        48596
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "marker:128:#/document:[12]",
+      "type": "bibliography",
+      "label": "[12]",
+      "source_ref": "#/document",
+      "char_offset": [
+        48699,
+        48703
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example01/regex+paddleocr"
+    },
+    {
+      "id": "_unresolved",
+      "type": "unresolved",
+      "label": "(unresolved)"
+    },
+    {
+      "id": "ent:paddleocr:example01:footnote:67",
+      "type": "bibliography",
+      "label": "ent:paddleocr:example01:footnote:67",
+      "parent_id": "section:bibliography:example01/regex+paddleocr",
+      "page_no": 1
+    },
+    {
+      "id": "ent:paddleocr:example01:footnote:69",
+      "type": "bibliography",
+      "label": "ent:paddleocr:example01:footnote:69",
+      "parent_id": "section:bibliography:example01/regex+paddleocr",
+      "page_no": 1
+    },
+    {
+      "id": "ent:paddleocr:example01:footnote:70",
+      "type": "bibliography",
+      "label": "ent:paddleocr:example01:footnote:70",
+      "parent_id": "section:bibliography:example01/regex+paddleocr",
+      "page_no": 1
+    },
+    {
+      "id": "ent:paddleocr:example01:footnote:71",
+      "type": "bibliography",
+      "label": "ent:paddleocr:example01:footnote:71",
+      "parent_id": "section:bibliography:example01/regex+paddleocr",
+      "page_no": 1
+    },
+    {
+      "id": "ent:paddleocr:example01:footnote:72",
+      "type": "bibliography",
+      "label": "ent:paddleocr:example01:footnote:72",
+      "parent_id": "section:bibliography:example01/regex+paddleocr",
+      "page_no": 1
+    },
+    {
+      "id": "ent:paddleocr:example01:footnote:73",
+      "type": "bibliography",
+      "label": "ent:paddleocr:example01:footnote:73",
+      "parent_id": "section:bibliography:example01/regex+paddleocr",
+      "page_no": 1
+    },
+    {
+      "id": "ent:paddleocr:example01:footnote:68",
+      "type": "bibliography",
+      "label": "ent:paddleocr:example01:footnote:68",
+      "parent_id": "section:bibliography:example01/regex+paddleocr",
+      "page_no": 1
+    }
+  ],
+  "edges": [
+    {
+      "source": "marker:0:#/document:[1]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[1]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:1:#/document:[2]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[2]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:2:#/document:[3]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[3]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:3:#/document:[4]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[4]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:4:#/document:[5]",
+      "target": "ent:paddleocr:example01:footnote:67",
+      "marker_type": "bibliography",
+      "label": "[5]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:5:#/document:[6, 7]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[6, 7]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:6:#/document:[8]",
+      "target": "ent:paddleocr:example01:footnote:69",
+      "marker_type": "bibliography",
+      "label": "[8]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:7:#/document:[9]",
+      "target": "ent:paddleocr:example01:footnote:70",
+      "marker_type": "bibliography",
+      "label": "[9]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:8:#/document:[10]",
+      "target": "ent:paddleocr:example01:footnote:71",
+      "marker_type": "bibliography",
+      "label": "[10]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:9:#/document:[11]",
+      "target": "ent:paddleocr:example01:footnote:72",
+      "marker_type": "bibliography",
+      "label": "[11]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:10:#/document:[12, 13]",
+      "target": "ent:paddleocr:example01:footnote:73",
+      "marker_type": "bibliography",
+      "label": "[12, 13]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:11:#/document:[14]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[14]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:12:#/document:[1]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[1]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:13:#/document:[16]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[16]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:14:#/document:[14, 21]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[14, 21]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:15:#/document:[25]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[25]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:16:#/document:[1]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[1]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:17:#/document:[1]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[1]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:18:#/document:[26]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[26]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:19:#/document:[26]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[26]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:20:#/document:[27]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[27]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:21:#/document:[15]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[15]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:22:#/document:eq. (1)",
+      "target": "_unresolved",
+      "marker_type": "equation",
+      "label": "eq. (1)",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:23:#/document:[16, 28]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[16, 28]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:24:#/document:[32]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[32]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:25:#/document:[34]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[34]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:26:#/document:[20, 29]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[20, 29]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:27:#/document:[35, 36]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[35, 36]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:28:#/document:Fig. 1",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "Fig. 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:29:#/document:Figure\n\n1",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "Figure\n\n1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:30:#/document:Fig. 1",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "Fig. 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:31:#/document:[37]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[37]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:32:#/document:Fig. 1",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "Fig. 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:33:#/document:Fig. 2",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:34:#/document:[29]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[29]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:35:#/document:Fig. 2",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:36:#/document:[14, 24]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[14, 24]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:37:#/document:FIG. 1",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "FIG. 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:38:#/document:FIG. 2",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "FIG. 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:39:#/document:Fig. 2",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:40:#/document:[33]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[33]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:41:#/document:[16]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[16]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:42:#/document:Fig. 2",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:43:#/document:Fig. 2",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:44:#/document:[38]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[38]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:45:#/document:[25]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[25]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:46:#/document:[25]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[25]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:47:#/document:[38]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[38]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:48:#/document:FIG. 3",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "FIG. 3",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:49:#/document:Fig. 3",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "Fig. 3",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:50:#/document:[39, 40]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[39, 40]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:51:#/document:[41]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[41]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:52:#/document:[1]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[1]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:53:#/document:[2]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[2]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:54:#/document:[3]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[3]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:55:#/document:[4]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[4]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:56:#/document:[5]",
+      "target": "ent:paddleocr:example01:footnote:67",
+      "marker_type": "bibliography",
+      "label": "[5]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:57:#/document:[6]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[6]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:58:#/document:[7]",
+      "target": "ent:paddleocr:example01:footnote:68",
+      "marker_type": "bibliography",
+      "label": "[7]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:59:#/document:[8]",
+      "target": "ent:paddleocr:example01:footnote:69",
+      "marker_type": "bibliography",
+      "label": "[8]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:60:#/document:[9]",
+      "target": "ent:paddleocr:example01:footnote:70",
+      "marker_type": "bibliography",
+      "label": "[9]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:61:#/document:[10]",
+      "target": "ent:paddleocr:example01:footnote:71",
+      "marker_type": "bibliography",
+      "label": "[10]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:62:#/document:[11]",
+      "target": "ent:paddleocr:example01:footnote:72",
+      "marker_type": "bibliography",
+      "label": "[11]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:63:#/document:[12]",
+      "target": "ent:paddleocr:example01:footnote:73",
+      "marker_type": "bibliography",
+      "label": "[12]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:64:#/document:[13]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[13]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:65:#/document:[14]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[14]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:66:#/document:[15]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[15]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:67:#/document:[16]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[16]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:68:#/document:[17]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[17]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:69:#/document:[18]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[18]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:70:#/document:[19]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[19]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:71:#/document:[20]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[20]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:72:#/document:[21]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[21]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:73:#/document:[22]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[22]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:74:#/document:[23]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[23]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:75:#/document:[24]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[24]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:76:#/document:[25]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[25]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:77:#/document:[26]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[26]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:78:#/document:[27]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[27]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:79:#/document:[28]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[28]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:80:#/document:[29]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[29]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:81:#/document:[30]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[30]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:82:#/document:[31]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[31]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:83:#/document:[32]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[32]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:84:#/document:[33]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[33]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:85:#/document:[42- 48]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[42- 48]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:86:#/document:[34]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[34]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:87:#/document:[35]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[35]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:88:#/document:[36]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[36]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:89:#/document:[37]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[37]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:90:#/document:[38]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[38]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:91:#/document:[39]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[39]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:92:#/document:[40]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[40]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:93:#/document:[41]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[41]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:94:#/document:[42]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[42]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:95:#/document:[43]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[43]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:96:#/document:[44]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[44]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:97:#/document:[45]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[45]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:98:#/document:[46]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[46]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:99:#/document:[47]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[47]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:100:#/document:[48]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[48]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:101:#/document:[1]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[1]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:102:#/document:[2]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[2]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:103:#/document:[3, 4]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[3, 4]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:104:#/document:[ 1 , 5 ]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[ 1 , 5 ]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:105:#/document:equation (11)",
+      "target": "_unresolved",
+      "marker_type": "equation",
+      "label": "equation (11)",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:106:#/document:[1, 6, 7]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[1, 6, 7]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:107:#/document:[1, 8, 9]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[1, 8, 9]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:108:#/document:Eq. (14)",
+      "target": "_unresolved",
+      "marker_type": "equation",
+      "label": "Eq. (14)",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:109:#/document:[9, 10]",
+      "target": "ent:paddleocr:example01:footnote:70",
+      "marker_type": "bibliography",
+      "label": "[9, 10]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:110:#/document:[11]",
+      "target": "ent:paddleocr:example01:footnote:72",
+      "marker_type": "bibliography",
+      "label": "[11]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:111:#/document:[1]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[1]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:112:#/document:FIG. 4",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "FIG. 4",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:113:#/document:figure 1",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "figure 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:114:#/document:figure 2",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "figure 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:115:#/document:FIG. 5",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "FIG. 5",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:116:#/document:[12]",
+      "target": "ent:paddleocr:example01:footnote:73",
+      "marker_type": "bibliography",
+      "label": "[12]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:117:#/document:[1]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[1]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:118:#/document:[2]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[2]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:119:#/document:[3]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[3]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:120:#/document:[4]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[4]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:121:#/document:[5]",
+      "target": "ent:paddleocr:example01:footnote:67",
+      "marker_type": "bibliography",
+      "label": "[5]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:122:#/document:[6]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[6]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:123:#/document:[7]",
+      "target": "ent:paddleocr:example01:footnote:68",
+      "marker_type": "bibliography",
+      "label": "[7]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:124:#/document:[8]",
+      "target": "ent:paddleocr:example01:footnote:69",
+      "marker_type": "bibliography",
+      "label": "[8]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:125:#/document:[9]",
+      "target": "ent:paddleocr:example01:footnote:70",
+      "marker_type": "bibliography",
+      "label": "[9]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:126:#/document:[10]",
+      "target": "ent:paddleocr:example01:footnote:71",
+      "marker_type": "bibliography",
+      "label": "[10]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:127:#/document:[11]",
+      "target": "ent:paddleocr:example01:footnote:72",
+      "marker_type": "bibliography",
+      "label": "[11]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:128:#/document:[12]",
+      "target": "ent:paddleocr:example01:footnote:73",
+      "marker_type": "bibliography",
+      "label": "[12]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "document:example01/regex+paddleocr",
+      "target": "page:example01/regex+paddleocr:1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/regex+paddleocr",
+      "target": "section:bibliography:example01/regex+paddleocr",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/regex+paddleocr",
+      "target": "section:markers:example01/regex+paddleocr",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:0:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:1:#/document:[2]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:2:#/document:[3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:3:#/document:[4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:4:#/document:[5]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:5:#/document:[6, 7]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:6:#/document:[8]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:7:#/document:[9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:8:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:9:#/document:[11]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:10:#/document:[12, 13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:11:#/document:[14]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:12:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:13:#/document:[16]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:14:#/document:[14, 21]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:15:#/document:[25]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:16:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:17:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:18:#/document:[26]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:19:#/document:[26]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:20:#/document:[27]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:21:#/document:[15]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:22:#/document:eq. (1)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:23:#/document:[16, 28]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:24:#/document:[32]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:25:#/document:[34]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:26:#/document:[20, 29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:27:#/document:[35, 36]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:28:#/document:Fig. 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:29:#/document:Figure\n\n1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:30:#/document:Fig. 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:31:#/document:[37]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:32:#/document:Fig. 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:33:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:34:#/document:[29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:35:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:36:#/document:[14, 24]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:37:#/document:FIG. 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:38:#/document:FIG. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:39:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:40:#/document:[33]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:41:#/document:[16]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:42:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:43:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:44:#/document:[38]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:45:#/document:[25]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:46:#/document:[25]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:47:#/document:[38]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:48:#/document:FIG. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:49:#/document:Fig. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:50:#/document:[39, 40]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:51:#/document:[41]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:52:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:53:#/document:[2]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:54:#/document:[3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:55:#/document:[4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:56:#/document:[5]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:57:#/document:[6]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:58:#/document:[7]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:59:#/document:[8]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:60:#/document:[9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:61:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:62:#/document:[11]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:63:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:64:#/document:[13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:65:#/document:[14]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:66:#/document:[15]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:67:#/document:[16]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:68:#/document:[17]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:69:#/document:[18]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:70:#/document:[19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:71:#/document:[20]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:72:#/document:[21]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:73:#/document:[22]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:74:#/document:[23]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:75:#/document:[24]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:76:#/document:[25]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:77:#/document:[26]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:78:#/document:[27]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:79:#/document:[28]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:80:#/document:[29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:81:#/document:[30]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:82:#/document:[31]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:83:#/document:[32]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:84:#/document:[33]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:85:#/document:[42- 48]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:86:#/document:[34]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:87:#/document:[35]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:88:#/document:[36]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:89:#/document:[37]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:90:#/document:[38]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:91:#/document:[39]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:92:#/document:[40]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:93:#/document:[41]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:94:#/document:[42]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:95:#/document:[43]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:96:#/document:[44]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:97:#/document:[45]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:98:#/document:[46]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:99:#/document:[47]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:100:#/document:[48]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:101:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:102:#/document:[2]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:103:#/document:[3, 4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:104:#/document:[ 1 , 5 ]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:105:#/document:equation (11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:106:#/document:[1, 6, 7]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:107:#/document:[1, 8, 9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:108:#/document:Eq. (14)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:109:#/document:[9, 10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:110:#/document:[11]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:111:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:112:#/document:FIG. 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:113:#/document:figure 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:114:#/document:figure 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:115:#/document:FIG. 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:116:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:117:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:118:#/document:[2]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:119:#/document:[3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:120:#/document:[4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:121:#/document:[5]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:122:#/document:[6]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:123:#/document:[7]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:124:#/document:[8]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:125:#/document:[9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:126:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:127:#/document:[11]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/regex+paddleocr",
+      "target": "marker:128:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:67",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:69",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:70",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:71",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:72",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:73",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:67",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:68",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:69",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:70",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:71",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:72",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:73",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:70",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:72",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:73",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:67",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:68",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:69",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:70",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:71",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:72",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/regex+paddleocr",
+      "target": "ent:paddleocr:example01:footnote:73",
+      "edge_kind": "contains",
+      "label": ""
+    }
+  ],
+  "metadata": {
+    "doc_hash": "sha256:14e470cf2425286b3a04cde73e2ee7274d010a31726a1e5ce5703f1012d0f4bb",
+    "total_markers": 129,
+    "resolved_count": 23,
+    "unresolved_count": 106,
+    "backend_versions": {
+      "regex": "0.1.0"
+    },
+    "has_hierarchy": true
+  }
+}

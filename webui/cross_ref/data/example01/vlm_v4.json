@@ -1,0 +1,198 @@
+{
+  "schema_version": "1.0.0",
+  "doc_hash": "sha256:4ceb9e2b4a5ffbd2d6e0714f5f4e5317d458830f4c23da9dd9d4a344a8583b79",
+  "markers": [
+    {
+      "source_ref": "#/document/pages/7",
+      "marker_text": "Eq. (15)",
+      "marker_type": "equation",
+      "char_offset": [
+        0,
+        8
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
+    },
+    {
+      "source_ref": "#/document/pages/7",
+      "marker_text": "Eq. (16)",
+      "marker_type": "equation",
+      "char_offset": [
+        0,
+        8
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
+    },
+    {
+      "source_ref": "#/document/pages/7",
+      "marker_text": "Eq. (17)",
+      "marker_type": "equation",
+      "char_offset": [
+        0,
+        8
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
+    },
+    {
+      "source_ref": "#/document/pages/7",
+      "marker_text": "Eq. (18)",
+      "marker_type": "equation",
+      "char_offset": [
+        0,
+        8
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
+    },
+    {
+      "source_ref": "#/document/pages/7",
+      "marker_text": "Eq. (19)",
+      "marker_type": "equation",
+      "char_offset": [
+        0,
+        8
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
+    },
+    {
+      "source_ref": "#/document/pages/7",
+      "marker_text": "Eq. (20)",
+      "marker_type": "equation",
+      "char_offset": [
+        0,
+        8
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
+    },
+    {
+      "source_ref": "#/document/pages/7",
+      "marker_text": "Eq. (21)",
+      "marker_type": "equation",
+      "char_offset": [
+        0,
+        8
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
+    },
+    {
+      "source_ref": "#/document/pages/8",
+      "marker_text": "FIG. 4",
+      "marker_type": "figure",
+      "char_offset": [
+        0,
+        6
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
+    },
+    {
+      "source_ref": "#/document/pages/8",
+      "marker_text": "Eq. (22)",
+      "marker_type": "equation",
+      "char_offset": [
+        0,
+        8
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
+    },
+    {
+      "source_ref": "#/document/pages/8",
+      "marker_text": "Eq. (23)",
+      "marker_type": "equation",
+      "char_offset": [
+        0,
+        8
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
+    },
+    {
+      "source_ref": "#/document/pages/8",
+      "marker_text": "Eq. (24)",
+      "marker_type": "equation",
+      "char_offset": [
+        0,
+        8
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
+    },
+    {
+      "source_ref": "#/document/pages/8",
+      "marker_text": "Eq. (25)",
+      "marker_type": "equation",
+      "char_offset": [
+        0,
+        8
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
+    },
+    {
+      "source_ref": "#/document/pages/9",
+      "marker_text": "FIG. 5. (a) ⟨dσxy(E)⟩ as a function of R for φ/φ0 ≈ 1 × 10−2, M = 3200, kBT = 0 and N = 2 × 400 × 400 sites.",
+      "marker_type": "figure",
+      "char_offset": [
+        0,
+        108
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
+    },
+    {
+      "source_ref": "#/document/pages/10",
+      "marker_text": "Figure 1",
+      "marker_type": "figure",
+      "char_offset": [
+        0,
+        8
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
+    },
+    {
+      "source_ref": "#/document/pages/10",
+      "marker_text": "Eq. (1)",
+      "marker_type": "equation",
+      "char_offset": [
+        0,
+        7
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
+    },
+    {
+      "source_ref": "#/document/pages/10",
+      "marker_text": "[1]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        0,
+        3
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
+    },
+    {
+      "source_ref": "#/document/pages/10",
+      "marker_text": "footnote 1",
+      "marker_type": "footnote",
+      "char_offset": [
+        0,
+        10
+      ],
+      "confidence": 0.8,
+      "backend": "vlm"
+    }
+  ],
+  "edges": [],
+  "entities": [],
+  "backend_versions": {
+    "vlm": "deepseek-ai/deepseek-vl2-small"
+  }
+}

@@ -1,0 +1,4783 @@
+{
+  "schema_version": "1.1.0",
+  "document_id": "example02/regex+mineru",
+  "nodes": [
+    {
+      "id": "document:example02/regex+mineru",
+      "type": "document",
+      "label": "example02/regex+mineru",
+      "page_count": 1
+    },
+    {
+      "id": "page:example02/regex+mineru:1",
+      "type": "page",
+      "label": "Page 1",
+      "page_no": 1,
+      "parent_id": "document:example02/regex+mineru"
+    },
+    {
+      "id": "section:bibliography:example02/regex+mineru",
+      "type": "bibliography_section",
+      "label": "Bibliography",
+      "parent_id": "document:example02/regex+mineru",
+      "back_matter_kind": "bibliography"
+    },
+    {
+      "id": "marker:0:#/document:[1]",
+      "type": "bibliography",
+      "label": "[1]",
+      "source_ref": "#/document",
+      "char_offset": [
+        2378,
+        2381
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "section:markers:example02/regex+mineru",
+      "type": "markers_section",
+      "label": "Markers",
+      "parent_id": "document:example02/regex+mineru",
+      "back_matter_kind": "markers"
+    },
+    {
+      "id": "marker:1:#/document:[3]",
+      "type": "bibliography",
+      "label": "[3]",
+      "source_ref": "#/document",
+      "char_offset": [
+        2382,
+        2385
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:2:#/document:[4]",
+      "type": "bibliography",
+      "label": "[4]",
+      "source_ref": "#/document",
+      "char_offset": [
+        2798,
+        2801
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:3:#/document:[9]",
+      "type": "bibliography",
+      "label": "[9]",
+      "source_ref": "#/document",
+      "char_offset": [
+        2802,
+        2805
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:4:#/document:[10]",
+      "type": "bibliography",
+      "label": "[10]",
+      "source_ref": "#/document",
+      "char_offset": [
+        4220,
+        4224
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:5:#/document:[12]",
+      "type": "bibliography",
+      "label": "[12]",
+      "source_ref": "#/document",
+      "char_offset": [
+        4225,
+        4229
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:6:#/document:[13]",
+      "type": "bibliography",
+      "label": "[13]",
+      "source_ref": "#/document",
+      "char_offset": [
+        4401,
+        4405
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:7:#/document:[18]",
+      "type": "bibliography",
+      "label": "[18]",
+      "source_ref": "#/document",
+      "char_offset": [
+        4407,
+        4411
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:8:#/document:[19]",
+      "type": "bibliography",
+      "label": "[19]",
+      "source_ref": "#/document",
+      "char_offset": [
+        4507,
+        4511
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:9:#/document:Eq. (11)",
+      "type": "equation",
+      "label": "Eq. (11)",
+      "source_ref": "#/document",
+      "char_offset": [
+        4518,
+        4526
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:10:#/document:[20]",
+      "type": "bibliography",
+      "label": "[20]",
+      "source_ref": "#/document",
+      "char_offset": [
+        4567,
+        4571
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:11:#/document:Eq. (12)",
+      "type": "equation",
+      "label": "Eq. (12)",
+      "source_ref": "#/document",
+      "char_offset": [
+        4578,
+        4586
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:12:#/document:[21]",
+      "type": "bibliography",
+      "label": "[21]",
+      "source_ref": "#/document",
+      "char_offset": [
+        4897,
+        4901
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:13:#/document:[23]",
+      "type": "bibliography",
+      "label": "[23]",
+      "source_ref": "#/document",
+      "char_offset": [
+        4902,
+        4906
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:14:#/document:[13]",
+      "type": "bibliography",
+      "label": "[13]",
+      "source_ref": "#/document",
+      "char_offset": [
+        6222,
+        6226
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:15:#/document:[18]",
+      "type": "bibliography",
+      "label": "[18]",
+      "source_ref": "#/document",
+      "char_offset": [
+        6227,
+        6231
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:16:#/document:Corollary 1",
+      "type": "corollary",
+      "label": "Corollary 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        8706,
+        8717
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:17:#/document:[10]",
+      "type": "bibliography",
+      "label": "[10]",
+      "source_ref": "#/document",
+      "char_offset": [
+        14498,
+        14502
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:18:#/document:[12]",
+      "type": "bibliography",
+      "label": "[12]",
+      "source_ref": "#/document",
+      "char_offset": [
+        14504,
+        14508
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:19:#/document:[26]",
+      "type": "bibliography",
+      "label": "[26]",
+      "source_ref": "#/document",
+      "char_offset": [
+        15629,
+        15633
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:20:#/document:Theorem 1",
+      "type": "theorem",
+      "label": "Theorem 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        34839,
+        34848
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:21:#/document:Definition 1",
+      "type": "definition",
+      "label": "Definition 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        35659,
+        35671
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:22:#/document:Definition 1",
+      "type": "definition",
+      "label": "Definition 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        36155,
+        36167
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:23:#/document:Definition 2",
+      "type": "definition",
+      "label": "Definition 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        36707,
+        36719
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:24:#/document:Definition 3",
+      "type": "definition",
+      "label": "Definition 3",
+      "source_ref": "#/document",
+      "char_offset": [
+        37795,
+        37807
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:25:#/document:Definition 4",
+      "type": "definition",
+      "label": "Definition 4",
+      "source_ref": "#/document",
+      "char_offset": [
+        40122,
+        40134
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:26:#/document:[29]",
+      "type": "bibliography",
+      "label": "[29]",
+      "source_ref": "#/document",
+      "char_offset": [
+        40174,
+        40178
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:27:#/document:Corollary 1",
+      "type": "corollary",
+      "label": "Corollary 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        40716,
+        40727
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:28:#/document:Theorem 1",
+      "type": "theorem",
+      "label": "Theorem 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        40732,
+        40741
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:29:#/document:Definition 1",
+      "type": "definition",
+      "label": "Definition 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        40960,
+        40972
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:30:#/document:Definition 2",
+      "type": "definition",
+      "label": "Definition 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        41781,
+        41793
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:31:#/document:[19]",
+      "type": "bibliography",
+      "label": "[19]",
+      "source_ref": "#/document",
+      "char_offset": [
+        42405,
+        42409
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:32:#/document:Eq. (11)",
+      "type": "equation",
+      "label": "Eq. (11)",
+      "source_ref": "#/document",
+      "char_offset": [
+        42416,
+        42424
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:33:#/document:Definition 3",
+      "type": "definition",
+      "label": "Definition 3",
+      "source_ref": "#/document",
+      "char_offset": [
+        42497,
+        42509
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:34:#/document:Definition 4",
+      "type": "definition",
+      "label": "Definition 4",
+      "source_ref": "#/document",
+      "char_offset": [
+        43068,
+        43080
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:35:#/document:Corollary 1",
+      "type": "corollary",
+      "label": "Corollary 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        43739,
+        43750
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:36:#/document:Definition 5",
+      "type": "definition",
+      "label": "Definition 5",
+      "source_ref": "#/document",
+      "char_offset": [
+        43981,
+        43993
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:37:#/document:Theorem 1",
+      "type": "theorem",
+      "label": "Theorem 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        45006,
+        45015
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:38:#/document:Corollary 1",
+      "type": "corollary",
+      "label": "Corollary 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        45037,
+        45048
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:39:#/document:Corollary 1",
+      "type": "corollary",
+      "label": "Corollary 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        45930,
+        45941
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:40:#/document:Definition 4",
+      "type": "definition",
+      "label": "Definition 4",
+      "source_ref": "#/document",
+      "char_offset": [
+        46413,
+        46425
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:41:#/document:Definition 6",
+      "type": "definition",
+      "label": "Definition 6",
+      "source_ref": "#/document",
+      "char_offset": [
+        46450,
+        46462
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:42:#/document:Corollary 1",
+      "type": "corollary",
+      "label": "Corollary 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        49884,
+        49895
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:43:#/document:Example 1",
+      "type": "example",
+      "label": "Example 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        50111,
+        50120
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:44:#/document:Theorem 1",
+      "type": "theorem",
+      "label": "Theorem 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        51281,
+        51290
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:45:#/document:Eq. (10)",
+      "type": "equation",
+      "label": "Eq. (10)",
+      "source_ref": "#/document",
+      "char_offset": [
+        51701,
+        51709
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:46:#/document:Example 2",
+      "type": "example",
+      "label": "Example 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        52123,
+        52132
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:47:#/document:[20]",
+      "type": "bibliography",
+      "label": "[20]",
+      "source_ref": "#/document",
+      "char_offset": [
+        53086,
+        53090
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:48:#/document:Eq. (12)",
+      "type": "equation",
+      "label": "Eq. (12)",
+      "source_ref": "#/document",
+      "char_offset": [
+        53097,
+        53105
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:49:#/document:Example 3",
+      "type": "example",
+      "label": "Example 3",
+      "source_ref": "#/document",
+      "char_offset": [
+        53111,
+        53120
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:50:#/document:Corollary 1",
+      "type": "corollary",
+      "label": "Corollary 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        55726,
+        55737
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:51:#/document:Definition 5",
+      "type": "definition",
+      "label": "Definition 5",
+      "source_ref": "#/document",
+      "char_offset": [
+        55807,
+        55819
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:52:#/document:Theorem 2",
+      "type": "theorem",
+      "label": "Theorem 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        55929,
+        55938
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:53:#/document:Theorem 1",
+      "type": "theorem",
+      "label": "Theorem 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        57707,
+        57716
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:54:#/document:Theorem 1",
+      "type": "theorem",
+      "label": "Theorem 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        58495,
+        58504
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:55:#/document:Theorem 2",
+      "type": "theorem",
+      "label": "Theorem 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        58557,
+        58566
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:56:#/document:Theorem 2",
+      "type": "theorem",
+      "label": "Theorem 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        58780,
+        58789
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:57:#/document:Corollary 2",
+      "type": "corollary",
+      "label": "Corollary 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        59551,
+        59562
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:58:#/document:Theorem 2",
+      "type": "theorem",
+      "label": "Theorem 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        60465,
+        60474
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:59:#/document:Theorem 2",
+      "type": "theorem",
+      "label": "Theorem 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        60492,
+        60501
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:60:#/document:[34]",
+      "type": "bibliography",
+      "label": "[34]",
+      "source_ref": "#/document",
+      "char_offset": [
+        60722,
+        60726
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:61:#/document:[35]",
+      "type": "bibliography",
+      "label": "[35]",
+      "source_ref": "#/document",
+      "char_offset": [
+        60738,
+        60742
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:62:#/document:Corollary 3",
+      "type": "corollary",
+      "label": "Corollary 3",
+      "source_ref": "#/document",
+      "char_offset": [
+        60757,
+        60768
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:63:#/document:Corollary 3",
+      "type": "corollary",
+      "label": "Corollary 3",
+      "source_ref": "#/document",
+      "char_offset": [
+        63038,
+        63049
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:64:#/document:Example 4",
+      "type": "example",
+      "label": "Example 4",
+      "source_ref": "#/document",
+      "char_offset": [
+        83851,
+        83860
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:65:#/document:Example 5",
+      "type": "example",
+      "label": "Example 5",
+      "source_ref": "#/document",
+      "char_offset": [
+        85353,
+        85362
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:66:#/document:Example 2",
+      "type": "example",
+      "label": "Example 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        85477,
+        85486
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:67:#/document:Example 4",
+      "type": "example",
+      "label": "Example 4",
+      "source_ref": "#/document",
+      "char_offset": [
+        85646,
+        85655
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:68:#/document:Theorem 3",
+      "type": "theorem",
+      "label": "Theorem 3",
+      "source_ref": "#/document",
+      "char_offset": [
+        85733,
+        85742
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:69:#/document:Example 4",
+      "type": "example",
+      "label": "Example 4",
+      "source_ref": "#/document",
+      "char_offset": [
+        87520,
+        87529
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:70:#/document:Theorem 2",
+      "type": "theorem",
+      "label": "Theorem 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        87535,
+        87544
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:71:#/document:Theorem 3",
+      "type": "theorem",
+      "label": "Theorem 3",
+      "source_ref": "#/document",
+      "char_offset": [
+        87629,
+        87638
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:72:#/document:Theorem 3",
+      "type": "theorem",
+      "label": "Theorem 3",
+      "source_ref": "#/document",
+      "char_offset": [
+        87746,
+        87755
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:73:#/document:Eq. (4)",
+      "type": "equation",
+      "label": "Eq. (4)",
+      "source_ref": "#/document",
+      "char_offset": [
+        87808,
+        87815
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:74:#/document:(15.110)",
+      "type": "equation",
+      "label": "(15.110)",
+      "source_ref": "#/document",
+      "char_offset": [
+        87828,
+        87836
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:75:#/document:(15.113)",
+      "type": "equation",
+      "label": "(15.113)",
+      "source_ref": "#/document",
+      "char_offset": [
+        87841,
+        87849
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:76:#/document:Corollary 2",
+      "type": "corollary",
+      "label": "Corollary 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        88235,
+        88246
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:77:#/document:Corollary 4",
+      "type": "corollary",
+      "label": "Corollary 4",
+      "source_ref": "#/document",
+      "char_offset": [
+        88307,
+        88318
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:78:#/document:Corollary 2",
+      "type": "corollary",
+      "label": "Corollary 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        88945,
+        88956
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:79:#/document:Corollary 3",
+      "type": "corollary",
+      "label": "Corollary 3",
+      "source_ref": "#/document",
+      "char_offset": [
+        89065,
+        89076
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:80:#/document:Corollary 5",
+      "type": "corollary",
+      "label": "Corollary 5",
+      "source_ref": "#/document",
+      "char_offset": [
+        89117,
+        89128
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:81:#/document:Theorem 3",
+      "type": "theorem",
+      "label": "Theorem 3",
+      "source_ref": "#/document",
+      "char_offset": [
+        89217,
+        89226
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:82:#/document:Eq. (70)",
+      "type": "equation",
+      "label": "Eq. (70)",
+      "source_ref": "#/document",
+      "char_offset": [
+        94382,
+        94390
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:83:#/document:[0, 0]",
+      "type": "bibliography",
+      "label": "[0, 0]",
+      "source_ref": "#/document",
+      "char_offset": [
+        96253,
+        96259
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:84:#/document:Corollary 1",
+      "type": "corollary",
+      "label": "Corollary 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        97889,
+        97900
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:85:#/document:Example 4",
+      "type": "example",
+      "label": "Example 4",
+      "source_ref": "#/document",
+      "char_offset": [
+        97905,
+        97914
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:86:#/document:[10]",
+      "type": "bibliography",
+      "label": "[10]",
+      "source_ref": "#/document",
+      "char_offset": [
+        98086,
+        98090
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:87:#/document:[12]",
+      "type": "bibliography",
+      "label": "[12]",
+      "source_ref": "#/document",
+      "char_offset": [
+        98092,
+        98096
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:88:#/document:[10]",
+      "type": "bibliography",
+      "label": "[10]",
+      "source_ref": "#/document",
+      "char_offset": [
+        106648,
+        106652
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:89:#/document:[12]",
+      "type": "bibliography",
+      "label": "[12]",
+      "source_ref": "#/document",
+      "char_offset": [
+        106654,
+        106658
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:90:#/document:Fig. 1",
+      "type": "figure",
+      "label": "Fig. 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        120992,
+        120998
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:91:#/document:Fig. 1",
+      "type": "figure",
+      "label": "Fig. 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        121312,
+        121318
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:92:#/document:[37]",
+      "type": "bibliography",
+      "label": "[37]",
+      "source_ref": "#/document",
+      "char_offset": [
+        126686,
+        126690
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:93:#/document:[38]",
+      "type": "bibliography",
+      "label": "[38]",
+      "source_ref": "#/document",
+      "char_offset": [
+        126692,
+        126696
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:94:#/document:[39]",
+      "type": "bibliography",
+      "label": "[39]",
+      "source_ref": "#/document",
+      "char_offset": [
+        128579,
+        128583
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:95:#/document:[40]",
+      "type": "bibliography",
+      "label": "[40]",
+      "source_ref": "#/document",
+      "char_offset": [
+        128585,
+        128589
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:96:#/document:[32]",
+      "type": "bibliography",
+      "label": "[32]",
+      "source_ref": "#/document",
+      "char_offset": [
+        128801,
+        128805
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:97:#/document:Corollary 1",
+      "type": "corollary",
+      "label": "Corollary 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        129201,
+        129212
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:98:#/document:Example 4",
+      "type": "example",
+      "label": "Example 4",
+      "source_ref": "#/document",
+      "char_offset": [
+        129227,
+        129236
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:99:#/document:PROOF OF LEMMA 1",
+      "type": "proof",
+      "label": "PROOF OF LEMMA 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        129906,
+        129922
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:100:#/document:Corollary 3.3",
+      "type": "corollary",
+      "label": "Corollary 3.3",
+      "source_ref": "#/document",
+      "char_offset": [
+        130616,
+        130629
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:101:#/document:PROOF OF THEOREM 1",
+      "type": "proof",
+      "label": "PROOF OF THEOREM 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        131530,
+        131548
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:102:#/document:[1]",
+      "type": "bibliography",
+      "label": "[1]",
+      "source_ref": "#/document",
+      "char_offset": [
+        136583,
+        136586
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:103:#/document:[2]",
+      "type": "bibliography",
+      "label": "[2]",
+      "source_ref": "#/document",
+      "char_offset": [
+        136702,
+        136705
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:104:#/document:[3]",
+      "type": "bibliography",
+      "label": "[3]",
+      "source_ref": "#/document",
+      "char_offset": [
+        136860,
+        136863
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:105:#/document:[4]",
+      "type": "bibliography",
+      "label": "[4]",
+      "source_ref": "#/document",
+      "char_offset": [
+        137101,
+        137104
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:106:#/document:[5]",
+      "type": "bibliography",
+      "label": "[5]",
+      "source_ref": "#/document",
+      "char_offset": [
+        137261,
+        137264
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:107:#/document:[6]",
+      "type": "bibliography",
+      "label": "[6]",
+      "source_ref": "#/document",
+      "char_offset": [
+        137468,
+        137471
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:108:#/document:[7]",
+      "type": "bibliography",
+      "label": "[7]",
+      "source_ref": "#/document",
+      "char_offset": [
+        137697,
+        137700
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:109:#/document:[8]",
+      "type": "bibliography",
+      "label": "[8]",
+      "source_ref": "#/document",
+      "char_offset": [
+        137908,
+        137911
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:110:#/document:[9]",
+      "type": "bibliography",
+      "label": "[9]",
+      "source_ref": "#/document",
+      "char_offset": [
+        138071,
+        138074
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:111:#/document:[10]",
+      "type": "bibliography",
+      "label": "[10]",
+      "source_ref": "#/document",
+      "char_offset": [
+        138247,
+        138251
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:112:#/document:[11]",
+      "type": "bibliography",
+      "label": "[11]",
+      "source_ref": "#/document",
+      "char_offset": [
+        138438,
+        138442
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:113:#/document:[12]",
+      "type": "bibliography",
+      "label": "[12]",
+      "source_ref": "#/document",
+      "char_offset": [
+        138597,
+        138601
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:114:#/document:[13]",
+      "type": "bibliography",
+      "label": "[13]",
+      "source_ref": "#/document",
+      "char_offset": [
+        138760,
+        138764
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:115:#/document:[14]",
+      "type": "bibliography",
+      "label": "[14]",
+      "source_ref": "#/document",
+      "char_offset": [
+        138919,
+        138923
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:116:#/document:[15]",
+      "type": "bibliography",
+      "label": "[15]",
+      "source_ref": "#/document",
+      "char_offset": [
+        139063,
+        139067
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:117:#/document:[16]",
+      "type": "bibliography",
+      "label": "[16]",
+      "source_ref": "#/document",
+      "char_offset": [
+        139296,
+        139300
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:118:#/document:[17]",
+      "type": "bibliography",
+      "label": "[17]",
+      "source_ref": "#/document",
+      "char_offset": [
+        139472,
+        139476
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:119:#/document:[18]",
+      "type": "bibliography",
+      "label": "[18]",
+      "source_ref": "#/document",
+      "char_offset": [
+        139798,
+        139802
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:120:#/document:[19]",
+      "type": "bibliography",
+      "label": "[19]",
+      "source_ref": "#/document",
+      "char_offset": [
+        140009,
+        140013
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:121:#/document:[20]",
+      "type": "bibliography",
+      "label": "[20]",
+      "source_ref": "#/document",
+      "char_offset": [
+        140167,
+        140171
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:122:#/document:[21]",
+      "type": "bibliography",
+      "label": "[21]",
+      "source_ref": "#/document",
+      "char_offset": [
+        140378,
+        140382
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:123:#/document:[22]",
+      "type": "bibliography",
+      "label": "[22]",
+      "source_ref": "#/document",
+      "char_offset": [
+        140597,
+        140601
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:124:#/document:[23]",
+      "type": "bibliography",
+      "label": "[23]",
+      "source_ref": "#/document",
+      "char_offset": [
+        140857,
+        140861
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:125:#/document:[24]",
+      "type": "bibliography",
+      "label": "[24]",
+      "source_ref": "#/document",
+      "char_offset": [
+        141055,
+        141059
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:126:#/document:[25]",
+      "type": "bibliography",
+      "label": "[25]",
+      "source_ref": "#/document",
+      "char_offset": [
+        141141,
+        141145
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:127:#/document:[26]",
+      "type": "bibliography",
+      "label": "[26]",
+      "source_ref": "#/document",
+      "char_offset": [
+        141256,
+        141260
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:128:#/document:[27]",
+      "type": "bibliography",
+      "label": "[27]",
+      "source_ref": "#/document",
+      "char_offset": [
+        141410,
+        141414
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:129:#/document:[28]",
+      "type": "bibliography",
+      "label": "[28]",
+      "source_ref": "#/document",
+      "char_offset": [
+        141585,
+        141589
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:130:#/document:[29]",
+      "type": "bibliography",
+      "label": "[29]",
+      "source_ref": "#/document",
+      "char_offset": [
+        141761,
+        141765
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:131:#/document:[30]",
+      "type": "bibliography",
+      "label": "[30]",
+      "source_ref": "#/document",
+      "char_offset": [
+        141952,
+        141956
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:132:#/document:[31]",
+      "type": "bibliography",
+      "label": "[31]",
+      "source_ref": "#/document",
+      "char_offset": [
+        142074,
+        142078
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:133:#/document:[32]",
+      "type": "bibliography",
+      "label": "[32]",
+      "source_ref": "#/document",
+      "char_offset": [
+        142297,
+        142301
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:134:#/document:[33]",
+      "type": "bibliography",
+      "label": "[33]",
+      "source_ref": "#/document",
+      "char_offset": [
+        142566,
+        142570
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:135:#/document:[34]",
+      "type": "bibliography",
+      "label": "[34]",
+      "source_ref": "#/document",
+      "char_offset": [
+        142755,
+        142759
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:136:#/document:[35]",
+      "type": "bibliography",
+      "label": "[35]",
+      "source_ref": "#/document",
+      "char_offset": [
+        142890,
+        142894
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:137:#/document:[36]",
+      "type": "bibliography",
+      "label": "[36]",
+      "source_ref": "#/document",
+      "char_offset": [
+        143152,
+        143156
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:138:#/document:[37]",
+      "type": "bibliography",
+      "label": "[37]",
+      "source_ref": "#/document",
+      "char_offset": [
+        143435,
+        143439
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:139:#/document:[38]",
+      "type": "bibliography",
+      "label": "[38]",
+      "source_ref": "#/document",
+      "char_offset": [
+        143591,
+        143595
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:140:#/document:[39]",
+      "type": "bibliography",
+      "label": "[39]",
+      "source_ref": "#/document",
+      "char_offset": [
+        143788,
+        143792
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:141:#/document:[40]",
+      "type": "bibliography",
+      "label": "[40]",
+      "source_ref": "#/document",
+      "char_offset": [
+        143958,
+        143962
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:142:#/document:[41]",
+      "type": "bibliography",
+      "label": "[41]",
+      "source_ref": "#/document",
+      "char_offset": [
+        144066,
+        144070
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:143:#/document:Fig. 2",
+      "type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        148026,
+        148032
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:144:#/document:Fig. 2",
+      "type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        148681,
+        148687
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:145:#/document:Fig. 2",
+      "type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        149012,
+        149018
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:146:#/document:Fig. 2",
+      "type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        149711,
+        149717
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:147:#/document:Fig. 2",
+      "type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        150109,
+        150115
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:148:#/document:Fig. 3",
+      "type": "figure",
+      "label": "Fig. 3",
+      "source_ref": "#/document",
+      "char_offset": [
+        151093,
+        151099
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:149:#/document:Fig. 2",
+      "type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        151150,
+        151156
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:150:#/document:Fig. 3",
+      "type": "figure",
+      "label": "Fig. 3",
+      "source_ref": "#/document",
+      "char_offset": [
+        151178,
+        151184
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "marker:151:#/document:Fig. 3",
+      "type": "figure",
+      "label": "Fig. 3",
+      "source_ref": "#/document",
+      "char_offset": [
+        152153,
+        152159
+      ],
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+mineru"
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:212",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:212",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:214",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:214",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:215",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:215",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:220",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:220",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:221",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:221",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:223",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:223",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:224",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:224",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:229",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:229",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:230",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:230",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "_unresolved",
+      "type": "unresolved",
+      "label": "(unresolved)"
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:231",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:231",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:232",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:232",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:234",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:234",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:237",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:237",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:240",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:240",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:245",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:245",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:246",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:246",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:caption:186",
+      "type": "figure",
+      "label": "ent:mineru:example02:caption:186",
+      "parent_id": "page:example02/regex+mineru:1",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:248",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:248",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:249",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:249",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:250",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:250",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:251",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:251",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:243",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:243",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:213",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:213",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:216",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:216",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:217",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:217",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:218",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:218",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:219",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:219",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:222",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:222",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:225",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:225",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:226",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:226",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:227",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:227",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:228",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:228",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:233",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:233",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:235",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:235",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:236",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:236",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:238",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:238",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:239",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:239",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:241",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:241",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:242",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:242",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:244",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:244",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:247",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:247",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:reference_item:252",
+      "type": "bibliography",
+      "label": "ent:mineru:example02:reference_item:252",
+      "parent_id": "section:bibliography:example02/regex+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example02:figure:45",
+      "type": "figure",
+      "label": "ent:mineru:example02:figure:45",
+      "parent_id": "page:example02/regex+mineru:1",
+      "page_no": 1
+    }
+  ],
+  "edges": [
+    {
+      "source": "marker:0:#/document:[1]",
+      "target": "ent:mineru:example02:reference_item:212",
+      "marker_type": "bibliography",
+      "label": "[1]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:1:#/document:[3]",
+      "target": "ent:mineru:example02:reference_item:214",
+      "marker_type": "bibliography",
+      "label": "[3]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:2:#/document:[4]",
+      "target": "ent:mineru:example02:reference_item:215",
+      "marker_type": "bibliography",
+      "label": "[4]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:3:#/document:[9]",
+      "target": "ent:mineru:example02:reference_item:220",
+      "marker_type": "bibliography",
+      "label": "[9]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:4:#/document:[10]",
+      "target": "ent:mineru:example02:reference_item:221",
+      "marker_type": "bibliography",
+      "label": "[10]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:5:#/document:[12]",
+      "target": "ent:mineru:example02:reference_item:223",
+      "marker_type": "bibliography",
+      "label": "[12]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:6:#/document:[13]",
+      "target": "ent:mineru:example02:reference_item:224",
+      "marker_type": "bibliography",
+      "label": "[13]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:7:#/document:[18]",
+      "target": "ent:mineru:example02:reference_item:229",
+      "marker_type": "bibliography",
+      "label": "[18]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:8:#/document:[19]",
+      "target": "ent:mineru:example02:reference_item:230",
+      "marker_type": "bibliography",
+      "label": "[19]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:9:#/document:Eq. (11)",
+      "target": "_unresolved",
+      "marker_type": "equation",
+      "label": "Eq. (11)",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:10:#/document:[20]",
+      "target": "ent:mineru:example02:reference_item:231",
+      "marker_type": "bibliography",
+      "label": "[20]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:11:#/document:Eq. (12)",
+      "target": "_unresolved",
+      "marker_type": "equation",
+      "label": "Eq. (12)",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:12:#/document:[21]",
+      "target": "ent:mineru:example02:reference_item:232",
+      "marker_type": "bibliography",
+      "label": "[21]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:13:#/document:[23]",
+      "target": "ent:mineru:example02:reference_item:234",
+      "marker_type": "bibliography",
+      "label": "[23]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:14:#/document:[13]",
+      "target": "ent:mineru:example02:reference_item:224",
+      "marker_type": "bibliography",
+      "label": "[13]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:15:#/document:[18]",
+      "target": "ent:mineru:example02:reference_item:229",
+      "marker_type": "bibliography",
+      "label": "[18]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:16:#/document:Corollary 1",
+      "target": "_unresolved",
+      "marker_type": "corollary",
+      "label": "Corollary 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:17:#/document:[10]",
+      "target": "ent:mineru:example02:reference_item:221",
+      "marker_type": "bibliography",
+      "label": "[10]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:18:#/document:[12]",
+      "target": "ent:mineru:example02:reference_item:223",
+      "marker_type": "bibliography",
+      "label": "[12]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:19:#/document:[26]",
+      "target": "ent:mineru:example02:reference_item:237",
+      "marker_type": "bibliography",
+      "label": "[26]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:20:#/document:Theorem 1",
+      "target": "_unresolved",
+      "marker_type": "theorem",
+      "label": "Theorem 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:21:#/document:Definition 1",
+      "target": "_unresolved",
+      "marker_type": "definition",
+      "label": "Definition 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:22:#/document:Definition 1",
+      "target": "_unresolved",
+      "marker_type": "definition",
+      "label": "Definition 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:23:#/document:Definition 2",
+      "target": "_unresolved",
+      "marker_type": "definition",
+      "label": "Definition 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:24:#/document:Definition 3",
+      "target": "_unresolved",
+      "marker_type": "definition",
+      "label": "Definition 3",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:25:#/document:Definition 4",
+      "target": "_unresolved",
+      "marker_type": "definition",
+      "label": "Definition 4",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:26:#/document:[29]",
+      "target": "ent:mineru:example02:reference_item:240",
+      "marker_type": "bibliography",
+      "label": "[29]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:27:#/document:Corollary 1",
+      "target": "_unresolved",
+      "marker_type": "corollary",
+      "label": "Corollary 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:28:#/document:Theorem 1",
+      "target": "_unresolved",
+      "marker_type": "theorem",
+      "label": "Theorem 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:29:#/document:Definition 1",
+      "target": "_unresolved",
+      "marker_type": "definition",
+      "label": "Definition 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:30:#/document:Definition 2",
+      "target": "_unresolved",
+      "marker_type": "definition",
+      "label": "Definition 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:31:#/document:[19]",
+      "target": "ent:mineru:example02:reference_item:230",
+      "marker_type": "bibliography",
+      "label": "[19]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:32:#/document:Eq. (11)",
+      "target": "_unresolved",
+      "marker_type": "equation",
+      "label": "Eq. (11)",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:33:#/document:Definition 3",
+      "target": "_unresolved",
+      "marker_type": "definition",
+      "label": "Definition 3",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:34:#/document:Definition 4",
+      "target": "_unresolved",
+      "marker_type": "definition",
+      "label": "Definition 4",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:35:#/document:Corollary 1",
+      "target": "_unresolved",
+      "marker_type": "corollary",
+      "label": "Corollary 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:36:#/document:Definition 5",
+      "target": "_unresolved",
+      "marker_type": "definition",
+      "label": "Definition 5",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:37:#/document:Theorem 1",
+      "target": "_unresolved",
+      "marker_type": "theorem",
+      "label": "Theorem 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:38:#/document:Corollary 1",
+      "target": "_unresolved",
+      "marker_type": "corollary",
+      "label": "Corollary 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:39:#/document:Corollary 1",
+      "target": "_unresolved",
+      "marker_type": "corollary",
+      "label": "Corollary 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:40:#/document:Definition 4",
+      "target": "_unresolved",
+      "marker_type": "definition",
+      "label": "Definition 4",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:41:#/document:Definition 6",
+      "target": "_unresolved",
+      "marker_type": "definition",
+      "label": "Definition 6",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:42:#/document:Corollary 1",
+      "target": "_unresolved",
+      "marker_type": "corollary",
+      "label": "Corollary 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:43:#/document:Example 1",
+      "target": "_unresolved",
+      "marker_type": "example",
+      "label": "Example 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:44:#/document:Theorem 1",
+      "target": "_unresolved",
+      "marker_type": "theorem",
+      "label": "Theorem 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:45:#/document:Eq. (10)",
+      "target": "_unresolved",
+      "marker_type": "equation",
+      "label": "Eq. (10)",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:46:#/document:Example 2",
+      "target": "_unresolved",
+      "marker_type": "example",
+      "label": "Example 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:47:#/document:[20]",
+      "target": "ent:mineru:example02:reference_item:231",
+      "marker_type": "bibliography",
+      "label": "[20]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:48:#/document:Eq. (12)",
+      "target": "_unresolved",
+      "marker_type": "equation",
+      "label": "Eq. (12)",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:49:#/document:Example 3",
+      "target": "_unresolved",
+      "marker_type": "example",
+      "label": "Example 3",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:50:#/document:Corollary 1",
+      "target": "_unresolved",
+      "marker_type": "corollary",
+      "label": "Corollary 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:51:#/document:Definition 5",
+      "target": "_unresolved",
+      "marker_type": "definition",
+      "label": "Definition 5",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:52:#/document:Theorem 2",
+      "target": "_unresolved",
+      "marker_type": "theorem",
+      "label": "Theorem 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:53:#/document:Theorem 1",
+      "target": "_unresolved",
+      "marker_type": "theorem",
+      "label": "Theorem 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:54:#/document:Theorem 1",
+      "target": "_unresolved",
+      "marker_type": "theorem",
+      "label": "Theorem 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:55:#/document:Theorem 2",
+      "target": "_unresolved",
+      "marker_type": "theorem",
+      "label": "Theorem 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:56:#/document:Theorem 2",
+      "target": "_unresolved",
+      "marker_type": "theorem",
+      "label": "Theorem 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:57:#/document:Corollary 2",
+      "target": "_unresolved",
+      "marker_type": "corollary",
+      "label": "Corollary 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:58:#/document:Theorem 2",
+      "target": "_unresolved",
+      "marker_type": "theorem",
+      "label": "Theorem 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:59:#/document:Theorem 2",
+      "target": "_unresolved",
+      "marker_type": "theorem",
+      "label": "Theorem 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:60:#/document:[34]",
+      "target": "ent:mineru:example02:reference_item:245",
+      "marker_type": "bibliography",
+      "label": "[34]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:61:#/document:[35]",
+      "target": "ent:mineru:example02:reference_item:246",
+      "marker_type": "bibliography",
+      "label": "[35]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:62:#/document:Corollary 3",
+      "target": "_unresolved",
+      "marker_type": "corollary",
+      "label": "Corollary 3",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:63:#/document:Corollary 3",
+      "target": "_unresolved",
+      "marker_type": "corollary",
+      "label": "Corollary 3",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:64:#/document:Example 4",
+      "target": "_unresolved",
+      "marker_type": "example",
+      "label": "Example 4",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:65:#/document:Example 5",
+      "target": "_unresolved",
+      "marker_type": "example",
+      "label": "Example 5",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:66:#/document:Example 2",
+      "target": "_unresolved",
+      "marker_type": "example",
+      "label": "Example 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:67:#/document:Example 4",
+      "target": "_unresolved",
+      "marker_type": "example",
+      "label": "Example 4",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:68:#/document:Theorem 3",
+      "target": "_unresolved",
+      "marker_type": "theorem",
+      "label": "Theorem 3",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:69:#/document:Example 4",
+      "target": "_unresolved",
+      "marker_type": "example",
+      "label": "Example 4",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:70:#/document:Theorem 2",
+      "target": "_unresolved",
+      "marker_type": "theorem",
+      "label": "Theorem 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:71:#/document:Theorem 3",
+      "target": "_unresolved",
+      "marker_type": "theorem",
+      "label": "Theorem 3",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:72:#/document:Theorem 3",
+      "target": "_unresolved",
+      "marker_type": "theorem",
+      "label": "Theorem 3",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:73:#/document:Eq. (4)",
+      "target": "_unresolved",
+      "marker_type": "equation",
+      "label": "Eq. (4)",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:74:#/document:(15.110)",
+      "target": "_unresolved",
+      "marker_type": "equation",
+      "label": "(15.110)",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:75:#/document:(15.113)",
+      "target": "_unresolved",
+      "marker_type": "equation",
+      "label": "(15.113)",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:76:#/document:Corollary 2",
+      "target": "_unresolved",
+      "marker_type": "corollary",
+      "label": "Corollary 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:77:#/document:Corollary 4",
+      "target": "_unresolved",
+      "marker_type": "corollary",
+      "label": "Corollary 4",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:78:#/document:Corollary 2",
+      "target": "_unresolved",
+      "marker_type": "corollary",
+      "label": "Corollary 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:79:#/document:Corollary 3",
+      "target": "_unresolved",
+      "marker_type": "corollary",
+      "label": "Corollary 3",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:80:#/document:Corollary 5",
+      "target": "_unresolved",
+      "marker_type": "corollary",
+      "label": "Corollary 5",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:81:#/document:Theorem 3",
+      "target": "_unresolved",
+      "marker_type": "theorem",
+      "label": "Theorem 3",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:82:#/document:Eq. (70)",
+      "target": "_unresolved",
+      "marker_type": "equation",
+      "label": "Eq. (70)",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:83:#/document:[0, 0]",
+      "target": "_unresolved",
+      "marker_type": "bibliography",
+      "label": "[0, 0]",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:84:#/document:Corollary 1",
+      "target": "_unresolved",
+      "marker_type": "corollary",
+      "label": "Corollary 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:85:#/document:Example 4",
+      "target": "_unresolved",
+      "marker_type": "example",
+      "label": "Example 4",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:86:#/document:[10]",
+      "target": "ent:mineru:example02:reference_item:221",
+      "marker_type": "bibliography",
+      "label": "[10]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:87:#/document:[12]",
+      "target": "ent:mineru:example02:reference_item:223",
+      "marker_type": "bibliography",
+      "label": "[12]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:88:#/document:[10]",
+      "target": "ent:mineru:example02:reference_item:221",
+      "marker_type": "bibliography",
+      "label": "[10]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:89:#/document:[12]",
+      "target": "ent:mineru:example02:reference_item:223",
+      "marker_type": "bibliography",
+      "label": "[12]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:90:#/document:Fig. 1",
+      "target": "ent:mineru:example02:caption:186",
+      "marker_type": "figure",
+      "label": "Fig. 1",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:91:#/document:Fig. 1",
+      "target": "ent:mineru:example02:caption:186",
+      "marker_type": "figure",
+      "label": "Fig. 1",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:92:#/document:[37]",
+      "target": "ent:mineru:example02:reference_item:248",
+      "marker_type": "bibliography",
+      "label": "[37]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:93:#/document:[38]",
+      "target": "ent:mineru:example02:reference_item:249",
+      "marker_type": "bibliography",
+      "label": "[38]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:94:#/document:[39]",
+      "target": "ent:mineru:example02:reference_item:250",
+      "marker_type": "bibliography",
+      "label": "[39]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:95:#/document:[40]",
+      "target": "ent:mineru:example02:reference_item:251",
+      "marker_type": "bibliography",
+      "label": "[40]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:96:#/document:[32]",
+      "target": "ent:mineru:example02:reference_item:243",
+      "marker_type": "bibliography",
+      "label": "[32]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:97:#/document:Corollary 1",
+      "target": "_unresolved",
+      "marker_type": "corollary",
+      "label": "Corollary 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:98:#/document:Example 4",
+      "target": "_unresolved",
+      "marker_type": "example",
+      "label": "Example 4",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:99:#/document:PROOF OF LEMMA 1",
+      "target": "_unresolved",
+      "marker_type": "proof",
+      "label": "PROOF OF LEMMA 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:100:#/document:Corollary 3.3",
+      "target": "_unresolved",
+      "marker_type": "corollary",
+      "label": "Corollary 3.3",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:101:#/document:PROOF OF THEOREM 1",
+      "target": "_unresolved",
+      "marker_type": "proof",
+      "label": "PROOF OF THEOREM 1",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:102:#/document:[1]",
+      "target": "ent:mineru:example02:reference_item:212",
+      "marker_type": "bibliography",
+      "label": "[1]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:103:#/document:[2]",
+      "target": "ent:mineru:example02:reference_item:213",
+      "marker_type": "bibliography",
+      "label": "[2]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:104:#/document:[3]",
+      "target": "ent:mineru:example02:reference_item:214",
+      "marker_type": "bibliography",
+      "label": "[3]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:105:#/document:[4]",
+      "target": "ent:mineru:example02:reference_item:215",
+      "marker_type": "bibliography",
+      "label": "[4]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:106:#/document:[5]",
+      "target": "ent:mineru:example02:reference_item:216",
+      "marker_type": "bibliography",
+      "label": "[5]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:107:#/document:[6]",
+      "target": "ent:mineru:example02:reference_item:217",
+      "marker_type": "bibliography",
+      "label": "[6]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:108:#/document:[7]",
+      "target": "ent:mineru:example02:reference_item:218",
+      "marker_type": "bibliography",
+      "label": "[7]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:109:#/document:[8]",
+      "target": "ent:mineru:example02:reference_item:219",
+      "marker_type": "bibliography",
+      "label": "[8]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:110:#/document:[9]",
+      "target": "ent:mineru:example02:reference_item:220",
+      "marker_type": "bibliography",
+      "label": "[9]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:111:#/document:[10]",
+      "target": "ent:mineru:example02:reference_item:221",
+      "marker_type": "bibliography",
+      "label": "[10]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:112:#/document:[11]",
+      "target": "ent:mineru:example02:reference_item:222",
+      "marker_type": "bibliography",
+      "label": "[11]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:113:#/document:[12]",
+      "target": "ent:mineru:example02:reference_item:223",
+      "marker_type": "bibliography",
+      "label": "[12]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:114:#/document:[13]",
+      "target": "ent:mineru:example02:reference_item:224",
+      "marker_type": "bibliography",
+      "label": "[13]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:115:#/document:[14]",
+      "target": "ent:mineru:example02:reference_item:225",
+      "marker_type": "bibliography",
+      "label": "[14]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:116:#/document:[15]",
+      "target": "ent:mineru:example02:reference_item:226",
+      "marker_type": "bibliography",
+      "label": "[15]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:117:#/document:[16]",
+      "target": "ent:mineru:example02:reference_item:227",
+      "marker_type": "bibliography",
+      "label": "[16]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:118:#/document:[17]",
+      "target": "ent:mineru:example02:reference_item:228",
+      "marker_type": "bibliography",
+      "label": "[17]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:119:#/document:[18]",
+      "target": "ent:mineru:example02:reference_item:229",
+      "marker_type": "bibliography",
+      "label": "[18]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:120:#/document:[19]",
+      "target": "ent:mineru:example02:reference_item:230",
+      "marker_type": "bibliography",
+      "label": "[19]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:121:#/document:[20]",
+      "target": "ent:mineru:example02:reference_item:231",
+      "marker_type": "bibliography",
+      "label": "[20]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:122:#/document:[21]",
+      "target": "ent:mineru:example02:reference_item:232",
+      "marker_type": "bibliography",
+      "label": "[21]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:123:#/document:[22]",
+      "target": "ent:mineru:example02:reference_item:233",
+      "marker_type": "bibliography",
+      "label": "[22]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:124:#/document:[23]",
+      "target": "ent:mineru:example02:reference_item:234",
+      "marker_type": "bibliography",
+      "label": "[23]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:125:#/document:[24]",
+      "target": "ent:mineru:example02:reference_item:235",
+      "marker_type": "bibliography",
+      "label": "[24]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:126:#/document:[25]",
+      "target": "ent:mineru:example02:reference_item:236",
+      "marker_type": "bibliography",
+      "label": "[25]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:127:#/document:[26]",
+      "target": "ent:mineru:example02:reference_item:237",
+      "marker_type": "bibliography",
+      "label": "[26]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:128:#/document:[27]",
+      "target": "ent:mineru:example02:reference_item:238",
+      "marker_type": "bibliography",
+      "label": "[27]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:129:#/document:[28]",
+      "target": "ent:mineru:example02:reference_item:239",
+      "marker_type": "bibliography",
+      "label": "[28]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:130:#/document:[29]",
+      "target": "ent:mineru:example02:reference_item:240",
+      "marker_type": "bibliography",
+      "label": "[29]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:131:#/document:[30]",
+      "target": "ent:mineru:example02:reference_item:241",
+      "marker_type": "bibliography",
+      "label": "[30]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:132:#/document:[31]",
+      "target": "ent:mineru:example02:reference_item:242",
+      "marker_type": "bibliography",
+      "label": "[31]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:133:#/document:[32]",
+      "target": "ent:mineru:example02:reference_item:243",
+      "marker_type": "bibliography",
+      "label": "[32]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:134:#/document:[33]",
+      "target": "ent:mineru:example02:reference_item:244",
+      "marker_type": "bibliography",
+      "label": "[33]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:135:#/document:[34]",
+      "target": "ent:mineru:example02:reference_item:245",
+      "marker_type": "bibliography",
+      "label": "[34]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:136:#/document:[35]",
+      "target": "ent:mineru:example02:reference_item:246",
+      "marker_type": "bibliography",
+      "label": "[35]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:137:#/document:[36]",
+      "target": "ent:mineru:example02:reference_item:247",
+      "marker_type": "bibliography",
+      "label": "[36]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:138:#/document:[37]",
+      "target": "ent:mineru:example02:reference_item:248",
+      "marker_type": "bibliography",
+      "label": "[37]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:139:#/document:[38]",
+      "target": "ent:mineru:example02:reference_item:249",
+      "marker_type": "bibliography",
+      "label": "[38]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:140:#/document:[39]",
+      "target": "ent:mineru:example02:reference_item:250",
+      "marker_type": "bibliography",
+      "label": "[39]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:141:#/document:[40]",
+      "target": "ent:mineru:example02:reference_item:251",
+      "marker_type": "bibliography",
+      "label": "[40]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:142:#/document:[41]",
+      "target": "ent:mineru:example02:reference_item:252",
+      "marker_type": "bibliography",
+      "label": "[41]",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:143:#/document:Fig. 2",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:144:#/document:Fig. 2",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:145:#/document:Fig. 2",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:146:#/document:Fig. 2",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:147:#/document:Fig. 2",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:148:#/document:Fig. 3",
+      "target": "ent:mineru:example02:figure:45",
+      "marker_type": "figure",
+      "label": "Fig. 3",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:149:#/document:Fig. 2",
+      "target": "_unresolved",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:150:#/document:Fig. 3",
+      "target": "ent:mineru:example02:figure:45",
+      "marker_type": "figure",
+      "label": "Fig. 3",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "marker:151:#/document:Fig. 3",
+      "target": "ent:mineru:example02:figure:45",
+      "marker_type": "figure",
+      "label": "Fig. 3",
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "document:example02/regex+mineru",
+      "target": "page:example02/regex+mineru:1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+mineru",
+      "target": "section:bibliography:example02/regex+mineru",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+mineru",
+      "target": "section:markers:example02/regex+mineru",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:0:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:1:#/document:[3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:2:#/document:[4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:3:#/document:[9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:4:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:5:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:6:#/document:[13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:7:#/document:[18]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:8:#/document:[19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:9:#/document:Eq. (11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:10:#/document:[20]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:11:#/document:Eq. (12)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:12:#/document:[21]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:13:#/document:[23]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:14:#/document:[13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:15:#/document:[18]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:16:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:17:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:18:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:19:#/document:[26]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:20:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:21:#/document:Definition 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:22:#/document:Definition 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:23:#/document:Definition 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:24:#/document:Definition 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:25:#/document:Definition 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:26:#/document:[29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:27:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:28:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:29:#/document:Definition 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:30:#/document:Definition 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:31:#/document:[19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:32:#/document:Eq. (11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:33:#/document:Definition 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:34:#/document:Definition 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:35:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:36:#/document:Definition 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:37:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:38:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:39:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:40:#/document:Definition 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:41:#/document:Definition 6",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:42:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:43:#/document:Example 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:44:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:45:#/document:Eq. (10)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:46:#/document:Example 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:47:#/document:[20]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:48:#/document:Eq. (12)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:49:#/document:Example 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:50:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:51:#/document:Definition 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:52:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:53:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:54:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:55:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:56:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:57:#/document:Corollary 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:58:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:59:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:60:#/document:[34]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:61:#/document:[35]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:62:#/document:Corollary 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:63:#/document:Corollary 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:64:#/document:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:65:#/document:Example 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:66:#/document:Example 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:67:#/document:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:68:#/document:Theorem 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:69:#/document:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:70:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:71:#/document:Theorem 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:72:#/document:Theorem 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:73:#/document:Eq. (4)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:74:#/document:(15.110)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:75:#/document:(15.113)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:76:#/document:Corollary 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:77:#/document:Corollary 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:78:#/document:Corollary 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:79:#/document:Corollary 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:80:#/document:Corollary 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:81:#/document:Theorem 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:82:#/document:Eq. (70)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:83:#/document:[0, 0]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:84:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:85:#/document:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:86:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:87:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:88:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:89:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:90:#/document:Fig. 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:91:#/document:Fig. 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:92:#/document:[37]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:93:#/document:[38]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:94:#/document:[39]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:95:#/document:[40]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:96:#/document:[32]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:97:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:98:#/document:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:99:#/document:PROOF OF LEMMA 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:100:#/document:Corollary 3.3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:101:#/document:PROOF OF THEOREM 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:102:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:103:#/document:[2]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:104:#/document:[3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:105:#/document:[4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:106:#/document:[5]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:107:#/document:[6]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:108:#/document:[7]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:109:#/document:[8]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:110:#/document:[9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:111:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:112:#/document:[11]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:113:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:114:#/document:[13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:115:#/document:[14]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:116:#/document:[15]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:117:#/document:[16]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:118:#/document:[17]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:119:#/document:[18]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:120:#/document:[19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:121:#/document:[20]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:122:#/document:[21]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:123:#/document:[22]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:124:#/document:[23]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:125:#/document:[24]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:126:#/document:[25]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:127:#/document:[26]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:128:#/document:[27]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:129:#/document:[28]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:130:#/document:[29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:131:#/document:[30]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:132:#/document:[31]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:133:#/document:[32]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:134:#/document:[33]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:135:#/document:[34]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:136:#/document:[35]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:137:#/document:[36]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:138:#/document:[37]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:139:#/document:[38]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:140:#/document:[39]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:141:#/document:[40]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:142:#/document:[41]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:143:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:144:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:145:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:146:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:147:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:148:#/document:Fig. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:149:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:150:#/document:Fig. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+mineru",
+      "target": "marker:151:#/document:Fig. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:212",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:214",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:215",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:220",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:221",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:223",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:224",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:229",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:230",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:231",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:232",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:234",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:224",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:229",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:221",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:223",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:237",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:240",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:230",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:231",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:245",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:246",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:221",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:223",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:221",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:223",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+mineru:1",
+      "target": "ent:mineru:example02:caption:186",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+mineru:1",
+      "target": "ent:mineru:example02:caption:186",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:248",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:249",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:250",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:251",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:243",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:212",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:213",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:214",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:215",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:216",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:217",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:218",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:219",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:220",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:221",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:222",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:223",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:224",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:225",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:226",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:227",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:228",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:229",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:230",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:231",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:232",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:233",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:234",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:235",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:236",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:237",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:238",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:239",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:240",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:241",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:242",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:243",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:244",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:245",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:246",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:247",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:248",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:249",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:250",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:251",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+mineru",
+      "target": "ent:mineru:example02:reference_item:252",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+mineru:1",
+      "target": "ent:mineru:example02:figure:45",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+mineru:1",
+      "target": "ent:mineru:example02:figure:45",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+mineru:1",
+      "target": "ent:mineru:example02:figure:45",
+      "edge_kind": "contains",
+      "label": ""
+    }
+  ],
+  "metadata": {
+    "doc_hash": "sha256:bad03db1791be9cd52d706ee8dd166bb3a710afa94c077d3308b7e8b023db106",
+    "total_markers": 152,
+    "resolved_count": 77,
+    "unresolved_count": 75,
+    "backend_versions": {
+      "regex": "0.1.0"
+    },
+    "has_hierarchy": true
+  }
+}

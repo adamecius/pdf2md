@@ -1,0 +1,1828 @@
+{
+  "schema_version": "1.0.0",
+  "doc_hash": "sha256:62e9b1678487e894d3b2c9951220b27c9a92aabe3563122dbb354ce043e32779",
+  "markers": [
+    {
+      "source_ref": "#/document",
+      "marker_text": "[1]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        0,
+        3
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[3]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        4,
+        7
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[4]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        8,
+        11
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[9]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        12,
+        15
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[10]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        16,
+        20
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[12]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        21,
+        25
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[13]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        26,
+        30
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[18]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        31,
+        35
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[19]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        36,
+        40
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[14,",
+      "marker_type": "bibliography",
+      "char_offset": [
+        41,
+        45
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Eq. (11)",
+      "marker_type": "equation",
+      "char_offset": [
+        46,
+        54
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[20]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        55,
+        59
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[14,",
+      "marker_type": "bibliography",
+      "char_offset": [
+        41,
+        45
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Eq. (12)",
+      "marker_type": "equation",
+      "char_offset": [
+        65,
+        73
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[21]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        74,
+        78
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[23]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        79,
+        83
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[13]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        26,
+        30
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[18]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        31,
+        35
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[24,",
+      "marker_type": "bibliography",
+      "char_offset": [
+        94,
+        98
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Chap. 14]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        99,
+        108
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[10]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        16,
+        20
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[12]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        21,
+        25
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[25,",
+      "marker_type": "bibliography",
+      "char_offset": [
+        119,
+        123
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Chap. 5]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        124,
+        132
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[26]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        133,
+        137
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "5",
+      "marker_type": "equation",
+      "char_offset": [
+        121,
+        122
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(7)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        140,
+        143
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(11)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        50,
+        54
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(10)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        149,
+        153
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(11)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        50,
+        54
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(10)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        149,
+        153
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "7",
+      "marker_type": "equation",
+      "char_offset": [
+        141,
+        142
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(10)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        149,
+        153
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(7)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        140,
+        143
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(12)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        69,
+        73
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(11)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        50,
+        54
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(7)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        140,
+        143
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(11)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        50,
+        54
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "7",
+      "marker_type": "equation",
+      "char_offset": [
+        141,
+        142
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(15)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        196,
+        200
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(17)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        201,
+        205
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(12)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        69,
+        73
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(16)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        211,
+        215
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(19)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        216,
+        220
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(19)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        216,
+        220
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(19)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        216,
+        220
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(19)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        216,
+        220
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "21",
+      "marker_type": "equation",
+      "char_offset": [
+        75,
+        77
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(22)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        239,
+        243
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "21",
+      "marker_type": "equation",
+      "char_offset": [
+        75,
+        77
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(20)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        247,
+        251
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "23",
+      "marker_type": "equation",
+      "char_offset": [
+        80,
+        82
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(24)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        255,
+        259
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(21)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        260,
+        264
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[29]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        265,
+        269
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "21",
+      "marker_type": "equation",
+      "char_offset": [
+        75,
+        77
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[19]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        36,
+        40
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "11",
+      "marker_type": "equation",
+      "char_offset": [
+        51,
+        53
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(12)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        69,
+        73
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(26)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        286,
+        290
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(27)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        291,
+        295
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(27)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        291,
+        295
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(27)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        291,
+        295
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(33)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        306,
+        310
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(34)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        311,
+        315
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(31)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        316,
+        320
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(30)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        321,
+        325
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(28)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        326,
+        330
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(35)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        331,
+        335
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(12)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        69,
+        73
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(38)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        341,
+        345
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "21",
+      "marker_type": "equation",
+      "char_offset": [
+        75,
+        77
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(37)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        349,
+        353
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(34)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        311,
+        315
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "10",
+      "marker_type": "equation",
+      "char_offset": [
+        17,
+        19
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[20]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        55,
+        59
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "12",
+      "marker_type": "equation",
+      "char_offset": [
+        22,
+        24
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(37)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        349,
+        353
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(19)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        216,
+        220
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[31,",
+      "marker_type": "bibliography",
+      "char_offset": [
+        387,
+        391
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Ex. 3.3]",
+      "marker_type": "example",
+      "char_offset": [
+        392,
+        400
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[32,",
+      "marker_type": "bibliography",
+      "char_offset": [
+        401,
+        405
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Prop. 3",
+      "marker_type": "bibliography",
+      "char_offset": [
+        406,
+        413
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[32,",
+      "marker_type": "bibliography",
+      "char_offset": [
+        401,
+        405
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Prop. 3",
+      "marker_type": "bibliography",
+      "char_offset": [
+        406,
+        413
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[27,",
+      "marker_type": "bibliography",
+      "char_offset": [
+        427,
+        431
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Rem. 18 and 19]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        432,
+        447
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[34]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        448,
+        452
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[35]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        453,
+        457
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(10)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        149,
+        153
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(17)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        201,
+        205
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "17",
+      "marker_type": "equation",
+      "char_offset": [
+        202,
+        204
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "17",
+      "marker_type": "equation",
+      "char_offset": [
+        202,
+        204
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(40)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        523,
+        527
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[36,",
+      "marker_type": "bibliography",
+      "char_offset": [
+        528,
+        532
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "4",
+      "marker_type": "equation",
+      "char_offset": [
+        9,
+        10
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[24,",
+      "marker_type": "bibliography",
+      "char_offset": [
+        94,
+        98
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Eqs. (15.110",
+      "marker_type": "equation",
+      "char_offset": [
+        540,
+        552
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(15.113)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        553,
+        561
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "59",
+      "marker_type": "equation",
+      "char_offset": [
+        562,
+        564
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(17)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        201,
+        205
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(4)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        570,
+        573
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[27,",
+      "marker_type": "bibliography",
+      "char_offset": [
+        427,
+        431
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Cor. 33]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        579,
+        587
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "69",
+      "marker_type": "equation",
+      "char_offset": [
+        588,
+        590
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "70",
+      "marker_type": "equation",
+      "char_offset": [
+        591,
+        593
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(30)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        321,
+        325
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(30)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        321,
+        325
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[10]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        16,
+        20
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[12]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        21,
+        25
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(30)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        321,
+        325
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[10]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        16,
+        20
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[12]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        21,
+        25
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "7",
+      "marker_type": "equation",
+      "char_offset": [
+        141,
+        142
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "15",
+      "marker_type": "equation",
+      "char_offset": [
+        197,
+        199
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(7)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        140,
+        143
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(17)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        201,
+        205
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(18)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        682,
+        686
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "1",
+      "marker_type": "figure",
+      "char_offset": [
+        1,
+        2
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(7)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        140,
+        143
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(10)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        149,
+        153
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[37]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        698,
+        702
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[38]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        703,
+        707
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "7",
+      "marker_type": "equation",
+      "char_offset": [
+        141,
+        142
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(10)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        149,
+        153
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[39]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        715,
+        719
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[40]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        720,
+        724
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[32]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        725,
+        729
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "7",
+      "marker_type": "equation",
+      "char_offset": [
+        141,
+        142
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(19)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        216,
+        220
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "78",
+      "marker_type": "equation",
+      "char_offset": [
+        737,
+        739
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(19)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        216,
+        220
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "19",
+      "marker_type": "equation",
+      "char_offset": [
+        37,
+        39
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[41,",
+      "marker_type": "bibliography",
+      "char_offset": [
+        748,
+        752
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Corollary 3.3]",
+      "marker_type": "corollary",
+      "char_offset": [
+        753,
+        767
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "19",
+      "marker_type": "equation",
+      "char_offset": [
+        37,
+        39
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(21)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        260,
+        264
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(19)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        216,
+        220
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(19)",
+      "marker_type": "bibliography",
+      "char_offset": [
+        216,
+        220
+      ],
+      "confidence": 1.0,
+      "backend": "grobid"
+    }
+  ],
+  "edges": [],
+  "entities": [
+    {
+      "item_ref": "#/bibliography/b0",
+      "entity_type": "bibliography",
+      "label": "Nonlinear beamforming T Lo H Leung J Litva Electronics Letters 4 27 1991 T. Lo, H. Leung, and J. Litva, \"Nonlinear beamforming,\" Electronics Letters, vol. 4, no. 27, pp. 350-352, 1991.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b1",
+      "entity_type": "bibliography",
+      "label": "Fifty years of MIMO detection: The road to large-scale MIMOs S Yang L Hanzo IEEE Commun. Surveys Tuts 17 4 2015 S. Yang and L. Hanzo, \"Fifty years of MIMO detection: The road to large-scale MIMOs,\" IEEE Commun. Surveys Tuts., vol. 17, no. 4, pp. 1941-1988, 2015.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b2",
+      "entity_type": "bibliography",
+      "label": "Twentyfive years of advances in beamforming: From convex and nonconvex optimization to learning techniques A M Elbir K V Mishra S A Vorobyov R W Heath IEEE Signal Processing Mag 40 4 2023 A. M. Elbir, K. V. Mishra, S. A. Vorobyov, and R. W. Heath, \"Twenty- five years of advances in beamforming: From convex and nonconvex optimization to learning techniques,\" IEEE Signal Processing Mag., vol. 40, no. 4, pp. 118-131, 2023.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b3",
+      "entity_type": "bibliography",
+      "label": "Adaptive minimum error-rate filtering design: A review S Chen S Tan L Xu L Hanzo Signal Processing 88 7 2008 S. Chen, S. Tan, L. Xu, and L. Hanzo, \"Adaptive minimum error-rate filtering design: A review,\" Signal Processing, vol. 88, no. 7, pp. 1671- 1697, 2008.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b4",
+      "entity_type": "bibliography",
+      "label": "Symmetric RBF classifier for nonlinear detection in multiple-antenna-aided systems S Chen A Wolfgang C J Harris L Hanzo IEEE Trans. Neural Networks 19 5 2008 S. Chen, A. Wolfgang, C. J. Harris, and L. Hanzo, \"Symmetric RBF classifier for nonlinear detection in multiple-antenna-aided systems,\" IEEE Trans. Neural Networks, vol. 19, no. 5, pp. 737-745, 2008.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b5",
+      "entity_type": "bibliography",
+      "label": "Approximate kernel orthogonalization for antenna array processing A Navia-Vazquez M Martinez-Ramon L E Garcia-Munoz C G Christodoulou IEEE Trans. Antennas Propagat 58 12 2010 A. Navia-Vazquez, M. Martinez-Ramon, L. E. Garcia-Munoz, and C. G. Christodoulou, \"Approximate kernel orthogonalization for antenna array processing,\" IEEE Trans. Antennas Propagat., vol. 58, no. 12, pp. 3942- 3950, 2010.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b6",
+      "entity_type": "bibliography",
+      "label": "Lossless dimension reduction for integer least squares with application to sphere decoding M Neinavaie M Derakhtian S A Vorobyov IEEE Trans. Signal Processing 68 2020 M. Neinavaie, M. Derakhtian, and S. A. Vorobyov, \"Lossless dimension reduction for integer least squares with application to sphere decoding,\" IEEE Trans. Signal Processing, vol. 68, pp. 6547-6561, 2020.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b7",
+      "entity_type": "bibliography",
+      "label": "Deep learning aided low complex breadth-first tree search for MIMO detection J Liao J Zhao F Gao G Y Li IEEE Trans. Wireless Commun 2023 J. Liao, J. Zhao, F. Gao, and G. Y. Li, \"Deep learning aided low complex breadth-first tree search for MIMO detection,\" IEEE Trans. Wireless Commun., 2023.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b8",
+      "entity_type": "bibliography",
+      "label": "Robust online multiuser detection: A hybrid model-data driven approach D A Awan R L Cavalcante M Yukawa S Stanczak IEEE Trans. Signal Processing 2023 D. A. Awan, R. L. Cavalcante, M. Yukawa, and S. Stanczak, \"Robust online multiuser detection: A hybrid model-data driven approach,\" IEEE Trans. Signal Processing, 2023.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b9",
+      "entity_type": "bibliography",
+      "label": "Power of deep learning for channel estimation and signal detection in OFDM systems H Ye G Y Li B.-H Juang IEEE Wireless Commun. Lett 7 1 2017 H. Ye, G. Y. Li, and B.-H. Juang, \"Power of deep learning for channel estimation and signal detection in OFDM systems,\" IEEE Wireless Commun. Lett., vol. 7, no. 1, pp. 114-117, 2017.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b10",
+      "entity_type": "bibliography",
+      "label": "Model-driven deep learning for MIMO detection H He C.-K Wen S Jin G Y Li IEEE Trans. Signal Processing 68 2020 H. He, C.-K. Wen, S. Jin, and G. Y. Li, \"Model-driven deep learning for MIMO detection,\" IEEE Trans. Signal Processing, vol. 68, pp. 1702- 1715, 2020.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b11",
+      "entity_type": "bibliography",
+      "label": "Transfer learning for signal detection in wireless networks N Van Huynh G Y Li IEEE Wireless Commun. Lett 11 11 2022 N. Van Huynh and G. Y. Li, \"Transfer learning for signal detection in wireless networks,\" IEEE Wireless Commun. Lett., vol. 11, no. 11, pp. 2325-2329, 2022.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b12",
+      "entity_type": "bibliography",
+      "label": "On robust Capon beamforming and diagonal loading J Li P Stoica Z Wang IEEE Trans. Signal Processing 51 7 2003 J. Li, P. Stoica, and Z. Wang, \"On robust Capon beamforming and diagonal loading,\" IEEE Trans. Signal Processing, vol. 51, no. 7, pp. 1702-1715, 2003.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b13",
+      "entity_type": "bibliography",
+      "label": "Robust minimum variance beamforming R G Lorenz S P Boyd IEEE Trans. Signal Processing 53 5 2005 R. G. Lorenz and S. P. Boyd, \"Robust minimum variance beamforming,\" IEEE Trans. Signal Processing, vol. 53, no. 5, pp. 1684-1696, 2005.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b14",
+      "entity_type": "bibliography",
+      "label": "Robust minimum variance beamforming under distributional uncertainty X Zhang Y Li N Ge J Lu 2015 IEEE International Conference on Acoustics, Speech and Signal Processing IEEE 2015 X. Zhang, Y. Li, N. Ge, and J. Lu, \"Robust minimum variance beam- forming under distributional uncertainty,\" in 2015 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2015, pp. 2514-2518.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b15",
+      "entity_type": "bibliography",
+      "label": "A distributionally robust minimum variance beamformer design B Li Y Rong J Sun K L Teo IEEE Signal Processing Lett 25 1 2017 B. Li, Y. Rong, J. Sun, and K. L. Teo, \"A distributionally robust minimum variance beamformer design,\" IEEE Signal Processing Lett., vol. 25, no. 1, pp. 105-109, 2017.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b16",
+      "entity_type": "bibliography",
+      "label": "Robust adaptive beamforming maximizing the worst-case SINR over distributional uncertainty sets for random inc matrix and signal steering vector Y Huang W Yang S A Vorobyov ICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing IEEE 2022 Y. Huang, W. Yang, and S. A. Vorobyov, \"Robust adaptive beamforming maximizing the worst-case SINR over distributional uncertainty sets for random inc matrix and signal steering vector,\" in ICASSP 2022- 2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2022, pp. 4918-4922.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b17",
+      "entity_type": "bibliography",
+      "label": "Robust adaptive beamforming via worst-case SINR maximization with nonconvex uncertainty sets Y Huang H Fu S A Vorobyov Z.-Q Luo IEEE Trans. Signal Processing 71 2023 Y. Huang, H. Fu, S. A. Vorobyov, and Z.-Q. Luo, \"Robust adaptive beamforming via worst-case SINR maximization with nonconvex un- certainty sets,\" IEEE Trans. Signal Processing, vol. 71, pp. 218-232, 2023.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b18",
+      "entity_type": "bibliography",
+      "label": "Robust adaptive beamforming H Cox R Zeskind M Owen IEEE Trans. Acoust., Speech, Signal Processing 35 10 1987 H. Cox, R. Zeskind, and M. Owen, \"Robust adaptive beamforming,\" IEEE Trans. Acoust., Speech, Signal Processing, vol. 35, no. 10, pp. 1365-1376, 1987.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b19",
+      "entity_type": "bibliography",
+      "label": "Relationships between adaptive minimum variance beamforming and optimal source localization K Harmanci J Tabrikian J L Krolik IEEE Trans. Signal Processing 48 1 2000 K. Harmanci, J. Tabrikian, and J. L. Krolik, \"Relationships between adaptive minimum variance beamforming and optimal source localiza- tion,\" IEEE Trans. Signal Processing, vol. 48, no. 1, pp. 1-12, 2000.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b20",
+      "entity_type": "bibliography",
+      "label": "Toward dual-functional radar-communication systems: Optimal waveform design F Liu L Zhou C Masouros A Li W Luo A Petropulu IEEE Trans. Signal Processing 66 16 2018 F. Liu, L. Zhou, C. Masouros, A. Li, W. Luo, and A. Petropulu, \"To- ward dual-functional radar-communication systems: Optimal waveform design,\" IEEE Trans. Signal Processing, vol. 66, no. 16, pp. 4264-4279, 2018.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b21",
+      "entity_type": "bibliography",
+      "label": "An overview of signal processing techniques for joint communication and radar sensing J A Zhang F Liu C Masouros R W Heath Z Feng L Zheng A Petropulu IEEE J. Select. Topics Signal Processing 15 6 2021 J. A. Zhang, F. Liu, C. Masouros, R. W. Heath, Z. Feng, L. Zheng, and A. Petropulu, \"An overview of signal processing techniques for joint communication and radar sensing,\" IEEE J. Select. Topics Signal Processing, vol. 15, no. 6, pp. 1295-1315, 2021.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b22",
+      "entity_type": "bibliography",
+      "label": "On the fundamental tradeoff of integrated sensing and communications under Gaussian channels Y Xiong F Liu Y Cui W Yuan T X Han G Caire IEEE Trans. Inform. Theory 2023 Y. Xiong, F. Liu, Y. Cui, W. Yuan, T. X. Han, and G. Caire, \"On the fundamental tradeoff of integrated sensing and communications under Gaussian channels,\" IEEE Trans. Inform. Theory, 2023.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b23",
+      "entity_type": "bibliography",
+      "label": "K P Murphy Machine Learning: A Probabilistic Perspective MIT Press 2012 K. P. Murphy, Machine Learning: A Probabilistic Perspective. MIT Press, 2012.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b24",
+      "entity_type": "bibliography",
+      "label": "C M Bishop N M Nasrabadi Pattern Recognition and Machine Learning Springer 2006 4 C. M. Bishop and N. M. Nasrabadi, Pattern Recognition and Machine Learning. Springer, 2006, vol. 4, no. 4.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b25",
+      "entity_type": "bibliography",
+      "label": "Towards understanding variation-constrained deep neural networks G Li J Ding IEEE Trans. Signal Processing 71 2023 G. Li and J. Ding, \"Towards understanding variation-constrained deep neural networks,\" IEEE Trans. Signal Processing, vol. 71, pp. 631-640, 2023.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b26",
+      "entity_type": "bibliography",
+      "label": "Regularization via mass transportation S Shafieezadeh-Abadeh D Kuhn P M Esfahani Journal of Machine Learning Research 20 103 2019 S. Shafieezadeh-Abadeh, D. Kuhn, and P. M. Esfahani, \"Regularization via mass transportation,\" Journal of Machine Learning Research, vol. 20, no. 103, pp. 1-68, 2019.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b27",
+      "entity_type": "bibliography",
+      "label": "Distributionally robust optimization and generalization in kernel methods M Staib S Jegelka Advances in Neural Information Processing Systems 2019 32 M. Staib and S. Jegelka, \"Distributionally robust optimization and generalization in kernel methods,\" Advances in Neural Information Processing Systems, vol. 32, 2019.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b28",
+      "entity_type": "bibliography",
+      "label": "Distributionally robust optimization under moment uncertainty with application to data-driven problems E Delage Y Ye Operations Research 58 3 2010 E. Delage and Y. Ye, \"Distributionally robust optimization under mo- ment uncertainty with application to data-driven problems,\" Operations Research, vol. 58, no. 3, pp. 595-612, 2010.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b29",
+      "entity_type": "bibliography",
+      "label": "Distributionally robust state estimation for jump linear systems S Wang IEEE Trans. Signal Processing 2023 S. Wang, \"Distributionally robust state estimation for jump linear systems,\" IEEE Trans. Signal Processing, 2023.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b30",
+      "entity_type": "bibliography",
+      "label": "Tikhonov regularization is optimal transport robust under martingale constraints J Li S Lin J Blanchet V A Nguyen Advances in Neural Information Processing Systems 2022 35 J. Li, S. Lin, J. Blanchet, and V. A. Nguyen, \"Tikhonov regularization is optimal transport robust under martingale constraints,\" Advances in Neural Information Processing Systems, vol. 35, pp. 17 677-17 689, 2022.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b31",
+      "entity_type": "bibliography",
+      "label": "Wasserstein distributionally robust optimization: Theory and applications in machine learning D Kuhn P M Esfahani V A Nguyen S Shafieezadeh-Abadeh Operations Research & Management Science in the Age of Analytics Informs 2019 D. Kuhn, P. M. Esfahani, V. A. Nguyen, and S. Shafieezadeh-Abadeh, \"Wasserstein distributionally robust optimization: Theory and applica- tions in machine learning,\" in Operations Research & Management Science in the Age of Analytics. Informs, 2019, pp. 130-166.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b32",
+      "entity_type": "bibliography",
+      "label": "Robust Wasserstein profile inference and applications to machine learning J Blanchet Y Kang K Murthy Journal of Applied Probability 56 3 2019 J. Blanchet, Y. Kang, and K. Murthy, \"Robust Wasserstein profile inference and applications to machine learning,\" Journal of Applied Probability, vol. 56, no. 3, pp. 830-857, 2019.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b33",
+      "entity_type": "bibliography",
+      "label": "A survey on image data augmentation for deep learning C Shorten T M Khoshgoftaar Journal of Big Data 6 2019 C. Shorten and T. M. Khoshgoftaar, \"A survey on image data augmen- tation for deep learning,\" Journal of Big Data, vol. 6, 2019.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b34",
+      "entity_type": "bibliography",
+      "label": "Sequence noise injected training for end-to-end speech recognition G Saon Z Tüske K Audhkhasi B Kingsbury ICASSP 2019-2019 IEEE International Conference on Acoustics, Speech and Signal Processing IEEE 2019 G. Saon, Z. Tüske, K. Audhkhasi, and B. Kingsbury, \"Sequence noise injected training for end-to-end speech recognition,\" in ICASSP 2019- 2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2019, pp. 6261-6265.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b35",
+      "entity_type": "bibliography",
+      "label": "Understanding kernel ridge regression: Common behaviors from simple functions to density functionals K Vu J C Snyder L Li M Rupp B F Chen T Khelif K.-R Müller K Burke International Journal of Quantum Chemistry 115 16 2015 K. Vu, J. C. Snyder, L. Li, M. Rupp, B. F. Chen, T. Khelif, K.-R. Müller, and K. Burke, \"Understanding kernel ridge regression: Common behaviors from simple functions to density functionals,\" International Journal of Quantum Chemistry, vol. 115, no. 16, pp. 1115-1128, 2015.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b36",
+      "entity_type": "bibliography",
+      "label": "Robust adaptive array for wireless communications X Wang H V Poor IEEE J. Select. Areas in Commun 16 8 1998 X. Wang and H. V. Poor, \"Robust adaptive array for wireless com- munications,\" IEEE J. Select. Areas in Commun., vol. 16, no. 8, pp. 1352-1366, 1998.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b37",
+      "entity_type": "bibliography",
+      "label": "Performance study of the minimax robust phased array for wireless communications V Katkovnik M.-S Lee Y.-H Kim IEEE Trans. Wireless Commun 54 4 2006 V. Katkovnik, M.-S. Lee, and Y.-H. Kim, \"Performance study of the minimax robust phased array for wireless communications,\" IEEE Trans. Wireless Commun., vol. 54, no. 4, pp. 608-613, 2006.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b38",
+      "entity_type": "bibliography",
+      "label": "Frameworks and results in distributionally robust optimization H Rahimian S Mehrotra Open Journal of Mathematical Optimization 3 2022 H. Rahimian and S. Mehrotra, \"Frameworks and results in distribution- ally robust optimization,\" Open Journal of Mathematical Optimization, vol. 3, pp. 1-85, 2022.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b39",
+      "entity_type": "bibliography",
+      "label": "Distributionally robust optimization D Kuhn S Shafiee W Wiesemann Acta Numerica 2024 D. Kuhn, S. Shafiee, and W. Wiesemann, \"Distributionally robust optimization,\" Acta Numerica, 2024.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    },
+    {
+      "item_ref": "#/bibliography/b40",
+      "entity_type": "bibliography",
+      "label": "On general minimax theorems M Sion Pacific Journal of Mathematics 8 1 1958 M. Sion, \"On general minimax theorems.\" Pacific Journal of Mathemat- ics, vol. 8, no. 1, pp. 171 -176, 1958.",
+      "confidence": 1.0,
+      "backend": "grobid"
+    }
+  ],
+  "backend_versions": {
+    "grobid": "0.1.0"
+  }
+}

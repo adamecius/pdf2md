@@ -1,0 +1,1683 @@
+{
+  "schema_version": "1.0.0",
+  "doc_hash": "sha256:bad03db1791be9cd52d706ee8dd166bb3a710afa94c077d3308b7e8b023db106",
+  "markers": [
+    {
+      "source_ref": "#/document",
+      "marker_text": "[1]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        2378,
+        2381
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[3]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        2382,
+        2385
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[4]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        2798,
+        2801
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[9]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        2802,
+        2805
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[10]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        4220,
+        4224
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[12]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        4225,
+        4229
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[13]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        4401,
+        4405
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[18]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        4407,
+        4411
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[19]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        4507,
+        4511
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Eq. (11)",
+      "marker_type": "equation",
+      "char_offset": [
+        4518,
+        4526
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[20]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        4567,
+        4571
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Eq. (12)",
+      "marker_type": "equation",
+      "char_offset": [
+        4578,
+        4586
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[21]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        4897,
+        4901
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[23]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        4902,
+        4906
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[13]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        6222,
+        6226
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[18]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        6227,
+        6231
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Corollary 1",
+      "marker_type": "corollary",
+      "char_offset": [
+        8706,
+        8717
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[10]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        14498,
+        14502
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[12]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        14504,
+        14508
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[26]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        15629,
+        15633
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Theorem 1",
+      "marker_type": "theorem",
+      "char_offset": [
+        34839,
+        34848
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Definition 1",
+      "marker_type": "definition",
+      "char_offset": [
+        35659,
+        35671
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Definition 1",
+      "marker_type": "definition",
+      "char_offset": [
+        36155,
+        36167
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Definition 2",
+      "marker_type": "definition",
+      "char_offset": [
+        36707,
+        36719
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Definition 3",
+      "marker_type": "definition",
+      "char_offset": [
+        37795,
+        37807
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Definition 4",
+      "marker_type": "definition",
+      "char_offset": [
+        40122,
+        40134
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[29]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        40174,
+        40178
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Corollary 1",
+      "marker_type": "corollary",
+      "char_offset": [
+        40716,
+        40727
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Theorem 1",
+      "marker_type": "theorem",
+      "char_offset": [
+        40732,
+        40741
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Definition 1",
+      "marker_type": "definition",
+      "char_offset": [
+        40960,
+        40972
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Definition 2",
+      "marker_type": "definition",
+      "char_offset": [
+        41781,
+        41793
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[19]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        42405,
+        42409
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Eq. (11)",
+      "marker_type": "equation",
+      "char_offset": [
+        42416,
+        42424
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Definition 3",
+      "marker_type": "definition",
+      "char_offset": [
+        42497,
+        42509
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Definition 4",
+      "marker_type": "definition",
+      "char_offset": [
+        43068,
+        43080
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Corollary 1",
+      "marker_type": "corollary",
+      "char_offset": [
+        43739,
+        43750
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Definition 5",
+      "marker_type": "definition",
+      "char_offset": [
+        43981,
+        43993
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Theorem 1",
+      "marker_type": "theorem",
+      "char_offset": [
+        45006,
+        45015
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Corollary 1",
+      "marker_type": "corollary",
+      "char_offset": [
+        45037,
+        45048
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Corollary 1",
+      "marker_type": "corollary",
+      "char_offset": [
+        45930,
+        45941
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Definition 4",
+      "marker_type": "definition",
+      "char_offset": [
+        46413,
+        46425
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Definition 6",
+      "marker_type": "definition",
+      "char_offset": [
+        46450,
+        46462
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Corollary 1",
+      "marker_type": "corollary",
+      "char_offset": [
+        49884,
+        49895
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Example 1",
+      "marker_type": "example",
+      "char_offset": [
+        50111,
+        50120
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Theorem 1",
+      "marker_type": "theorem",
+      "char_offset": [
+        51281,
+        51290
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Eq. (10)",
+      "marker_type": "equation",
+      "char_offset": [
+        51701,
+        51709
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Example 2",
+      "marker_type": "example",
+      "char_offset": [
+        52123,
+        52132
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[20]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        53086,
+        53090
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Eq. (12)",
+      "marker_type": "equation",
+      "char_offset": [
+        53097,
+        53105
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Example 3",
+      "marker_type": "example",
+      "char_offset": [
+        53111,
+        53120
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Corollary 1",
+      "marker_type": "corollary",
+      "char_offset": [
+        55726,
+        55737
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Definition 5",
+      "marker_type": "definition",
+      "char_offset": [
+        55807,
+        55819
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Theorem 2",
+      "marker_type": "theorem",
+      "char_offset": [
+        55929,
+        55938
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Theorem 1",
+      "marker_type": "theorem",
+      "char_offset": [
+        57707,
+        57716
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Theorem 1",
+      "marker_type": "theorem",
+      "char_offset": [
+        58495,
+        58504
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Theorem 2",
+      "marker_type": "theorem",
+      "char_offset": [
+        58557,
+        58566
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Theorem 2",
+      "marker_type": "theorem",
+      "char_offset": [
+        58780,
+        58789
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Corollary 2",
+      "marker_type": "corollary",
+      "char_offset": [
+        59551,
+        59562
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Theorem 2",
+      "marker_type": "theorem",
+      "char_offset": [
+        60465,
+        60474
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Theorem 2",
+      "marker_type": "theorem",
+      "char_offset": [
+        60492,
+        60501
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[34]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        60722,
+        60726
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[35]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        60738,
+        60742
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Corollary 3",
+      "marker_type": "corollary",
+      "char_offset": [
+        60757,
+        60768
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Corollary 3",
+      "marker_type": "corollary",
+      "char_offset": [
+        63038,
+        63049
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Example 4",
+      "marker_type": "example",
+      "char_offset": [
+        83851,
+        83860
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Example 5",
+      "marker_type": "example",
+      "char_offset": [
+        85353,
+        85362
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Example 2",
+      "marker_type": "example",
+      "char_offset": [
+        85477,
+        85486
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Example 4",
+      "marker_type": "example",
+      "char_offset": [
+        85646,
+        85655
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Theorem 3",
+      "marker_type": "theorem",
+      "char_offset": [
+        85733,
+        85742
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Example 4",
+      "marker_type": "example",
+      "char_offset": [
+        87520,
+        87529
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Theorem 2",
+      "marker_type": "theorem",
+      "char_offset": [
+        87535,
+        87544
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Theorem 3",
+      "marker_type": "theorem",
+      "char_offset": [
+        87629,
+        87638
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Theorem 3",
+      "marker_type": "theorem",
+      "char_offset": [
+        87746,
+        87755
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Eq. (4)",
+      "marker_type": "equation",
+      "char_offset": [
+        87808,
+        87815
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(15.110)",
+      "marker_type": "equation",
+      "char_offset": [
+        87828,
+        87836
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "(15.113)",
+      "marker_type": "equation",
+      "char_offset": [
+        87841,
+        87849
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Corollary 2",
+      "marker_type": "corollary",
+      "char_offset": [
+        88235,
+        88246
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Corollary 4",
+      "marker_type": "corollary",
+      "char_offset": [
+        88307,
+        88318
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Corollary 2",
+      "marker_type": "corollary",
+      "char_offset": [
+        88945,
+        88956
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Corollary 3",
+      "marker_type": "corollary",
+      "char_offset": [
+        89065,
+        89076
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Corollary 5",
+      "marker_type": "corollary",
+      "char_offset": [
+        89117,
+        89128
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Theorem 3",
+      "marker_type": "theorem",
+      "char_offset": [
+        89217,
+        89226
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Eq. (70)",
+      "marker_type": "equation",
+      "char_offset": [
+        94382,
+        94390
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[0, 0]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        96253,
+        96259
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Corollary 1",
+      "marker_type": "corollary",
+      "char_offset": [
+        97889,
+        97900
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Example 4",
+      "marker_type": "example",
+      "char_offset": [
+        97905,
+        97914
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[10]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        98086,
+        98090
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[12]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        98092,
+        98096
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[10]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        106648,
+        106652
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[12]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        106654,
+        106658
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Fig. 1",
+      "marker_type": "figure",
+      "char_offset": [
+        120992,
+        120998
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Fig. 1",
+      "marker_type": "figure",
+      "char_offset": [
+        121312,
+        121318
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[37]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        126686,
+        126690
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[38]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        126692,
+        126696
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[39]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        128579,
+        128583
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[40]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        128585,
+        128589
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[32]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        128801,
+        128805
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Corollary 1",
+      "marker_type": "corollary",
+      "char_offset": [
+        129201,
+        129212
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Example 4",
+      "marker_type": "example",
+      "char_offset": [
+        129227,
+        129236
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "PROOF OF LEMMA 1",
+      "marker_type": "proof",
+      "char_offset": [
+        129906,
+        129922
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Corollary 3.3",
+      "marker_type": "corollary",
+      "char_offset": [
+        130616,
+        130629
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "PROOF OF THEOREM 1",
+      "marker_type": "proof",
+      "char_offset": [
+        131530,
+        131548
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[1]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        136583,
+        136586
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[2]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        136702,
+        136705
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[3]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        136860,
+        136863
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[4]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        137101,
+        137104
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[5]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        137261,
+        137264
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[6]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        137468,
+        137471
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[7]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        137697,
+        137700
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[8]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        137908,
+        137911
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[9]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        138071,
+        138074
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[10]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        138247,
+        138251
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[11]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        138438,
+        138442
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[12]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        138597,
+        138601
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[13]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        138760,
+        138764
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[14]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        138919,
+        138923
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[15]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        139063,
+        139067
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[16]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        139296,
+        139300
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[17]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        139472,
+        139476
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[18]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        139798,
+        139802
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[19]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        140009,
+        140013
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[20]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        140167,
+        140171
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[21]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        140378,
+        140382
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[22]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        140597,
+        140601
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[23]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        140857,
+        140861
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[24]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        141055,
+        141059
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[25]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        141141,
+        141145
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[26]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        141256,
+        141260
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[27]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        141410,
+        141414
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[28]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        141585,
+        141589
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[29]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        141761,
+        141765
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[30]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        141952,
+        141956
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[31]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        142074,
+        142078
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[32]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        142297,
+        142301
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[33]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        142566,
+        142570
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[34]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        142755,
+        142759
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[35]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        142890,
+        142894
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[36]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        143152,
+        143156
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[37]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        143435,
+        143439
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[38]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        143591,
+        143595
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[39]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        143788,
+        143792
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[40]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        143958,
+        143962
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "[41]",
+      "marker_type": "bibliography",
+      "char_offset": [
+        144066,
+        144070
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Fig. 2",
+      "marker_type": "figure",
+      "char_offset": [
+        148026,
+        148032
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Fig. 2",
+      "marker_type": "figure",
+      "char_offset": [
+        148681,
+        148687
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Fig. 2",
+      "marker_type": "figure",
+      "char_offset": [
+        149012,
+        149018
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Fig. 2",
+      "marker_type": "figure",
+      "char_offset": [
+        149711,
+        149717
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Fig. 2",
+      "marker_type": "figure",
+      "char_offset": [
+        150109,
+        150115
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Fig. 3",
+      "marker_type": "figure",
+      "char_offset": [
+        151093,
+        151099
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Fig. 2",
+      "marker_type": "figure",
+      "char_offset": [
+        151150,
+        151156
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Fig. 3",
+      "marker_type": "figure",
+      "char_offset": [
+        151178,
+        151184
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    },
+    {
+      "source_ref": "#/document",
+      "marker_text": "Fig. 3",
+      "marker_type": "figure",
+      "char_offset": [
+        152153,
+        152159
+      ],
+      "confidence": 1.0,
+      "backend": "regex"
+    }
+  ],
+  "edges": [],
+  "entities": [],
+  "backend_versions": {
+    "regex": "0.1.0"
+  }
+}

@@ -1,0 +1,4156 @@
+{
+  "schema_name": "pdf2md.EntityProposalDocument",
+  "schema_version": "1.0.0",
+  "document_id": "1410.8140",
+  "backend": "paddleocr",
+  "backend_version": null,
+  "page_count": 1,
+  "entities": [
+    {
+      "id": "ent:paddleocr:1410.8140:section:1",
+      "entity_type": "section",
+      "subtype": null,
+      "canonical_text": "Real-space calculation of the conductivity tensor for disordered topological matter",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b0"
+      ],
+      "confidence": 0.75,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b0",
+          "raw_ref": "output.md",
+          "text": "# Real-space calculation of the conductivity tensor for disordered topological matter",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "heading_section_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:section:heading_section_detector",
+      "metadata": {
+        "detector": "heading_section_detector",
+        "heading_level": 1,
+        "numbering": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:section:2",
+      "entity_type": "section",
+      "subtype": null,
+      "canonical_text": "Jose H. García,1 Lucian Covaci,2 and Tatiana G. Rappoport1",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b1"
+      ],
+      "confidence": 0.75,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b1",
+          "raw_ref": "output.md",
+          "text": "Jose H. García,1 Lucian Covaci,2 and Tatiana G. Rappoport1",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "heading_section_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:section:heading_section_detector",
+      "metadata": {
+        "detector": "heading_section_detector",
+        "heading_level": 2,
+        "numbering": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:3",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\begin{aligned}{}&{{}\\tilde{\\sigma}_{\\alpha\\beta}(\\mu,T)=\\frac{i e^{2}\\hbar}{\\Omega}\\int_{-\\infty}^{\\infty}d\\varepsilon f(\\varepsilon)\\quad(1)}\\\\ {}&{{}\\times\\operatorname{T r}\\left\\langle v_{\\alpha}\\delta(\\varepsilon-H)v_{\\beta}\\frac{d G^{+}(\\varepsilon)}{d\\varepsilon}-v_{\\alpha}\\frac{d G^{-}(\\varepsilon)}{d\\varepsilon}v_{\\beta}\\delta(\\varepsilon-H)\\right\\rangle,}\\\\ \\end{aligned}$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b10"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b10",
+          "raw_ref": "output.md",
+          "text": "$$\\begin{aligned}{}&{{}\\tilde{\\sigma}_{\\alpha\\beta}(\\mu,T)=\\frac{i e^{2}\\hbar}{\\Omega}\\int_{-\\infty}^{\\infty}d\\varepsilon f(\\varepsilon)\\quad(1)}\\\\ {}&{{}\\times\\operatorname{T r}\\left\\langle v_{\\alpha}\\delta(\\varepsilon-H)v_{\\beta}\\frac{d G^{+}(\\varepsilon)}{d\\varepsilon}-v_{\\alpha}\\frac{d G^{-}(\\varepsilon)}{d\\varepsilon}v_{\\beta}\\delta(\\varepsilon-H)\\right\\rangle,}\\\\ \\end{aligned}$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:4",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\begin{aligned}{}&{{}\\delta(\\tilde{\\varepsilon}-\\tilde{H})=\\frac{2}{\\pi\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{M}g_{m}\\frac{T_{m}(\\tilde{\\varepsilon})}{\\delta_{m,0}+1}T_{m}(\\tilde{H}),}\\\\ {}&{{}G^{\\pm}(\\tilde{\\varepsilon},\\tilde{H})=\\mp\\frac{2i}{\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{M}g_{m}\\frac{\\operatorname{e}^{\\pm i m\\operatorname{a r c c o s}(\\tilde{\\varepsilon})}}{\\delta_{m,0}+1}T_{m}(\\tilde{H})}\\\\ \\end{aligned} . (3)$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b13"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b13",
+          "raw_ref": "output.md",
+          "text": "$$\\begin{aligned}{}&{{}\\delta(\\tilde{\\varepsilon}-\\tilde{H})=\\frac{2}{\\pi\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{M}g_{m}\\frac{T_{m}(\\tilde{\\varepsilon})}{\\delta_{m,0}+1}T_{m}(\\tilde{H}),}\\\\ {}&{{}G^{\\pm}(\\tilde{\\varepsilon},\\tilde{H})=\\mp\\frac{2i}{\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{M}g_{m}\\frac{\\operatorname{e}^{\\pm i m\\operatorname{a r c c o s}(\\tilde{\\varepsilon})}}{\\delta_{m,0}+1}T_{m}(\\tilde{H})}\\\\ \\end{aligned} . (3)$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:5",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\sigma_{\\alpha\\beta}(\\mu,T)=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\frac{4}{\\Delta E^{2}}\\int_{-1}^{1}d\\tilde{\\varepsilon}\\frac{f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})^{2}}\\sum_{m,n}\\Gamma_{n m}(\\tilde{\\varepsilon})\\mu_{n m}^{\\alpha\\beta}.$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b17"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b17",
+          "raw_ref": "output.md",
+          "text": "$$\\sigma_{\\alpha\\beta}(\\mu,T)=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\frac{4}{\\Delta E^{2}}\\int_{-1}^{1}d\\tilde{\\varepsilon}\\frac{f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})^{2}}\\sum_{m,n}\\Gamma_{n m}(\\tilde{\\varepsilon})\\mu_{n m}^{\\alpha\\beta}.$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:6",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\begin{aligned}{\\Gamma_{m n}(\\tilde{\\varepsilon})\\equiv[(\\tilde{\\varepsilon}-i n\\sqrt{1-\\tilde{\\varepsilon}^{2}})\\operatorname{e}^{i n\\operatorname{a r c c o s}(\\tilde{\\varepsilon})}T_{m}(\\tilde{\\varepsilon})}\\\\ {+(\\tilde{\\varepsilon}+i m\\sqrt{1-\\tilde{\\varepsilon}^{2}})\\operatorname{e}^{-i m\\operatorname{a r c c o s}(\\tilde{\\varepsilon})}T_{n}(\\tilde{\\varepsilon})].}\\\\ \\end{aligned}$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b20"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b20",
+          "raw_ref": "output.md",
+          "text": "$$\\begin{aligned}{\\Gamma_{m n}(\\tilde{\\varepsilon})\\equiv[(\\tilde{\\varepsilon}-i n\\sqrt{1-\\tilde{\\varepsilon}^{2}})\\operatorname{e}^{i n\\operatorname{a r c c o s}(\\tilde{\\varepsilon})}T_{m}(\\tilde{\\varepsilon})}\\\\ {+(\\tilde{\\varepsilon}+i m\\sqrt{1-\\tilde{\\varepsilon}^{2}})\\operatorname{e}^{-i m\\operatorname{a r c c o s}(\\tilde{\\varepsilon})}T_{n}(\\tilde{\\varepsilon})].}\\\\ \\end{aligned}$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:figure:7",
+      "entity_type": "figure",
+      "subtype": null,
+      "canonical_text": "<img src=\"imgs/img_in_chart_box_132_908_573_1224.jpg\"/>",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b25"
+      ],
+      "confidence": 0.82,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b25",
+          "raw_ref": "output.md",
+          "text": "<img src=\"imgs/img_in_chart_box_132_908_573_1224.jpg\"/>",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "figure_table_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:figure:figure_table_detector",
+      "metadata": {
+        "detector": "figure_table_detector"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:figure:8",
+      "entity_type": "figure",
+      "subtype": null,
+      "canonical_text": "<img src=\"imgs/img_in_chart_box_657_100_1099_411.jpg\"/>",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b27"
+      ],
+      "confidence": 0.82,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b27",
+          "raw_ref": "output.md",
+          "text": "<img src=\"imgs/img_in_chart_box_657_100_1099_411.jpg\"/>",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "figure_table_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:figure:figure_table_detector",
+      "metadata": {
+        "detector": "figure_table_detector"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:9",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\mathcal{H}=-t{\\sum_{\\langle i,j\\rangle}c_{i}^{\\dagger}c_{j}}+t_{2}{\\sum_{\\langle\\langle i,j\\rangle\\rangle}e^{i\\phi_{i j}}c_{i}^{\\dagger}c_{j}}\\pm\\frac{\\Delta_{A B}}{2}\\sum_{i\\in A/B}c_{i}^{\\dagger}c_{i},$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b32"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b32",
+          "raw_ref": "output.md",
+          "text": "$$\\mathcal{H}=-t{\\sum_{\\langle i,j\\rangle}c_{i}^{\\dagger}c_{j}}+t_{2}{\\sum_{\\langle\\langle i,j\\rangle\\rangle}e^{i\\phi_{i j}}c_{i}^{\\dagger}c_{j}}\\pm\\frac{\\Delta_{A B}}{2}\\sum_{i\\in A/B}c_{i}^{\\dagger}c_{i},$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:figure:10",
+      "entity_type": "figure",
+      "subtype": null,
+      "canonical_text": "<img src=\"imgs/img_in_chart_box_117_287_583_612.jpg\"/>",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b35"
+      ],
+      "confidence": 0.82,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b35",
+          "raw_ref": "output.md",
+          "text": "<img src=\"imgs/img_in_chart_box_117_287_583_612.jpg\"/>",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "figure_table_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:figure:figure_table_detector",
+      "metadata": {
+        "detector": "figure_table_detector"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:11",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[1] A. Bastin, C. Lewinner, O. Betbeder-Matibet and P.Nozieres, J. Phys. Chem. Solids 32, 1811 (1971).[2] E.H. Hall, Am. J.Math 2, 287 (1879).[3] N. Nagaosa, J. Sinova, S. Onoda, A. H. MacDonald and N.P. Ong, Rev. Mod. Phys. 82, 1539 (2010).[4] T. Jungwirth, J. Wunderlich and K. Olejnik, Nature Mat.11, 382 (2012).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b42"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b42",
+          "raw_ref": "output.md",
+          "text": "[1] A. Bastin, C. Lewinner, O. Betbeder-Matibet and P.Nozieres, J. Phys. Chem. Solids 32, 1811 (1971).[2] E.H. Hall, Am. J.Math 2, 287 (1879).[3] N. Nagaosa, J. Sinova, S. Onoda, A. H. MacDonald and N.P. Ong, Rev. Mod. Phys. 82, 1539 (2010).[4] T. Jungwirth, J. Wunderlich and K. Olejnik, Nature Mat.11, 382 (2012).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "1"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:12",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[5] K. Klitzing, G. Dorda, M. Pepper, Phys. Rev. Lett. 45,\n494 (1980).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b43"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b43",
+          "raw_ref": "output.md",
+          "text": "[5] K. Klitzing, G. Dorda, M. Pepper, Phys. Rev. Lett. 45,\n494 (1980).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "5"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:13",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[6] C.-Z.Chang et al. ,Science 340,167 (2013).[7] M.König et al., Science 318, 766(2007).[8] M.Z. Hasan and C.L.Kane, Rev. Mod. Phys. 82 045(2010).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b44"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b44",
+          "raw_ref": "output.md",
+          "text": "[6] C.-Z.Chang et al. ,Science 340,167 (2013).[7] M.König et al., Science 318, 766(2007).[8] M.Z. Hasan and C.L.Kane, Rev. Mod. Phys. 82 045(2010).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "6"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:14",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[9] R. Kubo, J. Phys. Soc. Japan 12, 570 (1957); R. Kubo,\nA.Yokota, and S.Nakajima, J.Phys. Soc. Japan 12,1203(1957).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b45"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b45",
+          "raw_ref": "output.md",
+          "text": "[9] R. Kubo, J. Phys. Soc. Japan 12, 570 (1957); R. Kubo,\nA.Yokota, and S.Nakajima, J.Phys. Soc. Japan 12,1203(1957).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "9"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:15",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[10] D.J. Thouless, M. Kohmoto, M. P. Nightingale and M.\nden Nijs, Phys. Rev. Lett. 49, 405 (1982).[11] Yisong Zheng and Tsuneya Ando, Phys. Rev. B 65,\n245420 (2002).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b46"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b46",
+          "raw_ref": "output.md",
+          "text": "[10] D.J. Thouless, M. Kohmoto, M. P. Nightingale and M.\nden Nijs, Phys. Rev. Lett. 49, 405 (1982).[11] Yisong Zheng and Tsuneya Ando, Phys. Rev. B 65,\n245420 (2002).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "10"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:16",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[12] D. N. Sheng, L. Sheng, and Z.Y. Weng, Phys. Rev. B 73, 233406 (2006).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b47"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b47",
+          "raw_ref": "output.md",
+          "text": "[12] D. N. Sheng, L. Sheng, and Z.Y. Weng, Phys. Rev. B 73, 233406 (2006).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "12"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:17",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[13] Yu Xue and Emil Prodan, Phys. Rev. B 86, 155445(2012).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b48"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b48",
+          "raw_ref": "output.md",
+          "text": "[13] Yu Xue and Emil Prodan, Phys. Rev. B 86, 155445(2012).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "13"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:18",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[14] Frank Ortmann and Stephan Roche, Phys. Rev. Lett.\n110, 086602 (2013).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b49"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b49",
+          "raw_ref": "output.md",
+          "text": "[14] Frank Ortmann and Stephan Roche, Phys. Rev. Lett.\n110, 086602 (2013).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "14"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:19",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[15] D. A. Greenwood, Proc. Phys. Soc. (London) 71, 585(1958).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b50"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b50",
+          "raw_ref": "output.md",
+          "text": "[15] D. A. Greenwood, Proc. Phys. Soc. (London) 71, 585(1958).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "15"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:20",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[16] A. Weisse, G. Wellein, A. Alvermann, H. Fehske, Rev.\nMod. Phys. 78, 275(206).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b51"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b51",
+          "raw_ref": "output.md",
+          "text": "[16] A. Weisse, G. Wellein, A. Alvermann, H. Fehske, Rev.\nMod. Phys. 78, 275(206).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "16"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:21",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[17] S. Roche, Phys. Rev. B 59, 2284 (199).[18] S. Yuan, H. De Raedt, and M.I. Katsnelson, Phys. Rev.\nB 82, 115448 (2010).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b52"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b52",
+          "raw_ref": "output.md",
+          "text": "[17] S. Roche, Phys. Rev. B 59, 2284 (199).[18] S. Yuan, H. De Raedt, and M.I. Katsnelson, Phys. Rev.\nB 82, 115448 (2010).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "17"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:22",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[19] Aires Ferreira, J. Viana-Gomes, Johan Nilsson, E. R.\nMucciolo, N. M. R. Peres, and A. H. Castro Neto, Phys.\nRev.B 83,165402 (2011).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b53"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b53",
+          "raw_ref": "output.md",
+          "text": "[19] Aires Ferreira, J. Viana-Gomes, Johan Nilsson, E. R.\nMucciolo, N. M. R. Peres, and A. H. Castro Neto, Phys.\nRev.B 83,165402 (2011).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "19"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:23",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[20] Z. Fan, A. Uppstu, T. Siro, and A. Harju, Computer Physics Communications 185, 28 (2014).[21] T. L. van den Berg, L. Raymond, A. Verga, Phys. Rev.\nB 84, 245210 (2011).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b54"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b54",
+          "raw_ref": "output.md",
+          "text": "[20] Z. Fan, A. Uppstu, T. Siro, and A. Harju, Computer Physics Communications 185, 28 (2014).[21] T. L. van den Berg, L. Raymond, A. Verga, Phys. Rev.\nB 84, 245210 (2011).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "20"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:24",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[22] A. H. Castro Neto, F. Guinea, N. M. R. Peres, K. S.\nNovoselov, and A. K. Geim, Rev. Mod. Phys. 81, 109(2009).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b55"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b55",
+          "raw_ref": "output.md",
+          "text": "[22] A. H. Castro Neto, F. Guinea, N. M. R. Peres, K. S.\nNovoselov, and A. K. Geim, Rev. Mod. Phys. 81, 109(2009).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "22"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:25",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[23] S. Das Sarma, Shaffique Adam, E. H. Hwang, Enrico Rossi, Rev. Mod. Phys. 83, 407 (2011) and references therein.",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b56"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b56",
+          "raw_ref": "output.md",
+          "text": "[23] S. Das Sarma, Shaffique Adam, E. H. Hwang, Enrico Rossi, Rev. Mod. Phys. 83, 407 (2011) and references therein.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "23"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:26",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[24] S. Gattenlohner, W.-R. Hannes, P. M. Ostrovsky, I. V.\nGornyi, A. D. Mirlin, M. Titov, Phys. Rev. Lett. 112,\n026802 (2014)",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b57"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b57",
+          "raw_ref": "output.md",
+          "text": "[24] S. Gattenlohner, W.-R. Hannes, P. M. Ostrovsky, I. V.\nGornyi, A. D. Mirlin, M. Titov, Phys. Rev. Lett. 112,\n026802 (2014)",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "24"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:27",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[25] F.D. M. Haldane, Phys. Rev. Lett. 61, 2015 (1988).[26] A. Crepieux, and P. Bruno, Phys. Rev. B 64, 094434(2001).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b58"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b58",
+          "raw_ref": "output.md",
+          "text": "[25] F.D. M. Haldane, Phys. Rev. Lett. 61, 2015 (1988).[26] A. Crepieux, and P. Bruno, Phys. Rev. B 64, 094434(2001).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "25"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:28",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[27] P. Streda, J.Phys. C: Solid State Phys.15, L717 (1982);\n15, L1299 (1982).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b59"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b59",
+          "raw_ref": "output.md",
+          "text": "[27] P. Streda, J.Phys. C: Solid State Phys.15, L717 (1982);\n15, L1299 (1982).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "27"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:29",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[28] R.N. Silvera, H. Roederb, A.F.Votera, J.D. Kressb, Journal of Computational Physics 124, 115 (1996).[29] L. Covaci, F.M. Peeters, M. Berciu, Phys. Rev. Lett.105,\n167006 (2010)",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b60"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b60",
+          "raw_ref": "output.md",
+          "text": "[28] R.N. Silvera, H. Roederb, A.F.Votera, J.D. Kressb, Journal of Computational Physics 124, 115 (1996).[29] L. Covaci, F.M. Peeters, M. Berciu, Phys. Rev. Lett.105,\n167006 (2010)",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "28"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:30",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[30] M. Ganahl, P. Thunstrom, F. Verstraete, K. Held, H. G.\nEvertz, Phys. Rev.B. 90, 045144 (2014).[31] F.A. Wolf, Ian P. McCulloch, Olivier Parcollet, and Ul",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b61"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b61",
+          "raw_ref": "output.md",
+          "text": "[30] M. Ganahl, P. Thunstrom, F. Verstraete, K. Held, H. G.\nEvertz, Phys. Rev.B. 90, 045144 (2014).[31] F.A. Wolf, Ian P. McCulloch, Olivier Parcollet, and Ul",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "30"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:31",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[34] A. Weisse, Eur. Phys. J.B 40, 125 (2004); A. Weisse, G.\nSchubert, H. Fehske, Physica B 359-361, 786 (2005).[35] R. Alben, M. Blume, H. Krakauer, L. Schwartz Phys.Rev. B 12, 4090(1975).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b63"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b63",
+          "raw_ref": "output.md",
+          "text": "[34] A. Weisse, Eur. Phys. J.B 40, 125 (2004); A. Weisse, G.\nSchubert, H. Fehske, Physica B 359-361, 786 (2005).[35] R. Alben, M. Blume, H. Krakauer, L. Schwartz Phys.Rev. B 12, 4090(1975).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "34"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:32",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[36] Toshiaki Iitaka, Toshikazu Ebisuzaki, Phys. Rev. E,69,\n057701(2004).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b64"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b64",
+          "raw_ref": "output.md",
+          "text": "[36] Toshiaki Iitaka, Toshikazu Ebisuzaki, Phys. Rev. E,69,\n057701(2004).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "36"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:33",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[37] K. S. Novoselov, A. K. Geim, S.V. Morozov, D. Jiang,\nM. I. Katsnelson, I. V. Grigorieva, S. V. Dubonos, and A. A. Firsov, Nature 438, 197 (2005).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b65"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b65",
+          "raw_ref": "output.md",
+          "text": "[37] K. S. Novoselov, A. K. Geim, S.V. Morozov, D. Jiang,\nM. I. Katsnelson, I. V. Grigorieva, S. V. Dubonos, and A. A. Firsov, Nature 438, 197 (2005).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "37"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:34",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[38] C.Z. Chang et al. Science 340 167 (2013).[39] Jian Li, Rui-Lin Chu, J. K. Jain, and Shun-Qing Shen,\nPhys. Rev. Lett. 102, 136806 (2009).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b66"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b66",
+          "raw_ref": "output.md",
+          "text": "[38] C.Z. Chang et al. Science 340 167 (2013).[39] Jian Li, Rui-Lin Chu, J. K. Jain, and Shun-Qing Shen,\nPhys. Rev. Lett. 102, 136806 (2009).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "38"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:35",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[40] Juntao Song, Haiwen Liu, Hua Jiang, Qing-feng Sun, and X. C. Xie, Phys.Rev. B 85, 195125 (2012).[41] K. Sun, Z. Gu, H. Katsura, and S. Das Sarma, Phys. Rev.\nLett. 106, 236803 (2011);E. Tang, J.-W.Mei,and X.-G Wen, Phys. Rev. Lett. 106, 236802 (2011); T.Neupert,\nL. Santos, C. Chamon, and C. Mudry, Phys. Rev. Lett.\n106, 236804 (2011).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b67"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b67",
+          "raw_ref": "output.md",
+          "text": "[40] Juntao Song, Haiwen Liu, Hua Jiang, Qing-feng Sun, and X. C. Xie, Phys.Rev. B 85, 195125 (2012).[41] K. Sun, Z. Gu, H. Katsura, and S. Das Sarma, Phys. Rev.\nLett. 106, 236803 (2011);E. Tang, J.-W.Mei,and X.-G Wen, Phys. Rev. Lett. 106, 236802 (2011); T.Neupert,\nL. Santos, C. Chamon, and C. Mudry, Phys. Rev. Lett.\n106, 236804 (2011).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "40"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:36",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[42] Holger Fehske, Jens Schleede, Gerald Schubert, Gerhard Wellein, Vladimir S. Filinov, Alan R. Bishop, Phys. Lett.\nA 373, 2182 (2009).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b68"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b68",
+          "raw_ref": "output.md",
+          "text": "[42] Holger Fehske, Jens Schleede, Gerald Schubert, Gerhard Wellein, Vladimir S. Filinov, Alan R. Bishop, Phys. Lett.\nA 373, 2182 (2009).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "42"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:37",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[43] J. B. Wang and T.T. Scholz, Phys. Rev.A 57, 3554(1998).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b69"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b69",
+          "raw_ref": "output.md",
+          "text": "[43] J. B. Wang and T.T. Scholz, Phys. Rev.A 57, 3554(1998).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "43"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:38",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[44] A. Weisse and H. Fehske, Lect. Notes Phys. 739, 545577(2008).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b70"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b70",
+          "raw_ref": "output.md",
+          "text": "[44] A. Weisse and H. Fehske, Lect. Notes Phys. 739, 545577(2008).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "44"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:39",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[45] D. Jackson, American Mathematical Society Colloquium Publications D. Jackson, XI providence R. I. (1930).[46] D. A. Drabold and O. F. Sankey, Phys. Rev. Lett. 703631(1993).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b71"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b71",
+          "raw_ref": "output.md",
+          "text": "[45] D. Jackson, American Mathematical Society Colloquium Publications D. Jackson, XI providence R. I. (1930).[46] D. A. Drabold and O. F. Sankey, Phys. Rev. Lett. 703631(1993).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "45"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:40",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[47] Silver, R. N., and H. Rder Int. J. Mod. Phys. C 5 935(1994).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b72"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b72",
+          "raw_ref": "output.md",
+          "text": "[47] Silver, R. N., and H. Rder Int. J. Mod. Phys. C 5 935(1994).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "47"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:41",
+      "entity_type": "footnote",
+      "subtype": null,
+      "canonical_text": "[48] Cuda Perfomance Report, September 2014.",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b73"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b73",
+          "raw_ref": "output.md",
+          "text": "[48] Cuda Perfomance Report, September 2014.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:footnote:footnote_detector",
+      "metadata": {
+        "detector": "footnote_detector",
+        "marker": "48"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:42",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$T_{m}(x)\\equiv\\operatorname{c o s}(m{\\operatorname{a r c o s}(x)}),\\quad T_{m+1}(x)$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b76"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b76",
+          "raw_ref": "output.md",
+          "text": "$$T_{m}(x)\\equiv\\operatorname{c o s}(m{\\operatorname{a r c o s}(x)}),\\quad T_{m+1}(x)$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:43",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\tilde{H}=\\frac{2}{\\Delta E}\\left(H-\\frac{E^{+}+E^{-}}{2}\\right),\\quad\\tilde{\\varepsilon}=\\frac{2}{\\Delta E}\\left(\\varepsilon-\\frac{E^{+}+E^{-}}{2}\\right),$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b78"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b78",
+          "raw_ref": "output.md",
+          "text": "$$\\tilde{H}=\\frac{2}{\\Delta E}\\left(H-\\frac{E^{+}+E^{-}}{2}\\right),\\quad\\tilde{\\varepsilon}=\\frac{2}{\\Delta E}\\left(\\varepsilon-\\frac{E^{+}+E^{-}}{2}\\right),$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:44",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{H})=\\sum_{k}\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{E}_{k})\\left|\\tilde{E}_{k}\\right\\rangle\\left\\langle\\tilde{E}_{k}\\right|,$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b80"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b80",
+          "raw_ref": "output.md",
+          "text": "$$\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{H})=\\sum_{k}\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{E}_{k})\\left|\\tilde{E}_{k}\\right\\rangle\\left\\langle\\tilde{E}_{k}\\right|,$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:45",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{E}_{k})=\\frac{2}{\\pi}\\sum_{m=0}^{\\infty}\\Gamma_{m}(\\tilde{\\varepsilon})T_{m}(\\tilde{E}_{k}),\\quad\\Gamma_{m}(\\tilde{\\varepsilon})=\\frac{1}{\\delta_{m,0}+1}\\int_{-1}^{1}\\frac{\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{E}_{k})T_{m}(\\tilde{E}_{k})}{\\sqrt{1-\\tilde{E}_{k}^{2}}}d\\tilde{E}_{k},$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b82"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b82",
+          "raw_ref": "output.md",
+          "text": "$$\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{E}_{k})=\\frac{2}{\\pi}\\sum_{m=0}^{\\infty}\\Gamma_{m}(\\tilde{\\varepsilon})T_{m}(\\tilde{E}_{k}),\\quad\\Gamma_{m}(\\tilde{\\varepsilon})=\\frac{1}{\\delta_{m,0}+1}\\int_{-1}^{1}\\frac{\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{E}_{k})T_{m}(\\tilde{E}_{k})}{\\sqrt{1-\\tilde{E}_{k}^{2}}}d\\tilde{E}_{k},$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:46",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{H})=\\frac{2}{\\pi}\\sum_{m=0}^{\\infty}\\Gamma_{m}(\\tilde{\\varepsilon})T_{m}(\\tilde{H}),$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b84"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b84",
+          "raw_ref": "output.md",
+          "text": "$$\\tilde{\\Lambda}(\\tilde{\\varepsilon},\\tilde{H})=\\frac{2}{\\pi}\\sum_{m=0}^{\\infty}\\Gamma_{m}(\\tilde{\\varepsilon})T_{m}(\\tilde{H}),$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:47",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\tilde{\\rho}(\\tilde{\\varepsilon})=\\frac{2}{\\pi\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{\\infty}\\Gamma_{m}(\\tilde{\\varepsilon})\\mu_{m},$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b86"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b86",
+          "raw_ref": "output.md",
+          "text": "$$\\tilde{\\rho}(\\tilde{\\varepsilon})=\\frac{2}{\\pi\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{\\infty}\\Gamma_{m}(\\tilde{\\varepsilon})\\mu_{m},$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:48",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$g_{m}^{J}=\\frac{(M-m+1)\\cos\\frac{\\pi m}{M+1}+\\sin\\frac{\\pi m}{M+1}\\mathrm{c o t}\\frac{\\pi}{M+1}}{M+1},$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b88"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b88",
+          "raw_ref": "output.md",
+          "text": "$$g_{m}^{J}=\\frac{(M-m+1)\\cos\\frac{\\pi m}{M+1}+\\sin\\frac{\\pi m}{M+1}\\mathrm{c o t}\\frac{\\pi}{M+1}}{M+1},$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:49",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$|r\\rangle\\equiv(\\xi_{1}^{r},\\ldots,\\xi_{N}^{r}),\\quad r=1,\\ldots,R,$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b91"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b91",
+          "raw_ref": "output.md",
+          "text": "$$|r\\rangle\\equiv(\\xi_{1}^{r},\\ldots,\\xi_{N}^{r}),\\quad r=1,\\ldots,R,$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:50",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\left\\langle\\left\\langle\\xi_{i}^{r}\\right\\rangle\\right\\rangle=0,\\quad\\left\\langle\\left\\langle{\\xi_{i}^{r}}^{*}\\xi_{j}^{r^{\\prime}}\\right\\rangle\\right\\rangle=\\delta_{r,r^{\\prime}}\\delta_{i,j},$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b93"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b93",
+          "raw_ref": "output.md",
+          "text": "$$\\left\\langle\\left\\langle\\xi_{i}^{r}\\right\\rangle\\right\\rangle=0,\\quad\\left\\langle\\left\\langle{\\xi_{i}^{r}}^{*}\\xi_{j}^{r^{\\prime}}\\right\\rangle\\right\\rangle=\\delta_{r,r^{\\prime}}\\delta_{i,j},$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:51",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\mathrm{T r}\\left[T_{m}(\\tilde{H})\\right]\\approx\\frac{1}{R}\\sum_{r=1}^{R}\\left\\langle r\\right|T_{m}(\\tilde{H})\\left|r\\right\\rangle.$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b95"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b95",
+          "raw_ref": "output.md",
+          "text": "$$\\mathrm{T r}\\left[T_{m}(\\tilde{H})\\right]\\approx\\frac{1}{R}\\sum_{r=1}^{R}\\left\\langle r\\right|T_{m}(\\tilde{H})\\left|r\\right\\rangle.$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:52",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\sigma_{\\alpha\\beta}(\\mu)=\\frac{i e^{2}\\hbar}{\\Omega}\\int_{E^{-}}^{E^{+}}d\\varepsilon f(\\varepsilon)\\mathrm{T r}\\left\\langle v_{\\alpha}\\delta(\\varepsilon-H)v_{\\beta}\\frac{d G^{+}(\\varepsilon,H)}{d\\varepsilon}-v_{\\alpha}\\frac{d G^{-}(\\varepsilon,H)}{d\\varepsilon}v_{\\beta}\\delta(\\varepsilon-H)\\right\\rangle.$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b98"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b98",
+          "raw_ref": "output.md",
+          "text": "$$\\sigma_{\\alpha\\beta}(\\mu)=\\frac{i e^{2}\\hbar}{\\Omega}\\int_{E^{-}}^{E^{+}}d\\varepsilon f(\\varepsilon)\\mathrm{T r}\\left\\langle v_{\\alpha}\\delta(\\varepsilon-H)v_{\\beta}\\frac{d G^{+}(\\varepsilon,H)}{d\\varepsilon}-v_{\\alpha}\\frac{d G^{-}(\\varepsilon,H)}{d\\varepsilon}v_{\\beta}\\delta(\\varepsilon-H)\\right\\rangle.$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:53",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\begin{aligned}{\\sigma_{\\alpha\\beta}(\\mu)}&{{}=\\left(\\frac{2}{E^{+}-E^{-}}\\right)^{2}\\frac{i e^{2}\\hbar}{\\Omega}\\int_{-1}^{1}d\\tilde{\\varepsilon}f(\\tilde{\\varepsilon},\\tilde{\\mu}){\\operatorname{T r}}\\left\\langle v_{\\alpha}\\delta(\\tilde{\\varepsilon}-\\tilde{H})v_{\\beta}\\frac{d G^{+}(\\tilde{\\varepsilon},\\tilde{H})}{d\\tilde{\\varepsilon}}-v_{\\alpha}\\frac{d G^{-}(\\tilde{\\varepsilon},\\tilde{H})}{d\\tilde{\\varepsilon}}v_{\\beta}\\delta(\\tilde{\\varepsilon}-\\tilde{H})\\right\\rangle}\\\\ {\\sigma_{\\alpha\\beta}(\\mu)}&{{}=\\left(\\frac{2}{E^{+}-E^{-}}\\right)^{2}\\tilde{\\sigma}_{\\alpha\\beta}(\\tilde{\\mu}),}\\\\ \\end{aligned}$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b100"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b100",
+          "raw_ref": "output.md",
+          "text": "$$\\begin{aligned}{\\sigma_{\\alpha\\beta}(\\mu)}&{{}=\\left(\\frac{2}{E^{+}-E^{-}}\\right)^{2}\\frac{i e^{2}\\hbar}{\\Omega}\\int_{-1}^{1}d\\tilde{\\varepsilon}f(\\tilde{\\varepsilon},\\tilde{\\mu}){\\operatorname{T r}}\\left\\langle v_{\\alpha}\\delta(\\tilde{\\varepsilon}-\\tilde{H})v_{\\beta}\\frac{d G^{+}(\\tilde{\\varepsilon},\\tilde{H})}{d\\tilde{\\varepsilon}}-v_{\\alpha}\\frac{d G^{-}(\\tilde{\\varepsilon},\\tilde{H})}{d\\tilde{\\varepsilon}}v_{\\beta}\\delta(\\tilde{\\varepsilon}-\\tilde{H})\\right\\rangle}\\\\ {\\sigma_{\\alpha\\beta}(\\mu)}&{{}=\\left(\\frac{2}{E^{+}-E^{-}}\\right)^{2}\\tilde{\\sigma}_{\\alpha\\beta}(\\tilde{\\mu}),}\\\\ \\end{aligned}$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:54",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\delta(\\tilde{\\varepsilon}-\\tilde{H})=\\frac{2}{\\pi\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{\\infty}T_{m}(\\tilde{\\varepsilon})T_{m}(\\tilde{H}),\\quad G^{\\pm}(\\tilde{\\varepsilon},\\tilde{H})=\\mp\\frac{2i}{\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{M}g_{m}\\mathrm{e}^{\\pm i m\\mathrm{a r c c o s}(\\tilde{\\varepsilon})}T_{m}(\\tilde{H}).$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b102"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b102",
+          "raw_ref": "output.md",
+          "text": "$$\\delta(\\tilde{\\varepsilon}-\\tilde{H})=\\frac{2}{\\pi\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{\\infty}T_{m}(\\tilde{\\varepsilon})T_{m}(\\tilde{H}),\\quad G^{\\pm}(\\tilde{\\varepsilon},\\tilde{H})=\\mp\\frac{2i}{\\sqrt{1-\\tilde{\\varepsilon}^{2}}}\\sum_{m=0}^{M}g_{m}\\mathrm{e}^{\\pm i m\\mathrm{a r c c o s}(\\tilde{\\varepsilon})}T_{m}(\\tilde{H}).$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:55",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\tilde{\\sigma}_{\\alpha\\beta}(\\tilde{\\mu})=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\int_{-1}^{1}\\frac{d\\tilde{\\varepsilon}f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})^{2}}\\sum_{m,n}\\mu_{n m}^{\\alpha\\beta}\\Gamma_{n m}(\\tilde{\\varepsilon}),$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b104"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b104",
+          "raw_ref": "output.md",
+          "text": "$$\\tilde{\\sigma}_{\\alpha\\beta}(\\tilde{\\mu})=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\int_{-1}^{1}\\frac{d\\tilde{\\varepsilon}f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})^{2}}\\sum_{m,n}\\mu_{n m}^{\\alpha\\beta}\\Gamma_{n m}(\\tilde{\\varepsilon}),$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:56",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\mu_{m n}^{\\alpha\\beta}\\equiv\\frac{g_{m}g_{n}}{(1+\\mu_{n0})(1+\\mu_{m0})}\\mathrm{T r}\\left[v_{\\alpha}T_{m}(\\tilde{H})v_{\\beta}T_{n}(\\tilde{H})\\right],$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b106"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b106",
+          "raw_ref": "output.md",
+          "text": "$$\\mu_{m n}^{\\alpha\\beta}\\equiv\\frac{g_{m}g_{n}}{(1+\\mu_{n0})(1+\\mu_{m0})}\\mathrm{T r}\\left[v_{\\alpha}T_{m}(\\tilde{H})v_{\\beta}T_{n}(\\tilde{H})\\right],$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:57",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\Gamma_{m n}(\\tilde{\\varepsilon})\\equiv\\left(\\varepsilon-i n\\sqrt{1-\\varepsilon^{2}}\\right)T_{m}(\\varepsilon)e^{i n\\operatorname{a r c c o s}(\\varepsilon)}+\\left(\\varepsilon+i m\\sqrt{1-\\varepsilon^{2}}\\right)T_{n}(\\varepsilon)e^{-i m\\operatorname{a r c c o s}(\\varepsilon)},$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b108"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b108",
+          "raw_ref": "output.md",
+          "text": "$$\\Gamma_{m n}(\\tilde{\\varepsilon})\\equiv\\left(\\varepsilon-i n\\sqrt{1-\\varepsilon^{2}}\\right)T_{m}(\\varepsilon)e^{i n\\operatorname{a r c c o s}(\\varepsilon)}+\\left(\\varepsilon+i m\\sqrt{1-\\varepsilon^{2}}\\right)T_{n}(\\varepsilon)e^{-i m\\operatorname{a r c c o s}(\\varepsilon)},$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:58",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$(\\mu_{m n}^{\\alpha\\beta})^{*}=\\mu_{n m}^{\\alpha\\beta}=\\mu_{m n}^{\\beta\\alpha}\\quad\\mathrm{a n d}\\quad\\Gamma_{m n}^{*}=\\Gamma_{n m},$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b110"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b110",
+          "raw_ref": "output.md",
+          "text": "$$(\\mu_{m n}^{\\alpha\\beta})^{*}=\\mu_{n m}^{\\alpha\\beta}=\\mu_{m n}^{\\beta\\alpha}\\quad\\mathrm{a n d}\\quad\\Gamma_{m n}^{*}=\\Gamma_{n m},$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:59",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\tilde{\\sigma}_{\\alpha\\beta}(\\mu)=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\int_{-1}^{1}\\frac{d\\tilde{\\varepsilon}f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})^{2}}\\sum_{m,n\\leq m}\\operatorname{R e}\\left[\\mu_{n m}^{\\alpha,\\beta}\\Gamma_{n m}(\\tilde{\\varepsilon})\\right].$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b112"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b112",
+          "raw_ref": "output.md",
+          "text": "$$\\tilde{\\sigma}_{\\alpha\\beta}(\\mu)=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\int_{-1}^{1}\\frac{d\\tilde{\\varepsilon}f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})^{2}}\\sum_{m,n\\leq m}\\operatorname{R e}\\left[\\mu_{n m}^{\\alpha,\\beta}\\Gamma_{n m}(\\tilde{\\varepsilon})\\right].$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:60",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\tilde{\\sigma}_{\\alpha\\alpha}(\\tilde{\\mu})=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\sum_{m,n\\leq m}\\mu_{n m}^{\\alpha\\alpha}\\int_{-\\alpha}^{\\alpha}\\frac{d\\tilde{\\varepsilon}f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})}\\left(\\frac{d}{d\\tilde{\\varepsilon}}\\left[\\operatorname{T}_{n}(\\tilde{\\varepsilon})\\operatorname{T}_{m}(\\tilde{\\varepsilon})\\right]+2\\tilde{\\varepsilon}\\operatorname{T}_{n}(\\tilde{\\varepsilon})\\operatorname{T}_{m}(\\tilde{\\varepsilon})\\right),$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b114"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b114",
+          "raw_ref": "output.md",
+          "text": "$$\\tilde{\\sigma}_{\\alpha\\alpha}(\\tilde{\\mu})=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\sum_{m,n\\leq m}\\mu_{n m}^{\\alpha\\alpha}\\int_{-\\alpha}^{\\alpha}\\frac{d\\tilde{\\varepsilon}f(\\tilde{\\varepsilon})}{(1-\\tilde{\\varepsilon}^{2})}\\left(\\frac{d}{d\\tilde{\\varepsilon}}\\left[\\operatorname{T}_{n}(\\tilde{\\varepsilon})\\operatorname{T}_{m}(\\tilde{\\varepsilon})\\right]+2\\tilde{\\varepsilon}\\operatorname{T}_{n}(\\tilde{\\varepsilon})\\operatorname{T}_{m}(\\tilde{\\varepsilon})\\right),$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:61",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\sigma_{\\alpha\\alpha}(\\tilde{\\varepsilon}_{F})=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\sum_{m,n\\leq m}\\mu_{n m}^{\\alpha\\alpha}T_{n}(\\tilde{\\varepsilon}_{F})T_{m}(\\tilde{\\varepsilon}_{F}),$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b116"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b116",
+          "raw_ref": "output.md",
+          "text": "$$\\sigma_{\\alpha\\alpha}(\\tilde{\\varepsilon}_{F})=\\frac{4e^{2}\\hbar}{\\pi\\Omega}\\sum_{m,n\\leq m}\\mu_{n m}^{\\alpha\\alpha}T_{n}(\\tilde{\\varepsilon}_{F})T_{m}(\\tilde{\\varepsilon}_{F}),$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:section:62",
+      "entity_type": "section",
+      "subtype": null,
+      "canonical_text": "Convergence of the method",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b118"
+      ],
+      "confidence": 0.75,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b118",
+          "raw_ref": "output.md",
+          "text": "## Convergence of the method",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "heading_section_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:section:heading_section_detector",
+      "metadata": {
+        "detector": "heading_section_detector",
+        "heading_level": 2,
+        "numbering": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:figure:63",
+      "entity_type": "figure",
+      "subtype": null,
+      "canonical_text": "<img src=\"imgs/img_in_chart_box_260_728_969_1225.jpg\"/>",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b119"
+      ],
+      "confidence": 0.82,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b119",
+          "raw_ref": "output.md",
+          "text": "<img src=\"imgs/img_in_chart_box_260_728_969_1225.jpg\"/>",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "figure_table_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:figure:figure_table_detector",
+      "metadata": {
+        "detector": "figure_table_detector"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:equation:64",
+      "entity_type": "equation",
+      "subtype": null,
+      "canonical_text": "$$\\langle d\\sigma_{x y}(E)\\rangle=\\left\\langle\\left|\\frac{\\sigma_{x y}^{M}(E)-\\sigma_{x y}^{M^{\\prime}}(E)}{\\sigma_{x y}^{M}(E)}\\right|\\right\\rangle_{E},$$",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b122"
+      ],
+      "confidence": 0.76,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b122",
+          "raw_ref": "output.md",
+          "text": "$$\\langle d\\sigma_{x y}(E)\\rangle=\\left\\langle\\left|\\frac{\\sigma_{x y}^{M}(E)-\\sigma_{x y}^{M^{\\prime}}(E)}{\\sigma_{x y}^{M}(E)}\\right|\\right\\rangle_{E},$$",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "equation_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:equation:equation_detector",
+      "metadata": {
+        "detector": "equation_detector",
+        "equation_number": null,
+        "sequence_key": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:figure:65",
+      "entity_type": "figure",
+      "subtype": null,
+      "canonical_text": "<img src=\"imgs/img_in_chart_box_412_389_816_661.jpg\"/>",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b125"
+      ],
+      "confidence": 0.82,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b125",
+          "raw_ref": "output.md",
+          "text": "<img src=\"imgs/img_in_chart_box_412_389_816_661.jpg\"/>",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "figure_table_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:figure:figure_table_detector",
+      "metadata": {
+        "detector": "figure_table_detector"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:section:66",
+      "entity_type": "section",
+      "subtype": null,
+      "canonical_text": "GPU Computing",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b128"
+      ],
+      "confidence": 0.75,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b128",
+          "raw_ref": "output.md",
+          "text": "## GPU Computing",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "heading_section_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:section:heading_section_detector",
+      "metadata": {
+        "detector": "heading_section_detector",
+        "heading_level": 2,
+        "numbering": null
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:67",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[5] R. N. Silver, H. Roeder, A. F. Voter and J. D. Kress, Journal of Computational Physics 124, 115-130 (1996).\n6A.Weisse and H. Fehske, Lect.Notes Phys. 739, 545577 (2008).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b132"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b132",
+          "raw_ref": "output.md",
+          "text": "[5] R. N. Silver, H. Roeder, A. F. Voter and J. D. Kress, Journal of Computational Physics 124, 115-130 (1996).\n6A.Weisse and H. Fehske, Lect.Notes Phys. 739, 545577 (2008).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:implicit_bibliography_detector",
+      "metadata": {
+        "detector": "implicit_bibliography_detector",
+        "marker": "5",
+        "previous_detector": "footnote_detector"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:68",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[7] D. Jackson, American Mathematical Society Colloquium Publications D. Jackson, XI providence R. I. (1930).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b133"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b133",
+          "raw_ref": "output.md",
+          "text": "[7] D. Jackson, American Mathematical Society Colloquium Publications D. Jackson, XI providence R. I. (1930).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:implicit_bibliography_detector",
+      "metadata": {
+        "detector": "implicit_bibliography_detector",
+        "marker": "7",
+        "previous_detector": "footnote_detector"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:69",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[8] D.A. Drabold and O.F. Sankey, Phys. Rev. Lett. 70 3631(1993).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b134"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b134",
+          "raw_ref": "output.md",
+          "text": "[8] D.A. Drabold and O.F. Sankey, Phys. Rev. Lett. 70 3631(1993).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:implicit_bibliography_detector",
+      "metadata": {
+        "detector": "implicit_bibliography_detector",
+        "marker": "8",
+        "previous_detector": "footnote_detector"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:70",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[9] Silver, R.N., and H. Rder Int. J. Mod. Phys. C 5 935 (1994).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b135"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b135",
+          "raw_ref": "output.md",
+          "text": "[9] Silver, R.N., and H. Rder Int. J. Mod. Phys. C 5 935 (1994).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:implicit_bibliography_detector",
+      "metadata": {
+        "detector": "implicit_bibliography_detector",
+        "marker": "9",
+        "previous_detector": "footnote_detector"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:71",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[10] Toshiaki Iitaka and Toshikazu Ebisuzakis,Phys. Rev. E 69 057701 (2004).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b136"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b136",
+          "raw_ref": "output.md",
+          "text": "[10] Toshiaki Iitaka and Toshikazu Ebisuzakis,Phys. Rev. E 69 057701 (2004).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:implicit_bibliography_detector",
+      "metadata": {
+        "detector": "implicit_bibliography_detector",
+        "marker": "10",
+        "previous_detector": "footnote_detector"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:72",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[11] A. Bastin, C. Lewiner, O. Betbeder-Matibet et P. Nozieres, J. Phys, Chem. Solids 32 1-1824 (1971).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b137"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b137",
+          "raw_ref": "output.md",
+          "text": "[11] A. Bastin, C. Lewiner, O. Betbeder-Matibet et P. Nozieres, J. Phys, Chem. Solids 32 1-1824 (1971).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:implicit_bibliography_detector",
+      "metadata": {
+        "detector": "implicit_bibliography_detector",
+        "marker": "11",
+        "previous_detector": "footnote_detector"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:footnote:73",
+      "entity_type": "reference_item",
+      "subtype": null,
+      "canonical_text": "[12] Cuda Perfomance Report, September 2014.",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b138"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b138",
+          "raw_ref": "output.md",
+          "text": "[12] Cuda Perfomance Report, September 2014.",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "footnote_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_item:implicit_bibliography_detector",
+      "metadata": {
+        "detector": "implicit_bibliography_detector",
+        "marker": "12",
+        "previous_detector": "footnote_detector"
+      }
+    },
+    {
+      "id": "ent:paddleocr:1410.8140:reference_section:74",
+      "entity_type": "reference_section",
+      "subtype": null,
+      "canonical_text": "[5] R. N. Silver, H. Roeder, A. F. Voter and J. D. Kress, Journal of Computational Physics 124, 115-130 (1996).\n6A.Weisse and H. Fehske, Lect.Notes Phys. 739, 545577 (2008).",
+      "page_no": 1,
+      "block_ids": [
+        "paddleocr:1410.8140:p1:b132"
+      ],
+      "confidence": 0.7,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "position",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b132",
+          "raw_ref": "output.md",
+          "text": "[5] R. N. Silver, H. Roeder, A. F. Voter and J. D. Kress, Journal of Computational Physics 124, 115-130 (1996).\n6A.Weisse and H. Fehske, Lect.Notes Phys. 739, 545577 (2008).",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "implicit_bibliography_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "paddleocr:reference_section:implicit_bibliography_detector",
+      "metadata": {
+        "detector": "implicit_bibliography_detector",
+        "trigger": "tail_run_of_numbered_paragraphs",
+        "run_size": 7,
+        "qualifying_runs": 1
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel:paddleocr:1410.8140:1",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:section:1",
+      "target_entity_id": "ent:paddleocr:1410.8140:section:2",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b0",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:2",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:section:2",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:3",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b1",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:3",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:3",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:4",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b10",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:4",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:4",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:5",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b13",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:5",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:5",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:6",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b17",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:6",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:6",
+      "target_entity_id": "ent:paddleocr:1410.8140:figure:7",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b20",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:7",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:figure:7",
+      "target_entity_id": "ent:paddleocr:1410.8140:figure:8",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b25",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:8",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:figure:8",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:9",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b27",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:9",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:9",
+      "target_entity_id": "ent:paddleocr:1410.8140:figure:10",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b32",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:10",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:figure:10",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:11",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b35",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:11",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:11",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:12",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b42",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:12",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:12",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:13",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b43",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:13",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:13",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:14",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b44",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:14",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:14",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:15",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b45",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:15",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:15",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:16",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b46",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:16",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:16",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:17",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b47",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:17",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:17",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:18",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b48",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:18",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:18",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:19",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b49",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:19",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:19",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:20",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b50",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:20",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:20",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:21",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b51",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:21",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:21",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:22",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b52",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:22",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:22",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:23",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b53",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:23",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:23",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:24",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b54",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:24",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:24",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:25",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b55",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:25",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:25",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:26",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b56",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:26",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:26",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:27",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b57",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:27",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:27",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:28",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b58",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:28",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:28",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:29",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b59",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:29",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:29",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:30",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b60",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:30",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:30",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:31",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b61",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:31",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:31",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:32",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b63",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:32",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:32",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:33",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b64",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:33",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:33",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:34",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b65",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:34",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:34",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:35",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b66",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:35",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:35",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:36",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b67",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:36",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:36",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:37",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b68",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:37",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:37",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:38",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b69",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:38",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:38",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:39",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b70",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:39",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:39",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:40",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b71",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:40",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:40",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:41",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b72",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:41",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:41",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:42",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b73",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:42",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:42",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:43",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b76",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:43",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:43",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:44",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b78",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:44",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:44",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:45",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b80",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:45",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:45",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:46",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b82",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:46",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:46",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:47",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b84",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:47",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:47",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:48",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b86",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:48",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:48",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:49",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b88",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:49",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:49",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:50",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b91",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:50",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:50",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:51",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b93",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:51",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:51",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:52",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b95",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:52",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:52",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:53",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b98",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:53",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:53",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:54",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b100",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:54",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:54",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:55",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b102",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:55",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:55",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:56",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b104",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:56",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:56",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:57",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b106",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:57",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:57",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:58",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b108",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:58",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:58",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:59",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b110",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:59",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:59",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:60",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b112",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:60",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:60",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:61",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b114",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:61",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:61",
+      "target_entity_id": "ent:paddleocr:1410.8140:section:62",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b116",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:62",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:section:62",
+      "target_entity_id": "ent:paddleocr:1410.8140:figure:63",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b118",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:63",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:figure:63",
+      "target_entity_id": "ent:paddleocr:1410.8140:equation:64",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b119",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:64",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:equation:64",
+      "target_entity_id": "ent:paddleocr:1410.8140:figure:65",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b122",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:65",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:figure:65",
+      "target_entity_id": "ent:paddleocr:1410.8140:section:66",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b125",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:66",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:section:66",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:67",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b128",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:67",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:67",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:68",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b132",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:68",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:68",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:69",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b133",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:69",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:69",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:70",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b134",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:70",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:70",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:71",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b135",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:71",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:71",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:72",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b136",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:72",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:72",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:73",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b137",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:73",
+      "relation_type": "near",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:73",
+      "target_entity_id": "ent:paddleocr:1410.8140:reference_section:74",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b138",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:74",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:68",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:69",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b133",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:75",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:69",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:70",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b134",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:76",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:70",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:71",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b135",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:77",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:71",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:72",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b136",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:paddleocr:1410.8140:78",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:paddleocr:1410.8140:footnote:72",
+      "target_entity_id": "ent:paddleocr:1410.8140:footnote:73",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "paddleocr:1410.8140:p1:b137",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    }
+  ],
+  "warnings": [
+    "page_size_missing"
+  ],
+  "metadata": {
+    "connector": "markdown_fallback",
+    "document_class": "article",
+    "document_class_confidence": 0.85,
+    "document_class_features": {
+      "page_count": 1,
+      "chapter_count": 0,
+      "section_count": 4,
+      "reference_section_count": 1,
+      "index_section_count": 0,
+      "glossary_section_count": 0,
+      "h1_count": 1,
+      "deep_heading_count": 3
+    }
+  }
+}
