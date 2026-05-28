@@ -41,11 +41,19 @@ class ResolverCandidate:
         label: Surface form to match the marker against (e.g. caption text
             ``"Figure 3.2"``, bibliography number ``"15"``, section
             heading ``"Chapter 5"``).
+        numbering: Authoritative numeric identifier when the OCR's
+            heading detector parsed one (e.g. ``"4.10"``, ``"19"``).
+            When supplied, the fuzzy resolver matches against this
+            instead of digging digits out of arbitrary trailing text
+            — fixes wrong-resolution cases like
+            ``Section 3 → APPENDIX G\\nPROOF OF PROPOSITION 3`` where
+            the candidate's ``label`` happens to end in a stray "3".
     """
 
     target_ref: str
     entity_type: RefType
     label: str
+    numbering: str | None = None
 
 
 _PREFIX_PATTERNS: tuple[tuple[RefType, re.Pattern[str]], ...] = (
@@ -80,6 +88,12 @@ _PREFIX_PATTERNS: tuple[tuple[RefType, re.Pattern[str]], ...] = (
 )
 
 _NUMBER_RE = re.compile(r"\d+(?:\.\d+)*")
+# Equation numbers accept an optional chapter/appendix letter prefix
+# (``J.4``, ``E.11``, ``A.2.1``) in addition to the bare-or-dotted
+# numeric form. Used by :func:`_extract_equation_number`. Bibliography
+# and footnote markers never carry letter prefixes so they stay on
+# the strict ``_NUMBER_RE``.
+_EQUATION_NUMBER_RE = re.compile(r"(?:[A-Z]\.)?\d+(?:\.\d+)*")
 # Canonical "[15]" form. Both brackets required, single number inside.
 _BIB_NUMBER_RE = re.compile(r"\[\s*(\d+)\s*]")
 # Broken-bracket forms emitted by GROBID when a multi-citation like
@@ -104,6 +118,18 @@ def _strip_prefix(marker_type: RefType, text: str) -> str:
 
 def _extract_number(text: str) -> str | None:
     match = _NUMBER_RE.search(text)
+    return match.group(0) if match else None
+
+
+def _extract_equation_number(text: str) -> str | None:
+    """Extract an equation number including optional letter prefix.
+
+    Accepts ``J.4``, ``E.11``, ``A.2.1`` (appendix / chapter forms)
+    alongside the plain ``11`` / ``15.110``. Used by
+    :func:`_try_equation` so book-style equation references resolve
+    against book-style equation candidates.
+    """
+    match = _EQUATION_NUMBER_RE.search(text)
     return match.group(0) if match else None
 
 
@@ -152,6 +178,15 @@ def _try_fuzzy(
         if marker_norm and marker_norm == cand_norm:
             return cand
         if marker_number is not None:
+            # Authoritative ``numbering`` metadata is the strongest
+            # signal — match on it first when both sides have it.
+            # Doesn't suppress the label-extract fallback below
+            # because some OCR backends populate numbering only on a
+            # subset of headings (chapter detector wins on dotted
+            # numbering, but section detector may emit candidates
+            # with the same shape and no numbering metadata).
+            if cand.numbering is not None and cand.numbering == marker_number:
+                return cand
             cand_number = _extract_number(cand_stripped)
             if cand_number == marker_number:
                 return cand
@@ -177,15 +212,34 @@ def _try_bibliography(
 def _try_footnote(
     marker: RefMarker, candidates: list[ResolverCandidate]
 ) -> ResolverCandidate | None:
+    """Resolve a footnote marker to its candidate footnote entity.
+
+    Marker text can be a single number (``"3"``), a comma-separated
+    list of numbers (``"21, 22"``) — common when OCR collapses
+    adjacent superscript footnotes — or a bare-bracket form. For the
+    comma list we resolve to the FIRST candidate that matches ANY of
+    the listed numbers, mirroring the bibliography broken-bracket
+    behaviour where each half resolves to its own bib entry. The
+    resolver only emits one edge per marker today, so the first hit
+    wins; the rest are flagged on the marker for downstream tooling
+    that wants to fan out.
+    """
     if marker.marker_type != RefType.FOOTNOTE:
         return None
-    number = _extract_number(marker.marker_text)
-    if number is None:
+    # Split comma-separated multi-number footnote markers.
+    numbers = [n.strip() for n in marker.marker_text.split(",")]
+    candidate_numbers: list[str] = []
+    for chunk in numbers:
+        n = _extract_number(chunk)
+        if n is not None:
+            candidate_numbers.append(n)
+    if not candidate_numbers:
         return None
     for cand in candidates:
         if cand.entity_type != RefType.FOOTNOTE:
             continue
-        if _extract_number(cand.label) == number:
+        cand_n = _extract_number(cand.label)
+        if cand_n is not None and cand_n in candidate_numbers:
             return cand
     return None
 
@@ -205,13 +259,13 @@ def _try_equation(
     """
     if marker.marker_type != RefType.EQUATION:
         return None
-    number = _extract_number(marker.marker_text)
+    number = _extract_equation_number(marker.marker_text)
     if number is None:
         return None
     for cand in candidates:
         if cand.entity_type != RefType.EQUATION:
             continue
-        if _extract_number(cand.label) == number:
+        if _extract_equation_number(cand.label) == number:
             return cand
     return None
 

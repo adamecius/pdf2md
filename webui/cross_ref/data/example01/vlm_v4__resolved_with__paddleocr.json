@@ -256,9 +256,9 @@
       "label": "(unresolved)"
     },
     {
-      "id": "ent:paddleocr:1410.8140:footnote:11",
+      "id": "ent:paddleocr:example01:footnote:11",
       "type": "footnote",
-      "label": "ent:paddleocr:1410.8140:footnote:11",
+      "label": "ent:paddleocr:example01:footnote:11",
       "parent_id": "page:example01/vlm_v4+paddleocr:1",
       "page_no": 1
     }
@@ -394,7 +394,7 @@
     },
     {
       "source": "marker:16:#/document/pages/10:footnote 1",
-      "target": "ent:paddleocr:1410.8140:footnote:11",
+      "target": "ent:paddleocr:example01:footnote:11",
       "marker_type": "footnote",
       "label": "footnote 1",
       "resolved": true,
@@ -522,7 +522,7 @@
     },
     {
       "source": "page:example01/vlm_v4+paddleocr:1",
-      "target": "ent:paddleocr:1410.8140:footnote:11",
+      "target": "ent:paddleocr:example01:footnote:11",
       "edge_kind": "contains",
       "label": ""
     }
