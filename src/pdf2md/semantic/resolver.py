@@ -85,6 +85,24 @@ _PREFIX_PATTERNS: tuple[tuple[RefType, re.Pattern[str]], ...] = (
         RefType.DEFINITION,
         re.compile(r"^\s*definition\s+", re.IGNORECASE),
     ),
+    (
+        RefType.COROLLARY,
+        re.compile(r"^\s*corollary\s+", re.IGNORECASE),
+    ),
+    (
+        RefType.EXAMPLE,
+        re.compile(r"^\s*examples?\s+", re.IGNORECASE),
+    ),
+    (
+        # ``Proof`` and ``Proof of Theorem/Lemma/Proposition/Corollary N``.
+        # Strip up to and including the referenced-type keyword so the
+        # trailing number survives for identity matching.
+        RefType.PROOF,
+        re.compile(
+            r"^\s*proof(?:\s+of\s+(?:theorem|lemma|proposition|corollary|definition))?\s*",
+            re.IGNORECASE,
+        ),
+    ),
 )
 
 _NUMBER_RE = re.compile(r"\d+(?:\.\d+)*")
@@ -270,6 +288,53 @@ def _try_equation(
     return None
 
 
+_THEOREM_FAMILY_TYPES: frozenset[RefType] = frozenset({
+    RefType.THEOREM,
+    RefType.DEFINITION,
+    RefType.PROOF,
+    RefType.COROLLARY,
+    RefType.EXAMPLE,
+})
+
+
+def _try_theorem_family(
+    marker: RefMarker, candidates: list[ResolverCandidate]
+) -> ResolverCandidate | None:
+    """Match theorem-family markers by hierarchical number identity.
+
+    Resolves THEOREM / DEFINITION / PROOF / COROLLARY / EXAMPLE markers
+    (e.g. ``"Theorem 3.2"``, ``"Corollary 3.2"``, ``"Example 4"``,
+    ``"Proof of Theorem 3.2"``) against a same-type candidate carrying
+    the same hierarchical number. Mirrors :func:`_try_equation` but on
+    the theorem-family prefix set.
+
+    Cross-type isolation is enforced: a theorem marker never resolves to
+    a definition / corollary candidate, even at the same number.
+    Hierarchical numbers (``3.2``) do not collide with their components
+    (``3`` / ``2``) because :func:`_extract_number` returns the full
+    dotted form.
+
+    NOTE: the OCR connector does not yet emit theorem-family ENTITIES,
+    so on real pipeline data there are no theorem-family candidates and
+    this matcher returns ``None`` (resolution stays 0% until a
+    connector-side detector is added — tracked as a separate plan). The
+    matcher is exercised by synthetic fixtures and is correct the moment
+    candidates exist.
+    """
+    if marker.marker_type not in _THEOREM_FAMILY_TYPES:
+        return None
+    number = _extract_number(_strip_prefix(marker.marker_type, marker.marker_text))
+    if number is None:
+        return None
+    for cand in candidates:
+        if cand.entity_type != marker.marker_type:
+            continue
+        cand_number = _extract_number(_strip_prefix(cand.entity_type, cand.label))
+        if cand_number == number:
+            return cand
+    return None
+
+
 def resolve_markers(
     markers: list[RefMarker],
     candidates: list[ResolverCandidate] | list[SemanticEntity],
@@ -346,6 +411,15 @@ def _resolve_one(marker: RefMarker, pool: list[ResolverCandidate]) -> RefEdge:
         )
 
     hit = _try_footnote(marker, pool)
+    if hit is not None:
+        return RefEdge(
+            marker=marker,
+            target_ref=hit.target_ref,
+            resolved=True,
+            resolution_method="exact",
+        )
+
+    hit = _try_theorem_family(marker, pool)
     if hit is not None:
         return RefEdge(
             marker=marker,
