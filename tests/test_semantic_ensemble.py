@@ -175,3 +175,69 @@ def test_run_ensemble_returns_empty_when_no_backend_available(tmp_path: Path) ->
 def test_run_ensemble_rejects_empty_backend_list(tmp_path: Path) -> None:
     with pytest.raises(ValueError):
         run_ensemble(backends=[], pdf_path=None, text=None, output_dir=tmp_path)
+
+
+# ---------------------------------------------------------------------------
+# Plan 7 — document-class-aware backend weighting in the mixer.
+# ---------------------------------------------------------------------------
+def test_merge_graphs_applies_backend_weights_when_provided() -> None:
+    """When ``backend_weights`` makes the lower-confidence backend's
+    weighted score higher than the other's, that one wins the merge."""
+    grobid_marker = _make_marker("grobid", 0.90)  # 0.90 * 0.65 = 0.585
+    regex_marker = _make_marker("regex", 0.70)    # 0.70 * 1.0  = 0.700
+    merged = merge_graphs(
+        [_make_graph([grobid_marker]), _make_graph([regex_marker])],
+        doc_hash="sha256:merge",
+        backend_weights={"grobid": 0.65},
+    )
+    assert len(merged.markers) == 1
+    assert merged.markers[0].backend == "regex"
+
+
+def test_merge_graphs_uniform_weights_keep_highest_raw_confidence() -> None:
+    """No weights passed → highest raw confidence wins (regression
+    guard for the existing behaviour)."""
+    grobid_marker = _make_marker("grobid", 0.90)
+    regex_marker = _make_marker("regex", 0.70)
+    merged = merge_graphs(
+        [_make_graph([grobid_marker]), _make_graph([regex_marker])],
+        doc_hash="sha256:merge",
+    )
+    assert merged.markers[0].backend == "grobid"
+
+
+def test_run_ensemble_passes_document_class_weights_through(tmp_path: Path) -> None:
+    """``document_class="book"`` triggers the GROBID down-weight in
+    the mixer — verified by the regex backend winning the tie."""
+    grobid_backend = _FakeBackend(
+        "grobid", "0.1.0", _make_graph([_make_marker("grobid", 0.90)]),
+    )
+    regex_backend = _FakeBackend(
+        "regex", "0.1.0", _make_graph([_make_marker("regex", 0.70)]),
+    )
+    merged = run_ensemble(
+        backends=[grobid_backend, regex_backend],
+        pdf_path=None,
+        text=None,
+        output_dir=tmp_path,
+        document_class="book",
+    )
+    assert merged.markers[0].backend == "regex"
+
+
+def test_run_ensemble_article_class_does_not_down_weight_grobid(tmp_path: Path) -> None:
+    """``article`` and ``document`` classes keep uniform weights."""
+    grobid_backend = _FakeBackend(
+        "grobid", "0.1.0", _make_graph([_make_marker("grobid", 0.90)]),
+    )
+    regex_backend = _FakeBackend(
+        "regex", "0.1.0", _make_graph([_make_marker("regex", 0.70)]),
+    )
+    merged = run_ensemble(
+        backends=[grobid_backend, regex_backend],
+        pdf_path=None,
+        text=None,
+        output_dir=tmp_path,
+        document_class="article",
+    )
+    assert merged.markers[0].backend == "grobid"

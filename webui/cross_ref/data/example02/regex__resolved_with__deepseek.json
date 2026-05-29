@@ -1,7 +1,139 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "document_id": "example02/regex+deepseek",
   "nodes": [
+    {
+      "id": "document:example02/regex+deepseek",
+      "type": "document",
+      "label": "example02/regex+deepseek",
+      "page_count": 17
+    },
+    {
+      "id": "page:example02/regex+deepseek:1",
+      "type": "page",
+      "label": "Page 1",
+      "page_no": 1,
+      "parent_id": "document:example02/regex+deepseek"
+    },
+    {
+      "id": "page:example02/regex+deepseek:2",
+      "type": "page",
+      "label": "Page 2",
+      "page_no": 2,
+      "parent_id": "document:example02/regex+deepseek"
+    },
+    {
+      "id": "page:example02/regex+deepseek:3",
+      "type": "page",
+      "label": "Page 3",
+      "page_no": 3,
+      "parent_id": "document:example02/regex+deepseek"
+    },
+    {
+      "id": "page:example02/regex+deepseek:4",
+      "type": "page",
+      "label": "Page 4",
+      "page_no": 4,
+      "parent_id": "document:example02/regex+deepseek"
+    },
+    {
+      "id": "page:example02/regex+deepseek:5",
+      "type": "page",
+      "label": "Page 5",
+      "page_no": 5,
+      "parent_id": "document:example02/regex+deepseek"
+    },
+    {
+      "id": "page:example02/regex+deepseek:6",
+      "type": "page",
+      "label": "Page 6",
+      "page_no": 6,
+      "parent_id": "document:example02/regex+deepseek"
+    },
+    {
+      "id": "page:example02/regex+deepseek:7",
+      "type": "page",
+      "label": "Page 7",
+      "page_no": 7,
+      "parent_id": "document:example02/regex+deepseek"
+    },
+    {
+      "id": "page:example02/regex+deepseek:8",
+      "type": "page",
+      "label": "Page 8",
+      "page_no": 8,
+      "parent_id": "document:example02/regex+deepseek"
+    },
+    {
+      "id": "page:example02/regex+deepseek:9",
+      "type": "page",
+      "label": "Page 9",
+      "page_no": 9,
+      "parent_id": "document:example02/regex+deepseek"
+    },
+    {
+      "id": "page:example02/regex+deepseek:10",
+      "type": "page",
+      "label": "Page 10",
+      "page_no": 10,
+      "parent_id": "document:example02/regex+deepseek"
+    },
+    {
+      "id": "page:example02/regex+deepseek:11",
+      "type": "page",
+      "label": "Page 11",
+      "page_no": 11,
+      "parent_id": "document:example02/regex+deepseek"
+    },
+    {
+      "id": "page:example02/regex+deepseek:12",
+      "type": "page",
+      "label": "Page 12",
+      "page_no": 12,
+      "parent_id": "document:example02/regex+deepseek"
+    },
+    {
+      "id": "page:example02/regex+deepseek:13",
+      "type": "page",
+      "label": "Page 13",
+      "page_no": 13,
+      "parent_id": "document:example02/regex+deepseek"
+    },
+    {
+      "id": "page:example02/regex+deepseek:14",
+      "type": "page",
+      "label": "Page 14",
+      "page_no": 14,
+      "parent_id": "document:example02/regex+deepseek"
+    },
+    {
+      "id": "page:example02/regex+deepseek:15",
+      "type": "page",
+      "label": "Page 15",
+      "page_no": 15,
+      "parent_id": "document:example02/regex+deepseek"
+    },
+    {
+      "id": "page:example02/regex+deepseek:16",
+      "type": "page",
+      "label": "Page 16",
+      "page_no": 16,
+      "parent_id": "document:example02/regex+deepseek"
+    },
+    {
+      "id": "page:example02/regex+deepseek:17",
+      "type": "page",
+      "label": "Page 17",
+      "page_no": 17,
+      "parent_id": "document:example02/regex+deepseek"
+    },
+    {
+      "id": "section:bibliography:example02/regex+deepseek",
+      "type": "bibliography_section",
+      "label": "Bibliography",
+      "parent_id": "document:example02/regex+deepseek",
+      "back_matter_kind": "bibliography"
+    },
     {
       "id": "marker:0:#/document:[1]",
       "type": "bibliography",
@@ -11,7 +143,15 @@
         2378,
         2381
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
+    },
+    {
+      "id": "section:markers:example02/regex+deepseek",
+      "type": "markers_section",
+      "label": "Markers",
+      "parent_id": "document:example02/regex+deepseek",
+      "back_matter_kind": "markers"
     },
     {
       "id": "marker:1:#/document:[3]",
@@ -22,7 +162,8 @@
         2382,
         2385
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:2:#/document:[4]",
@@ -33,7 +174,8 @@
         2798,
         2801
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:3:#/document:[9]",
@@ -44,7 +186,8 @@
         2802,
         2805
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:4:#/document:[10]",
@@ -55,7 +198,8 @@
         4220,
         4224
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:5:#/document:[12]",
@@ -66,7 +210,8 @@
         4225,
         4229
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:6:#/document:[13]",
@@ -77,7 +222,8 @@
         4401,
         4405
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:7:#/document:[18]",
@@ -88,7 +234,8 @@
         4407,
         4411
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:8:#/document:[19]",
@@ -99,7 +246,8 @@
         4507,
         4511
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:9:#/document:Eq. (11)",
@@ -110,7 +258,8 @@
         4518,
         4526
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:10:#/document:[20]",
@@ -121,7 +270,8 @@
         4567,
         4571
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:11:#/document:Eq. (12)",
@@ -132,7 +282,8 @@
         4578,
         4586
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:12:#/document:[21]",
@@ -143,7 +294,8 @@
         4897,
         4901
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:13:#/document:[23]",
@@ -154,7 +306,8 @@
         4902,
         4906
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:14:#/document:[13]",
@@ -165,7 +318,8 @@
         6222,
         6226
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:15:#/document:[18]",
@@ -176,7 +330,8 @@
         6227,
         6231
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:16:#/document:Corollary 1",
@@ -187,7 +342,8 @@
         8706,
         8717
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:17:#/document:[10]",
@@ -198,7 +354,8 @@
         14498,
         14502
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:18:#/document:[12]",
@@ -209,7 +366,8 @@
         14504,
         14508
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:19:#/document:[26]",
@@ -220,7 +378,8 @@
         15629,
         15633
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:20:#/document:Theorem 1",
@@ -231,7 +390,8 @@
         34839,
         34848
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:21:#/document:Definition 1",
@@ -242,7 +402,8 @@
         35659,
         35671
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:22:#/document:Definition 1",
@@ -253,7 +414,8 @@
         36155,
         36167
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:23:#/document:Definition 2",
@@ -264,7 +426,8 @@
         36707,
         36719
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:24:#/document:Definition 3",
@@ -275,7 +438,8 @@
         37795,
         37807
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:25:#/document:Definition 4",
@@ -286,7 +450,8 @@
         40122,
         40134
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:26:#/document:[29]",
@@ -297,7 +462,8 @@
         40174,
         40178
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:27:#/document:Corollary 1",
@@ -308,7 +474,8 @@
         40716,
         40727
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:28:#/document:Theorem 1",
@@ -319,7 +486,8 @@
         40732,
         40741
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:29:#/document:Definition 1",
@@ -330,7 +498,8 @@
         40960,
         40972
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:30:#/document:Definition 2",
@@ -341,7 +510,8 @@
         41781,
         41793
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:31:#/document:[19]",
@@ -352,7 +522,8 @@
         42405,
         42409
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:32:#/document:Eq. (11)",
@@ -363,7 +534,8 @@
         42416,
         42424
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:33:#/document:Definition 3",
@@ -374,7 +546,8 @@
         42497,
         42509
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:34:#/document:Definition 4",
@@ -385,7 +558,8 @@
         43068,
         43080
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:35:#/document:Corollary 1",
@@ -396,7 +570,8 @@
         43739,
         43750
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:36:#/document:Definition 5",
@@ -407,7 +582,8 @@
         43981,
         43993
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:37:#/document:Theorem 1",
@@ -418,7 +594,8 @@
         45006,
         45015
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:38:#/document:Corollary 1",
@@ -429,7 +606,8 @@
         45037,
         45048
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:39:#/document:Corollary 1",
@@ -440,7 +618,8 @@
         45930,
         45941
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:40:#/document:Definition 4",
@@ -451,7 +630,8 @@
         46413,
         46425
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:41:#/document:Definition 6",
@@ -462,7 +642,8 @@
         46450,
         46462
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:42:#/document:Corollary 1",
@@ -473,7 +654,8 @@
         49884,
         49895
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:43:#/document:Example 1",
@@ -484,7 +666,8 @@
         50111,
         50120
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:44:#/document:Theorem 1",
@@ -495,7 +678,8 @@
         51281,
         51290
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:45:#/document:Eq. (10)",
@@ -506,7 +690,8 @@
         51701,
         51709
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:46:#/document:Example 2",
@@ -517,7 +702,8 @@
         52123,
         52132
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:47:#/document:[20]",
@@ -528,7 +714,8 @@
         53086,
         53090
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:48:#/document:Eq. (12)",
@@ -539,7 +726,8 @@
         53097,
         53105
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:49:#/document:Example 3",
@@ -550,7 +738,8 @@
         53111,
         53120
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:50:#/document:Corollary 1",
@@ -561,7 +750,8 @@
         55726,
         55737
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:51:#/document:Definition 5",
@@ -572,7 +762,8 @@
         55807,
         55819
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:52:#/document:Theorem 2",
@@ -583,7 +774,8 @@
         55929,
         55938
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:53:#/document:Theorem 1",
@@ -594,7 +786,8 @@
         57707,
         57716
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:54:#/document:Theorem 1",
@@ -605,7 +798,8 @@
         58495,
         58504
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:55:#/document:Theorem 2",
@@ -616,7 +810,8 @@
         58557,
         58566
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:56:#/document:Theorem 2",
@@ -627,7 +822,8 @@
         58780,
         58789
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:57:#/document:Corollary 2",
@@ -638,7 +834,8 @@
         59551,
         59562
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:58:#/document:Theorem 2",
@@ -649,7 +846,8 @@
         60465,
         60474
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:59:#/document:Theorem 2",
@@ -660,7 +858,8 @@
         60492,
         60501
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:60:#/document:[34]",
@@ -671,7 +870,8 @@
         60722,
         60726
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:61:#/document:[35]",
@@ -682,7 +882,8 @@
         60738,
         60742
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:62:#/document:Corollary 3",
@@ -693,7 +894,8 @@
         60757,
         60768
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:63:#/document:Corollary 3",
@@ -704,7 +906,8 @@
         63038,
         63049
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:64:#/document:Example 4",
@@ -715,7 +918,8 @@
         83851,
         83860
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:65:#/document:Example 5",
@@ -726,7 +930,8 @@
         85353,
         85362
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:66:#/document:Example 2",
@@ -737,7 +942,8 @@
         85477,
         85486
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:67:#/document:Example 4",
@@ -748,7 +954,8 @@
         85646,
         85655
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:68:#/document:Theorem 3",
@@ -759,7 +966,8 @@
         85733,
         85742
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:69:#/document:Example 4",
@@ -770,7 +978,8 @@
         87520,
         87529
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:70:#/document:Theorem 2",
@@ -781,7 +990,8 @@
         87535,
         87544
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:71:#/document:Theorem 3",
@@ -792,7 +1002,8 @@
         87629,
         87638
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:72:#/document:Theorem 3",
@@ -803,7 +1014,8 @@
         87746,
         87755
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:73:#/document:Eq. (4)",
@@ -814,7 +1026,8 @@
         87808,
         87815
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:74:#/document:(15.110)",
@@ -825,7 +1038,8 @@
         87828,
         87836
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:75:#/document:(15.113)",
@@ -836,7 +1050,8 @@
         87841,
         87849
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:76:#/document:Corollary 2",
@@ -847,7 +1062,8 @@
         88235,
         88246
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:77:#/document:Corollary 4",
@@ -858,7 +1074,8 @@
         88307,
         88318
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:78:#/document:Corollary 2",
@@ -869,7 +1086,8 @@
         88945,
         88956
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:79:#/document:Corollary 3",
@@ -880,7 +1098,8 @@
         89065,
         89076
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:80:#/document:Corollary 5",
@@ -891,7 +1110,8 @@
         89117,
         89128
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:81:#/document:Theorem 3",
@@ -902,7 +1122,8 @@
         89217,
         89226
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:82:#/document:Eq. (70)",
@@ -913,7 +1134,8 @@
         94382,
         94390
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:83:#/document:[0, 0]",
@@ -924,7 +1146,8 @@
         96253,
         96259
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:84:#/document:Corollary 1",
@@ -935,7 +1158,8 @@
         97889,
         97900
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:85:#/document:Example 4",
@@ -946,7 +1170,8 @@
         97905,
         97914
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:86:#/document:[10]",
@@ -957,7 +1182,8 @@
         98086,
         98090
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:87:#/document:[12]",
@@ -968,7 +1194,8 @@
         98092,
         98096
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:88:#/document:[10]",
@@ -979,7 +1206,8 @@
         106648,
         106652
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:89:#/document:[12]",
@@ -990,7 +1218,8 @@
         106654,
         106658
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:90:#/document:Fig. 1",
@@ -1001,7 +1230,8 @@
         120992,
         120998
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:91:#/document:Fig. 1",
@@ -1012,7 +1242,8 @@
         121312,
         121318
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:92:#/document:[37]",
@@ -1023,7 +1254,8 @@
         126686,
         126690
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:93:#/document:[38]",
@@ -1034,7 +1266,8 @@
         126692,
         126696
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:94:#/document:[39]",
@@ -1045,7 +1278,8 @@
         128579,
         128583
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:95:#/document:[40]",
@@ -1056,7 +1290,8 @@
         128585,
         128589
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:96:#/document:[32]",
@@ -1067,7 +1302,8 @@
         128801,
         128805
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:97:#/document:Corollary 1",
@@ -1078,7 +1314,8 @@
         129201,
         129212
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:98:#/document:Example 4",
@@ -1089,7 +1326,8 @@
         129227,
         129236
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:99:#/document:PROOF OF LEMMA 1",
@@ -1100,7 +1338,8 @@
         129906,
         129922
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:100:#/document:Corollary 3.3",
@@ -1111,7 +1350,8 @@
         130616,
         130629
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:101:#/document:PROOF OF THEOREM 1",
@@ -1122,7 +1362,8 @@
         131530,
         131548
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:102:#/document:[1]",
@@ -1133,7 +1374,8 @@
         136583,
         136586
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:103:#/document:[2]",
@@ -1144,7 +1386,8 @@
         136702,
         136705
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:104:#/document:[3]",
@@ -1155,7 +1398,8 @@
         136860,
         136863
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:105:#/document:[4]",
@@ -1166,7 +1410,8 @@
         137101,
         137104
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:106:#/document:[5]",
@@ -1177,7 +1422,8 @@
         137261,
         137264
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:107:#/document:[6]",
@@ -1188,7 +1434,8 @@
         137468,
         137471
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:108:#/document:[7]",
@@ -1199,7 +1446,8 @@
         137697,
         137700
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:109:#/document:[8]",
@@ -1210,7 +1458,8 @@
         137908,
         137911
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:110:#/document:[9]",
@@ -1221,7 +1470,8 @@
         138071,
         138074
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:111:#/document:[10]",
@@ -1232,7 +1482,8 @@
         138247,
         138251
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:112:#/document:[11]",
@@ -1243,7 +1494,8 @@
         138438,
         138442
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:113:#/document:[12]",
@@ -1254,7 +1506,8 @@
         138597,
         138601
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:114:#/document:[13]",
@@ -1265,7 +1518,8 @@
         138760,
         138764
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:115:#/document:[14]",
@@ -1276,7 +1530,8 @@
         138919,
         138923
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:116:#/document:[15]",
@@ -1287,7 +1542,8 @@
         139063,
         139067
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:117:#/document:[16]",
@@ -1298,7 +1554,8 @@
         139296,
         139300
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:118:#/document:[17]",
@@ -1309,7 +1566,8 @@
         139472,
         139476
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:119:#/document:[18]",
@@ -1320,7 +1578,8 @@
         139798,
         139802
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:120:#/document:[19]",
@@ -1331,7 +1590,8 @@
         140009,
         140013
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:121:#/document:[20]",
@@ -1342,7 +1602,8 @@
         140167,
         140171
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:122:#/document:[21]",
@@ -1353,7 +1614,8 @@
         140378,
         140382
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:123:#/document:[22]",
@@ -1364,7 +1626,8 @@
         140597,
         140601
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:124:#/document:[23]",
@@ -1375,7 +1638,8 @@
         140857,
         140861
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:125:#/document:[24]",
@@ -1386,7 +1650,8 @@
         141055,
         141059
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:126:#/document:[25]",
@@ -1397,7 +1662,8 @@
         141141,
         141145
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:127:#/document:[26]",
@@ -1408,7 +1674,8 @@
         141256,
         141260
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:128:#/document:[27]",
@@ -1419,7 +1686,8 @@
         141410,
         141414
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:129:#/document:[28]",
@@ -1430,7 +1698,8 @@
         141585,
         141589
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:130:#/document:[29]",
@@ -1441,7 +1710,8 @@
         141761,
         141765
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:131:#/document:[30]",
@@ -1452,7 +1722,8 @@
         141952,
         141956
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:132:#/document:[31]",
@@ -1463,7 +1734,8 @@
         142074,
         142078
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:133:#/document:[32]",
@@ -1474,7 +1746,8 @@
         142297,
         142301
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:134:#/document:[33]",
@@ -1485,7 +1758,8 @@
         142566,
         142570
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:135:#/document:[34]",
@@ -1496,7 +1770,8 @@
         142755,
         142759
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:136:#/document:[35]",
@@ -1507,7 +1782,8 @@
         142890,
         142894
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:137:#/document:[36]",
@@ -1518,7 +1794,8 @@
         143152,
         143156
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:138:#/document:[37]",
@@ -1529,7 +1806,8 @@
         143435,
         143439
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:139:#/document:[38]",
@@ -1540,7 +1818,8 @@
         143591,
         143595
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:140:#/document:[39]",
@@ -1551,7 +1830,8 @@
         143788,
         143792
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:141:#/document:[40]",
@@ -1562,7 +1842,8 @@
         143958,
         143962
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:142:#/document:[41]",
@@ -1573,7 +1854,8 @@
         144066,
         144070
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:143:#/document:Fig. 2",
@@ -1584,7 +1866,8 @@
         148026,
         148032
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:144:#/document:Fig. 2",
@@ -1595,7 +1878,8 @@
         148681,
         148687
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:145:#/document:Fig. 2",
@@ -1606,7 +1890,8 @@
         149012,
         149018
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:146:#/document:Fig. 2",
@@ -1617,7 +1902,8 @@
         149711,
         149717
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:147:#/document:Fig. 2",
@@ -1628,7 +1914,8 @@
         150109,
         150115
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:148:#/document:Fig. 3",
@@ -1639,7 +1926,8 @@
         151093,
         151099
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:149:#/document:Fig. 2",
@@ -1650,7 +1938,8 @@
         151150,
         151156
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:150:#/document:Fig. 3",
@@ -1661,7 +1950,8 @@
         151178,
         151184
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
       "id": "marker:151:#/document:Fig. 3",
@@ -1672,52 +1962,106 @@
         152153,
         152159
       ],
-      "backend": "regex"
+      "backend": "regex",
+      "parent_id": "section:markers:example02/regex+deepseek"
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:177",
+      "id": "ent:deepseek:example02:reference_item:177",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:177"
+      "label": "ent:deepseek:example02:reference_item:177",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 15
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:179",
+      "id": "ent:deepseek:example02:reference_item:179",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:179"
+      "label": "ent:deepseek:example02:reference_item:179",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 15
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:180",
+      "id": "ent:deepseek:example02:reference_item:180",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:180"
+      "label": "ent:deepseek:example02:reference_item:180",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 15
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:185",
+      "id": "ent:deepseek:example02:reference_item:185",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:185"
+      "label": "ent:deepseek:example02:reference_item:185",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 15
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:186",
+      "id": "ent:deepseek:example02:reference_item:186",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:186"
+      "label": "ent:deepseek:example02:reference_item:186",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 15
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:188",
+      "id": "ent:deepseek:example02:reference_item:188",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:188"
+      "label": "ent:deepseek:example02:reference_item:188",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 15
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:189",
+      "id": "ent:deepseek:example02:reference_item:189",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:189"
+      "label": "ent:deepseek:example02:reference_item:189",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:194",
+      "id": "ent:deepseek:example02:reference_item:194",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:194"
+      "label": "ent:deepseek:example02:reference_item:194",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:195",
+      "id": "ent:deepseek:example02:reference_item:195",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:195"
+      "label": "ent:deepseek:example02:reference_item:195",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
+    },
+    {
+      "id": "ent:deepseek:example02:equation:22",
+      "type": "equation",
+      "label": "ent:deepseek:example02:equation:22",
+      "parent_id": "page:example02/regex+deepseek:3",
+      "page_no": 3
+    },
+    {
+      "id": "ent:deepseek:example02:reference_item:196",
+      "type": "bibliography",
+      "label": "ent:deepseek:example02:reference_item:196",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
+    },
+    {
+      "id": "ent:deepseek:example02:equation:23",
+      "type": "equation",
+      "label": "ent:deepseek:example02:equation:23",
+      "parent_id": "page:example02/regex+deepseek:3",
+      "page_no": 3
+    },
+    {
+      "id": "ent:deepseek:example02:reference_item:197",
+      "type": "bibliography",
+      "label": "ent:deepseek:example02:reference_item:197",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
+    },
+    {
+      "id": "ent:deepseek:example02:reference_item:199",
+      "type": "bibliography",
+      "label": "ent:deepseek:example02:reference_item:199",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
       "id": "_unresolved",
@@ -1725,1254 +2069,3139 @@
       "label": "(unresolved)"
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:196",
+      "id": "ent:deepseek:example02:reference_item:202",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:196"
+      "label": "ent:deepseek:example02:reference_item:202",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:197",
+      "id": "ent:deepseek:example02:reference_item:205",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:197"
+      "label": "ent:deepseek:example02:reference_item:205",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:199",
-      "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:199"
+      "id": "ent:deepseek:example02:equation:21",
+      "type": "equation",
+      "label": "ent:deepseek:example02:equation:21",
+      "parent_id": "page:example02/regex+deepseek:3",
+      "page_no": 3
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:202",
+      "id": "ent:deepseek:example02:reference_item:210",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:202"
+      "label": "ent:deepseek:example02:reference_item:210",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:205",
+      "id": "ent:deepseek:example02:reference_item:211",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:205"
+      "label": "ent:deepseek:example02:reference_item:211",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:210",
-      "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:210"
+      "id": "ent:deepseek:example02:equation:13",
+      "type": "equation",
+      "label": "ent:deepseek:example02:equation:13",
+      "parent_id": "page:example02/regex+deepseek:3",
+      "page_no": 3
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:211",
-      "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:211"
+      "id": "ent:deepseek:example02:equation:112",
+      "type": "equation",
+      "label": "ent:deepseek:example02:equation:112",
+      "parent_id": "page:example02/regex+deepseek:10",
+      "page_no": 10
     },
     {
-      "id": "ent:deepseek:2401.12345:caption:151",
+      "id": "ent:deepseek:example02:caption:151",
       "type": "figure",
-      "label": "ent:deepseek:2401.12345:caption:151"
+      "label": "ent:deepseek:example02:caption:151",
+      "parent_id": "page:example02/regex+deepseek:14",
+      "page_no": 14
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:213",
+      "id": "ent:deepseek:example02:reference_item:213",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:213"
+      "label": "ent:deepseek:example02:reference_item:213",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:214",
+      "id": "ent:deepseek:example02:reference_item:214",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:214"
+      "label": "ent:deepseek:example02:reference_item:214",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:215",
+      "id": "ent:deepseek:example02:reference_item:215",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:215"
+      "label": "ent:deepseek:example02:reference_item:215",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:216",
+      "id": "ent:deepseek:example02:reference_item:216",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:216"
+      "label": "ent:deepseek:example02:reference_item:216",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:208",
+      "id": "ent:deepseek:example02:reference_item:208",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:208"
+      "label": "ent:deepseek:example02:reference_item:208",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:178",
+      "id": "ent:deepseek:example02:reference_item:178",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:178"
+      "label": "ent:deepseek:example02:reference_item:178",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 15
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:181",
+      "id": "ent:deepseek:example02:reference_item:181",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:181"
+      "label": "ent:deepseek:example02:reference_item:181",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 15
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:182",
+      "id": "ent:deepseek:example02:reference_item:182",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:182"
+      "label": "ent:deepseek:example02:reference_item:182",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 15
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:183",
+      "id": "ent:deepseek:example02:reference_item:183",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:183"
+      "label": "ent:deepseek:example02:reference_item:183",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 15
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:184",
+      "id": "ent:deepseek:example02:reference_item:184",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:184"
+      "label": "ent:deepseek:example02:reference_item:184",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 15
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:187",
+      "id": "ent:deepseek:example02:reference_item:187",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:187"
+      "label": "ent:deepseek:example02:reference_item:187",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 15
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:190",
+      "id": "ent:deepseek:example02:reference_item:190",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:190"
+      "label": "ent:deepseek:example02:reference_item:190",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:191",
+      "id": "ent:deepseek:example02:reference_item:191",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:191"
+      "label": "ent:deepseek:example02:reference_item:191",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:192",
+      "id": "ent:deepseek:example02:reference_item:192",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:192"
+      "label": "ent:deepseek:example02:reference_item:192",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:193",
+      "id": "ent:deepseek:example02:reference_item:193",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:193"
+      "label": "ent:deepseek:example02:reference_item:193",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:198",
+      "id": "ent:deepseek:example02:reference_item:198",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:198"
+      "label": "ent:deepseek:example02:reference_item:198",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:200",
+      "id": "ent:deepseek:example02:reference_item:200",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:200"
+      "label": "ent:deepseek:example02:reference_item:200",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:201",
+      "id": "ent:deepseek:example02:reference_item:201",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:201"
+      "label": "ent:deepseek:example02:reference_item:201",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:203",
+      "id": "ent:deepseek:example02:reference_item:203",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:203"
+      "label": "ent:deepseek:example02:reference_item:203",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:204",
+      "id": "ent:deepseek:example02:reference_item:204",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:204"
+      "label": "ent:deepseek:example02:reference_item:204",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:206",
+      "id": "ent:deepseek:example02:reference_item:206",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:206"
+      "label": "ent:deepseek:example02:reference_item:206",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:207",
+      "id": "ent:deepseek:example02:reference_item:207",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:207"
+      "label": "ent:deepseek:example02:reference_item:207",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:209",
+      "id": "ent:deepseek:example02:reference_item:209",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:209"
+      "label": "ent:deepseek:example02:reference_item:209",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:212",
+      "id": "ent:deepseek:example02:reference_item:212",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:212"
+      "label": "ent:deepseek:example02:reference_item:212",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:reference_item:217",
+      "id": "ent:deepseek:example02:reference_item:217",
       "type": "bibliography",
-      "label": "ent:deepseek:2401.12345:reference_item:217"
+      "label": "ent:deepseek:example02:reference_item:217",
+      "parent_id": "section:bibliography:example02/regex+deepseek",
+      "page_no": 16
     },
     {
-      "id": "ent:deepseek:2401.12345:caption:237",
+      "id": "ent:deepseek:example02:caption:237",
       "type": "figure",
-      "label": "ent:deepseek:2401.12345:caption:237"
+      "label": "ent:deepseek:example02:caption:237",
+      "parent_id": "page:example02/regex+deepseek:17",
+      "page_no": 17
     },
     {
-      "id": "ent:deepseek:2401.12345:caption:250",
+      "id": "ent:deepseek:example02:caption:250",
       "type": "figure",
-      "label": "ent:deepseek:2401.12345:caption:250"
+      "label": "ent:deepseek:example02:caption:250",
+      "parent_id": "page:example02/regex+deepseek:17",
+      "page_no": 17
     }
   ],
   "edges": [
     {
       "source": "marker:0:#/document:[1]",
-      "target": "ent:deepseek:2401.12345:reference_item:177",
+      "target": "ent:deepseek:example02:reference_item:177",
       "marker_type": "bibliography",
       "label": "[1]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:1:#/document:[3]",
-      "target": "ent:deepseek:2401.12345:reference_item:179",
+      "target": "ent:deepseek:example02:reference_item:179",
       "marker_type": "bibliography",
       "label": "[3]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:2:#/document:[4]",
-      "target": "ent:deepseek:2401.12345:reference_item:180",
+      "target": "ent:deepseek:example02:reference_item:180",
       "marker_type": "bibliography",
       "label": "[4]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:3:#/document:[9]",
-      "target": "ent:deepseek:2401.12345:reference_item:185",
+      "target": "ent:deepseek:example02:reference_item:185",
       "marker_type": "bibliography",
       "label": "[9]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:4:#/document:[10]",
-      "target": "ent:deepseek:2401.12345:reference_item:186",
+      "target": "ent:deepseek:example02:reference_item:186",
       "marker_type": "bibliography",
       "label": "[10]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:5:#/document:[12]",
-      "target": "ent:deepseek:2401.12345:reference_item:188",
+      "target": "ent:deepseek:example02:reference_item:188",
       "marker_type": "bibliography",
       "label": "[12]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:6:#/document:[13]",
-      "target": "ent:deepseek:2401.12345:reference_item:189",
+      "target": "ent:deepseek:example02:reference_item:189",
       "marker_type": "bibliography",
       "label": "[13]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:7:#/document:[18]",
-      "target": "ent:deepseek:2401.12345:reference_item:194",
+      "target": "ent:deepseek:example02:reference_item:194",
       "marker_type": "bibliography",
       "label": "[18]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:8:#/document:[19]",
-      "target": "ent:deepseek:2401.12345:reference_item:195",
+      "target": "ent:deepseek:example02:reference_item:195",
       "marker_type": "bibliography",
       "label": "[19]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:9:#/document:Eq. (11)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:example02:equation:22",
       "marker_type": "equation",
       "label": "Eq. (11)",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:10:#/document:[20]",
-      "target": "ent:deepseek:2401.12345:reference_item:196",
+      "target": "ent:deepseek:example02:reference_item:196",
       "marker_type": "bibliography",
       "label": "[20]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:11:#/document:Eq. (12)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:example02:equation:23",
       "marker_type": "equation",
       "label": "Eq. (12)",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:12:#/document:[21]",
-      "target": "ent:deepseek:2401.12345:reference_item:197",
+      "target": "ent:deepseek:example02:reference_item:197",
       "marker_type": "bibliography",
       "label": "[21]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:13:#/document:[23]",
-      "target": "ent:deepseek:2401.12345:reference_item:199",
+      "target": "ent:deepseek:example02:reference_item:199",
       "marker_type": "bibliography",
       "label": "[23]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:14:#/document:[13]",
-      "target": "ent:deepseek:2401.12345:reference_item:189",
+      "target": "ent:deepseek:example02:reference_item:189",
       "marker_type": "bibliography",
       "label": "[13]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:15:#/document:[18]",
-      "target": "ent:deepseek:2401.12345:reference_item:194",
+      "target": "ent:deepseek:example02:reference_item:194",
       "marker_type": "bibliography",
       "label": "[18]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:16:#/document:Corollary 1",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:17:#/document:[10]",
-      "target": "ent:deepseek:2401.12345:reference_item:186",
+      "target": "ent:deepseek:example02:reference_item:186",
       "marker_type": "bibliography",
       "label": "[10]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:18:#/document:[12]",
-      "target": "ent:deepseek:2401.12345:reference_item:188",
+      "target": "ent:deepseek:example02:reference_item:188",
       "marker_type": "bibliography",
       "label": "[12]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:19:#/document:[26]",
-      "target": "ent:deepseek:2401.12345:reference_item:202",
+      "target": "ent:deepseek:example02:reference_item:202",
       "marker_type": "bibliography",
       "label": "[26]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:20:#/document:Theorem 1",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:21:#/document:Definition 1",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:22:#/document:Definition 1",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:23:#/document:Definition 2",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:24:#/document:Definition 3",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:25:#/document:Definition 4",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 4",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:26:#/document:[29]",
-      "target": "ent:deepseek:2401.12345:reference_item:205",
+      "target": "ent:deepseek:example02:reference_item:205",
       "marker_type": "bibliography",
       "label": "[29]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:27:#/document:Corollary 1",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:28:#/document:Theorem 1",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:29:#/document:Definition 1",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:30:#/document:Definition 2",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:31:#/document:[19]",
-      "target": "ent:deepseek:2401.12345:reference_item:195",
+      "target": "ent:deepseek:example02:reference_item:195",
       "marker_type": "bibliography",
       "label": "[19]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:32:#/document:Eq. (11)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:example02:equation:22",
       "marker_type": "equation",
       "label": "Eq. (11)",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:33:#/document:Definition 3",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:34:#/document:Definition 4",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 4",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:35:#/document:Corollary 1",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:36:#/document:Definition 5",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 5",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:37:#/document:Theorem 1",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:38:#/document:Corollary 1",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:39:#/document:Corollary 1",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:40:#/document:Definition 4",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 4",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:41:#/document:Definition 6",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 6",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:42:#/document:Corollary 1",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:43:#/document:Example 1",
       "target": "_unresolved",
       "marker_type": "example",
       "label": "Example 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:44:#/document:Theorem 1",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:45:#/document:Eq. (10)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:example02:equation:21",
       "marker_type": "equation",
       "label": "Eq. (10)",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:46:#/document:Example 2",
       "target": "_unresolved",
       "marker_type": "example",
       "label": "Example 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:47:#/document:[20]",
-      "target": "ent:deepseek:2401.12345:reference_item:196",
+      "target": "ent:deepseek:example02:reference_item:196",
       "marker_type": "bibliography",
       "label": "[20]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:48:#/document:Eq. (12)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:example02:equation:23",
       "marker_type": "equation",
       "label": "Eq. (12)",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:49:#/document:Example 3",
       "target": "_unresolved",
       "marker_type": "example",
       "label": "Example 3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:50:#/document:Corollary 1",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:51:#/document:Definition 5",
       "target": "_unresolved",
       "marker_type": "definition",
       "label": "Definition 5",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:52:#/document:Theorem 2",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:53:#/document:Theorem 1",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:54:#/document:Theorem 1",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:55:#/document:Theorem 2",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:56:#/document:Theorem 2",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:57:#/document:Corollary 2",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:58:#/document:Theorem 2",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:59:#/document:Theorem 2",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:60:#/document:[34]",
-      "target": "ent:deepseek:2401.12345:reference_item:210",
+      "target": "ent:deepseek:example02:reference_item:210",
       "marker_type": "bibliography",
       "label": "[34]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:61:#/document:[35]",
-      "target": "ent:deepseek:2401.12345:reference_item:211",
+      "target": "ent:deepseek:example02:reference_item:211",
       "marker_type": "bibliography",
       "label": "[35]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:62:#/document:Corollary 3",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:63:#/document:Corollary 3",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:64:#/document:Example 4",
       "target": "_unresolved",
       "marker_type": "example",
       "label": "Example 4",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:65:#/document:Example 5",
       "target": "_unresolved",
       "marker_type": "example",
       "label": "Example 5",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:66:#/document:Example 2",
       "target": "_unresolved",
       "marker_type": "example",
       "label": "Example 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:67:#/document:Example 4",
       "target": "_unresolved",
       "marker_type": "example",
       "label": "Example 4",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:68:#/document:Theorem 3",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:69:#/document:Example 4",
       "target": "_unresolved",
       "marker_type": "example",
       "label": "Example 4",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:70:#/document:Theorem 2",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:71:#/document:Theorem 3",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:72:#/document:Theorem 3",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:73:#/document:Eq. (4)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:example02:equation:13",
       "marker_type": "equation",
       "label": "Eq. (4)",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:74:#/document:(15.110)",
       "target": "_unresolved",
       "marker_type": "equation",
       "label": "(15.110)",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:75:#/document:(15.113)",
       "target": "_unresolved",
       "marker_type": "equation",
       "label": "(15.113)",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:76:#/document:Corollary 2",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:77:#/document:Corollary 4",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 4",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:78:#/document:Corollary 2",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:79:#/document:Corollary 3",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:80:#/document:Corollary 5",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 5",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:81:#/document:Theorem 3",
       "target": "_unresolved",
       "marker_type": "theorem",
       "label": "Theorem 3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:82:#/document:Eq. (70)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:example02:equation:112",
       "marker_type": "equation",
       "label": "Eq. (70)",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:83:#/document:[0, 0]",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[0, 0]",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:84:#/document:Corollary 1",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:85:#/document:Example 4",
       "target": "_unresolved",
       "marker_type": "example",
       "label": "Example 4",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:86:#/document:[10]",
-      "target": "ent:deepseek:2401.12345:reference_item:186",
+      "target": "ent:deepseek:example02:reference_item:186",
       "marker_type": "bibliography",
       "label": "[10]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:87:#/document:[12]",
-      "target": "ent:deepseek:2401.12345:reference_item:188",
+      "target": "ent:deepseek:example02:reference_item:188",
       "marker_type": "bibliography",
       "label": "[12]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:88:#/document:[10]",
-      "target": "ent:deepseek:2401.12345:reference_item:186",
+      "target": "ent:deepseek:example02:reference_item:186",
       "marker_type": "bibliography",
       "label": "[10]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:89:#/document:[12]",
-      "target": "ent:deepseek:2401.12345:reference_item:188",
+      "target": "ent:deepseek:example02:reference_item:188",
       "marker_type": "bibliography",
       "label": "[12]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:90:#/document:Fig. 1",
-      "target": "ent:deepseek:2401.12345:caption:151",
+      "target": "ent:deepseek:example02:caption:151",
       "marker_type": "figure",
       "label": "Fig. 1",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:91:#/document:Fig. 1",
-      "target": "ent:deepseek:2401.12345:caption:151",
+      "target": "ent:deepseek:example02:caption:151",
       "marker_type": "figure",
       "label": "Fig. 1",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:92:#/document:[37]",
-      "target": "ent:deepseek:2401.12345:reference_item:213",
+      "target": "ent:deepseek:example02:reference_item:213",
       "marker_type": "bibliography",
       "label": "[37]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:93:#/document:[38]",
-      "target": "ent:deepseek:2401.12345:reference_item:214",
+      "target": "ent:deepseek:example02:reference_item:214",
       "marker_type": "bibliography",
       "label": "[38]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:94:#/document:[39]",
-      "target": "ent:deepseek:2401.12345:reference_item:215",
+      "target": "ent:deepseek:example02:reference_item:215",
       "marker_type": "bibliography",
       "label": "[39]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:95:#/document:[40]",
-      "target": "ent:deepseek:2401.12345:reference_item:216",
+      "target": "ent:deepseek:example02:reference_item:216",
       "marker_type": "bibliography",
       "label": "[40]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:96:#/document:[32]",
-      "target": "ent:deepseek:2401.12345:reference_item:208",
+      "target": "ent:deepseek:example02:reference_item:208",
       "marker_type": "bibliography",
       "label": "[32]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:97:#/document:Corollary 1",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:98:#/document:Example 4",
       "target": "_unresolved",
       "marker_type": "example",
       "label": "Example 4",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:99:#/document:PROOF OF LEMMA 1",
       "target": "_unresolved",
       "marker_type": "proof",
       "label": "PROOF OF LEMMA 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:100:#/document:Corollary 3.3",
       "target": "_unresolved",
       "marker_type": "corollary",
       "label": "Corollary 3.3",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:101:#/document:PROOF OF THEOREM 1",
       "target": "_unresolved",
       "marker_type": "proof",
       "label": "PROOF OF THEOREM 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:102:#/document:[1]",
-      "target": "ent:deepseek:2401.12345:reference_item:177",
+      "target": "ent:deepseek:example02:reference_item:177",
       "marker_type": "bibliography",
       "label": "[1]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:103:#/document:[2]",
-      "target": "ent:deepseek:2401.12345:reference_item:178",
+      "target": "ent:deepseek:example02:reference_item:178",
       "marker_type": "bibliography",
       "label": "[2]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:104:#/document:[3]",
-      "target": "ent:deepseek:2401.12345:reference_item:179",
+      "target": "ent:deepseek:example02:reference_item:179",
       "marker_type": "bibliography",
       "label": "[3]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:105:#/document:[4]",
-      "target": "ent:deepseek:2401.12345:reference_item:180",
+      "target": "ent:deepseek:example02:reference_item:180",
       "marker_type": "bibliography",
       "label": "[4]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:106:#/document:[5]",
-      "target": "ent:deepseek:2401.12345:reference_item:181",
+      "target": "ent:deepseek:example02:reference_item:181",
       "marker_type": "bibliography",
       "label": "[5]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:107:#/document:[6]",
-      "target": "ent:deepseek:2401.12345:reference_item:182",
+      "target": "ent:deepseek:example02:reference_item:182",
       "marker_type": "bibliography",
       "label": "[6]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:108:#/document:[7]",
-      "target": "ent:deepseek:2401.12345:reference_item:183",
+      "target": "ent:deepseek:example02:reference_item:183",
       "marker_type": "bibliography",
       "label": "[7]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:109:#/document:[8]",
-      "target": "ent:deepseek:2401.12345:reference_item:184",
+      "target": "ent:deepseek:example02:reference_item:184",
       "marker_type": "bibliography",
       "label": "[8]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:110:#/document:[9]",
-      "target": "ent:deepseek:2401.12345:reference_item:185",
+      "target": "ent:deepseek:example02:reference_item:185",
       "marker_type": "bibliography",
       "label": "[9]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:111:#/document:[10]",
-      "target": "ent:deepseek:2401.12345:reference_item:186",
+      "target": "ent:deepseek:example02:reference_item:186",
       "marker_type": "bibliography",
       "label": "[10]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:112:#/document:[11]",
-      "target": "ent:deepseek:2401.12345:reference_item:187",
+      "target": "ent:deepseek:example02:reference_item:187",
       "marker_type": "bibliography",
       "label": "[11]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:113:#/document:[12]",
-      "target": "ent:deepseek:2401.12345:reference_item:188",
+      "target": "ent:deepseek:example02:reference_item:188",
       "marker_type": "bibliography",
       "label": "[12]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:114:#/document:[13]",
-      "target": "ent:deepseek:2401.12345:reference_item:189",
+      "target": "ent:deepseek:example02:reference_item:189",
       "marker_type": "bibliography",
       "label": "[13]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:115:#/document:[14]",
-      "target": "ent:deepseek:2401.12345:reference_item:190",
+      "target": "ent:deepseek:example02:reference_item:190",
       "marker_type": "bibliography",
       "label": "[14]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:116:#/document:[15]",
-      "target": "ent:deepseek:2401.12345:reference_item:191",
+      "target": "ent:deepseek:example02:reference_item:191",
       "marker_type": "bibliography",
       "label": "[15]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:117:#/document:[16]",
-      "target": "ent:deepseek:2401.12345:reference_item:192",
+      "target": "ent:deepseek:example02:reference_item:192",
       "marker_type": "bibliography",
       "label": "[16]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:118:#/document:[17]",
-      "target": "ent:deepseek:2401.12345:reference_item:193",
+      "target": "ent:deepseek:example02:reference_item:193",
       "marker_type": "bibliography",
       "label": "[17]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:119:#/document:[18]",
-      "target": "ent:deepseek:2401.12345:reference_item:194",
+      "target": "ent:deepseek:example02:reference_item:194",
       "marker_type": "bibliography",
       "label": "[18]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:120:#/document:[19]",
-      "target": "ent:deepseek:2401.12345:reference_item:195",
+      "target": "ent:deepseek:example02:reference_item:195",
       "marker_type": "bibliography",
       "label": "[19]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:121:#/document:[20]",
-      "target": "ent:deepseek:2401.12345:reference_item:196",
+      "target": "ent:deepseek:example02:reference_item:196",
       "marker_type": "bibliography",
       "label": "[20]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:122:#/document:[21]",
-      "target": "ent:deepseek:2401.12345:reference_item:197",
+      "target": "ent:deepseek:example02:reference_item:197",
       "marker_type": "bibliography",
       "label": "[21]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:123:#/document:[22]",
-      "target": "ent:deepseek:2401.12345:reference_item:198",
+      "target": "ent:deepseek:example02:reference_item:198",
       "marker_type": "bibliography",
       "label": "[22]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:124:#/document:[23]",
-      "target": "ent:deepseek:2401.12345:reference_item:199",
+      "target": "ent:deepseek:example02:reference_item:199",
       "marker_type": "bibliography",
       "label": "[23]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:125:#/document:[24]",
-      "target": "ent:deepseek:2401.12345:reference_item:200",
+      "target": "ent:deepseek:example02:reference_item:200",
       "marker_type": "bibliography",
       "label": "[24]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:126:#/document:[25]",
-      "target": "ent:deepseek:2401.12345:reference_item:201",
+      "target": "ent:deepseek:example02:reference_item:201",
       "marker_type": "bibliography",
       "label": "[25]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:127:#/document:[26]",
-      "target": "ent:deepseek:2401.12345:reference_item:202",
+      "target": "ent:deepseek:example02:reference_item:202",
       "marker_type": "bibliography",
       "label": "[26]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:128:#/document:[27]",
-      "target": "ent:deepseek:2401.12345:reference_item:203",
+      "target": "ent:deepseek:example02:reference_item:203",
       "marker_type": "bibliography",
       "label": "[27]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:129:#/document:[28]",
-      "target": "ent:deepseek:2401.12345:reference_item:204",
+      "target": "ent:deepseek:example02:reference_item:204",
       "marker_type": "bibliography",
       "label": "[28]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:130:#/document:[29]",
-      "target": "ent:deepseek:2401.12345:reference_item:205",
+      "target": "ent:deepseek:example02:reference_item:205",
       "marker_type": "bibliography",
       "label": "[29]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:131:#/document:[30]",
-      "target": "ent:deepseek:2401.12345:reference_item:206",
+      "target": "ent:deepseek:example02:reference_item:206",
       "marker_type": "bibliography",
       "label": "[30]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:132:#/document:[31]",
-      "target": "ent:deepseek:2401.12345:reference_item:207",
+      "target": "ent:deepseek:example02:reference_item:207",
       "marker_type": "bibliography",
       "label": "[31]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:133:#/document:[32]",
-      "target": "ent:deepseek:2401.12345:reference_item:208",
+      "target": "ent:deepseek:example02:reference_item:208",
       "marker_type": "bibliography",
       "label": "[32]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:134:#/document:[33]",
-      "target": "ent:deepseek:2401.12345:reference_item:209",
+      "target": "ent:deepseek:example02:reference_item:209",
       "marker_type": "bibliography",
       "label": "[33]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:135:#/document:[34]",
-      "target": "ent:deepseek:2401.12345:reference_item:210",
+      "target": "ent:deepseek:example02:reference_item:210",
       "marker_type": "bibliography",
       "label": "[34]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:136:#/document:[35]",
-      "target": "ent:deepseek:2401.12345:reference_item:211",
+      "target": "ent:deepseek:example02:reference_item:211",
       "marker_type": "bibliography",
       "label": "[35]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:137:#/document:[36]",
-      "target": "ent:deepseek:2401.12345:reference_item:212",
+      "target": "ent:deepseek:example02:reference_item:212",
       "marker_type": "bibliography",
       "label": "[36]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:138:#/document:[37]",
-      "target": "ent:deepseek:2401.12345:reference_item:213",
+      "target": "ent:deepseek:example02:reference_item:213",
       "marker_type": "bibliography",
       "label": "[37]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:139:#/document:[38]",
-      "target": "ent:deepseek:2401.12345:reference_item:214",
+      "target": "ent:deepseek:example02:reference_item:214",
       "marker_type": "bibliography",
       "label": "[38]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:140:#/document:[39]",
-      "target": "ent:deepseek:2401.12345:reference_item:215",
+      "target": "ent:deepseek:example02:reference_item:215",
       "marker_type": "bibliography",
       "label": "[39]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:141:#/document:[40]",
-      "target": "ent:deepseek:2401.12345:reference_item:216",
+      "target": "ent:deepseek:example02:reference_item:216",
       "marker_type": "bibliography",
       "label": "[40]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:142:#/document:[41]",
-      "target": "ent:deepseek:2401.12345:reference_item:217",
+      "target": "ent:deepseek:example02:reference_item:217",
       "marker_type": "bibliography",
       "label": "[41]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:143:#/document:Fig. 2",
-      "target": "ent:deepseek:2401.12345:caption:237",
+      "target": "ent:deepseek:example02:caption:237",
       "marker_type": "figure",
       "label": "Fig. 2",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:144:#/document:Fig. 2",
-      "target": "ent:deepseek:2401.12345:caption:237",
+      "target": "ent:deepseek:example02:caption:237",
       "marker_type": "figure",
       "label": "Fig. 2",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:145:#/document:Fig. 2",
-      "target": "ent:deepseek:2401.12345:caption:237",
+      "target": "ent:deepseek:example02:caption:237",
       "marker_type": "figure",
       "label": "Fig. 2",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:146:#/document:Fig. 2",
-      "target": "ent:deepseek:2401.12345:caption:237",
+      "target": "ent:deepseek:example02:caption:237",
       "marker_type": "figure",
       "label": "Fig. 2",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:147:#/document:Fig. 2",
-      "target": "ent:deepseek:2401.12345:caption:237",
+      "target": "ent:deepseek:example02:caption:237",
       "marker_type": "figure",
       "label": "Fig. 2",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:148:#/document:Fig. 3",
-      "target": "ent:deepseek:2401.12345:caption:250",
+      "target": "ent:deepseek:example02:caption:250",
       "marker_type": "figure",
       "label": "Fig. 3",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:149:#/document:Fig. 2",
-      "target": "ent:deepseek:2401.12345:caption:237",
+      "target": "ent:deepseek:example02:caption:237",
       "marker_type": "figure",
       "label": "Fig. 2",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:150:#/document:Fig. 3",
-      "target": "ent:deepseek:2401.12345:caption:250",
+      "target": "ent:deepseek:example02:caption:250",
       "marker_type": "figure",
       "label": "Fig. 3",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:151:#/document:Fig. 3",
-      "target": "ent:deepseek:2401.12345:caption:250",
+      "target": "ent:deepseek:example02:caption:250",
       "marker_type": "figure",
       "label": "Fig. 3",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "document:example02/regex+deepseek",
+      "target": "page:example02/regex+deepseek:1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+deepseek",
+      "target": "page:example02/regex+deepseek:2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:1",
+      "target": "page:example02/regex+deepseek:2",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+deepseek",
+      "target": "page:example02/regex+deepseek:3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:2",
+      "target": "page:example02/regex+deepseek:3",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+deepseek",
+      "target": "page:example02/regex+deepseek:4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:3",
+      "target": "page:example02/regex+deepseek:4",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+deepseek",
+      "target": "page:example02/regex+deepseek:5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:4",
+      "target": "page:example02/regex+deepseek:5",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+deepseek",
+      "target": "page:example02/regex+deepseek:6",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:5",
+      "target": "page:example02/regex+deepseek:6",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+deepseek",
+      "target": "page:example02/regex+deepseek:7",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:6",
+      "target": "page:example02/regex+deepseek:7",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+deepseek",
+      "target": "page:example02/regex+deepseek:8",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:7",
+      "target": "page:example02/regex+deepseek:8",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+deepseek",
+      "target": "page:example02/regex+deepseek:9",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:8",
+      "target": "page:example02/regex+deepseek:9",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+deepseek",
+      "target": "page:example02/regex+deepseek:10",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:9",
+      "target": "page:example02/regex+deepseek:10",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+deepseek",
+      "target": "page:example02/regex+deepseek:11",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:10",
+      "target": "page:example02/regex+deepseek:11",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+deepseek",
+      "target": "page:example02/regex+deepseek:12",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:11",
+      "target": "page:example02/regex+deepseek:12",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+deepseek",
+      "target": "page:example02/regex+deepseek:13",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:12",
+      "target": "page:example02/regex+deepseek:13",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+deepseek",
+      "target": "page:example02/regex+deepseek:14",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:13",
+      "target": "page:example02/regex+deepseek:14",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+deepseek",
+      "target": "page:example02/regex+deepseek:15",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:14",
+      "target": "page:example02/regex+deepseek:15",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+deepseek",
+      "target": "page:example02/regex+deepseek:16",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:15",
+      "target": "page:example02/regex+deepseek:16",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+deepseek",
+      "target": "page:example02/regex+deepseek:17",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:16",
+      "target": "page:example02/regex+deepseek:17",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+deepseek",
+      "target": "section:bibliography:example02/regex+deepseek",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example02/regex+deepseek",
+      "target": "section:markers:example02/regex+deepseek",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:0:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:1:#/document:[3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:2:#/document:[4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:3:#/document:[9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:4:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:5:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:6:#/document:[13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:7:#/document:[18]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:8:#/document:[19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:9:#/document:Eq. (11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:10:#/document:[20]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:11:#/document:Eq. (12)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:12:#/document:[21]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:13:#/document:[23]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:14:#/document:[13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:15:#/document:[18]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:16:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:17:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:18:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:19:#/document:[26]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:20:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:21:#/document:Definition 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:22:#/document:Definition 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:23:#/document:Definition 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:24:#/document:Definition 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:25:#/document:Definition 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:26:#/document:[29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:27:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:28:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:29:#/document:Definition 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:30:#/document:Definition 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:31:#/document:[19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:32:#/document:Eq. (11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:33:#/document:Definition 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:34:#/document:Definition 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:35:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:36:#/document:Definition 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:37:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:38:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:39:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:40:#/document:Definition 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:41:#/document:Definition 6",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:42:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:43:#/document:Example 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:44:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:45:#/document:Eq. (10)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:46:#/document:Example 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:47:#/document:[20]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:48:#/document:Eq. (12)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:49:#/document:Example 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:50:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:51:#/document:Definition 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:52:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:53:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:54:#/document:Theorem 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:55:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:56:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:57:#/document:Corollary 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:58:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:59:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:60:#/document:[34]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:61:#/document:[35]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:62:#/document:Corollary 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:63:#/document:Corollary 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:64:#/document:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:65:#/document:Example 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:66:#/document:Example 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:67:#/document:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:68:#/document:Theorem 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:69:#/document:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:70:#/document:Theorem 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:71:#/document:Theorem 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:72:#/document:Theorem 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:73:#/document:Eq. (4)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:74:#/document:(15.110)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:75:#/document:(15.113)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:76:#/document:Corollary 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:77:#/document:Corollary 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:78:#/document:Corollary 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:79:#/document:Corollary 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:80:#/document:Corollary 5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:81:#/document:Theorem 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:82:#/document:Eq. (70)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:83:#/document:[0, 0]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:84:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:85:#/document:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:86:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:87:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:88:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:89:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:90:#/document:Fig. 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:91:#/document:Fig. 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:92:#/document:[37]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:93:#/document:[38]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:94:#/document:[39]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:95:#/document:[40]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:96:#/document:[32]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:97:#/document:Corollary 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:98:#/document:Example 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:99:#/document:PROOF OF LEMMA 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:100:#/document:Corollary 3.3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:101:#/document:PROOF OF THEOREM 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:102:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:103:#/document:[2]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:104:#/document:[3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:105:#/document:[4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:106:#/document:[5]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:107:#/document:[6]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:108:#/document:[7]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:109:#/document:[8]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:110:#/document:[9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:111:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:112:#/document:[11]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:113:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:114:#/document:[13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:115:#/document:[14]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:116:#/document:[15]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:117:#/document:[16]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:118:#/document:[17]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:119:#/document:[18]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:120:#/document:[19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:121:#/document:[20]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:122:#/document:[21]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:123:#/document:[22]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:124:#/document:[23]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:125:#/document:[24]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:126:#/document:[25]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:127:#/document:[26]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:128:#/document:[27]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:129:#/document:[28]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:130:#/document:[29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:131:#/document:[30]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:132:#/document:[31]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:133:#/document:[32]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:134:#/document:[33]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:135:#/document:[34]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:136:#/document:[35]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:137:#/document:[36]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:138:#/document:[37]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:139:#/document:[38]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:140:#/document:[39]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:141:#/document:[40]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:142:#/document:[41]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:143:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:144:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:145:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:146:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:147:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:148:#/document:Fig. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:149:#/document:Fig. 2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:150:#/document:Fig. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example02/regex+deepseek",
+      "target": "marker:151:#/document:Fig. 3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:177",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:179",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:180",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:185",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:186",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:188",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:189",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:194",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:195",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:3",
+      "target": "ent:deepseek:example02:equation:22",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:196",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:3",
+      "target": "ent:deepseek:example02:equation:23",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:197",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:199",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:189",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:194",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:186",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:188",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:202",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:205",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:195",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:3",
+      "target": "ent:deepseek:example02:equation:22",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:3",
+      "target": "ent:deepseek:example02:equation:21",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:196",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:3",
+      "target": "ent:deepseek:example02:equation:23",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:210",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:211",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:3",
+      "target": "ent:deepseek:example02:equation:13",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:10",
+      "target": "ent:deepseek:example02:equation:112",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:186",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:188",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:186",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:188",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:14",
+      "target": "ent:deepseek:example02:caption:151",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:14",
+      "target": "ent:deepseek:example02:caption:151",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:213",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:214",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:215",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:216",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:208",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:177",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:178",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:179",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:180",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:181",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:182",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:183",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:184",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:185",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:186",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:187",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:188",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:189",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:190",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:191",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:192",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:193",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:194",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:195",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:196",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:197",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:198",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:199",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:200",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:201",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:202",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:203",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:204",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:205",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:206",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:207",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:208",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:209",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:210",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:211",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:212",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:213",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:214",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:215",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:216",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example02/regex+deepseek",
+      "target": "ent:deepseek:example02:reference_item:217",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:17",
+      "target": "ent:deepseek:example02:caption:237",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:17",
+      "target": "ent:deepseek:example02:caption:237",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:17",
+      "target": "ent:deepseek:example02:caption:237",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:17",
+      "target": "ent:deepseek:example02:caption:237",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:17",
+      "target": "ent:deepseek:example02:caption:237",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:17",
+      "target": "ent:deepseek:example02:caption:250",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:17",
+      "target": "ent:deepseek:example02:caption:237",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:17",
+      "target": "ent:deepseek:example02:caption:250",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example02/regex+deepseek:17",
+      "target": "ent:deepseek:example02:caption:250",
+      "edge_kind": "contains",
+      "label": ""
     }
   ],
   "metadata": {
     "doc_hash": "sha256:bad03db1791be9cd52d706ee8dd166bb3a710afa94c077d3308b7e8b023db106",
     "total_markers": 152,
-    "resolved_count": 83,
-    "unresolved_count": 69,
+    "resolved_count": 90,
+    "unresolved_count": 62,
     "backend_versions": {
       "regex": "0.1.0"
-    }
+    },
+    "has_hierarchy": true
   }
 }

@@ -21,6 +21,31 @@ from pdf2md.config import get_enabled_backends
 _SAFE_NAME_RE = re.compile(r"^[A-Za-z0-9._-]+$")
 
 
+def _env_python_path(env_name: str) -> Path | None:
+    """Return the absolute path to ``<conda>/envs/<env_name>/bin/python``.
+
+    Used by :func:`plan_backend_command` to bypass ``conda run``'s
+    PATH-leaking issue (see comment in :func:`plan_backend_command`).
+    Resolves the conda installation root from common environment
+    variables; returns ``None`` when no candidate path exists, so
+    callers can fall back to ``conda run``.
+    """
+    candidates: list[Path] = []
+    conda_prefix = os.environ.get("CONDA_PREFIX")
+    if conda_prefix:
+        candidates.append(Path(conda_prefix).parent.parent / "envs" / env_name / "bin" / "python")
+    conda_root = os.environ.get("CONDA_ROOT") or os.environ.get("CONDA_EXE")
+    if conda_root:
+        candidates.append(Path(conda_root).parent.parent / "envs" / env_name / "bin" / "python")
+    # Final fallback — the canonical layout when conda is installed in
+    # the user's home directory.
+    candidates.append(Path.home() / "miniconda3" / "envs" / env_name / "bin" / "python")
+    for cand in candidates:
+        if cand.is_file():
+            return cand
+    return None
+
+
 def validate_safe_run_name(name: str) -> str:
     """Validate that a string is safe for use as a run directory name.
 
@@ -85,24 +110,50 @@ def plan_backend_command(repo_root: Path, backend_name: str, backend_cfg: dict, 
     Returns:
         Command argv suitable for passing to :func:`subprocess.run`.
     """
-    cmd = [
-        "conda",
-        "run",
-        "-n",
-        backend_cfg["env_name"],
-        "--cwd",
-        str(repo_root),
-        "python",
-        backend_cfg["script"],
-        "-i",
-        str(input_pdf_abs),
-        "-o",
-        str(raw_dir / "output.md"),
-        "--json-out",
-        str(raw_dir / "manifest.json"),
-        "--out-dir",
-        str(raw_dir),
-    ]
+    # `conda run -n NAME python …` is unreliable when the parent shell
+    # already has a different conda env on PATH — depending on the
+    # target env's activate.d/ scripts, `conda run` may APPEND the
+    # target env's bin/ to PATH instead of PREPENDING it, so `python`
+    # resolves to the wrong interpreter. We've seen this break
+    # paddleocr / mineru subprocess launches with
+    # ``No module named 'paddleocr'`` while the env is healthy.
+    # Bypass the issue by invoking the env's python binary by
+    # absolute path. Falls back to `conda run … python` when the
+    # absolute path isn't found (non-default conda layouts).
+    env_name = backend_cfg["env_name"]
+    env_python = _env_python_path(env_name)
+    if env_python is not None:
+        cmd = [
+            str(env_python),
+            backend_cfg["script"],
+            "-i",
+            str(input_pdf_abs),
+            "-o",
+            str(raw_dir / "output.md"),
+            "--json-out",
+            str(raw_dir / "manifest.json"),
+            "--out-dir",
+            str(raw_dir),
+        ]
+    else:
+        cmd = [
+            "conda",
+            "run",
+            "-n",
+            env_name,
+            "--cwd",
+            str(repo_root),
+            "python",
+            backend_cfg["script"],
+            "-i",
+            str(input_pdf_abs),
+            "-o",
+            str(raw_dir / "output.md"),
+            "--json-out",
+            str(raw_dir / "manifest.json"),
+            "--out-dir",
+            str(raw_dir),
+        ]
     args = backend_cfg.get("args", {})
     mapping = {"lang": "--lang", "device": "--device", "model_path": "--model-path", "model_id": "--model-id", "models_dir": "--models-dir"}
     for key, flag in mapping.items():

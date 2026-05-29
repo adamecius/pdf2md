@@ -2,15 +2,21 @@
   "examples": [
     {
       "id": "example01",
-      "label": "example01 — Hall conductivity (1410.8140)",
+      "label": "example01 \u2014 Hall conductivity (1410.8140)",
       "kind": "physics",
       "notes": "Physics paper, no \"References\" heading, equations numbered (N)."
     },
     {
       "id": "example02",
-      "label": "example02 — Math/CS paper (2401.12345)",
+      "label": "example02 \u2014 Math/CS paper (2401.12345)",
       "kind": "math",
       "notes": "Math/CS paper with theorems, definitions, corollaries; bibliography with [N] markers."
+    },
+    {
+      "id": "example3",
+      "label": "example3 \u2014 book_1.pdf (791 pages)",
+      "kind": "book",
+      "notes": "Real book fixture for Plan 7 book-class validation and Plan 6 Index/Glossary detector exercise."
     }
   ],
   "semantic_backends": [
@@ -28,11 +34,29 @@
       "id": "vlm_v4",
       "label": "DeepSeek-VL2 (v4 prompt)",
       "notes": "Vision-language model; works on page images. v4 prompt drops math types from the default."
+    },
+    {
+      "id": "consensus",
+      "label": "consensus (regex \u222a grobid \u222a vlm_v4)",
+      "notes": "Best-of-confidence merge of all three semantic backends via merge_graphs. The Plan 7 mixer down-weights GROBID on book-class inputs so regex/VLM win more tie-breaks."
     }
   ],
   "ocr_backends": [
-    { "id": "deepseek", "label": "deepseek (highest entity coverage)" },
-    { "id": "mineru",   "label": "mineru (medium coverage)" },
-    { "id": "paddleocr","label": "paddleocr (lightweight)" }
+    {
+      "id": "deepseek",
+      "label": "deepseek (highest entity coverage)"
+    },
+    {
+      "id": "mineru",
+      "label": "mineru (medium coverage)"
+    },
+    {
+      "id": "paddleocr",
+      "label": "paddleocr (lightweight)"
+    },
+    {
+      "id": "consensus",
+      "label": "consensus (deepseek \u222a mineru \u222a paddleocr)"
+    }
   ]
 }

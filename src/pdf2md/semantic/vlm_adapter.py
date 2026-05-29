@@ -13,6 +13,7 @@ The adapter does NOT import ``torch`` or ``transformers`` from the main
 
 from __future__ import annotations
 
+import json
 import shutil
 import subprocess
 import sys
@@ -20,7 +21,6 @@ from pathlib import Path
 
 from pdf2md.models.cross_ref import CrossReferenceGraph
 from pdf2md.semantic.base import SemanticBackend
-
 
 BACKEND_NAME = "vlm"
 BACKEND_VERSION = "0.1.0"
@@ -120,12 +120,20 @@ class VlmSemanticBackend(SemanticBackend):
         self._timeout_s = timeout_s
 
     def name(self) -> str:
+        """Return the canonical backend identifier (``"vlm"``)."""
         return BACKEND_NAME
 
     def version(self) -> str:
+        """Return the pinned backend version string."""
         return BACKEND_VERSION
 
     def is_available(self) -> bool:
+        """Return whether the isolated VL2 conda env + connector exist.
+
+        Cheap: only checks the connector script's presence and that
+        ``conda env list`` shows ``pdf2md-deepseek-vl2``. The actual
+        model load is deferred to :meth:`extract`.
+        """
         if not _connector_path().is_file():
             return False
         return _conda_env_exists(self._env_name)
@@ -136,6 +144,31 @@ class VlmSemanticBackend(SemanticBackend):
         text: str | None,
         output_dir: Path,
     ) -> CrossReferenceGraph:
+        """Run DeepSeek-VL2 on a single page image and return its graph.
+
+        The backend is invoked as a subprocess inside its dedicated
+        conda env (``pdf2md-deepseek-vl2``) so torch / transformers
+        stay isolated from the main pdf2md env.
+
+        Args:
+            pdf_path: Path to a rendered page image (PNG/JPG). The
+                parameter is called ``pdf_path`` for compatibility with
+                the :class:`SemanticBackend` ABC — the VLM consumes
+                images, not raw PDFs.
+            text: Ignored.
+            output_dir: Directory the connector writes its
+                ``cross_references.json`` to.
+
+        Returns:
+            The :class:`CrossReferenceGraph` produced by the standalone
+            VL2 connector.
+
+        Raises:
+            ValueError: When ``pdf_path`` is missing or not a file.
+            RuntimeError: When the conda env or connector script is
+                missing, when the env's python binary can't be found,
+                or when the subprocess exits non-zero.
+        """
         del text
         if pdf_path is None or not pdf_path.is_file():
             raise ValueError(
@@ -209,7 +242,7 @@ class VlmSemanticBackend(SemanticBackend):
         )
 
 
-__all__ = ["VlmSemanticBackend", "BACKEND_NAME", "BACKEND_VERSION", "CONDA_ENV_NAME"]
+__all__ = ["BACKEND_NAME", "BACKEND_VERSION", "CONDA_ENV_NAME", "VlmSemanticBackend"]
 
 
 if __name__ == "__main__":  # pragma: no cover — diagnostic helper

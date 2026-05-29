@@ -14,8 +14,8 @@ ground-truth comes from LaTeXML).
 
 from __future__ import annotations
 
+from collections.abc import Iterable
 from dataclasses import dataclass, field
-from typing import Iterable
 
 from pdf2md.models.cross_ref import CrossReferenceGraph, RefEdge, RefMarker, SemanticEntity
 
@@ -159,10 +159,7 @@ def _evaluate_resolution(
         per_type_totals[marker_type] = per_type_totals.get(marker_type, 0) + 1
         ext_t = _normalise_target(ext.target_ref)
         tru_t = _normalise_target(tru.target_ref)
-        if ext.resolved and tru.resolved and ext_t == tru_t:
-            correct += 1
-            per_type_correct[marker_type] = per_type_correct.get(marker_type, 0) + 1
-        elif not ext.resolved and not tru.resolved:
+        if (ext.resolved and tru.resolved and ext_t == tru_t) or (not ext.resolved and not tru.resolved):
             correct += 1
             per_type_correct[marker_type] = per_type_correct.get(marker_type, 0) + 1
 

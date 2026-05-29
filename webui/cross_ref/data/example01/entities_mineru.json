@@ -38,7 +38,38 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:2",
+      "id": "ent:mineru:1410.8140:section:2",
+      "entity_type": "section",
+      "subtype": null,
+      "canonical_text": "Jose H. Garc´ıa,1 Lucian Covaci,2 and Tatiana G. Rappoport1",
+      "page_no": 1,
+      "block_ids": [
+        "mineru:1410.8140:p1:b1"
+      ],
+      "confidence": 0.75,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "block_text",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b1",
+          "raw_ref": "output.md",
+          "text": "Jose H. Garc´ıa,1 Lucian Covaci,2 and Tatiana G. Rappoport1",
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "heading_section_detector",
+          "metadata": {}
+        }
+      ],
+      "calibration_key": "mineru:section:heading_section_detector",
+      "metadata": {
+        "detector": "heading_section_detector",
+        "heading_level": 2,
+        "numbering": null
+      }
+    },
+    {
+      "id": "ent:mineru:1410.8140:equation:3",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\tilde {\\sigma} _ {\\alpha \\beta} (\\mu , T) = \\frac {i e ^ {2} \\hbar}{\\Omega} \\int_ {- \\infty} ^ {\\infty} d \\varepsilon f (\\varepsilon) (1)\n$$",
@@ -69,7 +100,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:3",
+      "id": "ent:mineru:1410.8140:equation:4",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\times \\mathrm{Tr} \\left\\langle v _ {\\alpha} \\delta (\\varepsilon - H) v _ {\\beta} \\frac {d G ^ {+} (\\varepsilon)}{d \\varepsilon} - v _ {\\alpha} \\frac {d G ^ {-} (\\varepsilon)}{d \\varepsilon} v _ {\\beta} \\delta (\\varepsilon - H) \\right\\rangle ,\n$$",
@@ -100,7 +131,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:4",
+      "id": "ent:mineru:1410.8140:equation:5",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\delta (\\tilde {\\varepsilon} - \\tilde {H}) = \\frac {2}{\\pi \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {M} g _ {m} \\frac {T _ {m} (\\tilde {\\varepsilon})}{\\delta_ {m , 0} + 1} T _ {m} (\\tilde {H}), \\tag {2}\n$$",
@@ -131,7 +162,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:5",
+      "id": "ent:mineru:1410.8140:equation:6",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\nG ^ {\\pm} (\\tilde {\\varepsilon}, \\tilde {H}) = \\mp \\frac {2 i}{\\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {M} g _ {m} \\frac {\\mathrm{e} ^ {\\pm i m \\arccos (\\tilde {\\varepsilon})}}{\\delta_ {m , 0} + 1} T _ {m} (\\tilde {H}). (3)\n$$",
@@ -162,7 +193,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:6",
+      "id": "ent:mineru:1410.8140:equation:7",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\sigma_ {\\alpha \\beta} (\\mu , T) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\frac {4}{\\Delta E ^ {2}} \\int_ {- 1} ^ {1} d \\tilde {\\varepsilon} \\frac {f (\\tilde {\\varepsilon})}{(1 - \\tilde {\\varepsilon} ^ {2}) ^ {2}} \\sum_ {m, n} \\Gamma_ {n m} (\\tilde {\\varepsilon}) \\mu_ {n m} ^ {\\alpha \\beta} \\tag {4}\n$$",
@@ -193,7 +224,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:7",
+      "id": "ent:mineru:1410.8140:equation:8",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\Gamma_ {m n} (\\tilde {\\varepsilon}) \\equiv [ (\\tilde {\\varepsilon} - i n \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}) \\mathrm{e} ^ {i n \\arccos (\\tilde {\\varepsilon})} T _ {m} (\\tilde {\\varepsilon}) \\tag {5}\n$$",
@@ -224,7 +255,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:8",
+      "id": "ent:mineru:1410.8140:equation:9",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n+ (\\tilde {\\varepsilon} + i m \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}) \\mathrm{e} ^ {- i m \\arccos (\\tilde {\\varepsilon})} T _ {n} (\\tilde {\\varepsilon}) ].\n$$",
@@ -255,7 +286,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:figure:9",
+      "id": "ent:mineru:1410.8140:figure:10",
       "entity_type": "figure",
       "subtype": null,
       "canonical_text": "![](images/474cc0bad41d00dd5e5ef586a0eb7adfa0227898b02b396eac018848b441703e.jpg)",
@@ -284,7 +315,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:caption:10",
+      "id": "ent:mineru:1410.8140:caption:11",
       "entity_type": "caption",
       "subtype": null,
       "canonical_text": "FIG. 1. (a) $\\sigma _ { x x }$ (solid line) and $\\sigma _ { x y }$ (dashed line) for $k _ { B } T = 0$ (black) and $k _ { B } T / t = 0 . 0 0 4$ (red). (b) Electronic density of states $\\mathrm { ( c ) } ~ \\sigma _ { x x }$ away from the Dirac point where Shubnikov-de Haas oscillations can be observed for $k _ { B } T / t = 0 . 0 0 2$ (black) , $k _ { B } T / t = 0 . 0 0 4$ (red), $k _ { B } T / t = 0 . 0 0 8$ (blue) . The parameters in panels $\\mathrm { { ( a ) - ( c ) } }$ are $\\phi / \\phi _ { 0 }$ ≈ $1 \\times 1 0 ^ { - 3 }$ , $S R = 2 0 0$ , $M = 6 1 4 4$ and $N = 2 \\times$ 128 × 1024 sites where we use a rectangular geometry to minimize the magnetic flux per unit cell in a system with periodic boundary conditions.",
@@ -315,7 +346,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:figure:11",
+      "id": "ent:mineru:1410.8140:figure:12",
       "entity_type": "figure",
       "subtype": null,
       "canonical_text": "![](images/84dfefd29e307c5cf1ad6b7987e6551ad84d2b4ae8144676536f061a2917dbf6.jpg)  \nFIG. 2. Analysis of the dependency on the number of random vectors and disorder realizations SR and moments M: (a) $\\sigma _ { x x }$ and (b) $\\sigma _ { x y }$ for $S R = 2 0 0$ and $M = 2 0 4 8$ (blue), 4096 (red) and 6144 (black). (c) $\\sigma _ { x x }$ and (d) $\\sigma _ { x y }$ for $M = 6 1 4 4$ and SR = 25 (blue), 50 (red) and 200 (black). In panels $\\mathrm { ( a ) - ( d ) }$ , $\\phi / \\phi _ { 0 } = 5 \\times 1 0 ^ { - 3 }$ , and $N = 2 \\times 1 2 8 \\times$ 1024 sites",
@@ -344,7 +375,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:12",
+      "id": "ent:mineru:1410.8140:equation:13",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\mathcal {H} = - t \\sum_ {\\langle i, j \\rangle} c _ {i} ^ {\\dagger} c _ {j} + t _ {2} \\sum_ {\\langle \\langle i, j \\rangle \\rangle} e ^ {i \\phi_ {i j}} c _ {i} ^ {\\dagger} c _ {j} \\pm \\frac {\\Delta_ {A B}}{2} \\sum_ {i \\in A / B} c _ {i} ^ {\\dagger} c _ {i}, \\tag {6}\n$$",
@@ -375,7 +406,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:figure:13",
+      "id": "ent:mineru:1410.8140:figure:14",
       "entity_type": "figure",
       "subtype": null,
       "canonical_text": "![](images/7c3acecdfd7ea28f4e69fc5076f8f7132e8752f102c5fef26d2f66955c666175.jpg)",
@@ -404,7 +435,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:figure:14",
+      "id": "ent:mineru:1410.8140:figure:15",
       "entity_type": "figure",
       "subtype": null,
       "canonical_text": "![](images/47f54e2a5263f1ec28b1a0cbeb0b41c5757815c29984fc7f034d92e4532f1e4b.jpg)",
@@ -433,7 +464,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:figure:15",
+      "id": "ent:mineru:1410.8140:figure:16",
       "entity_type": "figure",
       "subtype": null,
       "canonical_text": "![](images/9612d0498911319ed28991e158183fa4e821a20bf0a435a421944b1542fccf37.jpg)",
@@ -462,7 +493,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:figure:16",
+      "id": "ent:mineru:1410.8140:figure:17",
       "entity_type": "figure",
       "subtype": null,
       "canonical_text": "![](images/eaac45363054d93e963713617de3f5f17db2e68a0f9dcb3bcbea62ef0f9ddb3c.jpg)",
@@ -491,7 +522,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:caption:17",
+      "id": "ent:mineru:1410.8140:caption:18",
       "entity_type": "caption",
       "subtype": null,
       "canonical_text": "FIG. 3. $\\rho _ { x x }$ (solid line) and $\\rho _ { x y }$ (dashed line) for HM with (a) $\\Delta _ { T } = 0 . 1 t , \\Delta _ { A B } = 0$ and $\\gamma = 0 .$ .2t for $k _ { B } T = 0$ (black) and $k _ { B } T = 0 . 1 6 t$ (red); (b) $\\Delta _ { T } = 0 . 1 t , \\Delta _ { A B } = 0$ and $k _ { B } T = 0$ for $\\gamma = 0$ .4t(black) and $\\gamma = 1 . 8 t$ (red); (c) $\\Delta _ { T } = 0 . 5 t$ , $\\Delta _ { A B } =$ 0.4t and $k _ { B } T = 0$ for $\\gamma = 0 . 2 t$ (black) and $\\gamma = 1 . 8 t$ (red). The green arrow indicates the increase of the topological region with disorder. The system sizes in panels $D = 2 \\times L \\times L$ with $L = 5 1 2$ (a), $L = 2 5 6$ (b-c) and $S R > 2 0 0$ . Panel (d) illustrates the different gap sizes at K and $K ^ { \\prime }$ for $\\Delta _ { A B } \\neq 0 .$ .",
@@ -522,7 +553,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:18",
+      "id": "ent:mineru:1410.8140:footnote:19",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[1] A. Bastin, C. Lewinner, O. Betbeder-Matibet and P. Nozieres, J. Phys. Chem. Solids 32, 1811 (1971).",
@@ -553,7 +584,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:19",
+      "id": "ent:mineru:1410.8140:footnote:20",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[2] E. H. Hall, Am. J. Math 2, 287 (1879).",
@@ -584,7 +615,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:20",
+      "id": "ent:mineru:1410.8140:footnote:21",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[3] N. Nagaosa, J. Sinova, S. Onoda, A. H. MacDonald and N. P. Ong, Rev. Mod. Phys. 82, 1539 (2010).",
@@ -615,7 +646,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:21",
+      "id": "ent:mineru:1410.8140:footnote:22",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[4] T. Jungwirth, J. Wunderlich and K. Olejnik, Nature Mat. 11, 382 (2012).",
@@ -646,7 +677,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:22",
+      "id": "ent:mineru:1410.8140:footnote:23",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[5] K. Klitzing, G. Dorda, M. Pepper, Phys. Rev. Lett. 45, 494 (1980).",
@@ -677,7 +708,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:23",
+      "id": "ent:mineru:1410.8140:footnote:24",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[6] C.-Z.Chang et al. ,Science 340,167 (2013).",
@@ -708,7 +739,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:24",
+      "id": "ent:mineru:1410.8140:footnote:25",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[7] M.K¨onig et al., Science 318, 766(2007).",
@@ -739,7 +770,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:25",
+      "id": "ent:mineru:1410.8140:footnote:26",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[8] M. Z. Hasan and C. L. Kane, Rev. Mod. Phys. 82 3045 (2010).",
@@ -770,7 +801,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:26",
+      "id": "ent:mineru:1410.8140:footnote:27",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[9] R. Kubo, J. Phys. Soc. Japan 12, 570 (1957); R. Kubo, A. Yokota, and S. Nakajima, J. Phys. Soc. Japan 12,1203 (1957).",
@@ -801,7 +832,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:27",
+      "id": "ent:mineru:1410.8140:footnote:28",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[10] D.J. Thouless, M. Kohmoto, M. P. Nightingale and M. den Nijs, Phys. Rev. Lett. 49, 405 (1982).",
@@ -832,7 +863,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:28",
+      "id": "ent:mineru:1410.8140:footnote:29",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[11] Yisong Zheng and Tsuneya Ando, Phys. Rev. B 65, 245420 (2002).",
@@ -863,7 +894,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:29",
+      "id": "ent:mineru:1410.8140:footnote:30",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[12] D. N. Sheng, L. Sheng, and Z. Y. Weng, Phys. Rev. B 73, 233406 (2006).",
@@ -894,7 +925,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:30",
+      "id": "ent:mineru:1410.8140:footnote:31",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[13] Yu Xue and Emil Prodan, Phys. Rev. B 86, 155445 (2012).",
@@ -925,7 +956,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:31",
+      "id": "ent:mineru:1410.8140:footnote:32",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[14] Frank Ortmann and Stephan Roche, Phys. Rev. Lett. 110, 086602 (2013).",
@@ -956,7 +987,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:32",
+      "id": "ent:mineru:1410.8140:footnote:33",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[15] D. A. Greenwood, Proc. Phys. Soc. (London) 71, 585 (1958).",
@@ -987,7 +1018,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:33",
+      "id": "ent:mineru:1410.8140:footnote:34",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[16] A. Weisse, G. Wellein, A. Alvermann, H. Fehske, Rev. Mod. Phys. 78, 275(2006).",
@@ -1018,7 +1049,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:34",
+      "id": "ent:mineru:1410.8140:footnote:35",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[17] S. Roche, Phys. Rev. B 59, 2284 (1999).",
@@ -1049,7 +1080,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:35",
+      "id": "ent:mineru:1410.8140:footnote:36",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[18] S. Yuan, H. De Raedt, and M.I. Katsnelson, Phys. Rev. B 82, 115448 (2010).",
@@ -1080,7 +1111,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:36",
+      "id": "ent:mineru:1410.8140:footnote:37",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[19] Aires Ferreira, J. Viana-Gomes, Johan Nilsson, E. R. Mucciolo, N. M. R. Peres, and A. H. Castro Neto, Phys. Rev. B 83, 165402 (2011).",
@@ -1111,7 +1142,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:37",
+      "id": "ent:mineru:1410.8140:footnote:38",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[20] Z. Fan, A. Uppstu, T. Siro, and A. Harju, Computer Physics Communications 185, 28 (2014).",
@@ -1142,7 +1173,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:38",
+      "id": "ent:mineru:1410.8140:footnote:39",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[21] T. L. van den Berg, L. Raymond, A. Verga, Phys. Rev. B 84, 245210 (2011).",
@@ -1173,7 +1204,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:39",
+      "id": "ent:mineru:1410.8140:footnote:40",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[22] A. H. Castro Neto, F. Guinea, N. M. R. Peres, K. S. Novoselov, and A. K. Geim, Rev. Mod. Phys. 81, 109 (2009).",
@@ -1204,7 +1235,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:40",
+      "id": "ent:mineru:1410.8140:footnote:41",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[23] S. Das Sarma, Shaffique Adam, E. H. Hwang, Enrico Rossi, Rev. Mod. Phys. 83, 407 (2011) and references therein.",
@@ -1235,7 +1266,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:41",
+      "id": "ent:mineru:1410.8140:footnote:42",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[24] S. Gattenlohner, W.-R. Hannes, P. M. Ostrovsky, I. V. Gornyi, A. D. Mirlin, M. Titov, Phys. Rev. Lett. 112, 026802 (2014)",
@@ -1266,7 +1297,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:42",
+      "id": "ent:mineru:1410.8140:footnote:43",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[25] F. D. M. Haldane, Phys. Rev. Lett. 61, 2015 (1988).",
@@ -1297,7 +1328,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:43",
+      "id": "ent:mineru:1410.8140:footnote:44",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[26] A. Crepieux, and P. Bruno, Phys. Rev. B 64, 094434 (2001).",
@@ -1328,7 +1359,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:44",
+      "id": "ent:mineru:1410.8140:footnote:45",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[27] P. Streda, J. Phys. C: Solid State Phys. 15, L717 (1982); 15, L1299 (1982).",
@@ -1359,7 +1390,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:45",
+      "id": "ent:mineru:1410.8140:footnote:46",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[28] R.N. Silvera, H. Roederb, A.F. Votera, J.D. Kressb, Journal of Computational Physics 124, 115 (1996).",
@@ -1390,7 +1421,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:46",
+      "id": "ent:mineru:1410.8140:footnote:47",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[29] L. Covaci, F.M. Peeters, M. Berciu, Phys. Rev. Lett. 105, 167006 (2010)",
@@ -1421,7 +1452,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:47",
+      "id": "ent:mineru:1410.8140:footnote:48",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[30] M. Ganahl, P. Thunstrom, F. Verstraete, K. Held, H. G. Evertz, Phys. Rev. B. 90, 045144 (2014).",
@@ -1452,7 +1483,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:48",
+      "id": "ent:mineru:1410.8140:footnote:49",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[31] F. A. Wolf, Ian P. McCulloch, Olivier Parcollet, and Ul-",
@@ -1483,7 +1514,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:49",
+      "id": "ent:mineru:1410.8140:footnote:50",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[32] ”Numerical Analysis: Mathematics of Scientific Computing, Vol 2”, David Ronald Kincaid, Elliott Ward Cheney, American Mathematical Society (2002).",
@@ -1514,7 +1545,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:50",
+      "id": "ent:mineru:1410.8140:footnote:51",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[33] See Supplemental Material [url], which includes Refs. [42- 48]",
@@ -1545,7 +1576,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:51",
+      "id": "ent:mineru:1410.8140:footnote:52",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[34] A. Weisse, Eur. Phys. J. B 40, 125 (2004); A. Weisse, G. Schubert, H. Fehske, Physica B 359-361, 786 (2005).",
@@ -1576,7 +1607,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:52",
+      "id": "ent:mineru:1410.8140:footnote:53",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[35] R. Alben, M. Blume, H. Krakauer, L. Schwartz, Phys.Rev. B 12, 4090(1975).",
@@ -1607,7 +1638,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:53",
+      "id": "ent:mineru:1410.8140:footnote:54",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[36] Toshiaki Iitaka, Toshikazu Ebisuzaki, Phys. Rev. E,69, 057701(2004).",
@@ -1638,7 +1669,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:54",
+      "id": "ent:mineru:1410.8140:footnote:55",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[37] K. S. Novoselov, A. K. Geim, S. V. Morozov, D. Jiang, M. I. Katsnelson, I. V. Grigorieva, S. V. Dubonos, and A. A. Firsov, Nature 438, 197 (2005).",
@@ -1669,7 +1700,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:55",
+      "id": "ent:mineru:1410.8140:footnote:56",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[38] C. Z. Chang et al. Science 340 167 (2013).",
@@ -1700,7 +1731,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:56",
+      "id": "ent:mineru:1410.8140:footnote:57",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[39] Jian Li, Rui-Lin Chu, J. K. Jain, and Shun-Qing Shen, Phys. Rev. Lett. 102, 136806 (2009).",
@@ -1731,7 +1762,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:57",
+      "id": "ent:mineru:1410.8140:footnote:58",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[40] Juntao Song, Haiwen Liu, Hua Jiang, Qing-feng Sun, and X. C. Xie, Phys.Rev. B 85, 195125 (2012).",
@@ -1762,7 +1793,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:58",
+      "id": "ent:mineru:1410.8140:footnote:59",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[41] K. Sun, Z. Gu, H. Katsura, and S. Das Sarma, Phys. Rev. Lett. 106, 236803 (2011); E. Tang, J.-W. Mei, and X.-G. Wen, Phys. Rev. Lett. 106, 236802 (2011); T. Neupert, L. Santos, C. Chamon, and C. Mudry, Phys. Rev. Lett. 106, 236804 (2011).",
@@ -1793,7 +1824,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:59",
+      "id": "ent:mineru:1410.8140:footnote:60",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[42] Holger Fehske, Jens Schleede, Gerald Schubert, Gerhard Wellein, Vladimir S. Filinov, Alan R. Bishop, Phys. Lett. A 373, 2182 (2009).",
@@ -1824,7 +1855,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:60",
+      "id": "ent:mineru:1410.8140:footnote:61",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[43] J. B. Wang and T. T. Scholz , Phys. Rev. A 57, 3554 (1998).",
@@ -1855,7 +1886,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:61",
+      "id": "ent:mineru:1410.8140:footnote:62",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[44] A. Weisse and H. Fehske, Lect. Notes Phys. 739, 545577 (2008).",
@@ -1886,7 +1917,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:62",
+      "id": "ent:mineru:1410.8140:footnote:63",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[45] D. Jackson, American Mathematical Society Colloquium Publications D. Jackson, XI providence R. I. (1930).",
@@ -1917,7 +1948,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:63",
+      "id": "ent:mineru:1410.8140:footnote:64",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[46] D. A. Drabold and O. F. Sankey, Phys. Rev. Lett. 70 3631(1993).",
@@ -1948,7 +1979,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:64",
+      "id": "ent:mineru:1410.8140:footnote:65",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[47] Silver, R. N., and H. Rder Int. J. Mod. Phys. C 5 935 (1994).",
@@ -1979,7 +2010,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:65",
+      "id": "ent:mineru:1410.8140:footnote:66",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[48] Cuda Perfomance Report, September 2014.",
@@ -2010,7 +2041,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:66",
+      "id": "ent:mineru:1410.8140:equation:67",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\nT _ {m} (x) \\equiv \\cos (m \\mathrm{arcos} (x)), \\quad T _ {m + 1} (x)\n$$",
@@ -2041,7 +2072,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:67",
+      "id": "ent:mineru:1410.8140:equation:68",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\tilde {H} = \\frac {2}{\\Delta E} \\left(H - \\frac {E ^ {+} + E ^ {-}}{2}\\right), \\quad \\tilde {\\varepsilon} = \\frac {2}{\\Delta E} \\left(\\varepsilon - \\frac {E ^ {+} + E ^ {-}}{2}\\right), \\tag {7}\n$$",
@@ -2072,7 +2103,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:68",
+      "id": "ent:mineru:1410.8140:equation:69",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\tilde {\\Lambda} (\\tilde {\\varepsilon}, \\tilde {H}) = \\sum_ {k} \\tilde {\\Lambda} (\\tilde {\\varepsilon}, \\tilde {E} _ {k}) | \\tilde {E} _ {k} \\rangle \\left\\langle \\tilde {E} _ {k} \\right|, \\tag {8}\n$$",
@@ -2103,7 +2134,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:69",
+      "id": "ent:mineru:1410.8140:equation:70",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\tilde {\\Lambda} (\\tilde {\\varepsilon}, \\tilde {E} _ {k}) = \\frac {2}{\\pi} \\sum_ {m = 0} ^ {\\infty} \\Gamma_ {m} (\\tilde {\\varepsilon}) T _ {m} (\\tilde {E} _ {k}), \\quad \\Gamma_ {m} (\\tilde {\\varepsilon}) = \\frac {1}{\\delta_ {m , 0} + 1} \\int_ {- 1} ^ {1} \\frac {\\tilde {\\Lambda} (\\tilde {\\varepsilon} , \\tilde {E} _ {k}) T _ {m} (\\tilde {E} _ {k})}{\\sqrt {1 - \\tilde {E} _ {k} ^ {2}}} d \\tilde {E} _ {k}, \\tag {9}\n$$",
@@ -2134,7 +2165,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:70",
+      "id": "ent:mineru:1410.8140:equation:71",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\tilde {\\Lambda} (\\tilde {\\varepsilon}, \\tilde {H}) = \\frac {2}{\\pi} \\sum_ {m = 0} ^ {\\infty} \\Gamma_ {m} (\\tilde {\\varepsilon}) T _ {m} (\\tilde {H}), \\tag {10}\n$$",
@@ -2165,7 +2196,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:71",
+      "id": "ent:mineru:1410.8140:equation:72",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\tilde {\\rho} (\\tilde {\\varepsilon}) = \\frac {2}{\\pi \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {\\infty} \\Gamma_ {m} (\\tilde {\\varepsilon}) \\mu_ {m}, \\tag {11}\n$$",
@@ -2196,7 +2227,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:72",
+      "id": "ent:mineru:1410.8140:equation:73",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\ng _ {m} ^ {J} = \\frac {(M - m + 1) \\cos \\frac {\\pi m}{M + 1} + \\sin \\frac {\\pi m}{M + 1} \\cot \\frac {\\pi}{M + 1}}{M + 1}, \\tag {12}\n$$",
@@ -2227,7 +2258,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:73",
+      "id": "ent:mineru:1410.8140:equation:74",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n| r \\rangle \\equiv (\\xi_ {1} ^ {r}, \\dots , \\xi_ {N} ^ {r}), \\quad r = 1, \\dots , R, \\tag {13}\n$$",
@@ -2258,7 +2289,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:74",
+      "id": "ent:mineru:1410.8140:equation:75",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\langle \\langle \\xi_ {i} ^ {r} \\rangle \\rangle = 0, \\quad \\left\\langle \\left\\langle \\xi_ {i} ^ {r *} \\xi_ {j} ^ {r ^ {\\prime}} \\right\\rangle \\right\\rangle = \\delta_ {r, r ^ {\\prime}} \\delta_ {i, j}, \\tag {14}\n$$",
@@ -2289,7 +2320,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:75",
+      "id": "ent:mineru:1410.8140:equation:76",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\mathrm{Tr} \\left[ T _ {m} (\\tilde {H}) \\right] \\approx \\frac {1}{R} \\sum_ {r = 1} ^ {R} \\langle r |   T _ {m} (\\tilde {H})   | r \\rangle  . \\tag {15}\n$$",
@@ -2320,7 +2351,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:76",
+      "id": "ent:mineru:1410.8140:equation:77",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\sigma_ {\\alpha \\beta} (\\mu) = \\frac {i e ^ {2} \\hbar}{\\Omega} \\int_ {E ^ {-}} ^ {E ^ {+}} d \\varepsilon f (\\varepsilon) \\mathrm{Tr} \\left\\langle v _ {\\alpha} \\delta (\\varepsilon - H) v _ {\\beta} \\frac {d G ^ {+} (\\varepsilon , H)}{d \\varepsilon} - v _ {\\alpha} \\frac {d G ^ {-} (\\varepsilon , H)}{d \\varepsilon} v _ {\\beta} \\delta (\\varepsilon - H) \\right\\rangle . \\tag {16}\n$$",
@@ -2351,7 +2382,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:77",
+      "id": "ent:mineru:1410.8140:equation:78",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\sigma_ {\\alpha \\beta} (\\mu) = \\left(\\frac {2}{E ^ {+} - E ^ {-}}\\right) ^ {2} \\frac {i e ^ {2} \\hbar}{\\Omega} \\int_ {- 1} ^ {1} d \\tilde {\\varepsilon} f (\\tilde {\\varepsilon}, \\tilde {\\mu}) \\mathrm{Tr} \\left\\langle v _ {\\alpha} \\delta (\\tilde {\\varepsilon} - \\tilde {H}) v _ {\\beta} \\frac {d G ^ {+} (\\tilde {\\varepsilon} , \\tilde {H})}{d \\tilde {\\varepsilon}} - v _ {\\alpha} \\frac {d G ^ {-} (\\tilde {\\varepsilon} , \\tilde {H})}{d \\tilde {\\varepsilon}} v _ {\\beta} \\delta (\\tilde {\\varepsilon} - \\tilde {H}) \\right\\rangle\n$$",
@@ -2382,7 +2413,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:78",
+      "id": "ent:mineru:1410.8140:equation:79",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\sigma_ {\\alpha \\beta} (\\mu) = \\left(\\frac {2}{E ^ {+} - E ^ {-}}\\right) ^ {2} \\tilde {\\sigma} _ {\\alpha \\beta} (\\tilde {\\mu}), \\tag {17}\n$$",
@@ -2413,7 +2444,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:79",
+      "id": "ent:mineru:1410.8140:equation:80",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\delta (\\tilde {\\varepsilon} - \\tilde {H}) = \\frac {2}{\\pi \\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {\\infty} T _ {m} (\\tilde {\\varepsilon}) T _ {m} (\\tilde {H}), \\quad G ^ {\\pm} (\\tilde {\\varepsilon}, \\tilde {H}) = \\mp \\frac {2 i}{\\sqrt {1 - \\tilde {\\varepsilon} ^ {2}}} \\sum_ {m = 0} ^ {M} g _ {m} \\mathrm{e} ^ {\\pm i m \\arccos (\\tilde {\\varepsilon})} T _ {m} (\\tilde {H}). \\tag {18}\n$$",
@@ -2444,7 +2475,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:80",
+      "id": "ent:mineru:1410.8140:equation:81",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\tilde {\\sigma} _ {\\alpha \\beta} (\\tilde {\\mu}) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\int_ {- 1} ^ {1} \\frac {d \\tilde {\\varepsilon} f (\\tilde {\\varepsilon})}{(1 - \\tilde {\\varepsilon} ^ {2}) ^ {2}} \\sum_ {m, n} \\mu_ {n m} ^ {\\alpha \\beta} \\Gamma_ {n m} (\\tilde {\\varepsilon}), \\tag {19}\n$$",
@@ -2475,7 +2506,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:81",
+      "id": "ent:mineru:1410.8140:equation:82",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\mu_ {m n} ^ {\\alpha \\beta} \\equiv \\frac {g _ {m} g _ {n}}{(1 + \\mu_ {n 0}) (1 + \\mu_ {m 0})} \\mathrm{Tr} \\left[ v _ {\\alpha} T _ {m} (\\tilde {H}) v _ {\\beta} T _ {n} (\\tilde {H}) \\right], \\tag {20}\n$$",
@@ -2506,7 +2537,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:82",
+      "id": "ent:mineru:1410.8140:equation:83",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\Gamma_ {m n} (\\tilde {\\varepsilon}) \\equiv \\left(\\varepsilon - i n \\sqrt {1 - \\varepsilon^ {2}}\\right) T _ {m} (\\varepsilon) e ^ {i n \\arccos (\\varepsilon)} + \\left(\\varepsilon + i m \\sqrt {1 - \\varepsilon^ {2}}\\right) T _ {n} (\\varepsilon) e ^ {- i m \\arccos (\\varepsilon)}, \\tag {21}\n$$",
@@ -2537,7 +2568,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:83",
+      "id": "ent:mineru:1410.8140:equation:84",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n(\\mu_ {m n} ^ {\\alpha \\beta}) ^ {*} = \\mu_ {n m} ^ {\\alpha \\beta} = \\mu_ {m n} ^ {\\beta \\alpha} \\quad \\text { and } \\quad \\Gamma_ {m n} ^ {*} = \\Gamma_ {n m}, \\tag {22}\n$$",
@@ -2568,7 +2599,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:84",
+      "id": "ent:mineru:1410.8140:equation:85",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\tilde {\\sigma} _ {\\alpha \\beta} (\\mu) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\int_ {- 1} ^ {1} \\frac {d \\tilde {\\varepsilon} f (\\tilde {\\varepsilon})}{(1 - \\tilde {\\varepsilon} ^ {2}) ^ {2}} \\sum_ {m, n \\leq m} \\operatorname{Re} \\left[ \\mu_ {n m} ^ {\\alpha , \\beta} \\Gamma_ {n m} (\\tilde {\\varepsilon}) \\right]. \\tag {23}\n$$",
@@ -2599,7 +2630,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:85",
+      "id": "ent:mineru:1410.8140:equation:86",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\tilde {\\sigma} _ {\\alpha \\alpha} (\\tilde {\\mu}) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\sum_ {m, n \\leq m} \\mu_ {n m} ^ {\\alpha \\alpha} \\int_ {- \\alpha} ^ {\\alpha} \\frac {d \\tilde {\\varepsilon} f (\\tilde {\\varepsilon})}{(1 - \\tilde {\\varepsilon} ^ {2})} \\left(\\frac {d}{d \\tilde {\\varepsilon}} [ \\mathrm{T} _ {n} (\\tilde {\\varepsilon}) \\mathrm{T} _ {m} (\\tilde {\\varepsilon}) ] + 2 \\tilde {\\varepsilon} \\mathrm{T} _ {n} (\\tilde {\\varepsilon}) \\mathrm{T} _ {m} (\\tilde {\\varepsilon})\\right), \\tag {24}\n$$",
@@ -2630,7 +2661,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:86",
+      "id": "ent:mineru:1410.8140:equation:87",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\sigma_ {\\alpha \\alpha} (\\tilde {\\varepsilon} _ {F}) = \\frac {4 e ^ {2} \\hbar}{\\pi \\Omega} \\sum_ {m, n \\leq m} \\mu_ {n m} ^ {\\alpha \\alpha} T _ {n} (\\tilde {\\varepsilon} _ {F}) T _ {m} (\\tilde {\\varepsilon} _ {F}), \\tag {25}\n$$",
@@ -2661,7 +2692,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:caption:87",
+      "id": "ent:mineru:1410.8140:caption:88",
       "entity_type": "caption",
       "subtype": null,
       "canonical_text": "FIG. 4. $\\sigma _ { x y }$ as a function of E for increasing values of M. $\\phi / \\phi _ { 0 } \\approx 1 \\times 1 0 ^ { - 2 }$ , $S R > 1 5 0 ,$ , $K _ { B } T = 0 . 0 0 5 t$ and $N = 2 \\times 4 0 0 \\times 4 0 0$ sites. Inset: $\\langle d \\sigma _ { x y } ( E ) \\rangle$ i as a function of M for the data shown in the main panel.",
@@ -2692,7 +2723,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:equation:88",
+      "id": "ent:mineru:1410.8140:equation:89",
       "entity_type": "equation",
       "subtype": null,
       "canonical_text": "$$\n\\langle d \\sigma_ {x y} (E) \\rangle = \\left\\langle \\left| \\frac {\\sigma_ {x y} ^ {M} (E) - \\sigma_ {x y} ^ {M ^ {\\prime}} (E)}{\\sigma_ {x y} ^ {M} (E)} \\right| \\right\\rangle_ {E},\n$$",
@@ -2723,7 +2754,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:figure:89",
+      "id": "ent:mineru:1410.8140:figure:90",
       "entity_type": "figure",
       "subtype": null,
       "canonical_text": "![](images/a24ecbb68fb3a0fa835a2e1ca51b0152291dbaf9d15a7cfffeb5c1d5f2264e38.jpg)",
@@ -2752,7 +2783,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:caption:90",
+      "id": "ent:mineru:1410.8140:caption:91",
       "entity_type": "caption",
       "subtype": null,
       "canonical_text": "FIG. 5. (a) $\\langle d \\sigma _ { x y } ( E ) \\rangle$ as a function of R for φ/φ0 ≈ $1 \\times 1 0 ^ { - 2 }$ , M = 3200, kBT = 0 and $N = 2 \\times 4 0 0 \\times 4 0 0$ sites.",
@@ -2783,7 +2814,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:section:91",
+      "id": "ent:mineru:1410.8140:section:92",
       "entity_type": "section",
       "subtype": null,
       "canonical_text": "GPU Computing",
@@ -2814,7 +2845,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:92",
+      "id": "ent:mineru:1410.8140:footnote:93",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[1] Alexander Weisse, Gerhard Wellein, Andreas Alvermann and Holger Fehske, Rev. Mod. Phys. 78, 275 (2006).",
@@ -2845,7 +2876,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:93",
+      "id": "ent:mineru:1410.8140:footnote:94",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[2] L. Covaci, F. M. Peeters and M. Berciu , Phys. Rev. Lett. 105, 167006 (2010).",
@@ -2876,7 +2907,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:94",
+      "id": "ent:mineru:1410.8140:footnote:95",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[3] Holger Fehske, Jens Schleede, Gerald Schubert, Gerhard Wellein, Vladimir S. Filinov, Alan R. Bishop, Phys. Lett. A 373, 2182 (2009).",
@@ -2907,7 +2938,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:95",
+      "id": "ent:mineru:1410.8140:footnote:96",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[4] J. B. Wang and T. T. Scholz , Phys. Rev. A 5, 57 (1998).",
@@ -2938,7 +2969,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:96",
+      "id": "ent:mineru:1410.8140:footnote:97",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[5] R. N. Silver, H. Roeder, A. F. Voter and J. D. Kress, Journal of Computational Physics 124, 115-130 (1996).",
@@ -2969,7 +3000,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:97",
+      "id": "ent:mineru:1410.8140:footnote:98",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[6] A. Weisse and H. Fehske, Lect. Notes Phys. 739, 545577 (2008).",
@@ -3000,7 +3031,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:98",
+      "id": "ent:mineru:1410.8140:footnote:99",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[7] D. Jackson, American Mathematical Society Colloquium Publications D. Jackson, XI providence R. I. (1930).",
@@ -3031,7 +3062,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:99",
+      "id": "ent:mineru:1410.8140:footnote:100",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[8] D. A. Drabold and O. F. Sankey, Phys. Rev. Lett. 70 3631(1993).",
@@ -3062,7 +3093,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:100",
+      "id": "ent:mineru:1410.8140:footnote:101",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[9] Silver, R. N., and H. Rder Int. J. Mod. Phys. C 5 935 (1994).",
@@ -3093,7 +3124,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:101",
+      "id": "ent:mineru:1410.8140:footnote:102",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[10] Toshiaki Iitaka and Toshikazu Ebisuzakis,Phys. Rev. E 69 057701 (2004).",
@@ -3124,7 +3155,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:102",
+      "id": "ent:mineru:1410.8140:footnote:103",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[11] A. Bastin, C. Lewiner, O. Betbeder-Matibet et P. Nozieres, J. Phys, Chem. Solids 32 1-1824 (1971).",
@@ -3155,7 +3186,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:103",
+      "id": "ent:mineru:1410.8140:footnote:104",
       "entity_type": "reference_item",
       "subtype": null,
       "canonical_text": "[12] Cuda Perfomance Report, September 2014.",
@@ -3186,7 +3217,7 @@
       }
     },
     {
-      "id": "ent:mineru:1410.8140:reference_section:104",
+      "id": "ent:mineru:1410.8140:reference_section:105",
       "entity_type": "reference_section",
       "subtype": null,
       "canonical_text": "[1] A. Bastin, C. Lewinner, O. Betbeder-Matibet and P. Nozieres, J. Phys. Chem. Solids 32, 1811 (1971).",
@@ -3223,7 +3254,7 @@
       "id": "rel:mineru:1410.8140:1",
       "relation_type": "near",
       "source_entity_id": "ent:mineru:1410.8140:section:1",
-      "target_entity_id": "ent:mineru:1410.8140:equation:2",
+      "target_entity_id": "ent:mineru:1410.8140:section:2",
       "confidence": 0.25,
       "confidence_source": "heuristic",
       "evidence": [
@@ -3246,7 +3277,7 @@
     {
       "id": "rel:mineru:1410.8140:2",
       "relation_type": "near",
-      "source_entity_id": "ent:mineru:1410.8140:equation:2",
+      "source_entity_id": "ent:mineru:1410.8140:section:2",
       "target_entity_id": "ent:mineru:1410.8140:equation:3",
       "confidence": 0.25,
       "confidence_source": "heuristic",
@@ -3254,7 +3285,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b13",
+          "source_block_id": "mineru:1410.8140:p1:b1",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3278,7 +3309,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b14",
+          "source_block_id": "mineru:1410.8140:p1:b13",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3302,7 +3333,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b18",
+          "source_block_id": "mineru:1410.8140:p1:b14",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3326,7 +3357,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b19",
+          "source_block_id": "mineru:1410.8140:p1:b18",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3350,7 +3381,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b22",
+          "source_block_id": "mineru:1410.8140:p1:b19",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3374,7 +3405,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b25",
+          "source_block_id": "mineru:1410.8140:p1:b22",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3391,7 +3422,31 @@
       "id": "rel:mineru:1410.8140:8",
       "relation_type": "near",
       "source_entity_id": "ent:mineru:1410.8140:equation:8",
-      "target_entity_id": "ent:mineru:1410.8140:figure:9",
+      "target_entity_id": "ent:mineru:1410.8140:equation:9",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b25",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:9",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:9",
+      "target_entity_id": "ent:mineru:1410.8140:figure:10",
       "confidence": 0.25,
       "confidence_source": "heuristic",
       "evidence": [
@@ -3412,10 +3467,10 @@
       }
     },
     {
-      "id": "rel:mineru:1410.8140:9",
+      "id": "rel:mineru:1410.8140:10",
       "relation_type": "caption_of",
-      "source_entity_id": "ent:mineru:1410.8140:figure:9",
-      "target_entity_id": "ent:mineru:1410.8140:caption:10",
+      "source_entity_id": "ent:mineru:1410.8140:figure:10",
+      "target_entity_id": "ent:mineru:1410.8140:caption:11",
       "confidence": 0.55,
       "confidence_source": "heuristic",
       "evidence": [
@@ -3433,37 +3488,37 @@
       ],
       "metadata": {
         "detector": "caption_of_detector"
-      }
-    },
-    {
-      "id": "rel:mineru:1410.8140:10",
-      "relation_type": "near",
-      "source_entity_id": "ent:mineru:1410.8140:figure:9",
-      "target_entity_id": "ent:mineru:1410.8140:caption:10",
-      "confidence": 0.25,
-      "confidence_source": "heuristic",
-      "evidence": [
-        {
-          "kind": "document_context",
-          "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b31",
-          "raw_ref": null,
-          "text": null,
-          "bbox": null,
-          "weight": 1.0,
-          "reason": "adjacent entities",
-          "metadata": {}
-        }
-      ],
-      "metadata": {
-        "detector": "near_detector"
       }
     },
     {
       "id": "rel:mineru:1410.8140:11",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:figure:10",
+      "target_entity_id": "ent:mineru:1410.8140:caption:11",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b31",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:12",
       "relation_type": "caption_of",
-      "source_entity_id": "ent:mineru:1410.8140:caption:10",
-      "target_entity_id": "ent:mineru:1410.8140:figure:11",
+      "source_entity_id": "ent:mineru:1410.8140:caption:11",
+      "target_entity_id": "ent:mineru:1410.8140:figure:12",
       "confidence": 0.55,
       "confidence_source": "heuristic",
       "evidence": [
@@ -3481,37 +3536,37 @@
       ],
       "metadata": {
         "detector": "caption_of_detector"
-      }
-    },
-    {
-      "id": "rel:mineru:1410.8140:12",
-      "relation_type": "near",
-      "source_entity_id": "ent:mineru:1410.8140:caption:10",
-      "target_entity_id": "ent:mineru:1410.8140:figure:11",
-      "confidence": 0.25,
-      "confidence_source": "heuristic",
-      "evidence": [
-        {
-          "kind": "document_context",
-          "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b34",
-          "raw_ref": null,
-          "text": null,
-          "bbox": null,
-          "weight": 1.0,
-          "reason": "adjacent entities",
-          "metadata": {}
-        }
-      ],
-      "metadata": {
-        "detector": "near_detector"
       }
     },
     {
       "id": "rel:mineru:1410.8140:13",
       "relation_type": "near",
-      "source_entity_id": "ent:mineru:1410.8140:figure:11",
-      "target_entity_id": "ent:mineru:1410.8140:equation:12",
+      "source_entity_id": "ent:mineru:1410.8140:caption:11",
+      "target_entity_id": "ent:mineru:1410.8140:figure:12",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b34",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:14",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:figure:12",
+      "target_entity_id": "ent:mineru:1410.8140:equation:13",
       "confidence": 0.25,
       "confidence_source": "heuristic",
       "evidence": [
@@ -3532,33 +3587,9 @@
       }
     },
     {
-      "id": "rel:mineru:1410.8140:14",
-      "relation_type": "near",
-      "source_entity_id": "ent:mineru:1410.8140:equation:12",
-      "target_entity_id": "ent:mineru:1410.8140:figure:13",
-      "confidence": 0.25,
-      "confidence_source": "heuristic",
-      "evidence": [
-        {
-          "kind": "document_context",
-          "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b39",
-          "raw_ref": null,
-          "text": null,
-          "bbox": null,
-          "weight": 1.0,
-          "reason": "adjacent entities",
-          "metadata": {}
-        }
-      ],
-      "metadata": {
-        "detector": "near_detector"
-      }
-    },
-    {
       "id": "rel:mineru:1410.8140:15",
       "relation_type": "near",
-      "source_entity_id": "ent:mineru:1410.8140:figure:13",
+      "source_entity_id": "ent:mineru:1410.8140:equation:13",
       "target_entity_id": "ent:mineru:1410.8140:figure:14",
       "confidence": 0.25,
       "confidence_source": "heuristic",
@@ -3566,7 +3597,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b41",
+          "source_block_id": "mineru:1410.8140:p1:b39",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3590,7 +3621,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b44",
+          "source_block_id": "mineru:1410.8140:p1:b41",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3614,7 +3645,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b47",
+          "source_block_id": "mineru:1410.8140:p1:b44",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3629,9 +3660,33 @@
     },
     {
       "id": "rel:mineru:1410.8140:18",
-      "relation_type": "caption_of",
+      "relation_type": "near",
       "source_entity_id": "ent:mineru:1410.8140:figure:16",
-      "target_entity_id": "ent:mineru:1410.8140:caption:17",
+      "target_entity_id": "ent:mineru:1410.8140:figure:17",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b47",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:19",
+      "relation_type": "caption_of",
+      "source_entity_id": "ent:mineru:1410.8140:figure:17",
+      "target_entity_id": "ent:mineru:1410.8140:caption:18",
       "confidence": 0.55,
       "confidence_source": "heuristic",
       "evidence": [
@@ -3652,10 +3707,10 @@
       }
     },
     {
-      "id": "rel:mineru:1410.8140:19",
+      "id": "rel:mineru:1410.8140:20",
       "relation_type": "near",
-      "source_entity_id": "ent:mineru:1410.8140:figure:16",
-      "target_entity_id": "ent:mineru:1410.8140:caption:17",
+      "source_entity_id": "ent:mineru:1410.8140:figure:17",
+      "target_entity_id": "ent:mineru:1410.8140:caption:18",
       "confidence": 0.25,
       "confidence_source": "heuristic",
       "evidence": [
@@ -3676,33 +3731,9 @@
       }
     },
     {
-      "id": "rel:mineru:1410.8140:20",
-      "relation_type": "near",
-      "source_entity_id": "ent:mineru:1410.8140:caption:17",
-      "target_entity_id": "ent:mineru:1410.8140:footnote:18",
-      "confidence": 0.25,
-      "confidence_source": "heuristic",
-      "evidence": [
-        {
-          "kind": "document_context",
-          "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b53",
-          "raw_ref": null,
-          "text": null,
-          "bbox": null,
-          "weight": 1.0,
-          "reason": "adjacent entities",
-          "metadata": {}
-        }
-      ],
-      "metadata": {
-        "detector": "near_detector"
-      }
-    },
-    {
       "id": "rel:mineru:1410.8140:21",
       "relation_type": "near",
-      "source_entity_id": "ent:mineru:1410.8140:footnote:18",
+      "source_entity_id": "ent:mineru:1410.8140:caption:18",
       "target_entity_id": "ent:mineru:1410.8140:footnote:19",
       "confidence": 0.25,
       "confidence_source": "heuristic",
@@ -3710,7 +3741,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b58",
+          "source_block_id": "mineru:1410.8140:p1:b53",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3734,7 +3765,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b59",
+          "source_block_id": "mineru:1410.8140:p1:b58",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3758,7 +3789,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b60",
+          "source_block_id": "mineru:1410.8140:p1:b59",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3782,7 +3813,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b61",
+          "source_block_id": "mineru:1410.8140:p1:b60",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3806,7 +3837,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b62",
+          "source_block_id": "mineru:1410.8140:p1:b61",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3830,7 +3861,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b63",
+          "source_block_id": "mineru:1410.8140:p1:b62",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3854,7 +3885,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b64",
+          "source_block_id": "mineru:1410.8140:p1:b63",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3878,7 +3909,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b65",
+          "source_block_id": "mineru:1410.8140:p1:b64",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3902,7 +3933,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b66",
+          "source_block_id": "mineru:1410.8140:p1:b65",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3926,7 +3957,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b67",
+          "source_block_id": "mineru:1410.8140:p1:b66",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3950,7 +3981,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b68",
+          "source_block_id": "mineru:1410.8140:p1:b67",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3974,7 +4005,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b69",
+          "source_block_id": "mineru:1410.8140:p1:b68",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -3998,7 +4029,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b70",
+          "source_block_id": "mineru:1410.8140:p1:b69",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4022,7 +4053,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b71",
+          "source_block_id": "mineru:1410.8140:p1:b70",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4046,7 +4077,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b72",
+          "source_block_id": "mineru:1410.8140:p1:b71",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4070,7 +4101,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b73",
+          "source_block_id": "mineru:1410.8140:p1:b72",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4094,7 +4125,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b74",
+          "source_block_id": "mineru:1410.8140:p1:b73",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4118,7 +4149,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b75",
+          "source_block_id": "mineru:1410.8140:p1:b74",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4142,7 +4173,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b76",
+          "source_block_id": "mineru:1410.8140:p1:b75",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4166,7 +4197,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b77",
+          "source_block_id": "mineru:1410.8140:p1:b76",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4190,7 +4221,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b78",
+          "source_block_id": "mineru:1410.8140:p1:b77",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4214,7 +4245,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b79",
+          "source_block_id": "mineru:1410.8140:p1:b78",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4238,7 +4269,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b80",
+          "source_block_id": "mineru:1410.8140:p1:b79",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4262,7 +4293,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b81",
+          "source_block_id": "mineru:1410.8140:p1:b80",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4286,7 +4317,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b82",
+          "source_block_id": "mineru:1410.8140:p1:b81",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4310,7 +4341,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b83",
+          "source_block_id": "mineru:1410.8140:p1:b82",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4334,7 +4365,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b84",
+          "source_block_id": "mineru:1410.8140:p1:b83",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4358,7 +4389,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b85",
+          "source_block_id": "mineru:1410.8140:p1:b84",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4382,7 +4413,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b86",
+          "source_block_id": "mineru:1410.8140:p1:b85",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4406,7 +4437,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b87",
+          "source_block_id": "mineru:1410.8140:p1:b86",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4430,7 +4461,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b88",
+          "source_block_id": "mineru:1410.8140:p1:b87",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4454,7 +4485,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b90",
+          "source_block_id": "mineru:1410.8140:p1:b88",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4478,7 +4509,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b91",
+          "source_block_id": "mineru:1410.8140:p1:b90",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4502,7 +4533,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b92",
+          "source_block_id": "mineru:1410.8140:p1:b91",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4526,7 +4557,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b93",
+          "source_block_id": "mineru:1410.8140:p1:b92",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4550,7 +4581,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b94",
+          "source_block_id": "mineru:1410.8140:p1:b93",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4574,7 +4605,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b95",
+          "source_block_id": "mineru:1410.8140:p1:b94",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4598,7 +4629,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b96",
+          "source_block_id": "mineru:1410.8140:p1:b95",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4622,7 +4653,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b97",
+          "source_block_id": "mineru:1410.8140:p1:b96",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4646,7 +4677,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b98",
+          "source_block_id": "mineru:1410.8140:p1:b97",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4670,7 +4701,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b99",
+          "source_block_id": "mineru:1410.8140:p1:b98",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4694,7 +4725,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b100",
+          "source_block_id": "mineru:1410.8140:p1:b99",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4718,7 +4749,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b101",
+          "source_block_id": "mineru:1410.8140:p1:b100",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4742,7 +4773,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b102",
+          "source_block_id": "mineru:1410.8140:p1:b101",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4766,7 +4797,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b103",
+          "source_block_id": "mineru:1410.8140:p1:b102",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4790,7 +4821,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b104",
+          "source_block_id": "mineru:1410.8140:p1:b103",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4814,7 +4845,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b105",
+          "source_block_id": "mineru:1410.8140:p1:b104",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4831,14 +4862,14 @@
       "id": "rel:mineru:1410.8140:68",
       "relation_type": "near",
       "source_entity_id": "ent:mineru:1410.8140:footnote:65",
-      "target_entity_id": "ent:mineru:1410.8140:equation:66",
+      "target_entity_id": "ent:mineru:1410.8140:footnote:66",
       "confidence": 0.25,
       "confidence_source": "heuristic",
       "evidence": [
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b106",
+          "source_block_id": "mineru:1410.8140:p1:b105",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4854,7 +4885,7 @@
     {
       "id": "rel:mineru:1410.8140:69",
       "relation_type": "near",
-      "source_entity_id": "ent:mineru:1410.8140:equation:66",
+      "source_entity_id": "ent:mineru:1410.8140:footnote:66",
       "target_entity_id": "ent:mineru:1410.8140:equation:67",
       "confidence": 0.25,
       "confidence_source": "heuristic",
@@ -4862,7 +4893,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b109",
+          "source_block_id": "mineru:1410.8140:p1:b106",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4886,7 +4917,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b111",
+          "source_block_id": "mineru:1410.8140:p1:b109",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4910,7 +4941,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b113",
+          "source_block_id": "mineru:1410.8140:p1:b111",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4934,7 +4965,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b115",
+          "source_block_id": "mineru:1410.8140:p1:b113",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4958,7 +4989,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b117",
+          "source_block_id": "mineru:1410.8140:p1:b115",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -4982,7 +5013,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b119",
+          "source_block_id": "mineru:1410.8140:p1:b117",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5006,7 +5037,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b121",
+          "source_block_id": "mineru:1410.8140:p1:b119",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5030,7 +5061,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b123",
+          "source_block_id": "mineru:1410.8140:p1:b121",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5054,7 +5085,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b125",
+          "source_block_id": "mineru:1410.8140:p1:b123",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5078,7 +5109,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b127",
+          "source_block_id": "mineru:1410.8140:p1:b125",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5102,7 +5133,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b130",
+          "source_block_id": "mineru:1410.8140:p1:b127",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5126,7 +5157,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b132",
+          "source_block_id": "mineru:1410.8140:p1:b130",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5150,7 +5181,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b133",
+          "source_block_id": "mineru:1410.8140:p1:b132",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5174,7 +5205,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b135",
+          "source_block_id": "mineru:1410.8140:p1:b133",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5198,7 +5229,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b137",
+          "source_block_id": "mineru:1410.8140:p1:b135",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5222,7 +5253,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b139",
+          "source_block_id": "mineru:1410.8140:p1:b137",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5246,7 +5277,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b141",
+          "source_block_id": "mineru:1410.8140:p1:b139",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5270,7 +5301,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b143",
+          "source_block_id": "mineru:1410.8140:p1:b141",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5294,7 +5325,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b145",
+          "source_block_id": "mineru:1410.8140:p1:b143",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5318,7 +5349,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b147",
+          "source_block_id": "mineru:1410.8140:p1:b145",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5335,7 +5366,31 @@
       "id": "rel:mineru:1410.8140:89",
       "relation_type": "near",
       "source_entity_id": "ent:mineru:1410.8140:equation:86",
-      "target_entity_id": "ent:mineru:1410.8140:caption:87",
+      "target_entity_id": "ent:mineru:1410.8140:equation:87",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b147",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:90",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:equation:87",
+      "target_entity_id": "ent:mineru:1410.8140:caption:88",
       "confidence": 0.25,
       "confidence_source": "heuristic",
       "evidence": [
@@ -5356,10 +5411,10 @@
       }
     },
     {
-      "id": "rel:mineru:1410.8140:90",
+      "id": "rel:mineru:1410.8140:91",
       "relation_type": "near",
-      "source_entity_id": "ent:mineru:1410.8140:caption:87",
-      "target_entity_id": "ent:mineru:1410.8140:equation:88",
+      "source_entity_id": "ent:mineru:1410.8140:caption:88",
+      "target_entity_id": "ent:mineru:1410.8140:equation:89",
       "confidence": 0.25,
       "confidence_source": "heuristic",
       "evidence": [
@@ -5380,10 +5435,10 @@
       }
     },
     {
-      "id": "rel:mineru:1410.8140:91",
+      "id": "rel:mineru:1410.8140:92",
       "relation_type": "near",
-      "source_entity_id": "ent:mineru:1410.8140:equation:88",
-      "target_entity_id": "ent:mineru:1410.8140:figure:89",
+      "source_entity_id": "ent:mineru:1410.8140:equation:89",
+      "target_entity_id": "ent:mineru:1410.8140:figure:90",
       "confidence": 0.25,
       "confidence_source": "heuristic",
       "evidence": [
@@ -5404,10 +5459,10 @@
       }
     },
     {
-      "id": "rel:mineru:1410.8140:92",
+      "id": "rel:mineru:1410.8140:93",
       "relation_type": "caption_of",
-      "source_entity_id": "ent:mineru:1410.8140:figure:89",
-      "target_entity_id": "ent:mineru:1410.8140:caption:90",
+      "source_entity_id": "ent:mineru:1410.8140:figure:90",
+      "target_entity_id": "ent:mineru:1410.8140:caption:91",
       "confidence": 0.55,
       "confidence_source": "heuristic",
       "evidence": [
@@ -5428,10 +5483,10 @@
       }
     },
     {
-      "id": "rel:mineru:1410.8140:93",
+      "id": "rel:mineru:1410.8140:94",
       "relation_type": "near",
-      "source_entity_id": "ent:mineru:1410.8140:figure:89",
-      "target_entity_id": "ent:mineru:1410.8140:caption:90",
+      "source_entity_id": "ent:mineru:1410.8140:figure:90",
+      "target_entity_id": "ent:mineru:1410.8140:caption:91",
       "confidence": 0.25,
       "confidence_source": "heuristic",
       "evidence": [
@@ -5452,10 +5507,10 @@
       }
     },
     {
-      "id": "rel:mineru:1410.8140:94",
+      "id": "rel:mineru:1410.8140:95",
       "relation_type": "near",
-      "source_entity_id": "ent:mineru:1410.8140:caption:90",
-      "target_entity_id": "ent:mineru:1410.8140:section:91",
+      "source_entity_id": "ent:mineru:1410.8140:caption:91",
+      "target_entity_id": "ent:mineru:1410.8140:section:92",
       "confidence": 0.25,
       "confidence_source": "heuristic",
       "evidence": [
@@ -5476,33 +5531,9 @@
       }
     },
     {
-      "id": "rel:mineru:1410.8140:95",
-      "relation_type": "near",
-      "source_entity_id": "ent:mineru:1410.8140:section:91",
-      "target_entity_id": "ent:mineru:1410.8140:footnote:92",
-      "confidence": 0.25,
-      "confidence_source": "heuristic",
-      "evidence": [
-        {
-          "kind": "document_context",
-          "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b164",
-          "raw_ref": null,
-          "text": null,
-          "bbox": null,
-          "weight": 1.0,
-          "reason": "adjacent entities",
-          "metadata": {}
-        }
-      ],
-      "metadata": {
-        "detector": "near_detector"
-      }
-    },
-    {
       "id": "rel:mineru:1410.8140:96",
       "relation_type": "near",
-      "source_entity_id": "ent:mineru:1410.8140:footnote:92",
+      "source_entity_id": "ent:mineru:1410.8140:section:92",
       "target_entity_id": "ent:mineru:1410.8140:footnote:93",
       "confidence": 0.25,
       "confidence_source": "heuristic",
@@ -5510,7 +5541,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b166",
+          "source_block_id": "mineru:1410.8140:p1:b164",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5534,7 +5565,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b167",
+          "source_block_id": "mineru:1410.8140:p1:b166",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5558,7 +5589,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b168",
+          "source_block_id": "mineru:1410.8140:p1:b167",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5582,7 +5613,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b169",
+          "source_block_id": "mineru:1410.8140:p1:b168",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5606,7 +5637,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b170",
+          "source_block_id": "mineru:1410.8140:p1:b169",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5630,7 +5661,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b171",
+          "source_block_id": "mineru:1410.8140:p1:b170",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5654,7 +5685,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b172",
+          "source_block_id": "mineru:1410.8140:p1:b171",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5678,7 +5709,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b173",
+          "source_block_id": "mineru:1410.8140:p1:b172",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5702,7 +5733,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b174",
+          "source_block_id": "mineru:1410.8140:p1:b173",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5726,7 +5757,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b175",
+          "source_block_id": "mineru:1410.8140:p1:b174",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5750,7 +5781,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b176",
+          "source_block_id": "mineru:1410.8140:p1:b175",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5767,7 +5798,31 @@
       "id": "rel:mineru:1410.8140:107",
       "relation_type": "near",
       "source_entity_id": "ent:mineru:1410.8140:footnote:103",
-      "target_entity_id": "ent:mineru:1410.8140:reference_section:104",
+      "target_entity_id": "ent:mineru:1410.8140:footnote:104",
+      "confidence": 0.25,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b176",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "adjacent entities",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "near_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:108",
+      "relation_type": "near",
+      "source_entity_id": "ent:mineru:1410.8140:footnote:104",
+      "target_entity_id": "ent:mineru:1410.8140:reference_section:105",
       "confidence": 0.25,
       "confidence_source": "heuristic",
       "evidence": [
@@ -5788,10 +5843,10 @@
       }
     },
     {
-      "id": "rel:mineru:1410.8140:108",
+      "id": "rel:mineru:1410.8140:109",
       "relation_type": "sequence_next",
-      "source_entity_id": "ent:mineru:1410.8140:caption:17",
-      "target_entity_id": "ent:mineru:1410.8140:caption:87",
+      "source_entity_id": "ent:mineru:1410.8140:caption:18",
+      "target_entity_id": "ent:mineru:1410.8140:caption:88",
       "confidence": 0.45,
       "confidence_source": "heuristic",
       "evidence": [
@@ -5812,10 +5867,10 @@
       }
     },
     {
-      "id": "rel:mineru:1410.8140:109",
+      "id": "rel:mineru:1410.8140:110",
       "relation_type": "sequence_next",
-      "source_entity_id": "ent:mineru:1410.8140:caption:87",
-      "target_entity_id": "ent:mineru:1410.8140:caption:90",
+      "source_entity_id": "ent:mineru:1410.8140:caption:88",
+      "target_entity_id": "ent:mineru:1410.8140:caption:91",
       "confidence": 0.45,
       "confidence_source": "heuristic",
       "evidence": [
@@ -5823,30 +5878,6 @@
           "kind": "document_context",
           "page_no": 1,
           "source_block_id": "mineru:1410.8140:p1:b154",
-          "raw_ref": null,
-          "text": null,
-          "bbox": null,
-          "weight": 1.0,
-          "reason": "consecutive numbered sequence",
-          "metadata": {}
-        }
-      ],
-      "metadata": {
-        "detector": "sequence_next_detector"
-      }
-    },
-    {
-      "id": "rel:mineru:1410.8140:110",
-      "relation_type": "sequence_next",
-      "source_entity_id": "ent:mineru:1410.8140:footnote:18",
-      "target_entity_id": "ent:mineru:1410.8140:footnote:19",
-      "confidence": 0.45,
-      "confidence_source": "heuristic",
-      "evidence": [
-        {
-          "kind": "document_context",
-          "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b58",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5870,7 +5901,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b59",
+          "source_block_id": "mineru:1410.8140:p1:b58",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5894,7 +5925,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b60",
+          "source_block_id": "mineru:1410.8140:p1:b59",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5918,7 +5949,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b61",
+          "source_block_id": "mineru:1410.8140:p1:b60",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5942,7 +5973,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b62",
+          "source_block_id": "mineru:1410.8140:p1:b61",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5966,7 +5997,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b63",
+          "source_block_id": "mineru:1410.8140:p1:b62",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -5990,7 +6021,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b64",
+          "source_block_id": "mineru:1410.8140:p1:b63",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6014,7 +6045,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b65",
+          "source_block_id": "mineru:1410.8140:p1:b64",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6038,7 +6069,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b66",
+          "source_block_id": "mineru:1410.8140:p1:b65",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6062,7 +6093,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b67",
+          "source_block_id": "mineru:1410.8140:p1:b66",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6086,7 +6117,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b68",
+          "source_block_id": "mineru:1410.8140:p1:b67",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6110,7 +6141,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b69",
+          "source_block_id": "mineru:1410.8140:p1:b68",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6134,7 +6165,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b70",
+          "source_block_id": "mineru:1410.8140:p1:b69",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6158,7 +6189,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b71",
+          "source_block_id": "mineru:1410.8140:p1:b70",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6182,7 +6213,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b72",
+          "source_block_id": "mineru:1410.8140:p1:b71",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6206,7 +6237,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b73",
+          "source_block_id": "mineru:1410.8140:p1:b72",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6230,7 +6261,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b74",
+          "source_block_id": "mineru:1410.8140:p1:b73",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6254,7 +6285,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b75",
+          "source_block_id": "mineru:1410.8140:p1:b74",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6278,7 +6309,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b76",
+          "source_block_id": "mineru:1410.8140:p1:b75",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6302,7 +6333,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b77",
+          "source_block_id": "mineru:1410.8140:p1:b76",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6326,7 +6357,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b78",
+          "source_block_id": "mineru:1410.8140:p1:b77",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6350,7 +6381,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b79",
+          "source_block_id": "mineru:1410.8140:p1:b78",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6374,7 +6405,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b80",
+          "source_block_id": "mineru:1410.8140:p1:b79",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6398,7 +6429,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b81",
+          "source_block_id": "mineru:1410.8140:p1:b80",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6422,7 +6453,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b82",
+          "source_block_id": "mineru:1410.8140:p1:b81",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6446,7 +6477,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b83",
+          "source_block_id": "mineru:1410.8140:p1:b82",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6470,7 +6501,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b84",
+          "source_block_id": "mineru:1410.8140:p1:b83",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6494,7 +6525,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b85",
+          "source_block_id": "mineru:1410.8140:p1:b84",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6518,7 +6549,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b86",
+          "source_block_id": "mineru:1410.8140:p1:b85",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6542,7 +6573,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b87",
+          "source_block_id": "mineru:1410.8140:p1:b86",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6566,7 +6597,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b88",
+          "source_block_id": "mineru:1410.8140:p1:b87",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6590,7 +6621,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b90",
+          "source_block_id": "mineru:1410.8140:p1:b88",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6614,7 +6645,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b91",
+          "source_block_id": "mineru:1410.8140:p1:b90",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6638,7 +6669,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b92",
+          "source_block_id": "mineru:1410.8140:p1:b91",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6662,7 +6693,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b93",
+          "source_block_id": "mineru:1410.8140:p1:b92",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6686,7 +6717,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b94",
+          "source_block_id": "mineru:1410.8140:p1:b93",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6710,7 +6741,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b95",
+          "source_block_id": "mineru:1410.8140:p1:b94",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6734,7 +6765,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b96",
+          "source_block_id": "mineru:1410.8140:p1:b95",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6758,7 +6789,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b97",
+          "source_block_id": "mineru:1410.8140:p1:b96",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6782,7 +6813,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b98",
+          "source_block_id": "mineru:1410.8140:p1:b97",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6806,7 +6837,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b99",
+          "source_block_id": "mineru:1410.8140:p1:b98",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6830,7 +6861,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b100",
+          "source_block_id": "mineru:1410.8140:p1:b99",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6854,7 +6885,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b101",
+          "source_block_id": "mineru:1410.8140:p1:b100",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6878,7 +6909,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b102",
+          "source_block_id": "mineru:1410.8140:p1:b101",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6902,7 +6933,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b103",
+          "source_block_id": "mineru:1410.8140:p1:b102",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6926,7 +6957,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b104",
+          "source_block_id": "mineru:1410.8140:p1:b103",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6950,7 +6981,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b105",
+          "source_block_id": "mineru:1410.8140:p1:b104",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6966,15 +6997,15 @@
     {
       "id": "rel:mineru:1410.8140:157",
       "relation_type": "sequence_next",
-      "source_entity_id": "ent:mineru:1410.8140:footnote:92",
-      "target_entity_id": "ent:mineru:1410.8140:footnote:93",
+      "source_entity_id": "ent:mineru:1410.8140:footnote:65",
+      "target_entity_id": "ent:mineru:1410.8140:footnote:66",
       "confidence": 0.45,
       "confidence_source": "heuristic",
       "evidence": [
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b166",
+          "source_block_id": "mineru:1410.8140:p1:b105",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -6998,7 +7029,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b167",
+          "source_block_id": "mineru:1410.8140:p1:b166",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -7022,7 +7053,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b168",
+          "source_block_id": "mineru:1410.8140:p1:b167",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -7046,7 +7077,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b169",
+          "source_block_id": "mineru:1410.8140:p1:b168",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -7070,7 +7101,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b170",
+          "source_block_id": "mineru:1410.8140:p1:b169",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -7094,7 +7125,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b171",
+          "source_block_id": "mineru:1410.8140:p1:b170",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -7118,7 +7149,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b172",
+          "source_block_id": "mineru:1410.8140:p1:b171",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -7142,7 +7173,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b173",
+          "source_block_id": "mineru:1410.8140:p1:b172",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -7166,7 +7197,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b174",
+          "source_block_id": "mineru:1410.8140:p1:b173",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -7190,7 +7221,7 @@
         {
           "kind": "document_context",
           "page_no": 1,
-          "source_block_id": "mineru:1410.8140:p1:b175",
+          "source_block_id": "mineru:1410.8140:p1:b174",
           "raw_ref": null,
           "text": null,
           "bbox": null,
@@ -7208,6 +7239,30 @@
       "relation_type": "sequence_next",
       "source_entity_id": "ent:mineru:1410.8140:footnote:102",
       "target_entity_id": "ent:mineru:1410.8140:footnote:103",
+      "confidence": 0.45,
+      "confidence_source": "heuristic",
+      "evidence": [
+        {
+          "kind": "document_context",
+          "page_no": 1,
+          "source_block_id": "mineru:1410.8140:p1:b175",
+          "raw_ref": null,
+          "text": null,
+          "bbox": null,
+          "weight": 1.0,
+          "reason": "consecutive numbered sequence",
+          "metadata": {}
+        }
+      ],
+      "metadata": {
+        "detector": "sequence_next_detector"
+      }
+    },
+    {
+      "id": "rel:mineru:1410.8140:168",
+      "relation_type": "sequence_next",
+      "source_entity_id": "ent:mineru:1410.8140:footnote:103",
+      "target_entity_id": "ent:mineru:1410.8140:footnote:104",
       "confidence": 0.45,
       "confidence_source": "heuristic",
       "evidence": [
@@ -7232,6 +7287,18 @@
     "page_size_missing"
   ],
   "metadata": {
-    "connector": "markdown_fallback"
+    "connector": "markdown_fallback",
+    "document_class": "article",
+    "document_class_confidence": 0.85,
+    "document_class_features": {
+      "page_count": 1,
+      "chapter_count": 0,
+      "section_count": 3,
+      "reference_section_count": 1,
+      "index_section_count": 0,
+      "glossary_section_count": 0,
+      "h1_count": 2,
+      "deep_heading_count": 1
+    }
   }
 }

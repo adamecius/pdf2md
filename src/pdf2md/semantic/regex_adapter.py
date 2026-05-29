@@ -19,10 +19,10 @@ import importlib.util
 import sys
 import types
 from pathlib import Path
+from typing import cast
 
 from pdf2md.models.cross_ref import CrossReferenceGraph
 from pdf2md.semantic.base import SemanticBackend
-
 
 BACKEND_NAME = "regex"
 BACKEND_VERSION = "0.1.0"
@@ -73,12 +73,15 @@ class RegexSemanticBackend(SemanticBackend):
         self._connector_mod: types.ModuleType | None = None
 
     def name(self) -> str:
+        """Return the canonical backend identifier (``"regex"``)."""
         return BACKEND_NAME
 
     def version(self) -> str:
+        """Return the pinned backend version string."""
         return BACKEND_VERSION
 
     def is_available(self) -> bool:
+        """Return whether ``backend/semantic/regex/connector.py`` is on disk."""
         return (_backend_root() / "connector.py").is_file()
 
     def extract(
@@ -87,6 +90,21 @@ class RegexSemanticBackend(SemanticBackend):
         text: str | None,
         output_dir: Path,
     ) -> CrossReferenceGraph:
+        """Run the deterministic regex backend and return its graph.
+
+        Args:
+            pdf_path: Source PDF, used only to derive plain text via
+                ``pdftotext`` when ``text`` is not supplied.
+            text: Pre-extracted plain text. Wins over ``pdf_path``.
+            output_dir: Working directory passed to the standalone
+                connector (it doesn't write here when ``text`` is
+                provided directly, but the parameter is required by
+                the connector signature).
+
+        Returns:
+            The :class:`CrossReferenceGraph` produced by the standalone
+            connector under ``backend/semantic/regex/``.
+        """
         body = self._resolve_text(pdf_path, text)
         if self._connector_mod is None:
             self._connector_mod = _load_connector_module()
@@ -100,7 +118,10 @@ class RegexSemanticBackend(SemanticBackend):
             text=body,
             source_ref=self._source_ref,
         )
-        return result.graph
+        # The connector module is loaded via importlib.util so mypy
+        # can't see the SemanticConnectorResult contract — cast back
+        # to the public schema type.
+        return cast(CrossReferenceGraph, result.graph)
 
     @staticmethod
     def _resolve_text(pdf_path: Path | None, text: str | None) -> str:

@@ -31,7 +31,6 @@ from pdf2md.models.cross_ref import (
     SemanticEntity,
 )
 
-
 BACKEND_NAME = "ground_truth"
 BACKEND_VERSION = "0.1.0"
 LATEXML_NS = "http://dlmf.nist.gov/LaTeXML"
@@ -198,10 +197,7 @@ def _collect_markers(
         if not text and anchor_surface:
             text = anchor_surface
         if not text:
-            if labelref:
-                text = labelref.replace("LABEL:", "")
-            else:
-                text = "ref"
+            text = labelref.replace("LABEL:", "") if labelref else "ref"
         if marker_type is None:
             ref_type_attr = ref.attrib.get("type", "")
             marker_type = _tag_to_ref_type(ref_type_attr) or RefType.SECTION

@@ -1,331 +1,481 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "document_id": "example01/grobid+mineru",
   "nodes": [
     {
+      "id": "document:example01/grobid+mineru",
+      "type": "document",
+      "label": "example01/grobid+mineru",
+      "page_count": 1
+    },
+    {
+      "id": "page:example01/grobid+mineru:1",
+      "type": "page",
+      "label": "Page 1",
+      "page_no": 1,
+      "parent_id": "document:example01/grobid+mineru"
+    },
+    {
+      "id": "section:bibliography:example01/grobid+mineru",
+      "type": "bibliography_section",
+      "label": "Bibliography",
+      "parent_id": "document:example01/grobid+mineru",
+      "back_matter_kind": "bibliography"
+    },
+    {
       "id": "#/bibliography/b0",
       "type": "bibliography",
-      "label": "A Bastin C Lewinner O Betbeder-Matibet P Nozieres J. Phys. Chem. Solids 32 1811 1971 A. Bastin, C. Lewinner, O. Betbeder-Matibet and P. Nozieres, J. Phys. Chem. Solids 32, 1811 (1971)."
+      "label": "A Bastin C Lewinner O Betbeder-Matibet P Nozieres J. Phys. Chem. Solids 32 1811 1971 A. Bastin, C. Lewinner, O. Betbeder-Matibet and P. Nozieres, J. Phys. Chem. Solids 32, 1811 (1971).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b1",
       "type": "bibliography",
-      "label": "E H Hall Am. J. Math 2 287 1879 E. H. Hall, Am. J. Math 2, 287 (1879)."
+      "label": "E H Hall Am. J. Math 2 287 1879 E. H. Hall, Am. J. Math 2, 287 (1879).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b2",
       "type": "bibliography",
-      "label": "N Nagaosa J Sinova S Onoda A H Macdonald N P Ong Rev. Mod. Phys 82 1539 2010 N. Nagaosa, J. Sinova, S. Onoda, A. H. MacDonald and N. P. Ong, Rev. Mod. Phys. 82, 1539 (2010)."
+      "label": "N Nagaosa J Sinova S Onoda A H Macdonald N P Ong Rev. Mod. Phys 82 1539 2010 N. Nagaosa, J. Sinova, S. Onoda, A. H. MacDonald and N. P. Ong, Rev. Mod. Phys. 82, 1539 (2010).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b3",
       "type": "bibliography",
-      "label": "T Jungwirth J Wunderlich K Olejnik Nature Mat 11 382 2012 T. Jungwirth, J. Wunderlich and K. Olejnik, Nature Mat. 11, 382 (2012)."
+      "label": "T Jungwirth J Wunderlich K Olejnik Nature Mat 11 382 2012 T. Jungwirth, J. Wunderlich and K. Olejnik, Nature Mat. 11, 382 (2012).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b4",
       "type": "bibliography",
-      "label": "K Klitzing G Dorda M Pepper Phys. Rev. Lett 45 494 1980 K. Klitzing, G. Dorda, M. Pepper, Phys. Rev. Lett. 45, 494 (1980)."
+      "label": "K Klitzing G Dorda M Pepper Phys. Rev. Lett 45 494 1980 K. Klitzing, G. Dorda, M. Pepper, Phys. Rev. Lett. 45, 494 (1980).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b5",
       "type": "bibliography",
-      "label": "C.-Z Chang Science 340 167 2013 C.-Z.Chang et al. ,Science 340,167 (2013)."
+      "label": "C.-Z Chang Science 340 167 2013 C.-Z.Chang et al. ,Science 340,167 (2013).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b6",
       "type": "bibliography",
-      "label": "M K\u00f6nig Science 318 766 2007 M.K\u00f6nig et al., Science 318, 766(2007)."
+      "label": "M K\u00f6nig Science 318 766 2007 M.K\u00f6nig et al., Science 318, 766(2007).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b7",
       "type": "bibliography",
-      "label": "M Z Hasan C L Kane Rev. Mod. Phys 82 3045 2010 M. Z. Hasan and C. L. Kane, Rev. Mod. Phys. 82 3045 (2010)."
+      "label": "M Z Hasan C L Kane Rev. Mod. Phys 82 3045 2010 M. Z. Hasan and C. L. Kane, Rev. Mod. Phys. 82 3045 (2010).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b8",
       "type": "bibliography",
-      "label": "R Kubo J. Phys. Soc. Japan 12 570 1957 R. Kubo, J. Phys. Soc. Japan 12, 570 (1957);"
+      "label": "R Kubo J. Phys. Soc. Japan 12 570 1957 R. Kubo, J. Phys. Soc. Japan 12, 570 (1957);",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b9",
       "type": "bibliography",
-      "label": "R Kubo A Yokota S Nakajima J. Phys. Soc. Japan 12 1203 1957 R. Kubo, A. Yokota, and S. Nakajima, J. Phys. Soc. Japan 12,1203 (1957)."
+      "label": "R Kubo A Yokota S Nakajima J. Phys. Soc. Japan 12 1203 1957 R. Kubo, A. Yokota, and S. Nakajima, J. Phys. Soc. Japan 12,1203 (1957).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b10",
       "type": "bibliography",
-      "label": "D J Thouless M Kohmoto M P Nightingale M Nijs Phys. Rev. Lett 49 405 1982 D.J. Thouless, M. Kohmoto, M. P. Nightingale and M. den Nijs, Phys. Rev. Lett. 49, 405 (1982)."
+      "label": "D J Thouless M Kohmoto M P Nightingale M Nijs Phys. Rev. Lett 49 405 1982 D.J. Thouless, M. Kohmoto, M. P. Nightingale and M. den Nijs, Phys. Rev. Lett. 49, 405 (1982).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b11",
       "type": "bibliography",
-      "label": "Yisong Zheng Tsuneya Ando Phys. Rev. B 65 245420 2002 Yisong Zheng and Tsuneya Ando, Phys. Rev. B 65, 245420 (2002)."
+      "label": "Yisong Zheng Tsuneya Ando Phys. Rev. B 65 245420 2002 Yisong Zheng and Tsuneya Ando, Phys. Rev. B 65, 245420 (2002).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b12",
       "type": "bibliography",
-      "label": "D N Sheng L Sheng Z Y Weng Phys. Rev. B 73 233406 2006 D. N. Sheng, L. Sheng, and Z. Y. Weng, Phys. Rev. B 73, 233406 (2006)."
+      "label": "D N Sheng L Sheng Z Y Weng Phys. Rev. B 73 233406 2006 D. N. Sheng, L. Sheng, and Z. Y. Weng, Phys. Rev. B 73, 233406 (2006).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b13",
       "type": "bibliography",
-      "label": "Yu Xue Emil Prodan Phys. Rev. B 86 155445 2012 Yu Xue and Emil Prodan, Phys. Rev. B 86, 155445 (2012)."
+      "label": "Yu Xue Emil Prodan Phys. Rev. B 86 155445 2012 Yu Xue and Emil Prodan, Phys. Rev. B 86, 155445 (2012).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b14",
       "type": "bibliography",
-      "label": "Frank Ortmann Stephan Roche Phys. Rev. Lett 110 86602 2013 Frank Ortmann and Stephan Roche, Phys. Rev. Lett. 110, 086602 (2013)."
+      "label": "Frank Ortmann Stephan Roche Phys. Rev. Lett 110 86602 2013 Frank Ortmann and Stephan Roche, Phys. Rev. Lett. 110, 086602 (2013).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b15",
       "type": "bibliography",
-      "label": "D A Greenwood Proc. Phys. Soc. (London) 71 585 1958 D. A. Greenwood, Proc. Phys. Soc. (London) 71, 585 (1958)."
+      "label": "D A Greenwood Proc. Phys. Soc. (London) 71 585 1958 D. A. Greenwood, Proc. Phys. Soc. (London) 71, 585 (1958).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b16",
       "type": "bibliography",
-      "label": "A Weisse G Wellein A Alvermann H Fehske Rev. Mod. Phys 78 275 2006 A. Weisse, G. Wellein, A. Alvermann, H. Fehske, Rev. Mod. Phys. 78, 275(2006)."
+      "label": "A Weisse G Wellein A Alvermann H Fehske Rev. Mod. Phys 78 275 2006 A. Weisse, G. Wellein, A. Alvermann, H. Fehske, Rev. Mod. Phys. 78, 275(2006).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b17",
       "type": "bibliography",
-      "label": "S Roche Phys. Rev. B 59 2284 1999 S. Roche, Phys. Rev. B 59, 2284 (1999)."
+      "label": "S Roche Phys. Rev. B 59 2284 1999 S. Roche, Phys. Rev. B 59, 2284 (1999).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b18",
       "type": "bibliography",
-      "label": "S Yuan H De Raedt M I Katsnelson Phys. Rev. B 82 115448 2010 S. Yuan, H. De Raedt, and M.I. Katsnelson, Phys. Rev. B 82, 115448 (2010)."
+      "label": "S Yuan H De Raedt M I Katsnelson Phys. Rev. B 82 115448 2010 S. Yuan, H. De Raedt, and M.I. Katsnelson, Phys. Rev. B 82, 115448 (2010).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b19",
       "type": "bibliography",
-      "label": "Aires Ferreira J Viana-Gomes Johan Nilsson E R Mucciolo N M R Peres A H Castro Neto Phys. Rev. B 83 165402 2011 Aires Ferreira, J. Viana-Gomes, Johan Nilsson, E. R. Mucciolo, N. M. R. Peres, and A. H. Castro Neto, Phys. Rev. B 83, 165402 (2011)."
+      "label": "Aires Ferreira J Viana-Gomes Johan Nilsson E R Mucciolo N M R Peres A H Castro Neto Phys. Rev. B 83 165402 2011 Aires Ferreira, J. Viana-Gomes, Johan Nilsson, E. R. Mucciolo, N. M. R. Peres, and A. H. Castro Neto, Phys. Rev. B 83, 165402 (2011).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b20",
       "type": "bibliography",
-      "label": "Z Fan A Uppstu T Siro A Harju Computer Physics Communications 185 28 2014 Z. Fan, A. Uppstu, T. Siro, and A. Harju, Computer Physics Communications 185, 28 (2014)."
+      "label": "Z Fan A Uppstu T Siro A Harju Computer Physics Communications 185 28 2014 Z. Fan, A. Uppstu, T. Siro, and A. Harju, Computer Physics Communications 185, 28 (2014).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b21",
       "type": "bibliography",
-      "label": "T L Van Den Berg L Raymond A Verga Phys. Rev. B 84 245210 2011 T. L. van den Berg, L. Raymond, A. Verga, Phys. Rev. B 84, 245210 (2011)."
+      "label": "T L Van Den Berg L Raymond A Verga Phys. Rev. B 84 245210 2011 T. L. van den Berg, L. Raymond, A. Verga, Phys. Rev. B 84, 245210 (2011).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b22",
       "type": "bibliography",
-      "label": "A H Castro Neto F Guinea N M R Peres K S Novoselov A K Geim Rev. Mod. Phys 81 109 2009 A. H. Castro Neto, F. Guinea, N. M. R. Peres, K. S. Novoselov, and A. K. Geim, Rev. Mod. Phys. 81, 109 (2009)."
+      "label": "A H Castro Neto F Guinea N M R Peres K S Novoselov A K Geim Rev. Mod. Phys 81 109 2009 A. H. Castro Neto, F. Guinea, N. M. R. Peres, K. S. Novoselov, and A. K. Geim, Rev. Mod. Phys. 81, 109 (2009).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b23",
       "type": "bibliography",
-      "label": "S Das Sarma Shaffique Adam E H Hwang Enrico Rossi Rev. Mod. Phys 83 407 2011 and references therein S. Das Sarma, Shaffique Adam, E. H. Hwang, Enrico Rossi, Rev. Mod. Phys. 83, 407 (2011) and references therein."
+      "label": "S Das Sarma Shaffique Adam E H Hwang Enrico Rossi Rev. Mod. Phys 83 407 2011 and references therein S. Das Sarma, Shaffique Adam, E. H. Hwang, Enrico Rossi, Rev. Mod. Phys. 83, 407 (2011) and references therein.",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b24",
       "type": "bibliography",
-      "label": "S Gattenlohner W.-R Hannes P M Ostrovsky I V Gornyi A D Mirlin M Titov Phys. Rev. Lett 112 26802 2014 S. Gattenlohner, W.-R. Hannes, P. M. Ostrovsky, I. V. Gornyi, A. D. Mirlin, M. Titov, Phys. Rev. Lett. 112, 026802 (2014)"
+      "label": "S Gattenlohner W.-R Hannes P M Ostrovsky I V Gornyi A D Mirlin M Titov Phys. Rev. Lett 112 26802 2014 S. Gattenlohner, W.-R. Hannes, P. M. Ostrovsky, I. V. Gornyi, A. D. Mirlin, M. Titov, Phys. Rev. Lett. 112, 026802 (2014)",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b25",
       "type": "bibliography",
-      "label": "F D M Haldane Phys. Rev. Lett 61 2015 1988 F. D. M. Haldane, Phys. Rev. Lett. 61, 2015 (1988)."
+      "label": "F D M Haldane Phys. Rev. Lett 61 2015 1988 F. D. M. Haldane, Phys. Rev. Lett. 61, 2015 (1988).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b26",
       "type": "bibliography",
-      "label": "A Crepieux P Bruno Phys. Rev. B 64 94434 2001 A. Crepieux, and P. Bruno, Phys. Rev. B 64, 094434 (2001)."
+      "label": "A Crepieux P Bruno Phys. Rev. B 64 94434 2001 A. Crepieux, and P. Bruno, Phys. Rev. B 64, 094434 (2001).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b27",
       "type": "bibliography",
-      "label": "P Streda J. Phys. C: Solid State Phys 15 1299 1982. 1982 L P. Streda, J. Phys. C: Solid State Phys. 15, L717 (1982); 15, L1299 (1982)."
+      "label": "P Streda J. Phys. C: Solid State Phys 15 1299 1982. 1982 L P. Streda, J. Phys. C: Solid State Phys. 15, L717 (1982); 15, L1299 (1982).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b28",
       "type": "bibliography",
-      "label": "R N Silvera H Roederb A F Votera J D Kressb Journal of Computational Physics 124 115 1996 R.N. Silvera, H. Roederb, A.F. Votera, J.D. Kressb, Jour- nal of Computational Physics 124, 115 (1996)."
+      "label": "R N Silvera H Roederb A F Votera J D Kressb Journal of Computational Physics 124 115 1996 R.N. Silvera, H. Roederb, A.F. Votera, J.D. Kressb, Jour- nal of Computational Physics 124, 115 (1996).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b29",
       "type": "bibliography",
-      "label": "L Covaci F M Peeters M Berciu Phys. Rev. Lett 105 167006 2010 L. Covaci, F.M. Peeters, M. Berciu, Phys. Rev. Lett. 105, 167006 (2010)"
+      "label": "L Covaci F M Peeters M Berciu Phys. Rev. Lett 105 167006 2010 L. Covaci, F.M. Peeters, M. Berciu, Phys. Rev. Lett. 105, 167006 (2010)",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b30",
       "type": "bibliography",
-      "label": "M Ganahl P Thunstrom F Verstraete K Held H G Evertz Phys. Rev. B 90 45144 2014 M. Ganahl, P. Thunstrom, F. Verstraete, K. Held, H. G. Evertz, Phys. Rev. B. 90, 045144 (2014)."
+      "label": "M Ganahl P Thunstrom F Verstraete K Held H G Evertz Phys. Rev. B 90 45144 2014 M. Ganahl, P. Thunstrom, F. Verstraete, K. Held, H. G. Evertz, Phys. Rev. B. 90, 045144 (2014).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b31",
       "type": "bibliography",
-      "label": "F A Wolf Ian P Mcculloch Olivier Parcollet Ul-Rich Schollwock Phys. Rev. B 90 115124 2014 F. A. Wolf, Ian P. McCulloch, Olivier Parcollet, and Ul- rich Schollwock, Phys. Rev. B. 90, 115124 (2014)."
+      "label": "F A Wolf Ian P Mcculloch Olivier Parcollet Ul-Rich Schollwock Phys. Rev. B 90 115124 2014 F. A. Wolf, Ian P. McCulloch, Olivier Parcollet, and Ul- rich Schollwock, Phys. Rev. B. 90, 115124 (2014).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b32",
       "type": "bibliography",
-      "label": "Numerical Analysis: Mathematics of Scientific Computing David Ronald Kincaid, Elliott Ward Cheney American Mathematical Society 2002 2 \"Numerical Analysis: Mathematics of Scientific Comput- ing, Vol 2\", David Ronald Kincaid, Elliott Ward Cheney, American Mathematical Society (2002)."
+      "label": "Numerical Analysis: Mathematics of Scientific Computing David Ronald Kincaid, Elliott Ward Cheney American Mathematical Society 2002 2 \"Numerical Analysis: Mathematics of Scientific Comput- ing, Vol 2\", David Ronald Kincaid, Elliott Ward Cheney, American Mathematical Society (2002).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b33",
       "type": "bibliography",
-      "label": "See Supplemental Material which includes Refs. 42-48 See Supplemental Material [url], which includes Refs. [42- 48]"
+      "label": "See Supplemental Material which includes Refs. 42-48 See Supplemental Material [url], which includes Refs. [42- 48]",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b34",
       "type": "bibliography",
-      "label": "A Weisse Eur. Phys. J. B 40 125 2004 A. Weisse, Eur. Phys. J. B 40, 125 (2004);"
+      "label": "A Weisse Eur. Phys. J. B 40 125 2004 A. Weisse, Eur. Phys. J. B 40, 125 (2004);",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b35",
       "type": "bibliography",
-      "label": "A Weisse G Schubert H Fehske Physica B 359-361 2005 786 A. Weisse, G. Schubert, H. Fehske, Physica B 359-361, 786 (2005)."
+      "label": "A Weisse G Schubert H Fehske Physica B 359-361 2005 786 A. Weisse, G. Schubert, H. Fehske, Physica B 359-361, 786 (2005).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b36",
       "type": "bibliography",
-      "label": "R Alben M Blume H Krakauer L Schwartz Phys.Rev. B 12 4090 1975 R. Alben, M. Blume, H. Krakauer, L. Schwartz, Phys.Rev. B 12, 4090(1975)."
+      "label": "R Alben M Blume H Krakauer L Schwartz Phys.Rev. B 12 4090 1975 R. Alben, M. Blume, H. Krakauer, L. Schwartz, Phys.Rev. B 12, 4090(1975).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b37",
       "type": "bibliography",
-      "label": "Toshiaki Iitaka Toshikazu Ebisuzaki Phys. Rev. E 69 57701 2004 Toshiaki Iitaka, Toshikazu Ebisuzaki, Phys. Rev. E,69, 057701(2004)."
+      "label": "Toshiaki Iitaka Toshikazu Ebisuzaki Phys. Rev. E 69 57701 2004 Toshiaki Iitaka, Toshikazu Ebisuzaki, Phys. Rev. E,69, 057701(2004).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b38",
       "type": "bibliography",
-      "label": "K S Novoselov A K Geim S V Morozov D Jiang M I Katsnelson I V Grigorieva S V Dubonos A A Firsov Nature 438 197 2005 K. S. Novoselov, A. K. Geim, S. V. Morozov, D. Jiang, M. I. Katsnelson, I. V. Grigorieva, S. V. Dubonos, and A. A. Firsov, Nature 438, 197 (2005)."
+      "label": "K S Novoselov A K Geim S V Morozov D Jiang M I Katsnelson I V Grigorieva S V Dubonos A A Firsov Nature 438 197 2005 K. S. Novoselov, A. K. Geim, S. V. Morozov, D. Jiang, M. I. Katsnelson, I. V. Grigorieva, S. V. Dubonos, and A. A. Firsov, Nature 438, 197 (2005).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b39",
       "type": "bibliography",
-      "label": "C Z Chang Science 340 167 2013 C. Z. Chang et al. Science 340 167 (2013)."
+      "label": "C Z Chang Science 340 167 2013 C. Z. Chang et al. Science 340 167 (2013).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b40",
       "type": "bibliography",
-      "label": "Jian Li Rui-Lin Chu J K Jain Shun-Qing Shen Phys. Rev. Lett 102 136806 2009 Jian Li, Rui-Lin Chu, J. K. Jain, and Shun-Qing Shen, Phys. Rev. Lett. 102, 136806 (2009)."
+      "label": "Jian Li Rui-Lin Chu J K Jain Shun-Qing Shen Phys. Rev. Lett 102 136806 2009 Jian Li, Rui-Lin Chu, J. K. Jain, and Shun-Qing Shen, Phys. Rev. Lett. 102, 136806 (2009).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b41",
       "type": "bibliography",
-      "label": "Juntao Song Haiwen Liu Hua Jiang Qing-Feng Sun X C Xie Phys.Rev. B 85 195125 2012 Juntao Song, Haiwen Liu, Hua Jiang, Qing-feng Sun, and X. C. Xie, Phys.Rev. B 85, 195125 (2012)."
+      "label": "Juntao Song Haiwen Liu Hua Jiang Qing-Feng Sun X C Xie Phys.Rev. B 85 195125 2012 Juntao Song, Haiwen Liu, Hua Jiang, Qing-feng Sun, and X. C. Xie, Phys.Rev. B 85, 195125 (2012).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b42",
       "type": "bibliography",
-      "label": "K Sun Z Gu H Katsura S Das Sarma Phys. Rev. Lett 106 236803 2011 K. Sun, Z. Gu, H. Katsura, and S. Das Sarma, Phys. Rev. Lett. 106, 236803 (2011);"
+      "label": "K Sun Z Gu H Katsura S Das Sarma Phys. Rev. Lett 106 236803 2011 K. Sun, Z. Gu, H. Katsura, and S. Das Sarma, Phys. Rev. Lett. 106, 236803 (2011);",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b43",
       "type": "bibliography",
-      "label": "E Tang J.-W Mei X.-G E. Tang, J.-W. Mei, and X.-G."
+      "label": "E Tang J.-W Mei X.-G E. Tang, J.-W. Mei, and X.-G.",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b44",
       "type": "bibliography",
-      "label": "Wen Phys. Rev. Lett 106 236802 2011 Wen, Phys. Rev. Lett. 106, 236802 (2011);"
+      "label": "Wen Phys. Rev. Lett 106 236802 2011 Wen, Phys. Rev. Lett. 106, 236802 (2011);",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b45",
       "type": "bibliography",
-      "label": "T Neupert L Santos C Chamon C Mudry Phys. Rev. Lett 106 236804 2011 T. Neupert, L. Santos, C. Chamon, and C. Mudry, Phys. Rev. Lett. 106, 236804 (2011)."
+      "label": "T Neupert L Santos C Chamon C Mudry Phys. Rev. Lett 106 236804 2011 T. Neupert, L. Santos, C. Chamon, and C. Mudry, Phys. Rev. Lett. 106, 236804 (2011).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b46",
       "type": "bibliography",
-      "label": "Jens Holger Fehske Gerald Schleede Gerhard Schubert Vladimir S Wellein Alan R Filinov Bishop Phys. Lett. A 373 2182 2009 Holger Fehske, Jens Schleede, Gerald Schubert, Gerhard Wellein, Vladimir S. Filinov, Alan R. Bishop, Phys. Lett. A 373, 2182 (2009)."
+      "label": "Jens Holger Fehske Gerald Schleede Gerhard Schubert Vladimir S Wellein Alan R Filinov Bishop Phys. Lett. A 373 2182 2009 Holger Fehske, Jens Schleede, Gerald Schubert, Gerhard Wellein, Vladimir S. Filinov, Alan R. Bishop, Phys. Lett. A 373, 2182 (2009).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b47",
       "type": "bibliography",
-      "label": "J B Wang T T Scholz Phys. Rev. A 57 3554 1998 J. B. Wang and T. T. Scholz , Phys. Rev. A 57, 3554 (1998)."
+      "label": "J B Wang T T Scholz Phys. Rev. A 57 3554 1998 J. B. Wang and T. T. Scholz , Phys. Rev. A 57, 3554 (1998).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b48",
       "type": "bibliography",
-      "label": "A Weisse H Fehske Lect. Notes Phys 739 545577 2008 A. Weisse and H. Fehske, Lect. Notes Phys. 739, 545577 (2008)."
+      "label": "A Weisse H Fehske Lect. Notes Phys 739 545577 2008 A. Weisse and H. Fehske, Lect. Notes Phys. 739, 545577 (2008).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b49",
       "type": "bibliography",
-      "label": "D Jackson XI providence R. I 1930 American Mathematical Society Colloquium Publications D. Jackson D. Jackson, American Mathematical Society Colloquium Publications D. Jackson, XI providence R. I. (1930)."
+      "label": "D Jackson XI providence R. I 1930 American Mathematical Society Colloquium Publications D. Jackson D. Jackson, American Mathematical Society Colloquium Publications D. Jackson, XI providence R. I. (1930).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b50",
       "type": "bibliography",
-      "label": "D A Drabold O F Sankey Phys. Rev. Lett 70 3631 1993 D. A. Drabold and O. F. Sankey, Phys. Rev. Lett. 70 3631(1993)."
+      "label": "D A Drabold O F Sankey Phys. Rev. Lett 70 3631 1993 D. A. Drabold and O. F. Sankey, Phys. Rev. Lett. 70 3631(1993).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b51",
       "type": "bibliography",
-      "label": "R N Silver H Rder Int. J. Mod. Phys. C 5 935 1994 Silver, R. N., and H. Rder Int. J. Mod. Phys. C 5 935 (1994)."
+      "label": "R N Silver H Rder Int. J. Mod. Phys. C 5 935 1994 Silver, R. N., and H. Rder Int. J. Mod. Phys. C 5 935 (1994).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b52",
       "type": "bibliography",
-      "label": "Cuda Perfomance Report September 2014 Cuda Perfomance Report, September 2014."
+      "label": "Cuda Perfomance Report September 2014 Cuda Perfomance Report, September 2014.",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b53",
       "type": "bibliography",
-      "label": "Alexander Weisse Gerhard Wellein Andreas Alvermann Holger Fehske Rev. Mod. Phys 78 275 2006 Alexander Weisse, Gerhard Wellein, Andreas Alvermann and Holger Fehske, Rev. Mod. Phys. 78, 275 (2006)."
+      "label": "Alexander Weisse Gerhard Wellein Andreas Alvermann Holger Fehske Rev. Mod. Phys 78 275 2006 Alexander Weisse, Gerhard Wellein, Andreas Alvermann and Holger Fehske, Rev. Mod. Phys. 78, 275 (2006).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b54",
       "type": "bibliography",
-      "label": "L Covaci F M Peeters M Berciu Phys. Rev. Lett 105 167006 2010 L. Covaci, F. M. Peeters and M. Berciu , Phys. Rev. Lett. 105, 167006 (2010)."
+      "label": "L Covaci F M Peeters M Berciu Phys. Rev. Lett 105 167006 2010 L. Covaci, F. M. Peeters and M. Berciu , Phys. Rev. Lett. 105, 167006 (2010).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b55",
       "type": "bibliography",
-      "label": "Jens Holger Fehske Gerald Schleede Gerhard Schubert Vladimir S Wellein Alan R Filinov Bishop Phys. Lett. A 373 2182 2009 Holger Fehske, Jens Schleede, Gerald Schubert, Gerhard Wellein, Vladimir S. Filinov, Alan R. Bishop, Phys. Lett. A 373, 2182 (2009)."
+      "label": "Jens Holger Fehske Gerald Schleede Gerhard Schubert Vladimir S Wellein Alan R Filinov Bishop Phys. Lett. A 373 2182 2009 Holger Fehske, Jens Schleede, Gerald Schubert, Gerhard Wellein, Vladimir S. Filinov, Alan R. Bishop, Phys. Lett. A 373, 2182 (2009).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b56",
       "type": "bibliography",
-      "label": "J B Wang T T Scholz Phys. Rev. A 5 57 1998 J. B. Wang and T. T. Scholz , Phys. Rev. A 5, 57 (1998)."
+      "label": "J B Wang T T Scholz Phys. Rev. A 5 57 1998 J. B. Wang and T. T. Scholz , Phys. Rev. A 5, 57 (1998).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b57",
       "type": "bibliography",
-      "label": "R N Silver H Roeder A F Voter J D Kress Journal of Computational Physics 124 1996 R. N. Silver, H. Roeder, A. F. Voter and J. D. Kress, Journal of Computational Physics 124, 115-130 (1996)."
+      "label": "R N Silver H Roeder A F Voter J D Kress Journal of Computational Physics 124 1996 R. N. Silver, H. Roeder, A. F. Voter and J. D. Kress, Journal of Computational Physics 124, 115-130 (1996).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b58",
       "type": "bibliography",
-      "label": "A Weisse H Fehske Lect. Notes Phys 739 545577 2008 A. Weisse and H. Fehske, Lect. Notes Phys. 739, 545577 (2008)."
+      "label": "A Weisse H Fehske Lect. Notes Phys 739 545577 2008 A. Weisse and H. Fehske, Lect. Notes Phys. 739, 545577 (2008).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b59",
       "type": "bibliography",
-      "label": "D Jackson XI providence R. I 1930 American Mathematical Society Colloquium Publications D. Jackson D. Jackson, American Mathematical Society Colloquium Publications D. Jackson, XI providence R. I. (1930)."
+      "label": "D Jackson XI providence R. I 1930 American Mathematical Society Colloquium Publications D. Jackson D. Jackson, American Mathematical Society Colloquium Publications D. Jackson, XI providence R. I. (1930).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b60",
       "type": "bibliography",
-      "label": "D A Drabold O F Sankey Phys. Rev. Lett 70 3631 1993 D. A. Drabold and O. F. Sankey, Phys. Rev. Lett. 70 3631(1993)."
+      "label": "D A Drabold O F Sankey Phys. Rev. Lett 70 3631 1993 D. A. Drabold and O. F. Sankey, Phys. Rev. Lett. 70 3631(1993).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b61",
       "type": "bibliography",
-      "label": "R N Silver H Rder Int. J. Mod. Phys. C 5 935 1994 Silver, R. N., and H. Rder Int. J. Mod. Phys. C 5 935 (1994)."
+      "label": "R N Silver H Rder Int. J. Mod. Phys. C 5 935 1994 Silver, R. N., and H. Rder Int. J. Mod. Phys. C 5 935 (1994).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b62",
       "type": "bibliography",
-      "label": "Toshiaki Iitaka Toshikazu Ebisuzakis Phys. Rev. E 69 57701 2004 Toshiaki Iitaka and Toshikazu Ebisuzakis,Phys. Rev. E 69 057701 (2004)."
+      "label": "Toshiaki Iitaka Toshikazu Ebisuzakis Phys. Rev. E 69 57701 2004 Toshiaki Iitaka and Toshikazu Ebisuzakis,Phys. Rev. E 69 057701 (2004).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b63",
       "type": "bibliography",
-      "label": "A Bastin C Lewiner O Betbeder-Matibet P Nozieres J. Phys, Chem. Solids 32 1971 A. Bastin, C. Lewiner, O. Betbeder-Matibet et P. Nozieres, J. Phys, Chem. Solids 32 1-1824 (1971)."
+      "label": "A Bastin C Lewiner O Betbeder-Matibet P Nozieres J. Phys, Chem. Solids 32 1971 A. Bastin, C. Lewiner, O. Betbeder-Matibet et P. Nozieres, J. Phys, Chem. Solids 32 1-1824 (1971).",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "#/bibliography/b64",
       "type": "bibliography",
-      "label": "Cuda Perfomance Report September 2014 Cuda Perfomance Report, September 2014."
+      "label": "Cuda Perfomance Report September 2014 Cuda Perfomance Report, September 2014.",
+      "parent_id": "document:example01/grobid+mineru",
+      "page_no": null
     },
     {
       "id": "marker:0:#/document:[2]",
@@ -336,7 +486,15 @@
         0,
         3
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
+    },
+    {
+      "id": "section:markers:example01/grobid+mineru",
+      "type": "markers_section",
+      "label": "Markers",
+      "parent_id": "document:example01/grobid+mineru",
+      "back_matter_kind": "markers"
     },
     {
       "id": "marker:1:#/document:[3]",
@@ -347,7 +505,8 @@
         4,
         7
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:2:#/document:[4]",
@@ -358,7 +517,8 @@
         8,
         11
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:3:#/document:[5]",
@@ -369,7 +529,8 @@
         12,
         15
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:4:#/document:[6,",
@@ -380,7 +541,8 @@
         16,
         19
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:5:#/document:7]",
@@ -391,7 +553,8 @@
         20,
         22
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:6:#/document:[8]",
@@ -402,7 +565,8 @@
         23,
         26
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:7:#/document:[9]",
@@ -413,7 +577,8 @@
         27,
         30
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:8:#/document:[10]",
@@ -424,7 +589,8 @@
         31,
         35
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:9:#/document:[11]",
@@ -435,7 +601,8 @@
         36,
         40
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:10:#/document:[12,",
@@ -446,7 +613,8 @@
         41,
         45
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:11:#/document:13]",
@@ -457,7 +625,8 @@
         46,
         49
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:12:#/document:[14]",
@@ -468,7 +637,8 @@
         50,
         54
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:13:#/document:[1]",
@@ -479,7 +649,8 @@
         55,
         58
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:14:#/document:[16]",
@@ -490,7 +661,8 @@
         59,
         63
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:15:#/document:[17]",
@@ -501,7 +673,8 @@
         64,
         68
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:16:#/document:[18]",
@@ -512,7 +685,8 @@
         69,
         73
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:17:#/document:[19]",
@@ -523,7 +697,8 @@
         74,
         78
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:18:#/document:[20]",
@@ -534,7 +709,8 @@
         79,
         83
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:19:#/document:[14,",
@@ -545,7 +721,8 @@
         84,
         88
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:20:#/document:21]",
@@ -556,7 +733,8 @@
         89,
         92
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:21:#/document:[14,",
@@ -567,7 +745,8 @@
         84,
         88
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:22:#/document:[22]",
@@ -578,7 +757,8 @@
         98,
         102
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:23:#/document:[23]",
@@ -589,7 +769,8 @@
         103,
         107
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:24:#/document:[24]",
@@ -600,7 +781,8 @@
         108,
         112
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:25:#/document:[25]",
@@ -611,7 +793,8 @@
         113,
         117
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:26:#/document:[1]",
@@ -622,7 +805,8 @@
         55,
         58
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:27:#/document:[1]",
@@ -633,7 +817,8 @@
         55,
         58
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:28:#/document:[26]",
@@ -644,7 +829,8 @@
         126,
         130
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:29:#/document:[26]",
@@ -655,7 +841,8 @@
         126,
         130
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:30:#/document:[27]",
@@ -666,7 +853,8 @@
         136,
         140
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:31:#/document:[15]",
@@ -677,7 +865,8 @@
         141,
         145
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:32:#/document:1",
@@ -688,7 +877,8 @@
         32,
         33
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:33:#/document:[16,",
@@ -699,7 +889,8 @@
         148,
         152
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:34:#/document:28]",
@@ -710,7 +901,8 @@
         153,
         156
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:35:#/document:[16,",
@@ -721,7 +913,8 @@
         148,
         152
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:36:#/document:[29]",
@@ -732,7 +925,8 @@
         162,
         166
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:37:#/document:[30]",
@@ -743,7 +937,8 @@
         167,
         171
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:38:#/document:[31]",
@@ -754,7 +949,8 @@
         172,
         176
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:39:#/document:[32]",
@@ -765,7 +961,8 @@
         177,
         181
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:40:#/document:[33]",
@@ -776,7 +973,8 @@
         182,
         186
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:41:#/document:[16,",
@@ -787,7 +985,8 @@
         148,
         152
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:42:#/document:28]",
@@ -798,7 +997,8 @@
         153,
         156
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:43:#/document:(19)",
@@ -809,7 +1009,8 @@
         196,
         200
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:44:#/document:[34]",
@@ -820,7 +1021,8 @@
         201,
         205
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:45:#/document:[20,",
@@ -831,7 +1033,8 @@
         206,
         210
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:46:#/document:29]",
@@ -842,7 +1045,8 @@
         163,
         166
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:47:#/document:[35,",
@@ -853,7 +1057,8 @@
         215,
         219
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:48:#/document:36]",
@@ -864,7 +1069,8 @@
         220,
         223
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:49:#/document:1 (b)",
@@ -875,7 +1081,8 @@
         224,
         229
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:50:#/document:1",
@@ -886,7 +1093,8 @@
         32,
         33
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:51:#/document:1 (c",
@@ -897,7 +1105,8 @@
         232,
         236
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:52:#/document:[37]",
@@ -908,7 +1117,8 @@
         237,
         241
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:53:#/document:1",
@@ -919,7 +1129,8 @@
         32,
         33
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:54:#/document:2",
@@ -930,7 +1141,8 @@
         1,
         2
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:55:#/document:[29]",
@@ -941,7 +1153,8 @@
         162,
         166
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:56:#/document:2",
@@ -952,7 +1165,8 @@
         1,
         2
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:57:#/document:[14,",
@@ -963,7 +1177,8 @@
         84,
         88
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:58:#/document:24]",
@@ -974,7 +1189,8 @@
         109,
         112
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:59:#/document:2",
@@ -985,7 +1201,8 @@
         1,
         2
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:60:#/document:[33]",
@@ -996,7 +1213,8 @@
         182,
         186
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:61:#/document:[16]",
@@ -1007,7 +1225,8 @@
         59,
         63
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:62:#/document:2 (c",
@@ -1018,7 +1237,8 @@
         274,
         278
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:63:#/document:2",
@@ -1029,7 +1249,8 @@
         1,
         2
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:64:#/document:[38]",
@@ -1040,7 +1261,8 @@
         281,
         285
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:65:#/document:[25]",
@@ -1051,7 +1273,8 @@
         113,
         117
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:66:#/document:[25]",
@@ -1062,7 +1285,8 @@
         113,
         117
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:67:#/document:[38]",
@@ -1073,7 +1297,8 @@
         281,
         285
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:68:#/document:3",
@@ -1084,7 +1309,8 @@
         5,
         6
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:69:#/document:[39,",
@@ -1095,7 +1321,8 @@
         303,
         307
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:70:#/document:40]",
@@ -1106,7 +1333,8 @@
         308,
         311
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:71:#/document:[41]",
@@ -1117,7 +1345,8 @@
         312,
         316
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:72:#/document:[2]",
@@ -1128,7 +1357,8 @@
         0,
         3
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:73:#/document:[3,",
@@ -1139,7 +1369,8 @@
         321,
         324
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:74:#/document:4]",
@@ -1150,7 +1381,8 @@
         9,
         11
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:75:#/document:[1,",
@@ -1161,7 +1393,8 @@
         328,
         331
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:76:#/document:5]",
@@ -1172,7 +1405,8 @@
         13,
         15
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:77:#/document:(10)",
@@ -1183,7 +1417,8 @@
         335,
         339
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:78:#/document:11",
@@ -1194,7 +1429,8 @@
         37,
         39
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:79:#/document:[1,",
@@ -1205,7 +1441,8 @@
         328,
         331
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:80:#/document:6,",
@@ -1216,7 +1453,8 @@
         17,
         19
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:81:#/document:7]",
@@ -1227,7 +1465,8 @@
         20,
         22
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:82:#/document:[1,",
@@ -1238,7 +1477,8 @@
         328,
         331
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:83:#/document:8,",
@@ -1249,7 +1489,8 @@
         357,
         359
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:84:#/document:9]",
@@ -1260,7 +1501,8 @@
         28,
         30
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:85:#/document:14",
@@ -1271,7 +1513,8 @@
         51,
         53
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:86:#/document:[9,",
@@ -1282,7 +1525,8 @@
         366,
         369
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:87:#/document:10]",
@@ -1293,7 +1537,8 @@
         32,
         35
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:88:#/document:[11]",
@@ -1304,7 +1549,8 @@
         36,
         40
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:89:#/document:(10)",
@@ -1315,7 +1561,8 @@
         335,
         339
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:90:#/document:(16)",
@@ -1326,7 +1573,8 @@
         384,
         388
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:91:#/document:19",
@@ -1337,7 +1585,8 @@
         75,
         77
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:92:#/document:(11)",
@@ -1348,7 +1597,8 @@
         392,
         396
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:93:#/document:(22)",
@@ -1359,7 +1609,8 @@
         397,
         401
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:94:#/document:[1]",
@@ -1370,7 +1621,8 @@
         55,
         58
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:95:#/document:1",
@@ -1381,7 +1633,8 @@
         32,
         33
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:96:#/document:2",
@@ -1392,7 +1645,8 @@
         1,
         2
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:97:#/document:[12]",
@@ -1403,7 +1657,8 @@
         410,
         414
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:98:#/document:[38]",
@@ -1414,7 +1669,8 @@
         281,
         285
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:99:#/document:[39,",
@@ -1425,7 +1681,8 @@
         303,
         307
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
       "id": "marker:100:#/document:40]",
@@ -1436,142 +1693,197 @@
         308,
         311
       ],
-      "backend": "grobid"
+      "backend": "grobid",
+      "parent_id": "section:markers:example01/grobid+mineru"
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:19",
+      "id": "ent:mineru:example01:footnote:20",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:19"
+      "label": "ent:mineru:example01:footnote:20",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:20",
+      "id": "ent:mineru:example01:footnote:21",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:20"
+      "label": "ent:mineru:example01:footnote:21",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:21",
+      "id": "ent:mineru:example01:footnote:22",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:21"
+      "label": "ent:mineru:example01:footnote:22",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:22",
+      "id": "ent:mineru:example01:footnote:23",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:22"
+      "label": "ent:mineru:example01:footnote:23",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:23",
+      "id": "ent:mineru:example01:footnote:24",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:23"
+      "label": "ent:mineru:example01:footnote:24",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:24",
+      "id": "ent:mineru:example01:footnote:25",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:24"
+      "label": "ent:mineru:example01:footnote:25",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:25",
+      "id": "ent:mineru:example01:footnote:26",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:25"
+      "label": "ent:mineru:example01:footnote:26",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:26",
+      "id": "ent:mineru:example01:footnote:27",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:26"
+      "label": "ent:mineru:example01:footnote:27",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:27",
+      "id": "ent:mineru:example01:footnote:28",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:27"
+      "label": "ent:mineru:example01:footnote:28",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:28",
+      "id": "ent:mineru:example01:footnote:29",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:28"
+      "label": "ent:mineru:example01:footnote:29",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:29",
+      "id": "ent:mineru:example01:footnote:30",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:29"
+      "label": "ent:mineru:example01:footnote:30",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:30",
+      "id": "ent:mineru:example01:footnote:31",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:30"
+      "label": "ent:mineru:example01:footnote:31",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:31",
+      "id": "ent:mineru:example01:footnote:32",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:31"
+      "label": "ent:mineru:example01:footnote:32",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:18",
+      "id": "ent:mineru:example01:footnote:19",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:18"
+      "label": "ent:mineru:example01:footnote:19",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:33",
+      "id": "ent:mineru:example01:footnote:34",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:33"
+      "label": "ent:mineru:example01:footnote:34",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:34",
+      "id": "ent:mineru:example01:footnote:35",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:34"
+      "label": "ent:mineru:example01:footnote:35",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:35",
+      "id": "ent:mineru:example01:footnote:36",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:35"
+      "label": "ent:mineru:example01:footnote:36",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:36",
+      "id": "ent:mineru:example01:footnote:37",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:36"
+      "label": "ent:mineru:example01:footnote:37",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:37",
+      "id": "ent:mineru:example01:footnote:38",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:37"
+      "label": "ent:mineru:example01:footnote:38",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:38",
+      "id": "ent:mineru:example01:footnote:39",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:38"
+      "label": "ent:mineru:example01:footnote:39",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:39",
+      "id": "ent:mineru:example01:footnote:40",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:39"
+      "label": "ent:mineru:example01:footnote:40",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:40",
+      "id": "ent:mineru:example01:footnote:41",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:40"
+      "label": "ent:mineru:example01:footnote:41",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:41",
+      "id": "ent:mineru:example01:footnote:42",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:41"
+      "label": "ent:mineru:example01:footnote:42",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:42",
+      "id": "ent:mineru:example01:footnote:43",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:42"
+      "label": "ent:mineru:example01:footnote:43",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:43",
+      "id": "ent:mineru:example01:footnote:44",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:43"
+      "label": "ent:mineru:example01:footnote:44",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:44",
+      "id": "ent:mineru:example01:footnote:45",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:44"
+      "label": "ent:mineru:example01:footnote:45",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:32",
+      "id": "ent:mineru:example01:footnote:33",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:32"
+      "label": "ent:mineru:example01:footnote:33",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
       "id": "_unresolved",
@@ -1579,1019 +1891,2783 @@
       "label": "(unresolved)"
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:45",
+      "id": "ent:mineru:example01:footnote:46",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:45"
+      "label": "ent:mineru:example01:footnote:46",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:46",
+      "id": "ent:mineru:example01:footnote:47",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:46"
+      "label": "ent:mineru:example01:footnote:47",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:47",
+      "id": "ent:mineru:example01:footnote:48",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:47"
+      "label": "ent:mineru:example01:footnote:48",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:48",
+      "id": "ent:mineru:example01:footnote:49",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:48"
+      "label": "ent:mineru:example01:footnote:49",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:49",
+      "id": "ent:mineru:example01:footnote:50",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:49"
+      "label": "ent:mineru:example01:footnote:50",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:50",
+      "id": "ent:mineru:example01:footnote:51",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:50"
+      "label": "ent:mineru:example01:footnote:51",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:51",
+      "id": "ent:mineru:example01:footnote:52",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:51"
+      "label": "ent:mineru:example01:footnote:52",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:52",
+      "id": "ent:mineru:example01:footnote:53",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:52"
+      "label": "ent:mineru:example01:footnote:53",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:53",
+      "id": "ent:mineru:example01:footnote:54",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:53"
+      "label": "ent:mineru:example01:footnote:54",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:caption:10",
+      "id": "ent:mineru:example01:caption:11",
       "type": "figure",
-      "label": "ent:mineru:1410.8140:caption:10"
+      "label": "ent:mineru:example01:caption:11",
+      "parent_id": "page:example01/grobid+mineru:1",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:54",
+      "id": "ent:mineru:example01:footnote:55",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:54"
+      "label": "ent:mineru:example01:footnote:55",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:55",
+      "id": "ent:mineru:example01:footnote:56",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:55"
+      "label": "ent:mineru:example01:footnote:56",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:caption:17",
+      "id": "ent:mineru:example01:caption:18",
       "type": "figure",
-      "label": "ent:mineru:1410.8140:caption:17"
+      "label": "ent:mineru:example01:caption:18",
+      "parent_id": "page:example01/grobid+mineru:1",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:56",
+      "id": "ent:mineru:example01:footnote:57",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:56"
+      "label": "ent:mineru:example01:footnote:57",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:57",
+      "id": "ent:mineru:example01:footnote:58",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:57"
+      "label": "ent:mineru:example01:footnote:58",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
     },
     {
-      "id": "ent:mineru:1410.8140:footnote:58",
+      "id": "ent:mineru:example01:footnote:59",
       "type": "bibliography",
-      "label": "ent:mineru:1410.8140:footnote:58"
+      "label": "ent:mineru:example01:footnote:59",
+      "parent_id": "section:bibliography:example01/grobid+mineru",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example01:equation:72",
+      "type": "equation",
+      "label": "ent:mineru:example01:equation:72",
+      "parent_id": "page:example01/grobid+mineru:1",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example01:equation:75",
+      "type": "equation",
+      "label": "ent:mineru:example01:equation:75",
+      "parent_id": "page:example01/grobid+mineru:1",
+      "page_no": 1
+    },
+    {
+      "id": "ent:mineru:example01:equation:81",
+      "type": "equation",
+      "label": "ent:mineru:example01:equation:81",
+      "parent_id": "page:example01/grobid+mineru:1",
+      "page_no": 1
     }
   ],
   "edges": [
     {
       "source": "marker:72:#/document:[2]",
-      "target": "ent:mineru:1410.8140:footnote:19",
+      "target": "ent:mineru:example01:footnote:20",
       "marker_type": "bibliography",
       "label": "[2]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:1:#/document:[3]",
-      "target": "ent:mineru:1410.8140:footnote:20",
+      "target": "ent:mineru:example01:footnote:21",
       "marker_type": "bibliography",
       "label": "[3]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:2:#/document:[4]",
-      "target": "ent:mineru:1410.8140:footnote:21",
+      "target": "ent:mineru:example01:footnote:22",
       "marker_type": "bibliography",
       "label": "[4]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:3:#/document:[5]",
-      "target": "ent:mineru:1410.8140:footnote:22",
+      "target": "ent:mineru:example01:footnote:23",
       "marker_type": "bibliography",
       "label": "[5]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:4:#/document:[6,",
-      "target": "ent:mineru:1410.8140:footnote:23",
+      "target": "ent:mineru:example01:footnote:24",
       "marker_type": "bibliography",
       "label": "[6,",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:81:#/document:7]",
-      "target": "ent:mineru:1410.8140:footnote:24",
+      "target": "ent:mineru:example01:footnote:25",
       "marker_type": "bibliography",
       "label": "7]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:6:#/document:[8]",
-      "target": "ent:mineru:1410.8140:footnote:25",
+      "target": "ent:mineru:example01:footnote:26",
       "marker_type": "bibliography",
       "label": "[8]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:7:#/document:[9]",
-      "target": "ent:mineru:1410.8140:footnote:26",
+      "target": "ent:mineru:example01:footnote:27",
       "marker_type": "bibliography",
       "label": "[9]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:8:#/document:[10]",
-      "target": "ent:mineru:1410.8140:footnote:27",
+      "target": "ent:mineru:example01:footnote:28",
       "marker_type": "bibliography",
       "label": "[10]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:88:#/document:[11]",
-      "target": "ent:mineru:1410.8140:footnote:28",
+      "target": "ent:mineru:example01:footnote:29",
       "marker_type": "bibliography",
       "label": "[11]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:10:#/document:[12,",
-      "target": "ent:mineru:1410.8140:footnote:29",
+      "target": "ent:mineru:example01:footnote:30",
       "marker_type": "bibliography",
       "label": "[12,",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:11:#/document:13]",
-      "target": "ent:mineru:1410.8140:footnote:30",
+      "target": "ent:mineru:example01:footnote:31",
       "marker_type": "bibliography",
       "label": "13]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:12:#/document:[14]",
-      "target": "ent:mineru:1410.8140:footnote:31",
+      "target": "ent:mineru:example01:footnote:32",
       "marker_type": "bibliography",
       "label": "[14]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:94:#/document:[1]",
-      "target": "ent:mineru:1410.8140:footnote:18",
+      "target": "ent:mineru:example01:footnote:19",
       "marker_type": "bibliography",
       "label": "[1]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:61:#/document:[16]",
-      "target": "ent:mineru:1410.8140:footnote:33",
+      "target": "ent:mineru:example01:footnote:34",
       "marker_type": "bibliography",
       "label": "[16]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:15:#/document:[17]",
-      "target": "ent:mineru:1410.8140:footnote:34",
+      "target": "ent:mineru:example01:footnote:35",
       "marker_type": "bibliography",
       "label": "[17]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:16:#/document:[18]",
-      "target": "ent:mineru:1410.8140:footnote:35",
+      "target": "ent:mineru:example01:footnote:36",
       "marker_type": "bibliography",
       "label": "[18]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:17:#/document:[19]",
-      "target": "ent:mineru:1410.8140:footnote:36",
+      "target": "ent:mineru:example01:footnote:37",
       "marker_type": "bibliography",
       "label": "[19]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:18:#/document:[20]",
-      "target": "ent:mineru:1410.8140:footnote:37",
+      "target": "ent:mineru:example01:footnote:38",
       "marker_type": "bibliography",
       "label": "[20]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:57:#/document:[14,",
-      "target": "ent:mineru:1410.8140:footnote:31",
+      "target": "ent:mineru:example01:footnote:32",
       "marker_type": "bibliography",
       "label": "[14,",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:20:#/document:21]",
-      "target": "ent:mineru:1410.8140:footnote:38",
+      "target": "ent:mineru:example01:footnote:39",
       "marker_type": "bibliography",
       "label": "21]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:57:#/document:[14,",
-      "target": "ent:mineru:1410.8140:footnote:31",
+      "target": "ent:mineru:example01:footnote:32",
       "marker_type": "bibliography",
       "label": "[14,",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:22:#/document:[22]",
-      "target": "ent:mineru:1410.8140:footnote:39",
+      "target": "ent:mineru:example01:footnote:40",
       "marker_type": "bibliography",
       "label": "[22]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:23:#/document:[23]",
-      "target": "ent:mineru:1410.8140:footnote:40",
+      "target": "ent:mineru:example01:footnote:41",
       "marker_type": "bibliography",
       "label": "[23]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:24:#/document:[24]",
-      "target": "ent:mineru:1410.8140:footnote:41",
+      "target": "ent:mineru:example01:footnote:42",
       "marker_type": "bibliography",
       "label": "[24]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:66:#/document:[25]",
-      "target": "ent:mineru:1410.8140:footnote:42",
+      "target": "ent:mineru:example01:footnote:43",
       "marker_type": "bibliography",
       "label": "[25]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:94:#/document:[1]",
-      "target": "ent:mineru:1410.8140:footnote:18",
+      "target": "ent:mineru:example01:footnote:19",
       "marker_type": "bibliography",
       "label": "[1]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:94:#/document:[1]",
-      "target": "ent:mineru:1410.8140:footnote:18",
+      "target": "ent:mineru:example01:footnote:19",
       "marker_type": "bibliography",
       "label": "[1]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:29:#/document:[26]",
-      "target": "ent:mineru:1410.8140:footnote:43",
+      "target": "ent:mineru:example01:footnote:44",
       "marker_type": "bibliography",
       "label": "[26]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:29:#/document:[26]",
-      "target": "ent:mineru:1410.8140:footnote:43",
+      "target": "ent:mineru:example01:footnote:44",
       "marker_type": "bibliography",
       "label": "[26]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:30:#/document:[27]",
-      "target": "ent:mineru:1410.8140:footnote:44",
+      "target": "ent:mineru:example01:footnote:45",
       "marker_type": "bibliography",
       "label": "[27]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:31:#/document:[15]",
-      "target": "ent:mineru:1410.8140:footnote:32",
+      "target": "ent:mineru:example01:footnote:33",
       "marker_type": "bibliography",
       "label": "[15]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:95:#/document:1",
       "target": "_unresolved",
       "marker_type": "equation",
       "label": "1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:41:#/document:[16,",
-      "target": "ent:mineru:1410.8140:footnote:33",
+      "target": "ent:mineru:example01:footnote:34",
       "marker_type": "bibliography",
       "label": "[16,",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:42:#/document:28]",
-      "target": "ent:mineru:1410.8140:footnote:45",
+      "target": "ent:mineru:example01:footnote:46",
       "marker_type": "bibliography",
       "label": "28]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:41:#/document:[16,",
-      "target": "ent:mineru:1410.8140:footnote:33",
+      "target": "ent:mineru:example01:footnote:34",
       "marker_type": "bibliography",
       "label": "[16,",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:55:#/document:[29]",
-      "target": "ent:mineru:1410.8140:footnote:46",
+      "target": "ent:mineru:example01:footnote:47",
       "marker_type": "bibliography",
       "label": "[29]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:37:#/document:[30]",
-      "target": "ent:mineru:1410.8140:footnote:47",
+      "target": "ent:mineru:example01:footnote:48",
       "marker_type": "bibliography",
       "label": "[30]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:38:#/document:[31]",
-      "target": "ent:mineru:1410.8140:footnote:48",
+      "target": "ent:mineru:example01:footnote:49",
       "marker_type": "bibliography",
       "label": "[31]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:39:#/document:[32]",
-      "target": "ent:mineru:1410.8140:footnote:49",
+      "target": "ent:mineru:example01:footnote:50",
       "marker_type": "bibliography",
       "label": "[32]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:60:#/document:[33]",
-      "target": "ent:mineru:1410.8140:footnote:50",
+      "target": "ent:mineru:example01:footnote:51",
       "marker_type": "bibliography",
       "label": "[33]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:41:#/document:[16,",
-      "target": "ent:mineru:1410.8140:footnote:33",
+      "target": "ent:mineru:example01:footnote:34",
       "marker_type": "bibliography",
       "label": "[16,",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:42:#/document:28]",
-      "target": "ent:mineru:1410.8140:footnote:45",
+      "target": "ent:mineru:example01:footnote:46",
       "marker_type": "bibliography",
       "label": "28]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:43:#/document:(19)",
-      "target": "ent:mineru:1410.8140:footnote:36",
+      "target": "ent:mineru:example01:footnote:37",
       "marker_type": "bibliography",
       "label": "(19)",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:44:#/document:[34]",
-      "target": "ent:mineru:1410.8140:footnote:51",
+      "target": "ent:mineru:example01:footnote:52",
       "marker_type": "bibliography",
       "label": "[34]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:45:#/document:[20,",
-      "target": "ent:mineru:1410.8140:footnote:37",
+      "target": "ent:mineru:example01:footnote:38",
       "marker_type": "bibliography",
       "label": "[20,",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:46:#/document:29]",
-      "target": "ent:mineru:1410.8140:footnote:46",
+      "target": "ent:mineru:example01:footnote:47",
       "marker_type": "bibliography",
       "label": "29]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:47:#/document:[35,",
-      "target": "ent:mineru:1410.8140:footnote:52",
+      "target": "ent:mineru:example01:footnote:53",
       "marker_type": "bibliography",
       "label": "[35,",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:48:#/document:36]",
-      "target": "ent:mineru:1410.8140:footnote:53",
+      "target": "ent:mineru:example01:footnote:54",
       "marker_type": "bibliography",
       "label": "36]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:49:#/document:1 (b)",
-      "target": "ent:mineru:1410.8140:caption:10",
+      "target": "ent:mineru:example01:caption:11",
       "marker_type": "figure",
       "label": "1 (b)",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:95:#/document:1",
-      "target": "ent:mineru:1410.8140:caption:10",
+      "target": "ent:mineru:example01:caption:11",
       "marker_type": "figure",
       "label": "1",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:51:#/document:1 (c",
-      "target": "ent:mineru:1410.8140:caption:10",
+      "target": "ent:mineru:example01:caption:11",
       "marker_type": "figure",
       "label": "1 (c",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:52:#/document:[37]",
-      "target": "ent:mineru:1410.8140:footnote:54",
+      "target": "ent:mineru:example01:footnote:55",
       "marker_type": "bibliography",
       "label": "[37]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:95:#/document:1",
-      "target": "ent:mineru:1410.8140:caption:10",
+      "target": "ent:mineru:example01:caption:11",
       "marker_type": "figure",
       "label": "1",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:96:#/document:2",
       "target": "_unresolved",
       "marker_type": "figure",
       "label": "2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:55:#/document:[29]",
-      "target": "ent:mineru:1410.8140:footnote:46",
+      "target": "ent:mineru:example01:footnote:47",
       "marker_type": "bibliography",
       "label": "[29]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:96:#/document:2",
       "target": "_unresolved",
       "marker_type": "figure",
       "label": "2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:57:#/document:[14,",
-      "target": "ent:mineru:1410.8140:footnote:31",
+      "target": "ent:mineru:example01:footnote:32",
       "marker_type": "bibliography",
       "label": "[14,",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:58:#/document:24]",
-      "target": "ent:mineru:1410.8140:footnote:41",
+      "target": "ent:mineru:example01:footnote:42",
       "marker_type": "bibliography",
       "label": "24]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:96:#/document:2",
       "target": "_unresolved",
       "marker_type": "figure",
       "label": "2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:60:#/document:[33]",
-      "target": "ent:mineru:1410.8140:footnote:50",
+      "target": "ent:mineru:example01:footnote:51",
       "marker_type": "bibliography",
       "label": "[33]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:61:#/document:[16]",
-      "target": "ent:mineru:1410.8140:footnote:33",
+      "target": "ent:mineru:example01:footnote:34",
       "marker_type": "bibliography",
       "label": "[16]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:62:#/document:2 (c",
       "target": "_unresolved",
       "marker_type": "figure",
       "label": "2 (c",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:96:#/document:2",
       "target": "_unresolved",
       "marker_type": "figure",
       "label": "2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:98:#/document:[38]",
-      "target": "ent:mineru:1410.8140:footnote:55",
+      "target": "ent:mineru:example01:footnote:56",
       "marker_type": "bibliography",
       "label": "[38]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:66:#/document:[25]",
-      "target": "ent:mineru:1410.8140:footnote:42",
+      "target": "ent:mineru:example01:footnote:43",
       "marker_type": "bibliography",
       "label": "[25]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:66:#/document:[25]",
-      "target": "ent:mineru:1410.8140:footnote:42",
+      "target": "ent:mineru:example01:footnote:43",
       "marker_type": "bibliography",
       "label": "[25]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:98:#/document:[38]",
-      "target": "ent:mineru:1410.8140:footnote:55",
+      "target": "ent:mineru:example01:footnote:56",
       "marker_type": "bibliography",
       "label": "[38]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:68:#/document:3",
-      "target": "ent:mineru:1410.8140:caption:17",
+      "target": "ent:mineru:example01:caption:18",
       "marker_type": "figure",
       "label": "3",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:99:#/document:[39,",
-      "target": "ent:mineru:1410.8140:footnote:56",
+      "target": "ent:mineru:example01:footnote:57",
       "marker_type": "bibliography",
       "label": "[39,",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:100:#/document:40]",
-      "target": "ent:mineru:1410.8140:footnote:57",
+      "target": "ent:mineru:example01:footnote:58",
       "marker_type": "bibliography",
       "label": "40]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:71:#/document:[41]",
-      "target": "ent:mineru:1410.8140:footnote:58",
+      "target": "ent:mineru:example01:footnote:59",
       "marker_type": "bibliography",
       "label": "[41]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:72:#/document:[2]",
-      "target": "ent:mineru:1410.8140:footnote:19",
+      "target": "ent:mineru:example01:footnote:20",
       "marker_type": "bibliography",
       "label": "[2]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:73:#/document:[3,",
-      "target": "ent:mineru:1410.8140:footnote:20",
+      "target": "ent:mineru:example01:footnote:21",
       "marker_type": "bibliography",
       "label": "[3,",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:74:#/document:4]",
-      "target": "ent:mineru:1410.8140:footnote:21",
+      "target": "ent:mineru:example01:footnote:22",
       "marker_type": "bibliography",
       "label": "4]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:82:#/document:[1,",
-      "target": "ent:mineru:1410.8140:footnote:18",
+      "target": "ent:mineru:example01:footnote:19",
       "marker_type": "bibliography",
       "label": "[1,",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:76:#/document:5]",
-      "target": "ent:mineru:1410.8140:footnote:22",
+      "target": "ent:mineru:example01:footnote:23",
       "marker_type": "bibliography",
       "label": "5]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:89:#/document:(10)",
-      "target": "ent:mineru:1410.8140:footnote:27",
+      "target": "ent:mineru:example01:footnote:28",
       "marker_type": "bibliography",
       "label": "(10)",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:78:#/document:11",
-      "target": "_unresolved",
+      "target": "ent:mineru:example01:equation:72",
       "marker_type": "equation",
       "label": "11",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:82:#/document:[1,",
-      "target": "ent:mineru:1410.8140:footnote:18",
+      "target": "ent:mineru:example01:footnote:19",
       "marker_type": "bibliography",
       "label": "[1,",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:80:#/document:6,",
-      "target": "ent:mineru:1410.8140:footnote:23",
+      "target": "ent:mineru:example01:footnote:24",
       "marker_type": "bibliography",
       "label": "6,",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:81:#/document:7]",
-      "target": "ent:mineru:1410.8140:footnote:24",
+      "target": "ent:mineru:example01:footnote:25",
       "marker_type": "bibliography",
       "label": "7]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:82:#/document:[1,",
-      "target": "ent:mineru:1410.8140:footnote:18",
+      "target": "ent:mineru:example01:footnote:19",
       "marker_type": "bibliography",
       "label": "[1,",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:83:#/document:8,",
-      "target": "ent:mineru:1410.8140:footnote:25",
+      "target": "ent:mineru:example01:footnote:26",
       "marker_type": "bibliography",
       "label": "8,",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:84:#/document:9]",
-      "target": "ent:mineru:1410.8140:footnote:26",
+      "target": "ent:mineru:example01:footnote:27",
       "marker_type": "bibliography",
       "label": "9]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:85:#/document:14",
-      "target": "_unresolved",
+      "target": "ent:mineru:example01:equation:75",
       "marker_type": "equation",
       "label": "14",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:86:#/document:[9,",
-      "target": "ent:mineru:1410.8140:footnote:26",
+      "target": "ent:mineru:example01:footnote:27",
       "marker_type": "bibliography",
       "label": "[9,",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:87:#/document:10]",
-      "target": "ent:mineru:1410.8140:footnote:27",
+      "target": "ent:mineru:example01:footnote:28",
       "marker_type": "bibliography",
       "label": "10]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:88:#/document:[11]",
-      "target": "ent:mineru:1410.8140:footnote:28",
+      "target": "ent:mineru:example01:footnote:29",
       "marker_type": "bibliography",
       "label": "[11]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:89:#/document:(10)",
-      "target": "ent:mineru:1410.8140:footnote:27",
+      "target": "ent:mineru:example01:footnote:28",
       "marker_type": "bibliography",
       "label": "(10)",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:90:#/document:(16)",
-      "target": "ent:mineru:1410.8140:footnote:33",
+      "target": "ent:mineru:example01:footnote:34",
       "marker_type": "bibliography",
       "label": "(16)",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:91:#/document:19",
-      "target": "_unresolved",
+      "target": "ent:mineru:example01:equation:81",
       "marker_type": "equation",
       "label": "19",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:92:#/document:(11)",
-      "target": "ent:mineru:1410.8140:footnote:28",
+      "target": "ent:mineru:example01:footnote:29",
       "marker_type": "bibliography",
       "label": "(11)",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:93:#/document:(22)",
-      "target": "ent:mineru:1410.8140:footnote:39",
+      "target": "ent:mineru:example01:footnote:40",
       "marker_type": "bibliography",
       "label": "(22)",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:94:#/document:[1]",
-      "target": "ent:mineru:1410.8140:footnote:18",
+      "target": "ent:mineru:example01:footnote:19",
       "marker_type": "bibliography",
       "label": "[1]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:95:#/document:1",
-      "target": "ent:mineru:1410.8140:caption:10",
+      "target": "ent:mineru:example01:caption:11",
       "marker_type": "figure",
       "label": "1",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:96:#/document:2",
       "target": "_unresolved",
       "marker_type": "figure",
       "label": "2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:97:#/document:[12]",
-      "target": "ent:mineru:1410.8140:footnote:29",
+      "target": "ent:mineru:example01:footnote:30",
       "marker_type": "bibliography",
       "label": "[12]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:98:#/document:[38]",
-      "target": "ent:mineru:1410.8140:footnote:55",
+      "target": "ent:mineru:example01:footnote:56",
       "marker_type": "bibliography",
       "label": "[38]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:99:#/document:[39,",
-      "target": "ent:mineru:1410.8140:footnote:56",
+      "target": "ent:mineru:example01:footnote:57",
       "marker_type": "bibliography",
       "label": "[39,",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:100:#/document:40]",
-      "target": "ent:mineru:1410.8140:footnote:57",
+      "target": "ent:mineru:example01:footnote:58",
       "marker_type": "bibliography",
       "label": "40]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:0:#/document:[2]",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[2]",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:5:#/document:7]",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "7]",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:9:#/document:[11]",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[11]",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:13:#/document:[1]",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[1]",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:14:#/document:[16]",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[16]",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:19:#/document:[14,",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[14,",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:21:#/document:[14,",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[14,",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:25:#/document:[25]",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[25]",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:26:#/document:[1]",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[1]",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:27:#/document:[1]",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[1]",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:28:#/document:[26]",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[26]",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:32:#/document:1",
       "target": "_unresolved",
       "marker_type": "equation",
       "label": "1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:33:#/document:[16,",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[16,",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:34:#/document:28]",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "28]",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:35:#/document:[16,",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[16,",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:36:#/document:[29]",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[29]",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:40:#/document:[33]",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[33]",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:50:#/document:1",
       "target": "_unresolved",
       "marker_type": "figure",
       "label": "1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:53:#/document:1",
       "target": "_unresolved",
       "marker_type": "figure",
       "label": "1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:54:#/document:2",
       "target": "_unresolved",
       "marker_type": "figure",
       "label": "2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:56:#/document:2",
       "target": "_unresolved",
       "marker_type": "figure",
       "label": "2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:59:#/document:2",
       "target": "_unresolved",
       "marker_type": "figure",
       "label": "2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:63:#/document:2",
       "target": "_unresolved",
       "marker_type": "figure",
       "label": "2",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:64:#/document:[38]",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[38]",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:65:#/document:[25]",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[25]",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:67:#/document:[38]",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[38]",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:69:#/document:[39,",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[39,",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:70:#/document:40]",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "40]",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:75:#/document:[1,",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[1,",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:77:#/document:(10)",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "(10)",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:79:#/document:[1,",
       "target": "_unresolved",
       "marker_type": "bibliography",
       "label": "[1,",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "page:example01/grobid+mineru:1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "section:bibliography:example01/grobid+mineru",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b0",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b6",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b7",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b8",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b9",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b10",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b11",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b12",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b13",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b14",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b15",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b16",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b17",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b18",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b19",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b20",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b21",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b22",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b23",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b24",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b25",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b26",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b27",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b28",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b29",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b30",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b31",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b32",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b33",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b34",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b35",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b36",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b37",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b38",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b39",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b40",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b41",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b42",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b43",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b44",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b45",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b46",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b47",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b48",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b49",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b50",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b51",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b52",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b53",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b54",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b55",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b56",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b57",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b58",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b59",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b60",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b61",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b62",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b63",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "#/bibliography/b64",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/grobid+mineru",
+      "target": "section:markers:example01/grobid+mineru",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:0:#/document:[2]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:1:#/document:[3]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:2:#/document:[4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:3:#/document:[5]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:4:#/document:[6,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:5:#/document:7]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:6:#/document:[8]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:7:#/document:[9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:8:#/document:[10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:9:#/document:[11]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:10:#/document:[12,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:11:#/document:13]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:12:#/document:[14]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:13:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:14:#/document:[16]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:15:#/document:[17]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:16:#/document:[18]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:17:#/document:[19]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:18:#/document:[20]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:19:#/document:[14,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:20:#/document:21]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:21:#/document:[14,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:22:#/document:[22]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:23:#/document:[23]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:24:#/document:[24]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:25:#/document:[25]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:26:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:27:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:28:#/document:[26]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:29:#/document:[26]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:30:#/document:[27]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:31:#/document:[15]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:32:#/document:1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:33:#/document:[16,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:34:#/document:28]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:35:#/document:[16,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:36:#/document:[29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:37:#/document:[30]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:38:#/document:[31]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:39:#/document:[32]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:40:#/document:[33]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:41:#/document:[16,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:42:#/document:28]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:43:#/document:(19)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:44:#/document:[34]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:45:#/document:[20,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:46:#/document:29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:47:#/document:[35,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:48:#/document:36]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:49:#/document:1 (b)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:50:#/document:1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:51:#/document:1 (c",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:52:#/document:[37]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:53:#/document:1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:54:#/document:2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:55:#/document:[29]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:56:#/document:2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:57:#/document:[14,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:58:#/document:24]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:59:#/document:2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:60:#/document:[33]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:61:#/document:[16]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:62:#/document:2 (c",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:63:#/document:2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:64:#/document:[38]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:65:#/document:[25]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:66:#/document:[25]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:67:#/document:[38]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:68:#/document:3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:69:#/document:[39,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:70:#/document:40]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:71:#/document:[41]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:72:#/document:[2]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:73:#/document:[3,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:74:#/document:4]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:75:#/document:[1,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:76:#/document:5]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:77:#/document:(10)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:78:#/document:11",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:79:#/document:[1,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:80:#/document:6,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:81:#/document:7]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:82:#/document:[1,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:83:#/document:8,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:84:#/document:9]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:85:#/document:14",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:86:#/document:[9,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:87:#/document:10]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:88:#/document:[11]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:89:#/document:(10)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:90:#/document:(16)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:91:#/document:19",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:92:#/document:(11)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:93:#/document:(22)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:94:#/document:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:95:#/document:1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:96:#/document:2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:97:#/document:[12]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:98:#/document:[38]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:99:#/document:[39,",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:markers:example01/grobid+mineru",
+      "target": "marker:100:#/document:40]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:20",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:21",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:22",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:23",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:24",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:25",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:26",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:27",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:28",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:29",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:30",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:31",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:32",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:19",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:34",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:35",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:36",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:37",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:38",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:32",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:39",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:32",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:40",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:41",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:42",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:43",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:19",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:19",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:44",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:44",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:45",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:33",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:34",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:46",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:34",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:47",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:48",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:49",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:50",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:51",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:34",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:46",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:37",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:52",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:38",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:47",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:53",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:54",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/grobid+mineru:1",
+      "target": "ent:mineru:example01:caption:11",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/grobid+mineru:1",
+      "target": "ent:mineru:example01:caption:11",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/grobid+mineru:1",
+      "target": "ent:mineru:example01:caption:11",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:55",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/grobid+mineru:1",
+      "target": "ent:mineru:example01:caption:11",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:47",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:32",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:42",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:51",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:34",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:56",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:43",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:43",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:56",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/grobid+mineru:1",
+      "target": "ent:mineru:example01:caption:18",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:57",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:58",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:59",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:20",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:21",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:22",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:19",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:23",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:28",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/grobid+mineru:1",
+      "target": "ent:mineru:example01:equation:72",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:19",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:24",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:25",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:19",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:26",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:27",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/grobid+mineru:1",
+      "target": "ent:mineru:example01:equation:75",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:27",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:28",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:29",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:28",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:34",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/grobid+mineru:1",
+      "target": "ent:mineru:example01:equation:81",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:29",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:40",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:19",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/grobid+mineru:1",
+      "target": "ent:mineru:example01:caption:11",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:30",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:56",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:57",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/grobid+mineru",
+      "target": "ent:mineru:example01:footnote:58",
+      "edge_kind": "contains",
+      "label": ""
     }
   ],
   "metadata": {
     "doc_hash": "sha256:617923f5e52a638b125c0edd7f3606032e7b29d12d07c63ba0a02ab77fea999f",
     "total_markers": 101,
-    "resolved_count": 91,
-    "unresolved_count": 41,
+    "resolved_count": 94,
+    "unresolved_count": 38,
     "backend_versions": {
       "grobid": "0.1.0"
-    }
+    },
+    "has_hierarchy": true
   }
 }

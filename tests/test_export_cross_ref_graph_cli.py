@@ -63,7 +63,10 @@ def test_cli_writes_graph_json_with_expected_keys(tmp_path: Path) -> None:
     payload = json.loads(out_path.read_text(encoding="utf-8"))
     assert set(payload.keys()) == {"schema_version", "document_id", "nodes", "edges", "metadata"}
     assert payload["document_id"] == "fixture"
-    assert payload["schema_version"] == "1.0.0"
+    # Schema 1.1 adds optional hierarchy when ``proposals`` is supplied;
+    # the CLI does not yet take proposals, so the export keeps the flat
+    # 1.0-style shape but the version string moves with the module.
+    assert payload["schema_version"] == "1.1.0"
     assert payload["nodes"], "exporter produced no nodes"
     assert payload["edges"], "exporter produced no edges"
 

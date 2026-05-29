@@ -1,7 +1,7 @@
 # Plan 11 — EntityProposalDocument Validation
 
 Status:
-draft
+finished
 
 Allowed status values:
 draft

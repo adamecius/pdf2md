@@ -1,7 +1,7 @@
 # Plan 12 — Real Calibration Prior Generation
 
 Status:
-draft
+finished
 
 Allowed status values:
 draft

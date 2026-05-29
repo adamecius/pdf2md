@@ -1,7 +1,7 @@
 # Plan 17 — Docling Export Wiring Hardening
 
 Status:
-draft
+finished
 
 Allowed status values:
 draft

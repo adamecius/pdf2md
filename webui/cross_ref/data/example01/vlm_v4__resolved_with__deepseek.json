@@ -1,7 +1,90 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "document_id": "example01/vlm_v4+deepseek",
   "nodes": [
+    {
+      "id": "document:example01/vlm_v4+deepseek",
+      "type": "document",
+      "label": "example01/vlm_v4+deepseek",
+      "page_count": 10
+    },
+    {
+      "id": "page:example01/vlm_v4+deepseek:1",
+      "type": "page",
+      "label": "Page 1",
+      "page_no": 1,
+      "parent_id": "document:example01/vlm_v4+deepseek"
+    },
+    {
+      "id": "page:example01/vlm_v4+deepseek:2",
+      "type": "page",
+      "label": "Page 2",
+      "page_no": 2,
+      "parent_id": "document:example01/vlm_v4+deepseek"
+    },
+    {
+      "id": "page:example01/vlm_v4+deepseek:3",
+      "type": "page",
+      "label": "Page 3",
+      "page_no": 3,
+      "parent_id": "document:example01/vlm_v4+deepseek"
+    },
+    {
+      "id": "page:example01/vlm_v4+deepseek:4",
+      "type": "page",
+      "label": "Page 4",
+      "page_no": 4,
+      "parent_id": "document:example01/vlm_v4+deepseek"
+    },
+    {
+      "id": "page:example01/vlm_v4+deepseek:5",
+      "type": "page",
+      "label": "Page 5",
+      "page_no": 5,
+      "parent_id": "document:example01/vlm_v4+deepseek"
+    },
+    {
+      "id": "page:example01/vlm_v4+deepseek:6",
+      "type": "page",
+      "label": "Page 6",
+      "page_no": 6,
+      "parent_id": "document:example01/vlm_v4+deepseek"
+    },
+    {
+      "id": "page:example01/vlm_v4+deepseek:7",
+      "type": "page",
+      "label": "Page 7",
+      "page_no": 7,
+      "parent_id": "document:example01/vlm_v4+deepseek"
+    },
+    {
+      "id": "page:example01/vlm_v4+deepseek:8",
+      "type": "page",
+      "label": "Page 8",
+      "page_no": 8,
+      "parent_id": "document:example01/vlm_v4+deepseek"
+    },
+    {
+      "id": "page:example01/vlm_v4+deepseek:9",
+      "type": "page",
+      "label": "Page 9",
+      "page_no": 9,
+      "parent_id": "document:example01/vlm_v4+deepseek"
+    },
+    {
+      "id": "page:example01/vlm_v4+deepseek:10",
+      "type": "page",
+      "label": "Page 10",
+      "page_no": 10,
+      "parent_id": "document:example01/vlm_v4+deepseek"
+    },
+    {
+      "id": "section:bibliography:example01/vlm_v4+deepseek",
+      "type": "bibliography_section",
+      "label": "Bibliography",
+      "parent_id": "document:example01/vlm_v4+deepseek",
+      "back_matter_kind": "bibliography"
+    },
     {
       "id": "marker:0:#/document/pages/7:Eq. (15)",
       "type": "equation",
@@ -11,7 +94,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "page:example01/vlm_v4+deepseek:7"
     },
     {
       "id": "marker:1:#/document/pages/7:Eq. (16)",
@@ -22,7 +107,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "page:example01/vlm_v4+deepseek:7"
     },
     {
       "id": "marker:2:#/document/pages/7:Eq. (17)",
@@ -33,7 +120,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "page:example01/vlm_v4+deepseek:7"
     },
     {
       "id": "marker:3:#/document/pages/7:Eq. (18)",
@@ -44,7 +133,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "page:example01/vlm_v4+deepseek:7"
     },
     {
       "id": "marker:4:#/document/pages/7:Eq. (19)",
@@ -55,7 +146,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "page:example01/vlm_v4+deepseek:7"
     },
     {
       "id": "marker:5:#/document/pages/7:Eq. (20)",
@@ -66,7 +159,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "page:example01/vlm_v4+deepseek:7"
     },
     {
       "id": "marker:6:#/document/pages/7:Eq. (21)",
@@ -77,7 +172,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 7,
+      "parent_id": "page:example01/vlm_v4+deepseek:7"
     },
     {
       "id": "marker:7:#/document/pages/8:FIG. 4",
@@ -88,7 +185,9 @@
         0,
         6
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "page:example01/vlm_v4+deepseek:8"
     },
     {
       "id": "marker:8:#/document/pages/8:Eq. (22)",
@@ -99,7 +198,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "page:example01/vlm_v4+deepseek:8"
     },
     {
       "id": "marker:9:#/document/pages/8:Eq. (23)",
@@ -110,7 +211,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "page:example01/vlm_v4+deepseek:8"
     },
     {
       "id": "marker:10:#/document/pages/8:Eq. (24)",
@@ -121,7 +224,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "page:example01/vlm_v4+deepseek:8"
     },
     {
       "id": "marker:11:#/document/pages/8:Eq. (25)",
@@ -132,7 +237,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 8,
+      "parent_id": "page:example01/vlm_v4+deepseek:8"
     },
     {
       "id": "marker:12:#/document/pages/9:FIG. 5. (a) \u27e8d\u03c3xy(E)\u27e9 as a function of R for \u03c6/\u03c60 \u2248 1 \u00d7 10\u22122, M = 3200, kBT = 0 and N = 2 \u00d7 400 \u00d7 400 sites.",
@@ -143,7 +250,9 @@
         0,
         108
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 9,
+      "parent_id": "page:example01/vlm_v4+deepseek:9"
     },
     {
       "id": "marker:13:#/document/pages/10:Figure 1",
@@ -154,7 +263,9 @@
         0,
         8
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "page:example01/vlm_v4+deepseek:10"
     },
     {
       "id": "marker:14:#/document/pages/10:Eq. (1)",
@@ -165,7 +276,9 @@
         0,
         7
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "page:example01/vlm_v4+deepseek:10"
     },
     {
       "id": "marker:15:#/document/pages/10:[1]",
@@ -176,7 +289,9 @@
         0,
         3
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "page:example01/vlm_v4+deepseek:10"
     },
     {
       "id": "marker:16:#/document/pages/10:footnote 1",
@@ -187,162 +302,592 @@
         0,
         10
       ],
-      "backend": "vlm"
+      "backend": "vlm",
+      "page_no": 10,
+      "parent_id": "page:example01/vlm_v4+deepseek:10"
+    },
+    {
+      "id": "ent:deepseek:example01:equation:77",
+      "type": "equation",
+      "label": "ent:deepseek:example01:equation:77",
+      "parent_id": "page:example01/vlm_v4+deepseek:7",
+      "page_no": 7
+    },
+    {
+      "id": "ent:deepseek:example01:equation:78",
+      "type": "equation",
+      "label": "ent:deepseek:example01:equation:78",
+      "parent_id": "page:example01/vlm_v4+deepseek:7",
+      "page_no": 7
+    },
+    {
+      "id": "ent:deepseek:example01:equation:79",
+      "type": "equation",
+      "label": "ent:deepseek:example01:equation:79",
+      "parent_id": "page:example01/vlm_v4+deepseek:7",
+      "page_no": 7
+    },
+    {
+      "id": "ent:deepseek:example01:equation:80",
+      "type": "equation",
+      "label": "ent:deepseek:example01:equation:80",
+      "parent_id": "page:example01/vlm_v4+deepseek:7",
+      "page_no": 7
+    },
+    {
+      "id": "ent:deepseek:example01:equation:81",
+      "type": "equation",
+      "label": "ent:deepseek:example01:equation:81",
+      "parent_id": "page:example01/vlm_v4+deepseek:7",
+      "page_no": 7
+    },
+    {
+      "id": "ent:deepseek:example01:equation:82",
+      "type": "equation",
+      "label": "ent:deepseek:example01:equation:82",
+      "parent_id": "page:example01/vlm_v4+deepseek:7",
+      "page_no": 7
+    },
+    {
+      "id": "ent:deepseek:example01:equation:83",
+      "type": "equation",
+      "label": "ent:deepseek:example01:equation:83",
+      "parent_id": "page:example01/vlm_v4+deepseek:7",
+      "page_no": 7
+    },
+    {
+      "id": "ent:deepseek:example01:caption:89",
+      "type": "figure",
+      "label": "ent:deepseek:example01:caption:89",
+      "parent_id": "page:example01/vlm_v4+deepseek:8",
+      "page_no": 8
+    },
+    {
+      "id": "ent:deepseek:example01:equation:84",
+      "type": "equation",
+      "label": "ent:deepseek:example01:equation:84",
+      "parent_id": "page:example01/vlm_v4+deepseek:8",
+      "page_no": 8
+    },
+    {
+      "id": "ent:deepseek:example01:equation:85",
+      "type": "equation",
+      "label": "ent:deepseek:example01:equation:85",
+      "parent_id": "page:example01/vlm_v4+deepseek:8",
+      "page_no": 8
+    },
+    {
+      "id": "ent:deepseek:example01:equation:86",
+      "type": "equation",
+      "label": "ent:deepseek:example01:equation:86",
+      "parent_id": "page:example01/vlm_v4+deepseek:8",
+      "page_no": 8
+    },
+    {
+      "id": "ent:deepseek:example01:equation:87",
+      "type": "equation",
+      "label": "ent:deepseek:example01:equation:87",
+      "parent_id": "page:example01/vlm_v4+deepseek:8",
+      "page_no": 8
+    },
+    {
+      "id": "ent:deepseek:example01:caption:92",
+      "type": "figure",
+      "label": "ent:deepseek:example01:caption:92",
+      "parent_id": "page:example01/vlm_v4+deepseek:9",
+      "page_no": 9
+    },
+    {
+      "id": "ent:deepseek:example01:caption:8",
+      "type": "figure",
+      "label": "ent:deepseek:example01:caption:8",
+      "parent_id": "page:example01/vlm_v4+deepseek:3",
+      "page_no": 3
+    },
+    {
+      "id": "ent:deepseek:example01:equation:2",
+      "type": "equation",
+      "label": "ent:deepseek:example01:equation:2",
+      "parent_id": "page:example01/vlm_v4+deepseek:1",
+      "page_no": 1
+    },
+    {
+      "id": "ent:deepseek:example01:footnote:20",
+      "type": "bibliography",
+      "label": "ent:deepseek:example01:footnote:20",
+      "parent_id": "section:bibliography:example01/vlm_v4+deepseek",
+      "page_no": 5
     },
     {
       "id": "_unresolved",
       "type": "unresolved",
       "label": "(unresolved)"
-    },
-    {
-      "id": "ent:deepseek:1410.8140:caption:89",
-      "type": "figure",
-      "label": "ent:deepseek:1410.8140:caption:89"
-    },
-    {
-      "id": "ent:deepseek:1410.8140:caption:92",
-      "type": "figure",
-      "label": "ent:deepseek:1410.8140:caption:92"
-    },
-    {
-      "id": "ent:deepseek:1410.8140:caption:8",
-      "type": "figure",
-      "label": "ent:deepseek:1410.8140:caption:8"
-    },
-    {
-      "id": "ent:deepseek:1410.8140:footnote:20",
-      "type": "bibliography",
-      "label": "ent:deepseek:1410.8140:footnote:20"
     }
   ],
   "edges": [
     {
       "source": "marker:0:#/document/pages/7:Eq. (15)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:example01:equation:77",
       "marker_type": "equation",
       "label": "Eq. (15)",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:1:#/document/pages/7:Eq. (16)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:example01:equation:78",
       "marker_type": "equation",
       "label": "Eq. (16)",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:2:#/document/pages/7:Eq. (17)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:example01:equation:79",
       "marker_type": "equation",
       "label": "Eq. (17)",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:3:#/document/pages/7:Eq. (18)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:example01:equation:80",
       "marker_type": "equation",
       "label": "Eq. (18)",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:4:#/document/pages/7:Eq. (19)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:example01:equation:81",
       "marker_type": "equation",
       "label": "Eq. (19)",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:5:#/document/pages/7:Eq. (20)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:example01:equation:82",
       "marker_type": "equation",
       "label": "Eq. (20)",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:6:#/document/pages/7:Eq. (21)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:example01:equation:83",
       "marker_type": "equation",
       "label": "Eq. (21)",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:7:#/document/pages/8:FIG. 4",
-      "target": "ent:deepseek:1410.8140:caption:89",
+      "target": "ent:deepseek:example01:caption:89",
       "marker_type": "figure",
       "label": "FIG. 4",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:8:#/document/pages/8:Eq. (22)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:example01:equation:84",
       "marker_type": "equation",
       "label": "Eq. (22)",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:9:#/document/pages/8:Eq. (23)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:example01:equation:85",
       "marker_type": "equation",
       "label": "Eq. (23)",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:10:#/document/pages/8:Eq. (24)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:example01:equation:86",
       "marker_type": "equation",
       "label": "Eq. (24)",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:11:#/document/pages/8:Eq. (25)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:example01:equation:87",
       "marker_type": "equation",
       "label": "Eq. (25)",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:12:#/document/pages/9:FIG. 5. (a) \u27e8d\u03c3xy(E)\u27e9 as a function of R for \u03c6/\u03c60 \u2248 1 \u00d7 10\u22122, M = 3200, kBT = 0 and N = 2 \u00d7 400 \u00d7 400 sites.",
-      "target": "ent:deepseek:1410.8140:caption:92",
+      "target": "ent:deepseek:example01:caption:92",
       "marker_type": "figure",
       "label": "FIG. 5. (a) \u27e8d\u03c3xy(E)\u27e9 as a function of R for \u03c6/\u03c60 \u2248 1 \u00d7 10\u22122, M = 3200, kBT = 0 and N = 2 \u00d7 400 \u00d7 400 sites.",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:13:#/document/pages/10:Figure 1",
-      "target": "ent:deepseek:1410.8140:caption:8",
+      "target": "ent:deepseek:example01:caption:8",
       "marker_type": "figure",
       "label": "Figure 1",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:14:#/document/pages/10:Eq. (1)",
-      "target": "_unresolved",
+      "target": "ent:deepseek:example01:equation:2",
       "marker_type": "equation",
       "label": "Eq. (1)",
-      "resolved": false
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:15:#/document/pages/10:[1]",
-      "target": "ent:deepseek:1410.8140:footnote:20",
+      "target": "ent:deepseek:example01:footnote:20",
       "marker_type": "bibliography",
       "label": "[1]",
-      "resolved": true
+      "resolved": true,
+      "edge_kind": "cross_reference"
     },
     {
       "source": "marker:16:#/document/pages/10:footnote 1",
       "target": "_unresolved",
       "marker_type": "footnote",
       "label": "footnote 1",
-      "resolved": false
+      "resolved": false,
+      "edge_kind": "cross_reference"
+    },
+    {
+      "source": "document:example01/vlm_v4+deepseek",
+      "target": "page:example01/vlm_v4+deepseek:1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "document:example01/vlm_v4+deepseek",
+      "target": "page:example01/vlm_v4+deepseek:2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:1",
+      "target": "page:example01/vlm_v4+deepseek:2",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example01/vlm_v4+deepseek",
+      "target": "page:example01/vlm_v4+deepseek:3",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:2",
+      "target": "page:example01/vlm_v4+deepseek:3",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example01/vlm_v4+deepseek",
+      "target": "page:example01/vlm_v4+deepseek:4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:3",
+      "target": "page:example01/vlm_v4+deepseek:4",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example01/vlm_v4+deepseek",
+      "target": "page:example01/vlm_v4+deepseek:5",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:4",
+      "target": "page:example01/vlm_v4+deepseek:5",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example01/vlm_v4+deepseek",
+      "target": "page:example01/vlm_v4+deepseek:6",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:5",
+      "target": "page:example01/vlm_v4+deepseek:6",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example01/vlm_v4+deepseek",
+      "target": "page:example01/vlm_v4+deepseek:7",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:6",
+      "target": "page:example01/vlm_v4+deepseek:7",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example01/vlm_v4+deepseek",
+      "target": "page:example01/vlm_v4+deepseek:8",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "page:example01/vlm_v4+deepseek:8",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example01/vlm_v4+deepseek",
+      "target": "page:example01/vlm_v4+deepseek:9",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:8",
+      "target": "page:example01/vlm_v4+deepseek:9",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example01/vlm_v4+deepseek",
+      "target": "page:example01/vlm_v4+deepseek:10",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:9",
+      "target": "page:example01/vlm_v4+deepseek:10",
+      "edge_kind": "page_sequence",
+      "label": ""
+    },
+    {
+      "source": "document:example01/vlm_v4+deepseek",
+      "target": "section:bibliography:example01/vlm_v4+deepseek",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "marker:0:#/document/pages/7:Eq. (15)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "marker:1:#/document/pages/7:Eq. (16)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "marker:2:#/document/pages/7:Eq. (17)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "marker:3:#/document/pages/7:Eq. (18)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "marker:4:#/document/pages/7:Eq. (19)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "marker:5:#/document/pages/7:Eq. (20)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "marker:6:#/document/pages/7:Eq. (21)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:8",
+      "target": "marker:7:#/document/pages/8:FIG. 4",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:8",
+      "target": "marker:8:#/document/pages/8:Eq. (22)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:8",
+      "target": "marker:9:#/document/pages/8:Eq. (23)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:8",
+      "target": "marker:10:#/document/pages/8:Eq. (24)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:8",
+      "target": "marker:11:#/document/pages/8:Eq. (25)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:9",
+      "target": "marker:12:#/document/pages/9:FIG. 5. (a) \u27e8d\u03c3xy(E)\u27e9 as a function of R for \u03c6/\u03c60 \u2248 1 \u00d7 10\u22122, M = 3200, kBT = 0 and N = 2 \u00d7 400 \u00d7 400 sites.",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:10",
+      "target": "marker:13:#/document/pages/10:Figure 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:10",
+      "target": "marker:14:#/document/pages/10:Eq. (1)",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:10",
+      "target": "marker:15:#/document/pages/10:[1]",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:10",
+      "target": "marker:16:#/document/pages/10:footnote 1",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "ent:deepseek:example01:equation:77",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "ent:deepseek:example01:equation:78",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "ent:deepseek:example01:equation:79",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "ent:deepseek:example01:equation:80",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "ent:deepseek:example01:equation:81",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "ent:deepseek:example01:equation:82",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:7",
+      "target": "ent:deepseek:example01:equation:83",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:8",
+      "target": "ent:deepseek:example01:caption:89",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:8",
+      "target": "ent:deepseek:example01:equation:84",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:8",
+      "target": "ent:deepseek:example01:equation:85",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:8",
+      "target": "ent:deepseek:example01:equation:86",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:8",
+      "target": "ent:deepseek:example01:equation:87",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:9",
+      "target": "ent:deepseek:example01:caption:92",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:3",
+      "target": "ent:deepseek:example01:caption:8",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "page:example01/vlm_v4+deepseek:1",
+      "target": "ent:deepseek:example01:equation:2",
+      "edge_kind": "contains",
+      "label": ""
+    },
+    {
+      "source": "section:bibliography:example01/vlm_v4+deepseek",
+      "target": "ent:deepseek:example01:footnote:20",
+      "edge_kind": "contains",
+      "label": ""
     }
   ],
   "metadata": {
     "doc_hash": "sha256:4ceb9e2b4a5ffbd2d6e0714f5f4e5317d458830f4c23da9dd9d4a344a8583b79",
     "total_markers": 17,
-    "resolved_count": 4,
-    "unresolved_count": 13,
+    "resolved_count": 16,
+    "unresolved_count": 1,
     "backend_versions": {
       "vlm": "deepseek-ai/deepseek-vl2-small"
-    }
+    },
+    "has_hierarchy": true
   }
 }
