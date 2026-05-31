@@ -9,12 +9,14 @@ The agent must read these before any action:
 - `project.md` — global project context (what, why, architecture, open architecture decisions).
 - `ROADMAP.md` — durable product roadmap and phase estimates.
 - `history.md` — completed milestones, append-only log.
+- `STATE.md` — compact current project-state surface: subsystem status, last milestone, in-flight work, and next action.
 - `current_plan.md` — sole authoritative source for current work (goal, tasks, tests, whitelist, dependencies, status, PR reviews, feedback).
 - `next_plan.md` — next planned execution contract to be promoted after the current plan is human-verified and archived.
 - `PLAN_TEMPLATE.md` — canonical plan structure, status machine, test matrix, and hand-off sections.
+- `PLAN_TEMPLATE_LITE.md` — abbreviated schema for docs, governance, and other low-risk small plans; it still uses the same status machine and hand-off rules.
 - `run_log.md` — evidence log of agent runs. Whitelisted in every plan by default.
 
-`agent.md` is the operating protocol. `PLAN_TEMPLATE.md` is the plan schema. They must be read together; if they appear to disagree, halt and record the contradiction as a repository defect rather than choosing one silently.
+`agent.md` is the operating protocol. `PLAN_TEMPLATE.md` is the lifecycle authority and full plan schema. `PLAN_TEMPLATE_LITE.md` is a compatible abbreviated schema for small plans. They must be read together; if they appear to disagree, halt and record the contradiction as a repository defect rather than choosing one silently. `agent.md` must delegate status transitions, archival, and hand-off mechanics to the templates rather than defining a competing lifecycle.
 
 `current_plan.md` declares:
 
@@ -34,7 +36,7 @@ The agent operates in exactly one mode per session. The mode is declared in the 
 - `mode: review`
 - `mode: feedback`
 
-If no mode is declared, the agent stops and asks unless the human explicitly provides a governance or recovery plan that names the mode in prose (for example, "execute this plan in feedback mode"). The agent never silently assumes a mode for ordinary implementation work.
+If no mode is declared, the agent stops and asks unless the human explicitly provides a governance or recovery plan that names the mode in prose (for example, "execute this plan in feedback mode"). The agent never silently assumes a mode for ordinary implementation work. Every `run_log.md` entry must also include a structured `mode:` field so the repository records which authority produced the evidence or change.
 
 ### 2.1 Agent mode
 
@@ -134,6 +136,7 @@ For governance/state-synchronization plans, the whitelist may include canonical 
 
 Every run must report:
 
+- mode;
 - branch;
 - files changed;
 - tasks attempted;

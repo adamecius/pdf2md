@@ -6,6 +6,8 @@
 
 The durable export target remains Docling-compatible structured output. Markdown is a preview/downstream convenience. The semantic cross-reference graph is an additive sidecar and user-facing inspection surface, not a replacement for Docling export.
 
+For current built/partial/planned subsystem status, active work, and verification gaps, read `STATE.md`. This document intentionally describes durable architecture rather than plan sequencing.
+
 ## 2. Current architecture: two extraction/semantic layers
 
 The running architecture now has two related but distinct paths. New agents should not assume that page-level `ConsensusIR` is the spine of every downstream feature.
@@ -120,15 +122,17 @@ Canonical governance files have distinct roles:
 
 - `ROADMAP.md` — durable product roadmap and phase estimates.
 - `project.md` — durable architecture description.
+- `STATE.md` — compact current state surface for subsystem status, in-flight work, next action, and known verification gaps.
 - `README.md` — public entry point.
 - `agent.md` — agent operating protocol.
-- `PLAN_TEMPLATE.md` — canonical plan structure and status machine.
+- `PLAN_TEMPLATE.md` — canonical full plan structure and lifecycle authority.
+- `PLAN_TEMPLATE_LITE.md` — abbreviated plan tier for docs/governance/small changes that still uses the same lifecycle.
 - `current_plan.md` — active execution contract.
 - `next_plan.md` — next planned execution contract.
 - `history.md` — completed milestones.
 - `run_log.md` — evidence log.
 
-The repository uses plan promotion and archival: human-verified plans are moved to `plans/archive/`, history is appended, `next_plan.md` is promoted to `current_plan.md`, and a new `next_plan.md` is created. Agents must not blank `current_plan.md` as a hand-off shortcut.
+The repository uses plan promotion and archival: human-verified plans are moved to `plans/archive/`, history is appended, `STATE.md` is updated when subsystem state changes, `next_plan.md` is promoted to `current_plan.md`, and a new `next_plan.md` is created. Agents must not blank `current_plan.md` as a hand-off shortcut.
 
 ## 9. Open decisions
 

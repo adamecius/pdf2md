@@ -26,16 +26,19 @@ Owner:
 Agent team / human reviewer / local acceptance layer
 
 Sequence:
-Plan X of Y
+Plan X of Y, when the work is part of a simple ordered series. For non-linear work, use the dependency graph below as the authority.
 
-Previous plan:
-Plan X-1 — Name
+Depends on:
+- Plan X-1 — Name — required status: human_verified
 
-Required previous plan status:
-human_verified
+Supersedes:
+- none
+
+Related parallel plans:
+- none
 
 Next plan after completion:
-Plan X+1 — Name
+Plan X+1 — Name, or `none` when the next step is intentionally undecided
 
 Branch name:
 plan-X-short-name
@@ -62,7 +65,9 @@ project.md is the durable architecture description.
 
 README.md is the public entry point.
 
-agent.md is the agent operating protocol; this template is the canonical plan structure. Read them together, and keep status, archival, and next_plan.md promotion semantics identical in both files.
+agent.md is the agent operating protocol; this template is the canonical lifecycle authority and full plan structure. Read them together, and keep status, archival, and next_plan.md promotion semantics identical in both files. If lifecycle wording diverges, this template governs and agent.md should be corrected.
+
+PLAN_TEMPLATE_LITE.md is available for docs-only, governance-only, and low-risk small plans. Lite plans still use this template's status values, dependency graph fields, whitelist discipline, failure taxonomy, and hand-off requirements; they only reduce repeated detail.
 
 current_plan.md is the active execution contract for agents.
 
@@ -70,7 +75,7 @@ next_plan.md is the next planned execution contract.
 
 history.md records completed milestones after human verification.
 
-This plan controls only the work explicitly described here.
+This plan controls only the work explicitly described here. If a plan touches durable project state, it must update `STATE.md` or explicitly state why the compact state surface is unchanged.
 
 ---
 
@@ -150,6 +155,7 @@ Hard constraints:
 5. Missing local tools, models, credentials, GPUs, or backend environments must be reported as environment-not-ready, not as repository test failures.
 6. If the plan requires an undeclared dependency or tool, the agent must stop and report a blocker.
 7. If a human verification task is vague or impossible to execute, the plan must be revised before implementation continues.
+8. Visual or in-product deliverables must declare a verification surface and, when practical, a persistent verification artifact.
 
 Allowed Python dependencies:
 
@@ -338,6 +344,8 @@ Each human checkpoint must include:
 
 ```text
 purpose
+verification surface: cli | in_product | document_review
+verification artifact: <plan_id>.verification.json | path/to/artifact | none with reason
 required environment
 preconditions
 exact command
@@ -349,6 +357,8 @@ fail criteria
 evidence to record
 ```
 
+Use `verification surface: in_product` for viewer, validator, UI, rendered-document, or visual behavior. In-product checkpoints should persist a machine-readable verification artifact such as `<plan_id>.verification.json` when feasible, with screenshot paths, input fixture paths, observed state, pass/fail result, and reviewer/date metadata.
+
 Checkpoint H1:
 
 Title:
@@ -356,6 +366,12 @@ Verify local ground-truth validation report on minimal corpus
 
 Purpose:
 Confirm that the validation CLI can inspect a local ground-truth corpus and write both machine-readable and human-readable reports.
+
+Verification surface:
+cli
+
+Verification artifact:
+/tmp/pdf2md_groundtruth_validation_test/groundtruth_validation_report.json
 
 Required environment:
 pdf2md
@@ -445,6 +461,12 @@ Specific human checkpoint title
 
 Purpose:
 ...
+
+Verification surface:
+cli | in_product | document_review
+
+Verification artifact:
+<plan_id>.verification.json | path/to/artifact | none with reason
 
 Required environment:
 ...
@@ -575,7 +597,8 @@ dependencies are declared
 agent tasks are listed
 automated tests are listed
 human verification checkpoints are listed
-next plan is identified
+dependency graph is accurate
+next plan is identified or intentionally `none`
 ```
 
 Checkpoint C1: Agent implementation complete
@@ -612,6 +635,7 @@ Required before promotion:
 status is human_verified
 previous plan is archived
 history.md summary is prepared or updated
+STATE.md is updated when subsystem status, in-flight work, or next action changed
 next_plan.md is promoted to current_plan.md
 new next_plan.md is created from PLAN_TEMPLATE.md or an approved future plan
 ROADMAP.md progress is updated only if explicitly approved by the human
@@ -709,9 +733,9 @@ Reviewer checklist:
 8. Were comparison criteria satisfied?
 9. Was evidence recorded?
 10. Are dependencies and external tools compliant with the plan?
-11. Is the next plan clearly identified?
+11. Is the dependency graph accurate and is the next plan clearly identified or intentionally omitted?
 12. Is it safe to mark this plan human_verified?
-13. Is it safe to promote next_plan.md to current_plan.md?
+13. Is it safe to promote next_plan.md to current_plan.md, or has the plan explicitly ended without a next promotion?
 14. Is ROADMAP.md progress allowed to change?
 
 Status history:
