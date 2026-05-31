@@ -1,6 +1,6 @@
 # Plan 005_2 — GROBID install rework (drop Docker, match extraction-backend pattern)
 
-## Status: draft
+## Status: superseded
 ## Date: 2026-05-24
 ## Depends on: Plan 005_0 (archived as M20)
 

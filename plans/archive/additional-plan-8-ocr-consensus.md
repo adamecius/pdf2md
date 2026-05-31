@@ -1,7 +1,7 @@
 # Additional Plan 8 — OCR-Side Weighted Consensus (`consensus` OCR option)
 
 Status:
-agent_complete
+finished
 
 Implementation note (PR #128):
 Implemented via :func:`pdf2md.consensus.merge_entity_documents` rather

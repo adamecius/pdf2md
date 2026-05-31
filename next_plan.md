@@ -1,24 +1,55 @@
-# Plan 17+ — Production Readiness, Packaging and Operational Hardening (placeholder)
+# Plan 008_4 — Unresolved-Marker Diagnostic and Human Teaching Loop
 
 Status:
-not_yet_drafted
+draft
 
-Note:
-Plan 16 is the final plan in the pre-MVP execution sequence (Plans 8–16). Plan
-17 and beyond will cover post-MVP work such as public CLI hardening, packaging,
-performance optimisation, web/API surfaces, and production deployment — but
-those plans have not been drafted yet. This placeholder exists so the
-"promote next_plan.md to current_plan.md" hand-off mechanic from earlier plans
-does not break after Plan 16 archival.
+Allowed status values:
+draft
+active
+agent_in_progress
+agent_complete
+human_verification_required
+human_verified
+finished
+blocked
+superseded
 
-When you are ready to start post-MVP planning:
+Linked ROADMAP phase:
+Phase 5b / Phase 7b — Semantic evaluation and visualization.
 
-1. Draft a new `plans/plan-17-<slug>.md` following the standard `PLAN_TEMPLATE.md`.
-2. Have the human reviewer mark this placeholder superseded and replace it
-   with the real Plan 17 content.
+Current roadmap estimate:
+No numeric change until drafted and human-approved.
+
+Owner:
+Human reviewer to draft; agent must not implement from this placeholder.
+
+Sequence:
+Follows Plan 006_5 after theorem-family candidates exist on real connector outputs.
 
 Previous plan:
-Plan 16 — End-to-End Runner and MVP Corpus Evaluation
+Plan 006_5 — Connector-Side Theorem-Family Entity Detector.
 
-Required previous plan status:
-human_verified
+Branch name:
+plan-008_4-unresolved-marker-teaching-loop
+
+---
+
+## 1. Purpose
+
+Create an unresolved-marker diagnostic and human teaching loop so reviewers can inspect unresolved cross-reference markers, assign/confirm targets, and feed corrections back into resolver rules, priors, or validation fixtures.
+
+## 2. Expected direction
+
+This placeholder should be expanded into a full PLAN_TEMPLATE-compliant plan. Expected themes:
+
+```text
+collect unresolved RefMarkers and nearest candidate context
+surface unresolved cases in the validator/viewer
+persist human decisions as machine-readable verification or teaching artifacts
+separate product verification evidence from ad-hoc prose notes
+avoid changing resolver behavior without tests and fixtures
+```
+
+## 3. Drafting note
+
+Do not promote this placeholder until Plan 006_5 is human-verified and the validator real-data wiring decision in `project.md` has been addressed or explicitly scoped.

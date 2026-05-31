@@ -1,6 +1,6 @@
 # pdf2md
 
-`pdf2md` is a multi-backend document reconstruction system for converting complete sequential PDF documents into a structured Docling representation, plus a planned **semantic cross-reference layer** and an **interactive visualization** of the resulting document graph.
+`pdf2md` is a multi-backend document reconstruction system for converting complete sequential PDF documents into a structured Docling representation, plus a built semantic cross-reference sidecar and graph/validator inspection surfaces that are still being hardened on real data.
 
 The project is designed for scientific and technical documents where the document structure matters: sections, table of contents, equations, tables, figures, captions, footnotes, glossary-like sections, references, bibliography entries, page sequence, headers, footers, and reading order.
 
@@ -10,190 +10,14 @@ The target scope is three layers:
 
 ```text
 Layer 1 — Extraction   visual-OCR ensemble → PageExtractionIR → ConsensusIR
+                       (structural Docling branch)
 Layer 2 — Structural   LinkedStructure → DoclingDocument (canonical export)
-Layer 3 — Semantic     CrossReferenceGraph sidecar (planned, Plans 005-007)
-                            ↓
-                       Interactive visualization (planned, Plan 008)
+Layer 3 — Semantic     EntityProposalDocument → resolver candidates
+                       + regex/GROBID/VLM markers → CrossReferenceGraph
+                       → graph export, viewer, validator staging
 ```
 
-Layers 1 and 2 are largely implemented and drive the existing MVP path
-(Plans 8-16, see `ROADMAP.md`). Layer 3 and the visualization are
-post-MVP additions tracked under Plans 004-008 — additive sidecars and
-deliverables, not replacements for the structural Docling output.
-
----
-
-## Documentation
-
-The operator manual lives under [`docs/`](docs/) and follows the
-[Diataxis](https://diataxis.fr/) structure:
-
-- [`docs/getting-started.md`](docs/getting-started.md) — install and
-  run your first conversion (5 minutes after backend setup).
-- [`docs/tutorials/`](docs/tutorials/) — guided walkthroughs:
-  [01 setup](docs/tutorials/01-setup-backends.md) ·
-  [02 first conversion](docs/tutorials/02-first-conversion.md) ·
-  [03 calibrate priors](docs/tutorials/03-calibrate-priors-on-corpus.md) ·
-  [04 batch + multi-backend](docs/tutorials/04-batch-processing.md).
-- [`docs/how-to/`](docs/how-to/) — task-oriented recipes (datasets,
-  factory priors, troubleshooting).
-- [`docs/reference/`](docs/reference/) — contracts and CLI surfaces
-  (calibration, datasets registry, export formats).
-- [`docs/explanation/`](docs/explanation/) — design rationale and
-  pipeline stages.
-
-`project.md` and `ROADMAP.md` remain canonical for the architecture
-and roadmap respectively.
-
----
-
-## Installation
-
-### Requirements
-
-| | Version | Notes |
-|---|---|---|
-| Python | 3.11–3.13 | Recommended: **3.12** (matches all backend env files). |
-| OS | Linux / macOS / Windows | Backend GPU recipes are Linux + NVIDIA. |
-| `conda` (or `mamba`) | any recent | Backend envs are conda envs by convention. |
-
-System packages (only required if you want to compile the LaTeX
-ground-truth corpus or run the calibration tutorial):
-
-```
-TeX Live ≥ 2024 with lualatex, latexmk
-latexml         (optional — produces the XML twin used by some fixtures)
-```
-
-The main package itself has no system dependencies beyond a working
-Python.
-
-### 1. Install the main package
-
-```bash
-git clone https://github.com/adamecius/pdf2md.git
-cd pdf2md
-conda create -n pdf2md python=3.12 -y
-conda activate pdf2md
-python -m pip install -e .
-```
-
-Confirm:
-
-```bash
-pdf2md --help
-```
-
-The main package pulls in:
-
-| Dep | Pin | Used by |
-|---|---|---|
-| `pydantic` | `>=2.6` | All IR / entity / prior / linked / export models. |
-| `typer` | `>=0.12` | CLI surface (`pdf2md ...`). |
-| `PyMuPDF` | `>=1.24` | Connector + testing-fixture PDF parsing. |
-| `docling-core` | `>=2.0` | Canonical export-target schema. |
-
-For development tooling (`ruff`, `mypy`, `pytest`):
-
-```bash
-python -m pip install -e ".[dev]"
-```
-
-### 2. Supported backends
-
-A backend is **supported** when it has a tested setup script and a
-pinned working version. All four current backends are supported on
-Linux + NVIDIA GPU; `glm` also works on any host with network access
-and an API key (no GPU). MinerU and DeepSeek are GPU-required.
-
-| Backend | Env name | Python | Key versions (pinned) | GPU | Setup |
-|---|---|---|---|---|---|
-| **paddleocr** | `pdf2md-paddleocr` | 3.12 | `paddlepaddle==3.0.0` (cu118 wheel for GPU), `paddleocr>=2.7,<3.0`, `PyMuPDF>=1.24` | CUDA 11.8 + cuDNN 8 | [`backend/paddleocr/setup.py`](backend/paddleocr/setup.py) |
-| **mineru** | `pdf2md-mineru` | 3.12 | `mineru[pipeline]==3.1.4`, `torch==2.7.0+cu126`, `torchvision==0.22.0+cu126` | CUDA 12.6 | [`backend/mineru/setup.py`](backend/mineru/setup.py) |
-| **deepseek** | `pdf2md-deepseek` | 3.12.9 | `transformers==4.46.3`, `tokenizers==0.20.3`, `numpy==2.2.6`, `vllm==0.8.5+cu118` | CUDA 11.8 | [`backend/deepseek/setup.py`](backend/deepseek/setup.py) |
-| **glm** | `pdf2md-glm` | 3.12 | `requests>=2.31`, `PyMuPDF>=1.24` (API-based; no model) | not required | [`backend/glm/setup_env.py`](backend/glm/setup_env.py) |
-
-"Supported" here means: the listed setup script installs the listed
-versions and `tools/backend_smoke.py` has been observed to run an
-end-to-end PDF→IR conversion with that combination. Newer upstream
-releases may work but are not part of the supported set.
-
-### 3. Install a backend
-
-Each backend lives in its own conda env so version conflicts
-(CUDA, paddle, torch) don't poison each other. You only need one
-backend to run a conversion; install more for calibrated
-multi-backend consensus.
-
-Easiest path — install the backend's pinned env via the simple
-`setup_env.py`:
-
-```bash
-# Pick one (or more):
-python backend/paddleocr/setup_env.py
-python backend/mineru/setup_env.py
-python backend/deepseek/setup_env.py
-python backend/glm/setup_env.py
-```
-
-The `setup_env.py` scripts read the per-backend `environment.yml` and
-`requirements.txt` files (which carry the pinned versions in the
-table above). They are deterministic and offline-friendly once the
-wheels are cached.
-
-For the **rich** installer (system checks, GPU detection, optional
-model downloads, CUDA toolkit install), each backend also ships a
-`setup.py`:
-
-```bash
-python backend/paddleocr/setup.py     # PaddleOCR with GPU detection
-python backend/mineru/setup.py        # MinerU + vLLM acceleration
-python backend/deepseek/setup.py      # DeepSeek-OCR-2 + vLLM + CUDA 11.8 toolkit
-# glm has no rich setup — setup_env.py is sufficient (API-based)
-```
-
-Use `setup_env.py` to reproduce the supported version set exactly.
-Use `setup.py` when you need GPU/system-level orchestration (CUDA
-toolkit, vLLM wheels, model weight downloads).
-
-### 4. Wire the backend into the runner
-
-```bash
-cp pdf2md.backends.example.toml pdf2md.backends.toml
-# Edit: set `enabled = true` for the backends you installed.
-```
-
-For paddleocr GPU runtime, uncomment the
-`[backends.paddleocr.env]` block in `pdf2md.backends.toml` and set
-`LD_LIBRARY_PATH` to the cuDNN / cuBLAS / nvrtc directories inside
-the `pdf2md-paddleocr` conda env. See
-[`backend/paddleocr/README.md`](backend/paddleocr/README.md) for the
-full GPU recipe (paddle 3.0.0 cu118 + cuDNN 8 — paddle 3.1+ has an
-oneDNN runtime bug that crashes PPStructureV3).
-
-### 5. Verify the installation
-
-```bash
-# Smoke-check the main env
-pdf2md --help
-conda run -n pdf2md pytest tests/ -q --ignore=tests/_legacy_temp -x
-
-# Smoke-check a backend (replace paddleocr with the one you installed)
-DOC=linked_sections_figures
-PDF="groundtruth/corpus/latex/$DOC/$DOC.pdf"
-conda run -n pdf2md python tools/backend_smoke.py \
-    --input-pdf "$PDF" \
-    --out-dir /tmp/backend_smoke \
-    --gate-minimum 1 --verbose
-```
-
-If anything fails, see
-[`docs/how-to/troubleshoot-local-runs.md`](docs/how-to/troubleshoot-local-runs.md)
-for common error signatures (CUDA libs, paddle PIR bug, LaTeX toolchain).
-
-For the full operator manual,
-[`docs/getting-started.md`](docs/getting-started.md) walks the same
-flow with the next steps after install.
+Layers 1 and 2 drive the structural Docling path. Layer 3 is now a built sidecar path with remaining hardening work: real-data validator wiring, in-product verification evidence, and connector-side theorem-family entity detection.
 
 ---
 
@@ -227,26 +51,38 @@ The pipeline compares backend outputs, records agreement and conflict, and build
 
 ## 3. Target architecture
 
-The target system is:
+The target system has a structural Docling branch and an entity-level semantic branch:
 
 ```text
-Complete sequential PDF (any class: scanned, born-digital, mixed, LaTeX, tagged)
+Complete sequential PDF (scanned, born-digital, mixed, LaTeX, tagged)
 
-  -> visual OCR via the configured backend ensemble
+  -> visual OCR/layout backend ensemble
+  -> connector normalization
   -> per-backend PageExtractionIR
-  -> EntityProposalDocument
-  -> CalibrationPriorDocument (resolved at consensus load time;
-                               see "Prior resolution" below)
-  -> ConsensusIR              (Bayesian feature picker over backends)
+  -> CalibrationPriorDocument
+  -> page-level ConsensusIR
   -> LinkedStructure
   -> Docling JSON
-  -> validation and confidence reporting
+
+Semantic side branch:
+  per-backend OCR/layout output
+  -> connector entity extraction
+  -> EntityProposalDocument per backend
+  -> optional OCR entity merge
+  -> ResolverCandidates
+
+  regex / GROBID / VLM semantic backends
+  -> RefMarkers and semantic entities
+
+  ResolverCandidates + RefMarkers
+  -> resolver
+  -> CrossReferenceGraph
+  -> graph export, static viewer, validator staging
 ```
 
-There is no PDF-type classifier or input-routing stage. Every document
-goes through the same visual-OCR backend ensemble; the consensus stage
-picks the most reliable feature extraction per BlockKind / EntityType,
-not the input-classification stage.
+There is no PDF-type classifier or input-routing stage. Every document goes through the configured backend ensemble; confidence and routing decisions happen through calibrated evidence, connector entities, semantic backend markers, and resolver outcomes.
+
+`ConsensusIR` remains the page/block-level structural branch for Docling export. The semantic cross-reference resolver consumes `EntityProposalDocument` evidence directly and should not be described as downstream of page-level consensus.
 
 Ground truth is produced from:
 
@@ -258,51 +94,29 @@ Ground truth is produced from:
   -> Docling ground-truth JSON
 ```
 
-The ground-truth corpus is used to measure backend success and failure, and to calibrate confidence in the backend ensemble.
+The ground-truth corpus is used to measure backend success and failure, calibrate confidence in the backend ensemble, and evaluate semantic graph outputs.
 
 ---
 
 ## 4. Processing pipeline
 
-The intended high-level pipeline is:
+The high-level pipeline is deliberately staged:
 
 ```text
 PDF document
-  -> backend extraction (visual OCR ensemble)
-  -> per-backend PageExtractionIR
-  -> entity proposals
-  -> backend calibration priors (loaded via three-level fallback)
-  -> page-level ConsensusIR
-  -> whole-document LinkedStructure
-  -> Docling JSON
-  -> validation, reports, RAG chunks, Markdown preview
+  -> backend extraction (visual OCR/layout ensemble)
+  -> connector outputs
+       -> PageExtractionIR for structural consensus
+       -> EntityProposalDocument for semantic candidate resolution
+  -> backend calibration priors
+  -> structural branch: ConsensusIR -> LinkedStructure -> Docling JSON
+  -> semantic branch: candidates + semantic markers -> CrossReferenceGraph
+  -> validation, reports, graph viewer, RAG chunks, Markdown preview
 ```
 
-The pipeline is deliberately staged.
+Low-level comparison happens at page/block level for structural export. Entity-level reasoning happens in the semantic branch when the system has candidate evidence to resolve equations, citations, figures, tables, footnotes, index/glossary entries, and future theorem-family references.
 
-Low-level comparison happens early, at page and block level. Whole-document reasoning happens later, when the system has enough evidence to resolve relations such as captions, references, footnotes, section hierarchy, table of contents, and bibliography structure.
-
-Docling is the canonical structured export target. Markdown is a human-readable preview, not the source of truth.
-
-### Prior resolution (Plan 19)
-
-Calibration priors are *loaded* at consensus time via a three-level
-fallback chain — the consensus pipeline never blocks waiting for
-calibration data:
-
-```text
-user-calibrated prior at <priors-dir>/<backend>.json   (refresh via tools/calibrate_priors.py)
-  -> factory prior at src/pdf2md/data/factory_priors/<backend>.json
-  -> uninformative prior built at runtime
-     (uniform 0.50 confidence, status=UNINFORMATIVE)
-```
-
-The chain is silent in the happy path; the two fallback transitions
-emit warnings `prior_factory:<backend>` and `prior_uninformative:<backend>`
-so reports record which level was used. Calibration is offline: run
-`tools/calibrate_priors.py` against a ground-truth corpus to refresh
-priors; the `--from-scratch` flag stamps `calibration_mode="from_scratch"`
-in the output metadata.
+Docling is the canonical structured export target. Markdown is a human-readable preview. The graph sidecar is an inspectable semantic deliverable and validation surface.
 
 ---
 
@@ -560,22 +374,22 @@ This sequence exists to avoid confusing environment problems with repository def
 
 Missing tools such as `lualatex`, `latexml`, backend conda environments, CUDA, or model weights are reported as environment-not-ready conditions, not as unit-test failures.
 
-Post-MVP semantic + visualization path (planned, not yet executed):
+Semantic + visualization path (initial implementation shipped; follow-ups remain):
 
 ```text
 Plan 004_0 - project documentation alignment (this plan)
 Plan 005_0 - semantic backends installation + smoke tests
              (GROBID / DeepSeek-VL2 / regex)
-Plan 006_0 - semantic layer integration + CrossReferenceGraph schema +
-             semantic profiler + Bayesian semantic router
+Plan 006_0 - semantic layer integration + CrossReferenceGraph schema,
+             resolver, candidates, and semantic backend adapters
 Plan 007_0 - LaTeXML ground-truth pipeline + semantic evaluation harness
-Plan 008_0 - interactive visualization + web integration (user deliverable)
+Plan 008_0 - graph export and static cross-reference viewer
+Follow-ups - semantic consensus, OCR entity merge, equation normalization,
+             theorem matcher, document-class/index/glossary detectors,
+             validator staging, and 006_5 theorem entity detection
 ```
 
-These plans assume Plans 8-16 are complete and the extraction +
-structural MVP is stable. The semantic layer is a sidecar
-(`cross_references.json`) alongside the canonical DoclingDocument JSON,
-not a replacement for it.
+The semantic layer is a sidecar (`cross_references.json` / graph JSON) alongside the canonical DoclingDocument JSON, not a replacement for it. The main known semantic gap is connector-side theorem-family entity detection (Plan 006_5); the validator also needs real run-output wiring before it is a complete deliverable.
 
 ---
 
@@ -667,64 +481,32 @@ Agent work should not modify files outside the active plan whitelist.
 
 ## 15. Status
 
-The project has implemented substantial parts of the multi-pipeline architecture:
+The project is in a late-prototype / early-alpha state. Substantial parts of the multi-pipeline architecture are implemented:
 
 ```text
-backend connector contracts
-PageExtractionIR and ConsensusIR contracts
-entity proposal contracts
-calibration prior contracts
-page-level consensus
-whole-document linked structure
-Docling / RAG / Markdown export layer
-LaTeX-derived ground-truth generation and validation tooling
-local environment preflight tooling
+PageExtractionIR and EntityProposalDocument contracts
+page-level ConsensusIR for the structural Docling branch
+CalibrationPriorDocument and three-level prior fallback
+LinkedStructure and Docling export scaffolding
+semantic backend adapters (regex / GROBID / VLM)
+CrossReferenceGraph schema, resolver, and graph export
+semantic graph consensus and optional OCR entity candidate merge
+equation-number normalization for real backend conventions
+document-class classifier plus index/glossary detectors
+static cross-reference viewer
+React/Vite validator scaffold and staging pipeline
+external dataset downloader CLI
 ```
 
-The next major milestones are:
+Known gaps before presenting the semantic layer as complete:
 
 ```text
-validate the ground-truth corpus locally
-run real backend smoke checks
-normalise real backend outputs into PageExtractionIR and EntityProposalDocument
-run real calibration prior generation
-validate weighted consensus, semantic linking and Docling export
-run full local end-to-end corpus evaluation
-calibrate backend confidence from observed success and failure
+Plan 006_5 connector-side theorem-family entity detector
+validator wiring to real CrossReferenceGraph outputs
+in-product verification artifacts for viewer/validator plans
+human decision on retaining vs retiring optional OCR entity consensus
+human confirmation of the long-term page-level ConsensusIR role
+unified user-facing conversion command and broader real-document validation
 ```
 
-After the extraction + structural MVP is reached, the planned
-semantic + visualization milestones are (Plans 004-008):
-
-```text
-align project documentation around the three-layer architecture (Plan 004_0)
-install GROBID, DeepSeek-VL2, and regex semantic backends in isolated envs (Plan 005_0)
-define CrossReferenceGraph and wire semantic backends into the pipeline (Plan 006_0)
-build LaTeXML ground truth and the semantic evaluation harness (Plan 007_0)
-ship interactive cross-reference visualization as a user deliverable (Plan 008_0)
-```
-
-Concrete TODOs queued for future plans (not yet drafted):
-
-```text
-- consensus-calibration-and-real-example workflow
-    Resolved by the docs-as-manual reorganisation:
-    see docs/tutorials/03-calibrate-priors-on-corpus.md (calibration
-    against the LaTeX corpus) and docs/tutorials/02-first-conversion.md +
-    docs/tutorials/04-batch-processing.md (using the runner on real
-    PDFs with calibrated priors).
-
-- docling-strict-validation hardening (Plan 17 A8 follow-up)
-    Strip pdf2md-only extras from docling pictures/tables, uppercase
-    prov.bbox.coord_origin (TOPLEFT/BOTTOMLEFT), and emit the
-    required prov.charspan field on every prov entry. Closes the two
-    xfailed TestDoclingCoreStrictValidation cases.
-```
-
----
-
-## 16. Licence and contribution policy
-
-This repository is distributed under the licence declared in `LICENSE`.
-
-Contribution rules are described in `CONTRIBUTING.md` and `CLA.md`.
+The durable architecture is in `project.md`, progress estimates are in `ROADMAP.md`, and completed/recorded milestones are in `history.md`.

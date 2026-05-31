@@ -1,7 +1,7 @@
 # Additional Plan 6 — Document Section Detectors (Index, Glossary) and Cross-Linking
 
 Status:
-draft
+finished
 
 Allowed status values:
 draft

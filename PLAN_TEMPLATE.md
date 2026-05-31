@@ -62,6 +62,8 @@ project.md is the durable architecture description.
 
 README.md is the public entry point.
 
+agent.md is the agent operating protocol; this template is the canonical plan structure. Read them together, and keep status, archival, and next_plan.md promotion semantics identical in both files.
+
 current_plan.md is the active execution contract for agents.
 
 next_plan.md is the next planned execution contract.

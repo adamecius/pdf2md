@@ -214,6 +214,15 @@ Append-only log of completed milestones. Edited only by feedback mode under the 
 - key_artifacts: [`src/pdf2md/semantic/graph_export.py`, `src/pdf2md/semantic/__init__.py` (re-exports only), `tools/export_cross_ref_graph.py`, `webui/cross_ref/index.html`, `webui/cross_ref/viewer.js`, `webui/cross_ref/style.css`, `webui/cross_ref/README.md`, `tests/test_graph_export.py`, `tests/test_export_cross_ref_graph_cli.py`, `plans/archive/008_0-visualization-web-integration.md`]
 - notes: Fifth and final plan of the post-MVP semantic + visualization chain (Plans 004-008). The static viewer is deliberately decoupled from the existing React/Vite `webui/validator/` workspace — it lives under a new `webui/cross_ref/` directory with no `package.json` so the agent never needs Node tooling. Plan 008_1/008_2/008_3 + Plan 006_1 will integrate these pieces back into the main webui app and the public CLI once the surfaces are stable. Archived on 2026-05-24 during the Plan 008_0 → Additional Plan 1 transition; Additional Plan 1 (External Ground-Truth Dataset Downloaders) promoted to `current_plan.md`.
 
+## M24 — 2026-05-25 — Plan 17: Docling Export Wiring Hardening (full closure)
+
+- goal: complete the three Plan 17 defects (A3 non-Markdown heading detection, A4 footnote post-processing, A5 inline `<img>` lift) that were deferred after PR #101 fixed only A1 / A2 / A6.
+- archived_plan_summary: extended `classify_block()` in `src/pdf2md/connectors/common.py` to recognise three additional heading shapes alongside the existing Markdown `# `: HTML `<h1>`–`<h6>` (PaddleOCR PP-StructureV3 emits headings as `<h1>…</h1>`), LaTeX `\section{...}` / `\subsection{...}` / `\subsubsection{...}` / `\chapter{...}` residuals, and a conservative formatting heuristic (single-line, 2–12 words, title-case or ≥85 % uppercase, no trailing punctuation). Each carries a `metadata.heading_source` ∈ {`markdown_hash`, `html_tag`, `latex_command`, `formatting_heuristic`} so failures stay diagnosable. Added `_extract_footnote_blocks(blocks, …)` post-pass in `markdown_to_pages()`: extracts `\footnote{...}` residuals into dedicated `BlockKind.FOOTNOTE` blocks with `footnote_marker` + `footnote_host_block_id` metadata, replacing the macro in the host with a clean `[^N]` anchor; for PaddleOCR-style bottom-of-page numbered lines (`1. body`) it retags PARAGRAPH / LIST_ITEM blocks in the bottom third of the page as FOOTNOTE when at least one prior non-trivial paragraph exists. Added `_separate_inline_images()` + `_IMG_BLOCK_RE` to lift inline `<img src="..."/>` (with or without wrapping `<div>`) into standalone `BlockKind.FIGURE` blocks with `image_src` + `image_origin="inline_html"` metadata; multi-image blocks split correctly. 13 new tests in `tests/test_plan17_export_wiring.py`; full regression: 1126 passed, 216 skipped, 16 xfailed (no regressions from the pre-Plan-17 baseline of 1110).
+- tests_passed_automated: [`PYTHONPATH=src pytest tests/test_plan17_export_wiring.py -q` → 13 passed; full suite 1126 passed]
+- tests_passed_human: [bench re-run on `example01` / `example02` shows mineru +1 entity / +1 candidate on example01 and +6 / +6 on paddleocr (new heading + footnote detections); example02 mineru +7 / +7 and paddleocr +3 / +3; existing resolution rates (regex+deepseek 97.7 %, grobid+mineru 90.1 %, …) unchanged]
+- key_artifacts: [`src/pdf2md/connectors/common.py` (classify_block A3, _extract_footnote_blocks A4, _separate_inline_images + _IMG_BLOCK_RE A5), `tests/test_plan17_export_wiring.py`, `plans/archive/plan-17-docling-export-wiring-hardening.md`]
+- notes: PR #101 (commit `4a044651`) merged the original A1 (origin block), A2 (PARAGRAPH → `text` label), and A6 (schema_version from `docling_core`) defects but deferred A3-A5 as the "Plan 17 A8 follow-up". This milestone closes that follow-up. The Plan 17 file moves from `plans/plan-17-…` to `plans/archive/plan-17-…` with `Status: finished`. Plan-housekeeping note: Plans 8-16 and 18 were already shipped via M9-M18 but had been left in `plans/` with `Status: draft`; the prior commit `5fb901a6` (PR #128) moved them to `plans/archive/` with `Status: finished`. After M24, the `plans/` directory contains only post-MVP drafts (Additional Plans 1-8); the pre-MVP plan track is fully closed out.
+
 ## M25 — 2026-05-25 — Additional Plan 3: PEP Compliance closure
 
 - goal: bring `src/pdf2md/` into full PEP 257 / 484 / 585 / 604 compliance with ruff + mypy passing cleanly on all 80 active modules.
@@ -223,11 +232,65 @@ Append-only log of completed milestones. Edited only by feedback mode under the 
 - key_artifacts: [`src/pdf2md/semantic/{regex,grobid,vlm}_adapter.py` (docstrings + casts + json import), `src/pdf2md/semantic/candidates.py` (type-narrow fix), `src/pdf2md/semantic/graph_export.py` (F841 cleanup), `pyproject.toml` (RUF001-3 + per-file E402 ignores), `docs/docstring_style_guide.md` (already present), `plans/archive/additional-plan-3-pep-compliance.md`]
 - notes: The plan's "current state" diagnostic at line 64-69 was written months before the current codebase state — Plans 6-8 / 17 / equation-fix / hierarchy work in PRs #126-#132 had already added docstrings and return annotations as part of their normal development hygiene. This closure session only needed to fill the residual gaps that those PRs had left in the three newest semantic adapters. After M25, `plans/` contains only post-MVP drafts (Additional Plans 5, 7, 8 — note Plan 5 is still draft pending Plan 1 work, Plans 6/7/8 are in flight as PRs).
 
-## M24 — 2026-05-25 — Plan 17: Docling Export Wiring Hardening (full closure)
+## M26 — 2026-05-31 — Plan 005_1: DeepSeek-VL2 install rework back-fill (H1 confirmation required)
 
-- goal: complete the three Plan 17 defects (A3 non-Markdown heading detection, A4 footnote post-processing, A5 inline `<img>` lift) that were deferred after PR #101 fixed only A1 / A2 / A6.
-- archived_plan_summary: extended `classify_block()` in `src/pdf2md/connectors/common.py` to recognise three additional heading shapes alongside the existing Markdown `# `: HTML `<h1>`–`<h6>` (PaddleOCR PP-StructureV3 emits headings as `<h1>…</h1>`), LaTeX `\section{...}` / `\subsection{...}` / `\subsubsection{...}` / `\chapter{...}` residuals, and a conservative formatting heuristic (single-line, 2–12 words, title-case or ≥85 % uppercase, no trailing punctuation). Each carries a `metadata.heading_source` ∈ {`markdown_hash`, `html_tag`, `latex_command`, `formatting_heuristic`} so failures stay diagnosable. Added `_extract_footnote_blocks(blocks, …)` post-pass in `markdown_to_pages()`: extracts `\footnote{...}` residuals into dedicated `BlockKind.FOOTNOTE` blocks with `footnote_marker` + `footnote_host_block_id` metadata, replacing the macro in the host with a clean `[^N]` anchor; for PaddleOCR-style bottom-of-page numbered lines (`1. body`) it retags PARAGRAPH / LIST_ITEM blocks in the bottom third of the page as FOOTNOTE when at least one prior non-trivial paragraph exists. Added `_separate_inline_images()` + `_IMG_BLOCK_RE` to lift inline `<img src="..."/>` (with or without wrapping `<div>`) into standalone `BlockKind.FIGURE` blocks with `image_src` + `image_origin="inline_html"` metadata; multi-image blocks split correctly. 13 new tests in `tests/test_plan17_export_wiring.py`; full regression: 1126 passed, 216 skipped, 16 xfailed (no regressions from the pre-Plan-17 baseline of 1110).
-- tests_passed_automated: [`PYTHONPATH=src pytest tests/test_plan17_export_wiring.py -q` → 13 passed; full suite 1126 passed]
-- tests_passed_human: [bench re-run on `example01` / `example02` shows mineru +1 entity / +1 candidate on example01 and +6 / +6 on paddleocr (new heading + footnote detections); example02 mineru +7 / +7 and paddleocr +3 / +3; existing resolution rates (regex+deepseek 97.7 %, grobid+mineru 90.1 %, …) unchanged]
-- key_artifacts: [`src/pdf2md/connectors/common.py` (classify_block A3, _extract_footnote_blocks A4, _separate_inline_images + _IMG_BLOCK_RE A5), `tests/test_plan17_export_wiring.py`, `plans/archive/plan-17-docling-export-wiring-hardening.md`]
-- notes: PR #101 (commit `4a044651`) merged the original A1 (origin block), A2 (PARAGRAPH → `text` label), and A6 (schema_version from `docling_core`) defects but deferred A3-A5 as the "Plan 17 A8 follow-up". This milestone closes that follow-up. The Plan 17 file moves from `plans/plan-17-…` to `plans/archive/plan-17-…` with `Status: finished`. Plan-housekeeping note: Plans 8-16 and 18 were already shipped via M9-M18 but had been left in `plans/` with `Status: draft`; the prior commit `5fb901a6` (PR #128) moved them to `plans/archive/` with `Status: finished`. After M24, the `plans/` directory contains only post-MVP drafts (Additional Plans 1-8); the pre-MVP plan track is fully closed out.
+- goal: record the already-merged DeepSeek-VL2 install rework associated with PR #119 so the semantic-backend bring-up history matches the tree.
+- archived_plan_summary: the archived plan documents the failure mode for the original DeepSeek-VL2 installation path, the need to follow the repository's backend install-kit pattern, and acceptance expectations for a working setup plus semantic smoke tests. This history entry is a governance back-fill and must be spot-checked by the human against PR #119 before being treated as final verification.
+- tests_passed_automated: [`pytest tests/test_semantic_*.py -q` expected 20 passed per the archived plan acceptance criteria; H1 confirmation required]
+- tests_passed_human: [H1 confirmation required]
+- key_artifacts: [`plans/archive/005_1-deepseek-vl2-rework.md`; PR #119]
+- notes: Back-filled by State-Sync 001. No source files were changed by the state-sync; this milestone records previously merged work only.
+
+## M27 — 2026-05-31 — Additional Plans 6 and 7: index/glossary detectors and document-class classifier back-fill (H1 confirmation required)
+
+- goal: record the PR #124 semantic follow-ups that introduced back-matter section detection and document-class classification for the semantic resolver/viewer path.
+- archived_plan_summary: Additional Plan 6 specifies connector-side index/glossary section detectors and cross-linking; Additional Plan 7 specifies an `article` / `book` / `document` classifier, metadata propagation, and document-class-aware downstream behavior. Both are recorded here as merged follow-ups to PR #124 pending human spot-check.
+- tests_passed_automated: [Additional Plan 6 expected full regression at 1069 passed / 216 skipped / 16 xfailed and no PR #124 number regressions; Additional Plan 7 expected unit/fixture tests for classifier decisions and semantic ensemble integration; H1 confirmation required]
+- tests_passed_human: [H1 confirmation required]
+- key_artifacts: [`plans/archive/additional-plan-6-document-section-detectors.md`, `plans/archive/additional-plan-7-document-class-classifier.md`; PR #124]
+- notes: Back-filled by State-Sync 001. These entries document already-merged semantic-layer state without re-running the original feature work.
+
+## M28 — 2026-05-31 — Plan 7: semantic-layer consensus back-fill (H1 confirmation required)
+
+- goal: record the semantic marker/graph consensus option merged in PR #127, distinct from page-level `ConsensusIR` and distinct from AP8 OCR entity candidate merge.
+- archived_plan_summary: PR #127 surfaced a semantic-layer consensus option for the cross-reference viewer, merging regex / GROBID / DeepSeek-VL2 graph evidence via best-confidence semantic graph merging and document-class-aware backend weights. This is intentionally recorded as semantic graph consensus, not OCR block consensus.
+- tests_passed_automated: [H1 confirmation required against PR #127 artifacts]
+- tests_passed_human: [H1 confirmation required]
+- key_artifacts: [PR #127; semantic consensus referenced by `plans/archive/additional-plan-8-ocr-consensus.md`]
+- notes: Back-filled by State-Sync 001 because the plan file for Plan 7 is not present in `plans/`, but the AP8 source plan identifies PR #127 as already merged previous work.
+
+## M29 — 2026-05-31 — Additional Plan 8: OCR entity consensus back-fill (H1 confirmation required)
+
+- goal: record the OCR-side entity candidate merge shipped in PR #128 and document its architecture implication.
+- archived_plan_summary: AP8 was implemented with `pdf2md.consensus.merge_entity_documents` instead of routing the semantic viewer bridge through page-level `build_consensus_ir`. The archived plan states that block-level `ConsensusIR` is the wrong abstraction for the webui resolver bridge, which consumes `EntityProposalDocument` directly; the entity merge keeps highest-confidence candidates per dedup key and records `merged_from_backends` for auditability.
+- tests_passed_automated: [full regression green per AP8 acceptance to be confirmed at H1]
+- tests_passed_human: [H1 confirmation required, including retain/retire verdict for optional OCR entity consensus]
+- key_artifacts: [`plans/archive/additional-plan-8-ocr-consensus.md`; PR #128]
+- notes: Back-filled by State-Sync 001. `project.md` records the open retain/retire decision rather than pretending it has already been settled.
+
+## M30 — 2026-05-31 — Plan 006_2: convention-agnostic equation resolution back-fill (H1 confirmation required)
+
+- goal: record the equation-number normalization work associated with PR #136 and the 006_2 plan.
+- archived_plan_summary: Plan 006_2 targeted MinerU and other backend equation-number conventions that PR #136 had not fully covered: optional whitespace in LaTeX `\tag {N}`, un-delimited numbered equation lines, and fragmented display-equation merge behavior. The audit reports MinerU equation-number coverage improved from 15/1122 to 1048/1122 (93%) and GROBID equation markers resolved 64/64 against MinerU after the fix; H1 must confirm these metrics against local evidence before final verification.
+- tests_passed_automated: [connector/resolver tests and full regression per plan; H1 confirmation required]
+- tests_passed_human: [H1 confirmation required]
+- key_artifacts: [`plans/archive/plan-006_2-equation-normalization.md`; PR #136]
+- notes: Back-filled by State-Sync 001. This entry records the measured `\tag{}` / `\tag {}` defect closure without changing source logic.
+
+## M31 — 2026-05-31 — Plan 006_3: theorem-family resolver matcher back-fill (H1 confirmation required)
+
+- goal: record the resolver-side theorem-family matcher and explicitly preserve the remaining real-data gap.
+- archived_plan_summary: Plan 006_3 added theorem-family prefix patterns, `_try_theorem_family` resolver matching, cross-type isolation, hierarchical-number non-collision, and synthetic fixtures. The plan itself restates that real example02 theorem-family resolution remains 0% because connector-side theorem-family candidate entities do not yet exist.
+- tests_passed_automated: [`conda run -n pdf2md pytest tests/test_semantic_resolver.py -q` → 28 passed per plan; `conda run -n pdf2md pytest tests/ -q --ignore=tests/_legacy_temp` → 1159 passed per plan; ruff clean on resolver.py per plan]
+- tests_passed_human: [H1 confirmation required]
+- key_artifacts: [`plans/archive/plan-006_3-math-environment-markers.md`]
+- notes: Back-filled by State-Sync 001. This milestone deliberately does not claim real-data theorem resolution; Plan 006_5 is now the active next feature plan.
+
+## M32 — 2026-05-31 — Additional Plan 1: external dataset downloaders closure back-fill (H1 confirmation required)
+
+- goal: close the stale `current_plan.md` state for external ground-truth dataset downloaders and record the ready-for-review run-log evidence.
+- archived_plan_summary: Additional Plan 1 adds/records an opt-in `pdf2md datasets` CLI workflow for listing, dry-running, installing, and reporting external LaTeX source datasets under `groundtruth/external/` with manifests under `groundtruth/manifest/`. The run log records registry, downloader, manifest, CLI, docs, and placeholder tasks as ready for review.
+- tests_passed_automated: [`conda run -n pdf2md pytest tests/test_dataset_registry.py tests/test_dataset_downloader.py tests/test_dataset_manifest.py tests/test_dataset_cli.py -q` → 35 passed; `conda run -n pdf2md pytest tests/ -q --ignore=tests/_legacy_temp -x` → 1002 passed, 212 skipped, 16 xfailed, 0 failed]
+- tests_passed_human: [`pdf2md datasets list` exit 0; `install tlc3 --dry-run` exit 0; `install latex-cookbook --dry-run` exit 0; `install arxiv-curated` cleanly reports not available with exit 1 per merged test contract; `datasets status` exit 0, all per `run_log.md`]
+- key_artifacts: [`plans/archive/additional_plan-1-external-dataset-downloaders.md`, `docs/datasets.md`, `groundtruth/external/.gitkeep`, `groundtruth/manifest/.gitkeep`, `tests/data/fake_repo/.gitkeep`, `run_log.md` PR #1 evidence]
+- notes: Back-filled by State-Sync 001. The source plan's H1 text expected all four commands to exit without error, but the merged test contract intentionally returns non-zero for unavailable `arxiv-curated`; the run log records this discrepancy for human review.
