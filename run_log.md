@@ -45,3 +45,17 @@ Append-only log of agent-mode PRs for the current plan. Reset only by feedback m
 - blockers:
     - One discrepancy between the source plan §7 H1 pass criterion ("All four commands exit without error.") and the merged implementation/test contract for `pdf2md datasets install arxiv-curated` (existing test asserts `exit_code != 0`). Documented above for human review; not blocking ready_for_review.
 - status: ready_for_review
+
+## Governance feedback — 2026-05-31T00:00:00Z — mode: feedback — Design architecture improvements
+- branch: work
+- tasks_attempted:
+    - G1 (single lifecycle authority): files_touched=[agent.md, PLAN_TEMPLATE.md], tests_pass=[document review; lifecycle language now delegates status/hand-off mechanics to PLAN_TEMPLATE.md], tests_fail_env=[], tests_fail_real=[]
+    - G2 (lite plan tier and verification artifacts): files_touched=[PLAN_TEMPLATE.md, PLAN_TEMPLATE_LITE.md], tests_pass=[document review; lite template added and full template checkpoint fields extended], tests_fail_env=[], tests_fail_real=[]
+    - G3 (compact project state surface): files_touched=[project.md, STATE.md], tests_pass=[document review; STATE.md created and project.md points to it], tests_fail_env=[], tests_fail_real=[]
+- automated_test_commands:
+    - `git diff --check` → passed
+    - `git status --short` → passed; only governance docs plus run_log.md changed/created
+- dependencies_added: []
+- external_tools_used: []
+- blockers: []
+- status: ready_for_review
