@@ -1,7 +1,7 @@
 # Plan 006_3 — Math-Environment Marker Resolution
 
 Status:
-agent_complete
+finished
 
 Allowed status values:
 draft

@@ -1,7 +1,7 @@
 # Plan 006_2 — Convention-Agnostic Equation Resolution
 
 Status:
-agent_complete
+finished
 
 Allowed status values:
 draft

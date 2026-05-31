@@ -1,7 +1,7 @@
 # Additional Plan 7 — Document-Class Classifier (Article / Book / Document)
 
 Status:
-draft
+finished
 
 Allowed status values:
 draft

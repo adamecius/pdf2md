@@ -1,7 +1,7 @@
 # Additional Plan 1 — External Ground-Truth Dataset Downloaders
 
 Status:
-draft
+finished
 
 Allowed status values:
 draft

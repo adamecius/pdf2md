@@ -9,13 +9,7 @@ The target system converts complete sequential PDF documents into Docling-compat
 The project is not a simple OCR wrapper. It is a multi-backend evidence system. Each backend contributes partial evidence. The system compares, weights, links, validates, and exports that evidence into a semantic document representation.
 
 Beyond the structural Docling output, the project's target scope
-includes a planned **semantic layer** (CrossReferenceGraph sidecar) and
-an **interactive visualization** as a user-facing deliverable.
-Together these form a three-layer architecture: extraction → structural
-(DoclingDocument) → semantic (CrossReferenceGraph). The semantic and
-visualization layers are tracked under Plans 004-008 and sit on top of
-the existing extraction+structural MVP path (Plans 8-16); see
-"Implementation Plans" below for the full sequence.
+includes a built **semantic cross-reference layer** (CrossReferenceGraph sidecar) and user-facing graph/validator surfaces that still need real-data hardening. Together these form a two-branch architecture: an extraction/structural Docling branch and an entity-level semantic graph branch. The semantic branch no longer flows through page-level `ConsensusIR`; it consumes connector `EntityProposalDocument` evidence plus semantic backend markers.
 
 The ground-truth corpus is central. LaTeX, LuaLaTeX/tagged-PDF artefacts, and LaTeXML XML are used to build source-known documents. These documents are used to measure backend success and failure, then calibrate feature-specific backend confidence.
 
@@ -71,9 +65,17 @@ Complete sequential PDF
   -> per-backend PageExtractionIR
   -> EntityProposalDocument
   -> CalibrationPriorDocument
-  -> page-level ConsensusIR
+  -> page-level ConsensusIR (structural Docling branch)
   -> whole-document LinkedStructure
   -> Docling JSON
+
+Semantic side branch:
+  per-backend EntityProposalDocument
+  -> optional entity-level OCR merge
+  -> ResolverCandidates + semantic backend RefMarkers
+  -> CrossReferenceGraph
+  -> graph export, viewer, validator staging
+
   -> validation, reports, RAG chunks, Markdown preview
 ```
 
@@ -133,12 +135,12 @@ Backend trust should be feature-specific, not global. A backend may be strong fo
 | 2 | Extraction and normalisation | 60% | 85% | Substantial progress, but not proven across all PDF classes |
 | 3 | Consensus and ensemble logic | 55% | 85% | Page mechanics ahead of calibration-weighted intelligence |
 | 4 | Semantic reconstruction and export | 55% | 85% | LinkedStructure and export scaffolding present, real-document validation pending |
-| 4b | Semantic cross-reference layer (planned) | 0% | post-MVP | CrossReferenceGraph sidecar; tracked under Plans 005-006 |
+| 4b | Semantic cross-reference layer | <HUMAN: set Phase 4b %> | post-MVP | CrossReferenceGraph, resolver, semantic consensus, OCR entity merge, equation normalization, theorem matcher (fixture-only), doc-class/index/glossary work shipped; 006_5 remains |
 | 5 | Evaluation, confidence, and iteration loop | 40% | 80% | Concept strong, operational loop still emerging |
-| 5b | Semantic ground truth and evaluation (planned) | 0% | post-MVP | LaTeXML-derived semantic GT; tracked under Plan 007 |
+| 5b | Semantic ground truth and evaluation | <HUMAN: set Phase 5b %> | post-MVP | Semantic fixtures and bench scripts exist; validator staging exists but real-data verification loop remains |
 | 6 | Functional application and CLI/API | 28% | 80% | Staged tools exist, single-command program not mature |
 | 7 | Production readiness | 8% | post-MVP | Barely started |
-| 7b | Visualization and web deliverable (planned) | 0% | post-MVP | Interactive cross-reference graph; tracked under Plan 008 |
+| 7b | Visualization and web deliverable | <HUMAN: set Phase 7b %> | post-MVP | Static D3 graph viewer and React/Vite validator scaffold shipped; PDF overlay/real verification workflow remain |
 
 Overall practical estimate: 55%.
 
@@ -349,39 +351,44 @@ export reports explain warnings and confidence
 Markdown preview and RAG chunks preserve provenance and structure
 ```
 
-Planned extension — Phase 4b: Semantic cross-reference layer
+Phase 4b: Semantic cross-reference layer
 
-Current estimate: 0% (not started; tracked under Plans 005-006).
+Current estimate: <HUMAN: set Phase 4b %>.
 
 Goal:
 
-Add a `CrossReferenceGraph` sidecar alongside the canonical
-DoclingDocument JSON. The sidecar captures cross-references (figure,
-table, equation, theorem, citation, footnote markers), resolved JSON
-pointers to target items, and semantic entities (theorem, definition,
-proof, corollary). This is additive to LinkedStructure, not a
-replacement.
+Maintain the entity-level semantic side branch that produces `CrossReferenceGraph` outputs alongside the structural Docling branch. This layer consumes connector `EntityProposalDocument` candidate evidence plus regex/GROBID/VLM semantic markers; it does not use page-level `ConsensusIR` as its spine.
 
-Scope:
+Shipped / recorded in this state-sync:
 
 ```text
-CrossReferenceGraph schema (RefMarker, RefEdge, SemanticEntity)
-three semantic backends: GROBID (TEI), DeepSeek-VL2 (VLM), regex/heuristic
-unified SemanticBackend interface mirroring the extraction-backend layout
-deterministic resolver: marker text → DoclingDocument JSON pointer
-ensemble + Bayesian semantic router driven by profiler signals
-  (reference_density, has_bibliography, footnote_density, …)
-sidecar persisted as cross_references.json
+CrossReferenceGraph schema and graph export
+semantic backend adapters and marker resolver
+semantic graph consensus / merge_graphs (PR #127)
+optional OCR entity candidate merge via merge_entity_documents (PR #128)
+equation-number normalization, including MinerU tag conventions (PR #136)
+theorem-family matcher on synthetic candidates (006_3)
+document-class classifier, index detector, glossary detector (PR #124)
+static cross-reference viewer data/export path
+```
+
+Remaining:
+
+```text
+Plan 006_5 connector-side theorem-family entity detector
+final retain/retire decision for OCR entity consensus
+long-document resolver benchmarks against real backend outputs
+clear CLI integration of graph generation into the normal conversion path
 ```
 
 Exit criteria:
 
 ```text
-DoclingDocument + cross_references.json produced from the same CLI run
+Docling JSON and cross_references.json produced from the same user-facing run
 markers and edges include backend provenance and confidence
-resolver classifies edges as exact / fuzzy / grobid_tei / unresolved
-all three semantic backends share the same SemanticBackend interface
-no hardcoded paper-vs-book routing — every semantic backend is a candidate
+resolver classifies exact / fuzzy / backend-specific / unresolved edges
+theorem-family markers resolve on real connector outputs, not only fixtures
+semantic and OCR consensus layers are documented as separate mechanisms
 ```
 
 ---
@@ -428,36 +435,40 @@ consensus uses calibration priors
 reports show why one backend was trusted over another for a feature
 ```
 
-Planned extension — Phase 5b: Semantic ground truth and evaluation
+Phase 5b: Semantic ground truth and evaluation
 
-Current estimate: 0% (not started; tracked under Plan 007).
+Current estimate: <HUMAN: set Phase 5b %>.
 
 Goal:
 
-Extend the LaTeX-derived ground-truth corpus to cover the semantic
-layer, and add an evaluation harness that benchmarks the three
-semantic backends against ground-truth `CrossReferenceGraph` documents.
+Benchmark semantic markers, entity candidates, and resolved `CrossReferenceGraph` outputs against source-known documents. The evaluation layer should distinguish semantic backend marker quality from OCR connector candidate quality and resolver quality.
 
-Scope:
+Shipped / recorded in this state-sync:
 
 ```text
-LaTeXML pipeline: .tex → TEI XML → ground-truth CrossReferenceGraph
-controlled corpus exercising figure/table/equation/citation/footnote refs,
-  cross-chapter refs, and labelled theorems/definitions/proofs
-metrics: marker precision / recall / F1 (overall and per RefType)
-         resolution accuracy per RefType
-         entity precision / recall / F1
-benchmark runner producing per-document × per-backend tables
-worked example: PDF → extraction → semantic → evaluation, end-to-end
+semantic fixtures for resolver behavior
+example-only benchmark and staging data paths
+equation normalization metrics recorded in plan evidence
+validator scaffold with Checkpoints / Compare / Priors routes
+external dataset downloader CLI for future corpus expansion
+```
+
+Remaining:
+
+```text
+LaTeXML-derived semantic ground truth as first-class graph GT
+real-data validator wiring instead of synthesized/staged comparison data
+per-RefType precision/recall/F1 and resolution accuracy reports
+in-product verification artifacts such as <plan_id>.verification.json
 ```
 
 Exit criteria:
 
 ```text
-LaTeXML produces resolved cross_references.json with confidence 1.0
-≥4 controlled documents covering diverse reference patterns
-evaluation harness produces machine-readable comparison tables
-backend differentiation is observable in the benchmark output
+source-known documents produce ground-truth CrossReferenceGraph files
+semantic backend, OCR candidate, and resolver metrics are reported separately
+validator consumes real run outputs
+regressions are tracked as the corpus grows
 ```
 
 ---
@@ -551,403 +562,51 @@ large documents are handled without fragile manual steps
 backend failures are recoverable and well reported
 ```
 
-Planned extension — Phase 7b: Visualization and web deliverable
+Phase 7b: Visualization and web deliverable
 
-Current estimate: 0% (not started; tracked under Plan 008).
+Current estimate: <HUMAN: set Phase 7b %>.
 
 Goal:
 
-Ship an interactive visualization of the CrossReferenceGraph as a
-**user-facing deliverable** (not just internal tooling), alongside the
-existing Docling structural visualization.
+Ship graph and validation surfaces that make semantic resolution inspectable by users and reviewers.
 
-Scope:
+Shipped / recorded in this state-sync:
 
 ```text
-D3 / Cytoscape interactive graph view of CrossReferenceGraph
-  nodes by element type, edges by RefType, cross-page edges distinct
-PDF.js + SVG page overlay with marker badges and target lines
-evaluation dashboard: backend × RefType F1 heatmap
-CLI: pdf2md export-graph, pdf2md serve --port N --data-dir out/
-side-by-side structural (Docling) and semantic (graph) views
+D3-compatible CrossReferenceGraph export
+static webui/cross_ref viewer for graph JSON
+viewer data staging for examples
+React/Vite webui/validator scaffold with Checkpoints, Compare, and Priors routes
+webui/scripts/stage-data.mjs staging pipeline
+```
+
+Remaining:
+
+```text
+wire validator to real CrossReferenceGraph and backend outputs
+add persisted in-product verification evidence
+PDF/page overlay and richer unresolved-reference diagnostics
+package/serve workflow for non-developer users
 ```
 
 Exit criteria:
 
 ```text
-graph export produces valid D3-compatible JSON from a CrossReferenceGraph
-local web viewer renders cross-page graphs and page overlays
+graph export produces valid viewer JSON from a normal run
+local web surfaces render real graph data, not only synthesized fixtures
 unresolved references are visually flagged
-demo runs with example data from the Plan 007 corpus
-```
-
----
-
-## Definition of MVP
-
-MVP is reached when the project can do the following locally:
-
-```text
-take a complete PDF
-classify its input type
-run the appropriate backend ensemble
-normalise backend outputs
-build consensus
-build linked semantic structure
-export Docling JSON
-compare against ground truth when available
-produce confidence and conflict reports
-```
-
-MVP should be considered reached at approximately 84 to 86% completion.
-
-The minimum MVP corpus should include:
-
-```text
-one scanned document
-one born-digital embedded-text document
-one mixed document
-one LaTeX-compiled document
-one tagged-PDF document
-```
-
----
-
-## Implementation Plans to MVP
-
-The strategic roadmap is implemented through focused, human-verifiable plans using `PLAN_TEMPLATE.md`.
-
-Each plan should be small enough to review and verify, but large enough to move the roadmap forward. `current_plan.md` remains the active execution contract. A plan is not finished until human verification passes and the hand-off procedure is completed.
-
-The final MVP path is:
-
-```text
-Plan 8  -> Plan 9  -> Plan 10 -> Plan 11 -> Plan 12
-        -> Plan 13 -> Plan 14 -> Plan 15 -> Plan 16
-```
-
-The post-MVP semantic + visualization layer is delivered through
-Plans 004-008 (planned, not yet executed):
-
-```text
-Plan 004_0 -> Plan 005_0 -> Plan 006_0 -> Plan 007_0 -> Plan 008_0
-```
-
-Plans 004-008 assume the extraction + structural MVP (Plans 8-16) is
-stable. Plan 004_0 (this plan) aligns documentation; Plans 005-008
-install semantic backends, integrate the CrossReferenceGraph, build
-the LaTeXML ground-truth pipeline, and ship the visualization.
-
-### Plan 8: Local Ground-Truth Corpus Validation plus Documentation Consistency
-
-Roadmap phase:
-Phase 1, with a small Phase 0 documentation consistency exit criterion.
-
-Type:
-Sequential core.
-
-Purpose:
-Validate the local LaTeX-derived ground-truth corpus before any real backend execution. The plan also checks that the remaining narrow documentation surfaces do not contradict this roadmap.
-
-Scope:
-
-```text
-validate corpus discovery
-check .tex source presence
-check compiled PDF presence
-check tagged PDF where available
-check LaTeXML XML presence
-check Docling ground-truth JSON presence
-check metadata presence
-write machine-readable and human-readable validation reports
-support strict and non-strict validation modes
-verify README_latex_docling_groundtruth.md, docs/docling_layer.md, history.md and agent.md do not contradict ROADMAP.md
-```
-
-Exit criteria:
-
-```text
-ground-truth validation report exists
-ground-truth validation summary exists
-missing artefacts are classified clearly
-strict and non-strict modes behave as specified
-documentation consistency check passes or narrow corrections are made inside the Plan 8 whitelist
-```
-
-### Plan 9: Real Backend Smoke Readiness
-
-Roadmap phase:
-Phase 2.
-
-Type:
-Sequential core.
-
-Purpose:
-Prove that real backend execution can be attempted and that backend failures are classified correctly before connector normalisation is trusted.
-
-Backend gate:
-
-```text
-At least two configured backends must produce successful smoke output.
-All other configured backends must be classified explicitly.
-```
-
-Allowed backend classifications:
-
-```text
-success
-env_not_ready
-model_missing
-dependency_missing
-backend_crash
-output_missing
-not_configured
-```
-
-Exit criteria:
-
-```text
-at least two backends produce smoke outputs suitable for connector validation
-all other configured backends have a recorded readiness classification
-backend manifests or smoke reports are written
-backend failures are not confused with repository failures
-```
-
-### Plan 10: Connector Implementation and PageExtractionIR Validation
-
-Roadmap phase:
-Phase 2.
-
-Type:
-Sequential core with incremental backend acceptance.
-
-Purpose:
-Harden the connector path so real backend outputs can be converted into validated `PageExtractionIR` evidence.
-
-Important boundary:
-The connector may emit both `PageExtractionIR` and `EntityProposalDocument`, but Plan 10 acceptance validates only the `PageExtractionIR` part.
-
-Incremental backend rule:
-A backend whose connector output validates may move forward to later plans while other backends are still being debugged, provided missing or failing backends remain documented.
-
-Exit criteria:
-
-```text
-at least two backend outputs are converted to valid PageExtractionIR
-page numbers, block kinds, text, bounding boxes, confidence where available and provenance are present
-coordinate systems are normalised or explicitly documented
-raw artefact references are preserved
-invalid backend output produces clear validation errors
-```
-
-### Plan 11: EntityProposalDocument Validation
-
-Roadmap phase:
-Phase 2.
-
-Type:
-Sequential core.
-
-Purpose:
-Validate and harden `EntityProposalDocument` outputs from the connector path established in Plan 10.
-
-Important boundary:
-Plan 11 should use the connector output from Plan 10. It should not reopen connector implementation except for defects found during entity validation.
-
-Exit criteria:
-
-```text
-EntityProposalDocument outputs validate where the backend provides entity evidence
-entity proposals preserve provenance
-caption, equation, table, figure, footnote, reference or bibliography candidates are represented where available
-absence of entity proposals is reported clearly when a backend does not provide them
-```
-
-### Plan 12: Real Calibration Prior Generation
-
-Roadmap phase:
-Phase 5.
-
-Type:
-Sequential after Plans 10 and 11.
-
-Purpose:
-Run real calibration against normalised backend outputs and source-known ground truth. This plan converts observed backend success and failure into feature-specific priors.
-
-Required checkpoint:
-Before trusting calibration metrics, verify that connector `BlockKind` vocabulary matches ground-truth `TruthBlock` vocabulary, or that an explicit mapping exists.
-
-Expected outputs:
-
-```text
-CalibrationPriorDocument
-calibration_report.json
-backend_feature_metrics.json or backend_feature_metrics.csv
-calibration_summary.txt
-```
-
-Exit criteria:
-
-```text
-calibrate_priors.py runs on real normalised backend outputs against ground truth
-BlockKind vocabulary alignment is verified or mapped
-precision, recall and F1 are reported by feature and backend
-CalibrationPriorDocument validates
-insufficient evidence is reported without fabricating confidence
-```
-
-### Plan 13: Weighted ConsensusIR on Real Outputs
-
-Roadmap phase:
-Phase 3.
-
-Type:
-Sequential core.
-
-Purpose:
-Use real `PageExtractionIR` evidence and real calibration priors to produce explainable weighted consensus.
-
-Exit criteria:
-
-```text
-ConsensusIR is produced from real normalised backend outputs
-calibration priors influence scoring
-conflicts are explicit
-consensus report explains backend agreement, disagreement and selected candidates
-confidence is traceable to evidence and priors
-```
-
-### Plan 14: LinkedStructure and Cross-Page Semantic Linking
-
-Roadmap phase:
-Phase 4.
-
-Type:
-Sequential core.
-
-Purpose:
-Turn page-level consensus into whole-document semantic structure.
-
-Exit criteria:
-
-```text
-LinkedStructure validates on real consensus outputs
-sections, captions, footnotes, equations, figures, tables, references, page numbers and headers or footers are linked when evidence supports it
-unresolved relations are explicit
-linking report explains warnings and conflicts
-```
-
-### Plan 15: Docling Export Validation
-
-Roadmap phase:
-Phase 4.
-
-Type:
-Sequential core.
-
-Purpose:
-Export `LinkedStructure` to Docling JSON and validate the export against the repository contracts and ground truth where available.
-
-Exit criteria:
-
-```text
-Docling JSON is produced from LinkedStructure
-export preserves provenance, conflicts, warnings and relation metadata
-docling_core validation is used when available
-Docling output is compared with LaTeX-derived Docling ground truth where available
-Markdown preview and RAG outputs are produced if in scope for the plan
-```
-
-### Plan 16: End-to-End Runner and MVP Corpus Evaluation
-
-Roadmap phase:
-Phase 6.
-
-Type:
-Sequential core.
-
-Purpose:
-Provide the first functional local pipeline runner and validate it on the minimum MVP corpus.
-
-Internal checkpoint 16A:
-One-document end-to-end runner.
-
-Scope:
-
-```text
-input classification, profiling or routing
-backend strategy selection
-normalisation
-consensus
-semantic linking
-Docling export
-confidence report
-conflict report
-```
-
-Input classification assignment:
-Input classification belongs in Plan 16A. Earlier plans may run all available backends on controlled documents without needing a routing decision. In Plan 16A the runner must explicitly classify or profile the input as scanned, born-digital, mixed, LaTeX-compiled, tagged or unknown, and write the decision to a report.
-
-Internal checkpoint 16B:
-MVP corpus evaluation.
-
-Minimum corpus:
-
-```text
-one scanned document
-one born-digital embedded-text document
-one mixed document
-one LaTeX-compiled document
-one tagged-PDF document
-```
-
-Split rule:
-If 16A exposes major integration failures, 16B should be split into a new Plan 17 instead of forcing MVP corpus evaluation into the same plan.
-
-Exit criteria:
-
-```text
-one command or local runner executes the full pipeline on at least one document
-runner writes Docling output, confidence report and conflict report
-runner classifies or profiles the input and records the routing decision
-MVP corpus evaluation succeeds or is split into the next plan with documented blockers
-```
-
-### Plan 17 and Later: Production Readiness
-
-Roadmap phase:
-Phase 7.
-
-Type:
-Post-MVP, parallel where possible.
-
-Purpose:
-Prepare the program for broader use after the MVP path is validated.
-
-Scope:
-
-```text
-packaging
-installation documentation
-example datasets
-performance optimisation
-large-document robustness
-CI matrix
-stable versioned reports
-contribution documentation
-user-facing troubleshooting
-backend environment recipes
+human verification is captured as machine-readable artifacts
 ```
 
 ---
 
 ---
 
-## Plans 004-008: Semantic Layer and Visualization (Planned, Post-MVP)
+## Plans 004-008 and Follow-ups: Semantic Layer and Visualization (partly shipped)
 
 The semantic + visualization chain sits on top of the extraction +
 structural MVP. Plan 004_0 is documentation alignment; Plans 005-008
-deliver the implementation.
+delivered the initial implementation; follow-up plans now harden real-data coverage and verification.
 
 ### Plan 004_0: Project Documentation Alignment
 
@@ -972,7 +631,7 @@ ROADMAP.md gains Phase 4b (semantic), Phase 5b (semantic eval), and
 README.md describes the expanded scope and the Plans 004-008 sequence
 terminology is consistent (extraction vs semantic backend; structural vs
   semantic layer; DoclingDocument vs Docling JSON)
-all new planned work is explicitly marked as "planned"
+shipped work is distinguished from remaining planned follow-ups
 ```
 
 ### Plan 005_0: Semantic Backends — Installation and Smoke Tests

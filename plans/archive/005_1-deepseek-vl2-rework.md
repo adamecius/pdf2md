@@ -1,6 +1,6 @@
 # Plan 005_1 — DeepSeek-VL2 install rework (match extraction-backend pattern)
 
-## Status: draft
+## Status: finished
 ## Date: 2026-05-24
 ## Depends on: Plan 005_0 (archived as M20)
 
