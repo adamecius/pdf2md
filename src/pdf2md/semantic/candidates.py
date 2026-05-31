@@ -42,6 +42,11 @@ _ENTITY_TYPE_TO_REF_TYPE: dict[str, RefType] = {
     EntityType.FIGURE.value: RefType.FIGURE,
     EntityType.TABLE.value: RefType.TABLE,
     EntityType.EQUATION.value: RefType.EQUATION,
+    EntityType.THEOREM.value: RefType.THEOREM,
+    EntityType.DEFINITION.value: RefType.DEFINITION,
+    EntityType.COROLLARY.value: RefType.COROLLARY,
+    EntityType.PROOF.value: RefType.PROOF,
+    EntityType.EXAMPLE.value: RefType.EXAMPLE,
     EntityType.FOOTNOTE.value: RefType.FOOTNOTE,
     EntityType.REFERENCE_ITEM.value: RefType.BIBLIOGRAPHY,
     EntityType.BIBLIOGRAPHY_MARKER.value: RefType.BIBLIOGRAPHY,
@@ -102,6 +107,38 @@ def _footnote_label(proposal: EntityProposal) -> str | None:
         return str(marker)
     canonical = (proposal.canonical_text or "").strip()
     return canonical or None
+
+
+def _theorem_label(proposal: EntityProposal) -> str | None:
+    """Build a theorem-family label from detector metadata.
+
+    Numbered theorem-family entities use the canonical semantic prefix
+    for their mapped RefType (for example, lemmas and propositions are
+    surfaced as ``Theorem N`` candidates). Unnumbered environments keep
+    enough canonical text for fuzzy fallback without bloating candidate
+    labels.
+    """
+    md = proposal.metadata or {}
+    number = md.get("theorem_number")
+    entity_type_str = (
+        proposal.entity_type.value
+        if hasattr(proposal.entity_type, "value")
+        else str(proposal.entity_type)
+    )
+    kind = {
+        EntityType.THEOREM.value: "Theorem",
+        EntityType.DEFINITION.value: "Definition",
+        EntityType.COROLLARY.value: "Corollary",
+        EntityType.PROOF.value: "Proof",
+        EntityType.EXAMPLE.value: "Example",
+    }.get(entity_type_str)
+    if kind is not None and number:
+        return f"{kind} {number}"
+    canonical = (proposal.canonical_text or "").strip()
+    if not canonical:
+        return None
+    sentence = re.split(r"(?<=[.!?])\s+", canonical, maxsplit=1)[0].strip()
+    return (sentence or canonical)[:80].rstrip() or None
 
 
 def _bibliography_label(proposal: EntityProposal) -> str | None:
@@ -183,6 +220,16 @@ def _candidate_for(proposal: EntityProposal) -> ResolverCandidate | None:
         label = _bibliography_label(proposal)
         if label is None:
             return None
+    elif ref_type in (
+        RefType.THEOREM,
+        RefType.DEFINITION,
+        RefType.COROLLARY,
+        RefType.PROOF,
+        RefType.EXAMPLE,
+    ):
+        label = _theorem_label(proposal)
+        if label is None:
+            return None
     elif ref_type in (RefType.FIGURE, RefType.TABLE):
         # Bare FIGURE/TABLE entities (not their captions) — use canonical text.
         label = (proposal.canonical_text or "").strip()
@@ -210,6 +257,14 @@ def _candidate_for(proposal: EntityProposal) -> ResolverCandidate | None:
         numbering = md_n.get("marker")
     elif ref_type is RefType.BIBLIOGRAPHY:
         numbering = md_n.get("marker")
+    elif ref_type in (
+        RefType.THEOREM,
+        RefType.DEFINITION,
+        RefType.COROLLARY,
+        RefType.PROOF,
+        RefType.EXAMPLE,
+    ):
+        numbering = md_n.get("theorem_number")
     else:
         numbering = None
     return ResolverCandidate(

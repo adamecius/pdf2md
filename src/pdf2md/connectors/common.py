@@ -258,6 +258,22 @@ def _strip_deepseek_tags(chunk: str) -> tuple[str, str | None]:
 
 _BIB_LINE_RE = re.compile(r"^\[\d+\]\s+\S")
 
+_THEOREM_FAMILY_RE = re.compile(
+    r"^(?:\*\*\s*)?(?P<kind>Theorem|Definition|Corollary|Lemma|"
+    r"Proposition|Proof|Example|Remark)\b\s*(?P<number>\d+(?:\.\d+)*)?",
+    re.IGNORECASE,
+)
+_THEOREM_FAMILY_KIND_TO_ENTITY: dict[str, EntityType] = {
+    "theorem": EntityType.THEOREM,
+    "lemma": EntityType.THEOREM,
+    "proposition": EntityType.THEOREM,
+    "definition": EntityType.DEFINITION,
+    "corollary": EntityType.COROLLARY,
+    "proof": EntityType.PROOF,
+    "example": EntityType.EXAMPLE,
+    "remark": EntityType.EXAMPLE,
+}
+
 # Signals that a line is a display equation even without ``\[ \]`` /
 # ``$$`` delimiters — used to recognise MinerU's un-delimited numbered
 # equations (``\chi = \frac{...}, \tag {2.3}``). Conservative: requires
@@ -1111,6 +1127,37 @@ def recognize_entities(
                     "equation_detector",
                     metadata={"equation_number": num, "sequence_key": f"equation:{num}" if num else None},
                 )
+            if (
+                not refs_started
+                and block.kind in {BlockKind.PARAGRAPH, BlockKind.HEADING}
+                and plain
+                and not _INDEX_ENTRY_RE.match(plain)
+                and (theorem_match := _THEOREM_FAMILY_RE.match(plain)) is not None
+            ):
+                kind = theorem_match.group("kind")
+                number = theorem_match.group("number")
+                if number is None and kind.lower() == "proof":
+                    proof_of = re.match(
+                        r"^(?:\*\*\s*)?Proof\s+of\s+"
+                        r"(?:Theorem|Lemma|Proposition|Corollary|Definition)"
+                        r"\s+(?P<number>\d+(?:\.\d+)*)",
+                        plain,
+                        re.IGNORECASE,
+                    )
+                    if proof_of is not None:
+                        number = proof_of.group("number")
+                entity_type = _THEOREM_FAMILY_KIND_TO_ENTITY.get(kind.lower())
+                if entity_type is not None:
+                    add(
+                        entity_type,
+                        block,
+                        0.75,
+                        "theorem_family_detector",
+                        metadata={
+                            "theorem_number": number,
+                            "theorem_kind": kind,
+                        },
+                    )
             if block.kind == BlockKind.CAPTION:
                 # Preserve chapter-relative numbering ("Figure 3.2" stays
                 # "3.2" — losing it to "3" makes the semantic-layer
