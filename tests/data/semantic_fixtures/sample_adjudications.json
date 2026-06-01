@@ -1,0 +1,70 @@
+{
+  "schema_name": "pdf2md.MarkerAdjudication",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-05-31T00:00:00Z",
+  "document_id": "fixture-doc",
+  "adjudicator": "reviewer@example",
+  "adjudications": [
+    {
+      "marker_id": "marker:1:#/texts/1:Figure 1",
+      "marker_type": "figure",
+      "label": "Figure 1",
+      "source_ref": "#/texts/1",
+      "char_offset": [0, 8],
+      "page_no": 1,
+      "backend": "regex",
+      "decision": "resolve",
+      "target_entity_id": "ent:deepseek:fixture:figure:1",
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-05-31T00:01:00Z"
+    },
+    {
+      "marker_id": "marker:2:#/texts/2:Lemma 2",
+      "marker_type": "theorem",
+      "label": "Lemma 2",
+      "source_ref": "#/texts/2",
+      "char_offset": [10, 17],
+      "page_no": 2,
+      "backend": "grobid",
+      "decision": "reclassify",
+      "target_entity_id": null,
+      "corrected_type": "theorem",
+      "rule_hint": null,
+      "decided_at": "2026-05-31T00:02:00Z"
+    },
+    {
+      "marker_id": "marker:3:#/texts/3:(a)",
+      "marker_type": "bibliography",
+      "label": "(a)",
+      "source_ref": "#/texts/3",
+      "char_offset": [4, 7],
+      "page_no": null,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-05-31T00:03:00Z"
+    },
+    {
+      "marker_id": "marker:4:#/texts/4:Ch. 3",
+      "marker_type": "chapter",
+      "label": "Ch. 3",
+      "source_ref": "#/texts/4",
+      "char_offset": [20, 25],
+      "page_no": 3,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Treat abbreviated chapter markers before numerals as chapter refs.",
+      "decided_at": "2026-05-31T00:04:00Z"
+    }
+  ],
+  "metadata": {
+    "graph_schema_version": "1.1.0",
+    "viewer_version": "008_4",
+    "import_history": []
+  }
+}

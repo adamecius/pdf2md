@@ -36,7 +36,7 @@ an OCR is selected — `article` (blue), `book` (orange), or
 chapter count, reference / index / glossary section counts) that
 drove the decision.
 
-The right side panel has three tabs:
+The right side panel has four tabs:
 
 - **Stats** — marker counts by type, resolution rate, backend
   versions.
@@ -45,6 +45,11 @@ The right side panel has three tabs:
   export stage of the pipeline.
 - **Markers** — a flat list of every detected marker with its
   resolved target.
+- **Adjudicate** — a human-in-the-loop queue of unresolved markers grouped
+  by marker type. Reviewers can resolve a marker to an entity, reclassify
+  its type, mark it as noise, or capture a free-text rule hint; decisions
+  stay in memory until exported as a `<document_id>.adjudications.json`
+  file and can be re-imported later to resume labeling without a server.
 
 ## File layout
 
