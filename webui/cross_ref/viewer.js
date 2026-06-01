@@ -19,12 +19,24 @@ const els = {
   tabStats: $('#tab-stats'),
   tabStructure: $('#tab-structure'),
   tabMarkers: $('#tab-markers'),
+  tabAdjudicate: $('#tab-adjudicate'),
 };
 
 let manifest = null;
 let docling = null;        // cached per example so we don't refetch
 let lastExample = null;
 let simulation = null;
+let currentGraph = null;
+let adjudications = new Map();
+let adjudicateLimits = new Map();
+let adjudicationImportHistory = [];
+
+const REF_TYPES = [
+  'figure', 'table', 'equation', 'theorem', 'definition', 'proof',
+  'corollary', 'example', 'section', 'chapter', 'bibliography', 'footnote',
+];
+const VIEWER_VERSION = '008_4';
+const ADJUDICATOR_KEY = 'pdf2md.cross_ref.adjudicator';
 
 // ---------------------------------------------------------------------------
 // Bootstrap
@@ -119,10 +131,16 @@ async function reload() {
     renderDocClassBadge({});
   }
 
+  currentGraph = graph;
+  adjudications = new Map();
+  adjudicateLimits = new Map();
+  adjudicationImportHistory = [];
+
   renderGraph(graph);
   renderStats(graph, { example: ex, semantic: sem, ocr });
   renderStructure(docling);
   renderMarkers(graph);
+  renderAdjudicate(graph);
 
   const r = graph.metadata.resolved_count || 0;
   const u = graph.metadata.unresolved_count || 0;
@@ -425,6 +443,308 @@ function renderStructure(doc) {
 
   els.tabStructure.innerHTML =
     `<div class="structure-tree">${lines.join('') || '<em>empty docling document</em>'}</div>`;
+}
+
+
+
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function nodeById(graph) {
+  return new Map((graph.nodes || []).map(n => [n.id, n]));
+}
+
+function markerPageNo(node) {
+  if (!node) return null;
+  if (node.page_no != null) return node.page_no;
+  if (node.page != null) return node.page;
+  return null;
+}
+
+function graphSchemaVersion(graph) {
+  return graph.schema_version || (graph.metadata && graph.metadata.schema_version) || 'unknown';
+}
+
+function adjudicatorName() {
+  return (document.getElementById('adjudicator-name')?.value || '').trim();
+}
+
+function nowIso() {
+  return new Date().toISOString();
+}
+
+function serializeAdjudicationStore(graph) {
+  return {
+    schema_name: 'pdf2md.MarkerAdjudication',
+    schema_version: '1.0.0',
+    generated_at: nowIso(),
+    document_id: graph.document_id,
+    adjudicator: adjudicatorName(),
+    adjudications: [...adjudications.values()].sort((a, b) => a.marker_id.localeCompare(b.marker_id)),
+    metadata: {
+      graph_schema_version: graphSchemaVersion(graph),
+      viewer_version: VIEWER_VERSION,
+      import_history: adjudicationImportHistory,
+    },
+  };
+}
+
+function validateImportedAdjudicationDocument(payload, graph) {
+  if (!payload || payload.schema_name !== 'pdf2md.MarkerAdjudication' || payload.schema_version !== '1.0.0') {
+    throw new Error('not a pdf2md.MarkerAdjudication 1.0.0 file');
+  }
+  if (payload.document_id !== graph.document_id) {
+    throw new Error(`document_id mismatch: ${payload.document_id} != ${graph.document_id}`);
+  }
+  if (!Array.isArray(payload.adjudications)) {
+    throw new Error('adjudications must be an array');
+  }
+  for (const item of payload.adjudications) {
+    if (!item.marker_id || !REF_TYPES.includes(item.marker_type) || !item.decision || !item.decided_at) {
+      throw new Error(`invalid adjudication row for marker ${item.marker_id || '(missing id)'}`);
+    }
+    if (!['resolve', 'reclassify', 'noise', 'rule_hint'].includes(item.decision)) {
+      throw new Error(`invalid decision for marker ${item.marker_id}`);
+    }
+  }
+}
+
+function decisionSummary(item) {
+  if (!item) return '';
+  if (item.decision === 'resolve') return `resolve → ${item.target_entity_id || '—'}`;
+  if (item.decision === 'reclassify') return `reclassify → ${item.corrected_type || '—'}`;
+  if (item.decision === 'rule_hint') return `rule_hint: ${item.rule_hint || '—'}`;
+  return 'noise';
+}
+
+function baseMarkerRecord(graph, edge) {
+  const nodes = nodeById(graph);
+  const source = nodes.get(edge.source) || {};
+  return {
+    marker_id: edge.source,
+    marker_type: edge.marker_type || source.type || 'bibliography',
+    label: edge.label || source.label || '',
+    source_ref: source.source_ref || '',
+    char_offset: Array.isArray(source.char_offset) ? source.char_offset : [0, 0],
+    page_no: markerPageNo(source),
+    backend: source.backend || '',
+  };
+}
+
+function setAdjudication(graph, edge, decision, payload) {
+  const base = baseMarkerRecord(graph, edge);
+  const record = {
+    ...base,
+    decision,
+    target_entity_id: null,
+    corrected_type: null,
+    rule_hint: null,
+    decided_at: nowIso(),
+  };
+  if (decision === 'resolve') record.target_entity_id = payload.target_entity_id;
+  if (decision === 'reclassify') record.corrected_type = payload.corrected_type;
+  if (decision === 'rule_hint') record.rule_hint = payload.rule_hint;
+  adjudications.set(base.marker_id, record);
+  renderAdjudicate(graph);
+}
+
+function clearAdjudication(markerId) {
+  adjudications.delete(markerId);
+  if (currentGraph) renderAdjudicate(currentGraph);
+}
+
+function entityOptions(graph, markerType, selectedId) {
+  const entityTypes = new Set(REF_TYPES);
+  const entities = (graph.nodes || []).filter(n => entityTypes.has(n.type) && !(n.id || '').startsWith('marker:'));
+  entities.sort((a, b) => {
+    const aRank = a.type === markerType ? 0 : 1;
+    const bRank = b.type === markerType ? 0 : 1;
+    return aRank - bRank || String(a.type).localeCompare(String(b.type)) || String(a.label).localeCompare(String(b.label));
+  });
+  const opts = ['<option value="">resolve target…</option>'];
+  for (const ent of entities) {
+    const same = ent.type === markerType ? 'same' : 'other';
+    const selected = ent.id === selectedId ? ' selected' : '';
+    opts.push(`<option value="${escapeHtml(ent.id)}"${selected}>[${same}] ${escapeHtml(ent.type)} · ${escapeHtml(ent.label || ent.id)}</option>`);
+  }
+  return opts.join('');
+}
+
+function refTypeOptions(selected) {
+  return '<option value="">correct type…</option>' + REF_TYPES
+    .map(t => `<option value="${t}"${t === selected ? ' selected' : ''}>${t}</option>`).join('');
+}
+
+function renderAdjudicate(graph) {
+  if (!els.tabAdjudicate) return;
+  const nodes = nodeById(graph);
+  const unresolved = (graph.edges || [])
+    .filter(e => e.edge_kind ? e.edge_kind === 'cross_reference' : true)
+    .filter(e => e.resolved === false)
+    .map(e => ({ edge: e, source: nodes.get(e.source) || {} }))
+    .sort((a, b) => String(a.edge.source).localeCompare(String(b.edge.source)));
+
+  const groups = new Map();
+  for (const row of unresolved) {
+    const type = row.edge.marker_type || row.source.type || 'unknown';
+    if (!groups.has(type)) groups.set(type, []);
+    groups.get(type).push(row);
+  }
+
+  const adjudicator = escapeHtml(localStorage.getItem(ADJUDICATOR_KEY) || '');
+  let html = `<div class="adjudicate-header">
+    <label>Adjudicator <input id="adjudicator-name" type="text" value="${adjudicator}" placeholder="name or handle"></label>
+    <button id="export-adjudications" type="button">Export adjudications</button>
+    <label class="import-label">Import adjudications <input id="import-adjudications" type="file" accept="application/json,.json"></label>
+    <span id="adjudication-status" class="adjudication-status">${adjudications.size} adjudicated · ${unresolved.length} unresolved</span>
+  </div>`;
+
+  if (!unresolved.length) {
+    html += '<p style="color:#999">No unresolved cross-reference edges in this graph.</p>';
+    els.tabAdjudicate.innerHTML = html;
+    wireAdjudicationHeader(graph);
+    return;
+  }
+
+  for (const [type, rows] of [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
+    const limit = adjudicateLimits.get(type) || 200;
+    const visible = rows.slice(0, limit);
+    html += `<section class="adjudication-group"><h3>${escapeHtml(type)} <span>${rows.length}</span></h3>`;
+    for (const { edge, source } of visible) {
+      const markerId = edge.source;
+      const existing = adjudications.get(markerId);
+      const offset = Array.isArray(source.char_offset) ? source.char_offset.join('–') : '—';
+      const page = markerPageNo(source);
+      html += `<article class="adjudication-row ${existing ? 'adjudicated' : ''}" data-marker-id="${escapeHtml(markerId)}">
+        <div class="adjudication-main">
+          <span class="marker-type badge">${escapeHtml(edge.marker_type || source.type || 'unknown')}</span>
+          <strong class="marker-label">${escapeHtml(edge.label || source.label || '')}</strong>
+          <span class="marker-id">${escapeHtml(markerId)}</span>
+          <dl class="marker-context">
+            <dt>source_ref</dt><dd>${escapeHtml(source.source_ref || '—')}</dd>
+            <dt>char_offset</dt><dd>${escapeHtml(offset)}</dd>
+            <dt>backend</dt><dd>${escapeHtml(source.backend || '—')}</dd>
+            <dt>page_no</dt><dd>${page == null ? '—' : escapeHtml(page)}</dd>
+          </dl>
+          ${existing ? `<div class="decision-summary"><span>${escapeHtml(existing.decision)}</span> ${escapeHtml(decisionSummary(existing))}</div>` : ''}
+        </div>
+        <div class="adjudication-controls">
+          <select data-action="resolve">${entityOptions(graph, edge.marker_type || source.type, existing?.target_entity_id)}</select>
+          <select data-action="reclassify">${refTypeOptions(existing?.corrected_type)}</select>
+          <button type="button" data-action="noise">Noise</button>
+          <input type="text" data-action="rule_hint_text" value="${escapeHtml(existing?.rule_hint || '')}" placeholder="rule hint">
+          <button type="button" data-action="rule_hint">Save hint</button>
+          <button type="button" data-action="clear" ${existing ? '' : 'disabled'}>Clear decision</button>
+        </div>
+      </article>`;
+    }
+    if (rows.length > visible.length) {
+      html += `<button class="show-more" type="button" data-action="show_more" data-marker-type="${escapeHtml(type)}">Show more (${rows.length - visible.length} hidden)</button>`;
+    }
+    html += '</section>';
+  }
+  els.tabAdjudicate.innerHTML = html;
+  wireAdjudicationHeader(graph);
+}
+
+function wireAdjudicationHeader(graph) {
+  document.getElementById('adjudicator-name')?.addEventListener('input', (event) => {
+    localStorage.setItem(ADJUDICATOR_KEY, event.target.value);
+  });
+  document.getElementById('export-adjudications')?.addEventListener('click', () => exportAdjudications(graph));
+  document.getElementById('import-adjudications')?.addEventListener('change', (event) => importAdjudications(event, graph));
+}
+
+els.tabAdjudicate?.addEventListener('change', (event) => {
+  const control = event.target;
+  const row = control.closest('.adjudication-row');
+  if (!row || !currentGraph) return;
+  const markerId = row.dataset.markerId;
+  const edge = (currentGraph.edges || []).find(e => e.source === markerId);
+  if (!edge) return;
+  if (control.dataset.action === 'resolve' && control.value) {
+    setAdjudication(currentGraph, edge, 'resolve', { target_entity_id: control.value });
+  }
+  if (control.dataset.action === 'reclassify' && control.value) {
+    setAdjudication(currentGraph, edge, 'reclassify', { corrected_type: control.value });
+  }
+});
+
+els.tabAdjudicate?.addEventListener('click', (event) => {
+  const control = event.target;
+  if (!currentGraph || !control.dataset.action) return;
+  if (control.dataset.action === 'show_more') {
+    const type = control.dataset.markerType;
+    adjudicateLimits.set(type, (adjudicateLimits.get(type) || 200) + 200);
+    renderAdjudicate(currentGraph);
+    return;
+  }
+  const row = control.closest('.adjudication-row');
+  if (!row) return;
+  const markerId = row.dataset.markerId;
+  const edge = (currentGraph.edges || []).find(e => e.source === markerId);
+  if (control.dataset.action === 'clear') {
+    clearAdjudication(markerId);
+  } else if (control.dataset.action === 'noise' && edge) {
+    setAdjudication(currentGraph, edge, 'noise', {});
+  } else if (control.dataset.action === 'rule_hint' && edge) {
+    const text = row.querySelector('[data-action="rule_hint_text"]')?.value.trim();
+    if (text) setAdjudication(currentGraph, edge, 'rule_hint', { rule_hint: text });
+  }
+});
+
+function exportAdjudications(graph) {
+  const payload = serializeAdjudicationStore(graph);
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `${graph.document_id || 'document'}.adjudications.json`.replace(/[\\/]/g, '_');
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
+async function importAdjudications(event, graph) {
+  const file = event.target.files && event.target.files[0];
+  if (!file) return;
+  const status = document.getElementById('adjudication-status');
+  try {
+    const payload = JSON.parse(await file.text());
+    validateImportedAdjudicationDocument(payload, graph);
+    let added = 0;
+    let overwritten = 0;
+    for (const item of payload.adjudications) {
+      const current = adjudications.get(item.marker_id);
+      if (!current) {
+        adjudications.set(item.marker_id, item);
+        added += 1;
+      } else if (new Date(item.decided_at) >= new Date(current.decided_at)) {
+        adjudications.set(item.marker_id, item);
+        overwritten += 1;
+      }
+    }
+    adjudicationImportHistory = [
+      ...adjudicationImportHistory,
+      ...((payload.metadata && payload.metadata.import_history) || []),
+      { at: nowIso(), merged_from: file.name, added, overwritten },
+    ];
+    renderAdjudicate(graph);
+    const newStatus = document.getElementById('adjudication-status');
+    if (newStatus) newStatus.textContent = `imported ${file.name}: added ${added}, overwritten ${overwritten}`;
+  } catch (err) {
+    if (status) status.textContent = `import failed: ${err.message}`;
+    alert(`Import failed: ${err.message}`);
+  } finally {
+    event.target.value = '';
+  }
 }
 
 // ---------------------------------------------------------------------------

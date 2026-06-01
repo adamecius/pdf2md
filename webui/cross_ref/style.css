@@ -202,3 +202,126 @@ main {
 .marker-row .marker-text { color: #222; word-break: break-word; }
 .marker-row.resolved { background: rgba(31, 138, 76, 0.05); }
 .marker-row.unresolved { color: #888; }
+
+/* Adjudication teaching loop */
+.adjudicate-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 0.8rem;
+}
+.adjudicate-header label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #555;
+}
+.adjudicate-header input[type="text"],
+.adjudication-controls input,
+.adjudication-controls select {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 0.25rem 0.35rem;
+  font: inherit;
+  min-width: 0;
+}
+.adjudicate-header button,
+.adjudication-controls button,
+.show-more {
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  background: #fff;
+  padding: 0.25rem 0.45rem;
+  font: inherit;
+  cursor: pointer;
+}
+.adjudicate-header button:hover,
+.adjudication-controls button:hover,
+.show-more:hover { background: #f4f8fb; }
+.adjudication-controls button:disabled { color: #aaa; cursor: default; background: #f8f8f8; }
+.import-label input { max-width: 11rem; }
+.adjudication-status { color: #777; font-size: 0.78rem; }
+.adjudication-group { margin-bottom: 1rem; }
+.adjudication-group h3 {
+  margin: 0.8rem 0 0.4rem;
+  font-size: 0.9rem;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.2rem;
+}
+.adjudication-group h3 span { color: #777; font-weight: 500; }
+.adjudication-row {
+  border: 1px solid #e5e5e5;
+  border-left: 3px solid #d62728;
+  border-radius: 4px;
+  padding: 0.55rem;
+  margin: 0.45rem 0;
+  background: #fff;
+}
+.adjudication-row.adjudicated {
+  border-left-color: #1f78b4;
+  background: #f7fbff;
+}
+.adjudication-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+.badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.1rem 0.45rem;
+  background: #f0f0f0;
+  color: #555;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+}
+.marker-label { color: #222; }
+.marker-id {
+  color: #999;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.68rem;
+  overflow-wrap: anywhere;
+}
+.marker-context {
+  flex-basis: 100%;
+  display: grid;
+  grid-template-columns: 78px minmax(0, 1fr);
+  gap: 0.12rem 0.35rem;
+  margin: 0.25rem 0;
+  color: #666;
+  font-size: 0.74rem;
+}
+.marker-context dt { color: #888; }
+.marker-context dd { margin: 0; overflow-wrap: anywhere; }
+.decision-summary {
+  flex-basis: 100%;
+  color: #1f5f8f;
+  font-size: 0.76rem;
+}
+.decision-summary span {
+  display: inline-block;
+  margin-right: 0.3rem;
+  padding: 0.05rem 0.35rem;
+  border-radius: 3px;
+  background: #dceffd;
+  color: #174e78;
+  font-weight: 600;
+}
+.adjudication-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.35rem;
+  margin-top: 0.45rem;
+}
+.show-more {
+  width: 100%;
+  color: #1f78b4;
+  border-style: dashed;
+}
