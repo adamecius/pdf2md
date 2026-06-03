@@ -1,7 +1,7 @@
 # Plan 017_1 — Docling Strict-Conformance Export Mode
 
 Status:
-agent_complete
+finished
 
 Allowed status values:
 draft
