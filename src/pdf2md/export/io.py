@@ -148,6 +148,12 @@ def build_export_run(
     ok, reason = try_validate_with_docling_core(docling_result.document)
     if (not ok and reason) or reason:
         warnings.append(reason)
+    # Strict export mode (DoclingExportSettings.strict): docling_core rejection
+    # is a hard gate — never silently write a non-conformant file. Absence of
+    # docling_core is an environment condition, not a document defect, so it
+    # falls back to the structural check with the recorded warning.
+    if docling_settings.strict and not ok and reason and reason != "docling_core_unavailable":
+        raise ValueError("Strict Docling export failed docling_core validation: " + reason)
     if strict and structural:
         raise ValueError("Docling validation failed: " + ", ".join(structural))
 

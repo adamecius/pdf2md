@@ -1,7 +1,7 @@
 # Plan 006_1 — Semantic Router with Calibrated Weights
 
 Status:
-agent_complete
+finished
 
 Allowed status values:
 draft

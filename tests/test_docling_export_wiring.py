@@ -10,16 +10,15 @@ Covers the four A1/A2/A6 wiring fixes:
 from __future__ import annotations
 
 import hashlib
-import json
 from pathlib import Path
 
 import pytest
 
 from pdf2md.export.docling import (
     _DOCLING_SCHEMA_VERSION_DEFAULT,
-    DoclingExportSettings,
-    _TEXT_LABELS,
     _GROUP_LABELS,
+    _TEXT_LABELS,
+    DoclingExportSettings,
     _compute_origin,
     build_docling_document,
 )
@@ -27,7 +26,6 @@ from pdf2md.export.io import build_export_run, load_export_inputs
 from pdf2md.export.markdown import MarkdownExportSettings
 from pdf2md.export.rag import RagExportSettings
 from pdf2md.models.linked import LinkedNodeType
-
 
 FIX = Path("tests/data/export_fixtures")
 
@@ -104,7 +102,7 @@ class TestOriginBlock:
 
 class TestLabelMapping:
     def test_every_text_label_is_valid_doc_item_label(self):
-        docling_core = pytest.importorskip("docling_core")
+        pytest.importorskip("docling_core")
         from docling_core.types.doc import DocItemLabel
 
         valid_labels = {label.value for label in DocItemLabel}
@@ -147,11 +145,11 @@ class TestLabelMapping:
 
 class TestSchemaVersion:
     def test_default_schema_version_matches_docling_core(self):
-        docling_core = pytest.importorskip("docling_core")
+        pytest.importorskip("docling_core")
         from docling_core.types.doc import DoclingDocument
 
         expected = DoclingDocument.model_fields.get("version").default
-        assert _DOCLING_SCHEMA_VERSION_DEFAULT == expected
+        assert expected == _DOCLING_SCHEMA_VERSION_DEFAULT
 
     def test_settings_default_uses_resolved_version(self):
         assert DoclingExportSettings().schema_version == _DOCLING_SCHEMA_VERSION_DEFAULT
@@ -194,34 +192,34 @@ class TestDoclingCoreStrictValidation:
     reduces to a small handful of per-item structural errors.
     """
 
-    @pytest.mark.xfail(
-        reason="Plan 17 A8 follow-up: strip pdf2md-only extras from docling pictures/tables + emit prov.charspan + uppercase coord_origin",
-        strict=False,
-    )
     def test_simple_document_passes_strict_validation_with_origin(self, tmp_path: Path):
-        docling_core = pytest.importorskip("docling_core")
+        pytest.importorskip("docling_core")
         from docling_core.types.doc import DoclingDocument
+
         from tests.test_docling_export import load
 
         linked, consensus = load("simple_document")
         pdf = tmp_path / "simple.pdf"
         pdf.write_bytes(b"%PDF-1.4 simple")
-        doc = build_docling_document(linked=linked, consensus=consensus, source_pdf=pdf).document
+        doc = build_docling_document(
+            linked=linked, consensus=consensus, source_pdf=pdf,
+            settings=DoclingExportSettings(strict=True),
+        ).document
         DoclingDocument.model_validate(doc)
 
-    @pytest.mark.xfail(
-        reason="Plan 17 A8 follow-up (see test_simple_document_passes_strict_validation_with_origin)",
-        strict=False,
-    )
     def test_rich_document_passes_strict_validation_with_origin(self, tmp_path: Path):
-        docling_core = pytest.importorskip("docling_core")
+        pytest.importorskip("docling_core")
         from docling_core.types.doc import DoclingDocument
+
         from tests.test_docling_export import load
 
         linked, consensus = load("rich_document")
         pdf = tmp_path / "rich.pdf"
         pdf.write_bytes(b"%PDF-1.4 rich")
-        doc = build_docling_document(linked=linked, consensus=consensus, source_pdf=pdf).document
+        doc = build_docling_document(
+            linked=linked, consensus=consensus, source_pdf=pdf,
+            settings=DoclingExportSettings(strict=True),
+        ).document
         DoclingDocument.model_validate(doc)
 
     def test_origin_field_errors_are_eliminated(self, tmp_path: Path):
@@ -229,9 +227,10 @@ class TestDoclingCoreStrictValidation:
         validation errors after A1+A2+A6, even when other extras remain.
         """
 
-        docling_core = pytest.importorskip("docling_core")
+        pytest.importorskip("docling_core")
         from docling_core.types.doc import DoclingDocument
         from pydantic import ValidationError
+
         from tests.test_docling_export import load
 
         linked, consensus = load("simple_document")

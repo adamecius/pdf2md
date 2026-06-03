@@ -314,12 +314,12 @@ def _try_theorem_family(
     (``3`` / ``2``) because :func:`_extract_number` returns the full
     dotted form.
 
-    NOTE: the OCR connector does not yet emit theorem-family ENTITIES,
-    so on real pipeline data there are no theorem-family candidates and
-    this matcher returns ``None`` (resolution stays 0% until a
-    connector-side detector is added — tracked as a separate plan). The
-    matcher is exercised by synthetic fixtures and is correct the moment
-    candidates exist.
+    NOTE: Plan 006_5 added the connector-side theorem-family detector, so
+    theorem-family entities are now emitted on real pipeline data and this
+    matcher resolves them by hierarchical number identity. It is also
+    exercised by synthetic fixtures. (Whether a given OCR backend's snapshot
+    contains these entities depends on when that snapshot was generated;
+    pre-006_5 snapshots will lack them.)
     """
     if marker.marker_type not in _THEOREM_FAMILY_TYPES:
         return None

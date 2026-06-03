@@ -56,12 +56,20 @@ class DoclingExportSettings:
         include_unresolved: Emit nodes whose status is ``unresolved`` when
             true; drop them silently when false.
         coord_origin: Coordinate origin convention recorded with bboxes.
+        strict: When true, emit a document that passes
+            ``docling_core.types.doc.DoclingDocument.model_validate`` — items
+            carry only docling_core-allowed fields, ``prov`` is
+            ``ProvenanceItem``-shaped (``page_no``/``bbox``/``charspan``),
+            and all pdf2md provenance is relocated to the top-level
+            ``metadata["pdf2md"]`` bag (which docling_core ignores rather than
+            rejects). The default (false) emits the rich variant unchanged.
     """
 
     schema_name: str = "DoclingDocument"
     schema_version: str = _DOCLING_SCHEMA_VERSION_DEFAULT
     include_unresolved: bool = True
     coord_origin: str = "BOTTOMLEFT"
+    strict: bool = False
 
 
 @dataclass(frozen=True)
@@ -162,7 +170,7 @@ def _text(node: LinkedNode) -> str:
     return node.text or str(node.metadata.get("title") or node.metadata.get("label") or "")
 
 
-def _prov_for(node: LinkedNode, consensus: ConsensusIR | None) -> list[dict[str, Any]]:
+def _resolve_page_bbox(node: LinkedNode, consensus: ConsensusIR | None) -> tuple[int | None, dict[str, Any] | None]:
     page_no = node.page_no
     bbox = node.metadata.get("bbox")
     if (bbox is None or page_no is None) and consensus is not None and node.consensus_block_id:
@@ -172,6 +180,32 @@ def _prov_for(node: LinkedNode, consensus: ConsensusIR | None) -> list[dict[str,
                     page_no = page_no or page.page_no
                     if bbox is None and block.bbox is not None:
                         bbox = block.bbox.model_dump(mode="json")
+    return page_no, bbox
+
+
+def _strict_prov(node: LinkedNode, consensus: ConsensusIR | None, coord_origin: str) -> list[dict[str, Any]]:
+    """Return a docling_core ``ProvenanceItem``-shaped list (or empty).
+
+    docling_core requires ``page_no``, ``bbox`` and ``charspan`` together, so
+    a prov entry is emitted only when a bbox is available; otherwise the prov
+    list is empty (the field is optional).
+    """
+
+    page_no, bbox = _resolve_page_bbox(node, consensus)
+    if page_no is None or not isinstance(bbox, dict):
+        return []
+    if not all(k in bbox for k in ("l", "t", "r", "b")):
+        return []
+    co = str(bbox.get("coord_origin") or coord_origin).upper()
+    if co not in ("TOPLEFT", "BOTTOMLEFT"):
+        co = coord_origin
+    clean_bbox = {"l": bbox["l"], "t": bbox["t"], "r": bbox["r"], "b": bbox["b"], "coord_origin": co}
+    text = node.text or ""
+    return [{"page_no": page_no, "bbox": clean_bbox, "charspan": [0, len(text)]}]
+
+
+def _prov_for(node: LinkedNode, consensus: ConsensusIR | None) -> list[dict[str, Any]]:
+    page_no, bbox = _resolve_page_bbox(node, consensus)
     if page_no is None:
         return []
     prov: dict[str, Any] = {"page_no": page_no}
@@ -180,6 +214,22 @@ def _prov_for(node: LinkedNode, consensus: ConsensusIR | None) -> list[dict[str,
     if node.consensus_block_id:
         prov["consensus_block_id"] = node.consensus_block_id
     return [prov]
+
+
+def _strict_node_provenance(node: LinkedNode, self_ref: str) -> dict[str, Any]:
+    """pdf2md per-node provenance relocated to ``metadata["pdf2md"]["nodes"]``."""
+
+    prov: dict[str, Any] = {
+        "self_ref": self_ref,
+        "type": _node_type(node),
+        "status": _value(node.status),
+        "confidence": node.confidence,
+        "source_entity_ids": list(node.source_entity_ids),
+    }
+    if node.consensus_block_id:
+        prov["consensus_block_id"] = node.consensus_block_id
+    prov.update(node.metadata)
+    return prov
 
 
 def _base_item(node: LinkedNode, self_ref: str, consensus: ConsensusIR | None) -> dict[str, Any]:
@@ -227,6 +277,7 @@ def build_docling_document(
     """
 
     warnings: list[str] = []
+    strict = settings.strict
     nodes = sorted(linked.nodes, key=lambda n: (n.order, n.id))
     emitted_nodes = [n for n in nodes if settings.include_unresolved or _value(n.status) != "unresolved"]
     pages: dict[str, dict[str, Any]] = {}
@@ -267,6 +318,12 @@ def build_docling_document(
             "warnings": warnings,
         },
     }
+    if strict:
+        # Relocate all per-node provenance here: docling_core ignores unknown
+        # top-level keys, so the document still validates while traceability
+        # is preserved in the emitted JSON.
+        document["metadata"]["pdf2md"]["nodes"] = {}
+        document["metadata"]["pdf2md"]["relations"] = []
 
     node_ref: dict[str, str] = {}
     for node in emitted_nodes:
@@ -276,39 +333,82 @@ def build_docling_document(
             continue
         if ntype in _GROUP_TYPES:
             ref = f"#/groups/{len(document['groups'])}"
-            item = _base_item(node, ref, consensus)
-            # docling-core groups do not require (and reject) the legacy
-            # pdf2md group labels like "section"/"list"/"references".
-            # Drop the label key entirely when the mapping says None.
             group_label = _GROUP_LABELS.get(ntype)
-            item.update({"name": _text(node), "children": []})
+            if strict:
+                # GroupItem allows no prov/text/metadata — only self_ref,
+                # name, children, label.
+                item = {"self_ref": ref, "name": _text(node), "children": []}
+            else:
+                item = _base_item(node, ref, consensus)
+                # docling-core groups do not require (and reject) the legacy
+                # pdf2md group labels like "section"/"list"/"references".
+                # Drop the label key entirely when the mapping says None.
+                item.update({"name": _text(node), "children": []})
             if group_label is not None:
                 item["label"] = group_label
             document["groups"].append(item)
         elif ntype in _TABLE_TYPES:
             ref = f"#/tables/{len(document['tables'])}"
-            item = _base_item(node, ref, consensus)
-            item.update({"label": "table", "data": node.metadata.get("data") or {"table_cells": []}})
+            data = node.metadata.get("data") or {"table_cells": []}
+            if strict:
+                item = {"self_ref": ref, "label": "table", "data": data}
+                prov = _strict_prov(node, consensus, settings.coord_origin)
+                if prov:
+                    item["prov"] = prov
+            else:
+                item = _base_item(node, ref, consensus)
+                item.update({"label": "table", "data": data})
             document["tables"].append(item)
         elif ntype in _PICTURE_TYPES:
             ref = f"#/pictures/{len(document['pictures'])}"
-            item = _base_item(node, ref, consensus)
-            item.update({"label": "picture"})
+            if strict:
+                item = {"self_ref": ref, "label": "picture"}
+                prov = _strict_prov(node, consensus, settings.coord_origin)
+                if prov:
+                    item["prov"] = prov
+            else:
+                item = _base_item(node, ref, consensus)
+                item.update({"label": "picture"})
             document["pictures"].append(item)
         else:
             if ntype not in _TEXT_LABELS:
                 warnings.append(f"block_kind_unmapped:{node.id}:{_node_type(node)}")
             ref = f"#/texts/{len(document['texts'])}"
-            item = _base_item(node, ref, consensus)
-            # Fall back to "text" (a valid DocItemLabel) for unmapped kinds;
-            # this is recorded as a warning above so the human reviewer sees
-            # it on the export report.
-            item.update({"label": _TEXT_LABELS.get(ntype, "text"), "text": _text(node)})
+            label = _TEXT_LABELS.get(ntype, "text")
+            text = _text(node)
+            if strict:
+                # TextItem requires self_ref, label, text, orig.
+                item = {"self_ref": ref, "label": label, "text": text, "orig": text}
+                prov = _strict_prov(node, consensus, settings.coord_origin)
+                if prov:
+                    item["prov"] = prov
+            else:
+                item = _base_item(node, ref, consensus)
+                # Fall back to "text" (a valid DocItemLabel) for unmapped kinds;
+                # this is recorded as a warning above so the human reviewer sees
+                # it on the export report.
+                item.update({"label": label, "text": text})
             document["texts"].append(item)
         node_ref[node.id] = ref
+        if strict:
+            document["metadata"]["pdf2md"]["nodes"][node.id] = _strict_node_provenance(node, ref)
 
     by_ref = _items_by_ref(document)
     parent_by_child: dict[str, str] = {}
+
+    def _add_child(parent_item: dict[str, Any], child_ref: str) -> bool:
+        """Append a child ref to a container, RefItem-shaped in strict mode."""
+        children = parent_item["children"]
+        if strict:
+            if any(c.get("cref") == child_ref for c in children):
+                return False
+            children.append({"cref": child_ref})
+        else:
+            if child_ref in children:
+                return False
+            children.append(child_ref)
+        return True
+
     for relation in linked.relations:
         rtype = relation.relation_type
         src = node_ref.get(relation.source_node_id)
@@ -317,9 +417,14 @@ def build_docling_document(
         if rtype in {LinkedRelationType.CONTAINS, LinkedRelationType.PARENT_OF} and src and tgt:
             parent, child = src, tgt
             parent_item = by_ref.get(parent)
-            if parent_item is not None and "children" in parent_item and child not in parent_item["children"]:
-                parent_item["children"].append(child)
+            if parent_item is not None and "children" in parent_item and _add_child(parent_item, child):
                 parent_by_child[child] = parent
+        elif strict:
+            # docling_core items forbid extra keys, so non-containment
+            # relations are recorded in metadata["pdf2md"]["relations"]
+            # rather than mutated onto the items.
+            if src or tgt:
+                document["metadata"]["pdf2md"]["relations"].append(payload)
         elif rtype == LinkedRelationType.CAPTION_OF and src and tgt:
             target = by_ref.get(tgt)
             if target is not None:
@@ -345,7 +450,16 @@ def build_docling_document(
         node_ref_value = node_ref.get(node.id)
         if not node_ref_value or node_ref_value == "#/body" or node_ref_value in parent_by_child:
             continue
-        document["body"]["children"].append(node_ref_value)
+        document["body"]["children"].append({"cref": node_ref_value} if strict else node_ref_value)
+
+    if strict:
+        # docling_core's validate_tree requires every item to carry a parent
+        # back-reference that resolves to its container (body, or the group
+        # that lists it as a child).
+        for ref, item in by_ref.items():
+            if ref == "#/body":
+                continue
+            item["parent"] = {"cref": parent_by_child.get(ref, "#/body")}
 
     warnings.extend(validate_docling_like_document(document))
     document["metadata"]["warnings"] = warnings
@@ -392,8 +506,9 @@ def validate_docling_like_document(document: dict[str, Any]) -> list[str]:
     known = set(refs)
     for item in [body, *document.get("groups", [])]:
         for child in item.get("children", []):
-            if child not in known:
-                warnings.append(f"broken_child_ref:{child}")
+            cref = child.get("cref") if isinstance(child, dict) else child
+            if cref not in known:
+                warnings.append(f"broken_child_ref:{cref}")
     page_keys = set(document.get("pages", {}).keys())
     for item in [*document.get("texts", []), *document.get("tables", []), *document.get("pictures", [])]:
         if not item.get("label") and not item.get("metadata", {}).get("type"):
