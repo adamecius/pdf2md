@@ -3,6 +3,7 @@ work_dir = ".tmp"
 default_timeout_seconds = 3600
 stop_on_failure = true
 
+# DEFAULT backend for semantic cross-reference candidate extraction.
 [backends.mineru]
 enabled = true
 runner = "conda"
@@ -13,6 +14,7 @@ script = "backend/mineru/pdf2md_mineru.py"
 lang = "en"
 device = "auto"
 
+# ALTERNATIVE backend; useful as an independent OCR candidate source.
 [backends.deepseek]
 enabled = false
 runner = "conda"
@@ -29,6 +31,9 @@ model_id = "deepseek-ai/DeepSeek-OCR-2"
 models_dir = ".local_models/deepseek"
 allow_download = false
 
+# DEPRECATED for semantic cross-reference candidate extraction: the 007_2
+# calibration baseline measured 0% resolution on the 791-page book and under
+# 3% on articles. Retained for historical compatibility only.
 [backends.paddleocr]
 enabled = false
 runner = "conda"

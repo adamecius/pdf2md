@@ -1,7 +1,7 @@
 # Plan 006_4 — Backend Restructure: Drop OCR Entity Consensus, Deprecate PaddleOCR
 
 Status:
-human_verification_required
+active
 
 Linked ROADMAP phase:
 Phase 4b — Semantic cross-reference layer (structural cleanup)
