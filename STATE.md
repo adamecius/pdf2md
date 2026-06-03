@@ -25,8 +25,9 @@ Update this file whenever a plan changes subsystem status, in-flight work, next 
 
 | Slot | Plan | Status | Notes |
 |---|---|---|---|
-| Current | Plan 006_4 — Backend Restructure: Drop OCR Entity Consensus, Deprecate PaddleOCR | human_verification_required | Dead OCR entity consensus bridge removed; page-level ConsensusIR preserved; stale theorem-family enum contract test fixed; full suite green. |
-| Next | To be determined after 006_4 | not_yet_drafted | Candidates: networkx in linking, 006_1 semantic router with calibrated weights. |
+| Current | Plan 014_1 — networkx-Backed LinkedStructure Graph | active | Back the LinkedStructure graph with networkx; add reading-order/ancestry/cycle/orphan traversal utilities. Backward-compatible nodes/relations. |
+| Next | Plan 006_1 — Semantic router with calibrated weights | not_yet_drafted | Consume the 007_2 calibration baseline to route semantic resolution per marker-type × backend. |
+| Done | Plan 006_4 — Backend Restructure: Drop OCR Entity Consensus, Deprecate PaddleOCR | finished (PR #145, merged) | Dead OCR entity consensus bridge removed; stale theorem-family enum contract test fixed; full suite green. |
 
 ## Governance state
 
