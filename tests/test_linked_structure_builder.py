@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import networkx as nx
+
 from pdf2md.linking.builder import LinkerSettings, build_linked_structure
 from pdf2md.linking.io import load_linker_inputs
 from pdf2md.models.linked import LinkedNodeType, LinkedRelationType, LinkedStructure, LinkStatus
@@ -123,3 +125,24 @@ def test_report_unresolved_contains_resolver_conflicts():
     loaded.consensus.pages[1].blocks[4].text = 'a^2+b^2=c^2 (4)'
     result=build_linked_structure(consensus=loaded.consensus,entities_by_backend=loaded.entities_by_backend,priors_by_backend=loaded.priors_by_backend,consensus_report=loaded.consensus_report)
     assert any(item['conflict_type'] == 'equation_sequence_gap' for item in result.report['unresolved'])
+
+
+def test_run_result_exposes_networkx_graph():
+    result,_=build('toc_footnotes_references')
+    graph=result.graph
+    assert isinstance(graph, nx.MultiDiGraph)
+    assert graph.number_of_nodes() == len(result.linked.nodes)
+    assert graph.number_of_edges() == len(result.linked.relations)
+
+
+def test_graph_node_ids_match_linked_nodes():
+    result,_=build('simple_document')
+    assert set(result.graph.nodes) == {node.id for node in result.linked.nodes}
+
+
+def test_graph_edges_carry_relation_attributes():
+    result,_=build('simple_document')
+    for _src,_dst,data in result.graph.edges(data=True):
+        assert 'relation_type' in data
+        assert 'confidence' in data
+        assert 'status' in data

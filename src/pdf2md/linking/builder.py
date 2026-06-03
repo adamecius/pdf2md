@@ -5,7 +5,10 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
+import networkx as nx
+
 from pdf2md.linking.extract import extract_link_candidates
+from pdf2md.linking.graph_utils import linked_structure_to_graph
 from pdf2md.linking.reporting import build_linking_report
 from pdf2md.linking.resolvers import run_all_resolvers
 from pdf2md.models.entities import EntityProposalDocument
@@ -60,6 +63,19 @@ class LinkerRunResult:
     linked: LinkedStructure
     report: dict[str, Any]
     warnings: list[str]
+
+    @property
+    def graph(self) -> nx.MultiDiGraph:
+        """networkx view derived from ``linked``.
+
+        One node per ``LinkedNode``, one edge per ``LinkedRelation``. This is
+        additive and computed on access: ``linked`` (its node/relation lists)
+        remains the source of truth and serialisation format, so any consumer
+        that constructs a ``LinkerRunResult`` directly still gets a graph
+        consistent with its structure. See :mod:`pdf2md.linking.graph_utils`.
+        """
+
+        return linked_structure_to_graph(self.linked)
 
 
 def _status(confidence: float, settings: LinkerSettings) -> LinkStatus:
