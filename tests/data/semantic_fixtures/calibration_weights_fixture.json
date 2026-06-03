@@ -1,0 +1,12 @@
+{
+  "schema_name": "pdf2md.semantic_calibration_report",
+  "schema_version": "1.0.0",
+  "per_combo": [
+    {"example": "example3", "semantic_backend": "consensus", "resolved": 80, "total": 100},
+    {"example": "example3", "semantic_backend": "grobid", "resolved": 40, "total": 100},
+    {"example": "example3", "semantic_backend": "vlm_v4", "resolved": 60, "total": 100},
+    {"example": "example3", "semantic_backend": "paddleocr", "resolved": 0, "total": 100},
+    {"example": "example01", "semantic_backend": "consensus", "resolved": 95, "total": 100},
+    {"example": "example01", "semantic_backend": "grobid", "resolved": 90, "total": 100}
+  ]
+}

@@ -6,6 +6,7 @@ from pathlib import Path
 
 import pytest
 
+from pdf2md.connectors.common import markdown_to_pages, recognize_entities
 from pdf2md.models import (
     CROSS_REF_SCHEMA_VERSION,
     CrossReferenceGraph,
@@ -206,9 +207,28 @@ def test_merge_graphs_uniform_weights_keep_highest_raw_confidence() -> None:
     assert merged.markers[0].backend == "grobid"
 
 
+_CALIBRATION_FIXTURE = Path("tests/data/semantic_fixtures/calibration_weights_fixture.json")
+
+
+def _book_proposals():
+    """A book-class EntityProposalDocument (has an Index section)."""
+    warnings: list[str] = []
+    pages = markdown_to_pages(
+        "# Body\n\ntext.\n\f# Index\n\nHall effect, 5, 17\n",
+        backend="mineru", backend_version=None,
+        document_id="d", raw_ref="r", warnings=warnings,
+    )
+    doc = recognize_entities(
+        pages, backend="mineru", backend_version=None,
+        document_id="d", warnings=warnings,
+    )
+    return doc, pages
+
+
 def test_run_ensemble_passes_document_class_weights_through(tmp_path: Path) -> None:
-    """``document_class="book"`` triggers the GROBID down-weight in
-    the mixer — verified by the regex backend winning the tie."""
+    """``document_class="book"`` with a calibration baseline triggers the
+    GROBID down-weight in the mixer — verified by the regex backend winning
+    the tie (regex is not down-weighted on book, GROBID is)."""
     grobid_backend = _FakeBackend(
         "grobid", "0.1.0", _make_graph([_make_marker("grobid", 0.90)]),
     )
@@ -221,8 +241,51 @@ def test_run_ensemble_passes_document_class_weights_through(tmp_path: Path) -> N
         text=None,
         output_dir=tmp_path,
         document_class="book",
+        calibration_path=_CALIBRATION_FIXTURE,
     )
     assert merged.markers[0].backend == "regex"
+
+
+def test_run_ensemble_auto_classifies_book_and_applies_weights(tmp_path: Path) -> None:
+    """When ``document_class`` is None, an Index-bearing proposal set
+    auto-classifies as book and the GROBID down-weight is applied."""
+    grobid_backend = _FakeBackend(
+        "grobid", "0.1.0", _make_graph([_make_marker("grobid", 0.90)]),
+    )
+    consensus_backend = _FakeBackend(
+        "consensus", "0.1.0", _make_graph([_make_marker("consensus", 0.70)]),
+    )
+    doc, pages = _book_proposals()
+    merged = run_ensemble(
+        backends=[grobid_backend, consensus_backend],
+        pdf_path=None,
+        text="See Figure 3.",
+        output_dir=tmp_path,
+        entity_proposals=doc,
+        pages=pages,
+        calibration_path=_CALIBRATION_FIXTURE,
+    )
+    # book weights: grobid 0.90*0.5=0.45 < consensus 0.70*1.0=0.70.
+    assert merged.markers[0].backend == "consensus"
+
+
+def test_run_ensemble_without_proposals_stays_uniform(tmp_path: Path) -> None:
+    """No proposals and no explicit class -> uniform weights -> the
+    highest raw confidence (grobid) wins."""
+    grobid_backend = _FakeBackend(
+        "grobid", "0.1.0", _make_graph([_make_marker("grobid", 0.90)]),
+    )
+    consensus_backend = _FakeBackend(
+        "consensus", "0.1.0", _make_graph([_make_marker("consensus", 0.70)]),
+    )
+    merged = run_ensemble(
+        backends=[grobid_backend, consensus_backend],
+        pdf_path=None,
+        text="See Figure 3.",
+        output_dir=tmp_path,
+        calibration_path=_CALIBRATION_FIXTURE,
+    )
+    assert merged.markers[0].backend == "grobid"
 
 
 def test_run_ensemble_article_class_does_not_down_weight_grobid(tmp_path: Path) -> None:

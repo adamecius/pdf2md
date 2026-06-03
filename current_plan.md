@@ -1,7 +1,7 @@
 # Plan 006_1 — Semantic Router with Calibrated Weights
 
 Status:
-active
+agent_complete
 
 Allowed status values:
 draft
@@ -402,6 +402,60 @@ date — status — actor — note
 ```
 
 ---
+
+## Agent report (C1)
+
+```text
+Plan: 006_1
+Status: agent_complete
+Branch: plan-006_1-semantic-router
+Commit or PR: (see PR opened against main)
+Files changed: src/pdf2md/semantic/router.py (new),
+  src/pdf2md/semantic/ensemble.py, tools/build_cross_references.py,
+  tests/test_semantic_router.py (new), tests/test_semantic_ensemble.py,
+  tests/data/semantic_fixtures/calibration_weights_fixture.json (new)
+Forbidden files touched: none (semantic/__init__.py intentionally untouched;
+  router symbols imported directly from pdf2md.semantic.router)
+Tasks attempted: A1 / A2 / A3 (all)
+Automated tests run / passed / failed:
+  tests/test_semantic_router.py 10/10; tests/test_semantic_ensemble.py 13/13;
+  tests/test_build_cross_references_cli.py 9/9; full suite
+  (--ignore=tests/_legacy_temp) 1186 passed, 212 skipped, 16 xfailed, 0 failed;
+  ruff clean on changed files.
+Backward compat (no baseline -> uniform): verified yes — weights_for_document_class
+  returns {} when calibration_path is None or the file is missing/malformed.
+Failure classes: none
+Blockers: none
+
+Design notes / deviations from the literal plan text:
+1. Weights are derived from the baseline's `per_combo` list (per-example x
+   per-semantic-backend resolution rates), not `cross_backend_matrix`. The
+   matrix is aggregated across all examples and keyed by OCR-resolution
+   backend (consensus/deepseek/mineru/paddleocr), so it cannot yield a
+   book-vs-article split per semantic backend. `per_combo` carries the
+   `example` + `semantic_backend` fields the derivation needs and lives in
+   the same baseline JSON. Real baseline -> book {consensus 1.0, grobid 0.684,
+   vlm 0.965}; article uniform. (grobid 0.684 ~ the old hardcoded 0.65.)
+2. The loader/weights logic lives in a new src/pdf2md/semantic/router.py
+   (the plan's preferred "if cleaner" option); ensemble.py imports
+   weights_for_document_class from it. GROBID_BOOK_WEIGHT is removed.
+3. Lazy cache is keyed by calibration path (`_WEIGHTS_CACHE`) rather than a
+   single module-global `_CALIBRATION_WEIGHTS`, so different baselines (and
+   tests) do not clobber each other. Same lazy-load intent.
+4. Baseline backend name `vlm_v4` is normalised to the runtime `vlm`
+   identifier so the derived weight actually applies in the merge.
+5. Auto-classification in run_ensemble uses an optional `entity_proposals`
+   (EntityProposalDocument) argument fed to classify_document — run_ensemble
+   only sees CrossReferenceGraph (RefType markers), which lack the
+   chapter/index/glossary signals classify_document needs. The CLI passes
+   the --ocr-entities document. No --pages wired (page_count falls back to
+   proposals.page_count); the Index/Glossary/chapter signals are page-count
+   independent.
+
+Next recommended action: human review; on sign-off, archive as
+plans/archive/006_1-semantic-router.md, append history milestone, update
+STATE.md ("Semantic router" -> built), promote the next plan.
+```
 
 ## PR_reviews
 

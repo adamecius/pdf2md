@@ -52,7 +52,6 @@ from pdf2md.semantic import (  # noqa: E402
     run_ensemble,
 )
 
-
 _BACKEND_CHOICES = ("regex", "grobid", "vlm", "ensemble")
 
 
@@ -126,6 +125,27 @@ def main(argv: list[str] | None = None) -> int:
             "resulting RefEdges are attached to the output graph."
         ),
     )
+    parser.add_argument(
+        "--document-class",
+        choices=("article", "book", "document", "auto"),
+        default="auto",
+        help=(
+            "Document class for ensemble backend weighting. 'auto' "
+            "(default) detects the class from --ocr-entities when given; "
+            "an explicit value forces that class. No backend is ever "
+            "excluded — weights only down-weight."
+        ),
+    )
+    parser.add_argument(
+        "--calibration-weights",
+        type=Path,
+        default=Path("docs/reports/semantic_calibration_baseline.json"),
+        help=(
+            "Path to the semantic calibration baseline JSON used to derive "
+            "per-backend weights. When the file is absent, uniform weights "
+            "are used (graceful degradation)."
+        ),
+    )
     parser.add_argument("--verbose", action="store_true")
     args = parser.parse_args(argv)
 
@@ -142,6 +162,12 @@ def main(argv: list[str] | None = None) -> int:
     text_payload: str | None = None
     if args.text is not None:
         text_payload = args.text.read_text(encoding="utf-8")
+
+    proposals: EntityProposalDocument | None = None
+    if args.ocr_entities is not None:
+        proposals = EntityProposalDocument.model_validate_json(
+            args.ocr_entities.read_text(encoding="utf-8"),
+        )
 
     backends = _build_backends(args.backend)
 
@@ -168,11 +194,15 @@ def main(argv: list[str] | None = None) -> int:
             return 3
 
     if args.backend == "ensemble":
+        document_class = None if args.document_class == "auto" else args.document_class
         graph = run_ensemble(
             backends=backends,
             pdf_path=args.pdf,
             text=text_payload,
             output_dir=args.out_dir,
+            document_class=document_class,
+            entity_proposals=proposals,
+            calibration_path=args.calibration_weights,
         )
     else:
         single = backends[0]
@@ -182,10 +212,7 @@ def main(argv: list[str] | None = None) -> int:
             output_dir=args.out_dir,
         )
 
-    if args.ocr_entities is not None:
-        proposals = EntityProposalDocument.model_validate_json(
-            args.ocr_entities.read_text(encoding="utf-8"),
-        )
+    if proposals is not None:
         candidates = entities_to_candidates(proposals)
         edges = resolve_markers(graph.markers, candidates)
         graph = graph.model_copy(update={"edges": list(graph.edges) + edges})
