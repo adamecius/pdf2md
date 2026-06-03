@@ -20,6 +20,7 @@ const els = {
   tabStructure: $('#tab-structure'),
   tabMarkers: $('#tab-markers'),
   tabAdjudicate: $('#tab-adjudicate'),
+  tabDocument: $('#tab-document'),
 };
 
 let manifest = null;
@@ -30,6 +31,8 @@ let currentGraph = null;
 let adjudications = new Map();
 let adjudicateLimits = new Map();
 let adjudicationImportHistory = [];
+let doclingIndex = null;   // { items:[{selfRef,page,text,label}], byPage:Map }
+let selectedMarkerId = null;
 
 const REF_TYPES = [
   'figure', 'table', 'equation', 'theorem', 'definition', 'proof',
@@ -135,10 +138,13 @@ async function reload() {
   adjudications = new Map();
   adjudicateLimits = new Map();
   adjudicationImportHistory = [];
+  selectedMarkerId = null;
+  doclingIndex = buildDoclingIndex(docling);
 
   renderGraph(graph);
   renderStats(graph, { example: ex, semantic: sem, ocr });
   renderStructure(docling);
+  renderDocument(graph);
   renderMarkers(graph);
   renderAdjudicate(graph);
 
@@ -293,7 +299,17 @@ function renderGraph(data) {
     .attr('fill', 'none')
     .attr('stroke', d => d.resolved ? '#2ca02c' : '#d62728')
     .attr('stroke-opacity', d => d.resolved ? 0.55 : 0.7)
-    .attr('stroke-width', 1.4);
+    .attr('stroke-width', 1.4)
+    .style('cursor', 'pointer')
+    .on('click', (event, d) => {
+      const srcId = (d.source && d.source.id) || d.source;
+      const tgtId = (d.target && d.target.id) || d.target;
+      const edge = (currentGraph?.edges || []).find(e => e.source === srcId && e.target === tgtId);
+      if (!edge) return;
+      highlightMarkerEverywhere(edge);
+      const loc = locateMarker(edge);
+      highlightDoclingItem(loc ? loc.item.selfRef : null, { scroll: true });
+    });
 
   const node = els.chart.append('g').attr('class', 'nodes')
     .selectAll('g').data(nodes).join('g')
@@ -537,6 +553,161 @@ function baseMarkerRecord(graph, edge) {
   };
 }
 
+// ---------------------------------------------------------------------------
+// Document pane + marker-in-context (Plan 008_5)
+// ---------------------------------------------------------------------------
+function buildDoclingIndex(doc) {
+  if (!doc || !Array.isArray(doc.texts)) return null;
+  const items = [];
+  const byPage = new Map();
+  for (const t of doc.texts) {
+    const prov = (t.prov || [])[0] || {};
+    const page = prov.page_no ?? prov.page ?? null;
+    const item = { selfRef: t.self_ref || '', page, text: t.text || '', label: t.label || 'text' };
+    items.push(item);
+    const key = page == null ? '?' : String(page);
+    if (!byPage.has(key)) byPage.set(key, []);
+    byPage.get(key).push(item);
+  }
+  return { items, byPage };
+}
+
+// Parse the 1-based page number a marker points at, e.g.
+// "marker:3:#/document/pages/7:Eq. (15)" -> 7.
+function markerPage(edge) {
+  const m = /\/pages\/(\d+)/.exec(edge.source || '');
+  return m ? Number(m[1]) : null;
+}
+
+// Marker labels (e.g. "Eq. (15)", "FIG. 4", "Theorem 2") don't always appear
+// verbatim in the rendered text, so we also try the bracket/paren core and the
+// trailing number. Returns the matched substring used (for <mark>), or null.
+function labelVariants(label) {
+  const out = [label];
+  const bracket = label.match(/[([]\s*[\w.\-]+\s*[)\]]/);
+  if (bracket) out.push(bracket[0]);
+  const trailing = label.match(/[A-Za-z.]+\s*([\d]+(?:\.[\d]+)*)$/);
+  if (trailing) out.push(trailing[1]);
+  return out.filter(v => v && v.length >= 2);
+}
+
+function findInPool(pool, variants) {
+  for (const v of variants) {
+    const hit = pool.find(it => it.text.includes(v));
+    if (hit) return { item: hit, match: v };
+  }
+  return null;
+}
+
+// Find the docling text item that contains a marker's label (or a normalized
+// variant), preferring the marker's own page. Returns {item, page, match}.
+function locateMarker(edge) {
+  if (!doclingIndex) return null;
+  const label = (edge.label || '').trim();
+  const page = markerPage(edge);
+  const variants = label ? labelVariants(label) : [];
+  const pools = [];
+  if (page != null && doclingIndex.byPage.has(String(page))) pools.push(doclingIndex.byPage.get(String(page)));
+  pools.push(doclingIndex.items); // document-wide fallback
+  if (variants.length) {
+    for (const pool of pools) {
+      const found = findInPool(pool, variants);
+      if (found) return { item: found.item, page, match: found.match };
+    }
+  }
+  // No textual match: fall back to the first text item on the marker's page.
+  if (page != null && doclingIndex.byPage.has(String(page))) {
+    return { item: doclingIndex.byPage.get(String(page))[0], page, match: null };
+  }
+  return null;
+}
+
+// Return an escaped snippet of `text` centred on `label`, with the label
+// wrapped in <mark>. When the label is absent, returns a leading slice.
+function snippetWithMark(text, label, win = 160) {
+  const idx = label ? text.indexOf(label) : -1;
+  if (idx < 0) {
+    const head = text.slice(0, win * 2);
+    return escapeHtml(head) + (text.length > win * 2 ? '…' : '');
+  }
+  const start = Math.max(0, idx - win);
+  const end = Math.min(text.length, idx + label.length + win);
+  const pre = (start > 0 ? '…' : '') + text.slice(start, idx);
+  const mid = text.slice(idx, idx + label.length);
+  const post = text.slice(idx + label.length, end) + (end < text.length ? '…' : '');
+  return escapeHtml(pre) + '<mark>' + escapeHtml(mid) + '</mark>' + escapeHtml(post);
+}
+
+function renderDocument(graph) {
+  const pane = els.tabDocument;
+  if (!pane) return;
+  if (!doclingIndex) {
+    pane.innerHTML = '<p class="empty">No docling.json for this example — the document text is unavailable. Marker rows fall back to label-only.</p>';
+    return;
+  }
+  const pages = [...doclingIndex.byPage.keys()].sort((a, b) => Number(a) - Number(b));
+  const parts = ['<div class="doc-scroll">'];
+  for (const page of pages) {
+    parts.push(`<div class="doc-page-sep">page ${escapeHtml(page)}</div>`);
+    for (const it of doclingIndex.byPage.get(page)) {
+      const cls = it.label && it.label !== 'text' ? `doc-item ${escapeHtml(it.label)}` : 'doc-item';
+      parts.push(
+        `<p class="${cls}" data-self-ref="${escapeHtml(it.selfRef)}">` +
+        (it.label && it.label !== 'text' ? `<span class="doc-label">${escapeHtml(it.label)}</span> ` : '') +
+        escapeHtml(it.text) + '</p>'
+      );
+    }
+  }
+  parts.push('</div>');
+  pane.innerHTML = parts.join('');
+}
+
+function highlightDoclingItem(selfRef, { scroll = false } = {}) {
+  if (!els.tabDocument) return;
+  els.tabDocument.querySelectorAll('.doc-item.hit').forEach(el => el.classList.remove('hit'));
+  if (!selfRef) return;
+  // Inside a double-quoted attribute selector only the backslash and the
+  // quote need escaping (NOT #, /, . etc.).
+  const safe = String(selfRef).replace(/(["\\])/g, '\\$&');
+  const el = els.tabDocument.querySelector(`.doc-item[data-self-ref="${safe}"]`);
+  if (!el) return;
+  el.classList.add('hit');
+  if (scroll) {
+    activateTab('document');
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+// Rank candidate targets for an unresolved marker: same type first, then same
+// page, capped. Used for one-click resolve chips.
+function rankCandidates(graph, edge, limit = 6) {
+  const type = edge.marker_type;
+  const page = markerPage(edge);
+  const entityTypes = new Set(REF_TYPES);
+  const ents = (graph.nodes || []).filter(n => entityTypes.has(n.type) && !(n.id || '').startsWith('marker:'));
+  const scored = ents.map(e => {
+    let score = 0;
+    if (e.type === type) score += 100;
+    const ep = markerPageNo(e);
+    if (page != null && ep != null && Number(ep) === page) score += 10;
+    return { e, score };
+  });
+  scored.sort((a, b) => b.score - a.score || String(a.e.label).localeCompare(String(b.e.label)));
+  return scored.filter(s => s.score > 0).slice(0, limit).map(s => s.e);
+}
+
+// Highlight the graph link + endpoint for a marker target, and the document
+// sentence, when a marker row is hovered/selected.
+function highlightMarkerEverywhere(edge) {
+  highlightDoclingItem(edge ? (locateMarker(edge)?.item.selfRef || null) : null);
+  els.chart.selectAll('.link.xref').classed('hot', false);
+  els.chart.selectAll('.node').classed('hot', false);
+  if (!edge) return;
+  els.chart.selectAll('.link.xref').classed('hot', d => d && d.source && (d.source.id || d.source) === edge.source);
+  const endpoints = new Set([edge.source, edge.target].filter(Boolean));
+  els.chart.selectAll('.node').classed('hot', d => d && endpoints.has(d.id));
+}
+
 function setAdjudication(graph, edge, decision, payload) {
   const base = baseMarkerRecord(graph, edge);
   const record = {
@@ -619,28 +790,38 @@ function renderAdjudicate(graph) {
     for (const { edge, source } of visible) {
       const markerId = edge.source;
       const existing = adjudications.get(markerId);
-      const offset = Array.isArray(source.char_offset) ? source.char_offset.join('–') : '—';
-      const page = markerPageNo(source);
+      const pageNo = markerPage(edge) ?? markerPageNo(source);
+      const loc = locateMarker(edge);
+      const context = loc
+        ? `<p class="marker-context-text" title="from the document (docling)">${snippetWithMark(loc.item.text, loc.match || (edge.label || '').trim())}</p>`
+        : `<p class="marker-context-text none">no document context found${doclingIndex ? '' : ' (no docling.json for this example)'}</p>`;
+      const chips = rankCandidates(graph, edge).map(ent => {
+        const sel = existing?.target_entity_id === ent.id ? ' chosen' : '';
+        const same = ent.type === edge.marker_type ? ' same' : '';
+        return `<button type="button" class="cand-chip${same}${sel}" data-action="resolve_chip" data-entity-id="${escapeHtml(ent.id)}" title="${escapeHtml(ent.id)}">${escapeHtml(ent.type)} · ${escapeHtml(ent.label || ent.id)}</button>`;
+      }).join('');
       html += `<article class="adjudication-row ${existing ? 'adjudicated' : ''}" data-marker-id="${escapeHtml(markerId)}">
         <div class="adjudication-main">
-          <span class="marker-type badge">${escapeHtml(edge.marker_type || source.type || 'unknown')}</span>
-          <strong class="marker-label">${escapeHtml(edge.label || source.label || '')}</strong>
-          <span class="marker-id">${escapeHtml(markerId)}</span>
-          <dl class="marker-context">
-            <dt>source_ref</dt><dd>${escapeHtml(source.source_ref || '—')}</dd>
-            <dt>char_offset</dt><dd>${escapeHtml(offset)}</dd>
-            <dt>backend</dt><dd>${escapeHtml(source.backend || '—')}</dd>
-            <dt>page_no</dt><dd>${page == null ? '—' : escapeHtml(page)}</dd>
-          </dl>
+          <div class="marker-head">
+            <span class="marker-type badge">${escapeHtml(edge.marker_type || source.type || 'unknown')}</span>
+            <strong class="marker-label">${escapeHtml(edge.label || source.label || '')}</strong>
+            <span class="marker-conn unresolved">unresolved</span>
+            <span class="marker-meta">page ${pageNo == null ? '—' : escapeHtml(pageNo)}</span>
+            <button type="button" class="goto-doc" data-action="goto_doc" title="Show in document">show in document ↗</button>
+          </div>
+          ${context}
           ${existing ? `<div class="decision-summary"><span>${escapeHtml(existing.decision)}</span> ${escapeHtml(decisionSummary(existing))}</div>` : ''}
         </div>
         <div class="adjudication-controls">
-          <select data-action="resolve">${entityOptions(graph, edge.marker_type || source.type, existing?.target_entity_id)}</select>
-          <select data-action="reclassify">${refTypeOptions(existing?.corrected_type)}</select>
-          <button type="button" data-action="noise">Noise</button>
-          <input type="text" data-action="rule_hint_text" value="${escapeHtml(existing?.rule_hint || '')}" placeholder="rule hint">
-          <button type="button" data-action="rule_hint">Save hint</button>
-          <button type="button" data-action="clear" ${existing ? '' : 'disabled'}>Clear decision</button>
+          ${chips ? `<div class="cand-chips"><span class="cand-label">resolve to:</span>${chips}</div>` : ''}
+          <div class="control-row">
+            <select data-action="resolve" title="all entities">${entityOptions(graph, edge.marker_type || source.type, existing?.target_entity_id)}</select>
+            <select data-action="reclassify">${refTypeOptions(existing?.corrected_type)}</select>
+            <button type="button" data-action="noise">Noise</button>
+            <input type="text" data-action="rule_hint_text" value="${escapeHtml(existing?.rule_hint || '')}" placeholder="rule hint">
+            <button type="button" data-action="rule_hint">Save hint</button>
+            <button type="button" data-action="clear" ${existing ? '' : 'disabled'}>Clear</button>
+          </div>
         </div>
       </article>`;
     }
@@ -677,26 +858,46 @@ els.tabAdjudicate?.addEventListener('change', (event) => {
 });
 
 els.tabAdjudicate?.addEventListener('click', (event) => {
-  const control = event.target;
-  if (!currentGraph || !control.dataset.action) return;
-  if (control.dataset.action === 'show_more') {
+  const control = event.target.closest('[data-action]') || event.target;
+  if (!currentGraph) return;
+  if (control.dataset && control.dataset.action === 'show_more') {
     const type = control.dataset.markerType;
     adjudicateLimits.set(type, (adjudicateLimits.get(type) || 200) + 200);
     renderAdjudicate(currentGraph);
     return;
   }
-  const row = control.closest('.adjudication-row');
+  const row = event.target.closest('.adjudication-row');
   if (!row) return;
   const markerId = row.dataset.markerId;
   const edge = (currentGraph.edges || []).find(e => e.source === markerId);
-  if (control.dataset.action === 'clear') {
+  const action = control.dataset ? control.dataset.action : undefined;
+  if (action === 'clear') {
     clearAdjudication(markerId);
-  } else if (control.dataset.action === 'noise' && edge) {
+  } else if (action === 'noise' && edge) {
     setAdjudication(currentGraph, edge, 'noise', {});
-  } else if (control.dataset.action === 'rule_hint' && edge) {
+  } else if (action === 'rule_hint' && edge) {
     const text = row.querySelector('[data-action="rule_hint_text"]')?.value.trim();
     if (text) setAdjudication(currentGraph, edge, 'rule_hint', { rule_hint: text });
+  } else if (action === 'resolve_chip' && edge) {
+    setAdjudication(currentGraph, edge, 'resolve', { target_entity_id: control.dataset.entityId });
+  } else if (action === 'goto_doc' && edge) {
+    const loc = locateMarker(edge);
+    highlightMarkerEverywhere(edge);
+    highlightDoclingItem(loc ? loc.item.selfRef : null, { scroll: true });
+  } else if (edge) {
+    // Bare row click: select + cross-highlight (list <-> graph <-> text).
+    selectedMarkerId = markerId;
+    els.tabAdjudicate.querySelectorAll('.adjudication-row.selected').forEach(r => r.classList.remove('selected'));
+    row.classList.add('selected');
+    highlightMarkerEverywhere(edge);
   }
+});
+
+els.tabAdjudicate?.addEventListener('mouseover', (event) => {
+  const row = event.target.closest('.adjudication-row');
+  if (!row || !currentGraph) return;
+  const edge = (currentGraph.edges || []).find(e => e.source === row.dataset.markerId);
+  if (edge) highlightMarkerEverywhere(edge);
 });
 
 function exportAdjudications(graph) {
@@ -751,19 +952,45 @@ async function importAdjudications(event, graph) {
 // Markers pane
 // ---------------------------------------------------------------------------
 function renderMarkers(graph) {
+  const nodes = nodeById(graph);
   const rows = graph.edges.slice(0, 200).map(e => {
     const cls = e.resolved ? 'resolved' : 'unresolved';
-    const target = e.target ? ` → ${e.target.replace(/^.+:/, '')}` : '';
-    const safe = (e.label || '').replace(/</g, '&lt;');
-    return `<div class="marker-row ${cls}">
-      <span class="marker-type">${e.marker_type}</span>
-      <span class="marker-text">${safe}${target}</span>
+    const targetNode = e.target ? nodes.get(e.target) : null;
+    const targetLabel = targetNode ? (targetNode.label || e.target) : (e.target || '');
+    const conn = e.resolved
+      ? `<span class="marker-conn resolved">→ ${escapeHtml(targetNode ? targetNode.type + ' · ' : '')}${escapeHtml(targetLabel)}</span>`
+      : `<span class="marker-conn unresolved">unresolved</span>`;
+    const loc = locateMarker(e);
+    const ctx = loc ? `<div class="marker-ctx">${snippetWithMark(loc.item.text, loc.match || (e.label || '').trim(), 90)}</div>` : '';
+    return `<div class="marker-row ${cls}" data-marker-id="${escapeHtml(e.source)}">
+      <div class="marker-row-head">
+        <span class="marker-type badge">${escapeHtml(e.marker_type || 'unknown')}</span>
+        <strong class="marker-text">${escapeHtml(e.label || '')}</strong>
+        ${conn}
+      </div>
+      ${ctx}
     </div>`;
   }).join('');
   const overflow = graph.edges.length > 200
-    ? `<p style="color:#999">… ${graph.edges.length - 200} more (truncated)</p>` : '';
+    ? `<p class="empty">… ${graph.edges.length - 200} more (truncated)</p>` : '';
   els.tabMarkers.innerHTML = rows + overflow;
 }
+
+els.tabMarkers?.addEventListener('click', (event) => {
+  const row = event.target.closest('.marker-row');
+  if (!row || !currentGraph) return;
+  const edge = (currentGraph.edges || []).find(e => e.source === row.dataset.markerId);
+  if (!edge) return;
+  highlightMarkerEverywhere(edge);
+  const loc = locateMarker(edge);
+  highlightDoclingItem(loc ? loc.item.selfRef : null, { scroll: true });
+});
+els.tabMarkers?.addEventListener('mouseover', (event) => {
+  const row = event.target.closest('.marker-row');
+  if (!row || !currentGraph) return;
+  const edge = (currentGraph.edges || []).find(e => e.source === row.dataset.markerId);
+  if (edge) highlightMarkerEverywhere(edge);
+});
 
 // ---------------------------------------------------------------------------
 // Boot

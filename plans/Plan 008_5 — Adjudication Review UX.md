@@ -1,7 +1,7 @@
 # Plan 008_5 — Adjudication Review UX: Document-in-Context Viewer
 
 Status:
-active
+agent_complete
 
 Allowed status values:
 draft
@@ -260,6 +260,44 @@ date — status — actor — note
 ```
 
 ---
+
+## Agent report (C1)
+
+```text
+Plan: 008_5
+Status: agent_complete (awaiting in-product H1)
+Branch: plan-008_5-adjudication-review-ux
+Files changed: webui/cross_ref/index.html, webui/cross_ref/viewer.js,
+  webui/cross_ref/style.css
+Forbidden files touched: none (no src/tools/tests/data changes)
+Tasks: A1 Document pane / A2 marker->document locator + inline context /
+  A3 ranked candidate chips / A4 cross-highlight + connection clarity / A5 CSS
+Verification:
+  conda run -n node20 node --check webui/cross_ref/viewer.js -> OK
+  full suite (--ignore=tests/_legacy_temp) -> 1206 passed (no src changes)
+  data-driven locator check (replicated logic on real graphs):
+    example01: 52 marker edges -> 15 text-context, 2 page-only, 35 none
+    example02: 126 edges -> 36 text-context, 23 page-only, 67 none
+    (normalized label variants lifted example01 text hits 2 -> 15)
+Blockers / honest gaps:
+  - example3 (the BOOK) has NO docling.json in webui/cross_ref/data, and none
+    exists in scratch either. The Document pane therefore shows its graceful
+    empty state for example3; the enriched rows (label, page, candidate chips,
+    connection) still work. Adding the book's docling export to the viewer
+    data is a follow-up DATA task (out of this plan's read-only-data whitelist)
+    and is the single biggest remaining win for "see the book".
+  - ~35-67 markers/example have neither a text match nor a resolvable page in
+    their source_ref; those rows show "no document context found" but remain
+    adjudicable. Improving match recall is a possible follow-up.
+
+What changed for the reviewer:
+  - New default "Document" tab renders the source text (from docling) by page.
+  - Each marker row now shows its sentence in context with the marker text
+    highlighted, its page, a "show in document" jump, ranked same-type/same-
+    page resolve chips (one-click), and a clear resolved/unresolved connection.
+  - Hover/click a marker -> its graph link + endpoints and its document
+    sentence highlight together; clicking a graph xref link jumps to the text.
+```
 
 ## PR_reviews
 
