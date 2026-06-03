@@ -294,3 +294,39 @@ Append-only log of completed milestones. Edited only by feedback mode under the 
 - tests_passed_human: [`pdf2md datasets list` exit 0; `install tlc3 --dry-run` exit 0; `install latex-cookbook --dry-run` exit 0; `install arxiv-curated` cleanly reports not available with exit 1 per merged test contract; `datasets status` exit 0, all per `run_log.md`]
 - key_artifacts: [`plans/archive/additional_plan-1-external-dataset-downloaders.md`, `docs/datasets.md`, `groundtruth/external/.gitkeep`, `groundtruth/manifest/.gitkeep`, `tests/data/fake_repo/.gitkeep`, `run_log.md` PR #1 evidence]
 - notes: Back-filled by State-Sync 001. The source plan's H1 text expected all four commands to exit without error, but the merged test contract intentionally returns non-zero for unavailable `arxiv-curated`; the run log records this discrepancy for human review.
+
+## M33 — 2026-05-31 — Plan 006_5: Connector-Side Theorem-Family Entity Detector
+
+- goal: add real OCR-side theorem-family candidates so the Plan 006_3 resolver matcher can resolve theorem, definition, corollary, proof, and example markers against connector output.
+- archived_plan_summary: PR #142 extended `EntityType` with theorem-family values, added connector detection in `recognize_entities()`, mapped the new entities into semantic resolver candidates, and covered the detector/candidate round trip with focused tests.
+- tests_passed_automated: [`tests/test_theorem_entity_detection.py` and `tests/test_theorem_candidate_roundtrip.py` green per PR #142; connector/common and resolver-focused coverage green. Latest full-suite runs on main expose the now-known `tests/test_entity_contracts.py::TestEntityEnums::test_entity_type_values_match_specification` contract expectation that still asserts the old closed enum set.]
+- tests_passed_human: [PR #142 merged on 2026-05-31]
+- key_artifacts: [`src/pdf2md/models/entities.py`, `src/pdf2md/connectors/common.py`, `src/pdf2md/semantic/candidates.py`, `tests/test_theorem_entity_detection.py`, `tests/test_theorem_candidate_roundtrip.py`; PR #142]
+- notes: Closes the real candidate gap left by Plan 006_3. The stale entity enum contract test is a follow-up expectation update, not a reason to keep connector normalization partial.
+
+## M34 — 2026-06-01 — Plan 008_4: Unresolved-Marker Diagnostic and Human Teaching Loop
+
+- goal: add a human teaching loop for unresolved cross-reference markers with persistent adjudication labels.
+- archived_plan_summary: PR #143 added the static-viewer Adjudicate tab, grouped unresolved marker controls, export/import of adjudication labels, `MarkerAdjudication` / `AdjudicationDocument` schema support, and `tools/manage_adjudications.py` validation/merge/summary commands.
+- tests_passed_automated: [`python -m pytest tests/test_marker_adjudication.py tests/test_manage_adjudications_cli.py -q` → 14 tests passed per PR #143; direct CLI validate/summary smoke checks passed against the sample adjudication payload]
+- tests_passed_human: [PR #143 merged on 2026-06-01]
+- key_artifacts: [`webui/cross_ref/index.html`, `webui/cross_ref/viewer.js`, `webui/cross_ref/style.css`, `webui/cross_ref/README.md`, `src/pdf2md/diagnostics/adjudication.py`, `src/pdf2md/diagnostics/__init__.py`, `tools/manage_adjudications.py`, `tests/test_marker_adjudication.py`, `tests/test_manage_adjudications_cli.py`; PR #143]
+- notes: The static viewer now has an in-product verification and teaching artifact surface; unresolved-marker review no longer depends on ad hoc prose notes.
+
+## M35 — 2026-06-01 — Plan 007_2: Per-Dimension Semantic Calibration
+
+- goal: publish a reproducible per-marker-type × OCR-backend semantic resolution matrix and machine-readable calibration weights from the examples-only cross-reference snapshot.
+- archived_plan_summary: added `src/pdf2md/calibration/semantic_report.py`, `tools/semantic_calibration_report.py`, unit tests, and committed `docs/reports/semantic_calibration_baseline.md` / `.json`. The report covers 44 graph combinations and shows the key asymmetry: DeepSeek/consensus equations at 95.9%, MinerU equations at 95.6%, and PaddleOCR near zero in the current snapshot.
+- tests_passed_automated: [`conda run -n pdf2md pytest tests/test_semantic_calibration_report.py -q` → 3 passed; `conda run -n pdf2md ruff check src/pdf2md/calibration/semantic_report.py tools/semantic_calibration_report.py tests/test_semantic_calibration_report.py` → all checks passed; CLI report generation over `webui/cross_ref/data` → 44 graph combinations; regenerated JSON byte-identical to the committed baseline]
+- tests_passed_human: [human handoff on 2026-06-01 requested marking Plan 007_2 finished and promoting Plan 006_4]
+- key_artifacts: [`src/pdf2md/calibration/semantic_report.py`, `tools/semantic_calibration_report.py`, `tests/test_semantic_calibration_report.py`, `docs/reports/semantic_calibration_baseline.md`, `docs/reports/semantic_calibration_baseline.json`, `plans/Plan 007_2 — Per-Dimension Semantic Calibration.md`; draft PR #144]
+- notes: Latest full-suite regression on current main still stops at the pre-existing theorem-family `EntityType` contract expectation mismatch; focused Plan 007_2 checks and deterministic report reproduction are green. Plan 006_4 is promoted to active next work to remove the now-measured dead OCR entity consensus path.
+
+## M36 — 2026-06-03 — Plan 006_4: Backend Restructure
+
+- goal: remove the dead OCR entity consensus bridge from the semantic cross-reference path and document the backend hierarchy established by the 007_2 calibration baseline.
+- archived_plan_summary: deleted `src/pdf2md/consensus/entity_merge.py` and `tests/test_entity_merge.py`, removed `CONSENSUS_BACKEND` / `merge_entity_documents` re-exports from `pdf2md.consensus`, updated the semantic candidate docstring to describe one connector output per backend line, and marked MinerU as default, DeepSeek as alternative, and PaddleOCR as deprecated in `pdf2md.backends.example.toml`.
+- tests_passed_automated: [`conda run -n pdf2md python -c "from pdf2md.consensus import build_consensus_ir; print('OK')"` → OK; `env PYTHONPATH=src conda run -n pdf2md python -c "from pdf2md.semantic.candidates import entities_to_candidates; print('OK')"` → OK; `conda run -n pdf2md pytest tests/test_semantic_resolver.py tests/test_semantic_calibration_report.py -q` → 31 passed]
+- tests_passed_human: [not yet; agent_complete handoff on 2026-06-03]
+- key_artifacts: [`src/pdf2md/consensus/__init__.py`, `src/pdf2md/semantic/candidates.py`, `pdf2md.backends.example.toml`, `tests/test_entity_contracts.py`; deleted `src/pdf2md/consensus/entity_merge.py`, `tests/test_entity_merge.py`]
+- notes: Also updated the stale `tests/test_entity_contracts.py::TestEntityEnums::test_entity_type_values_match_specification` expectation to include the theorem-family enum values added in M33 (theorem, definition, corollary, proof, example). Full regression `env PYTHONPATH=src conda run -n pdf2md pytest tests/ -q --ignore=tests/_legacy_temp` is now green: 1161 passed, 212 skipped, 16 xfailed.

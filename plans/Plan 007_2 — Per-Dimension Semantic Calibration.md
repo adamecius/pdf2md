@@ -1,7 +1,7 @@
 # Plan 007_2 — Per-Dimension Semantic Calibration
 
 Status:
-active
+finished
 
 Allowed status values:
 draft

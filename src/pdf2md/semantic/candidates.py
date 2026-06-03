@@ -287,8 +287,7 @@ def entities_to_candidates(
 
     Args:
         proposals: The OCR-side entity proposals (one connector's
-            output, or a merged document from
-            ``consensus.merge_entity_documents`` upstream).
+            output per backend line).
 
     Returns:
         A list of :class:`ResolverCandidate` ready to pass to
