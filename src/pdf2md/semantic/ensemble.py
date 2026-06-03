@@ -15,7 +15,11 @@ from pdf2md.models.cross_ref import (
     RefMarker,
     SemanticEntity,
 )
+from pdf2md.models.entities import EntityProposalDocument
+from pdf2md.models.ir import PageExtractionIR
 from pdf2md.semantic.base import SemanticBackend
+from pdf2md.semantic.document_class import classify_document
+from pdf2md.semantic.router import weights_for_document_class
 
 
 def _marker_key(marker: RefMarker) -> tuple[str, str, int, int]:
@@ -120,29 +124,19 @@ def merge_graphs(
     )
 
 
-#: GROBID is article-trained — it under-detects bibliography entries and
-#: misses chapter / index structure on book-shaped inputs. The Plan 7
-#: ensemble mixer multiplies GROBID's per-marker confidence by this
-#: factor when the document classifies as ``book``, letting regex / VLM
-#: win more tie-breaks. Other backends keep weight 1.0.
-GROBID_BOOK_WEIGHT: float = 0.65
+def _auto_document_class(
+    entity_proposals: EntityProposalDocument | None,
+    pages: list[PageExtractionIR] | None,
+) -> str | None:
+    """Derive a document class from entity proposals, or ``None``.
 
-
-def weights_for_document_class(document_class: str | None) -> dict[str, float]:
-    """Return the per-backend confidence multipliers for a doc-class.
-
-    Args:
-        document_class: One of ``"article"``, ``"book"``, ``"document"``,
-            or ``None``. Anything other than ``"book"`` returns an empty
-            map (i.e. uniform weights).
-
-    Returns:
-        A ``{backend_name: multiplier}`` dictionary, suitable for the
-        :func:`merge_graphs` ``backend_weights`` argument.
+    Returns ``None`` when no proposals are available (e.g. text-only
+    backends), keeping the ensemble on uniform weights.
     """
-    if document_class == "book":
-        return {"grobid": GROBID_BOOK_WEIGHT}
-    return {}
+
+    if entity_proposals is None:
+        return None
+    return classify_document(entity_proposals, pages or []).document_class.value
 
 
 def run_ensemble(
@@ -153,6 +147,9 @@ def run_ensemble(
     doc_hash: str | None = None,
     *,
     document_class: str | None = None,
+    entity_proposals: EntityProposalDocument | None = None,
+    pages: list[PageExtractionIR] | None = None,
+    calibration_path: Path | str | None = None,
 ) -> CrossReferenceGraph:
     """Run every backend in ``backends`` and merge the results.
 
@@ -169,12 +166,18 @@ def run_ensemble(
         doc_hash: Optional canonical document hash to stamp on the merged
             graph. Defaults to the first available backend's hash, or
             ``"sha256:0"`` when no backend ran.
-        document_class: Optional Plan 7 classification (``"article"``,
-            ``"book"``, ``"document"``). When supplied, per-backend
-            confidence weights from :func:`weights_for_document_class`
-            are applied to the merge tie-break. The default behaviour
-            (no document_class) keeps uniform weights — backwards
-            compatible.
+        document_class: Optional explicit classification (``"article"``,
+            ``"book"``, ``"document"``). When ``None`` and
+            ``entity_proposals`` is supplied, the class is auto-detected
+            via :func:`classify_document`. The resulting class drives the
+            per-backend weights from :func:`weights_for_document_class`.
+        entity_proposals: Optional OCR entity proposals used to auto-detect
+            the document class when ``document_class`` is not given.
+        pages: Optional per-page IR backing ``entity_proposals`` (improves
+            page-count features for classification).
+        calibration_path: Optional path to the semantic calibration
+            baseline JSON. When omitted, weights stay uniform — backwards
+            compatible with the pre-006_1 behaviour.
 
     Returns:
         Merged :class:`CrossReferenceGraph`.
@@ -209,8 +212,9 @@ def run_ensemble(
             backend_versions={},
         )
 
+    resolved_class = document_class if document_class is not None else _auto_document_class(entity_proposals, pages)
     return merge_graphs(
         per_backend,
         doc_hash=doc_hash or per_backend[0].doc_hash,
-        backend_weights=weights_for_document_class(document_class) or None,
+        backend_weights=weights_for_document_class(resolved_class, calibration_path) or None,
     )

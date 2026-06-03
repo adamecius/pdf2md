@@ -13,7 +13,7 @@ Update this file whenever a plan changes subsystem status, in-flight work, next 
 | Connector normalization | built | M11, M12, M33 | PageExtractionIR and EntityProposalDocument validation exist; theorem-family entity emission from real connector output is now implemented. | Use Plan 006_4 to remove the unused OCR entity consensus bridge, not to change connector detection. |
 | Page/block ConsensusIR | built | M14, M36 | Calibration-weighted block consensus is retained for the structural Docling-export branch, not as the semantic resolver spine. | Keep page-level ConsensusIR separate from semantic resolver routing work. |
 | OCR entity consensus bridge | removed | M29, M36 | AP8 introduced `merge_entity_documents`, but the 007_2 evidence and runtime audit marked it as dead code for the semantic cross-reference path; Plan 006_4 removed the module and tests. | No follow-up unless historical fixtures or docs still mention the removed bridge. |
-| LinkedStructure and Docling export | built | M15, M16, M24 | Cross-page structural linking and Docling export validation/hardening exist. Markdown remains a preview convenience. | Continue validating against source-known corpora and real backend outputs. |
+| LinkedStructure and Docling export | built | M15, M16, M24, M37 | Cross-page structural linking and Docling export validation/hardening exist; LinkedStructure is networkx-backed with `reading_order_sort`, `section_ancestors`, `detect_cycles`, `orphan_nodes` available. Markdown remains a preview convenience. | Continue validating against source-known corpora and real backend outputs. |
 | Semantic resolver and CrossReferenceGraph | built | M21, M30, M31, M33, M35, M36 | Equation normalization, theorem-family entities, graph consensus, index/glossary/document-class support, export, viewer scaffolding, and calibration reporting exist without the dead OCR entity-merge bridge. | Use the 007_2 baseline to drive later routing work. |
 | Semantic calibration | built | M35; `docs/reports/semantic_calibration_baseline.md` | Per-marker-type × OCR-backend resolution matrix and deterministic JSON calibration weights exist for the examples-only snapshot. | Review the baseline in product, then consume it in 006_1/router work. |
 | Static cross-reference viewer | built | M23, M34 | Viewer/export path exists; the 008_4 Adjudicate tab closes the persistent unresolved-marker verification gap. | Keep viewer changes tied to reproducible artifacts. |
@@ -25,9 +25,9 @@ Update this file whenever a plan changes subsystem status, in-flight work, next 
 
 | Slot | Plan | Status | Notes |
 |---|---|---|---|
-| Current | Plan 014_1 — networkx-Backed LinkedStructure Graph | active | Back the LinkedStructure graph with networkx; add reading-order/ancestry/cycle/orphan traversal utilities. Backward-compatible nodes/relations. |
-| Next | Plan 006_1 — Semantic router with calibrated weights | not_yet_drafted | Consume the 007_2 calibration baseline to route semantic resolution per marker-type × backend. |
-| Done | Plan 006_4 — Backend Restructure: Drop OCR Entity Consensus, Deprecate PaddleOCR | finished (PR #145, merged) | Dead OCR entity consensus bridge removed; stale theorem-family enum contract test fixed; full suite green. |
+| Current | Plan 006_1 — Semantic Router with Calibrated Weights | active | Replace the hardcoded GROBID_BOOK_WEIGHT with data-driven weights from the 007_2 baseline; auto document-class detection; CLI routing flags. No backend excluded (down-weight only). |
+| Next | To be determined after 006_1 | not_yet_drafted | Candidates: validator real-data wiring, ground-truth corpus expansion 007_1, PaddleOCR test-fixture cleanup. |
+| Done | Plan 014_1 — networkx-Backed LinkedStructure Graph | finished (PR #146, merged) | LinkedStructure is networkx-backed; reading-order/ancestry/cycle/orphan utilities available. |
 
 ## Governance state
 
