@@ -25,9 +25,9 @@ Update this file whenever a plan changes subsystem status, in-flight work, next 
 
 | Slot | Plan | Status | Notes |
 |---|---|---|---|
-| Current | Plan 006_1 — Semantic Router with Calibrated Weights | active | Replace the hardcoded GROBID_BOOK_WEIGHT with data-driven weights from the 007_2 baseline; auto document-class detection; CLI routing flags. No backend excluded (down-weight only). |
-| Next | To be determined after 006_1 | not_yet_drafted | Candidates: validator real-data wiring, ground-truth corpus expansion 007_1, PaddleOCR test-fixture cleanup. |
-| Done | Plan 014_1 — networkx-Backed LinkedStructure Graph | finished (PR #146, merged) | LinkedStructure is networkx-backed; reading-order/ancestry/cycle/orphan utilities available. |
+| Current | Plan 017_1 — Docling Strict-Conformance Export Mode | active | Opt-in strict mode emitting a docling_core-conformant document (provenance relocated to metadata.pdf2md); hard validation gate; clears the 2 docling xfails; resolver docstring fix. Non-strict default unchanged. |
+| Next | Plan 007_3 — Full System Diagnostic and Human Adjudication | draft | Regenerate cross-reference graphs with current code, produce a post-refactoring delta diagnostic, then capture the first real human adjudication ground-truth. Queued after 017_1. |
+| Done | Plan 006_1 — Semantic Router with Calibrated Weights | finished (PR #147, merged) | Hardcoded GROBID_BOOK_WEIGHT replaced by data-driven calibrated routing; auto document-class detection; CLI flags. |
 
 ## Governance state
 
