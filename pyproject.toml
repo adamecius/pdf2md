@@ -16,6 +16,8 @@ dependencies = [
   "PyMuPDF>=1.24",
   # Canonical export-target schema and serialiser.
   "docling-core>=2.0",
+  # Graph backing for the document-level LinkedStructure (Plan 014_1).
+  "networkx>=3.0",
 ]
 
 [project.optional-dependencies]

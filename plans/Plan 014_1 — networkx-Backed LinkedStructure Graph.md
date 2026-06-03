@@ -1,7 +1,7 @@
 # Plan 014_1 — networkx-Backed LinkedStructure Graph
 
 Status:
-active
+agent_complete
 
 Allowed status values:
 draft
@@ -541,6 +541,55 @@ date — status — actor — note
 ```
 
 ---
+
+## Agent report (C1)
+
+```text
+Plan: 014_1
+Status: agent_complete
+Branch: plan-014_1-networkx-linked-structure
+Commit or PR: (see PR opened against main)
+Files changed: pyproject.toml, src/pdf2md/linking/builder.py,
+  src/pdf2md/linking/__init__.py, src/pdf2md/linking/graph_utils.py (new),
+  tests/test_linked_structure_builder.py,
+  tests/test_linking_graph_utils.py (new)
+Forbidden files touched: none
+Tasks attempted: A1 / A2 / A3 (all)
+Automated tests run / passed / failed:
+  linking matrix (builder+resolvers+graph_utils+CLI) 87/87/0;
+  full suite (--ignore=tests/_legacy_temp) 1174 passed, 212 skipped,
+  16 xfailed, 0 failed; ruff clean on changed files.
+Failure classes: none
+Dependencies added: networkx>=3.0 (only)
+Backward compat verified (nodes/relations identical): yes — node/relation
+  construction is unchanged; the graph is an additive derived view.
+Blockers: none
+
+Design notes / deviations from the literal plan text:
+1. Graph class is nx.MultiDiGraph, not nx.DiGraph. The fixtures produce
+   parallel edges (a node both FOLLOWS and CONTAINS another), so a simple
+   DiGraph would collapse them and violate hard constraint "edge count ==
+   len(relations)". MultiDiGraph preserves one edge per relation; all
+   required traversal primitives (topological_sort, simple_cycles, degree,
+   in_edges) work on it unchanged.
+2. .graph is exposed as a derived @property on LinkerRunResult (computed via
+   graph_utils.linked_structure_to_graph) rather than a stored field. This
+   honours hard constraint "the graph is reconstructed on load if needed",
+   keeps LinkerRunResult constructible by existing callers
+   (tools/build_linked_structure.py reconstructs it without a graph arg —
+   that file is forbidden to edit), and guarantees the graph is always
+   consistent with .nodes/.relations.
+3. No property was added to the LinkedStructure pydantic model
+   (models/linked.py is forbidden); projection lives in graph_utils as
+   linked_structure_to_graph() and is re-exported from pdf2md.linking.
+4. reading_order_sort uses FOLLOWS + PAGE_NUMBER_SEQUENCE_NEXT (the real
+   enum members the plan referred to as READING_ORDER / PAGE_SEQUENCE);
+   section_ancestors walks CONTAINS edges upward.
+
+Next recommended action: human review; on sign-off, archive as
+plans/archive/014_1-networkx-linked-structure.md, append history milestone,
+update STATE.md LinkedStructure row, promote Plan 006_1.
+```
 
 ## PR_reviews
 
