@@ -1,7 +1,7 @@
 # Plan 007_3 — Full System Diagnostic, Deferred-Verification Closure, and Human Adjudication
 
 Status:
-active
+human_verification_required
 
 Allowed status values:
 draft
@@ -306,6 +306,74 @@ date -- status -- actor -- note
 ```
 
 ---
+
+## Agent report (C1 — Phase 1 complete, awaiting Phase 2)
+
+```text
+Plan: 007_3
+Status: human_verification_required (agent A1-A3 done; Phase 2 human + A4 pending)
+Branch: plan-007_3-full-system-diagnostic
+Commit or PR: (see PR opened against main)
+Graphs regenerated: none re-run — committed snapshot preserved (see note)
+Backends used: none re-run; ledger reads committed graphs + current library code
+Backends unavailable: GROBID / VLM / DeepSeek / MinerU not exercised on host
+Delta produced: yes (docs/reports/diagnostic_delta.md) — Δ=0 (no regression)
+Verification ledger verdicts (docs/reports/system_verification_007_3.md):
+  006_5 theorem-family off 0%: INCONCLUSIVE -- corpus has 0 theorem-family
+        markers AND 0 theorem-family entities across all 3 examples / every
+        OCR backend / every connector run; physics articles + a solid-state
+        physics book have no formal theorem environments. Detector remains
+        unit-tested; real-data confirmation needs a theorem-bearing corpus.
+  006_2 equation ~96%:        PASS -- consensus/deepseek 0.959, mineru 0.956
+  006_4 no PaddleOCR/merge:   PASS -- entity_merge absent; consensus exports
+        neither CONSENSUS_BACKEND nor merge_entity_documents; paddleocr only
+        in retained historical snapshot graphs (006_4-sanctioned)
+  014_1 graph fidelity:       PASS -- node/edge counts exact; reading_order
+        acyclic; 1 benign 2-node caption_of/follows cycle explained; 0 orphans
+  006_1 router weights:       PASS -- book {consensus 1.0, grobid 0.684,
+        vlm 0.965}; article uniform; no zero weights
+  017_1 strict docling:       PASS -- model_validate OK on simple/rich/
+        unresolved fixtures; metadata.pdf2md.nodes retains all node ids
+  theorem dup-number count:   0 (no theorem edges -> no risk surface)
+Adjudication files received/validated: no (Phase 2 not yet run)
+Failure classes: none (one INCONCLUSIVE = corpus gap, environment_missing class)
+Blockers: Phase 2 is a human in-product adjudication session (blocking).
+Next recommended plan (from findings): Plan 007_1 — add a theorem-bearing
+  document to the corpus so 006_5 can be confirmed end-to-end on real data;
+  re-measure the theorem duplicate-number risk then.
+
+Reproduction:
+  env PYTHONPATH=src /home/jgarcia/miniconda3/envs/pdf2md/bin/python \
+    tools/semantic_calibration_report.py --data-dir webui/cross_ref/data --out-dir /tmp/post_cal
+  -> recompute is byte-identical to baseline (0 differing cells, 44/44 combos).
+
+Scope deviation (documented in the ledger): A1 graph regeneration was made
+non-destructive. A true post-006_5 regeneration is moot (no theorem content in
+the corpus) and infeasible here (OCR backends/sources not in the tracked
+repo); overwriting would also destroy the baseline-aligned snapshot the report
+references. The committed graphs were preserved and the recompute confirms no
+regression. 017_1/014_1 real-data checks used the tracked export/linking
+fixtures because the 3 webui examples ship only resolved cross-reference
+graphs (no committed LinkedStructure/consensus IR to build a strict export
+from); the fixtures exercise the same code paths.
+```
+
+## Phase 2 hand-off (human)
+
+The diagnostic + ledger are ready for review and adjudication:
+
+1. Serve the page: `python -m http.server -d webui/cross_ref` → open it.
+2. Read `docs/reports/diagnostic_delta.md` and
+   `docs/reports/system_verification_007_3.md`.
+3. For each example, open the Adjudicate tab and adjudicate ≥5 markers per
+   unresolved marker_type (or all if fewer), exercising all four decisions
+   (resolve / reclassify / noise / rule_hint). The unresolved workload is
+   ~538 (example01), ~1427 (example02), ~28245 (example3) across backends.
+   NB: there are no theorem-family markers to adjudicate on this corpus.
+4. Export the adjudication files and hand them back for Task A4 validation
+   (`tools/manage_adjudications.py validate|summary` → commit to
+   `docs/adjudications/`).
+5. Confirm or dispute each ledger verdict.
 
 ## PR_reviews
 
