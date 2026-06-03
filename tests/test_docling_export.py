@@ -2,7 +2,17 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from pdf2md.export.docling import build_docling_document, try_validate_with_docling_core, validate_docling_like_document
+import pytest
+
+from pdf2md.export.docling import (
+    DoclingExportSettings,
+    build_docling_document,
+    try_validate_with_docling_core,
+    validate_docling_like_document,
+)
+from pdf2md.export.io import build_export_run
+from pdf2md.export.markdown import MarkdownExportSettings
+from pdf2md.export.rag import RagExportSettings
 from pdf2md.models.ir import ConsensusIR
 from pdf2md.models.linked import LinkedStructure
 
@@ -79,8 +89,6 @@ def test_validate_docling_like_document_catches_broken_child_refs():
     broken = {"schema_name": "DoclingDocument", "version": "1.7.0", "name": "x", "origin": {}, "body": {"self_ref": "#/body", "children": ["#/texts/9"]}, "groups": [], "texts": [], "tables": [], "pictures": [], "pages": {}, "key_value_items": [], "form_items": [], "metadata": {"pdf2md": {}}}
     assert "broken_child_ref:#/texts/9" in validate_docling_like_document(broken)
 
-import pytest
-
 
 @pytest.mark.parametrize("key", ["schema_name", "version", "name", "origin", "body", "groups", "texts", "tables", "pictures", "pages", "key_value_items", "form_items", "metadata"])
 def test_required_top_level_key_is_present(key):
@@ -92,3 +100,60 @@ def test_required_top_level_key_is_present(key):
 def test_docling_internal_validation_clean_for_resolved_fixtures(fixture):
     linked, consensus = load(fixture)
     assert validate_docling_like_document(build_docling_document(linked=linked, consensus=consensus).document) == []
+
+
+# ---------------------------------------------------------------------------
+# Plan 017_1 — strict docling_core-conformant export mode.
+# ---------------------------------------------------------------------------
+def test_non_strict_default_unchanged():
+    """The default (rich) variant still carries per-item pdf2md metadata."""
+    linked, consensus = load("simple_document")
+    doc = build_docling_document(linked=linked, consensus=consensus).document
+    assert doc["texts"], "fixture should emit at least one text item"
+    assert all("pdf2md_node_id" in t["metadata"] for t in doc["texts"])
+    # Strict-only relocation must NOT leak into the default output.
+    assert "nodes" not in doc["metadata"]["pdf2md"]
+
+
+def test_strict_items_carry_no_metadata_block():
+    linked, consensus = load("simple_document")
+    doc = build_docling_document(
+        linked=linked, consensus=consensus, settings=DoclingExportSettings(strict=True)
+    ).document
+    for key in ("texts", "tables", "pictures", "groups"):
+        for item in doc[key]:
+            assert "metadata" not in item, f"{key} item leaked a metadata block in strict mode"
+
+
+def test_strict_preserves_provenance_in_metadata():
+    linked, consensus = load("simple_document")
+    doc = build_docling_document(
+        linked=linked, consensus=consensus, settings=DoclingExportSettings(strict=True)
+    ).document
+    nodes = doc["metadata"]["pdf2md"]["nodes"]
+    # Every emitted (non-document) node id is present in metadata.pdf2md.nodes.
+    # node_type/status are stored as plain strings (use_enum_values=True).
+    emitted = {n.id for n in linked.nodes if str(n.node_type) != "document"}
+    assert emitted.issubset(set(nodes))
+    sample = next(n for n in linked.nodes if str(n.node_type) != "document")
+    prov = nodes[sample.id]
+    assert prov["status"] == str(sample.status)
+    assert prov["confidence"] == sample.confidence
+    assert prov["source_entity_ids"] == list(sample.source_entity_ids)
+
+
+def test_strict_export_run_passes_on_conformant(tmp_path):
+    pytest.importorskip("docling_core")
+    linked, consensus = load("simple_document")
+    # Must not raise: the strict document is docling_core-conformant.
+    result = build_export_run(
+        linked=linked,
+        consensus=consensus,
+        source_linked_structure="linked_structure.json",
+        source_consensus_ir="consensus_ir.json",
+        source_pdf=None,
+        docling_settings=DoclingExportSettings(strict=True),
+        rag_settings=RagExportSettings(),
+        markdown_settings=MarkdownExportSettings(),
+    )
+    assert "docling_core_validation_failed:ValidationError" not in result.warnings

@@ -1,7 +1,7 @@
 # Plan 017_1 — Docling Strict-Conformance Export Mode
 
 Status:
-active
+agent_complete
 
 Allowed status values:
 draft
@@ -595,6 +595,71 @@ date — status — actor — note
 ```
 
 ---
+
+## Agent report (C1)
+
+```text
+Plan: 017_1
+Status: agent_complete
+Branch: plan-017_1-docling-strict-export
+Commit or PR: (see PR opened against main)
+Files changed: src/pdf2md/export/docling.py, src/pdf2md/export/io.py,
+  src/pdf2md/semantic/resolver.py (docstring only),
+  tests/test_docling_export_wiring.py, tests/test_docling_export.py
+Forbidden files touched: none
+Tasks attempted: A1 / A2 / A3 / A4 (all)
+docling_core version used: installed in env pdf2md (python3.11); version
+  attribute not exposed, schema default version 1.10.0
+docling_core required field set for items (introspected, not guessed):
+  TextItem  (extra=forbid) required: self_ref, label, orig, text
+  TableItem (extra=forbid) required: self_ref, data
+  PictureItem (extra=forbid) required: self_ref
+  GroupItem (extra=forbid) required: self_ref  (no prov/text allowed)
+  ProvenanceItem required: page_no, bbox, charspan
+  BoundingBox required: l, t, r, b  (+ coord_origin enum TOPLEFT/BOTTOMLEFT)
+  children/parent are RefItem -> {"cref": "#/..."}
+Automated tests run / passed / failed:
+  tests/test_docling_export_wiring.py + tests/test_docling_export.py +
+  tests/test_semantic_resolver.py 68 passed; full suite
+  (--ignore=tests/_legacy_temp) 1206 passed, 212 skipped, 0 xfailed, 0 failed;
+  ruff clean on changed files.
+xfail count before/after: 2 -> 0
+Non-strict output unchanged: verified yes (regression test
+  test_non_strict_default_unchanged + the existing caption/footnote/link
+  structure tests still pass against the default path; only logic shared with
+  strict was extracted to a helper with identical behaviour).
+Strict provenance preserved in metadata.pdf2md: yes
+  (test_strict_preserves_provenance_in_metadata: every emitted node id present
+  in metadata["pdf2md"]["nodes"] with status/confidence/source_entity_ids).
+Failure classes: none
+Blockers: none
+
+Design notes:
+1. docling_core's DoclingDocument has NO `metadata` field and extra defaults
+   to "ignore" (not forbid). So the top-level `metadata["pdf2md"]` block is
+   silently dropped by model_validate but PRESERVED in the emitted JSON —
+   the strict file both validates and retains full traceability on disk.
+2. model_validate runs validate_tree, which requires every item to carry a
+   `parent` RefItem resolving to its container. Strict mode therefore sets
+   `parent` ({"cref": ...}) on every non-body item (container = its CONTAINS
+   parent, else body) and emits children as RefItem dicts.
+3. GroupItem forbids prov/text, so strict groups carry only
+   self_ref/name/children/label. ProvenanceItem requires bbox+charspan, so
+   strict prov is emitted only when a bbox is available (else an empty,
+   valid prov list); charspan defaults to [0, len(text)].
+4. Non-containment relations (caption/footnote/link), which non-strict mode
+   writes onto per-item metadata, are relocated to
+   metadata["pdf2md"]["relations"] in strict mode (items forbid extras).
+5. The in-house validate_docling_like_document was made tolerant of both
+   string and RefItem children (backward compatible).
+6. A4: corrected the _try_theorem_family docstring NOTE — Plan 006_5 landed
+   the connector-side detector, so theorem-family entities are emitted on
+   real data (pre-006_5 snapshots simply lack them).
+
+Next recommended action: human review; on sign-off, archive as
+plans/archive/017_1-docling-strict-export.md, append history milestone,
+update STATE.md, promote Plan 007_3 (already queued in next_plan.md).
+```
 
 ## PR_reviews
 
