@@ -1,7 +1,7 @@
 # Plan 014_1 — networkx-Backed LinkedStructure Graph
 
 Status:
-agent_complete
+finished
 
 Allowed status values:
 draft
