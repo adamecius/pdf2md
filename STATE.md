@@ -25,8 +25,9 @@ Update this file whenever a plan changes subsystem status, in-flight work, next 
 
 | Slot | Plan | Status | Notes |
 |---|---|---|---|
-| Current | Plan 007_3 — Full System Diagnostic, Deferred-Verification Closure, and Human Adjudication | active | Consolidated verification ledger closing the deferred non-blocking H1s (006_5/006_2/006_4/014_1/006_1/017_1 + theorem dup-number), post-refactoring delta, then human adjudication. |
-| Next | To be determined by 007_3 findings | not_yet_drafted | Candidates: theorem-bearing corpus expansion (007_1), router re-point to post-refactoring calibration, or a targeted fix if a ledger row FAILs. |
+| Current | Plan 008_5 — Adjudication Review UX: Document-in-Context Viewer | active | Surface docling.json as a readable Document pane; locate each marker in context; ranked candidate suggestions; list↔graph↔text cross-highlighting; connection clarity. Unblocks 007_3 Phase 2. |
+| Paused | Plan 007_3 — Full System Diagnostic | human_verification_required (PR #150) | Phase 1 verification ledger done (6 PASS, 006_5 INCONCLUSIVE on corpus gap). Phase 2 human adjudication paused until 008_5 lands a reviewable GUI. |
+| Next | Resume Plan 007_3 Phase 2, then TBD by findings | not_yet_drafted | After 008_5: adjudicate in the improved viewer → A4 validate/commit → 007_3 finished. Candidate next: 007_1 theorem-bearing corpus. |
 | Done | Plan 017_1 — Docling Strict-Conformance Export Mode | finished (PR #149, merged) | Opt-in strict docling_core-conformant export; provenance relocated to metadata.pdf2md; 2 docling xfails cleared. |
 
 ## Governance state
