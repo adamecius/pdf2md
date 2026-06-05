@@ -13,7 +13,7 @@ Update this file whenever a plan changes subsystem status, in-flight work, next 
 | Connector normalization | built | M11, M12, M33 | PageExtractionIR and EntityProposalDocument validation exist; theorem-family entity emission from real connector output is now implemented. | Use Plan 006_4 to remove the unused OCR entity consensus bridge, not to change connector detection. |
 | Page/block ConsensusIR | built | M14, M36 | Calibration-weighted block consensus is retained for the structural Docling-export branch, not as the semantic resolver spine. | Keep page-level ConsensusIR separate from semantic resolver routing work. |
 | OCR entity consensus bridge | removed | M29, M36 | AP8 introduced `merge_entity_documents`, but the 007_2 evidence and runtime audit marked it as dead code for the semantic cross-reference path; Plan 006_4 removed the module and tests. | No follow-up unless historical fixtures or docs still mention the removed bridge. |
-| LinkedStructure and Docling export | built | M15, M16, M24, M37 | Cross-page structural linking and Docling export validation/hardening exist; LinkedStructure is networkx-backed with `reading_order_sort`, `section_ancestors`, `detect_cycles`, `orphan_nodes` available. Markdown remains a preview convenience. | Continue validating against source-known corpora and real backend outputs. |
+| LinkedStructure and Docling export | built | M15, M16, M24, M37, M39 | Cross-page structural linking + networkx-backed LinkedStructure (`reading_order_sort`/`section_ancestors`/`detect_cycles`/`orphan_nodes`); Docling export has an opt-in strict docling_core-conformant mode (provenance relocated to `metadata["pdf2md"]`). Markdown remains a preview convenience. | Continue validating against source-known corpora and real backend outputs. |
 | Semantic resolver and CrossReferenceGraph | built | M21, M30, M31, M33, M35, M36 | Equation normalization, theorem-family entities, graph consensus, index/glossary/document-class support, export, viewer scaffolding, and calibration reporting exist without the dead OCR entity-merge bridge. | Use the 007_2 baseline to drive later routing work. |
 | Semantic calibration | built | M35; `docs/reports/semantic_calibration_baseline.md` | Per-marker-type × OCR-backend resolution matrix and deterministic JSON calibration weights exist for the examples-only snapshot. | Review the baseline in product, then consume it in 006_1/router work. |
 | Static cross-reference viewer | built | M23, M34 | Viewer/export path exists; the 008_4 Adjudicate tab closes the persistent unresolved-marker verification gap. | Keep viewer changes tied to reproducible artifacts. |
@@ -25,9 +25,9 @@ Update this file whenever a plan changes subsystem status, in-flight work, next 
 
 | Slot | Plan | Status | Notes |
 |---|---|---|---|
-| Current | Plan 017_1 — Docling Strict-Conformance Export Mode | active | Opt-in strict mode emitting a docling_core-conformant document (provenance relocated to metadata.pdf2md); hard validation gate; clears the 2 docling xfails; resolver docstring fix. Non-strict default unchanged. |
-| Next | Plan 007_3 — Full System Diagnostic and Human Adjudication | draft | Regenerate cross-reference graphs with current code, produce a post-refactoring delta diagnostic, then capture the first real human adjudication ground-truth. Queued after 017_1. |
-| Done | Plan 006_1 — Semantic Router with Calibrated Weights | finished (PR #147, merged) | Hardcoded GROBID_BOOK_WEIGHT replaced by data-driven calibrated routing; auto document-class detection; CLI flags. |
+| Current | Plan 007_3 — Full System Diagnostic, Deferred-Verification Closure, and Human Adjudication | active | Consolidated verification ledger closing the deferred non-blocking H1s (006_5/006_2/006_4/014_1/006_1/017_1 + theorem dup-number), post-refactoring delta, then human adjudication. |
+| Next | To be determined by 007_3 findings | not_yet_drafted | Candidates: theorem-bearing corpus expansion (007_1), router re-point to post-refactoring calibration, or a targeted fix if a ledger row FAILs. |
+| Done | Plan 017_1 — Docling Strict-Conformance Export Mode | finished (PR #149, merged) | Opt-in strict docling_core-conformant export; provenance relocated to metadata.pdf2md; 2 docling xfails cleared. |
 
 ## Governance state
 

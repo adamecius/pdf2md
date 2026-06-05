@@ -1,0 +1,2614 @@
+{
+  "adjudication_count": 0,
+  "calibration_weights": {
+    "bibliography": {
+      "consensus": 0.68377,
+      "deepseek": 0.68377,
+      "mineru": 0.68377,
+      "paddleocr": 0.034298
+    },
+    "chapter": {
+      "consensus": 0.478916,
+      "deepseek": 0.25,
+      "mineru": 0.259036,
+      "paddleocr": 0.0
+    },
+    "corollary": {
+      "consensus": 0.0,
+      "deepseek": 0.0,
+      "mineru": 0.0,
+      "paddleocr": 0.0
+    },
+    "definition": {
+      "consensus": 0.0,
+      "deepseek": 0.0,
+      "mineru": 0.0,
+      "paddleocr": 0.0
+    },
+    "equation": {
+      "consensus": 0.959311,
+      "deepseek": 0.959311,
+      "mineru": 0.956182,
+      "paddleocr": 0.002347
+    },
+    "example": {
+      "consensus": 0.0,
+      "deepseek": 0.0,
+      "mineru": 0.0,
+      "paddleocr": 0.0
+    },
+    "figure": {
+      "consensus": 0.602122,
+      "deepseek": 0.515031,
+      "mineru": 0.537135,
+      "paddleocr": 0.0
+    },
+    "footnote": {
+      "consensus": 0.387879,
+      "deepseek": 0.385859,
+      "mineru": 0.383838,
+      "paddleocr": 0.00202
+    },
+    "proof": {
+      "consensus": 0.0,
+      "deepseek": 0.0,
+      "mineru": 0.0,
+      "paddleocr": 0.0
+    },
+    "section": {
+      "consensus": 0.854712,
+      "deepseek": 0.846859,
+      "mineru": 0.839005,
+      "paddleocr": 0.002618
+    },
+    "table": {
+      "consensus": 0.476636,
+      "deepseek": 0.476636,
+      "mineru": 0.476636,
+      "paddleocr": 0.0
+    },
+    "theorem": {
+      "consensus": 0.0,
+      "deepseek": 0.0,
+      "mineru": 0.0,
+      "paddleocr": 0.0
+    }
+  },
+  "cross_backend_counts": {
+    "bibliography": {
+      "consensus": {
+        "resolution_rate": 0.68377,
+        "resolved": 4984,
+        "total": 7289
+      },
+      "deepseek": {
+        "resolution_rate": 0.68377,
+        "resolved": 4984,
+        "total": 7289
+      },
+      "mineru": {
+        "resolution_rate": 0.68377,
+        "resolved": 4984,
+        "total": 7289
+      },
+      "paddleocr": {
+        "resolution_rate": 0.034298,
+        "resolved": 250,
+        "total": 7289
+      }
+    },
+    "chapter": {
+      "consensus": {
+        "resolution_rate": 0.478916,
+        "resolved": 318,
+        "total": 664
+      },
+      "deepseek": {
+        "resolution_rate": 0.25,
+        "resolved": 166,
+        "total": 664
+      },
+      "mineru": {
+        "resolution_rate": 0.259036,
+        "resolved": 172,
+        "total": 664
+      },
+      "paddleocr": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 664
+      }
+    },
+    "corollary": {
+      "consensus": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 126
+      },
+      "deepseek": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 126
+      },
+      "mineru": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 126
+      },
+      "paddleocr": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 126
+      }
+    },
+    "definition": {
+      "consensus": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 58
+      },
+      "deepseek": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 58
+      },
+      "mineru": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 58
+      },
+      "paddleocr": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 58
+      }
+    },
+    "equation": {
+      "consensus": {
+        "resolution_rate": 0.959311,
+        "resolved": 2452,
+        "total": 2556
+      },
+      "deepseek": {
+        "resolution_rate": 0.959311,
+        "resolved": 2452,
+        "total": 2556
+      },
+      "mineru": {
+        "resolution_rate": 0.956182,
+        "resolved": 2444,
+        "total": 2556
+      },
+      "paddleocr": {
+        "resolution_rate": 0.002347,
+        "resolved": 6,
+        "total": 2556
+      }
+    },
+    "example": {
+      "consensus": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 116
+      },
+      "deepseek": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 116
+      },
+      "mineru": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 116
+      },
+      "paddleocr": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 116
+      }
+    },
+    "figure": {
+      "consensus": {
+        "resolution_rate": 0.602122,
+        "resolved": 1362,
+        "total": 2262
+      },
+      "deepseek": {
+        "resolution_rate": 0.515031,
+        "resolved": 1165,
+        "total": 2262
+      },
+      "mineru": {
+        "resolution_rate": 0.537135,
+        "resolved": 1215,
+        "total": 2262
+      },
+      "paddleocr": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 2262
+      }
+    },
+    "footnote": {
+      "consensus": {
+        "resolution_rate": 0.387879,
+        "resolved": 384,
+        "total": 990
+      },
+      "deepseek": {
+        "resolution_rate": 0.385859,
+        "resolved": 382,
+        "total": 990
+      },
+      "mineru": {
+        "resolution_rate": 0.383838,
+        "resolved": 380,
+        "total": 990
+      },
+      "paddleocr": {
+        "resolution_rate": 0.00202,
+        "resolved": 2,
+        "total": 990
+      }
+    },
+    "proof": {
+      "consensus": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 32
+      },
+      "deepseek": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 32
+      },
+      "mineru": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 32
+      },
+      "paddleocr": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 32
+      }
+    },
+    "section": {
+      "consensus": {
+        "resolution_rate": 0.854712,
+        "resolved": 653,
+        "total": 764
+      },
+      "deepseek": {
+        "resolution_rate": 0.846859,
+        "resolved": 647,
+        "total": 764
+      },
+      "mineru": {
+        "resolution_rate": 0.839005,
+        "resolved": 641,
+        "total": 764
+      },
+      "paddleocr": {
+        "resolution_rate": 0.002618,
+        "resolved": 2,
+        "total": 764
+      }
+    },
+    "table": {
+      "consensus": {
+        "resolution_rate": 0.476636,
+        "resolved": 51,
+        "total": 107
+      },
+      "deepseek": {
+        "resolution_rate": 0.476636,
+        "resolved": 51,
+        "total": 107
+      },
+      "mineru": {
+        "resolution_rate": 0.476636,
+        "resolved": 51,
+        "total": 107
+      },
+      "paddleocr": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 107
+      }
+    },
+    "theorem": {
+      "consensus": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 138
+      },
+      "deepseek": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 138
+      },
+      "mineru": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 138
+      },
+      "paddleocr": {
+        "resolution_rate": 0.0,
+        "resolved": 0,
+        "total": 138
+      }
+    }
+  },
+  "cross_backend_matrix": {
+    "bibliography": {
+      "consensus": 0.68377,
+      "deepseek": 0.68377,
+      "mineru": 0.68377,
+      "paddleocr": 0.034298
+    },
+    "chapter": {
+      "consensus": 0.478916,
+      "deepseek": 0.25,
+      "mineru": 0.259036,
+      "paddleocr": 0.0
+    },
+    "corollary": {
+      "consensus": 0.0,
+      "deepseek": 0.0,
+      "mineru": 0.0,
+      "paddleocr": 0.0
+    },
+    "definition": {
+      "consensus": 0.0,
+      "deepseek": 0.0,
+      "mineru": 0.0,
+      "paddleocr": 0.0
+    },
+    "equation": {
+      "consensus": 0.959311,
+      "deepseek": 0.959311,
+      "mineru": 0.956182,
+      "paddleocr": 0.002347
+    },
+    "example": {
+      "consensus": 0.0,
+      "deepseek": 0.0,
+      "mineru": 0.0,
+      "paddleocr": 0.0
+    },
+    "figure": {
+      "consensus": 0.602122,
+      "deepseek": 0.515031,
+      "mineru": 0.537135,
+      "paddleocr": 0.0
+    },
+    "footnote": {
+      "consensus": 0.387879,
+      "deepseek": 0.385859,
+      "mineru": 0.383838,
+      "paddleocr": 0.00202
+    },
+    "proof": {
+      "consensus": 0.0,
+      "deepseek": 0.0,
+      "mineru": 0.0,
+      "paddleocr": 0.0
+    },
+    "section": {
+      "consensus": 0.854712,
+      "deepseek": 0.846859,
+      "mineru": 0.839005,
+      "paddleocr": 0.002618
+    },
+    "table": {
+      "consensus": 0.476636,
+      "deepseek": 0.476636,
+      "mineru": 0.476636,
+      "paddleocr": 0.0
+    },
+    "theorem": {
+      "consensus": 0.0,
+      "deepseek": 0.0,
+      "mineru": 0.0,
+      "paddleocr": 0.0
+    }
+  },
+  "entity_counts": {
+    "example01": {
+      "consensus": 173,
+      "deepseek": 106,
+      "mineru": 105,
+      "paddleocr": 74
+    },
+    "example02": {
+      "consensus": 530,
+      "deepseek": 251,
+      "mineru": 283,
+      "paddleocr": 198
+    },
+    "example3": {
+      "consensus": 5268,
+      "deepseek": 4205,
+      "mineru": 4897
+    }
+  },
+  "per_combo": [
+    {
+      "document_id": "example01/consensus+consensus",
+      "example": "example01",
+      "graph_path": "webui/cross_ref/data/example01/consensus__resolved_with__consensus.json",
+      "ocr_backend": "consensus",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 1.0,
+          "resolved": 171,
+          "total": 171
+        },
+        "equation": {
+          "resolution_rate": 1.0,
+          "resolved": 19,
+          "total": 19
+        },
+        "figure": {
+          "resolution_rate": 1.0,
+          "resolved": 25,
+          "total": 25
+        },
+        "footnote": {
+          "resolution_rate": 1.0,
+          "resolved": 1,
+          "total": 1
+        }
+      },
+      "resolution_rate": 1.0,
+      "resolved": 216,
+      "semantic_backend": "consensus",
+      "total": 216
+    },
+    {
+      "document_id": "example01/consensus+deepseek",
+      "example": "example01",
+      "graph_path": "webui/cross_ref/data/example01/consensus__resolved_with__deepseek.json",
+      "ocr_backend": "deepseek",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 1.0,
+          "resolved": 171,
+          "total": 171
+        },
+        "equation": {
+          "resolution_rate": 1.0,
+          "resolved": 19,
+          "total": 19
+        },
+        "figure": {
+          "resolution_rate": 1.0,
+          "resolved": 25,
+          "total": 25
+        },
+        "footnote": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 1
+        }
+      },
+      "resolution_rate": 0.99537,
+      "resolved": 215,
+      "semantic_backend": "consensus",
+      "total": 216
+    },
+    {
+      "document_id": "example01/consensus+mineru",
+      "example": "example01",
+      "graph_path": "webui/cross_ref/data/example01/consensus__resolved_with__mineru.json",
+      "ocr_backend": "mineru",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 1.0,
+          "resolved": 171,
+          "total": 171
+        },
+        "equation": {
+          "resolution_rate": 0.842105,
+          "resolved": 16,
+          "total": 19
+        },
+        "figure": {
+          "resolution_rate": 0.64,
+          "resolved": 16,
+          "total": 25
+        },
+        "footnote": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 1
+        }
+      },
+      "resolution_rate": 0.939815,
+      "resolved": 203,
+      "semantic_backend": "consensus",
+      "total": 216
+    },
+    {
+      "document_id": "example01/consensus+paddleocr",
+      "example": "example01",
+      "graph_path": "webui/cross_ref/data/example01/consensus__resolved_with__paddleocr.json",
+      "ocr_backend": "paddleocr",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.222222,
+          "resolved": 38,
+          "total": 171
+        },
+        "equation": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 19
+        },
+        "figure": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 25
+        },
+        "footnote": {
+          "resolution_rate": 1.0,
+          "resolved": 1,
+          "total": 1
+        }
+      },
+      "resolution_rate": 0.180556,
+      "resolved": 39,
+      "semantic_backend": "consensus",
+      "total": 216
+    },
+    {
+      "document_id": "example01/grobid+consensus",
+      "example": "example01",
+      "graph_path": "webui/cross_ref/data/example01/grobid__resolved_with__consensus.json",
+      "ocr_backend": "consensus",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.779817,
+          "resolved": 85,
+          "total": 109
+        },
+        "equation": {
+          "resolution_rate": 0.8,
+          "resolved": 4,
+          "total": 5
+        },
+        "figure": {
+          "resolution_rate": 0.666667,
+          "resolved": 12,
+          "total": 18
+        }
+      },
+      "resolution_rate": 0.765152,
+      "resolved": 101,
+      "semantic_backend": "grobid",
+      "total": 132
+    },
+    {
+      "document_id": "example01/grobid+deepseek",
+      "example": "example01",
+      "graph_path": "webui/cross_ref/data/example01/grobid__resolved_with__deepseek.json",
+      "ocr_backend": "deepseek",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.779817,
+          "resolved": 85,
+          "total": 109
+        },
+        "equation": {
+          "resolution_rate": 0.8,
+          "resolved": 4,
+          "total": 5
+        },
+        "figure": {
+          "resolution_rate": 0.666667,
+          "resolved": 12,
+          "total": 18
+        }
+      },
+      "resolution_rate": 0.765152,
+      "resolved": 101,
+      "semantic_backend": "grobid",
+      "total": 132
+    },
+    {
+      "document_id": "example01/grobid+mineru",
+      "example": "example01",
+      "graph_path": "webui/cross_ref/data/example01/grobid__resolved_with__mineru.json",
+      "ocr_backend": "mineru",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.779817,
+          "resolved": 85,
+          "total": 109
+        },
+        "equation": {
+          "resolution_rate": 0.6,
+          "resolved": 3,
+          "total": 5
+        },
+        "figure": {
+          "resolution_rate": 0.333333,
+          "resolved": 6,
+          "total": 18
+        }
+      },
+      "resolution_rate": 0.712121,
+      "resolved": 94,
+      "semantic_backend": "grobid",
+      "total": 132
+    },
+    {
+      "document_id": "example01/grobid+paddleocr",
+      "example": "example01",
+      "graph_path": "webui/cross_ref/data/example01/grobid__resolved_with__paddleocr.json",
+      "ocr_backend": "paddleocr",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.165138,
+          "resolved": 18,
+          "total": 109
+        },
+        "equation": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 5
+        },
+        "figure": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 18
+        }
+      },
+      "resolution_rate": 0.136364,
+      "resolved": 18,
+      "semantic_backend": "grobid",
+      "total": 132
+    },
+    {
+      "document_id": "example01/regex+consensus",
+      "example": "example01",
+      "graph_path": "webui/cross_ref/data/example01/regex__resolved_with__consensus.json",
+      "ocr_backend": "consensus",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 1.0,
+          "resolved": 109,
+          "total": 109
+        },
+        "equation": {
+          "resolution_rate": 1.0,
+          "resolved": 3,
+          "total": 3
+        },
+        "figure": {
+          "resolution_rate": 1.0,
+          "resolved": 17,
+          "total": 17
+        }
+      },
+      "resolution_rate": 1.0,
+      "resolved": 129,
+      "semantic_backend": "regex",
+      "total": 129
+    },
+    {
+      "document_id": "example01/regex+deepseek",
+      "example": "example01",
+      "graph_path": "webui/cross_ref/data/example01/regex__resolved_with__deepseek.json",
+      "ocr_backend": "deepseek",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 1.0,
+          "resolved": 109,
+          "total": 109
+        },
+        "equation": {
+          "resolution_rate": 1.0,
+          "resolved": 3,
+          "total": 3
+        },
+        "figure": {
+          "resolution_rate": 1.0,
+          "resolved": 17,
+          "total": 17
+        }
+      },
+      "resolution_rate": 1.0,
+      "resolved": 129,
+      "semantic_backend": "regex",
+      "total": 129
+    },
+    {
+      "document_id": "example01/regex+mineru",
+      "example": "example01",
+      "graph_path": "webui/cross_ref/data/example01/regex__resolved_with__mineru.json",
+      "ocr_backend": "mineru",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 1.0,
+          "resolved": 109,
+          "total": 109
+        },
+        "equation": {
+          "resolution_rate": 0.666667,
+          "resolved": 2,
+          "total": 3
+        },
+        "figure": {
+          "resolution_rate": 0.588235,
+          "resolved": 10,
+          "total": 17
+        }
+      },
+      "resolution_rate": 0.937984,
+      "resolved": 121,
+      "semantic_backend": "regex",
+      "total": 129
+    },
+    {
+      "document_id": "example01/regex+paddleocr",
+      "example": "example01",
+      "graph_path": "webui/cross_ref/data/example01/regex__resolved_with__paddleocr.json",
+      "ocr_backend": "paddleocr",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.211009,
+          "resolved": 23,
+          "total": 109
+        },
+        "equation": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 3
+        },
+        "figure": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 17
+        }
+      },
+      "resolution_rate": 0.178295,
+      "resolved": 23,
+      "semantic_backend": "regex",
+      "total": 129
+    },
+    {
+      "document_id": "example01/vlm_v4+consensus",
+      "example": "example01",
+      "graph_path": "webui/cross_ref/data/example01/vlm_v4__resolved_with__consensus.json",
+      "ocr_backend": "consensus",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 1.0,
+          "resolved": 1,
+          "total": 1
+        },
+        "equation": {
+          "resolution_rate": 1.0,
+          "resolved": 12,
+          "total": 12
+        },
+        "figure": {
+          "resolution_rate": 1.0,
+          "resolved": 3,
+          "total": 3
+        },
+        "footnote": {
+          "resolution_rate": 1.0,
+          "resolved": 1,
+          "total": 1
+        }
+      },
+      "resolution_rate": 1.0,
+      "resolved": 17,
+      "semantic_backend": "vlm_v4",
+      "total": 17
+    },
+    {
+      "document_id": "example01/vlm_v4+deepseek",
+      "example": "example01",
+      "graph_path": "webui/cross_ref/data/example01/vlm_v4__resolved_with__deepseek.json",
+      "ocr_backend": "deepseek",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 1.0,
+          "resolved": 1,
+          "total": 1
+        },
+        "equation": {
+          "resolution_rate": 1.0,
+          "resolved": 12,
+          "total": 12
+        },
+        "figure": {
+          "resolution_rate": 1.0,
+          "resolved": 3,
+          "total": 3
+        },
+        "footnote": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 1
+        }
+      },
+      "resolution_rate": 0.941176,
+      "resolved": 16,
+      "semantic_backend": "vlm_v4",
+      "total": 17
+    },
+    {
+      "document_id": "example01/vlm_v4+mineru",
+      "example": "example01",
+      "graph_path": "webui/cross_ref/data/example01/vlm_v4__resolved_with__mineru.json",
+      "ocr_backend": "mineru",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 1.0,
+          "resolved": 1,
+          "total": 1
+        },
+        "equation": {
+          "resolution_rate": 0.916667,
+          "resolved": 11,
+          "total": 12
+        },
+        "figure": {
+          "resolution_rate": 1.0,
+          "resolved": 3,
+          "total": 3
+        },
+        "footnote": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 1
+        }
+      },
+      "resolution_rate": 0.882353,
+      "resolved": 15,
+      "semantic_backend": "vlm_v4",
+      "total": 17
+    },
+    {
+      "document_id": "example01/vlm_v4+paddleocr",
+      "example": "example01",
+      "graph_path": "webui/cross_ref/data/example01/vlm_v4__resolved_with__paddleocr.json",
+      "ocr_backend": "paddleocr",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 1
+        },
+        "equation": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 12
+        },
+        "figure": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 3
+        },
+        "footnote": {
+          "resolution_rate": 1.0,
+          "resolved": 1,
+          "total": 1
+        }
+      },
+      "resolution_rate": 0.058824,
+      "resolved": 1,
+      "semantic_backend": "vlm_v4",
+      "total": 17
+    },
+    {
+      "document_id": "example02/consensus+consensus",
+      "example": "example02",
+      "graph_path": "webui/cross_ref/data/example02/consensus__resolved_with__consensus.json",
+      "ocr_backend": "consensus",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.984962,
+          "resolved": 131,
+          "total": 133
+        },
+        "chapter": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 4
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 28
+        },
+        "definition": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 16
+        },
+        "equation": {
+          "resolution_rate": 0.806452,
+          "resolved": 25,
+          "total": 31
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 20
+        },
+        "figure": {
+          "resolution_rate": 1.0,
+          "resolved": 15,
+          "total": 15
+        },
+        "footnote": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 3
+        },
+        "proof": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 6
+        },
+        "section": {
+          "resolution_rate": 0.25,
+          "resolved": 1,
+          "total": 4
+        },
+        "table": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 6
+        },
+        "theorem": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 26
+        }
+      },
+      "resolution_rate": 0.589041,
+      "resolved": 172,
+      "semantic_backend": "consensus",
+      "total": 292
+    },
+    {
+      "document_id": "example02/consensus+deepseek",
+      "example": "example02",
+      "graph_path": "webui/cross_ref/data/example02/consensus__resolved_with__deepseek.json",
+      "ocr_backend": "deepseek",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.984962,
+          "resolved": 131,
+          "total": 133
+        },
+        "chapter": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 4
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 28
+        },
+        "definition": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 16
+        },
+        "equation": {
+          "resolution_rate": 0.806452,
+          "resolved": 25,
+          "total": 31
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 20
+        },
+        "figure": {
+          "resolution_rate": 1.0,
+          "resolved": 15,
+          "total": 15
+        },
+        "footnote": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 3
+        },
+        "proof": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 6
+        },
+        "section": {
+          "resolution_rate": 0.25,
+          "resolved": 1,
+          "total": 4
+        },
+        "table": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 6
+        },
+        "theorem": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 26
+        }
+      },
+      "resolution_rate": 0.589041,
+      "resolved": 172,
+      "semantic_backend": "consensus",
+      "total": 292
+    },
+    {
+      "document_id": "example02/consensus+mineru",
+      "example": "example02",
+      "graph_path": "webui/cross_ref/data/example02/consensus__resolved_with__mineru.json",
+      "ocr_backend": "mineru",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.984962,
+          "resolved": 131,
+          "total": 133
+        },
+        "chapter": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 4
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 28
+        },
+        "definition": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 16
+        },
+        "equation": {
+          "resolution_rate": 0.806452,
+          "resolved": 25,
+          "total": 31
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 20
+        },
+        "figure": {
+          "resolution_rate": 0.6,
+          "resolved": 9,
+          "total": 15
+        },
+        "footnote": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 3
+        },
+        "proof": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 6
+        },
+        "section": {
+          "resolution_rate": 0.25,
+          "resolved": 1,
+          "total": 4
+        },
+        "table": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 6
+        },
+        "theorem": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 26
+        }
+      },
+      "resolution_rate": 0.568493,
+      "resolved": 166,
+      "semantic_backend": "consensus",
+      "total": 292
+    },
+    {
+      "document_id": "example02/consensus+paddleocr",
+      "example": "example02",
+      "graph_path": "webui/cross_ref/data/example02/consensus__resolved_with__paddleocr.json",
+      "ocr_backend": "paddleocr",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.511278,
+          "resolved": 68,
+          "total": 133
+        },
+        "chapter": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 4
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 28
+        },
+        "definition": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 16
+        },
+        "equation": {
+          "resolution_rate": 0.032258,
+          "resolved": 1,
+          "total": 31
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 20
+        },
+        "figure": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 15
+        },
+        "footnote": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 3
+        },
+        "proof": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 6
+        },
+        "section": {
+          "resolution_rate": 0.25,
+          "resolved": 1,
+          "total": 4
+        },
+        "table": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 6
+        },
+        "theorem": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 26
+        }
+      },
+      "resolution_rate": 0.239726,
+      "resolved": 70,
+      "semantic_backend": "consensus",
+      "total": 292
+    },
+    {
+      "document_id": "example02/grobid+consensus",
+      "example": "example02",
+      "graph_path": "webui/cross_ref/data/example02/grobid__resolved_with__consensus.json",
+      "ocr_backend": "consensus",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.683544,
+          "resolved": 108,
+          "total": 158
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 1
+        },
+        "equation": {
+          "resolution_rate": 0.722222,
+          "resolved": 26,
+          "total": 36
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 1
+        },
+        "figure": {
+          "resolution_rate": 1.0,
+          "resolved": 1,
+          "total": 1
+        }
+      },
+      "resolution_rate": 0.685279,
+      "resolved": 135,
+      "semantic_backend": "grobid",
+      "total": 197
+    },
+    {
+      "document_id": "example02/grobid+deepseek",
+      "example": "example02",
+      "graph_path": "webui/cross_ref/data/example02/grobid__resolved_with__deepseek.json",
+      "ocr_backend": "deepseek",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.683544,
+          "resolved": 108,
+          "total": 158
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 1
+        },
+        "equation": {
+          "resolution_rate": 0.722222,
+          "resolved": 26,
+          "total": 36
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 1
+        },
+        "figure": {
+          "resolution_rate": 1.0,
+          "resolved": 1,
+          "total": 1
+        }
+      },
+      "resolution_rate": 0.685279,
+      "resolved": 135,
+      "semantic_backend": "grobid",
+      "total": 197
+    },
+    {
+      "document_id": "example02/grobid+mineru",
+      "example": "example02",
+      "graph_path": "webui/cross_ref/data/example02/grobid__resolved_with__mineru.json",
+      "ocr_backend": "mineru",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.683544,
+          "resolved": 108,
+          "total": 158
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 1
+        },
+        "equation": {
+          "resolution_rate": 0.722222,
+          "resolved": 26,
+          "total": 36
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 1
+        },
+        "figure": {
+          "resolution_rate": 1.0,
+          "resolved": 1,
+          "total": 1
+        }
+      },
+      "resolution_rate": 0.685279,
+      "resolved": 135,
+      "semantic_backend": "grobid",
+      "total": 197
+    },
+    {
+      "document_id": "example02/grobid+paddleocr",
+      "example": "example02",
+      "graph_path": "webui/cross_ref/data/example02/grobid__resolved_with__paddleocr.json",
+      "ocr_backend": "paddleocr",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.398734,
+          "resolved": 63,
+          "total": 158
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 1
+        },
+        "equation": {
+          "resolution_rate": 0.138889,
+          "resolved": 5,
+          "total": 36
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 1
+        },
+        "figure": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 1
+        }
+      },
+      "resolution_rate": 0.345178,
+      "resolved": 68,
+      "semantic_backend": "grobid",
+      "total": 197
+    },
+    {
+      "document_id": "example02/regex+consensus",
+      "example": "example02",
+      "graph_path": "webui/cross_ref/data/example02/regex__resolved_with__consensus.json",
+      "ocr_backend": "consensus",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.986301,
+          "resolved": 72,
+          "total": 73
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 18
+        },
+        "definition": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 13
+        },
+        "equation": {
+          "resolution_rate": 0.777778,
+          "resolved": 7,
+          "total": 9
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 10
+        },
+        "figure": {
+          "resolution_rate": 1.0,
+          "resolved": 11,
+          "total": 11
+        },
+        "proof": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 2
+        },
+        "theorem": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 16
+        }
+      },
+      "resolution_rate": 0.592105,
+      "resolved": 90,
+      "semantic_backend": "regex",
+      "total": 152
+    },
+    {
+      "document_id": "example02/regex+deepseek",
+      "example": "example02",
+      "graph_path": "webui/cross_ref/data/example02/regex__resolved_with__deepseek.json",
+      "ocr_backend": "deepseek",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.986301,
+          "resolved": 72,
+          "total": 73
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 18
+        },
+        "definition": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 13
+        },
+        "equation": {
+          "resolution_rate": 0.777778,
+          "resolved": 7,
+          "total": 9
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 10
+        },
+        "figure": {
+          "resolution_rate": 1.0,
+          "resolved": 11,
+          "total": 11
+        },
+        "proof": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 2
+        },
+        "theorem": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 16
+        }
+      },
+      "resolution_rate": 0.592105,
+      "resolved": 90,
+      "semantic_backend": "regex",
+      "total": 152
+    },
+    {
+      "document_id": "example02/regex+mineru",
+      "example": "example02",
+      "graph_path": "webui/cross_ref/data/example02/regex__resolved_with__mineru.json",
+      "ocr_backend": "mineru",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.986301,
+          "resolved": 72,
+          "total": 73
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 18
+        },
+        "definition": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 13
+        },
+        "equation": {
+          "resolution_rate": 0.777778,
+          "resolved": 7,
+          "total": 9
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 10
+        },
+        "figure": {
+          "resolution_rate": 0.454545,
+          "resolved": 5,
+          "total": 11
+        },
+        "proof": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 2
+        },
+        "theorem": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 16
+        }
+      },
+      "resolution_rate": 0.552632,
+      "resolved": 84,
+      "semantic_backend": "regex",
+      "total": 152
+    },
+    {
+      "document_id": "example02/regex+paddleocr",
+      "example": "example02",
+      "graph_path": "webui/cross_ref/data/example02/regex__resolved_with__paddleocr.json",
+      "ocr_backend": "paddleocr",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.547945,
+          "resolved": 40,
+          "total": 73
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 18
+        },
+        "definition": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 13
+        },
+        "equation": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 9
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 10
+        },
+        "figure": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 11
+        },
+        "proof": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 2
+        },
+        "theorem": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 16
+        }
+      },
+      "resolution_rate": 0.263158,
+      "resolved": 40,
+      "semantic_backend": "regex",
+      "total": 152
+    },
+    {
+      "document_id": "example02/vlm_v4+consensus",
+      "example": "example02",
+      "graph_path": "webui/cross_ref/data/example02/vlm_v4__resolved_with__consensus.json",
+      "ocr_backend": "consensus",
+      "per_type": {
+        "chapter": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 4
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 9
+        },
+        "definition": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 3
+        },
+        "equation": {
+          "resolution_rate": 0.25,
+          "resolved": 1,
+          "total": 4
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 9
+        },
+        "figure": {
+          "resolution_rate": 1.0,
+          "resolved": 3,
+          "total": 3
+        },
+        "footnote": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 3
+        },
+        "proof": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 4
+        },
+        "section": {
+          "resolution_rate": 0.25,
+          "resolved": 1,
+          "total": 4
+        },
+        "table": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 6
+        },
+        "theorem": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 10
+        }
+      },
+      "resolution_rate": 0.084746,
+      "resolved": 5,
+      "semantic_backend": "vlm_v4",
+      "total": 59
+    },
+    {
+      "document_id": "example02/vlm_v4+deepseek",
+      "example": "example02",
+      "graph_path": "webui/cross_ref/data/example02/vlm_v4__resolved_with__deepseek.json",
+      "ocr_backend": "deepseek",
+      "per_type": {
+        "chapter": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 4
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 9
+        },
+        "definition": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 3
+        },
+        "equation": {
+          "resolution_rate": 0.25,
+          "resolved": 1,
+          "total": 4
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 9
+        },
+        "figure": {
+          "resolution_rate": 1.0,
+          "resolved": 3,
+          "total": 3
+        },
+        "footnote": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 3
+        },
+        "proof": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 4
+        },
+        "section": {
+          "resolution_rate": 0.25,
+          "resolved": 1,
+          "total": 4
+        },
+        "table": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 6
+        },
+        "theorem": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 10
+        }
+      },
+      "resolution_rate": 0.084746,
+      "resolved": 5,
+      "semantic_backend": "vlm_v4",
+      "total": 59
+    },
+    {
+      "document_id": "example02/vlm_v4+mineru",
+      "example": "example02",
+      "graph_path": "webui/cross_ref/data/example02/vlm_v4__resolved_with__mineru.json",
+      "ocr_backend": "mineru",
+      "per_type": {
+        "chapter": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 4
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 9
+        },
+        "definition": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 3
+        },
+        "equation": {
+          "resolution_rate": 0.25,
+          "resolved": 1,
+          "total": 4
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 9
+        },
+        "figure": {
+          "resolution_rate": 1.0,
+          "resolved": 3,
+          "total": 3
+        },
+        "footnote": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 3
+        },
+        "proof": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 4
+        },
+        "section": {
+          "resolution_rate": 0.25,
+          "resolved": 1,
+          "total": 4
+        },
+        "table": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 6
+        },
+        "theorem": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 10
+        }
+      },
+      "resolution_rate": 0.084746,
+      "resolved": 5,
+      "semantic_backend": "vlm_v4",
+      "total": 59
+    },
+    {
+      "document_id": "example02/vlm_v4+paddleocr",
+      "example": "example02",
+      "graph_path": "webui/cross_ref/data/example02/vlm_v4__resolved_with__paddleocr.json",
+      "ocr_backend": "paddleocr",
+      "per_type": {
+        "chapter": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 4
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 9
+        },
+        "definition": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 3
+        },
+        "equation": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 4
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 9
+        },
+        "figure": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 3
+        },
+        "footnote": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 3
+        },
+        "proof": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 4
+        },
+        "section": {
+          "resolution_rate": 0.25,
+          "resolved": 1,
+          "total": 4
+        },
+        "table": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 6
+        },
+        "theorem": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 10
+        }
+      },
+      "resolution_rate": 0.016949,
+      "resolved": 1,
+      "semantic_backend": "vlm_v4",
+      "total": 59
+    },
+    {
+      "document_id": "example3/consensus+consensus",
+      "example": "example3",
+      "graph_path": "webui/cross_ref/data/example3/consensus__resolved_with__consensus.json",
+      "ocr_backend": "consensus",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.816092,
+          "resolved": 1491,
+          "total": 1827
+        },
+        "chapter": {
+          "resolution_rate": 0.486154,
+          "resolved": 158,
+          "total": 325
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 35
+        },
+        "definition": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 13
+        },
+        "equation": {
+          "resolution_rate": 0.990493,
+          "resolved": 1146,
+          "total": 1157
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 38
+        },
+        "figure": {
+          "resolution_rate": 0.918812,
+          "resolved": 464,
+          "total": 505
+        },
+        "footnote": {
+          "resolution_rate": 0.389002,
+          "resolved": 191,
+          "total": 491
+        },
+        "proof": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 10
+        },
+        "section": {
+          "resolution_rate": 0.862069,
+          "resolved": 325,
+          "total": 377
+        },
+        "table": {
+          "resolution_rate": 0.941176,
+          "resolved": 16,
+          "total": 17
+        },
+        "theorem": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 43
+        }
+      },
+      "resolution_rate": 0.783588,
+      "resolved": 3791,
+      "semantic_backend": "consensus",
+      "total": 4838
+    },
+    {
+      "document_id": "example3/consensus+deepseek",
+      "example": "example3",
+      "graph_path": "webui/cross_ref/data/example3/consensus__resolved_with__deepseek.json",
+      "ocr_backend": "deepseek",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.816092,
+          "resolved": 1491,
+          "total": 1827
+        },
+        "chapter": {
+          "resolution_rate": 0.252308,
+          "resolved": 82,
+          "total": 325
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 35
+        },
+        "definition": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 13
+        },
+        "equation": {
+          "resolution_rate": 0.990493,
+          "resolved": 1146,
+          "total": 1157
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 38
+        },
+        "figure": {
+          "resolution_rate": 0.891089,
+          "resolved": 450,
+          "total": 505
+        },
+        "footnote": {
+          "resolution_rate": 0.389002,
+          "resolved": 191,
+          "total": 491
+        },
+        "proof": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 10
+        },
+        "section": {
+          "resolution_rate": 0.854111,
+          "resolved": 322,
+          "total": 377
+        },
+        "table": {
+          "resolution_rate": 0.941176,
+          "resolved": 16,
+          "total": 17
+        },
+        "theorem": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 43
+        }
+      },
+      "resolution_rate": 0.764365,
+      "resolved": 3698,
+      "semantic_backend": "consensus",
+      "total": 4838
+    },
+    {
+      "document_id": "example3/consensus+mineru",
+      "example": "example3",
+      "graph_path": "webui/cross_ref/data/example3/consensus__resolved_with__mineru.json",
+      "ocr_backend": "mineru",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.816092,
+          "resolved": 1491,
+          "total": 1827
+        },
+        "chapter": {
+          "resolution_rate": 0.264615,
+          "resolved": 86,
+          "total": 325
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 35
+        },
+        "definition": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 13
+        },
+        "equation": {
+          "resolution_rate": 0.989628,
+          "resolved": 1145,
+          "total": 1157
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 38
+        },
+        "figure": {
+          "resolution_rate": 0.807921,
+          "resolved": 408,
+          "total": 505
+        },
+        "footnote": {
+          "resolution_rate": 0.386965,
+          "resolved": 190,
+          "total": 491
+        },
+        "proof": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 10
+        },
+        "section": {
+          "resolution_rate": 0.846154,
+          "resolved": 319,
+          "total": 377
+        },
+        "table": {
+          "resolution_rate": 0.941176,
+          "resolved": 16,
+          "total": 17
+        },
+        "theorem": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 43
+        }
+      },
+      "resolution_rate": 0.755477,
+      "resolved": 3655,
+      "semantic_backend": "consensus",
+      "total": 4838
+    },
+    {
+      "document_id": "example3/consensus+paddleocr",
+      "example": "example3",
+      "graph_path": "webui/cross_ref/data/example3/consensus__resolved_with__paddleocr.json",
+      "ocr_backend": "paddleocr",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 1827
+        },
+        "chapter": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 325
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 35
+        },
+        "definition": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 13
+        },
+        "equation": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 1157
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 38
+        },
+        "figure": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 505
+        },
+        "footnote": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 491
+        },
+        "proof": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 10
+        },
+        "section": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 377
+        },
+        "table": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 17
+        },
+        "theorem": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 43
+        }
+      },
+      "resolution_rate": 0.0,
+      "resolved": 0,
+      "semantic_backend": "consensus",
+      "total": 4838
+    },
+    {
+      "document_id": "example3/grobid+consensus",
+      "example": "example3",
+      "graph_path": "webui/cross_ref/data/example3/grobid__resolved_with__consensus.json",
+      "ocr_backend": "consensus",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.597147,
+          "resolved": 2763,
+          "total": 4627
+        },
+        "chapter": {
+          "resolution_rate": 0.666667,
+          "resolved": 14,
+          "total": 21
+        },
+        "equation": {
+          "resolution_rate": 0.516129,
+          "resolved": 64,
+          "total": 124
+        },
+        "figure": {
+          "resolution_rate": 0.308396,
+          "resolved": 371,
+          "total": 1203
+        },
+        "section": {
+          "resolution_rate": 0.9375,
+          "resolved": 15,
+          "total": 16
+        },
+        "table": {
+          "resolution_rate": 0.306452,
+          "resolved": 19,
+          "total": 62
+        }
+      },
+      "resolution_rate": 0.536263,
+      "resolved": 3246,
+      "semantic_backend": "grobid",
+      "total": 6053
+    },
+    {
+      "document_id": "example3/grobid+deepseek",
+      "example": "example3",
+      "graph_path": "webui/cross_ref/data/example3/grobid__resolved_with__deepseek.json",
+      "ocr_backend": "deepseek",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.597147,
+          "resolved": 2763,
+          "total": 4627
+        },
+        "chapter": {
+          "resolution_rate": 0.619048,
+          "resolved": 13,
+          "total": 21
+        },
+        "equation": {
+          "resolution_rate": 0.516129,
+          "resolved": 64,
+          "total": 124
+        },
+        "figure": {
+          "resolution_rate": 0.157107,
+          "resolved": 189,
+          "total": 1203
+        },
+        "section": {
+          "resolution_rate": 0.9375,
+          "resolved": 15,
+          "total": 16
+        },
+        "table": {
+          "resolution_rate": 0.306452,
+          "resolved": 19,
+          "total": 62
+        }
+      },
+      "resolution_rate": 0.50603,
+      "resolved": 3063,
+      "semantic_backend": "grobid",
+      "total": 6053
+    },
+    {
+      "document_id": "example3/grobid+mineru",
+      "example": "example3",
+      "graph_path": "webui/cross_ref/data/example3/grobid__resolved_with__mineru.json",
+      "ocr_backend": "mineru",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.597147,
+          "resolved": 2763,
+          "total": 4627
+        },
+        "chapter": {
+          "resolution_rate": 0.095238,
+          "resolved": 2,
+          "total": 21
+        },
+        "equation": {
+          "resolution_rate": 0.516129,
+          "resolved": 64,
+          "total": 124
+        },
+        "figure": {
+          "resolution_rate": 0.304239,
+          "resolved": 366,
+          "total": 1203
+        },
+        "section": {
+          "resolution_rate": 0.9375,
+          "resolved": 15,
+          "total": 16
+        },
+        "table": {
+          "resolution_rate": 0.306452,
+          "resolved": 19,
+          "total": 62
+        }
+      },
+      "resolution_rate": 0.533454,
+      "resolved": 3229,
+      "semantic_backend": "grobid",
+      "total": 6053
+    },
+    {
+      "document_id": "example3/grobid+paddleocr",
+      "example": "example3",
+      "graph_path": "webui/cross_ref/data/example3/grobid__resolved_with__paddleocr.json",
+      "ocr_backend": "paddleocr",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 4627
+        },
+        "chapter": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 21
+        },
+        "equation": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 124
+        },
+        "figure": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 1203
+        },
+        "section": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 16
+        },
+        "table": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 62
+        }
+      },
+      "resolution_rate": 0.0,
+      "resolved": 0,
+      "semantic_backend": "grobid",
+      "total": 6053
+    },
+    {
+      "document_id": "example3/vlm_v4+consensus",
+      "example": "example3",
+      "graph_path": "webui/cross_ref/data/example3/vlm_v4__resolved_with__consensus.json",
+      "ocr_backend": "consensus",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.654321,
+          "resolved": 53,
+          "total": 81
+        },
+        "chapter": {
+          "resolution_rate": 0.470968,
+          "resolved": 146,
+          "total": 310
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 35
+        },
+        "definition": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 13
+        },
+        "equation": {
+          "resolution_rate": 0.990484,
+          "resolved": 1145,
+          "total": 1156
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 38
+        },
+        "figure": {
+          "resolution_rate": 0.954447,
+          "resolved": 440,
+          "total": 461
+        },
+        "footnote": {
+          "resolution_rate": 0.389002,
+          "resolved": 191,
+          "total": 491
+        },
+        "proof": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 10
+        },
+        "section": {
+          "resolution_rate": 0.856749,
+          "resolved": 311,
+          "total": 363
+        },
+        "table": {
+          "resolution_rate": 1.0,
+          "resolved": 16,
+          "total": 16
+        },
+        "theorem": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 43
+        }
+      },
+      "resolution_rate": 0.76301,
+      "resolved": 2302,
+      "semantic_backend": "vlm_v4",
+      "total": 3017
+    },
+    {
+      "document_id": "example3/vlm_v4+deepseek",
+      "example": "example3",
+      "graph_path": "webui/cross_ref/data/example3/vlm_v4__resolved_with__deepseek.json",
+      "ocr_backend": "deepseek",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.654321,
+          "resolved": 53,
+          "total": 81
+        },
+        "chapter": {
+          "resolution_rate": 0.229032,
+          "resolved": 71,
+          "total": 310
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 35
+        },
+        "definition": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 13
+        },
+        "equation": {
+          "resolution_rate": 0.990484,
+          "resolved": 1145,
+          "total": 1156
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 38
+        },
+        "figure": {
+          "resolution_rate": 0.952278,
+          "resolved": 439,
+          "total": 461
+        },
+        "footnote": {
+          "resolution_rate": 0.389002,
+          "resolved": 191,
+          "total": 491
+        },
+        "proof": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 10
+        },
+        "section": {
+          "resolution_rate": 0.848485,
+          "resolved": 308,
+          "total": 363
+        },
+        "table": {
+          "resolution_rate": 1.0,
+          "resolved": 16,
+          "total": 16
+        },
+        "theorem": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 43
+        }
+      },
+      "resolution_rate": 0.736825,
+      "resolved": 2223,
+      "semantic_backend": "vlm_v4",
+      "total": 3017
+    },
+    {
+      "document_id": "example3/vlm_v4+mineru",
+      "example": "example3",
+      "graph_path": "webui/cross_ref/data/example3/vlm_v4__resolved_with__mineru.json",
+      "ocr_backend": "mineru",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.654321,
+          "resolved": 53,
+          "total": 81
+        },
+        "chapter": {
+          "resolution_rate": 0.270968,
+          "resolved": 84,
+          "total": 310
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 35
+        },
+        "definition": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 13
+        },
+        "equation": {
+          "resolution_rate": 0.989619,
+          "resolved": 1144,
+          "total": 1156
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 38
+        },
+        "figure": {
+          "resolution_rate": 0.841649,
+          "resolved": 388,
+          "total": 461
+        },
+        "footnote": {
+          "resolution_rate": 0.386965,
+          "resolved": 190,
+          "total": 491
+        },
+        "proof": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 10
+        },
+        "section": {
+          "resolution_rate": 0.84022,
+          "resolved": 305,
+          "total": 363
+        },
+        "table": {
+          "resolution_rate": 1.0,
+          "resolved": 16,
+          "total": 16
+        },
+        "theorem": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 43
+        }
+      },
+      "resolution_rate": 0.722572,
+      "resolved": 2180,
+      "semantic_backend": "vlm_v4",
+      "total": 3017
+    },
+    {
+      "document_id": "example3/vlm_v4+paddleocr",
+      "example": "example3",
+      "graph_path": "webui/cross_ref/data/example3/vlm_v4__resolved_with__paddleocr.json",
+      "ocr_backend": "paddleocr",
+      "per_type": {
+        "bibliography": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 81
+        },
+        "chapter": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 310
+        },
+        "corollary": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 35
+        },
+        "definition": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 13
+        },
+        "equation": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 1156
+        },
+        "example": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 38
+        },
+        "figure": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 461
+        },
+        "footnote": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 491
+        },
+        "proof": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 10
+        },
+        "section": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 363
+        },
+        "table": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 16
+        },
+        "theorem": {
+          "resolution_rate": 0.0,
+          "resolved": 0,
+          "total": 43
+        }
+      },
+      "resolution_rate": 0.0,
+      "resolved": 0,
+      "semantic_backend": "vlm_v4",
+      "total": 3017
+    }
+  ],
+  "schema_name": "pdf2md.semantic_calibration_report",
+  "schema_version": "1.0.0",
+  "source_graphs": [
+    "webui/cross_ref/data/example01/consensus__resolved_with__consensus.json",
+    "webui/cross_ref/data/example01/consensus__resolved_with__deepseek.json",
+    "webui/cross_ref/data/example01/consensus__resolved_with__mineru.json",
+    "webui/cross_ref/data/example01/consensus__resolved_with__paddleocr.json",
+    "webui/cross_ref/data/example01/grobid__resolved_with__consensus.json",
+    "webui/cross_ref/data/example01/grobid__resolved_with__deepseek.json",
+    "webui/cross_ref/data/example01/grobid__resolved_with__mineru.json",
+    "webui/cross_ref/data/example01/grobid__resolved_with__paddleocr.json",
+    "webui/cross_ref/data/example01/regex__resolved_with__consensus.json",
+    "webui/cross_ref/data/example01/regex__resolved_with__deepseek.json",
+    "webui/cross_ref/data/example01/regex__resolved_with__mineru.json",
+    "webui/cross_ref/data/example01/regex__resolved_with__paddleocr.json",
+    "webui/cross_ref/data/example01/vlm_v4__resolved_with__consensus.json",
+    "webui/cross_ref/data/example01/vlm_v4__resolved_with__deepseek.json",
+    "webui/cross_ref/data/example01/vlm_v4__resolved_with__mineru.json",
+    "webui/cross_ref/data/example01/vlm_v4__resolved_with__paddleocr.json",
+    "webui/cross_ref/data/example02/consensus__resolved_with__consensus.json",
+    "webui/cross_ref/data/example02/consensus__resolved_with__deepseek.json",
+    "webui/cross_ref/data/example02/consensus__resolved_with__mineru.json",
+    "webui/cross_ref/data/example02/consensus__resolved_with__paddleocr.json",
+    "webui/cross_ref/data/example02/grobid__resolved_with__consensus.json",
+    "webui/cross_ref/data/example02/grobid__resolved_with__deepseek.json",
+    "webui/cross_ref/data/example02/grobid__resolved_with__mineru.json",
+    "webui/cross_ref/data/example02/grobid__resolved_with__paddleocr.json",
+    "webui/cross_ref/data/example02/regex__resolved_with__consensus.json",
+    "webui/cross_ref/data/example02/regex__resolved_with__deepseek.json",
+    "webui/cross_ref/data/example02/regex__resolved_with__mineru.json",
+    "webui/cross_ref/data/example02/regex__resolved_with__paddleocr.json",
+    "webui/cross_ref/data/example02/vlm_v4__resolved_with__consensus.json",
+    "webui/cross_ref/data/example02/vlm_v4__resolved_with__deepseek.json",
+    "webui/cross_ref/data/example02/vlm_v4__resolved_with__mineru.json",
+    "webui/cross_ref/data/example02/vlm_v4__resolved_with__paddleocr.json",
+    "webui/cross_ref/data/example3/consensus__resolved_with__consensus.json",
+    "webui/cross_ref/data/example3/consensus__resolved_with__deepseek.json",
+    "webui/cross_ref/data/example3/consensus__resolved_with__mineru.json",
+    "webui/cross_ref/data/example3/consensus__resolved_with__paddleocr.json",
+    "webui/cross_ref/data/example3/grobid__resolved_with__consensus.json",
+    "webui/cross_ref/data/example3/grobid__resolved_with__deepseek.json",
+    "webui/cross_ref/data/example3/grobid__resolved_with__mineru.json",
+    "webui/cross_ref/data/example3/grobid__resolved_with__paddleocr.json",
+    "webui/cross_ref/data/example3/vlm_v4__resolved_with__consensus.json",
+    "webui/cross_ref/data/example3/vlm_v4__resolved_with__deepseek.json",
+    "webui/cross_ref/data/example3/vlm_v4__resolved_with__mineru.json",
+    "webui/cross_ref/data/example3/vlm_v4__resolved_with__paddleocr.json"
+  ]
+}

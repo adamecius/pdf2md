@@ -1,0 +1,966 @@
+{
+  "schema_name": "pdf2md.MarkerAdjudication",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-06-05T06:27:09.089178+00:00",
+  "document_id": "example3/consensus+mineru",
+  "adjudicator": "Jose (human sign-off; AI-assisted draft)",
+  "adjudications": [
+    {
+      "marker_id": "marker:3:#/document:(r)",
+      "marker_type": "bibliography",
+      "label": "(r)",
+      "source_ref": "#/document",
+      "char_offset": [
+        14,
+        17
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:4:#/document:(ε)",
+      "marker_type": "bibliography",
+      "label": "(ε)",
+      "source_ref": "#/document",
+      "char_offset": [
+        22,
+        25
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:5:#/document:(r,r )",
+      "marker_type": "bibliography",
+      "label": "(r,r )",
+      "source_ref": "#/document",
+      "char_offset": [
+        34,
+        40
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:15:#/document:(1.3)",
+      "marker_type": "bibliography",
+      "label": "(1.3)",
+      "source_ref": "#/document",
+      "char_offset": [
+        102,
+        107
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:33:#/document:Wilson.",
+      "marker_type": "bibliography",
+      "label": "Wilson.",
+      "source_ref": "#/document",
+      "char_offset": [
+        205,
+        212
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:63:#/document:Chapter 11)",
+      "marker_type": "chapter",
+      "label": "Chapter 11)",
+      "source_ref": "#/document",
+      "char_offset": [
+        448,
+        459
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Real chapter reference, but the chapter entity pool only covers chapters 1-10, extracted from the first ToC page (labels carry trailing ToC page numbers). ToC continuation pages / part headings were not parsed -> extend the chapter detector. The book has 28 chapter headings.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:82:#/document:Chapter 19",
+      "marker_type": "chapter",
+      "label": "Chapter 19",
+      "source_ref": "#/document",
+      "char_offset": [
+        613,
+        623
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Real chapter reference, but the chapter entity pool only covers chapters 1-10, extracted from the first ToC page (labels carry trailing ToC page numbers). ToC continuation pages / part headings were not parsed -> extend the chapter detector. The book has 28 chapter headings.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:128:#/document:19",
+      "marker_type": "figure",
+      "label": "19",
+      "source_ref": "#/document",
+      "char_offset": [
+        492,
+        494
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Caption for '19' not in the pool: 183 caption entities cover chapters 1-28 but sparsely (~600 figures in the book). Caption extraction coverage gap, not a resolver bug.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:196:#/document:Chapter 15)",
+      "marker_type": "chapter",
+      "label": "Chapter 15)",
+      "source_ref": "#/document",
+      "char_offset": [
+        1626,
+        1637
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Real chapter reference, but the chapter entity pool only covers chapters 1-10, extracted from the first ToC page (labels carry trailing ToC page numbers). ToC continuation pages / part headings were not parsed -> extend the chapter detector. The book has 28 chapter headings.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:265:#/document:14",
+      "marker_type": "figure",
+      "label": "14",
+      "source_ref": "#/document",
+      "char_offset": [
+        74,
+        76
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Caption for '14' not in the pool: 183 caption entities cover chapters 1-28 but sparsely (~600 figures in the book). Caption extraction coverage gap, not a resolver bug.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:272:#/document:12",
+      "marker_type": "figure",
+      "label": "12",
+      "source_ref": "#/document",
+      "char_offset": [
+        233,
+        235
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Caption for '12' not in the pool: 183 caption entities cover chapters 1-28 but sparsely (~600 figures in the book). Caption extraction coverage gap, not a resolver bug.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:352:#/document:Chapter 23)",
+      "marker_type": "chapter",
+      "label": "Chapter 23)",
+      "source_ref": "#/document",
+      "char_offset": [
+        3203,
+        3214
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Real chapter reference, but the chapter entity pool only covers chapters 1-10, extracted from the first ToC page (labels carry trailing ToC page numbers). ToC continuation pages / part headings were not parsed -> extend the chapter detector. The book has 28 chapter headings.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:409:#/document:F",
+      "marker_type": "table",
+      "label": "F",
+      "source_ref": "#/document",
+      "char_offset": [
+        460,
+        461
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Table caption not in pool.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:410:#/document:11",
+      "marker_type": "figure",
+      "label": "11",
+      "source_ref": "#/document",
+      "char_offset": [
+        201,
+        203
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Caption for '11' not in the pool: 183 caption entities cover chapters 1-28 but sparsely (~600 figures in the book). Caption extraction coverage gap, not a resolver bug.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:535:#/document:Chapter 24)",
+      "marker_type": "chapter",
+      "label": "Chapter 24)",
+      "source_ref": "#/document",
+      "char_offset": [
+        4902,
+        4913
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Real chapter reference, but the chapter entity pool only covers chapters 1-10, extracted from the first ToC page (labels carry trailing ToC page numbers). ToC continuation pages / part headings were not parsed -> extend the chapter detector. The book has 28 chapter headings.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:667:#/document:H",
+      "marker_type": "figure",
+      "label": "H",
+      "source_ref": "#/document",
+      "char_offset": [
+        684,
+        685
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Caption for 'H' not in the pool: 183 caption entities cover chapters 1-28 but sparsely (~600 figures in the book). Caption extraction coverage gap, not a resolver bug.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:1832:#/document/pages/4:Theorem 1.1",
+      "marker_type": "theorem",
+      "label": "Theorem 1.1",
+      "source_ref": "#/document/pages/4",
+      "char_offset": [
+        0,
+        11
+      ],
+      "page_no": 4,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "VLM (DeepSeek-VL2) hallucination/template leakage: this marker's numbered environment does not exist in the book (verified: 0 occurrences of 'Theorem N.M' in the 791-page PDF; the book numbers Exercises, not theorem-family envs). 139 theorem-family markers in this graph all come from vlm_v4 (grobid=0). Recommend down-weighting/filtering VLM theorem-family emissions and dropping literal-'N' template markers.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:1833:#/document/pages/4:Example 1.1",
+      "marker_type": "example",
+      "label": "Example 1.1",
+      "source_ref": "#/document/pages/4",
+      "char_offset": [
+        0,
+        11
+      ],
+      "page_no": 4,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "VLM (DeepSeek-VL2) hallucination/template leakage: this marker's numbered environment does not exist in the book (verified: 0 occurrences of 'Theorem N.M' in the 791-page PDF; the book numbers Exercises, not theorem-family envs). 139 theorem-family markers in this graph all come from vlm_v4 (grobid=0). Recommend down-weighting/filtering VLM theorem-family emissions and dropping literal-'N' template markers.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:1835:#/document/pages/5:Theorem 1.1",
+      "marker_type": "theorem",
+      "label": "Theorem 1.1",
+      "source_ref": "#/document/pages/5",
+      "char_offset": [
+        0,
+        11
+      ],
+      "page_no": 5,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:1836:#/document/pages/5:Definition 1.1.1",
+      "marker_type": "definition",
+      "label": "Definition 1.1.1",
+      "source_ref": "#/document/pages/5",
+      "char_offset": [
+        0,
+        16
+      ],
+      "page_no": 5,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "VLM (DeepSeek-VL2) hallucination/template leakage: this marker's numbered environment does not exist in the book (verified: 0 occurrences of 'Theorem N.M' in the 791-page PDF; the book numbers Exercises, not theorem-family envs). 139 theorem-family markers in this graph all come from vlm_v4 (grobid=0). Recommend down-weighting/filtering VLM theorem-family emissions and dropping literal-'N' template markers.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:1837:#/document/pages/5:Proof of Theorem 1.1.1",
+      "marker_type": "proof",
+      "label": "Proof of Theorem 1.1.1",
+      "source_ref": "#/document/pages/5",
+      "char_offset": [
+        0,
+        22
+      ],
+      "page_no": 5,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "VLM (DeepSeek-VL2) hallucination/template leakage: this marker's numbered environment does not exist in the book (verified: 0 occurrences of 'Theorem N.M' in the 791-page PDF; the book numbers Exercises, not theorem-family envs). 139 theorem-family markers in this graph all come from vlm_v4 (grobid=0). Recommend down-weighting/filtering VLM theorem-family emissions and dropping literal-'N' template markers.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:1838:#/document/pages/5:Corollary 1.1.2",
+      "marker_type": "corollary",
+      "label": "Corollary 1.1.2",
+      "source_ref": "#/document/pages/5",
+      "char_offset": [
+        0,
+        15
+      ],
+      "page_no": 5,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "VLM (DeepSeek-VL2) hallucination/template leakage: this marker's numbered environment does not exist in the book (verified: 0 occurrences of 'Theorem N.M' in the 791-page PDF; the book numbers Exercises, not theorem-family envs). 139 theorem-family markers in this graph all come from vlm_v4 (grobid=0). Recommend down-weighting/filtering VLM theorem-family emissions and dropping literal-'N' template markers.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:1839:#/document/pages/5:Example 1.1.3",
+      "marker_type": "example",
+      "label": "Example 1.1.3",
+      "source_ref": "#/document/pages/5",
+      "char_offset": [
+        0,
+        13
+      ],
+      "page_no": 5,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:1848:#/document/pages/17:Appendix G Stress from Electronic Structure",
+      "marker_type": "section",
+      "label": "Appendix G Stress from Electronic Structure",
+      "source_ref": "#/document/pages/17",
+      "char_offset": [
+        0,
+        43
+      ],
+      "page_no": 17,
+      "backend": "vlm",
+      "decision": "resolve",
+      "target_entity_id": "ent:mineru:example3:section:2115",
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:1849:#/document/pages/17:Appendix H Energy and Stress Densities",
+      "marker_type": "section",
+      "label": "Appendix H Energy and Stress Densities",
+      "source_ref": "#/document/pages/17",
+      "char_offset": [
+        0,
+        38
+      ],
+      "page_no": 17,
+      "backend": "vlm",
+      "decision": "resolve",
+      "target_entity_id": "ent:mineru:example3:section:2141",
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:1850:#/document/pages/17:Appendix I Alternative Force Expressions",
+      "marker_type": "section",
+      "label": "Appendix I Alternative Force Expressions",
+      "source_ref": "#/document/pages/17",
+      "char_offset": [
+        0,
+        40
+      ],
+      "page_no": 17,
+      "backend": "vlm",
+      "decision": "resolve",
+      "target_entity_id": "ent:mineru:example3:section:2182",
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:1851:#/document/pages/17:Appendix J Scattering and Phase Shifts",
+      "marker_type": "section",
+      "label": "Appendix J Scattering and Phase Shifts",
+      "source_ref": "#/document/pages/17",
+      "char_offset": [
+        0,
+        38
+      ],
+      "page_no": 17,
+      "backend": "vlm",
+      "decision": "resolve",
+      "target_entity_id": "ent:mineru:example3:section:2208",
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:1852:#/document/pages/17:Appendix K Useful Relations and Formulas",
+      "marker_type": "section",
+      "label": "Appendix K Useful Relations and Formulas",
+      "source_ref": "#/document/pages/17",
+      "char_offset": [
+        0,
+        40
+      ],
+      "page_no": 17,
+      "backend": "vlm",
+      "decision": "resolve",
+      "target_entity_id": "ent:mineru:example3:section:2224",
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:1879:#/document/pages/24:xxxiii",
+      "marker_type": "footnote",
+      "label": "xxxiii",
+      "source_ref": "#/document/pages/24",
+      "char_offset": [
+        0,
+        6
+      ],
+      "page_no": 24,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Footnote pool holds 26 chapter-end NOTES whose labels are full note texts ('1. The Bloch theorem. ...'); superscript markers cannot match them. Normalize note labels to their leading number for resolution.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:1881:#/document/pages/29:footnote",
+      "marker_type": "footnote",
+      "label": "footnote",
+      "source_ref": "#/document/pages/29",
+      "char_offset": [
+        0,
+        8
+      ],
+      "page_no": 29,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:1884:#/document/pages/30:To love practice without theory is like the sailor who boards ship without rudder and compass and is forever uncertain where he may cast.",
+      "marker_type": "footnote",
+      "label": "To love practice without theory is like the sailor who boards ship without rudder and compass and is forever uncertain where he may cast.",
+      "source_ref": "#/document/pages/30",
+      "char_offset": [
+        0,
+        137
+      ],
+      "page_no": 30,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Footnote pool holds 26 chapter-end NOTES whose labels are full note texts ('1. The Bloch theorem. ...'); superscript markers cannot match them. Normalize note labels to their leading number for resolution.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:1886:#/document/pages/32:13",
+      "marker_type": "footnote",
+      "label": "13",
+      "source_ref": "#/document/pages/32",
+      "char_offset": [
+        0,
+        2
+      ],
+      "page_no": 32,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Footnote pool holds 26 chapter-end NOTES whose labels are full note texts ('1. The Bloch theorem. ...'); superscript markers cannot match them. Normalize note labels to their leading number for resolution.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:1887:#/document/pages/32:19",
+      "marker_type": "footnote",
+      "label": "19",
+      "source_ref": "#/document/pages/32",
+      "char_offset": [
+        0,
+        2
+      ],
+      "page_no": 32,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Footnote pool holds 26 chapter-end NOTES whose labels are full note texts ('1. The Bloch theorem. ...'); superscript markers cannot match them. Normalize note labels to their leading number for resolution.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:2063:#/document/pages/92:Ω_RR = ⟨Ψ|Ĥ - E|Ψ⟩",
+      "marker_type": "equation",
+      "label": "Ω_RR = ⟨Ψ|Ĥ - E|Ψ⟩",
+      "source_ref": "#/document/pages/92",
+      "char_offset": [
+        0,
+        19
+      ],
+      "page_no": 92,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Equation entity numbered 'Ω_RR = ⟨Ψ|Ĥ - E|Ψ⟩' not in pool; equation-number extraction coverage gap on the book.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:2064:#/document/pages/92:⟨δΨ|Ĥ - E|Ψ⟩ = 0",
+      "marker_type": "equation",
+      "label": "⟨δΨ|Ĥ - E|Ψ⟩ = 0",
+      "source_ref": "#/document/pages/92",
+      "char_offset": [
+        0,
+        17
+      ],
+      "page_no": 92,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Equation entity numbered '0' not in pool; equation-number extraction coverage gap on the book.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:2065:#/document/pages/92:Ĥ|Ψ⟩ = E|Ψ⟩",
+      "marker_type": "equation",
+      "label": "Ĥ|Ψ⟩ = E|Ψ⟩",
+      "source_ref": "#/document/pages/92",
+      "char_offset": [
+        0,
+        12
+      ],
+      "page_no": 92,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Equation entity numbered 'Ĥ|Ψ⟩ = E|Ψ⟩' not in pool; equation-number extraction coverage gap on the book.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:2109:#/document/pages/102:Koopmans' Theorem",
+      "marker_type": "theorem",
+      "label": "Koopmans' Theorem",
+      "source_ref": "#/document/pages/102",
+      "char_offset": [
+        0,
+        17
+      ],
+      "page_no": 102,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Named theorem (Koopmans' theorem) - real text mention, but the book has no numbered theorem environments and no entity to anchor it. Named-concept linking (glossary/index) would be the right mechanism, not numeric resolution.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:2110:#/document/pages/103:Koopmans’ theorem",
+      "marker_type": "theorem",
+      "label": "Koopmans’ theorem",
+      "source_ref": "#/document/pages/103",
+      "char_offset": [
+        0,
+        17
+      ],
+      "page_no": 103,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Named theorem (Koopmans' theorem) - real text mention, but the book has no numbered theorem environments and no entity to anchor it. Named-concept linking (glossary/index) would be the right mechanism, not numeric resolution.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:2116:#/document/pages/104:Eq. (3.49)",
+      "marker_type": "equation",
+      "label": "Eq. (3.49)",
+      "source_ref": "#/document/pages/104",
+      "char_offset": [
+        0,
+        10
+      ],
+      "page_no": 104,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Equation entity numbered '3.49' not in pool; equation-number extraction coverage gap on the book.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:2117:#/document/pages/104:Eq. (3.50)",
+      "marker_type": "equation",
+      "label": "Eq. (3.50)",
+      "source_ref": "#/document/pages/104",
+      "char_offset": [
+        0,
+        10
+      ],
+      "page_no": 104,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Equation entity numbered '3.50' not in pool; equation-number extraction coverage gap on the book.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:2130:#/document/pages/109:3.22",
+      "marker_type": "theorem",
+      "label": "3.22",
+      "source_ref": "#/document/pages/109",
+      "char_offset": [
+        0,
+        4
+      ],
+      "page_no": 109,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:2263:#/document/pages/140:Definition N",
+      "marker_type": "definition",
+      "label": "Definition N",
+      "source_ref": "#/document/pages/140",
+      "char_offset": [
+        0,
+        12
+      ],
+      "page_no": 140,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:2264:#/document/pages/140:Proof of Theorem N",
+      "marker_type": "proof",
+      "label": "Proof of Theorem N",
+      "source_ref": "#/document/pages/140",
+      "char_offset": [
+        0,
+        18
+      ],
+      "page_no": 140,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:2265:#/document/pages/140:Corollary N",
+      "marker_type": "corollary",
+      "label": "Corollary N",
+      "source_ref": "#/document/pages/140",
+      "char_offset": [
+        0,
+        11
+      ],
+      "page_no": 140,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:2266:#/document/pages/140:Example N",
+      "marker_type": "example",
+      "label": "Example N",
+      "source_ref": "#/document/pages/140",
+      "char_offset": [
+        0,
+        9
+      ],
+      "page_no": 140,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:2345:#/document/pages/161:Corollary I",
+      "marker_type": "corollary",
+      "label": "Corollary I",
+      "source_ref": "#/document/pages/161",
+      "char_offset": [
+        0,
+        11
+      ],
+      "page_no": 161,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:2347:#/document/pages/161:Corollary II",
+      "marker_type": "corollary",
+      "label": "Corollary II",
+      "source_ref": "#/document/pages/161",
+      "char_offset": [
+        0,
+        12
+      ],
+      "page_no": 161,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:2351:#/document/pages/163:The corollary follows since the hamiltonian is uniquely determined (except for a constant) by the ground-state density.",
+      "marker_type": "corollary",
+      "label": "The corollary follows since the hamiltonian is uniquely determined (except for a constant) by the ground-state density.",
+      "source_ref": "#/document/pages/163",
+      "char_offset": [
+        0,
+        119
+      ],
+      "page_no": 163,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:2352:#/document/pages/163:For example, for electrons in materials, the external potential is the Coulomb potential due to the nuclei.",
+      "marker_type": "example",
+      "label": "For example, for electrons in materials, the external potential is the Coulomb potential due to the nuclei.",
+      "source_ref": "#/document/pages/163",
+      "char_offset": [
+        0,
+        107
+      ],
+      "page_no": 163,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:2353:#/document/pages/163:Such densities are called 'V-representable.'",
+      "marker_type": "definition",
+      "label": "Such densities are called 'V-representable.'",
+      "source_ref": "#/document/pages/163",
+      "char_offset": [
+        0,
+        44
+      ],
+      "page_no": 163,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:2354:#/document/pages/163:This defines a space of possible densities within which we can construct functionals of the density.",
+      "marker_type": "definition",
+      "label": "This defines a space of possible densities within which we can construct functionals of the density.",
+      "source_ref": "#/document/pages/163",
+      "char_offset": [
+        0,
+        100
+      ],
+      "page_no": 163,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:2355:#/document/pages/163:The functional FHK[n] defined in Eq. (6.12) includes all internal energies, kinetic and potential, of the interacting electron system.",
+      "marker_type": "definition",
+      "label": "The functional FHK[n] defined in Eq. (6.12) includes all internal energies, kinetic and potential, of the interacting electron system.",
+      "source_ref": "#/document/pages/163",
+      "char_offset": [
+        0,
+        134
+      ],
+      "page_no": 163,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:3098:#/document/pages/348:Proof N",
+      "marker_type": "proof",
+      "label": "Proof N",
+      "source_ref": "#/document/pages/348",
+      "char_offset": [
+        0,
+        7
+      ],
+      "page_no": 348,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:3100:#/document/pages/348:Example N",
+      "marker_type": "example",
+      "label": "Example N",
+      "source_ref": "#/document/pages/348",
+      "char_offset": [
+        0,
+        9
+      ],
+      "page_no": 348,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:3745:#/document/pages/524:Proof of Theorem N",
+      "marker_type": "proof",
+      "label": "Proof of Theorem N",
+      "source_ref": "#/document/pages/524",
+      "char_offset": [
+        0,
+        18
+      ],
+      "page_no": 524,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:4677:#/document/pages/750:Proof of Theorem N",
+      "marker_type": "proof",
+      "label": "Proof of Theorem N",
+      "source_ref": "#/document/pages/750",
+      "char_offset": [
+        0,
+        18
+      ],
+      "page_no": 750,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    }
+  ],
+  "metadata": {
+    "graph_schema_version": "1.1.0",
+    "viewer_version": "008_4",
+    "import_history": []
+  }
+}
