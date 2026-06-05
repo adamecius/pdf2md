@@ -13,7 +13,7 @@ resolves correctly).
 |---|---|---|
 | 006_2 | equation resolution holds ~96% across OCR backends | **PASS** |
 | 006_4 | no PaddleOCR candidate source; `entity_merge` gone; MinerU default | **PASS** |
-| 006_5 | theorem-family moves OFF 0% on real data | **INCONCLUSIVE** (corpus gap) |
+| 006_5 | theorem-family moves OFF 0% on real data | **INCONCLUSIVE** (stale snapshot + VLM hallucination) |
 | 014_1 | networkx LinkedStructure graph is faithful | **PASS** |
 | 006_1 | calibrated router down-weights GROBID on book, uniform on articles, never excludes | **PASS** |
 | 017_1 | strict Docling export round-trips through `DoclingDocument.model_validate` | **PASS** |
@@ -46,28 +46,55 @@ as a default/candidate. NOTE: the committed snapshot retains historical
 `*__resolved_with__paddleocr.json` graphs (3 manifest references) — this is
 the 006_4-sanctioned retention of historical baseline data, not active use.
 
-## 006_5 — Theorem-family off 0%  → INCONCLUSIVE (corpus gap, not a code defect)
+## 006_5 — Theorem-family off 0%  → INCONCLUSIVE (stale snapshot + VLM hallucination, not a code defect)
 
-Commands:
-```bash
-# markers of theorem-family type across all committed graphs
-python -c "...count markers with marker_type in {theorem,definition,corollary,proof,example}..."
-# theorem-family entities across all committed entities_*.json (+ scratch connector runs)
-python -c "...count entities with those entity_types..."
-```
-Result: **0 theorem-family markers and 0 theorem-family entities** anywhere in
-the corpus — across example01/02/3, every OCR backend, and every connector run
-(including the canonical book run in local scratch). The baseline's 0% for
-theorem/definition/corollary/proof/example is therefore **a property of the
-corpus, not a failure of the 006_5 connector detector**: these three documents
-(two physics arXiv articles and a solid-state physics book) contain no formal
-`Theorem/Definition/Corollary/Proof/Example` environments to detect or resolve.
+> **Phase 2 correction.** The Phase 1 claim of "0 theorem-family markers and 0
+> theorem-family entities anywhere in the corpus" was **factually wrong** and is
+> retracted. The adjudication ground truth
+> (`docs/adjudications/*.adjudications.json`) and the Phase 2 findings review
+> establish the corrected picture below. The verdict stays **INCONCLUSIVE**, but
+> the closure path changes: it is **not** corpus expansion.
+
+Corrected findings:
+
+1. **The corpus DOES contain theorem-family markers.** example3 carries **139**
+   theorem-family markers (all emitted by the `vlm_v4` backend; GROBID emits 0),
+   and example02 carries **~96** (regex). The Phase 1 "0 markers anywhere" count
+   was an error.
+
+2. **example3's 139 VLM markers are hallucinations / template leakage, not real
+   theorem content.** The book (791 pp) has **zero** `Theorem N.M` occurrences —
+   verified against the source PDF; the book numbers *Exercises*, not theorems.
+   The emissions show a repeated-count signature ("Theorem 10.1" ×17 =
+   "Example 10.1" ×17 = "Corollary 10.1" ×17) and literal-"N" templates, both
+   diagnostic of template leakage. **Calibration implication:** down-weight /
+   filter VLM theorem-family emissions.
+
+3. **example02 (arXiv 2401.12345) IS a theorem-bearing document.** Verified
+   against the source PDF, it contains real numbered Theorems 1–3, Corollaries
+   1–5, Definitions 1–6, Examples 1–5, Lemma 1, and proofs. Its committed
+   `entities_mineru.json` is a **pre-006_5 snapshot** (0 theorem-family
+   entities), which is precisely why all of its ~96 theorem-family markers are
+   unresolved — the snapshot predates the 006_5 detector.
+
+4. **Therefore the closure path for 006_5 is NOT corpus expansion.** The corpus
+   already has a real theorem-bearing document. Closure requires **regenerating
+   example02's connector outputs with the 006_5 detector** (next plan). The
+   theorem-family duplicate-number risk must be **re-measured there** as well,
+   because example02's real numbering (Theorem 1 / Corollary 1 / Example 1 all
+   share the number "1") is exactly the duplicate-number surface 006_5's
+   first-hit-wins logic must handle.
 
 The 006_5 connector-side detector remains covered by its unit tests
 (`tests/test_theorem_entity_detection.py`, `tests/test_theorem_candidate_roundtrip.py`)
 and the resolver matcher by `tests/test_semantic_resolver.py`. Confirming it on
-**real data** requires a theorem-bearing document in the corpus — this is the
-primary next-plan recommendation (corpus expansion, 007_1).
+**real data** requires regenerating example02 with the 006_5 detector, not adding
+a new document.
+
+Evidence: `docs/adjudications/example02__consensus+mineru.adjudications.json` and
+`docs/adjudications/example3__consensus+mineru.adjudications.json` (human
+sign-off, AI-assisted draft), plus the Phase 2 findings review and the source
+PDFs for example02 and example3.
 
 ## 014_1 — networkx LinkedStructure graph fidelity  → PASS
 
@@ -116,11 +143,16 @@ note below.)
 
 ## Theorem-family duplicate-number risk  → 0 (no risk surface on this corpus)
 
-Because there are 0 theorem-family markers/entities (see 006_5), there are 0
-resolved theorem-family edges, so the first-hit-wins duplicate-number concern
-has **no risk surface on this corpus**. The count of markers whose target
-number was non-unique among candidates is **0**. This must be re-measured once
-a theorem-bearing document is added.
+The corpus does contain theorem-family markers (see the corrected 006_5
+section), but **0 resolved theorem-family edges** exist on the current
+snapshots: example02's committed `entities_mineru.json` is a pre-006_5 snapshot
+with 0 theorem-family entities (so its ~96 markers are all unresolved), and
+example3's 139 markers are VLM hallucinations that do not resolve against real
+entities. With 0 resolved edges, the first-hit-wins duplicate-number concern has
+**0 measured risk on the current snapshots**. This must be **re-measured after
+example02 is regenerated with the 006_5 detector** (next plan), where the real
+shared numbering (Theorem 1 / Corollary 1 / Example 1 all numbered "1") will
+finally exercise the first-hit-wins path.
 
 ---
 
@@ -142,7 +174,14 @@ a theorem-bearing document is added.
 
 ## Summary verdict
 
-6 of 7 rows PASS; 006_5 is INCONCLUSIVE solely because the corpus contains no
-theorem-family content (a data gap, not a code defect). No regression in any
-measured dimension. The clear next step is a theorem-bearing corpus addition so
-006_5 can be confirmed end-to-end on real data.
+6 of 7 rows PASS; 006_5 is INCONCLUSIVE — but **not** because the corpus lacks
+theorem-family content. Phase 2 (adjudication ground truth) showed the corpus
+*does* contain a real theorem-bearing document, example02 (arXiv 2401.12345,
+with numbered Theorems/Corollaries/Definitions/Examples/Lemma), whose committed
+`entities_mineru.json` is a pre-006_5 snapshot (0 theorem-family entities), and
+that example3's 139 theorem-family markers are VLM hallucinations / template
+leakage rather than real content. No regression in any measured dimension. The
+clear next step is therefore **regenerating example02's connector outputs with
+the 006_5 detector** (not corpus expansion), at which point 006_5 can be
+confirmed end-to-end on real data and the theorem-family duplicate-number risk
+re-measured against example02's real shared numbering.
