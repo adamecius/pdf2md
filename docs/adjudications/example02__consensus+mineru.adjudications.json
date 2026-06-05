@@ -1,0 +1,966 @@
+{
+  "schema_name": "pdf2md.MarkerAdjudication",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-06-05T06:27:09.089178+00:00",
+  "document_id": "example02/consensus+mineru",
+  "adjudicator": "Claude (AI-assisted draft; pending human sign-off)",
+  "adjudications": [
+    {
+      "marker_id": "marker:16:#/document:Corollary 1",
+      "marker_type": "corollary",
+      "label": "Corollary 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        8706,
+        8717
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:20:#/document:Theorem 1",
+      "marker_type": "theorem",
+      "label": "Theorem 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        34839,
+        34848
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:21:#/document:Definition 1",
+      "marker_type": "definition",
+      "label": "Definition 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        35659,
+        35671
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:22:#/document:Definition 1",
+      "marker_type": "definition",
+      "label": "Definition 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        36155,
+        36167
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:23:#/document:Definition 2",
+      "marker_type": "definition",
+      "label": "Definition 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        36707,
+        36719
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:24:#/document:Definition 3",
+      "marker_type": "definition",
+      "label": "Definition 3",
+      "source_ref": "#/document",
+      "char_offset": [
+        37795,
+        37807
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:25:#/document:Definition 4",
+      "marker_type": "definition",
+      "label": "Definition 4",
+      "source_ref": "#/document",
+      "char_offset": [
+        40122,
+        40134
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:27:#/document:Corollary 1",
+      "marker_type": "corollary",
+      "label": "Corollary 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        40716,
+        40727
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:28:#/document:Theorem 1",
+      "marker_type": "theorem",
+      "label": "Theorem 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        40732,
+        40741
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:35:#/document:Corollary 1",
+      "marker_type": "corollary",
+      "label": "Corollary 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        43739,
+        43750
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:37:#/document:Theorem 1",
+      "marker_type": "theorem",
+      "label": "Theorem 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        45006,
+        45015
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:38:#/document:Corollary 1",
+      "marker_type": "corollary",
+      "label": "Corollary 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        45037,
+        45048
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:39:#/document:Corollary 1",
+      "marker_type": "corollary",
+      "label": "Corollary 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        45930,
+        45941
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:43:#/document:Example 1",
+      "marker_type": "example",
+      "label": "Example 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        50111,
+        50120
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:44:#/document:Theorem 1",
+      "marker_type": "theorem",
+      "label": "Theorem 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        51281,
+        51290
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:46:#/document:Example 2",
+      "marker_type": "example",
+      "label": "Example 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        52123,
+        52132
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:49:#/document:Example 3",
+      "marker_type": "example",
+      "label": "Example 3",
+      "source_ref": "#/document",
+      "char_offset": [
+        53111,
+        53120
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:52:#/document:Theorem 2",
+      "marker_type": "theorem",
+      "label": "Theorem 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        55929,
+        55938
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:64:#/document:Example 4",
+      "marker_type": "example",
+      "label": "Example 4",
+      "source_ref": "#/document",
+      "char_offset": [
+        83851,
+        83860
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:65:#/document:Example 5",
+      "marker_type": "example",
+      "label": "Example 5",
+      "source_ref": "#/document",
+      "char_offset": [
+        85353,
+        85362
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:74:#/document:(15.110)",
+      "marker_type": "equation",
+      "label": "(15.110)",
+      "source_ref": "#/document",
+      "char_offset": [
+        87828,
+        87836
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "External-document reference: bracketed-citation scope like '[41, Corollary 3.3]' or '[24, Eqs. (15.110)]' points into ANOTHER paper/book. The resolver should detect the '[ref, Env N]' pattern and either link to the bibliography item or skip.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:75:#/document:(15.113)",
+      "marker_type": "equation",
+      "label": "(15.113)",
+      "source_ref": "#/document",
+      "char_offset": [
+        87841,
+        87849
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "External-document reference: bracketed-citation scope like '[41, Corollary 3.3]' or '[24, Eqs. (15.110)]' points into ANOTHER paper/book. The resolver should detect the '[ref, Env N]' pattern and either link to the bibliography item or skip.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:83:#/document:[0, 0]",
+      "marker_type": "bibliography",
+      "label": "[0, 0]",
+      "source_ref": "#/document",
+      "char_offset": [
+        96253,
+        96259
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:99:#/document:PROOF OF LEMMA 1",
+      "marker_type": "proof",
+      "label": "PROOF OF LEMMA 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        129906,
+        129922
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:100:#/document:Corollary 3.3",
+      "marker_type": "corollary",
+      "label": "Corollary 3.3",
+      "source_ref": "#/document",
+      "char_offset": [
+        130616,
+        130629
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "External-document reference: bracketed-citation scope like '[41, Corollary 3.3]' or '[24, Eqs. (15.110)]' points into ANOTHER paper/book. The resolver should detect the '[ref, Env N]' pattern and either link to the bibliography item or skip.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:101:#/document:PROOF OF THEOREM 1",
+      "marker_type": "proof",
+      "label": "PROOF OF THEOREM 1",
+      "source_ref": "#/document",
+      "char_offset": [
+        131530,
+        131548
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:143:#/document:Fig. 2",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        148026,
+        148032
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Fig. 2 exists (supplementary p.17) but only 1 caption entity was extracted for the whole document (23 figure blocks) -> caption-detector gap; same failure pattern as example01's FIG. 2.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:144:#/document:Fig. 2",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        148681,
+        148687
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Fig. 2 exists (supplementary p.17) but only 1 caption entity was extracted for the whole document (23 figure blocks) -> caption-detector gap; same failure pattern as example01's FIG. 2.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:145:#/document:Fig. 2",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        149012,
+        149018
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Fig. 2 exists (supplementary p.17) but only 1 caption entity was extracted for the whole document (23 figure blocks) -> caption-detector gap; same failure pattern as example01's FIG. 2.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:146:#/document:Fig. 2",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        149711,
+        149717
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Fig. 2 exists (supplementary p.17) but only 1 caption entity was extracted for the whole document (23 figure blocks) -> caption-detector gap; same failure pattern as example01's FIG. 2.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:147:#/document:Fig. 2",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        150109,
+        150115
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Fig. 2 exists (supplementary p.17) but only 1 caption entity was extracted for the whole document (23 figure blocks) -> caption-detector gap; same failure pattern as example01's FIG. 2.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:214:#/document:Eqs. (15.110",
+      "marker_type": "equation",
+      "label": "Eqs. (15.110",
+      "source_ref": "#/document",
+      "char_offset": [
+        540,
+        552
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "External-document reference: bracketed-citation scope like '[41, Corollary 3.3]' or '[24, Eqs. (15.110)]' points into ANOTHER paper/book. The resolver should detect the '[ref, Env N]' pattern and either link to the bibliography item or skip.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:215:#/document:(15.113)",
+      "marker_type": "bibliography",
+      "label": "(15.113)",
+      "source_ref": "#/document",
+      "char_offset": [
+        553,
+        561
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "External-document reference: bracketed-citation scope like '[41, Corollary 3.3]' or '[24, Eqs. (15.110)]' points into ANOTHER paper/book. The resolver should detect the '[ref, Env N]' pattern and either link to the bibliography item or skip.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:233:#/document/pages/1:1",
+      "marker_type": "chapter",
+      "label": "1",
+      "source_ref": "#/document/pages/1",
+      "char_offset": [
+        0,
+        1
+      ],
+      "page_no": 1,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:234:#/document/pages/1:1.1",
+      "marker_type": "section",
+      "label": "1.1",
+      "source_ref": "#/document/pages/1",
+      "char_offset": [
+        0,
+        3
+      ],
+      "page_no": 1,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:243:#/document/pages/3:Chapter 5",
+      "marker_type": "chapter",
+      "label": "Chapter 5",
+      "source_ref": "#/document/pages/3",
+      "char_offset": [
+        0,
+        9
+      ],
+      "page_no": 3,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "External-document reference: bracketed-citation scope like '[41, Corollary 3.3]' or '[24, Eqs. (15.110)]' points into ANOTHER paper/book. The resolver should detect the '[ref, Env N]' pattern and either link to the bibliography item or skip.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:244:#/document/pages/3:Eq. (5.4)",
+      "marker_type": "equation",
+      "label": "Eq. (5.4)",
+      "source_ref": "#/document/pages/3",
+      "char_offset": [
+        0,
+        9
+      ],
+      "page_no": 3,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:245:#/document/pages/3:footnote 1",
+      "marker_type": "footnote",
+      "label": "footnote 1",
+      "source_ref": "#/document/pages/3",
+      "char_offset": [
+        0,
+        10
+      ],
+      "page_no": 3,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Paper has real footnotes 1-3 (verified) but footnote pool=0 for this document -> footnote detector gap on IEEE two-column layout.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:249:#/document/pages/3:Proof 1",
+      "marker_type": "proof",
+      "label": "Proof 1",
+      "source_ref": "#/document/pages/3",
+      "char_offset": [
+        0,
+        7
+      ],
+      "page_no": 3,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:254:#/document/pages/5:Proof",
+      "marker_type": "proof",
+      "label": "Proof",
+      "source_ref": "#/document/pages/5",
+      "char_offset": [
+        0,
+        5
+      ],
+      "page_no": 5,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:259:#/document/pages/6:Proof of Theorem 1",
+      "marker_type": "proof",
+      "label": "Proof of Theorem 1",
+      "source_ref": "#/document/pages/6",
+      "char_offset": [
+        0,
+        18
+      ],
+      "page_no": 6,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document contains REAL numbered theorem-family environments (Theorems 1-3, Corollaries 1-5, Definitions 1-6, Examples 1-5, Lemma 1, proofs) - verified in the PDF - but the committed entities_mineru.json is a pre-006_5 snapshot with 0 theorem-family entities. Re-run the connector with the 006_5 detector on this document; corpus expansion is NOT required to validate 006_5.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:268:#/document/pages/10:Theorem 5 (Data Augmentation for Kernel Regression)",
+      "marker_type": "theorem",
+      "label": "Theorem 5 (Data Augmentation for Kernel Regression)",
+      "source_ref": "#/document/pages/10",
+      "char_offset": [
+        0,
+        51
+      ],
+      "page_no": 10,
+      "backend": "vlm",
+      "decision": "reclassify",
+      "target_entity_id": null,
+      "corrected_type": "corollary",
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:273:#/document/pages/11:Table I",
+      "marker_type": "table",
+      "label": "Table I",
+      "source_ref": "#/document/pages/11",
+      "char_offset": [
+        0,
+        7
+      ],
+      "page_no": 11,
+      "backend": "vlm",
+      "decision": "resolve",
+      "target_entity_id": "ent:mineru:2401.12345:table:158",
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:274:#/document/pages/11:Eq. (5.4)",
+      "marker_type": "equation",
+      "label": "Eq. (5.4)",
+      "source_ref": "#/document/pages/11",
+      "char_offset": [
+        0,
+        9
+      ],
+      "page_no": 11,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:275:#/document/pages/11:footnote 1",
+      "marker_type": "footnote",
+      "label": "footnote 1",
+      "source_ref": "#/document/pages/11",
+      "char_offset": [
+        0,
+        10
+      ],
+      "page_no": 11,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Paper has real footnotes 1-3 (verified) but footnote pool=0 for this document -> footnote detector gap on IEEE two-column layout.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:276:#/document/pages/11:Section VI. Experiments",
+      "marker_type": "section",
+      "label": "Section VI. Experiments",
+      "source_ref": "#/document/pages/11",
+      "char_offset": [
+        0,
+        23
+      ],
+      "page_no": 11,
+      "backend": "vlm",
+      "decision": "resolve",
+      "target_entity_id": "ent:mineru:2401.12345:section:156",
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:277:#/document/pages/11:Chapter VII (Conclusions)",
+      "marker_type": "chapter",
+      "label": "Chapter VII (Conclusions)",
+      "source_ref": "#/document/pages/11",
+      "char_offset": [
+        0,
+        25
+      ],
+      "page_no": 11,
+      "backend": "vlm",
+      "decision": "reclassify",
+      "target_entity_id": null,
+      "corrected_type": "section",
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:278:#/document/pages/12:TABLE II",
+      "marker_type": "table",
+      "label": "TABLE II",
+      "source_ref": "#/document/pages/12",
+      "char_offset": [
+        0,
+        8
+      ],
+      "page_no": 12,
+      "backend": "vlm",
+      "decision": "resolve",
+      "target_entity_id": "ent:mineru:2401.12345:table:161",
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:279:#/document/pages/12:TABLE III",
+      "marker_type": "table",
+      "label": "TABLE III",
+      "source_ref": "#/document/pages/12",
+      "char_offset": [
+        0,
+        9
+      ],
+      "page_no": 12,
+      "backend": "vlm",
+      "decision": "resolve",
+      "target_entity_id": "ent:mineru:2401.12345:table:163",
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:280:#/document/pages/12:TABLE IV",
+      "marker_type": "table",
+      "label": "TABLE IV",
+      "source_ref": "#/document/pages/12",
+      "char_offset": [
+        0,
+        8
+      ],
+      "page_no": 12,
+      "backend": "vlm",
+      "decision": "resolve",
+      "target_entity_id": "ent:mineru:2401.12345:table:165",
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:281:#/document/pages/12:TABLE V",
+      "marker_type": "table",
+      "label": "TABLE V",
+      "source_ref": "#/document/pages/12",
+      "char_offset": [
+        0,
+        7
+      ],
+      "page_no": 12,
+      "backend": "vlm",
+      "decision": "resolve",
+      "target_entity_id": "ent:mineru:2401.12345:table:167",
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:282:#/document/pages/12:TABLE VI",
+      "marker_type": "table",
+      "label": "TABLE VI",
+      "source_ref": "#/document/pages/12",
+      "char_offset": [
+        0,
+        8
+      ],
+      "page_no": 12,
+      "backend": "vlm",
+      "decision": "resolve",
+      "target_entity_id": "ent:mineru:2401.12345:table:169",
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:284:#/document/pages/14:footnote 1",
+      "marker_type": "footnote",
+      "label": "footnote 1",
+      "source_ref": "#/document/pages/14",
+      "char_offset": [
+        0,
+        10
+      ],
+      "page_no": 14,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Paper has real footnotes 1-3 (verified) but footnote pool=0 for this document -> footnote detector gap on IEEE two-column layout.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:285:#/document/pages/14:Eq. (5.4)",
+      "marker_type": "equation",
+      "label": "Eq. (5.4)",
+      "source_ref": "#/document/pages/14",
+      "char_offset": [
+        0,
+        9
+      ],
+      "page_no": 14,
+      "backend": "vlm",
+      "decision": "noise",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:286:#/document/pages/14:Additional Discussions on Distributionally Robust Estimation",
+      "marker_type": "section",
+      "label": "Additional Discussions on Distributionally Robust Estimation",
+      "source_ref": "#/document/pages/14",
+      "char_offset": [
+        0,
+        60
+      ],
+      "page_no": 14,
+      "backend": "vlm",
+      "decision": "resolve",
+      "target_entity_id": "ent:mineru:2401.12345:section:191",
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:287:#/document/pages/14:Appendix D",
+      "marker_type": "chapter",
+      "label": "Appendix D",
+      "source_ref": "#/document/pages/14",
+      "char_offset": [
+        0,
+        10
+      ],
+      "page_no": 14,
+      "backend": "vlm",
+      "decision": "resolve",
+      "target_entity_id": "ent:mineru:2401.12345:section:191",
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    }
+  ],
+  "metadata": {
+    "graph_schema_version": "1.1.0",
+    "viewer_version": "008_4",
+    "import_history": []
+  }
+}

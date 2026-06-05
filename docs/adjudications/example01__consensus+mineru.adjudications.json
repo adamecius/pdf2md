@@ -1,0 +1,235 @@
+{
+  "schema_name": "pdf2md.MarkerAdjudication",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-06-05T06:27:09.089178+00:00",
+  "document_id": "example01/consensus+mineru",
+  "adjudicator": "Claude (AI-assisted draft; pending human sign-off)",
+  "adjudications": [
+    {
+      "marker_id": "marker:22:#/document:eq. (1)",
+      "marker_type": "equation",
+      "label": "eq. (1)",
+      "source_ref": "#/document",
+      "char_offset": [
+        6390,
+        6397
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "resolve",
+      "target_entity_id": "ent:mineru:1410.8140:equation:3",
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:33:#/document:Fig. 2",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        13807,
+        13813
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "FIG. 2 exists in the PDF (p.3, 4-panel convergence figure) but its caption was not extracted by MinerU (captions FIG. 1/3/4/5 are in the pool, FIG. 2 missed) -> no resolution target. Caption-detector gap, likely because the multi-panel figure splits into several image blocks (ent ...figure:12-17).",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:35:#/document:Fig. 2",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        14287,
+        14293
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "FIG. 2 exists in the PDF (p.3, 4-panel convergence figure) but its caption was not extracted by MinerU (captions FIG. 1/3/4/5 are in the pool, FIG. 2 missed) -> no resolution target. Caption-detector gap, likely because the multi-panel figure splits into several image blocks (ent ...figure:12-17).",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:38:#/document:FIG. 2",
+      "marker_type": "figure",
+      "label": "FIG. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        15939,
+        15945
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "FIG. 2 exists in the PDF (p.3, 4-panel convergence figure) but its caption was not extracted by MinerU (captions FIG. 1/3/4/5 are in the pool, FIG. 2 missed) -> no resolution target. Caption-detector gap, likely because the multi-panel figure splits into several image blocks (ent ...figure:12-17).",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:39:#/document:Fig. 2",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        16489,
+        16495
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "FIG. 2 exists in the PDF (p.3, 4-panel convergence figure) but its caption was not extracted by MinerU (captions FIG. 1/3/4/5 are in the pool, FIG. 2 missed) -> no resolution target. Caption-detector gap, likely because the multi-panel figure splits into several image blocks (ent ...figure:12-17).",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:42:#/document:Fig. 2",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        17026,
+        17032
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "FIG. 2 exists in the PDF (p.3, 4-panel convergence figure) but its caption was not extracted by MinerU (captions FIG. 1/3/4/5 are in the pool, FIG. 2 missed) -> no resolution target. Caption-detector gap, likely because the multi-panel figure splits into several image blocks (ent ...figure:12-17).",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:43:#/document:Fig. 2",
+      "marker_type": "figure",
+      "label": "Fig. 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        17098,
+        17104
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "FIG. 2 exists in the PDF (p.3, 4-panel convergence figure) but its caption was not extracted by MinerU (captions FIG. 1/3/4/5 are in the pool, FIG. 2 missed) -> no resolution target. Caption-detector gap, likely because the multi-panel figure splits into several image blocks (ent ...figure:12-17).",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:114:#/document:figure 2",
+      "marker_type": "figure",
+      "label": "figure 2",
+      "source_ref": "#/document",
+      "char_offset": [
+        44806,
+        44814
+      ],
+      "page_no": null,
+      "backend": "regex",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "FIG. 2 exists in the PDF (p.3, 4-panel convergence figure) but its caption was not extracted by MinerU (captions FIG. 1/3/4/5 are in the pool, FIG. 2 missed) -> no resolution target. Caption-detector gap, likely because the multi-panel figure splits into several image blocks (ent ...figure:12-17).",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:157:#/document:1",
+      "marker_type": "equation",
+      "label": "1",
+      "source_ref": "#/document",
+      "char_offset": [
+        32,
+        33
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Bare-digit equation marker '1' without 'Eq.'/parenthesis context is ambiguous; the detector should require an anchor (Eq./parens). Note: all 14 equation entities in this document have equation_number=None - the (N)-trailing number lives in the LaTeX line itself and was not parsed, so even anchored markers cannot match by number here.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:174:#/document:2",
+      "marker_type": "figure",
+      "label": "2",
+      "source_ref": "#/document",
+      "char_offset": [
+        1,
+        2
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "FIG. 2 exists in the PDF (p.3, 4-panel convergence figure) but its caption was not extracted by MinerU (captions FIG. 1/3/4/5 are in the pool, FIG. 2 missed) -> no resolution target. Caption-detector gap, likely because the multi-panel figure splits into several image blocks (ent ...figure:12-17).",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:176:#/document:2 (c",
+      "marker_type": "figure",
+      "label": "2 (c",
+      "source_ref": "#/document",
+      "char_offset": [
+        274,
+        278
+      ],
+      "page_no": null,
+      "backend": "grobid",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Tokenizer captured '2 (c' from 'Fig. 2 (c)'; the panel suffix '(c)' must be stripped from the marker before number extraction. Underlying reference is FIG. 2 (see FIG. 2 caption-extraction gap).",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:213:#/document/pages/10:Eq. (1)",
+      "marker_type": "equation",
+      "label": "Eq. (1)",
+      "source_ref": "#/document/pages/10",
+      "char_offset": [
+        0,
+        7
+      ],
+      "page_no": 10,
+      "backend": "vlm",
+      "decision": "resolve",
+      "target_entity_id": "ent:mineru:1410.8140:equation:3",
+      "corrected_type": null,
+      "rule_hint": null,
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    },
+    {
+      "marker_id": "marker:215:#/document/pages/10:footnote 1",
+      "marker_type": "footnote",
+      "label": "footnote 1",
+      "source_ref": "#/document/pages/10",
+      "char_offset": [
+        0,
+        10
+      ],
+      "page_no": 10,
+      "backend": "vlm",
+      "decision": "rule_hint",
+      "target_entity_id": null,
+      "corrected_type": null,
+      "rule_hint": "Document has no extracted footnote entities (pool=0); arXiv two-column footnotes are not detected by the connector for this layout. Marker 'footnote 1' is a real reference with no candidate target.",
+      "decided_at": "2026-06-05T06:27:09.089178+00:00"
+    }
+  ],
+  "metadata": {
+    "graph_schema_version": "1.1.0",
+    "viewer_version": "008_4",
+    "import_history": []
+  }
+}
