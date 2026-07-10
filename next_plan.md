@@ -1,14 +1,11 @@
-# Next plan — to be determined by Plan 007_3 findings
+# Next plan — Resume Plan 007_3 Phase 2 (human adjudication)
 
 Status:
 not_yet_drafted
 
-The 007_3 verification ledger + adjudication determine the next plan:
-- All verdicts PASS, theorem-family resolves, low dup-number risk → production
-  hardening / corpus expansion (Plan 007_1).
-- Corpus lacks theorem-bearing documents (likely) → Plan 007_1 to add a
-  theorem-bearing fixture so 006_5 can be confirmed on real data.
-- theorem duplicate-number count high → duplicate-number disambiguation fix.
-- Post-refactoring calibration differs materially from the router's baseline →
-  a plan to re-point the `--calibration-weights` default.
-- Any FAIL → a targeted fix plan for that subsystem.
+After Plan 008_5 lands the document-in-context viewer, resume Plan 007_3
+Phase 2: the human adjudicates unresolved markers in the improved Adjudicate
+tab, exports the files, and the agent runs Task A4 (validate + commit to
+docs/adjudications/). Then 007_3 reaches human_verified -> finished, and its
+findings (notably the theorem-bearing corpus gap) drive the subsequent plan
+(candidate: Plan 007_1 corpus expansion).
